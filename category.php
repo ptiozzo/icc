@@ -1,4 +1,4 @@
 <?php get_header(); ?>
-page
+category
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
