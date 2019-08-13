@@ -19,7 +19,7 @@
 
 	<?php else : ?>
 
-	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'miotema'); ?> </h3>
+	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'icc'); ?> </h3>
 
 	<?php endif; ?>
 
