@@ -23,7 +23,7 @@
 
 	<?php endif; ?>
 
-</div>
+</div> <?php /* .content 	*/ ?>
 
 
 <?php get_sidebar(); ?>
