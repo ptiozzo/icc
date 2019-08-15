@@ -27,7 +27,16 @@ if ( ! function_exists( 'icc_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 		// Custom menu areas
 		register_nav_menus( array(
-			'main-header' => esc_html__( 'Main Header', 'icc' ),
+			'menu-principale' => esc_html__( 'Menu principale', 'icc' ),
+			'menu-footer' => esc_html__( 'Menu footer', 'icc' ),
+			'menu-i-nostri-contenuti' => esc_html__( 'Menu i nostri contenuti', 'icc' ),
+			'menu-salute' => esc_html__( 'Menu salute', 'icc' ),
+			'menu-brandeburg' => esc_html__( 'Menu brandeburg', 'icc' ),
+			'menu-regioni' => esc_html__( 'Menu regioni', 'icc' ),
+			'menu-berlin' => esc_html__( 'Menu berlin', 'icc' ),
+			'menu-social' => esc_html__( 'Menu social', 'icc' ),
+			'menu-piemonte' => esc_html__( 'Menu piemonte', 'icc' ),
+			'menu-casentino' => esc_html__( 'Menu casentino', 'icc' ),
 		) );
 	}
 }
