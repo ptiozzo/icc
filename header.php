@@ -9,6 +9,7 @@
 		<?php wp_head(); ?>
 
   </head>
+<div class="container">
   <header class="header clearfix">
       <?php /* Menu */ ?>
         <div class="menu_scomparsa"><?php
@@ -38,4 +39,3 @@
           }
         ?>
     </header>
-<div class="content">

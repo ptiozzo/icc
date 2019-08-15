@@ -1,8 +1,7 @@
 <?php get_header(); ?>
-
-
 <div class="content">
-  
+
+
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -23,8 +22,8 @@
 
 	<?php endif; ?>
 
-</div> <?php /* .content 	*/ ?>
 
 
+</div> <!-- .content 	-->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

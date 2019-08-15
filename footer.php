@@ -1,7 +1,14 @@
 <div class="clearfix"></div>
 
-	<footer><p> <?php esc_html_e('&copy; Copyright', 'miotema'); ?>  <?php echo date("o");?>  - <?php bloginfo('name'); ?></p></footer>
-
+	<footer>
+		<div class="img-footer">Immagine footer</div>
+		<div class="rag-soc-footer">Ragione sociale footer</div>
+		<?php
+			wp_nav_menu( array('theme_location' => 'menu-social'));
+			wp_nav_menu( array('theme_location' => 'menu-foter'));
+		?>
+	</footer>
 	<?php wp_footer();?>
+</div> <!-- container -->
 </body>
 </html>
