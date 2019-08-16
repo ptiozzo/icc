@@ -1,6 +1,6 @@
 <div class="clearfix"></div>
 
-	<footer>
+	<footer class="footer">
 		<div class="img-footer">Immagine footer</div>
 		<div class="rag-soc-footer">Ragione sociale footer</div>
 		<?php

@@ -16,6 +16,18 @@ add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 
 
+/*  Include Styles
+/* ------------------------------------ */
+if ( ! function_exists( 'icc_styles_scripts' ) ) {
+	function icc_style_scripts() {
+		//wp_enqueue_script('jquery');
+		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+		wp_enqueue_style( 'icc-normalize', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css');
+		wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css');
+	}
+}
+add_action( 'wp_enqueue_scripts', 'icc_style_scripts' );
+
 /*  Theme setup
 /* ------------------------------------ */
 if ( ! function_exists( 'icc_setup' ) ) {

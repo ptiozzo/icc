@@ -2,27 +2,118 @@
 <div class="content">
 
 
-	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
+	<?php
+			/* Query per Le storie
+			*---------------------*/
+	    $args = array(
+	        'category_name' => 'le-storie',
+					'posts_per_page' => 6
+	    );
+			$loop = new WP_Query( $args );
+	    if( $loop->have_posts() ) :
+				?>
+					<h2>Le storie</h2>
+				<?php
+	        while( $loop->have_posts() ) : $loop->the_post();
+	?>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<a href="<?php echo the_permalink();?>"><?php echo get_the_title(); ?></a><br />
 
-			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+	<?php
+	        endwhile;
+	    else:
+	?>
 
-			<p> <?php the_time('j M , Y') ?> - <?php the_category(', '); ?></p>
+	    <p>Non ho trovato nulla</p>
 
-			<?php the_excerpt();?>
+	<?php
+	    endif;
+	    wp_reset_query();
+	?>
+	<?php
+			/* Query per Rassegna stampa
+			*---------------------*/
+			$args = array(
+					'category_name' => 'rassegna-stampa',
+					'posts_per_page' => 3
+			);
+			$loop = new WP_Query( $args );
+			if( $loop->have_posts() ) :
+				?>
+					<h2>Rassegna stampa</h2>
+				<?php
+					while( $loop->have_posts() ) : $loop->the_post();
+	?>
 
-		</article>
+	<a href="<?php echo the_permalink();?>"><?php echo get_the_title(); ?></a><br />
 
-	<?php endwhile; ?>
+	<?php
+					endwhile;
+			else:
+	?>
 
-	<?php else : ?>
+			<p>Non ho trovato nulla</p>
 
-	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'icc'); ?> </h3>
+	<?php
+			endif;
+			wp_reset_query();
+	?>
+	<?php
+			/* Query per Ultime news
+			*---------------------*/
+			$args = array(
+					'category__not_in' => array( 2, 6 ), //******************* Da definire
+					'posts_per_page' => 10
+			);
+			$loop = new WP_Query( $args );
+			if( $loop->have_posts() ) :
+				?>
+					<h2>Ultime news</h2>
+				<?php
+					while( $loop->have_posts() ) : $loop->the_post();
+	?>
 
-	<?php endif; ?>
+	<a href="<?php echo the_permalink();?>"><?php echo get_the_title(); ?></a><br />
 
+	<?php
+					endwhile;
+			else:
+	?>
 
+			<p>Non ho trovato nulla</p>
+
+	<?php
+			endif;
+			wp_reset_query();
+	?>
+	<?php
+			/* Query per Ultime news
+			*---------------------*/
+			$args = array(
+					'category_name' => 'articoli',
+					'posts_per_page' => 10
+			);
+			$loop = new WP_Query( $args );
+			if( $loop->have_posts() ) :
+				?>
+					<h2>Articoli</h2>
+				<?php
+					while( $loop->have_posts() ) : $loop->the_post();
+	?>
+
+	<a href="<?php echo the_permalink();?>"><?php echo get_the_title(); ?></a><br />
+
+	<?php
+					endwhile;
+			else:
+	?>
+
+			<p>Non ho trovato nulla</p>
+
+	<?php
+			endif;
+			wp_reset_query();
+	?>
 
 </div> <!-- .content 	-->
 <?php get_sidebar(); ?>

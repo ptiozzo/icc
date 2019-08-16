@@ -12,3 +12,22 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+.container{max-width: 1200px; margin:0 auto;background: #fff}
+.header{padding:20px;background: #ccc;}
+.content{width: 70%;padding:20px;background: #ddd;float: left;}
+.sidebar{width:26%;float: left;}
+.footer{padding:20px;background: #bbb;}
+
+
+/* Clearfix */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */

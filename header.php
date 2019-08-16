@@ -9,7 +9,7 @@
 		<?php wp_head(); ?>
 
   </head>
-<div class="container">
+<div class="container clearfix">
   <header class="header clearfix">
       <?php /* Menu */ ?>
         <div class="menu_scomparsa"><?php
