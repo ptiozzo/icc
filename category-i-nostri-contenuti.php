@@ -6,13 +6,14 @@
 function iNostriContenuti(selectObject) {
   var cat = selectObject.value;
   sessionStorage.setItem('iNostriContenutiCateg', cat);
+  document.cookie = "iNostriContenutiCateg="+ cat +";path=/";
   location.reload();
 }
 
 </script>
 
 <select name="event-dropdown" onchange="iNostriContenuti(this)">
-    <option value=""><?php echo 'Mostra tutte le categorie'; ?></option>
+    <option value="i-nostri-contenuti"><?php echo 'I nostri contenuti'; ?></option>
     <?php
     $categories = get_categories('child_of=2294');
     foreach ($categories as $category) {
@@ -28,7 +29,20 @@ function iNostriContenuti(selectObject) {
 
 <?php
 
-  $cat = 'i-nostri-contenuti';
+
+if(!isset($_COOKIE['iNostriContenutiCateg'])) {
+    $cat = 'i-nostri-contenuti';
+} else {
+    $cat = $_COOKIE['iNostriContenutiCateg'];
+}
+
+?>
+
+<script>
+document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+</script>
+
+<?php
 
   $args = array(
       'category_name' => $cat,
