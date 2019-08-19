@@ -16,7 +16,7 @@ add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 
 
-/*  Include Styles
+/*  Include Styles & Script
 /* ------------------------------------ */
 if ( ! function_exists( 'icc_styles_scripts' ) ) {
 	function icc_style_scripts() {
@@ -40,11 +40,11 @@ if ( ! function_exists( 'icc_setup' ) ) {
 		// Custom menu areas
 		register_nav_menus( array(
 			'menu-principale' => esc_html__( 'Menu principale', 'icc' ),
+			'menu-social' => esc_html__( 'Menu social', 'icc' ),
 			'menu-footer' => esc_html__( 'Menu footer', 'icc' ),
 			'menu-i-nostri-contenuti' => esc_html__( 'Menu i nostri contenuti', 'icc' ),
-			'menu-salute' => esc_html__( 'Menu salute', 'icc' ),
 			'menu-regioni' => esc_html__( 'Menu regioni', 'icc' ),
-			'menu-social' => esc_html__( 'Menu social', 'icc' ),
+			'menu-salute' => esc_html__( 'Menu salute', 'icc' ),
 			'menu-piemonte' => esc_html__( 'Menu piemonte', 'icc' ),
 			'menu-casentino' => esc_html__( 'Menu casentino', 'icc' ),
 		) );
@@ -60,5 +60,37 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 	}
 }
 add_action( 'widgets_init', 'icc_sidebars' );
+
+/*  Pagina istruzioni su admin
+/* ------------------------------------ */
+add_action( 'admin_menu', 'icc_menu_admin' );
+function icc_menu_admin()
+{
+    add_menu_page(
+        'Tema Italia che Cambia',     // page title
+        'Tema Italia che Cambia',     // menu title
+        'administrator',   // capability
+        'icc-theme',     // menu slug
+        'icc_menu_admin_page' // callback function
+    );
+		add_submenu_page(
+			'icc-theme',
+			'ICC Istruction',
+			'Istruzioni tema',
+			'administrator',
+			'icc-theme-istruction',
+			'icc_menu_admin_page_istruction'
+		);
+
+}
+function icc_menu_admin_page()
+{
+    require 'adm/theme.php';
+}
+function icc_menu_admin_page_istruction()
+{
+  require 'adm/theme-istruction.php';
+}
+
 
 ?>
