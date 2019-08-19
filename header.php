@@ -11,7 +11,21 @@
   </head>
 <div class="container clearfix">
   <header class="header clearfix">
-      <?php /* Menu */ ?>
+    <!-- Rimozione cookie se pagina differente da I miei contenuti -->
+    <?php
+      if(!is_category('i-nostri-contenuti')){
+        ?>
+        <!-- eliminazione cookie -->
+        <script>
+        document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "iNostriContenutiPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "iNostriContenutiOrd=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        </script>
+        <?php
+      }
+      ?>
+
+        <!-- Menu -->
         <div class="menu_scomparsa"><?php
           wp_nav_menu( array('theme_location' => 'menu-i-nostri-contenuti'));
           wp_nav_menu( array('theme_location' => 'menu-regioni'));?>
@@ -33,14 +47,8 @@
           if (is_category('casentino')){
             wp_nav_menu( array('theme_location' => 'menu-casentino'));
           }
-          if (is_category('berlin')){
-            wp_nav_menu( array('theme_location' => 'menu-berlin'));
-          }
           if (is_category('salute')){
             wp_nav_menu( array('theme_location' => 'menu-salute'));
-          }
-          if (is_category('brandeburg')){
-            wp_nav_menu( array('theme_location' => 'menu-brandeburg'));
           }
         ?>
     </header>
