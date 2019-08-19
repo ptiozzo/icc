@@ -22,6 +22,7 @@
     <li>Menu piemonte (quando si entra nella categoria piemonte)</li>
     <li>Menu casentino (quando si entra nella categoria casentino)</li>
   </ul>
+  <p>I menu sono modificabili dalla parte di amministrazione, ma prego di chiedere prima di procedere</p>
   <h2>I nostri contenuti</h2>
   <p>
     La pagina caricata per I nostri contenuti prende tutti gli articoli con categoria
