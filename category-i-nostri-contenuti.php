@@ -11,22 +11,6 @@ function iNostriContenuti(selectObject) {
 }
 
 </script>
-
-<select name="event-dropdown" onchange="iNostriContenuti(this)">
-    <option value="i-nostri-contenuti"><?php echo 'I nostri contenuti'; ?></option>
-    <?php
-    $categories = get_categories('child_of=2294');
-    foreach ($categories as $category) {
-        $option = '<option value="'.$category->category_nicename.'">';
-        $option .= $category->cat_name;
-        $option .= '</option>';
-        echo $option;
-    }
-    ?>
-</select>
-
-<br />
-
 <?php
 
 
@@ -38,10 +22,24 @@ if(!isset($_COOKIE['iNostriContenutiCateg'])) {
 
 ?>
 
+<select name="event-dropdown" onchange="iNostriContenuti(this)">
+    <option value="i-nostri-contenuti" <?php if ($cat == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
+    <?php
+    $categories = get_categories('child_of=2294');
+    foreach ($categories as $category) {
+        $option = '<option value="'.$category->category_nicename.'" ';
+        if ($cat == $category->category_nicename) {$option .= 'selected ';};
+        $option .= '>'.$category->cat_name;
+        $option .= '</option>';
+        echo $option;
+    }
+    ?>
+</select>
+
 <script>
 document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 </script>
-
+<br /><br />
 <?php
 
   $args = array(
