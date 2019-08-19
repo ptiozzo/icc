@@ -14,7 +14,12 @@
       <?php /* Menu */ ?>
         <div class="menu_scomparsa"><?php
           wp_nav_menu( array('theme_location' => 'menu-i-nostri-contenuti'));
-          wp_nav_menu( array('theme_location' => 'menu-regioni'));  ?>
+          wp_nav_menu( array('theme_location' => 'menu-regioni'));?>
+          <div class="descrizione">
+            informarsi<br />
+            conoscere<br />
+            agire<br />
+          </div>
         </div>
         <a href="<?php echo home_url(); ?>" class="header__logo"><?php bloginfo('name'); ?> Logo</a>
         <?php
