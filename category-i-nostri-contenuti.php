@@ -3,17 +3,19 @@
 
 <script>
 //scrittura cookie per impostazione menu' a tendina e ricarica della pagina
-function iNostriContenuti(selectObject) {
+function iNostriContenuti(selectObject,link) {
   var cat = selectObject.value;
   sessionStorage.setItem('iNostriContenutiCateg', cat);
   document.cookie = "iNostriContenutiCateg="+ cat +";path=/";
-  location.reload();
+  document.cookie = "iNostriContenutiPage=0;path=/";
+  window.open(link,'_self');
 }
 </script>
 
+
 <?php
-//lettura cookie per impostazione menu' a tendina
-  if(!isset($_COOKIE['iNostriContenutiCateg'])) {
+//lettura cookie per impostazione select
+  if(!isset($_COOKIE['iNostriContenutiCateg']) || $_COOKIE['iNostriContenutiCateg'] == 'i-nostri-contenuti') {
       $cat = 'i-nostri-contenuti';
       echo '<h1>I Nostri contenuti</h1>';
   } else {
@@ -21,10 +23,22 @@ function iNostriContenuti(selectObject) {
       echo '<h2>I Nostri contenuti</h2>';
       echo '<h1>'.get_category_by_slug($cat)->name.'</h1>';
   }
+//lettura cookie per impostazione $paged
+  if(isset($_COOKIE['iNostriContenutiPage']) && $_COOKIE['iNostriContenutiCateg'] == 0)
+  {
+    $paged = 0;
+    ?>
+    <script>
+      document.cookie = "iNostriContenutiPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    </script>
+    <?php
+  }
+
+
 ?>
 
 <!-- Dropdown per selezione categoria -->
-<select name="event-dropdown" onchange="iNostriContenuti(this)">
+<select name="event-dropdown" onchange="iNostriContenuti(this,'<?php echo get_pagenum_link();?>')">
     <option value="i-nostri-contenuti" <?php if ($cat == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
     <?php
     $categories = get_categories('child_of=2294');
@@ -45,15 +59,17 @@ document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC
 <br /><br />
 
 <!-- query personalizzata -->
-
 <?php
-  $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
   $args = array(
       'category_name' => $cat,
       'posts_per_page' => 20,
       'paged'          => $paged
   );
   $loop = new WP_Query( $args );
+
+  $wp_query = NULL;
+  $wp_query = $loop;
   if( $loop->have_posts() ) :
     ?>
     <?php
@@ -66,7 +82,9 @@ document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC
 
       <div class="pagination">
         <br />
-      			<?php /* Pagination */
+      			<?php
+
+            /* Pagination */
       			$big = 999999999; // need an unlikely integer
       			echo paginate_links( array(
       				'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
@@ -74,6 +92,10 @@ document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC
       				'current' => max( 1, get_query_var('paged') ),
       				'total' => $loop->max_num_pages
       			) );
+
+
+
+
       			?>
 
         </div>
