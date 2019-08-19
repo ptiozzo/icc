@@ -16,8 +16,11 @@ function iNostriContenuti(selectObject) {
 
 if(!isset($_COOKIE['iNostriContenutiCateg'])) {
     $cat = 'i-nostri-contenuti';
+    echo '<h1>I Nostri contenuti</h1>';
 } else {
     $cat = $_COOKIE['iNostriContenutiCateg'];
+    echo '<h2>I Nostri contenuti</h2>';
+    echo '<h1>'.get_category_by_slug($cat)->name.'</h1>';
 }
 
 ?>
@@ -41,10 +44,11 @@ document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC
 </script>
 <br /><br />
 <?php
-
+  $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
   $args = array(
       'category_name' => $cat,
-      'posts_per_page' => 20
+      'posts_per_page' => 20,
+      'paged'          => $paged
   );
   $loop = new WP_Query( $args );
   if( $loop->have_posts() ) :
