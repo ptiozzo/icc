@@ -2,11 +2,21 @@
 <div class="content">
 
 <script>
-//scrittura cookie per impostazione menu' a tendina e ricarica della pagina
-function iNostriContenuti(selectObject,link) {
+//scrittura cookie per impostazione categoria e ricarica della pagina
+function iNostriContenutiCateg(selectObject,link) {
   var cat = selectObject.value;
   sessionStorage.setItem('iNostriContenutiCateg', cat);
   document.cookie = "iNostriContenutiCateg="+ cat +";path=/";
+  document.cookie = "iNostriContenutiPage=0;path=/";
+  window.open(link,'_self');
+}
+
+
+//scrittura cookie per ordinemento e ricarica della pagina
+function iNostriContenutiOrd(selectObject,link) {
+  var ord = selectObject.value;
+  sessionStorage.setItem('iNostriContenutiOrd', ord);
+  document.cookie = "iNostriContenutiOrd="+ ord +";path=/";
   document.cookie = "iNostriContenutiPage=0;path=/";
   window.open(link,'_self');
 }
@@ -14,7 +24,7 @@ function iNostriContenuti(selectObject,link) {
 
 
 <?php
-//lettura cookie per impostazione select
+//lettura cookie per impostazione categoria
   if(!isset($_COOKIE['iNostriContenutiCateg']) || $_COOKIE['iNostriContenutiCateg'] == 'i-nostri-contenuti') {
       $cat = 'i-nostri-contenuti';
       echo '<h1>I Nostri contenuti</h1>';
@@ -23,7 +33,13 @@ function iNostriContenuti(selectObject,link) {
       echo '<h2>I Nostri contenuti</h2>';
       echo '<h1>'.get_category_by_slug($cat)->name.'</h1>';
   }
-//lettura cookie per impostazione $paged
+  //lettura cookie per impostazione ordinamento
+    if(!isset($_COOKIE['iNostriContenutiOrd']) || $_COOKIE['iNostriContenutiOrd'] == 'DESC') {
+        $ord = 'DESC';
+    } else {
+        $ord = $_COOKIE['iNostriContenutiOrd'];
+    }
+//lettura cookie per impostazione paged
   if(isset($_COOKIE['iNostriContenutiPage']) && $_COOKIE['iNostriContenutiCateg'] == 0)
   {
     $paged = 0;
@@ -38,7 +54,7 @@ function iNostriContenuti(selectObject,link) {
 ?>
 
 <!-- Dropdown per selezione categoria -->
-<select name="event-dropdown" onchange="iNostriContenuti(this,'<?php echo get_pagenum_link();?>')">
+<select name="event-dropdown" onchange="iNostriContenutiCateg(this,'<?php echo get_pagenum_link();?>')">
     <option value="i-nostri-contenuti" <?php if ($cat == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
     <?php
     $categories = get_categories('child_of=2294');
@@ -51,11 +67,13 @@ function iNostriContenuti(selectObject,link) {
     }
     ?>
 </select>
-<!-- eliminazione cookie
-<script>
-document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-</script>
--->
+<!-- Dropdown per ordinemento post -->
+<select name="event-dropdown" onchange="iNostriContenutiOrd(this,'<?php echo get_pagenum_link();?>')">
+    <option value="DESC" <?php if ($ord == 'DESC') {echo 'selected';}?> >Ordina per data più recente</option>
+    <option value="ASC" <?php if ($ord == 'ASC') {echo 'selected';}?> >Ordina per data meno recente</option>
+</select>
+
+
 <br /><br />
 
 <!-- query personalizzata -->
@@ -64,7 +82,8 @@ document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC
   $args = array(
       'category_name' => $cat,
       'posts_per_page' => 20,
-      'paged'          => $paged
+      'paged'          => $paged,
+      'order'         => $ord
   );
   $loop = new WP_Query( $args );
 
