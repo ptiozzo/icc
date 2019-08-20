@@ -29,6 +29,6 @@
     I nostri contenuti o categorie "figlie" di questa con almeno 1 articolo associato.<br />
     Vi sono dei javascript che permettono di ricaricare la pagina applicando i filtri selezionati
     appena un'opzione viene modificata. Le impostazioni sono salvate su dei cookie che vengono
-     eliminati quando di cambia pagina.
+    eliminati quando di cambia pagina.
   </p>
 </div>
