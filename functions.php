@@ -37,6 +37,10 @@ if ( ! function_exists( 'icc_setup' ) ) {
 		add_theme_support( 'automatic-feed-links' );
 		// Enable featured image
 		add_theme_support( 'post-thumbnails' );
+		// Thumbnail sizes
+		add_image_size( 'icc_single', 800, 493, true ); //(cropped)
+		add_image_size( 'icc_big', 1400, 928, true ); 	//(cropped)
+		add_image_size( 'icc_category', 200, 200, true ); 	//(cropped)
 		// Custom menu areas
 		register_nav_menus( array(
 			'menu-principale' => esc_html__( 'Menu principale', 'icc' ),
