@@ -41,10 +41,10 @@
           wp_nav_menu( array('theme_location' => 'menu-social'));
         ?>
         <?php
-          if (is_category('piemonte')){
+          if (is_category('piemonte-che-cambia')){
             wp_nav_menu( array('theme_location' => 'menu-piemonte'));
           }
-          if (is_category('casentino')){
+          if (is_category('casentino-che-cambia')){
             wp_nav_menu( array('theme_location' => 'menu-casentino'));
           }
           if (is_category('salute')){
