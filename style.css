@@ -15,10 +15,30 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 .container{max-width: 1200px; margin:0 auto;background: #fff}
 .header{padding:20px;background: #ccc;}
-.content{width: 70%;padding:20px;background: #ddd;float: left;}
-.sidebar{width:26%;float: left;}
-.footer{padding:20px;background: #bbb;}
+.content{width: 70%;background: #ddd;float: left;}
+.content-no-sidebar{width: 100%;background: #ddd}
+.content-no-sidebar .category-i-nostri-contenuti{padding-top: 1px;}
+.sidebar{width:30%;float: left;}
+.footer{width: 100%;background: #bbb;}
+.footer .footer-content{padding: 20px;}
 
+.grid{
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+}
+.grid article{
+	padding: 10px;
+}
+article h2{
+	font-size: 1em;
+}
+
+article img{
+	border-radius: 5%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 /* Clearfix */
 .clearfix:after {
