@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php $ParentCat='i-nostri-contenuti' ?>
 <div class="content">
 
 <script>
@@ -54,7 +55,7 @@
   <option value="i-nostri-contenuti" <?php if ($cat == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
   <?php
 
-    $categories = get_categories('child_of='.get_category_by_slug($cat)->term_id);
+    $categories = get_categories('child_of='.get_category_by_slug($ParentCat)->term_id);
     foreach ($categories as $category) {
       $option = '<option value="'.$category->category_nicename.'" ';
       if ($cat == $category->category_nicename) {$option .= 'selected ';};
