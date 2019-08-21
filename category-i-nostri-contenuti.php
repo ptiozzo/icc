@@ -53,7 +53,8 @@
 <select name="event-dropdown" onchange="iNostriContenutiCateg(this,'<?php echo get_pagenum_link();?>')">
   <option value="i-nostri-contenuti" <?php if ($cat == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
   <?php
-    $categories = get_categories('child_of=2294');
+
+    $categories = get_categories('child_of='.get_category_by_slug($cat)->term_id);
     foreach ($categories as $category) {
       $option = '<option value="'.$category->category_nicename.'" ';
       if ($cat == $category->category_nicename) {$option .= 'selected ';};
