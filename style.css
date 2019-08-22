@@ -13,8 +13,11 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+/*	Struttura
+*/
 .container{max-width: 1200px; margin:0 auto;background: #fff}
-.header{padding:20px;background: #ccc;}
+.header{background: #ccc;width: 100%;}
+.header-content{padding: 20px;}
 .content{width: 70%;background: #ddd;float: left;}
 .content-no-sidebar{width: 100%;background: #ddd}
 .content-no-sidebar .category-i-nostri-contenuti{padding-top: 1px;}
@@ -22,6 +25,27 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .footer{width: 100%;background: #bbb;}
 .footer .footer-content{padding: 20px;}
 
+/*	Menu a scomparsa
+*/
+.menu_scomparsa{width:100%;height: 0;overflow: hidden;
+		-webkit-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+	}
+.menu_scomparsa-bar{float: left;display: block;}
+.menu_scomparsa-bar span{display: block;background-color: #000; height: 2px; width: 23px;margin-bottom:5px}
+.show-menu{height:100%;overflow: auto;}
+
+/* Menu
+*/
+
+.header__logo{float:left;color:#fff; text-decoration: none;}
+.header__menu{float: left;padding:0;margin:0;list-style-type: none;}
+.header__menu__social{float: left;padding:0;margin:0;list-style-type: none;}
+.header__menu .menu-item{display: inline-block;}
+.header__menu .menu-item a{padding: 5px 10px; color:#000;text-decoration: none;}
+
+/*	Vista griglia per categorie
+*/
 .grid{
 	display: grid;
 	grid-template-columns: 20% 20% 20% 20% 20%;

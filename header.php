@@ -11,6 +11,7 @@
   </head>
 <div class="container clearfix">
   <header class="header clearfix">
+    <div class="header-content">
     <!-- Rimozione cookie se pagina differente da I miei contenuti -->
     <?php
       if(!is_category('i-nostri-contenuti')){
@@ -26,7 +27,9 @@
       ?>
 
         <!-- Menu -->
-        <div class="menu_scomparsa"><?php
+        <a href="#" class="menu_scomparsa-bar"><span></span><span></span><span></span></a>
+        <div class="menu_scomparsa">
+          <?php
           wp_nav_menu( array('theme_location' => 'menu-i-nostri-contenuti'));
           wp_nav_menu( array('theme_location' => 'menu-regioni'));?>
           <div class="descrizione">
@@ -37,8 +40,14 @@
         </div>
         <a href="<?php echo home_url(); ?>" class="header__logo"><?php bloginfo('name'); ?> Logo</a>
         <?php
-          wp_nav_menu( array('theme_location' => 'menu-principale'));
-          wp_nav_menu( array('theme_location' => 'menu-social'));
+          wp_nav_menu( array(
+            'theme_location' => 'menu-principale',
+            'menu_class' => 'header__menu')
+          );
+          wp_nav_menu( array(
+            'theme_location' => 'menu-social',
+            'menu_class' => 'header__menu__social')
+          );
         ?>
         <?php
           if (is_category('piemonte-che-cambia')){
@@ -51,4 +60,5 @@
             wp_nav_menu( array('theme_location' => 'menu-salute'));
           }
         ?>
+      </div> <!-- .header-content  -->
     </header>
