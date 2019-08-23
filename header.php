@@ -11,7 +11,7 @@
   </head>
 <div class="container clearfix">
   <header class="header clearfix">
-    <div class="header-content">
+    <div class="header__content clearfix">
     <!-- Rimozione cookie se pagina differente da I miei contenuti -->
     <?php
       if(!is_category('i-nostri-contenuti')){
@@ -27,22 +27,26 @@
       ?>
 
         <!-- Menu -->
-        <a href="#" class="menu_scomparsa-bar"><span></span><span></span><span></span></a>
-        <div class="menu_scomparsa">
-          <?php
-          wp_nav_menu( array('theme_location' => 'menu-i-nostri-contenuti'));
-          wp_nav_menu( array('theme_location' => 'menu-regioni'));?>
-          <div class="descrizione">
-            informarsi<br />
-            conoscere<br />
-            agire<br />
-          </div>
+        <a href="#" class="header__menu__scomparsa-bar"><span></span><span></span><span></span></a>
+        <div class="header__menu__scomparsa">
+          <div class="header__menu__scomparsa__menunascosto">
+            <a href="#" class="header__menu__scomparsa-bar">X</a>
+            <a href="#" class="header__menu__scomparsa-logo">ICC Logo2</a>
+            <?php
+            wp_nav_menu( array('theme_location' => 'menu-i-nostri-contenuti'));
+            wp_nav_menu( array('theme_location' => 'menu-regioni'));?>
+          </div> <!-- header__menu__scomparsa__menunascosto -->
+            <div class="header__menu__scomparsa__descrizione">
+              informarsi<br />
+              conoscere<br />
+              agire
+            </div>
         </div>
         <a href="<?php echo home_url(); ?>" class="header__logo"><?php bloginfo('name'); ?> Logo</a>
         <?php
           wp_nav_menu( array(
             'theme_location' => 'menu-principale',
-            'menu_class' => 'header__menu')
+            'menu_class' => 'header__menu__principale')
           );
           wp_nav_menu( array(
             'theme_location' => 'menu-social',
@@ -60,5 +64,5 @@
             wp_nav_menu( array('theme_location' => 'menu-salute'));
           }
         ?>
-      </div> <!-- .header-content  -->
+      </div> <!-- .header__content  -->
     </header>

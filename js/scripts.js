@@ -1,7 +1,7 @@
 (function($) {
 
-	$(".menu_scomparsa-bar").click(function(e){
-		 $(".menu_scomparsa").toggleClass('show-menu');
+	$(".header__menu__scomparsa-bar").click(function(e){
+		 $(".header__menu__scomparsa").toggleClass('show-menu');
 		 e.preventDefault();
 	});
 
