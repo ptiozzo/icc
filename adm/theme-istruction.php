@@ -18,7 +18,6 @@
     <li>Menu footer (Relativo a cookie, privacy, etc)</li>
     <li>Menu i nostri contenuti (A scomparsa con Articoli, meme, etc)</li>
     <li>Menu regioni (piemonte, casentino, berlin, brandeburg)</li>
-    <li>Menu salute (quando si entra nella categoria salute)</li>
     <li>Menu piemonte (quando si entra nella categoria piemonte)</li>
     <li>Menu casentino (quando si entra nella categoria casentino)</li>
   </ul>
@@ -26,9 +25,8 @@
   <h2>I nostri contenuti</h2>
   <p>
     La pagina caricata per I nostri contenuti prende tutti gli articoli con categoria
-    I nostri contenuti o categorie "figlie" di questa con almeno 1 articolo associato.<br />
-    Vi sono dei javascript che permettono di ricaricare la pagina applicando i filtri selezionati
-    appena un'opzione viene modificata. Le impostazioni sono salvate su dei cookie che vengono
-    eliminati quando di cambia pagina.
+    I nostri contenuti e Tematiche o categorie "figlie" di queste con almeno 1 articolo associato.<br />
+    Tutti i post devono avere la doppia categoria (i nostri contenuti e tematiche - o figlie) altrimenti i post
+    non vengono visualzzati quando si applica il filtro.
   </p>
 </div>
