@@ -108,6 +108,37 @@ function start_session() {
 }
 add_action('init', 'start_session', 1);
 
+//Aggiunta banner ATTIVATI dopo secondo paragrafo.
+
+add_filter( 'the_content', 'prefix_insert_post_ads' );
+
+function prefix_insert_post_ads( $content ) {
+    $ad_code = '<div class="single__attivati">ATTIVATI</div>';
+    if ( is_single() && ! is_admin() ) {
+        return prefix_insert_after_paragraph( $ad_code, 2, $content );
+    }
+    return $content;
+}
+
+// Parent Function that makes the magic happen
+
+function prefix_insert_after_paragraph( $insertion, $paragraph_id, $content ) {
+    $closing_p = '</p>';
+    $paragraphs = explode( $closing_p, $content );
+    foreach ($paragraphs as $index => $paragraph) {
+
+        if ( trim( $paragraph ) ) {
+            $paragraphs[$index] .= $closing_p;
+        }
+
+        if ( $paragraph_id == $index + 1 ) {
+            $paragraphs[$index] .= $insertion;
+        }
+    }
+
+    return implode( '', $paragraphs );
+}
+
 //Extract youtube video code from youtube link.
 function linkifyYouTubeURLs($text) {
 $text = preg_replace('~
