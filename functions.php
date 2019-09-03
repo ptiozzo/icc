@@ -100,5 +100,44 @@ function icc_menu_admin_page_istruction()
   require 'adm/theme-istruction.php';
 }
 
+//Extract youtube video code from youtube link.
+function linkifyYouTubeURLs($text) {
+$text = preg_replace('~
+# Match non-linked youtube URL in the wild. (Rev:20111012)
+https?://         # Required scheme. Either http or https.
+(?:[0-9A-Z-]+\.)? # Optional subdomain.
+(?:               # Group host alternatives.
+youtu\.be/      # Either youtu.be,
+| youtube\.com    # or youtube.com followed by
+\S*             # Allow anything up to VIDEO_ID,
+[^\w\-\s]       # but char before ID is non-ID char.
+)                 # End host alternatives.
+([\w\-]{11})      # $1: VIDEO_ID is exactly 11 chars.
+(?=[^\w\-]|$)     # Assert next char is non-ID or EOS.
+(?!               # Assert URL is not pre-linked.
+[?=&amp;+%\w]*      # Allow URL (query) remainder.
+(?:             # Group pre-linked alternatives.
+[\'"][^&lt;&gt;]*&gt;  # Either inside a start tag,
+| &lt;/a&gt;          # or inside &lt;a&gt; element text contents.
+)               # End recognized pre-linked alts.
+)                 # End negative lookahead assertion.
+[?=&amp;+%\w-]*        # Consume any URL (query) remainder.
+~ix',
+'$1',
+$text);
+return $text;
+}
+
+/*  Remove share button from end of article
+/* ------------------------------------ */
+
+function jptweak_remove_share() {
+    remove_filter( 'the_content', 'sharing_display', 19 );
+    remove_filter( 'the_excerpt', 'sharing_display', 19 );
+    if ( class_exists( 'Jetpack_Likes' ) ) {
+        remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
+    }
+}
+add_action( 'loop_start', 'jptweak_remove_share' );
 
 ?>
