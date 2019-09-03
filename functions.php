@@ -100,6 +100,14 @@ function icc_menu_admin_page_istruction()
   require 'adm/theme-istruction.php';
 }
 
+// Inizio una sessione
+function start_session() {
+	if(!session_id()) {
+	session_start();
+	}
+}
+add_action('init', 'start_session', 1);
+
 //Extract youtube video code from youtube link.
 function linkifyYouTubeURLs($text) {
 $text = preg_replace('~
