@@ -12,19 +12,6 @@
 <div class="container clearfix">
   <header class="header clearfix">
     <div class="header__content clearfix">
-    <!-- Rimozione cookie se pagina differente da I miei contenuti -->
-    <?php
-      if(!is_category('i-nostri-contenuti')){
-        ?>
-        <!-- eliminazione cookie -->
-        <script>
-        document.cookie = "iNostriContenutiCateg=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "iNostriContenutiPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "iNostriContenutiOrd=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        </script>
-        <?php
-      }
-      ?>
 
         <!-- Menu -->
         <a href="#" class="header__menu__scomparsa-bar"><span></span><span></span><span></span></a>
