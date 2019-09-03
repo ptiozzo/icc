@@ -5,35 +5,68 @@
 ?>
 <div class="content-no-sidebar">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
-  <?php $cat = get_term_by('name', single_cat_title('',false), 'category')->slug;
-
+  <?php
+  // Verifico se ho premuto submit e setto le categorie
+  // il paged e salvo tutto in sessione
   if ($_POST['submit_button']){
     $Cat1 = $_POST['contenuti-dropdown'];
     $Cat2 = $_POST['tematica-dropdown'];
     $ord = $_POST['order-dropdown'];
-
+    $paged = 0;
+    $_SESSION['cat1'] = $Cat1;
+    $_SESSION['cat2'] = $Cat2;
+    $_SESSION['ord'] = $ord;
   } else {
-    $Cat1=$ParentCat1;
-    $Cat2=$ParentCat2;
-    $ord= "DESC";
+    //Se non ho premuto submit verifico se ho qualcosa in sesisone,
+    //altrimenti vado ai valori di default
+    if(isset($_SESSION['cat1'])) {
+        $Cat1 = $_SESSION['cat1'];
+    } else {
+      $Cat1=$ParentCat1;
+    }
+    if(isset($_SESSION['cat2'])) {
+        $Cat2 = $_SESSION['cat2'];
+    } else {
+      $Cat2=$ParentCat2;
+    }
+    if(isset($_SESSION['ord'])) {
+        $ord = $_SESSION['ord'];
+    } else {
+      $ord="DESC";
+    }
   }
-
+  if(!is_category('i-nostri-contenuti')){
+    $Cat1 = get_term_by('name', single_cat_title('',false), 'category')->slug;
+  }
+  if ($Cat1 == $ParentCat1){
+    echo "<h1>".get_category_by_slug($ParentCat1)->name."</h1>";
+  }
+  else {
+    echo "<h2>".get_category_by_slug($ParentCat1)->name."</h2>";
+    echo "<h1>".get_category_by_slug($Cat1)->name."</h1>";
+  }
  ?>
   <!-- Dropdown per selezione contenuto -->
-  <form method="post" action=" ">
-    <select name="contenuti-dropdown">
-      <option value="i-nostri-contenuti" <?php if ($Cat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
-      <?php
-        $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
-        foreach ($categories as $category) {
-          $option = '<option value="'.$category->category_nicename.'" ';
-          if ($Cat1 == $category->category_nicename) {$option .= 'selected ';};
-          $option .= '>'.$category->cat_name;
-          $option .= '</option>';
-          echo $option;
+  <form method="post" action="<?php echo get_pagenum_link(); ?>">
+    <?php
+      if(is_category('i-nostri-contenuti')){
+        ?>
+        <select name="contenuti-dropdown">
+          <option value="i-nostri-contenuti" <?php if ($Cat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
+          <?php
+            $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
+            foreach ($categories as $category) {
+              $option = '<option value="'.$category->category_nicename.'" ';
+              if ($Cat1 == $category->category_nicename) {$option .= 'selected ';};
+              $option .= '>'.$category->cat_name;
+              $option .= '</option>';
+              echo $option;
+            }
+          ?>
+        </select>
+        <?php
         }
-      ?>
-    </select>
+        ?>
       <!-- Dropdown per selezione tematica -->
       <select name="tematica-dropdown">
         <option value="tematica" <?php if ($Cat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tematica'; ?></option>
