@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="content">
+<div class="content-no-sidebar">
   <?php if( have_posts() ) : ?>
     <?php
       while(have_posts() ) : the_post();
@@ -20,5 +20,4 @@
   endif;
   ?>
 </div> <!-- .content 	-->
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
