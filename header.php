@@ -51,10 +51,7 @@
           }
           if (is_category('casentino-che-cambia')){
             wp_nav_menu( array('theme_location' => 'menu-casentino'));
-          }
-          if (is_category('salute')){
-            wp_nav_menu( array('theme_location' => 'menu-salute'));
-          }
+          }    
         ?>
       </div> <!-- .header__content  -->
     </header>
