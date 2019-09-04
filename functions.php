@@ -72,7 +72,7 @@ add_action( 'widgets_init', 'icc_sidebars' );
 /* ------------------------------------ */
 function icc_campagne_tematiche_custom_post() {
     // creo e registro il custom post type
-    register_post_type( 'campagne-tematiche', /* nome del custom post type */
+    register_post_type('campagne-tematiche', /* nome del custom post type */
         // definisco le varie etichette da mostrare nei menù
         array('labels' => array(
             'name' => 'Campagne Tematiche', /* nome, al plurale, dell'etichetta del post type. */
@@ -114,7 +114,7 @@ add_action( 'init', 'icc_campagne_tematiche_custom_post');
 /* ------------------------------------ */
 function icc_nostri_libri_custom_post() {
     // creo e registro il custom post type
-    register_post_type( 'i-nostri-libri', /* nome del custom post type */
+    register_post_type('nostri-libri', /* nome del custom post type */
         // definisco le varie etichette da mostrare nei menù
         array('labels' => array(
             'name' => 'I nostri libri', /* nome, al plurale, dell'etichetta del post type. */
@@ -138,7 +138,7 @@ function icc_nostri_libri_custom_post() {
             'query_var' => true,
             'menu_position' => 8, /* definisce l'ordine in cui comparire nel menù di amministrazione a sinistra */
             'menu_icon' => 'dashicons-layout', /* imposta l'icona da usare nel menù per il posty type */
-            'rewrite'   => array( 'slug' => 'i-nostri-libri', 'with_front' => false ), /* specificare uno slug per leURL */
+            'rewrite'   => array( 'slug' => 'nostri-libri', 'with_front' => false ), /* specificare uno slug per leURL */
             'has_archive' => true, /* definisci se abilitare la generazione di un archivio (tipo archive-cd.php) */
             'capability_type' => 'post', /* definisci se si comporterà come un post o come una pagina */
             'hierarchical' => false, /* definisci se potranno essere definiti elementi padri di altri */
