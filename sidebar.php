@@ -4,9 +4,9 @@
     {
       dynamic_sidebar('piemonte');
     }
-    elseif (is_category('casentino-che-cambia'))
+    elseif (is_category('rassegna-stampa'))
     {
-      dynamic_sidebar('casentino');
+      dynamic_sidebar('rassegna-stampa');
     }
     else
       dynamic_sidebar('primary');
