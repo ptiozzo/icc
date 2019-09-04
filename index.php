@@ -1,7 +1,7 @@
 <?php get_header();?>
 <div class="content">
   <?php if( have_posts() ) : ?>
-      <h2>POST</h2>
+      <h2>INDEX.PHP</h2>
     <?php
       while(have_posts() ) : the_post();
   ?>
@@ -18,6 +18,6 @@
   <?php
   endif;
   ?>
-</div> <!-- .content 	-->  
+</div> <!-- .content 	-->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
