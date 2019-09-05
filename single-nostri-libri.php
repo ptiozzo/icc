@@ -4,7 +4,7 @@
 
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<!-- Thumbnail o video youtube -->
+			<!-- Thumbnail -->
 			<div class="single__thumbnail">
 					<?php the_post_thumbnail('icc_single', array('class' => 'img-res','alt' => get_the_title()));	?>
 			</div>

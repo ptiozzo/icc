@@ -85,7 +85,7 @@ function icc_campagne_tematiche_custom_post() {
             'view_item' => 'Visualizza', /* testo per visualizzare */
             'search_items' => 'Cerca', /* testo per la ricerca*/
             'not_found' =>  'Nessuna campagna tematica trovata', /* testo se non trova nulla */
-            'not_found_in_trash' => 'Nessun CT trovato nel cestino', /* testo se non trova nulla nel cestino */
+            'not_found_in_trash' => 'Nessuna campagna tematica trovata nel cestino', /* testo se non trova nulla nel cestino */
             'parent_item_colon' => ''
             ), /* fine dell'array delle etichette del menu */
             'description' => 'Campagne Tematiche', /* descrizione del post type */
