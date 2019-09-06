@@ -63,6 +63,7 @@
               echo $option;
             }
           ?>
+          <option value="nostri-libri" <?php if ($Cat1 == 'nostri-libri') {echo 'selected';}?>>I nostri libri</option>
         </select>
         <?php
         }
@@ -79,7 +80,7 @@
             $option .= '</option>';
             echo $option;
           }
-        ?>
+          ?>
       </select>
     <!-- Dropdown per ordinemento post -->
     <select name="order-dropdown">
@@ -93,12 +94,21 @@
 
   <?php
     /* Personalizzo query */
-    $args = array(
-        'category_name' => $Cat1."+".$Cat2,
-        'posts_per_page' => 20,
-        'paged'          => $paged,
-        'order'         => $ord
-    );
+    if($Cat1 != "nostri-libri"){
+      $args = array(
+          'category_name' => $Cat1."+".$Cat2,
+          'posts_per_page' => 20,
+          'paged'          => $paged,
+          'order'         => $ord
+      );
+    } else {
+      $args = array(
+      'post_type' => 'nostri-libri',
+      'orderby' => 'menu_order',
+      'paged'          => $paged,
+      'order' => $ord,
+      );
+    }
     /*eseguo la query */
     $loop = new WP_Query( $args );
 
@@ -149,7 +159,7 @@
         <?php
       else:
         ?>
-        <p>Non ho trovato nulla</p>
+        <p>Spiacente, ma la tua ricerca non ha prodotto nessun risultato</p>
         <?php
       endif;
     wp_reset_query();
