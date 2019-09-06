@@ -13,11 +13,17 @@ class icc_Widget_CampagneTematiche extends WP_Widget {
   // Create the widget output.
   public function widget( $args, $instance ) {
     $title = apply_filters( 'widget_title', $instance[ 'title' ] );
-    $blog_title = get_bloginfo( 'name' );
-    $tagline = get_bloginfo( 'description' );
-
-    echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title']; ?>
-  		Contenuto del widget
+    echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title'];
+    $custom_query_args = array(
+    'post_type' => 'campagne-tematiche',
+    );
+    $custom_query = new WP_Query( $custom_query_args );
+     if ( $custom_query->have_posts() ) :
+       while ( $custom_query->have_posts() ) : $custom_query->the_post();
+          the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title())); ?>
+          <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+          <?php the_excerpt();?>
+      <?php endwhile; endif; wp_reset_postdata(); ?>
     <?php echo $args['after_widget'];
   }
 
@@ -46,3 +52,5 @@ function jpen_register_example_widget() {
   register_widget( 'icc_Widget_CampagneTematiche' );
 }
 add_action( 'widgets_init', 'jpen_register_example_widget' );
+
+?>
