@@ -194,8 +194,9 @@ function start_session() {
 }
 add_action('init', 'start_session', 1);
 
-//Aggiunta banner ATTIVATI dopo secondo paragrafo.
 
+/* Aggiunta banner ATTIVATI dopo secondo paragrafo.
+/* ------------------------------------ */
 add_filter( 'the_content', 'prefix_insert_post_ads' );
 
 function prefix_insert_post_ads( $content ) {
@@ -223,6 +224,12 @@ function prefix_insert_after_paragraph( $insertion, $paragraph_id, $content ) {
 
     return implode( '', $paragraphs );
 }
+
+
+/* Widget per Campagne Tematiche.
+/* ------------------------------------ */
+require 'inc/widget.php';
+
 
 /*	Extract youtube video code from youtube link.
 /* ------------------------------------ */
