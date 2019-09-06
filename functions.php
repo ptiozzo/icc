@@ -97,6 +97,7 @@ function icc_campagne_tematiche_custom_post() {
             'menu_position' => 8, /* definisce l'ordine in cui comparire nel menù di amministrazione a sinistra */
             'menu_icon' => 'dashicons-layout', /* imposta l'icona da usare nel menù per il posty type */
             'rewrite'   => array( 'slug' => 'campagne-tematiche', 'with_front' => false ), /* specificare uno slug per leURL */
+						'show_in_rest' => 'true', /* abilita gutemberg come editor */
             'has_archive' => true, /* definisci se abilitare la generazione di un archivio (tipo archive-cd.php) */
             'capability_type' => 'post', /* definisci se si comporterà come un post o come una pagina */
             'hierarchical' => false, /* definisci se potranno essere definiti elementi padri di altri */
@@ -139,6 +140,7 @@ function icc_nostri_libri_custom_post() {
             'menu_position' => 8, /* definisce l'ordine in cui comparire nel menù di amministrazione a sinistra */
             'menu_icon' => 'dashicons-layout', /* imposta l'icona da usare nel menù per il posty type */
             'rewrite'   => array( 'slug' => 'nostri-libri', 'with_front' => false ), /* specificare uno slug per leURL */
+						'show_in_rest' => 'true', /* abilita gutemberg come editor */
             'has_archive' => true, /* definisci se abilitare la generazione di un archivio (tipo archive-cd.php) */
             'capability_type' => 'post', /* definisci se si comporterà come un post o come una pagina */
             'hierarchical' => false, /* definisci se potranno essere definiti elementi padri di altri */
