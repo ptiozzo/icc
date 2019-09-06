@@ -65,7 +65,7 @@
 			/* Query per Ultime news
 			*---------------------*/
 			$args = array(
-					'category__not_in' => array('2302'), //******************* Da definire
+					'cat' => '-2302', // Tutte le categorie TRANNE Rassegna stampa
 					'posts_per_page' => 10
 			);
 			$loop = new WP_Query( $args );
@@ -94,8 +94,6 @@
 			*---------------------*/
 			$args = array(
 				'post_type' => 'nostri-libri',
-				'orderby' => 'menu_order',
-				'order' => 'ASC',
 				'posts_per_page' => 3
 			);
 			$loop = new WP_Query( $args );
@@ -113,7 +111,7 @@
 			else:
 	?>
 
-			<p>Non ho trovato nulla</p>
+			<p>Non ho trovato nessun libro</p>
 
 	<?php
 			endif;
