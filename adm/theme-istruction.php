@@ -1,14 +1,13 @@
 <div class="wrap">
   <h2>Istruzioni per template</h2>
   <p>Ecco alcune note per l'utilizzo corretto del sito</p>
-  <h2>Home page</h2>
+  q<h2>Home page</h2>
   <p>L'home page carica:</p>
   <ul>
     <li>6 post con categoria "le storie"</li>
     <li>3 post con categoria "rassegna stampa"</li>
-    <li>10 post con ??? "ultime news"</li>
-    <li>10 post con categoria "articoli"</li>
-    <li>3 post con ??? "Libri"</li>
+    <li>Ultimi 10 post TRANNE quelli in categoria rassegna stampa</li>
+    <li>3 post con "Libri"</li>
   </ul>
   <h2>Menu</h2>
   <p>Sono stati creati 8 menu:</p>
@@ -28,5 +27,11 @@
     I nostri contenuti e Tematiche o categorie "figlie" di queste con almeno 1 articolo associato.<br />
     Tutti i post devono avere la doppia categoria (i nostri contenuti e tematiche - o figlie) altrimenti i post
     non vengono visualzzati quando si applica il filtro.
+  </p>
+  <h2>Campagne tematiche e Nostri libri</h2>
+  <p>
+    Le campagne tematiche sono dei Costum Post Type.</br>
+    Questi vengono gestiti come dei normali post, solo che vengono separati dagli altri post nella visualizzazione
+    ed hanno bisogno di avere una personalizzazione del codice per venir visualizzati.
   </p>
 </div>
