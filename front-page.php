@@ -24,7 +24,7 @@
 	    else:
 	?>
 
-	    <p>Non ho trovato nulla</p>
+	    <p>Non ho trovato nessun Le storie</p>
 
 	<?php
 	    endif;
@@ -44,25 +44,28 @@
 				<?php
 					while( $loop->have_posts() ) : $loop->the_post();
 	?>
-
 	<a href="<?php echo the_permalink();?>"><?php echo get_the_title(); ?></a><br />
-
 	<?php
 					endwhile;
 			else:
 	?>
 
-			<p>Non ho trovato nulla</p>
+			<p>Non ho trovato nessuna Rassegna Stampa</p>
 
 	<?php
 			endif;
 			wp_reset_query();
 	?>
+
+	<div class="mappa">
+		<h2>Mappa</h2>
+	</div>
+
 	<?php
 			/* Query per Ultime news
 			*---------------------*/
 			$args = array(
-					'category__not_in' => array( 2, 6 ), //******************* Da definire
+					'category__not_in' => array('2302'), //******************* Da definire
 					'posts_per_page' => 10
 			);
 			$loop = new WP_Query( $args );
@@ -80,23 +83,25 @@
 			else:
 	?>
 
-			<p>Non ho trovato nulla</p>
+			<p>Non ho trovato nessun ultimo articolo</p>
 
 	<?php
 			endif;
 			wp_reset_query();
 	?>
 	<?php
-			/* Query per Ultime news
+			/* Query per Libri
 			*---------------------*/
 			$args = array(
-					'category_name' => 'articoli',
-					'posts_per_page' => 10
+				'post_type' => 'nostri-libri',
+				'orderby' => 'menu_order',
+				'order' => 'ASC',
+				'posts_per_page' => 3
 			);
 			$loop = new WP_Query( $args );
 			if( $loop->have_posts() ) :
 				?>
-					<h2>Articoli</h2>
+					<h2>Libri</h2>
 				<?php
 					while( $loop->have_posts() ) : $loop->the_post();
 	?>
