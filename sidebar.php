@@ -8,6 +8,10 @@
     {
       dynamic_sidebar('rassegna-stampa');
     }
+    elseif (is_category('casentino-che-cambia'))
+    {
+      dynamic_sidebar('casentino');
+    }
     else
       dynamic_sidebar('primary');
 
