@@ -7,7 +7,11 @@
     <meta name="description" content="<?php bloginfo( 'description' ); ?>">
 
 		<?php wp_head(); ?>
-
+    <?php if(!is_page('cerca')){
+            $_SESSION['searchterm'] = '';
+            echo "PAGINA NON DI RICERCA";
+          }
+    ?>
   </head>
 <div class="container clearfix">
   <header class="header clearfix">
@@ -51,7 +55,7 @@
           }
           if (is_category('casentino-che-cambia')){
             wp_nav_menu( array('theme_location' => 'menu-casentino'));
-          }    
+          }
         ?>
       </div> <!-- .header__content  -->
     </header>
