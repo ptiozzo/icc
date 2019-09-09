@@ -13,16 +13,18 @@
     $SearchCat1 = $_POST['contenuti-dropdown'];
     $SearchCat2 = $_POST['tematica-dropdown'];
     $SearchOrd = $_POST['order-dropdown'];
+    $SearchAutore = $_POST['autore-dropdown'];
     $paged = 0;
     $_SESSION['termine-cercato'] = $searchterm;
     $_SESSION['SearchCat1'] = $SearchCat1;
     $_SESSION['SearchCat2'] = $SearchCat2;
     $_SESSION['SearchOrd'] = $SearchOrd;
+    $_SESSION['SearchAutore'] = $SearchAutore;
   } else {
     //Se non ho premuto submit verifico se ho qualcosa in sesisone,
     //altrimenti vado ai valori di default
     if(isset($_SESSION['termine-cercato'])) {
-        $searchterm = $_POST['termine-cercato'];
+        $searchterm = $_SESSION['termine-cercato'];
     } else {
       $searchterm='';
     }
@@ -40,6 +42,11 @@
         $SearchOrd = $_SESSION['SearchOrd'];
     } else {
       $SearchOrd="DESC";
+    }
+    if(isset($_SESSION['SearchAutore'])) {
+      $SearchAutore = $_SESSION['SearchAutore'];
+    } else {
+      $SearchAutore = '';
     }
   }
   if ($SearchCat1 == $ParentCat1){
@@ -62,7 +69,7 @@
           {
          ?>
         <select name="contenuti-dropdown">
-          <option value="i-nostri-contenuti" <?php if ($SearchCat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
+          <option value="i-nostri-contenuti" <?php if ($SearchCat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'Tutti i nostri contenuti'; ?></option>
           <?php
             $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
             foreach ($categories as $category) {
@@ -77,7 +84,7 @@
         </select>
       <!-- Dropdown per selezione tematica -->
       <select name="tematica-dropdown">
-        <option value="tematica" <?php if ($SearchCat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tematica'; ?></option>
+        <option value="tematica" <?php if ($SearchCat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tutte le tematiche'; ?></option>
         <?php
           $categories = get_categories('child_of='.get_category_by_slug($ParentCat2)->term_id);
           foreach ($categories as $category) {
@@ -88,6 +95,25 @@
             echo $option;
           }
           ?>
+      </select>
+      <!-- Dropdown per autore -->
+      <select name="autore-dropdown">
+        <option value="autore" <?php if ($SearchAutore == 'autore') {echo 'selected';}?> ><?php echo 'Tutti gli autori'; ?></option>
+        <?php
+        $args = array(
+                  'orderby' => 'display_name',
+                  'order'=>'ASC',
+                  'has_published_posts'=> true
+        );
+        $allUsers = get_users($args);
+        foreach($allUsers as $user){
+          $option = '<option value="'.$user->ID.'" ';
+          if ($SearchAutore == $user->ID) {$option .= 'selected ';};
+          $option .= '>'.$user->display_name;
+          $option .= '</option>';
+          echo $option;
+        }
+         ?>
       </select>
     <!-- Dropdown per ordinemento post -->
     <select name="order-dropdown">
@@ -111,8 +137,8 @@
   echo $SearchCatTerm;
   echo " - ";
   echo $SearchOrd;
-
-
+  echo " - ";
+  echo $SearchAutore;
 
     /* Personalizzo query */
     if ($searchterm != ''){
@@ -122,7 +148,8 @@
           'posts_per_page' => 20,
           'paged'          => $paged,
           'order'         => $SearchOrd,
-          's' => $searchterm
+          's' => $searchterm,
+          'author' => $SearchAutore
       );
     }
     /*eseguo la query */
