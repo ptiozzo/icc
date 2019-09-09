@@ -68,6 +68,8 @@
           if ($searchterm != '')
           {
          ?>
+        </br>
+         <p>Raffina la tua ricerca</p>
         <select name="contenuti-dropdown">
           <option value="i-nostri-contenuti" <?php if ($SearchCat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'Tutti i nostri contenuti'; ?></option>
           <?php
@@ -201,10 +203,21 @@
         </div>
         <?php
       else:
+        if ($searchterm == ''){
         ?>
-        <p>Spiacente, ma la tua ricerca non ha prodotto nessun risultato</p>
+        <p>Inserisci del testo per iniziare la tua ricerca</p>
         <?php
+      } else {
+        echo "<p>I parametri di ricerca inseriti non hanno portato a nessun risultato!</p>";
+      }
       endif;
+      ?>
+        <form method="post" action="<?php echo get_pagenum_link(); ?>">
+          <input type="hidden" name="termine-cercato" value="">
+          <input name="submit_button" type="Submit" value="Reset">
+        </form>
+      </br>
+      <?php
     wp_reset_query();
   ?>
   <!-- fine loop -->

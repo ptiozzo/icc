@@ -9,7 +9,6 @@
 		<?php wp_head(); ?>
     <?php if(!is_page('cerca')){
             $_SESSION['termine-cercato'] = '';
-            echo "PAGINA NON DI RICERCA";
           }
     ?>
   </head>
