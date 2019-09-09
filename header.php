@@ -8,7 +8,7 @@
 
 		<?php wp_head(); ?>
     <?php if(!is_page('cerca')){
-            $_SESSION['searchterm'] = '';
+            $_SESSION['termine-cercato'] = '';
             echo "PAGINA NON DI RICERCA";
           }
     ?>
