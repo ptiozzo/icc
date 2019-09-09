@@ -1,0 +1,83 @@
+@import "dependencies/colors";
+@import "dependencies/mixins";
+@import "dependencies/fonts";
+
+/************************************ FOOTER ************************************/
+footer {
+	position: relative;
+	background: #515760;
+	padding: 50px 40px;
+	display: flex;
+	justify-content: space-between;
+	z-index: 10;
+
+	section.left-col {
+		display: flex;
+
+		figure {
+			margin-right: 70px;
+		}
+
+		article {
+			color: #A3A3A3;
+			font-size: 12px;
+
+			b, strong {
+				color: #FFFFFF;
+				font-weight: $bold;
+			}
+		}
+	}
+
+	section.right-col {
+		text-align: right;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+
+		> ul {
+			&.socials {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				display: flex;
+	
+				> li {
+					&:not(:last-child){
+						margin-right: 25px;
+					}
+	
+					> a {
+						@include hover(){
+							text-decoration: none;
+						}
+					}
+				}
+			}
+
+			&.links {
+				margin: 30px 0 0 0;
+				padding: 0;
+				list-style: none;
+				display: flex;
+
+				> li {
+					&:not(:last-child){
+						margin-right: 25px;
+					}
+	
+					> a {
+						color: #FFFFFF;
+						font-weight: $bold;
+						font-size: 12px;
+						line-height: 12px;
+
+						@include hover(){
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}

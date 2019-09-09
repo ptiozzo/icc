@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.355" height="19.774" viewBox="0 0 28.355 19.774">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Group_131" data-name="Group 131" transform="translate(-50.71 -324.149)">
+    <g id="Group_130" data-name="Group 130" transform="translate(50.71 325.544)">
+      <g id="Group_129" data-name="Group 129">
+        <path id="Path_542" data-name="Path 542" class="cls-1" d="M145.168,364.328l.826,2.13a2.69,2.69,0,0,1-1.259,3.352l-2.756-7.107A2.687,2.687,0,0,1,145.168,364.328Z" transform="translate(-126.104 -357.319)"/>
+        <path id="Path_543" data-name="Path 543" class="cls-1" d="M73.19,332.17l7.128,18.379L64.232,349.44l-2.091-5.391Z" transform="translate(-60.153 -332.17)"/>
+        <rect id="Rectangle_96" data-name="Rectangle 96" class="cls-1" width="0.549" height="5.927" transform="matrix(0.932, -0.362, 0.362, 0.932, 0.904, 12.3)"/>
+        <rect id="Rectangle_97" data-name="Rectangle 97" class="cls-1" width="0.549" height="5.927" transform="translate(0 12.651) rotate(-21.198)"/>
+      </g>
+    </g>
+    <rect id="Rectangle_98" data-name="Rectangle 98" class="cls-1" width="6.501" height="2.347" transform="translate(71.606 331.809) rotate(-21.198)"/>
+    <rect id="Rectangle_99" data-name="Rectangle 99" class="cls-1" width="6.501" height="2.347" transform="translate(69.402 329.715) rotate(-58.89)"/>
+    <rect id="Rectangle_100" data-name="Rectangle 100" class="cls-1" width="2.347" height="6.501" transform="translate(72.166 336.84) rotate(-73.506)"/>
+  </g>
+</svg>

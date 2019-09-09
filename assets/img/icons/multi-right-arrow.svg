@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="345.103" height="100" viewBox="0 0 345.103 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f2f2f2;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(0)">
+    <g id="Group_11" data-name="Group 11">
+      <path id="Path_43" data-name="Path 43" class="cls-1" d="M41.676,8.75,91.852,59.392Z" transform="translate(38.633 -8.75)"/>
+      <path id="Path_44" data-name="Path 44" class="cls-2" d="M23.616,108.75h26.91l48.9-49.358L49.245,8.75H22.335L72.512,59.392Z" transform="translate(31.075 -8.75)"/>
+      <path id="Path_46" data-name="Path 46" class="cls-2" d="M-14.788,108.75h26.91l48.9-49.358L10.841,8.75h-26.91L34.108,59.392Z" transform="translate(16.069 -8.75)"/>
+      <path id="Path_47" data-name="Path 47" class="cls-1" d="M80.348,8.75l50.176,50.642Z" transform="translate(53.744 -8.75)"/>
+      <path id="Path_48" data-name="Path 48" class="cls-2" d="M62.288,108.75H89.2l48.9-49.358L87.918,8.75H61.008l50.176,50.642Z" transform="translate(46.187 -8.75)"/>
+    </g>
+    <g id="Group_12" data-name="Group 12" transform="translate(160.822)">
+      <path id="Path_43-2" data-name="Path 43" class="cls-1" d="M41.676,8.75,91.852,59.392Z" transform="translate(38.633 -8.75)"/>
+      <path id="Path_44-2" data-name="Path 44" class="cls-2" d="M23.616,108.75h26.91l48.9-49.358L49.245,8.75H22.335L72.512,59.392Z" transform="translate(31.075 -8.75)"/>
+      <path id="Path_45" data-name="Path 45" class="cls-1" d="M3.272,8.75,53.448,59.392Z" transform="translate(23.626 -8.75)"/>
+      <path id="Path_46-2" data-name="Path 46" class="cls-2" d="M-14.788,108.75h26.91l48.9-49.358L10.841,8.75h-26.91L34.108,59.392Z" transform="translate(16.069 -8.75)"/>
+      <path id="Path_47-2" data-name="Path 47" class="cls-1" d="M80.348,8.75l50.176,50.642Z" transform="translate(53.744 -8.75)"/>
+      <path id="Path_48-2" data-name="Path 48" class="cls-2" d="M62.288,108.75H89.2l48.9-49.358L87.918,8.75H61.008l50.176,50.642Z" transform="translate(46.187 -8.75)"/>
+    </g>
+  </g>
+</svg>
