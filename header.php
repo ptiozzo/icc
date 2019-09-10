@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Italia che cambia</title>
+		<title><?php bloginfo( 'name' ); ?></title>
 		<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 		<meta name="title" content="<?php bloginfo( 'name' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,8 +47,8 @@
 
 				<section class='search'>
 					<figure>
-						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca su Italia che cambia'>
-						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search-white.svg' alt='Cerca su Italia che cambia' class='white'>
+						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
+						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search-white.svg' alt='Cerca su <?php bloginfo( 'name' ); ?>' class='white'>
 					</figure>
 				</section>
 				<section class='socials'>
@@ -62,7 +62,7 @@
 			</div>
 		</header>
 
-		<header class='overlay-menu show'>
+		<header class='overlay-menu'>
 
 			<nav>
 				<div class='head'>

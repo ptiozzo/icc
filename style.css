@@ -18,7 +18,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
  header.stripe .right-col .socials>ul>.twitter>a{
-	 width: 20px;
+   width: 20px;
 	 background-image: url('assets/img/icons/twitter.svg');
 	 background-repeat: no-repeat;
 	 background-position: left;
@@ -41,24 +41,30 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
  header.overlay-menu .socials>ul>.twitter>a{
-	 width: 20px;
+	 width: 25px;
+   display: block;
 	 background-image: url('assets/img/icons/twitter-blu.svg');
 	 background-repeat: no-repeat;
 	 background-position: left;
+   background-size: 25px;
 	 text-indent:-9999px;
  }
  header.overlay-menu .socials>ul>.Facebook>a{
-	 width: 20px;
+	 width: 25px;
+   display: block;
 	 background-image: url('assets/img/icons/facebook-blu.svg');
 	 background-repeat: no-repeat;
 	 background-position: left;
+   background-size: 12px;
 	 text-indent:-9999px;
  }
  header.overlay-menu .socials>ul>.YouTube>a{
-	 width: 20px;
+	 width: 25px;
+   display: block;
 	 background-image: url('assets/img/icons/youtube-blu.svg');
 	 background-repeat: no-repeat;
 	 background-position: left;
+   background-size: 25px;
 	 text-indent:-9999px;
  }
 
