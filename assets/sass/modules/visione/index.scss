@@ -1,0 +1,249 @@
+@import "dependencies/colors";
+@import "dependencies/mixins";
+@import "dependencies/fonts";
+@import "dependencies/declarations";
+
+/************************************ VISIONE ************************************/
+main.visione{
+	> section.head {
+		padding: 20px 30px 0 30px;
+
+		> h1 {
+			margin: 0;
+			padding: 0;
+			font-size: 33px;
+			line-height: 33px;
+			color: #000000;
+			font-weight: $black;
+		}
+	}
+
+	> section.content {
+		margin-top: 20px;
+		padding: 0 30px 0 30px;
+		
+		> .text {
+			border-top: solid 1px #D0D0D0;
+			font-size: 19px;
+			line-height: 22px;
+			padding: 40px 30px 60px 30px;
+		}
+
+		> .list {
+			> ul {
+				margin: 0;
+				padding: 0 30px;
+				list-style: none;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+
+				> li {
+					width: 25%;
+					display: flex;
+					margin-bottom: 60px;
+					padding: 0 8px;
+
+					.box {
+						display: flex;
+						flex-direction: column;
+
+						.box-head {
+							display: flex;
+							align-items: center;
+							padding: 10px 30px;
+
+							figure {
+								margin-right: 20px;
+							}
+
+							span {
+								color: #FFFFFF;
+								font-size: 17px;
+								line-height: 17px;
+								font-weight: $bold;
+							}
+						}
+
+						.box-body {
+							padding: 20px 10px 0 10px;
+							border: solid 1px #D0D0D0;
+							height: 100%;
+							display: flex;
+							flex-direction: column;
+							justify-content: space-between;
+
+							article {
+								font-size: 16px;
+								line-height: 20px;
+								padding: 0 15px;
+							}
+
+							ul.actions {
+								margin: 60px 0 0 0;
+								padding: 0;
+								list-style: none;
+
+								> li {
+									margin-bottom: 10px;
+
+									> a {
+										display: block;
+										background: #A72627;
+										color: #FFFFFF;
+										font-size: 17px;
+										font-weight: $bold;
+										padding: 20px 10px;
+										text-align: center;
+
+										@include hover() {
+											text-decoration: none;
+										}
+									}
+								}
+							}
+						}
+					}
+
+					//
+					&:nth-child(4n){
+						@include transform(translateX(8px));
+					}
+
+					&:nth-child(4n+1){
+						@include transform(translateX(-8px));
+					}
+
+					&:nth-child(4n+2){
+						@include transform(translateX(-4px));
+					}
+
+					&:nth-child(4n+3){
+						@include transform(translateX(4px));
+					}
+
+					// COLORS
+					&:nth-child(1){
+						.box {
+							.box-head {
+								background: #24A1DE;
+							}
+						}
+					}
+					&:nth-child(2){
+						.box {
+							.box-head {
+								background: #FFA050;
+							}
+						}
+					}
+					&:nth-child(3){
+						.box {
+							.box-head {
+								background: #8E7B6A;
+							}
+						}
+					}
+					&:nth-child(4){
+						.box {
+							.box-head {
+								background: #31726F;
+							}
+						}
+					}
+					&:nth-child(5){
+						.box {
+							.box-head {
+								background: #96C150;
+							}
+						}
+					}
+					&:nth-child(6){
+						.box {
+							.box-head {
+								background: #DCD0A1;
+							}
+						}
+					}
+					&:nth-child(7){
+						.box {
+							.box-head {
+								background: #3589AB;
+							}
+						}
+					}
+					&:nth-child(8){
+						.box {
+							.box-head {
+								background: #3589AB;
+							}
+						}
+					}
+					&:nth-child(9){
+						.box {
+							.box-head {
+								background: #32AC41;
+							}
+						}
+					}
+					&:nth-child(10){
+						.box {
+							.box-head {
+								background: #5B2886;
+							}
+						}
+					}
+					&:nth-child(11){
+						.box {
+							.box-head {
+								background: #C0A98E;
+							}
+						}
+					}
+					&:nth-child(12){
+						.box {
+							.box-head {
+								background: #23B08F;
+							}
+						}
+					}
+					&:nth-child(13){
+						.box {
+							.box-head {
+								background: #188B71;
+							}
+						}
+					}
+					&:nth-child(14){
+						.box {
+							.box-head {
+								background: #B64C6E;
+							}
+						}
+					}
+					&:nth-child(15){
+						.box {
+							.box-head {
+								background: #EF4F21;
+							}
+						}
+					}
+					&:nth-child(16){
+						.box {
+							.box-head {
+								background: #188B71;
+							}
+						}
+					}
+					&:nth-child(17){
+						.box {
+							.box-head {
+								background: #837CB5;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

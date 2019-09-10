@@ -23,9 +23,30 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		//wp_enqueue_script;
 		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 		wp_enqueue_style( 'icc-normalize', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css');
+		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css');
+		wp_enqueue_style( 'icc3', get_template_directory_uri().'/assets/css/modules/home/index.css');
+		wp_enqueue_style( 'icc4', get_template_directory_uri().'/assets/css/modules/contenuti/index.css');
+		wp_enqueue_style( 'icc5', get_template_directory_uri().'/assets/css/modules/contenuti/dettaglio.css');
+		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css');
+		wp_enqueue_style( 'icc7', get_template_directory_uri().'/assets/css/modules/rassegna-stampa/index.css');
+		wp_enqueue_style( 'icc8', get_template_directory_uri().'/assets/css/modules/visione/index.css');
+		wp_enqueue_style( 'icc9', get_template_directory_uri().'/assets/css/modules/piemonte-che-cambia/index.css');
+		wp_enqueue_style( 'icc10', get_template_directory_uri().'/assets/css/modules/salute-che-cambia/index.css');
+		wp_enqueue_style( 'icc11', get_template_directory_uri().'/assets/css/modules/campagne-tematiche/index.css');
+		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css');
+
 		wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css');
-		//wp_enqueue_script('jquery');
+
+		wp_enqueue_script('jquery');
 		wp_enqueue_script( 'icc-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ),'', true );
+		//wp_enqueue_script( 'icc-scripts2', get_template_directory_uri() . '/assets/js/app.js');
+		//wp_enqueue_script( 'icc-scripts3', get_template_directory_uri() . '/assets/js/plugins/jquery.min.js');
+		//wp_enqueue_script( 'icc-scripts4', get_template_directory_uri() . '/assets/js/plugins/jquery.easing.min.js');
+		//wp_enqueue_script( 'icc-scripts5', get_template_directory_uri() . '/assets/js/plugins/swiper.min.js');
+		//wp_enqueue_script( 'icc-scripts6', get_template_directory_uri() . '/assets/js/modules/home/index.js');
+		//wp_enqueue_script( 'icc-scripts7', get_template_directory_uri() . '/assets/js/modules/salute-che-cambia/index.js');
+		//wp_enqueue_script( 'icc-scripts8', get_template_directory_uri() . '/assets/js/modules/piemonte-che-cambia/index.js');
+		//wp_enqueue_script( 'icc-scripts9', get_template_directory_uri() . '/assets/js/modules/contenuti/index.js');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'icc_style_scripts' );

@@ -1,0 +1,1091 @@
+@import "dependencies/colors";
+@import "dependencies/mixins";
+@import "dependencies/fonts";
+@import "dependencies/declarations";
+
+/************************************ HOME ************************************/
+main.home{
+	$left-side: 580px;
+	display: flex;
+
+	> section.left {
+		position: relative;
+		width: #{$left-side};
+
+		> .content-container {
+			position: relative;
+			width: #{$left-side};
+			// z-index: 100;
+			// background: red;
+			
+			&.attach {
+				position: fixed;
+				bottom: 0;	
+			}
+
+			&.attach-foot {
+				position: absolute !important;
+				bottom: 0;
+			}
+
+			> .box-1 {
+				> .head {
+					padding: 15px 30px 0 30px;
+	
+					> .title {
+						position: relative;
+						overflow: hidden;
+						
+						&::after {
+							content: '';
+							position: absolute;
+							width: 100%;
+							height: 1px;
+							background: #D0D0D0;
+							bottom: 11px;
+							left: 0;
+						}
+						
+						> h5 {
+							position: relative;
+							margin: 0;
+							padding: 0 30px 10px 0;
+							display: inline-block;
+							font-size: 11px;
+							line-height: 11px;
+							font-weight: $black;
+							background: #ffffff;
+							z-index: 1;
+						}
+					}
+				}
+	
+				> .articles-container{
+					padding: 5px 30px 0 30px;
+	
+					> .articles {
+						background: #F7F7F7;
+	
+						.swiper-slide {
+							display: flex;
+							padding: 15px;
+	
+							.box {
+								width: 245px;
+								max-width: 50%;
+	
+								&:nth-child(1){
+									padding-right: 10px;
+								}
+	
+								&:nth-child(2){
+									padding-left: 10px;
+								}
+								
+								a {
+									text-decoration: none;
+									color: #000000;
+	
+									.box-head {
+										position: relative;
+				
+										figure {
+											// height: 150px;
+											margin-bottom: 15px;
+											
+											img {
+												max-width: 100%;
+											}
+										}
+				
+										.date {
+											position: absolute;
+											top: 10px;
+											left: 10px;
+											font-size: 11px;
+											line-height: 11px;
+											background: #FFFFFF;
+											padding: 10px;
+										}
+									}
+	
+									.box-body {
+										article {
+											.title { 
+												font-size: 18px;
+												line-height: 20px;
+												font-weight: $bold;
+											}
+											.description {
+												margin-top: 10px;
+												font-size: 11px;
+												line-height: 13px;
+											}
+										}
+									}
+	
+								}
+			
+							}
+						}
+	
+						.articles-foot {
+							position: relative;
+							background: #EBEBEB;
+							text-align: center;
+							z-index: 10;
+	
+							.arrows {
+								position: absolute;
+								display: flex;
+								align-items: center;
+								top: 50%;
+								@include transform(translateY(-50%));
+								left: 15px;
+	
+								figure {
+									cursor: pointer;
+									&:nth-child(1){
+										margin-right: 7px;
+									}
+								}
+	
+								.numbers {
+									margin-left: 13px;
+									font-size: 9px;
+									font-weight: $bold;
+								}
+							}
+	
+							a.action {
+								position: relative;
+								display: inline-block;
+								font-family: $poppins;
+								font-weight: $semibold;
+								font-size: 12px;
+								text-transform: uppercase;
+								text-decoration: none;
+								margin: 13px 0;
+								padding: 2px;
+								color: #000000;
+	
+								&::after {
+									content: '';
+									position: absolute;
+									width: 100%;
+									height: 2px;
+									bottom: 0;
+									left: 0;
+									background: #000000;
+								}
+							}
+	
+							.swiper-pagination {
+								right: 15px;
+								bottom: 10px;
+								z-index: 1;
+	
+								.swiper-pagination-bullet {
+									margin-right: 5px;
+									border: solid 1px #000000;
+									
+									&.swiper-pagination-bullet-active {
+										background: #000000;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+	
+			> .box-2 {
+				position: relative;
+				padding-bottom: 15px;
+				// margin-bottom: 15px;
+				
+				.head {
+					position: relative;
+					padding: 15px 30px 0 30px;
+	
+					> .title {
+						position: relative;
+						overflow: hidden;
+						padding: 3px 0;
+						
+						&::after {
+							content: '';
+							position: absolute;
+							width: 100%;
+							height: 1px;
+							background: #D0D0D0;
+							bottom: 11px;
+							left: 0;
+						}
+						
+						> h5 {
+							position: relative;
+							margin: 0;
+							padding: 0 30px 10px 0;
+							display: inline-block;
+							font-size: 11px;
+							line-height: 11px;
+							font-weight: $black;
+							background: #ffffff;
+							z-index: 1;
+						}
+	
+						> .arrows {
+							position: absolute;
+							right: 0;
+							top: 0;
+							background: #000000;
+							display: flex;
+							align-items: center;
+							padding: 5px 10px;
+							height: 22px;
+	
+							figure {
+								cursor: pointer;
+								&:first-child {
+									margin-right: 10px;
+								}
+								&:last-child {
+									margin-left: 10px;
+								}
+							}
+	
+							.page-number {
+								color: #FFFFFF;
+								font-size: 11px;
+							}
+						}
+					}
+	
+				}
+	
+				.content {
+					article {
+						display: flex;
+						padding: 0 30px 0 30px;
+	
+						.left {
+							width: 50%;
+							flex-shrink: 0;
+							background: #35A6C3;
+	
+							> ul.list {
+								margin: 0;
+								padding: 0;
+								list-style: none;
+								padding: 25px;
+	
+								> li {
+									position: relative;
+									display: flex;
+									justify-content: space-between;
+									align-items: baseline;
+									padding: 15px 0;
+	
+									&:not(:last-child){
+										&::after {
+											content: '';
+											position: absolute;
+											width: 100%;
+											height: 2px;
+											background: rgba(#FFFFFF, 0.2);
+											left: 0;
+											bottom: 0;
+										}
+									}
+	
+									&:last-child{
+										padding-bottom: 0;
+									}
+	
+									&:nth-child(1) {									
+										position: relative;
+	
+										&::after {
+											background: transparent url(../../../img/modules/home/transparent-hand.png);
+											background-repeat: repeat;
+										}
+										
+										.text {
+											margin-left: 10px;
+										}
+									}
+	
+									&:nth-child(2) {
+										.info {
+											width: 100%;
+											justify-content: space-between;
+										}
+									}
+	
+									.info {
+										display: flex;
+										align-items: baseline;
+	
+										.number {
+											font-size: 42px;
+											line-height: 42px;
+											font-weight: $black;
+											color: #C4E7B5;
+										}
+		
+										.text {
+											font-size: 17px;
+											line-height: 20px;
+											font-weight: $bold;
+											color: #FFFFFF;
+										}
+									}
+	
+									a.cta {
+										display: block;
+										background: #9BCE8F;
+										text-transform: uppercase;
+										font-size: 15px;
+										font-weight: $medium;
+										padding: 20px;
+										width: 100%;
+										text-align: center;
+										color: #FFFFFF;
+	
+										@include hover(){
+											text-decoration: none;
+										}
+									}
+	
+								}
+							}
+						}
+						
+						.right {
+							width: 50%;
+							flex-shrink: 0;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							padding: 20px;
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	> section.right {
+		// padding-left: #{$left-side};
+		display: flex;
+		justify-content: space-between;
+		max-width: 100%;
+
+		> .home-content {
+			width: 100%;
+			max-width: calc(100vw - #{$left-side} - #{$aside});
+
+			> .box-1 {
+				position: relative;
+				padding-right: 30px;
+				overflow: hidden;
+
+				> .head {
+					padding: 15px 0 0 0;
+		
+					> .title {
+						position: relative;
+						overflow: hidden;
+						
+						&::after {
+							content: '';
+							position: absolute;
+							width: 100%;
+							height: 1px;
+							background: #D0D0D0;
+							bottom: 11px;
+							left: 0;
+						}
+						
+						> h5 {
+							position: relative;
+							margin: 0;
+							padding: 0 30px 10px 0;
+							display: inline-block;
+							font-size: 11px;
+							line-height: 11px;
+							font-weight: $black;
+							background: #ffffff;
+							z-index: 1;
+						}
+					}
+				}
+				
+				> .content {
+					position: relative;
+					height: 376px;
+					overflow: hidden;
+
+					a {
+						color: #FFFFFF;
+
+						figure {
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							left: 50%;
+							top: 50%;
+							@include transform(translate(-50%, -50%));
+	
+							img {
+								min-width: 100%;
+								min-height: 100%;
+							}
+						}
+	
+						article {
+							position: absolute;
+							bottom: 15px;
+							left: 15px;
+							max-width: calc( 100% - 30px );
+							background: #000000;
+							padding: 20px 50px 20px 15px;
+							z-index: 1;
+
+							> .date {
+								font-size: 11px;
+								line-height: 13px;
+							}
+
+							> h5 {
+								margin: 15px 0 0 0;
+								padding: 0;
+								font-size: 18px;
+								line-height: 20px;
+								font-weight: $bold;
+							}
+							
+							> .info {
+								margin: 15px 0 0 0;
+								font-size: 11px;
+								line-height: 13px;
+
+								b, strong {
+									font-weight: $bold;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			> .box-2 {
+				position: relative;
+				padding-right: 30px;
+
+				> .head {
+					position: relative;
+					padding: 15px 0 0 0;
+
+					> .title {
+						position: relative;
+						overflow: hidden;
+						padding: 3px 0;
+						
+						&::after {
+							content: '';
+							position: absolute;
+							width: 100%;
+							height: 1px;
+							background: #D0D0D0;
+							bottom: 11px;
+							left: 0;
+						}
+						
+						> h5 {
+							position: relative;
+							margin: 0;
+							padding: 0 30px 10px 0;
+							display: inline-block;
+							font-size: 11px;
+							line-height: 11px;
+							font-weight: $black;
+							background: #ffffff;
+							z-index: 1;
+						}
+
+						> .arrows {
+							position: absolute;
+							right: 0;
+							top: 0;
+							background: #000000;
+							display: flex;
+							align-items: center;
+							padding: 5px 10px;
+							height: 22px;
+
+							figure {
+								cursor: pointer;
+								&:first-child {
+									margin-right: 10px;
+								}
+								&:last-child {
+									margin-left: 10px;
+								}
+							}
+
+							.page-number {
+								color: #FFFFFF;
+								font-size: 11px;
+							}
+						}
+					}
+				}
+
+				.content {
+					ul.items {
+						margin: 0;
+						padding: 15px 0 0 0;
+						list-style: none;
+						display: flex;
+	
+						> li {
+							width: 50%;
+							flex-shrink: 0;
+
+							&:nth-child(odd){
+								padding-right: 10px;
+							}
+
+							&:nth-child(even){
+								padding-left: 10px;
+							}
+	
+							> a {
+								color: #000000;
+								text-decoration: none;
+	
+								figure {
+									img {
+										width: 100%;
+										max-width: 100%;
+									}
+								}
+	
+								.title {
+
+									.date {
+										font-size: 11px;
+										line-height: 13px;
+										color: #A3A3A3;
+										margin-top: 10px;
+									}
+	
+									> h3 {
+										margin: 10px 0 0 0;
+										padding: 0;
+										font-size: 18px;
+										line-height: 20px;
+										font-weight: $bold;
+									}
+	
+								}
+	
+								article {
+									margin: 10px 0 0 0;
+									font-size: 11px;
+									line-height: 13px;
+								}
+							}
+						}
+					}
+				}
+			}
+			> .box-3 {
+				position: relative;
+				padding-right: 30px;
+
+				> .content {
+					position: relative;
+					border-top: #D0D0D0 solid 1px;
+					margin-top: 30px;
+
+					> .arrows {
+						position: absolute;
+						right: 0;
+						top: 0;
+						@include transform(translateY(-100%));
+						background: #000000;
+						display: flex;
+						align-items: center;
+						padding: 5px 10px;
+						height: 22px;
+
+
+						figure {
+							cursor: pointer;
+							&:first-child {
+								margin-right: 10px;
+							}
+							&:last-child {
+								margin-left: 10px;
+							}
+						}
+
+						.page-number {
+							color: #FFFFFF;
+							font-size: 11px;
+						}
+					}
+
+					ul.items {
+						margin: 0;
+						padding: 15px 0 0 0;
+						list-style: none;
+						display: flex;
+						flex-wrap: wrap;
+	
+						> li {
+							width: 50%;
+							flex-shrink: 0;
+							margin-bottom: 20px;
+
+							&:nth-child(odd){
+								padding-right: 10px;
+							}
+
+							&:nth-child(even){
+								padding-left: 10px;
+							}
+							
+							// CATEGORIES
+							&.articles {
+								> a {
+									.category {
+										&::after {
+											border-left-color: #68D8B1;
+											border-top-color: #68D8B1;
+										}
+									}
+								}
+							}
+
+							&.meme {
+								> a {
+									.category {
+										&::after {
+											border-left-color: #F79865;
+											border-top-color: #F79865;
+										}
+									}
+								}
+							}
+	
+							&.documentary {
+								> a {
+									.category {
+										&::after {
+											border-left-color: #3D78D0;
+											border-top-color: #3D78D0;
+										}
+									}
+								}
+							}
+	
+							&.contacts {
+								> a {
+									.category {
+										&::after {
+											border-left-color: #F270C0;
+											border-top-color: #F270C0;
+										}
+									}
+								}
+							}
+							
+							&.stories {
+								> a {
+									.category {
+										&::after {
+											border-left-color: #AF0000;
+											border-top-color: #AF0000;
+										}
+									}
+								}
+							}
+							
+							&.healthy {
+								> a {
+									.category {
+										&::after {
+											border-left-color: #7FD1F5;
+											border-top-color: #7FD1F5;
+										}
+									}
+								}
+							}
+	
+							> a {
+								position: relative;
+								display: block;
+								color: #000000;
+								text-decoration: none;
+								padding: 20px 0 0 15px;
+
+								.category {
+									position: absolute;
+									top: 0;
+									left: 0;
+									min-height: 200px;
+									min-width: 200px;
+
+									&::after {
+										content: '';
+										position: absolute;
+										left: 0;
+										top: 0;
+										width: 150px;
+										height: 150px;
+										background: #FFFFFF;
+										border-left: solid 60px red;
+										border-top: solid 60px red;
+										border-bottom: solid 60px white;
+										border-right: solid 60px white;
+									}
+
+									span {
+										display: block;
+										position: relative;
+										z-index: 1;
+										padding: 10px 0 0 15px;
+										font-size: 11px;
+										line-height: 13px;
+										color: #FFFFFF;
+										font-weight: $bold;
+									}
+
+								}
+	
+								figure {
+									position: relative;
+									z-index: 1;
+									margin-top: 10px;
+
+									img {
+										width: 100%;
+										max-width: 100%;
+									}
+								}
+	
+								.title {
+									position: relative;
+									z-index: 1;
+
+									.date {
+										font-size: 11px;
+										line-height: 13px;
+										color: #A3A3A3;
+										margin-top: 10px;
+									}
+	
+									> h3 {
+										margin: 10px 0 0 0;
+										padding: 0;
+										font-size: 18px;
+										line-height: 20px;
+										font-weight: $bold;
+									}
+	
+								}
+	
+								article {
+									margin: 10px 0 0 0;
+									font-size: 11px;
+									line-height: 13px;
+								}
+
+								.cta {
+									display: inline-block;
+									position: relative;
+									font-weight: $semibold;
+									font-size: 12px;
+									text-transform: uppercase;
+									padding-bottom: 3px;
+
+									&::after {
+										content: '';
+										position: absolute;
+										width: 100%;
+										height: 2px;
+										background: #000000;
+										left: 0;
+										bottom: 0;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			> .box-4 {
+				position: relative;
+				padding-right: 30px;
+
+				> .content {
+					margin-top: 40px;
+
+					ul.items {
+						margin: 0;
+						padding: 15px 0 0 0;
+						list-style: none;
+						display: flex;
+	
+						> li {
+							width: (100% / 3);
+							flex-shrink: 0;
+							margin-bottom: 20px;
+
+							&:nth-child(1){
+								padding: 0 10px;
+								@include transform(translateX(-5px));
+							}
+							
+							&:nth-child(2){
+								padding: 0 10px;
+							}
+							
+							&:nth-child(3){
+								padding: 0 10px;
+								@include transform(translateX(5px));
+							}
+	
+							> a {
+								position: relative;
+								display: block;
+								color: #000000;
+								text-decoration: none;
+								padding: 20px 0 0 15px;
+
+								.category {
+									position: absolute;
+									top: 0;
+									left: 0;
+									min-height: 200px;
+									min-width: 200px;
+
+									&::after {
+										content: '';
+										position: absolute;
+										left: 0;
+										top: 0;
+										width: 140px;
+										height: 140px;
+										background: #FFFFFF;
+										border-left: solid 50px #9A6EFF;
+										border-top: solid 50px #9A6EFF;
+										border-bottom: solid 50px white;
+										border-right: solid 50px white;
+									}
+
+									span {
+										display: block;
+										position: relative;
+										z-index: 1;
+										padding: 10px 0 0 15px;
+										font-size: 11px;
+										line-height: 13px;
+										color: #FFFFFF;
+										font-weight: $bold;
+									}
+
+								}
+	
+								figure {
+									position: relative;
+									z-index: 1;
+									margin-top: 10px;
+
+									img {
+										width: 100%;
+										max-width: 100%;
+									}
+								}
+	
+								.title {
+									position: relative;
+									z-index: 1;
+
+									> h3 {
+										margin: 15px 0 0 0;
+										padding: 0;
+										font-size: 18px;
+										line-height: 20px;
+										font-weight: $bold;
+									}
+								}
+
+								article {
+									margin: 10px 0 0 0;
+									font-size: 11px;
+									line-height: 13px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		> aside {
+			> section.actions-group {
+				padding: 15px 15px 0 15px;
+
+				.head {
+					> .title {
+						position: relative;
+						overflow: hidden;
+						
+						> h5 {
+							position: relative;
+							margin: 0;
+							padding: 0;
+							font-size: 11px;
+							line-height: 11px;
+							font-weight: $black;
+							text-align: center;
+						}
+					}
+				}
+
+				ul.actions{
+					margin: 12.5px 0 0 0;
+					padding: 0 0 15px 0;
+					list-style: none;
+					border-bottom: solid #D0D0D0 1px;
+
+					// GENERIC STYLE FOR EACH MENU
+					> li {
+						text-align: center;
+						
+						&:nth-child(1){
+							background: #A5DBB8;
+						}
+						&:nth-child(2){
+							background: #8BCFBB;
+						}
+						&:nth-child(3){
+							background: #73C6BE;
+						}
+						&:nth-child(4){
+							background: #41B2C4;
+						}
+
+						&:not(:last-child){
+							margin-bottom: 4px;
+						}
+
+						> a {
+							display: block;
+							color: #000000;
+							font-size: 11px;
+							line-height: 11px;
+							padding: 19px 0;
+							font-weight: $bold;
+							color: #FFFFFF;
+							text-transform: uppercase;
+
+							@include hover(){
+								text-decoration: none;
+							}
+						}
+					}
+				}
+			}
+
+			> section.list{
+				padding: 15px;
+
+				> a {
+					display: block;
+					font-size: 12px;
+					line-height: 14px;
+					background: #F76576;
+					padding: 25px;
+					font-weight: $bold;
+					color: #FFFFFF;
+					text-align: center;
+				}
+
+				.head {
+					> .title {
+						position: relative;
+						overflow: hidden;
+						
+						> h5 {
+							position: relative;
+							margin: 15px 0 0 0;
+							padding: 0;
+							font-size: 11px;
+							line-height: 11px;
+							font-weight: $black;
+							text-align: center;
+						}
+					}
+				}
+
+				ul.campaigns {
+					margin: 15px 0 0 0;
+					padding: 15px 0 0 0;
+					list-style: none;
+					border-top: solid 1px #D0D0D0;
+
+					> li {
+						&:not(:last-child){
+							margin-bottom: 40px;
+						}
+
+						> a {
+							color: #000000;
+
+							figure {
+								img {
+									max-width: 100%;
+								}
+							}
+
+							.title {
+								padding: 0 10px;
+
+								> h3 {
+									margin: 25px 0 20px 0;
+									padding: 0;
+									font-size: 18px;
+									line-height: 20px;
+									font-weight: $bold;
+									text-align: center;
+								}
+
+								.date {
+									font-size: 11px;
+									line-height: 13px;
+									color: #A3A3A3;
+									text-align: center;
+								}
+							}
+
+							article {
+								margin: 15px 0 0 0;
+								padding: 0 10px;
+								font-size: 11px;
+								line-height: 13px;
+								text-align: center;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

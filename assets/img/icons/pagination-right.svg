@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 11px;
+        font-family: Helvetica;
+      }
+    </style>
+  </defs>
+  <text id="_" data-name="&gt;" class="cls-1" transform="translate(4 8)"><tspan x="-3.212" y="0">&gt;</tspan></text>
+</svg>

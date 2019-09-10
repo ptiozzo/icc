@@ -1,0 +1,261 @@
+@charset "UTF-8"
+
+=complete-height()
+	height: 100%
+	min-height: 100%
+
+=complete-width()
+	width: 100%
+	min-width: 100%
+
+=center-height()
+	top: 50%
+	+transform(translateY(-50%))
+	
+=center-width()
+	left: 50%
+	+transform(translateX(-50%))
+
+=center-w-h()
+	left: 50%
+	top: 50%
+	+transform(translate(-50%))
+
+=background-url($url)
+	background-image: url( $url )
+
+=radius($value)
+	border-radius 			: $value
+	-webkit-border-radius	: $value
+	-moz-border-radius		: $value
+
+=cw()
+	width: 100%
+	float: left
+	
+=rotate($value)
+	transform 			: rotate($value)
+	-webkit-transform	: rotate($value)
+	-moz-transform		: rotate($value)
+	-o-transform		: rotate($value)
+	-ms-transform		: rotate($value)
+
+=shadow($value...)
+	box-shadow 			: $value
+	-webkit-box-shadow	: $value
+	-moz-box-shadow		: $value
+
+=rotate-3d($x,$y,$z,$deg)
+	-webkit-transform	: rotate3d($x,$y,$z,$deg)
+	-moz-transform		: rotate3d($x,$y,$z,$deg)
+	-ms-transform		: rotate3d($x,$y,$z,$deg)
+	-o-transform		: rotate3d($x,$y,$z,$deg)
+	transform 			: rotate3d($x,$y,$z,$deg)
+
+=translate-3d($x,$y,$z)
+	-webkit-transform	: translate3d($x,$y,$z)
+	-moz-transform		: translate3d($x,$y,$z)
+	-ms-transform		: translate3d($x,$y,$z)
+	-o-transform		: translate3d($x,$y,$z)
+	transform 			: translate3d($x,$y,$z)
+
+=transform($value...)
+	-webkit-transform	: $value
+	-moz-transform		: $value
+	-ms-transform		: $value
+	-o-transform		: $value
+	transform 			: $value
+
+=transition($transition...)
+	-webkit-transition	: $transition
+	-moz-transition		: $transition
+	-ms-transition		: $transition
+	-o-transition		: $transition
+	transition 			: $transition
+
+=transition-delay($delay...)
+	-webkit-transition-delay	: $delay
+	-moz-transition-delay		: $delay
+	-ms-transition-delay		: $delay
+	-o-transition-delay			: $delay
+	transition-delay 			: $delay
+
+=animation-delay($delay...)
+	-webkit-animation-delay		: $delay
+	-moz-animation-delay		: $delay
+	-ms-animation-delay			: $delay
+	-o-animation-delay			: $delay
+	animation-delay 			: $delay
+
+=perspective($distance...)
+	-webkit-perspective	: $distance
+	-moz-perspective	: $distance
+	-ms-perspective		: $distance
+	-o-perspective		: $distance
+	perspective			: $distance
+
+=transform-style($style...)
+	-webkit-transform-style	: $style
+	-moz-transform-style	: $style
+	-ms-transform-style		: $style
+	-o-transform-style		: $style
+	transform-style			: $style
+
+=transform-origin($position...)
+	-webkit-transform-origin	: $position
+	-moz-transform-origin		: $position
+	-ms-transform-origin		: $position
+	-o-transform-origin			: $position
+	transform-origin			: $position
+
+=backface-visibility($value...)
+	-webkit-backface-visibility	: $value
+	-moz-backface-visibility	: $value
+	-ms-backface-visibility		: $value
+	-o-backface-visibility		: $value
+	backface-visibility			: $value
+
+=animation($string...)
+	-webkit-animation	: $string
+	-moz-animation		: $string
+	-ms-animation 		: $string
+	-o-animation 		: $string
+	animation 			: $string
+
+=filter($string...)
+	-webkit-filter	: $string
+	filter 			: $string
+
+=bounce()
+	+animation(bounce 2s infinite)
+
+=aliasing($borderWidth, $borderColor)
+	+shadow(0 0 $borderWidth 0px $borderColor inset, 0 0 $borderWidth 0px $borderColor)
+
+=reset()
+	outline: none
+	+radius(0)
+	+shadow(none)
+	background-color: transparent
+	resize: none
+	-webkit-appearance: none
+	appearance: none
+
+=square()
+	&::before
+		content: ''
+		padding-top: 100%
+		display: block
+
+@function sqrt($r)
+	$x0: 1
+	$x1: $x0
+ 
+	@for $i from 1 through 10 
+		$x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0)
+		$x0: $x1
+	
+	@return $x1
+
+@function pitagora($base, $altezza)
+	@return sqrt(($base*$base) + ($altezza*$altezza))
+
+=keyframes($name)
+	@-webkit-keyframes #{$name}
+		@content
+	@-moz-keyframes #{$name}
+		@content
+	@-ms-keyframes #{$name}
+		@content
+	@-o-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content
+
+=placeholder()
+	&::-webkit-input-placeholder
+		@content
+	&:-moz-placeholder
+		@content
+	&::-moz-placeholder
+		@content
+	&:-ms-input-placeholder
+		@content
+
+=no-decoration()
+	text-decoration: none
+	
+	&:hover,
+	&:active,
+	&:focus
+		text-decoration: none
+
+=hover()
+	&:hover,
+	&:active,
+	&:focus
+		@content
+
+// punti di rottura
+//	768px  => sm
+//	992px  => md
+//	1200px => lg
+
+
+//mentre 768 è considerato xs, 992 invece è già md
+=xxs()
+	@media(max-width: 480px)
+		@content
+=xs()
+	@media(max-width: 767px)
+		@content
+=sm()
+	@media(min-width: 768px) and (max-width:991px)
+		@content
+=md()
+	@media(min-width: 992px) and (max-width:1199px)
+		@content
+=lg()
+	@media(min-width: 1200px) and (max-width: 1349px)
+		@content
+=xlg()
+	@media(min-width: 1350px)
+		@content
+
+// media query miste
+=md-lg()
+	@media(min-width: 992px)
+		@content
+
+=sm-md()
+	@media(min-width: 768px) and (max-width:1199px)
+		@content
+=xs-sm()
+	@media(max-width: 991px)
+		@content
+=up-md()
+	@media(min-width: 1200px)
+		@content
+=up-sm()
+	@media(min-width: 992px)
+		@content
+=up-xxs()
+	@media(min-width: 481px)
+		@content
+=up-xs()
+	@media(min-width: 768px)
+		@content
+=down-lg()
+	@media(max-width: 1349px)
+		@content
+=down-md()
+	@media(max-width: 1199px)
+		@content
+=down-sm()
+	@media(max-width: 991px)
+		@content
+
+=appearance($string)
+	-webkit-appearance: $string
+	-moz-appearance: $string
+	appearance: $string

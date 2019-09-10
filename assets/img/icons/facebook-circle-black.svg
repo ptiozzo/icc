@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32.835" height="32.835" viewBox="0 0 32.835 32.835">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Facebook_Icon" data-name="Facebook Icon" transform="translate(-46.464)">
+    <circle id="Ellipse_2" data-name="Ellipse 2" cx="16.417" cy="16.417" r="16.417" transform="translate(46.464)"/>
+    <g id="facebook-svgrepo-com" transform="translate(58.855 8.673)">
+      <path id="XMLID_835_" class="cls-1" d="M76.95,8.164h1.68v6.918a.247.247,0,0,0,.247.247h2.849a.247.247,0,0,0,.247-.247V8.2h1.932a.247.247,0,0,0,.246-.219l.293-2.547a.247.247,0,0,0-.246-.276H81.974v-1.6c0-.481.259-.725.77-.725H84.2a.247.247,0,0,0,.247-.247V.249A.247.247,0,0,0,84.2,0h-2L82.1,0A3.842,3.842,0,0,0,79.59.947a2.634,2.634,0,0,0-.876,2.342V5.156H76.95A.247.247,0,0,0,76.7,5.4V7.917A.247.247,0,0,0,76.95,8.164Z" transform="translate(-76.703)"/>
+    </g>
+  </g>
+</svg>

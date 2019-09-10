@@ -12,47 +12,34 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-body{position: relative;}
-/*	--------------
-Struttura
--------------- */
-.container{max-width: 1200px; margin:0 auto;background: #fff}
-.header{background: #ccc;width: 100%;}
-.content{width: 70%;background: #ddd;float: left;}
-.content-no-sidebar{width: 100%;background: #ddd}
-.content-no-sidebar .category-i-nostri-contenuti{padding-top: 1px;}
-.sidebar{width:30%;float: left;}
-.footer{width: 100%;background: #bbb;}
-.footer .footer-content{padding: 20px;}
 
-/*	--------------
-Header
--------------- */
-.header__content{padding: 20px 0;}
 
-/* Menu */
+/*	Menu
+*/
 
-.header__menu__scomparsa-bar{display: block;float: left;}
-.header__logo{float:left;padding: 0px 10px;margin-left: 5px;}
-.header__logo a{;color:#fff; text-decoration: none;}
-.header__menu__principale{float:left;padding:0;margin:0;list-style-type: none;}
-.header__menu__principale .menu-item{display: inline-block;}
-.header__menu__principale .menu-item a{padding: 5px 10px;color:#000;text-decoration: none;}
-.header__menu__social{float: left;padding:0;margin:0;list-style-type: none;}
+ header.stripe .right-col .socials>ul>.twitter>a{
+	 width: 20px;
+	 background-image: url('assets/img/icons/twitter.svg');
+	 background-repeat: no-repeat;
+	 background-position: left;
+	 text-indent:-9999px;
+ }
+ header.stripe .right-col .socials>ul>.Facebook>a{
+	 width: 20px;
+	 background-image: url('assets/img/icons/facebook.svg');
+	 background-repeat: no-repeat;
+	 background-position: left;
+	 text-indent:-9999px;
+ }
+ header.stripe .right-col .socials>ul>.YouTube>a{
+	 width: 20px;
+	 background-image: url('assets/img/icons/youtube.svg');
+	 background-repeat: no-repeat;
+	 background-position: left;
+	 text-indent:-9999px;
+ }
 
-/* Menu a scomparsa */
-.header__menu__scomparsa{height: 0;overflow: hidden;
-		/*-webkit-transition: all 0.3s ease-in;
-						transition: all 0.3s ease-in; */
-	}
-.header__menu__scomparsa-bar span{display: block; background-color: #000;height: 2px; width: 23px;margin-bottom:5px; margin-left: 20px;}
-.show-menu{position: absolute;top:0; width: 1200px;margin: 0 auto;height: 100%;z-index: 10;background-color: rgba(25,25,112,0.9);}
 
-.show-menu .header__menu__scomparsa__menunascosto{width: 25%;height: 100%;background: #fff;border: 1px #000 solid;float: left;}
-.show-menu .header__menu__scomparsa-bar{display: block;padding: 20px;font-weight: bold;font-size: 1.5em; text-decoration: none;}
-.show-menu .header__menu__scomparsa-logo{display: block; padding: 20px;}
-
-.show-menu .header__menu__scomparsa__descrizione{float: right;text-align: right;font-size: 100px;color: white;margin-top: 40px;margin-right: 50px;text-transform: uppercase;}
 
 /*	Vista griglia per categorie
 */

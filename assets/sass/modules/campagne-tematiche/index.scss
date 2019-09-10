@@ -1,0 +1,151 @@
+@import "dependencies/colors";
+@import "dependencies/mixins";
+@import "dependencies/fonts";
+@import "dependencies/declarations";
+
+/************************************ CAMPAGNE TEMATICHE ************************************/
+main.campagne-tematiche{
+	> section.head {
+		padding: 20px 30px 0 30px;
+
+		> h1 {
+			margin: 0;
+			padding: 0;
+			font-size: 33px;
+			line-height: 33px;
+			color: #000000;
+			font-weight: $black;
+		}
+	}
+
+	> section.content {
+		margin-top: 20px;
+		padding: 0 30px 0 30px;
+		
+		> .text {
+			border-top: solid 1px #D0D0D0;
+			font-size: 19px;
+			line-height: 22px;
+			padding: 40px 30px 60px 30px;
+		}
+	}
+
+	> section.others {
+		margin: 30px 0 0 0;
+		padding: 50px 30px 50px 30px;
+		background: #F7F7F7;
+		
+		> h3 {
+			margin: 0;
+			padding: 0 0 20px 0;
+			font-size: 33px;
+			line-height: 33px;
+			color: #000000;
+			border-bottom: solid 1px #D0D0D0;
+		}
+
+		> .articles {
+			ul.list {
+				margin: 0;
+				padding: 15px 0 0 0;
+				list-style: none;
+				display: flex;
+				justify-content: space-between;
+
+				> li {
+					width: calc(20% - 20px);
+					flex-shrink: 0;
+					padding: 0;
+
+					> a {
+						color: #000000;
+						text-decoration: none;
+
+						figure {
+							img {
+								width: 100%;
+								max-width: 100%;
+							}
+						}
+
+						.title {
+
+							.date {
+								font-size: 11px;
+								line-height: 13px;
+								color: #A3A3A3;
+								margin-top: 10px;
+							}
+
+							> h3 {
+								margin: 10px 0 0 0;
+								padding: 0;
+								font-size: 18px;
+								line-height: 20px;
+								font-weight: $bold;
+							}	
+						}
+
+						article {
+							margin: 10px 0 0 0;
+							font-size: 11px;
+							line-height: 13px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	> section.cta {
+		background: #9BCE8F;
+		color: #FFFFFF;
+		padding: 90px;
+
+		> .title {
+
+			> h3 {
+				margin: 0;
+				padding: 0 0 90px 0;
+				font-weight: $bold;
+				font-style: italic;
+				font-size: 33px;
+				line-height: 36px;
+				border-bottom: solid 1px #F7F7F7;
+			}
+		}
+
+		> .foot {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 20px;
+
+			.left-col {
+				font-size: 18px;
+
+				a {
+					color: #FFFFFF;
+					font-weight: $black;
+					text-decoration: underline;
+				}
+			}
+
+			.right-col {
+				a {
+					display: block;
+					background: #000000;
+					padding: 15px 30px;
+					color: #FFFFFF;
+					text-transform: uppercase;
+					font-size: 13px;
+					line-height: 13px;
+
+					@include hover() {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}

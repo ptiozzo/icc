@@ -1,8 +1,26 @@
-(function($) {
+(function(){
 
-	$(".header__menu__scomparsa-bar").click(function(e){
-		 $(".header__menu__scomparsa").toggleClass('show-menu');
-		 e.preventDefault();
-	});
+	/**
+	 * Open/Close Menù
+	 */
+	var
+		  $open = $('header.stripe .left-col .menu .bars')
+		, $close = $('header.overlay-menu > nav > .head > .close')
+		, $menu = $('header.overlay-menu')
 
-})( jQuery );
+	/**
+	 * Open
+	 */
+	$open.on('click', function(){
+		$menu.addClass('show')
+	})
+
+	/**
+	 * Close
+	 */
+	$close.on('click', function(e){
+		e.preventDefault()
+		$menu.removeClass('show')
+	})
+
+})();
