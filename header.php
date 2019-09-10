@@ -55,7 +55,6 @@
           <?php
           wp_nav_menu( array(
             'theme_location' => 'menu-social',
-            'menu_class' => 'header__menu__social',
             'container' => false)
           );
           ?>
@@ -63,7 +62,7 @@
 			</div>
 		</header>
 
-		<header class='overlay-menu'>
+		<header class='overlay-menu show'>
 
 			<nav>
 				<div class='head'>
@@ -81,7 +80,6 @@
           <?php
           wp_nav_menu( array(
             'theme_location' => 'menu-principale',
-            'menu_class' => 'header__menu__principale',
             'container' => false)
           );
 					?>
@@ -123,29 +121,13 @@
 				</div>
 
 				<div class='socials'>
-					<ul>
-						<li>
-							<a href='' target='_blank'>
-								<figure>
-									<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/twitter-blu.svg' alt='Italia che cambia su Twitter'>
-								</figure>
-							</a>
-						</li>
-						<li>
-							<a href='' target='_blank'>
-								<figure>
-									<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/facebook-blu.svg' alt='Italia che cambia su Facebook'>
-								</figure>
-							</a>
-						</li>
-						<li>
-							<a href='' target='_blank'>
-								<figure>
-									<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/youtube-blu.svg' alt='italia che cambia su Youtube'>
-								</figure>
-							</a>
-						</li>
-					</ul>
+					<?php
+					wp_nav_menu( array(
+            'theme_location' => 'menu-social',
+            'menu_class' => 'socials',
+            'container' => false)
+          );
+          ?>
 				</div>
 			</nav>
 
@@ -161,7 +143,7 @@
 			</figure>
 		</header>
 
-		
+
 
 		<!-- Content -->
 		<div class="wrapper">
