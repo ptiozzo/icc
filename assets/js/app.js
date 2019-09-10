@@ -22,62 +22,62 @@
 		e.preventDefault()
 		$menu.removeClass('show')
 	})
-	
+
 })();
 
 
 (function(){
 
-	var	
+	var
 		  $headerStripe = $('header.stripe')
 		, $pageHead = $('main .page-head')
 		, $window = $(window)
 		, $footer = $('footer')
-	
+
 	/** GESTIONE SCROLL BODY **/
 	function stickyBar($element){
 
 		var
-			  
+
 			  canAttach = function() {
-		
-				var 
+
+				var
 					  headerHeight = parseFloat($headerStripe.css('height')) + ( $pageHead.length > 0 ?  parseFloat($pageHead.css('height')) : 0 )
 					, totalHeight = parseFloat(headerHeight) + parseFloat($element.css('height'))
 					, neededScroll = totalHeight - $window.height() - $window.scrollTop()
 
 				return neededScroll <= 0
-				
-				
+
+
 			}
 			, canAttachFoot = function(){
 				var
 					  footerBounding = $footer[0].getBoundingClientRect()
 					, remainingDistance = $window.height() - footerBounding['top']
-	
+
 				return remainingDistance >= 0
-	
+
 			}
-		
+
 		// ADD SCROLL LISTENER
 		$window.on('scroll', function(){
-			
+
 			if( canAttach() ){
 				$element.addClass('attach')
 			} else {
 				$element.removeClass('attach')
 			}
-	
+
 			if( canAttachFoot() ){
 				$element.addClass('attach-foot')
 			} else {
 				$element.removeClass('attach-foot')
 			}
-			
+
 		})
 	}
 
-	window.stickyBar = stickyBar	
+	window.stickyBar = stickyBar
 })();
 
 (function(){
@@ -91,7 +91,7 @@
 		, $result = $searchContainer.find('.result')
 		, $closeSearch = $('section.search-section figure.close')
 
-	
+
 	/**
 	 * Open Search Container
 	 */
@@ -108,10 +108,10 @@
 	 * Close Search Container
 	 */
 	function close(){
-		
+
 		$searchContainer.removeClass('op')
 		$openSearch.removeClass('open')
-		
+
 		setTimeout(function(){
 			$searchContainer.removeClass('show')
 
@@ -146,7 +146,7 @@
 	 function onAajax(_callback){
 		setTimeout(_callback, 1000)
 	 }
-	
+
 	/**
 	 * Apri Search sul click del pulsante
 	 */
@@ -168,10 +168,10 @@
 			 * Mostra risultati in DOM
 			 */
 			showResults()
-			
+
 		})
 	})
-	
+
 	/**
 	 * Event
 	 */

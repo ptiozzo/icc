@@ -40,6 +40,28 @@ Use it to make something cool, have fun, and share what you've learned with othe
  }
 
 
+ header.overlay-menu .socials>ul>.twitter>a{
+	 width: 20px;
+	 background-image: url('assets/img/icons/twitter-blu.svg');
+	 background-repeat: no-repeat;
+	 background-position: left;
+	 text-indent:-9999px;
+ }
+ header.overlay-menu .socials>ul>.Facebook>a{
+	 width: 20px;
+	 background-image: url('assets/img/icons/facebook-blu.svg');
+	 background-repeat: no-repeat;
+	 background-position: left;
+	 text-indent:-9999px;
+ }
+ header.overlay-menu .socials>ul>.YouTube>a{
+	 width: 20px;
+	 background-image: url('assets/img/icons/youtube-blu.svg');
+	 background-repeat: no-repeat;
+	 background-position: left;
+	 text-indent:-9999px;
+ }
+
 
 /*	Vista griglia per categorie
 */

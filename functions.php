@@ -36,12 +36,13 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css');
 
 		wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css');
-		//wp_enqueue_script('jquery');
-		//wp_enqueue_script( 'icc-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ),'', true );
-		wp_enqueue_script( 'icc-scripts2', get_template_directory_uri() . '/assets/js/plugins/jquery.min.js');
-		wp_enqueue_script( 'icc-scripts3', get_template_directory_uri() . '/assets/js/plugins/jquery.easing.min.js');
-		wp_enqueue_script( 'icc-scripts4', get_template_directory_uri() . '/assets/js/plugins/swiper.min.js');
-		wp_enqueue_script( 'icc-scripts5', get_template_directory_uri() . '/assets/js/app.js');
+
+		wp_enqueue_script('jquery');
+
+		wp_enqueue_script( 'icc-scripts2', get_template_directory_uri() . '/assets/js/app.js');
+		wp_enqueue_script( 'icc-scripts3', get_template_directory_uri() . '/assets/js/plugins/jquery.min.js');
+		wp_enqueue_script( 'icc-scripts4', get_template_directory_uri() . '/assets/js/plugins/jquery.easing.min.js');
+		wp_enqueue_script( 'icc-scripts5', get_template_directory_uri() . '/assets/js/plugins/swiper.min.js');
 		wp_enqueue_script( 'icc-scripts6', get_template_directory_uri() . '/assets/js/modules/home/index.js');
 		wp_enqueue_script( 'icc-scripts7', get_template_directory_uri() . '/assets/js/modules/salute-che-cambia/index.js');
 		wp_enqueue_script( 'icc-scripts8', get_template_directory_uri() . '/assets/js/modules/piemonte-che-cambia/index.js');
