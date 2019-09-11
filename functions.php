@@ -65,6 +65,7 @@ if ( ! function_exists( 'icc_setup' ) ) {
 		add_image_size( 'icc_big', 1400, 928, true ); 	//(cropped)
 		add_image_size( 'icc_category', 305, 165, true ); 	//(cropped)
 		add_image_size( 'icc_libri', 185, 282, true ); 	//(cropped)
+
 		// Custom menu areas
 		register_nav_menus( array(
 			'menu-principale' => esc_html__( 'Menu principale', 'icc' ),

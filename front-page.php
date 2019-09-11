@@ -406,13 +406,14 @@
 			</div>
 		</div>
 
+
 		<aside>
 			<section class='newsletter-box'>
 				<div class='box-title'>ISCRIVITI ALLA NEWSLETTER</div>
 				<form>
 					<input type="text" placeholder='Email'>
 					<figure>
-						<img src='/assets/img/icons/arrow-bar-right.svg' title='' alt=''>
+						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-bar-right.svg' title='' alt=''>
 					</figure>
 				</form>
 			</section>
@@ -462,7 +463,7 @@
 					<li>
 						<a href=''>
 							<figure>
-								<img src='/assets/img/modules/home/campaign-1.jpg' alt='' title=''>
+								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-1.jpg' alt='' title=''>
 							</figure>
 
 							<div class='title'>
@@ -487,7 +488,7 @@
 					<li>
 						<a href=''>
 							<figure>
-								<img src='/assets/img/modules/home/campaign-2.jpg' alt='' title=''>
+								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-2.jpg' alt='' title=''>
 							</figure>
 
 							<div class='title'>
@@ -512,7 +513,7 @@
 					<li>
 						<a href=''>
 							<figure>
-								<img src='/assets/img/modules/home/campaign-3.jpg' alt='' title=''>
+								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-3.jpg' alt='' title=''>
 							</figure>
 
 							<div class='title'>
@@ -537,7 +538,7 @@
 					<li>
 						<a href=''>
 							<figure>
-								<img src='/assets/img/modules/home/campaign-4.jpg' alt='' title=''>
+								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-4.jpg' alt='' title=''>
 							</figure>
 
 							<div class='title'>
@@ -562,7 +563,7 @@
 					<li>
 						<a href=''>
 							<figure>
-								<img src='/assets/img/modules/home/campaign-5.jpg' alt='' title=''>
+								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-5.jpg' alt='' title=''>
 							</figure>
 
 							<div class='title'>
@@ -591,5 +592,5 @@
 		</aside>
 	</section>
 </main>
-
-<?php require 'footer.php'; ?>
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>
