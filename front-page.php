@@ -310,7 +310,7 @@
 								);
 								$loop = new WP_Query( $args );
 								$i = 0;
-								while( $loop->have_posts() ) : $loop->the_post();
+								if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
 								$i++;
 								if ($i % 2 == 1){
 									echo '<ul class="items">';
@@ -338,12 +338,12 @@
 													</span>
 												</div>
 												<figure>
-													<?php the_post_thumbnail('icc_single', array('class' => 'img-res','alt' => get_the_title())); ?>
+													<?php the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title())); ?>
 												</figure>
 
 												<div class='title'>
 													<div class='date'><?php the_time('j M Y') ?></div>
-													<h3>	<?php the_title(); ?></h3>
+													<h3><?php the_title(); ?></h3>
 												</div>
 
 												<article>
@@ -356,8 +356,11 @@
 										<?php if ($i % 2 == 0){
                       echo '</ul>';
                     }
-										?>
-								<?php endwhile; ?>
+									 endwhile;
+									else:
+									 echo "<p>Non ho trovato nessun Ultime news</p>";
+									endif;
+									wp_reset_query();?>
 								</div>
 						</div>
 					</div><!-- swiper-container generic-article-swiper -->
@@ -366,36 +369,38 @@
 			<div class='box-4'>
 				<div class="content">
 					<ul class='items'>
-						<?php for($i=0; $i<3; $i++): ?>
+						<?php
+						$custom_query_args = array(
+						'post_type' => 'nostri-libri',
+						'orderby' => 'date',
+						'posts_per_page' => 3,
+						'order' => 'DESC',
+						);
+						$custom_query = new WP_Query( $custom_query_args );
+						if ( $custom_query->have_posts() ) : while ( $custom_query->have_posts() ) : $custom_query->the_post();
+							 ?>
 						<li>
 							<a href=''>
 								<div class='category'>
-									<span>I NOSTRI CORSI</span>
+									<span>I NOSTRI LIBRI</span>
 								</div>
 								<figure>
-									<img src='/assets/img/modules/home/corso-<?php echo $i+1; ?>.jpg' alt='' title=''>
+									<?php the_post_thumbnail('icc_libri', array('class' => 'img-res','alt' => get_the_title())); ?>
 								</figure>
 
 								<div class='title'>
-									<h3>E ora si cambia</h3>
+									<h3><?php the_title(); ?></h3>
 								</div>
 
 								<article>
-									<p>
-									Sed ut perspiciatis unde
-									omnis iste natus error sit
-									voluptatem accusantium
-									doloremque laudantium,
-									totam rem aperiam,
-									eaque ipsa quae ab illo
-									inventore veritatis et
-									quasi architecto
-									beatae vitae dicta sunt…
-									</p>
+									<?php the_excerpt();?>
 								</article>
 							</a>
 						</li>
-						<?php endfor; ?>
+					<?php endwhile;
+					else:
+					 echo "<p>Non ho trovato nessun Libro</p>";
+					endif; ?>
 					</ul>
 				</div>
 			</div>
