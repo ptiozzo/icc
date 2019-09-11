@@ -4,7 +4,10 @@
 	<section class='left'>
 
 		<div class="content-container">
-			<div class='box-1'><!-- Le storie  -->
+			<!--
+			LE STORIE
+			-->
+			<div class='box-1'>
 				<div class='head'>
 					<div class='title'>
 						<h5>LE NOSTRE STORIE</h5>
@@ -91,8 +94,10 @@
 				</section>
 			</div><!-- BOX 1 - Le storie-->
 
-
-			<div class='box-2'> <!-- La mappa -->
+			<!--
+			LA MAPPA
+			 -->
+			<div class='box-2'>
 
 				<div class='head'>
 					<div class='title'>
@@ -153,53 +158,74 @@
 	</section>
 
 	<section class="right">
-
 		<div class='home-content'>
-			<div class='box-1'><!-- RASSEGNA STAMPA -->
+
+			<!--
+			RASSEGNA STAMPA
+			-->
+			<div class='box-1'>
 				<div class='head'>
 					<div class='title'>
 						<h5>RASSEGNA STAMPA</h5>
 					</div>
 				</div>
-
+				<?php
+				$args = array(
+				'post_type' => 'rassegna-stampa',
+				'orderby' => 'menu_order',
+				'posts_per_page' => 1,
+				'order' => 'ASC',
+				);
+				$loop = new WP_Query( $args );
+				$i = 0;
+				if( $loop->have_posts() ) :
+						while( $loop->have_posts() ) : $loop->the_post();
+				?>
 				<div class='content'>
-					<a href=''>
+					<a href='<?php echo the_permalink();?>'>
 						<figure>
-							<img src='/assets/img/modules/home/press.jpg' alt='' title=''>
+							<?php the_post_thumbnail('icc_single', array('class' => 'img-res','alt' => get_the_title())); ?>
 						</figure>
 
 						<article>
-							<div class='date'>22 MAGGIO 2019</div>
-							<h5>Neque porro quisquam est qui dolorem <br>ipsum quia dolor sit amet</h5>
-							<div class='info'>A cura di <b>Andrea Degl’Innocenti</b></div>
+							<div class='date'>
+								<?php the_time('j M Y') ?>
+							</div>
+							<h5><?php the_title(); ?></h5>
+							<div class='info'>A cura di <b><?php echo get_the_author();?></b></div>
 						</article>
 					</a>
 				</div>
+				<?php
+				endwhile;
+			 	else:
+				 echo "<p>Non ho trovato nessun Le storie</p>";
+			 	endif;
+			 	wp_reset_query();?>
 			</div>
 
 			<div class='box-2'>
-				<div class='head'>
+				<!--<div class='head'>
 					<div class='title'>
 						<h5>ULTIME NEWS</h5>
 
 						<div class='arrows'>
 							<figure data-action="prev">
-								<img src='/assets/img/icons/arrow-white-left.svg' alt='' title=''>
+								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-white-left.svg' alt='' title=''>
 							</figure>
 							<div class='page-number'>1 / 5</div>
 							<figure data-action="next">
-								<img src='/assets/img/icons/arrow-white-right.svg' alt='' title=''>
+								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-white-right.svg' alt='' title=''>
 							</figure>
 						</div>
-
 					</div>
 				</div>
 
-				<div class="content">
+				<div class="content">-->
 					<!-- Swiper -->
-					<div class="swiper-container latest-news-swiper">
+				<!--	<div class="swiper-container latest-news-swiper">
 						<div class="swiper-wrapper">
-							<?php for($i=0; $i<2; $i++): ?>
+							<?php //for($i=0; $i<2; $i++): ?>
 							<div class='swiper-slide'>
 								<ul class='items'>
 									<li>
@@ -254,129 +280,87 @@
 									</li>
 								</ul>
 							</div>
-							<?php endfor; ?>
+							<?php //endfor; ?>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<div class='box-3'>
 				<div class="content">
 
-					<div class='arrows'>
+					<!--<div class='arrows'>
 						<figure data-action="prev">
-							<img src='/assets/img/icons/arrow-white-left.svg' alt='' title=''>
+							<img src='<?php //echo get_template_directory_uri();?>/assets/img/icons/arrow-white-left.svg' alt='' title=''>
 						</figure>
 						<div class='page-number'>1 / 5</div>
 						<figure data-action="next">
-							<img src='/assets/img/icons/arrow-white-right.svg' alt='' title=''>
+							<img src='<?php //echo get_template_directory_uri();?>/assets/img/icons/arrow-white-right.svg' alt='' title=''>
 						</figure>
-					</div>
+					</div>-->
 
 					<!-- Swiper -->
 					<div class="swiper-container generic-article-swiper">
 						<div class="swiper-wrapper">
-							<?php for($y=0; $y<10; $y++): ?>
 								<div class='swiper-slide'>
-									<ul class='items'>
-										<?php for($i=0; $i<10; $i++): ?>
-										<li class='
-											<?php
-												switch($i){
-													case 0:
-													case 9:
-														echo 'articles';
-													break;
-													case 1:
-													case 3:
-													case 7:
-														echo 'contacts';
-													break;
-													case 2:
-													case 8:
-														echo 'meme';
-													break;
-													case 4:
-														echo 'stories';
-													break;
-													case 5:
-														echo 'healthy';
-													break;
-													case 6:
-														echo 'documentary';
-													break;
-												}
-											?>
-										'>
-											<a href=''>
+								<?php
+								/* Query per Ultime news
+								*---------------------*/
+								$args = array(
+										'posts_per_page' => 10
+								);
+								$loop = new WP_Query( $args );
+								$i = 0;
+								while( $loop->have_posts() ) : $loop->the_post();
+								$i++;
+								if ($i % 2 == 1){
+									echo '<ul class="items">';
+								}
+								?>
+										<li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+											<a href='<?php the_permalink(); ?>'>
 												<div class='category'>
 													<span>
 														<?php
-															switch($i){
-																case 0:
-																	echo 'Gli Articoli';
-																break;
-																case 1:
-																	echo 'Le rubriche';
-																break;
-																case 2:
-																	echo 'I meme';
-																break;
-																case 3:
-																	echo 'Le rubriche';
-																break;
-																case 4:
-																	echo 'Le storie';
-																break;
-																case 5:
-																	echo 'Salute';
-																break;
-																case 6:
-																	echo 'I documentari';
-																break;
-																case 7:
-																	echo 'Le rubriche';
-																break;
-																case 8:
-																	echo 'I Meme';
-																break;
-																case 9:
-																	echo 'Gli Articoli';
-																break;
+															if ( in_category('articoli') ){
+																echo 'Gli Articoli';
+															} elseif (in_category('documentari')) {
+																echo 'I documentari';
+															} elseif (in_category('le-storie')) {
+																echo 'Le storie';
+															}elseif (in_category('meme')) {
+																echo 'I meme';
+															}elseif (in_category('rubriche')) {
+																echo 'Le rubriche';
+															}elseif (in_category('salute-che-cambia')) {
+																echo 'Salute';
 															}
 														?>
 													</span>
 												</div>
 												<figure>
-													<img src='/assets/img/modules/home/articoli-<?php echo $i + 1; ?>.jpg' alt='' title=''>
+													<?php the_post_thumbnail('icc_single', array('class' => 'img-res','alt' => get_the_title())); ?>
 												</figure>
 
 												<div class='title'>
-													<div class='date'>22 MAGGIO 2019</div>
-													<h3>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h3>
+													<div class='date'><?php the_time('j M Y') ?></div>
+													<h3>	<?php the_title(); ?></h3>
 												</div>
 
 												<article>
-													<p>
-														Sed ut perspiciatis unde omnis iste
-														natus error sit voluptatem accusantium
-														doloremque laudantium, totam rem
-														aperiam, eaque ipsa quae ab illo
-														inventore veritatis et quasi architecto
-														beatae vitae dicta sunt explicabo.
-														Nemo enim ipsam voluptatem quia
-														voluptas sit aspernatur aut odit aut.
-													</p>
+													<?php the_excerpt();?>
 												</article>
 
 												<div class='cta'>LEGGI DI PIÙ</div>
 											</a>
 										</li>
-										<?php endfor; ?>
-									</ul>
+										<?php if ($i % 2 == 0){
+                      echo '</ul>';
+                    }
+										?>
+								<?php endwhile; ?>
 								</div>
-							<?php endfor; ?>
 						</div>
-					</div>
+					</div><!-- swiper-container generic-article-swiper -->
 				</div>
 			</div>
 			<div class='box-4'>

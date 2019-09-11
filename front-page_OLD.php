@@ -65,7 +65,6 @@
 			/* Query per Ultime news
 			*---------------------*/
 			$args = array(
-					'cat' => '-2302', // Tutte le categorie TRANNE Rassegna stampa
 					'posts_per_page' => 10
 			);
 			$loop = new WP_Query( $args );
