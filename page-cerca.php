@@ -145,7 +145,7 @@
     /* Personalizzo query */
     if ($searchterm != ''){
       $args = array(
-          'post_type' => array('post','nostri-libri'),
+          'post_type' => array('post','nostri-libri','rassegna-stampa'),
           'category_name' => $SearchCatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
