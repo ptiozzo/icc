@@ -121,7 +121,7 @@
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <!-- Immagine in evidenza -->
           <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title())); ?>
+            <?php the_post_thumbnail('icc_inostricontenuti', array('class' => 'img-res','alt' => get_the_title())); ?>
 			    </a>
           <!-- Autore o autori -->
           <?php

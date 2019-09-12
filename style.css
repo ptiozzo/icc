@@ -16,8 +16,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /*	Menu
 */
-
- header.stripe .right-col .socials>ul>.twitter>a{
+header.stripe .right-col .socials>ul>.twitter>a{
    width: 20px;
 	 background-image: url('assets/img/icons/twitter.svg');
 	 background-repeat: no-repeat;
@@ -38,9 +37,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	 background-position: left;
 	 text-indent:-9999px;
  }
-
-
- header.overlay-menu .socials>ul>.twitter>a{
+header.overlay-menu .socials>ul>.twitter>a{
 	 width: 25px;
    display: block;
 	 background-image: url('assets/img/icons/twitter-blu.svg');
@@ -67,10 +64,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
    background-size: 25px;
 	 text-indent:-9999px;
  }
-
+ /*	Sidebar
+ */
  aside.sidebar div.widget_text:nth-child(1){
-   padding: 15px;
    background: #F79865;
+   color: #fff;
  }
  aside.sidebar div.widget_text:nth-child(3) h3{
   display: block;
