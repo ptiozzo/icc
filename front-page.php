@@ -41,7 +41,7 @@
 											<a href='<?php echo the_permalink();?>'>
 												<div class='box-head'>
 													<figure>
-														<img src='<?php the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title())); ?>'>
+														<img src='<?php the_post_thumbnail('icc_lestoriehome', array('class' => 'img-res','alt' => get_the_title())); ?>'>
 													</figure>
 													<div class='date'><?php the_time('j M Y') ?></div>
 												</div>
@@ -184,7 +184,7 @@
 				<div class='content'>
 					<a href='<?php echo the_permalink();?>'>
 						<figure>
-							<?php the_post_thumbnail('icc_single', array('class' => 'img-res','alt' => get_the_title())); ?>
+							<?php the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-res','alt' => get_the_title())); ?>
 						</figure>
 
 						<article>
@@ -338,7 +338,7 @@
 													</span>
 												</div>
 												<figure>
-													<?php the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title())); ?>
+													<?php the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-res','alt' => get_the_title())); ?>
 												</figure>
 
 												<div class='title'>
@@ -405,192 +405,8 @@
 				</div>
 			</div>
 		</div>
-
-
-		<aside>
-			<section class='newsletter-box'>
-				<div class='box-title'>ISCRIVITI ALLA NEWSLETTER</div>
-				<form>
-					<input type="text" placeholder='Email'>
-					<figure>
-						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-bar-right.svg' title='' alt=''>
-					</figure>
-				</form>
-			</section>
-
-			<section class='actions-group'>
-				<div class='head'>
-					<div class='title'>
-						<h5>LE REGIONI</h5>
-					</div>
-				</div>
-
-				<ul class='actions'>
-					<li>
-						<a href=''>
-							Piemonte che cambia
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							Casentino che cambia
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							Berlin im Wandel
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							Brandeburg im Wandel
-						</a>
-					</li>
-				</ul>
-			</section>
-
-			<section class='list'>
-				<a href=''>PERCORSI DI CAMBIAMENTO</a>
-
-				<div class='head'>
-					<div class='title'>
-						<h5>CAMPAGNE TEMATICHE</h5>
-					</div>
-				</div>
-
-
-				<ul class='campaigns'>
-					<li>
-						<a href=''>
-							<figure>
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-1.jpg' alt='' title=''>
-							</figure>
-
-							<div class='title'>
-								<h3>Cambia la finanza,<br> scegli l’etica</h3>
-								<div class='date'>22 MAGGIO 2019</div>
-							</div>
-
-							<article>
-								<p>
-									Sed ut perspiciatis unde omnis iste
-									natus error sit voluptatem accusantium
-									doloremque laudantium, totam rem
-									aperiam, eaque ipsa quae ab illo
-									inventore veritatis et quasi architecto
-									beatae vitae dicta sunt explicabo.
-									Nemo enim ipsam voluptatem quia
-									voluptas sit aspernatur aut odit aut.
-								</p>
-							</article>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<figure>
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-2.jpg' alt='' title=''>
-							</figure>
-
-							<div class='title'>
-								<h3>Viaggia in un mo(n)do diverso</h3>
-								<div class='date'>22 MAGGIO 2019</div>
-							</div>
-
-							<article>
-								<p>
-									Sed ut perspiciatis unde omnis iste
-									natus error sit voluptatem accusantium
-									doloremque laudantium, totam rem
-									aperiam, eaque ipsa quae ab illo
-									inventore veritatis et quasi architecto
-									beatae vitae dicta sunt explicabo.
-									Nemo enim ipsam voluptatem quia
-									voluptas sit aspernatur aut odit aut.
-								</p>
-							</article>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<figure>
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-3.jpg' alt='' title=''>
-							</figure>
-
-							<div class='title'>
-								<h3>La scuola cambia, cambia la tua scuola</h3>
-								<div class='date'>22 MAGGIO 2019</div>
-							</div>
-
-							<article>
-								<p>
-									Sed ut perspiciatis unde omnis iste
-									natus error sit voluptatem accusantium
-									doloremque laudantium, totam rem
-									aperiam, eaque ipsa quae ab illo
-									inventore veritatis et quasi architecto
-									beatae vitae dicta sunt explicabo.
-									Nemo enim ipsam voluptatem quia
-									voluptas sit aspernatur aut odit aut.
-								</p>
-							</article>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<figure>
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-4.jpg' alt='' title=''>
-							</figure>
-
-							<div class='title'>
-								<h3>A natale non mangiamoci il pianeta</h3>
-								<div class='date'>22 MAGGIO 2019</div>
-							</div>
-
-							<article>
-								<p>
-									Sed ut perspiciatis unde omnis iste
-									natus error sit voluptatem accusantium
-									doloremque laudantium, totam rem
-									aperiam, eaque ipsa quae ab illo
-									inventore veritatis et quasi architecto
-									beatae vitae dicta sunt explicabo.
-									Nemo enim ipsam voluptatem quia
-									voluptas sit aspernatur aut odit aut.
-								</p>
-							</article>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<figure>
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/campaign-5.jpg' alt='' title=''>
-							</figure>
-
-							<div class='title'>
-								<h3>Cambia la tua energia</h3>
-								<div class='date'>22 MAGGIO 2019</div>
-							</div>
-
-							<article>
-								<p>
-									Sed ut perspiciatis unde omnis iste
-									natus error sit voluptatem accusantium
-									doloremque laudantium, totam rem
-									aperiam, eaque ipsa quae ab illo
-									inventore veritatis et quasi architecto
-									beatae vitae dicta sunt explicabo.
-									Nemo enim ipsam voluptatem quia
-									voluptas sit aspernatur aut odit aut.
-								</p>
-							</article>
-						</a>
-					</li>
-				</ul>
-
-
-			</section>
-		</aside>
 	</section>
+	<?php get_sidebar(); ?>
 </main>
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

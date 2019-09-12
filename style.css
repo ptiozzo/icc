@@ -68,6 +68,97 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	 text-indent:-9999px;
  }
 
+ aside.sidebar div.widget_text:nth-child(1){
+   padding: 15px;
+   background: #F79865;
+ }
+ aside.sidebar div.widget_text:nth-child(3) h3{
+  display: block;
+  font-size: 12px;
+  line-height: 14px;
+  background: #F76576;
+  padding: 25px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+ }
+
+ aside.sidebar div{
+   padding: 15px;
+ }
+ aside.sidebar div h4{
+  margin: 25px 0 20px 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+ }
+ aside.sidebar div p{
+   margin: 15px 0 0 0;
+   padding: 0 10px;
+   font-size: 11px;
+   line-height: 13px;
+   text-align: center;
+ }
+ aside.sidebar div a{
+   color: #000;
+ }
+ aside.sidebar div a:hover{
+   text-decoration: none;
+ }
+aside.sidebar div figure{
+  margin-top: 20px;
+}
+ aside.sidebar div figure img{
+   vertical-align: middle;
+   display:block;;
+   margin: auto;
+ }
+ aside.sidebar div div{
+   padding: 0;
+ }
+ aside.sidebar div h3{
+   font-size: 11px;
+   line-height: 11px;
+   font-weight: 900;
+   text-align: center;
+   text-transform: uppercase;
+ }
+ aside.sidebar div.widget_nav_menu ul{
+   margin: 12.5px 0 0 0;
+   padding: 0 0 15px 0;
+   list-style: none;
+   border-bottom: solid #D0D0D0 1px;
+ }
+ aside.sidebar div.widget_nav_menu ul li:not(:last-child){
+    margin-bottom: 4px;
+ }
+ aside.sidebar div.widget_nav_menu ul li:nth-child(1){
+   background: #A5DBB8;
+ }
+ aside.sidebar div.widget_nav_menu ul li:nth-child(2){
+   background: #8BCFBB;
+ }
+ aside.sidebar div.widget_nav_menu ul li:nth-child(3){
+   background: #73C6BE;
+ }
+ aside.sidebar div.widget_nav_menu ul li:nth-child(4){
+   background: #41B2C4;
+ }
+aside.sidebar div.widget_nav_menu ul li a{
+  display: block;
+  color: #000000;
+  font-size: 11px;
+  line-height: 11px;
+  padding: 19px 0;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+aside.sidebar div.widget_nav_menu ul li{
+  text-align: center;
+}
 
 /*	Vista griglia per categorie
 */

@@ -4,7 +4,7 @@
     {
       dynamic_sidebar('piemonte');
     }
-    elseif (is_category('rassegna-stampa'))
+    elseif (get_post_type() == 'rassegna-stampa')
     {
       dynamic_sidebar('rassegna-stampa');
     }

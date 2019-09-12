@@ -19,10 +19,14 @@ class icc_Widget_CampagneTematiche extends WP_Widget {
     );
     $custom_query = new WP_Query( $custom_query_args );
      if ( $custom_query->have_posts() ) :
-       while ( $custom_query->have_posts() ) : $custom_query->the_post();
-          the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title())); ?>
-          <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+       while ( $custom_query->have_posts() ) : $custom_query->the_post();?>
+        <a href="<?php the_permalink(); ?>">
+          <figure>
+            <?php the_post_thumbnail('icc_sidebar', array('class' => 'img-res','alt' => get_the_title())); ?>
+          </figure>
+          <h4><?php the_title(); ?></h4>
           <?php the_excerpt();?>
+        </a>
       <?php endwhile; endif; wp_reset_postdata(); ?>
     <?php echo $args['after_widget'];
   }
