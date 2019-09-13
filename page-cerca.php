@@ -5,6 +5,7 @@
 ?>
 <div class="content-no-sidebar">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
+    <div class="contenuti_header">
   <?php
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
@@ -52,12 +53,8 @@
   if ($SearchCat1 == $ParentCat1){
     echo "<h1>Cerca</h1>";
   }
-  else {
-    echo "<h2>Termine ricercato: </h2>";
-    echo "<h1>".$searchterm."</h1>";
-  }
 
-  if($searchterm == ''){
+  if($_POST['submit_button'] && $searchterm == ''){
     echo "Ricerca nulla";
   }
  ?>
@@ -68,8 +65,7 @@
           if ($searchterm != '')
           {
          ?>
-        </br>
-         <p>Raffina la tua ricerca</p>
+         <br />
         <select name="contenuti-dropdown">
           <option value="i-nostri-contenuti" <?php if ($SearchCat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'Tutti i nostri contenuti'; ?></option>
           <?php
@@ -98,6 +94,7 @@
           }
           ?>
       </select>
+      <br />
       <!-- Dropdown per autore -->
       <select name="autore-dropdown">
         <option value="autore" <?php if ($SearchAutore == 'autore') {echo 'selected';}?> ><?php echo 'Tutti gli autori'; ?></option>
@@ -125,6 +122,15 @@
   <?php } ?>
     <input name="submit_button" type="Submit" value="Cerca">
   </form>
+</div><!-- contenuti_header -->
+<div class="risultato-ricerca">
+<?php
+  if ($SearchCat1 != $ParentCat1) {
+    echo "<h2>Termine ricercato: </h2>";
+    echo "<h1>".$searchterm."</h1>";
+  }
+?>
+</div>
 
   <br /><br />
 
