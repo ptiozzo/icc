@@ -47,8 +47,9 @@
 
 				<section class='search'>
 					<figure>
-						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
-						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search-white.svg' alt='Cerca su <?php bloginfo( 'name' ); ?>' class='white'>
+						<a href="<?php echo home_url(); ?>/cerca/">
+							<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
+						</a>
 					</figure>
 				</section>
 				<section class='socials'>
