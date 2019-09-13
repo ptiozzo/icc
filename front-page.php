@@ -321,9 +321,7 @@
 												<div class='category'>
 													<span>
 														<?php
-															if ( in_category('articoli') ){
-																echo 'Gli Articoli';
-															} elseif (in_category('documentari')) {
+															if (in_category('documentari')) {
 																echo 'I documentari';
 															} elseif (in_category('le-storie')) {
 																echo 'Le storie';
@@ -333,6 +331,8 @@
 																echo 'Le rubriche';
 															}elseif (in_category('salute-che-cambia')) {
 																echo 'Salute';
+															}elseif (in_category('articoli')) {
+																echo 'Gli Articoli';
 															}
 														?>
 													</span>
