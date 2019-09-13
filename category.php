@@ -5,6 +5,7 @@
 ?>
 <div class="content-no-sidebar">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
+<div class="contenuti_header">
   <?php
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
@@ -43,7 +44,6 @@
   }
   else {
     echo "<h2>".get_category_by_slug($ParentCat1)->name."</h2>";
-    echo "<h1>".get_category_by_slug($Cat1)->name."</h1>";
   }
  ?>
   <!-- Dropdown per selezione contenuto -->
@@ -89,14 +89,35 @@
     </select>
     <input name="submit_button" type="Submit" value="Filtra">
   </form>
+</div><!-- contenuti_header -->
+<?php if ($Cat1 != $ParentCat1){ ?>
+  <div class="cat2 category-<?php echo $Cat1 ?>">
+    <?php if ($Cat1 != "nostri-libri"){ ?>
+      <h1><?php echo get_category_by_slug($Cat1)->name ?></h1>
+    <?php } else { ?>
+      <h1>I nostri libri</h1>
+    <?php } ?>
+  </div>
+<?php } ?>
 
-  <br /><br />
 
   <?php
+
+    $CatTerm = $Cat1."+".$Cat2;
+    ?>
+    <!--
+    <?php
+    echo "Contenuto ".$Cat1;
+    echo " - Tematica ".$Cat2;
+    echo " - Categoria di Ricerca ".$CatTerm;
+    echo " - Ordinamento ".$ord;
+    ?>
+    -->
+    <?php
     /* Personalizzo query */
     if($Cat1 != "nostri-libri"){
       $args = array(
-          'category_name' => $Cat1."+".$Cat2,
+          'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
           'order'         => $ord
@@ -119,24 +140,60 @@
       <?php
       while( $loop->have_posts() ) : $loop->the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          <!-- Immagine in evidenza -->
-          <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail('icc_inostricontenuti', array('class' => 'img-res','alt' => get_the_title())); ?>
-			    </a>
-          <!-- Autore o autori -->
-          <?php
-            echo "<p>Scritto da ".get_the_author();
-            /* controllo se esiste un secondo autore */
-            if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
-              echo " e ". get_post_meta( get_the_ID(), 'SecondoAutore',true);
+          <a href='<?php the_permalink(); ?>'>
+            <?php
+            if ($Cat1 == $ParentCat1) { ?>
+              <div class='category'>
+                <span><?php the_time('j M') ?></span>
+                <span>
+                  <?php
+                    if (in_category('documentari')) {
+                      echo 'I documentari';
+                    } elseif (in_category('le-storie')) {
+                      echo 'Le storie';
+                    }elseif (in_category('meme')) {
+                      echo 'I meme';
+                    }elseif (in_category('rubriche')) {
+                      echo 'Le rubriche';
+                    }elseif (in_category('salute-che-cambia')) {
+                      echo 'Salute';
+                    }elseif (in_category('articoli')) {
+                      echo 'Gli Articoli';
+                    }
+                  ?>
+                </span>
+              </div>
+            <?php } ?>
+            <!-- Immagine in evidenza -->
+            <figure>
+              <?php
+                if ($Cat1 != "nostri-libri"){
+                  the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title()));
+                } else {
+                  the_post_thumbnail('icc_libri', array('class' => 'img-res','alt' => get_the_title()));
+                }
+              ?>
+            </figure>
+            <!-- Autore o autori -->
+            <?php
+            if ($Cat1 != "nostri-libri"){
+              echo "<div class='autore'>Scritto da <b>".get_the_author();
+              /* controllo se esiste un secondo autore */
+              if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
+                echo " e ". get_post_meta( get_the_ID(), 'SecondoAutore',true);
+              }
+              echo "</b></div>";
             }
-            echo "</p>";
-          ?>
-          <!-- Titolo -->
-          <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-			    <?php the_excerpt();?>
-          <!-- Leggi tutto -->
-          <a href="<?php the_permalink(); ?>">Leggi tutto</a>
+            ?>
+            <!-- Titolo -->
+            <div class='title'>
+              <h3><?php the_title(); ?></h3>
+            </div>
+
+              <?php the_excerpt();?>
+
+            <div class='cta'>LEGGI DI PIÙ</div>
+          </a>
         </article>
         <?php
       endwhile;
@@ -159,7 +216,7 @@
         <?php
       else:
         ?>
-        <p>Spiacente, ma la tua ricerca non ha prodotto nessun risultato</p>
+          <br /><br /><br /><br /><br /><p>Spiacente, ma la tua ricerca non ha prodotto nessun risultato</p>
         <?php
       endif;
     wp_reset_query();
