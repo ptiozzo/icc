@@ -70,7 +70,7 @@ header.overlay-menu .socials>ul>.twitter>a{
    background: #F79865;
    color: #fff;
  }
- aside.sidebar div.widget_text:nth-child(3) h3{
+ aside.sidebar div.icc_Widget_CampagneTematiche h3{
   display: block;
   font-size: 12px;
   line-height: 14px;
@@ -278,6 +278,103 @@ div.contenuti_header select{
   text-transform: uppercase;
   padding-bottom: 3px;
   text-decoration: underline;
+}
+/* SINGLE
+*/
+
+.single .single__nav__category{
+  padding: 30px 90px 100px 90px;
+}
+.single .category-articoli .single__nav__category{background: #68D8B1;}
+.single .category-meme .single__nav__category{background: #F79865}
+.single .category-documentari .single__nav__category{background: #3D78D0}
+.single .category-rubriche .single__nav__category{background: #F270C0}
+.single .category-le-storie .single__nav__category{background: #AF0000}
+.single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
+
+.single .single__nav__category span:nth-child(1){
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+.single .single__nav__category span:nth-child(3){
+  font-size: 13px;
+  line-height: 13px;
+  color: #FFFFFF;
+  margin: 20px 0 5px 0;
+}
+.single .single__thumbnail{
+  margin-top: -70px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.single .single__category{
+  padding: 0 90px;
+}
+.single .single__head{
+  padding: 20px 90px 40px 90px;
+  border-top: solid 1px #D0D0D0;
+  border-bottom: solid 1px #D0D0D0;
+  margin-top: 20px;
+}
+.single .single__tag a{
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: 500;
+  padding: 15px 20px;
+  color: #FFFFFF;
+  margin-top: 30px;
+}
+.single .category-articoli .single__tag a{background: #68D8B1;}
+.single .category-meme .single__tag a{background: #F79865}
+.single .category-documentari .single__tag a{background: #3D78D0}
+.single .category-rubriche .single__tag a{background: #F270C0}
+.single .category-le-storie .single__tag a{background: #AF0000}
+.single .category-salute-che-cambia .single__tag a{background: #7FD1F5}
+
+.single .single__head .single__date{
+  color: #A3A3A3;
+  font-size: 11px;
+  line-height: 11px;
+  padding-top: 10px;
+}
+.single .single__head .single__title{
+  margin: 20px 0 10px 0;
+  padding: 0;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 900;
+  color: #000000;
+}
+.single .single__head .single__author{
+  font-size: 15px;
+  color: #A3A3A3;
+}
+.single .single__head .single__metaDescription{
+  margin: 20px 0 10px 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 18px;
+  color: #000000;
+}
+.single .single__articolo{
+  margin-top: 20px;
+  padding: 0 90px;
+}
+.single .single__attivati{
+  padding: 20px 0px;
+}
+
+.single img.aligncenter,
+.single iframe{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
