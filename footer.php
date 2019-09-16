@@ -57,17 +57,6 @@
 
 </section>
 </footer>
-
-
-<!-- Scripts
-<script src="/assets/js/plugins/jquery.min.js"></script>
-<script src="/assets/js/plugins/jquery.easing.min.js"></script>
-<script src="/assets/js/plugins/swiper.min.js"></script>
-<script src="/assets/js/app.js"></script>
-<script src="/assets/js/modules/home/index.js"></script>
-<script src="/assets/js/modules/salute-che-cambia/index.js"></script>
-<script src="/assets/js/modules/piemonte-che-cambia/index.js"></script>
-<script src="/assets/js/modules/contenuti/index.js"></script>
--->
+<?php wp_footer();?>
 </body>
 </html>
