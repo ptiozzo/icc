@@ -199,7 +199,7 @@
 				<?php
 				endwhile;
 			 	else:
-				 echo "<p>Non ho trovato nessun Le storie</p>";
+				 echo "<p>Non ho trovato nessuna Rassegna Stampa</p>";
 			 	endif;
 			 	wp_reset_query();?>
 			</div>
