@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="content-no-sidebar">
+<div class="content-no-sidebar <?php body_class(); ?>">
   <?php if( have_posts() ) : ?>
     <?php
       while(have_posts() ) : the_post();

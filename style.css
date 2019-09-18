@@ -161,7 +161,7 @@ aside.sidebar div.widget_nav_menu ul li{
 /*	Vista griglia per categorie
 */
 div.content-no-sidebar, div.content{
-
+  padding: 0 30px;
 }
 div.contenuti_header{
   display: flex;
@@ -375,6 +375,23 @@ div.contenuti_header select{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+/*
+PAGE
+*/
+h3.chi-siamo-title{
+  padding-top: 40px;
+  border-top: solid 1px #D0D0D0;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 900;
+}
+
+h3.orange,
+p.orange{
+  background-color: #F79865;
 }
 
 
