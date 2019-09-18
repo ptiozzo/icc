@@ -172,9 +172,7 @@
 				<?php
 				$args = array(
 				'post_type' => 'rassegna-stampa',
-				'orderby' => 'menu_order',
-				'posts_per_page' => 1,
-				'order' => 'ASC',
+				'posts_per_page' => 1
 				);
 				$loop = new WP_Query( $args );
 				$i = 0;
