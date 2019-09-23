@@ -25,7 +25,7 @@
 					?>
 				</span>
 				<br />
-				<span><?php the_time('j M') ?> - <?php the_title(); ?></span>
+				<span><?php the_time('j M Y') ?> - <?php the_title(); ?></span>
 			</div>
 			<!-- Thumbnail o video youtube -->
 			<div class="single__thumbnail">
