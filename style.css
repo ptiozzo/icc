@@ -395,6 +395,53 @@ p.orange{
 }
 
 
+
+/*
+CAROUSEL
+*/
+.slider-footer{
+  background-color: #EBEBEB;
+}
+.carousel-indicators {
+    bottom: -10px;
+    margin-right: 0;
+    margin-left: 0;
+    left: unset;
+    position: relative;
+}
+.carousel-indicators li{
+  display: none;
+}
+.carousel-indicators li.active{
+  text-indent: 0;
+  margin-right: 10px;
+  display: contents;
+  color: #000;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+  top: unset;
+  bottom: unset;
+  opacity: 1;
+  width: unset;
+}
+.carousel-control-next{
+  left: 30px;
+  right: unset;
+}
+.carousel-control-next-icon{
+  background-image: url('assets/img/icons/arrow-circle-right.svg');
+  height: 25px;
+  width: 25px;
+}
+.carousel-control-prev-icon{
+  background-image: url('assets/img/icons/arrow-circle-left.svg');
+  height: 25px;
+  width: 25px;
+}
+
+
 /* Clearfix */
 .clearfix:after {
 	visibility: hidden;

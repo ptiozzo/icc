@@ -34,7 +34,7 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_style( 'icc10', get_template_directory_uri().'/assets/css/modules/salute-che-cambia/index.css');
 		wp_enqueue_style( 'icc11', get_template_directory_uri().'/assets/css/modules/campagne-tematiche/index.css');
 		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css');
-
+		wp_enqueue_style( 'icc-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css');
 		wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css');
 
 		wp_enqueue_script('jquery');
@@ -44,6 +44,7 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_script( 'icc-scripts4', get_template_directory_uri() . '/assets/js/plugins/jquery.easing.min.js');
 		wp_enqueue_script( 'icc-scripts5', get_template_directory_uri() . '/assets/js/plugins/swiper.min.js','','',true);
 		wp_enqueue_script( 'icc-scripts6', get_template_directory_uri() . '/assets/js/modules/home/index.js','','',true);
+		wp_enqueue_script( 'icc-bootstrap-js', get_template_directory_uri().'/assets/js/bootstrap.min.js','','',true);
 		wp_enqueue_script( 'icc-scripts7', get_template_directory_uri() . '/assets/js/modules/salute-che-cambia/index.js');
 		wp_enqueue_script( 'icc-scripts8', get_template_directory_uri() . '/assets/js/modules/piemonte-che-cambia/index.js');
 		wp_enqueue_script( 'icc-scripts9', get_template_directory_uri() . '/assets/js/modules/contenuti/index.js');
