@@ -440,16 +440,14 @@ CAROUSEL
   height: 25px;
   width: 25px;
 }
-
-
-/* Clearfix */
-.clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
-	}
-* html .clearfix             { zoom: 1; } /* IE6 */
-*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+.card-title{
+  margin: 10px 0 0 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+}
+.card-text{
+  font-size: 11px;
+  line-height: 13px;
+}
