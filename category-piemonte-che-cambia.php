@@ -88,7 +88,7 @@
             	    );
             			$loop = new WP_Query( $args );
             	    if( $loop->have_posts() ) : ?>
-                  <div id="carouselLeNostreStorie" class="carousel slide" data-ride="carousel" data-interval="false">
+                  <div id="carouselLeNostreStorie" class="carousel carousel-controll-down slide" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner">
                       <?php
             	        while( $loop->have_posts() ) : $loop->the_post();

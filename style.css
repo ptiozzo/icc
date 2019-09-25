@@ -419,35 +419,35 @@ CAROUSEL
   color: #000;
 }
 
-.carousel-control-prev,
-.carousel-control-next{
+.carousel-controll-down .carousel-control-prev,
+.carousel-controll-down .carousel-control-next{
   top: unset;
   bottom: unset;
   opacity: 1;
   width: unset;
 }
-.carousel-control-next{
+.carousel-controll-down .carousel-control-next{
   left: 30px;
   right: unset;
 }
-.carousel-control-next-icon{
+.carousel-controll-down .carousel-control-next-icon{
   background-image: url('assets/img/icons/arrow-circle-right.svg');
   height: 25px;
   width: 25px;
 }
-.carousel-control-prev-icon{
+.carousel-controll-down .carousel-control-prev-icon{
   background-image: url('assets/img/icons/arrow-circle-left.svg');
   height: 25px;
   width: 25px;
 }
-.card-title{
+.carousel-controll-down .card-title{
   margin: 10px 0 0 0;
   padding: 0;
   font-size: 18px;
   line-height: 20px;
   font-weight: 700;
 }
-.card-text{
+.carousel-controll-down .card-text{
   font-size: 11px;
   line-height: 13px;
 }
