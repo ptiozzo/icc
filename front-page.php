@@ -29,64 +29,66 @@
 						    );
 								$loop = new WP_Query( $args );
                 $i = 0;
-						    if( $loop->have_posts() ) :
-						        while( $loop->have_posts() ) : $loop->the_post();
+						    if( $loop->have_posts() ) : ?>
+									<div id="carouselLeNostreStorie" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+										<?php
+										while( $loop->have_posts() ) : $loop->the_post();
                     $i++;
+										if ($i % 2 == 1){ ?>
+											<div class="carousel-item <?php if ($i == 1){echo 'active';} ?>">
+												<div class="card-group">
+										<?php
+										}
+										?>
 
-                  if ($i % 2 == 1){
-                    echo '<div class="swiper-slide">';
-                  }
-                  ?>
-										<div class='box'>
-											<a href='<?php echo the_permalink();?>'>
-												<div class='box-head'>
-													<figure>
-														<img src='<?php the_post_thumbnail('icc_lestoriehome', array('class' => 'img-res','alt' => get_the_title())); ?>'>
-													</figure>
-													<div class='date'><?php the_time('j M Y') ?></div>
+											<div class="card border-0 p-1">
+												<?php the_post_thumbnail('icc_single', array('class' => 'img-res card-img-top mx-auto d-block','alt' => get_the_title()));?>
+												<div class="card-body">
+													<h5 class="card-title"><?php the_title(); ?></h5>
+													<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
+													<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
 												</div>
-												<div class='box-body'>
-													<article>
-														<div class='title'>
-															<?php the_title(); ?>
-														</div>
-														<div class='description'>
-															<p>
-																<?php the_excerpt();?>
-															</p>
-														</div>
-													</article>
+											</div>
+											<?php
+											if ($i % 2 == 0){ ?>
+													</div>
 												</div>
-											</a>
+											<?php
+											}
+											?>
+
+									<?php
+									endwhile; ?>
 										</div>
-                    <?php if ($i % 2 == 0){
-                      echo '</div>';
-                    }
-								 endwhile;
-                else:
+										<div class="slider-footer d-flex flex-row align-items-center justify-content-between">
+                      <a class="carousel-control-prev pl-2" href="#carouselLeNostreStorie" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next pl-2" href="#carouselLeNostreStorie" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                      <a href="" class="carousel-more mx-auto">Vedi tutto</a>
+                      <ol class="carousel-indicators pr-2">
+                        <?php
+												$i = $i/2;
+                        for ($count = 0;$count <= $i-1; $count++){
+                         ?>
+                        <li data-target="#carouselLeNostreStorie" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
+                        <?php
+                        }
+                        ?>
+                        <p class="font-weight-bold h4">/<?php echo $i;?></p>
+                      </ol>
+                    </div>
+									</div>
+								<?php
+								else:
                   echo "<p>Non ho trovato nessun Le storie</p>";
                 endif;
                 wp_reset_query();?>
-							</div>
-
-							<div class='articles-foot'>
-
-								<div class='arrows'>
-									<figure data-action='prev'>
-										<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-circle-left.svg' alt='' title=''>
-									</figure>
-									<figure data-action='next'>
-										<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-circle-right.svg' alt='' title=''>
-									</figure>
-									<div class='numbers'>1 / <?php echo $i; ?></div>
-								</div>
-
-								<a href='http://icc.local/category/i-nostri-contenuti/le-storie/' class='action'>
-									VEDI TUTTE LE STORIE
-								</a>
-
-								<!-- Swiper Pagination -->
-								<div class="swiper-pagination"></div>
 							</div>
 						</div>
 
