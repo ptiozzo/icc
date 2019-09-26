@@ -24,8 +24,12 @@
 								/* Query per Le storie
 								*---------------------*/
 						    $args = array(
-						        'category_name' => 'le-storie',
-										'posts_per_page' => 10
+									'post_type' => 'post',
+									'posts_per_page' => 10,
+									'category_name' => 'le-storie',
+									'category__not_in' => array( 2299,2300 ),
+
+
 						    );
 								$loop = new WP_Query( $args );
                 $i = 0;
