@@ -197,29 +197,72 @@ div.contenuti_header select{
 .cat2.category-le-storie{background: #AF0000}
 .cat2.category-salute-che-cambia{background: #7FD1F5}
 
-.grid{
-	display: grid;
+/*
+5 COLONNE
+*/
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-5ths {
+    flex: 0 0 20%;
+    float: left;
+}
+@media (min-width: 576px) {
+    .col-sm-5ths{
+      flex: 0 0 20%;
+      float: left;
+    }
+}
+@media (min-width: 768px) {
+    .col-md-5ths {
+        flex: 0 0 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-5ths {
+        flex: 0 0 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-5ths {
+        flex: 0 0 20%;
+        float: left;
+    }
+}
+
+
+.row{
   padding-top: 30px;
-	grid-template-columns: 20% 20% 20% 20% 20%;
   padding: 20px 30px 0 30px;
 }
-.grid{
+.row{
   border-bottom: solid 1px #D0D0D0;
 }
-.grid article{
+.row article{
 	padding: 10px;
 }
-.grid article a{
+.row article a{
   position: relative;
   display: block;
   color: #000000;
   text-decoration: none;
   padding: 20px 0 0 15px;
 }
-.grid article a:hover{
+.row article a:hover{
   text-decoration: none;
 }
-.grid article a .category{
+.row article a .category{
   display: flex;
   position: absolute;
   top: 0;
@@ -229,7 +272,7 @@ div.contenuti_header select{
   justify-content: space-between;
   padding: 0 10px 0;
 }
-.grid article a .category span{
+.row article a .category span{
   display: block;
   position: relative;
   z-index: 1;
@@ -239,37 +282,37 @@ div.contenuti_header select{
   /*color: #FFFFFF;*/
   font-weight: 700;
 }
-.grid article.category-articoli a:hover .category{background: #68D8B1;}
-.grid article.category-meme a:hover .category{background: #F79865}
-.grid article.category-documentari a:hover .category{background: #3D78D0}
-.grid article.category-rubriche a:hover .category{background: #F270C0}
-.grid article.category-le-storie a:hover .category{background: #AF0000}
-.grid article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
+.row article.category-articoli a:hover .category{background: #68D8B1;}
+.row article.category-meme a:hover .category{background: #F79865}
+.row article.category-documentari a:hover .category{background: #3D78D0}
+.row article.category-rubriche a:hover .category{background: #F270C0}
+.row article.category-le-storie a:hover .category{background: #AF0000}
+.row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
 
 
-.grid article a figure{
+.row article a figure{
   position: relative;
   margin-top: 10px;
 }
-.grid article a .autore{
+.row article a .autore{
   font-size: 11px;
   line-height: 13px;
   color: #A3A3A3;
   margin-top: 10px;
 }
-.grid article a .title{
+.row article a .title{
   margin: 10px 0 0 0;
   padding: 0;
   font-size: 18px;
   line-height: 20px;
   font-weight: 700;
 }
-.grid article a p{
+.row article a p{
   margin: 10px 0 1rem 0;
   font-size: 11px;
   line-height: 13px;
 }
-.grid article a .cta{
+.row article a .cta{
   display: inline-block;
   position: relative;
   font-weight: 600;
@@ -477,4 +520,10 @@ CAROUSEL
   width: 85px;
   float: right;
   height: 15px;
+}
+
+.category-i-nostri-contenuti h3{
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
 }
