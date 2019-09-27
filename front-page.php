@@ -47,7 +47,7 @@
 										?>
 
 											<div class="card border-0 p-1">
-												<?php the_post_thumbnail('icc_single', array('class' => 'img-res card-img-top mx-auto d-block','alt' => get_the_title()));?>
+												<?php the_post_thumbnail('icc_single', array('class' => 'img-fluid card-img-top mx-auto d-block','alt' => get_the_title()));?>
 												<div class="card-body">
 													<h5 class="card-title"><?php the_title(); ?></h5>
 													<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
@@ -108,60 +108,121 @@
 				<div class='head'>
 					<div class='title'>
 						<h5>LA MAPPA DELL’ITALIA CHE CAMBIA</h5>
-
-						<div class='arrows'>
-							<figure data-action="prev">
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-white-left.svg' alt='' title=''>
-							</figure>
-							<div class='page-number'>1 / 5</div>
-							<figure data-action="next">
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-white-right.svg' alt='' title=''>
-							</figure>
-						</div>
 					</div>
 				</div>
 
 				<div class='content'>
 					<!-- Swiper -->
-					<div class="swiper-container map-swiper">
-						<div class="swiper-wrapper">
-							<?php for($i=0; $i<10; $i++ ): ?>
-								<div class="swiper-slide">
-									<article>
-										<div class='left'>
-											<ul class='list'>
-												<li>
-													<div class='info'>
-														<div class='number'>18</div>
-														<div class='text'>RETI</div>
-													</div>
-													<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
-												</li>
-												<li>
-													<div class='info'>
-														<div class='number'>2062</div>
-														<div class='text'>REALTÀ</div>
-													</div>
-												</li>
-												<li>
-													<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
-												</li>
-											</ul>
-										</div>
-										<div class='right'>
-											<figure>
-												<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/italy-map.svg' alt='' title=''>
-											</figure>
-										</div>
-									<article>
-								</div>
-							<?php endfor; ?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+					<div id="carouselMappa" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
+					  <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
+					    <a class="carousel-control-prev" href="#carouselMappa" role="button" data-slide="prev">
+					      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					      <span class="sr-only">Previous</span>
+					    </a>
+					    <ol class="carousel-indicators pr-2 text-white">
+					      <li data-target="#carouselMappa" data-slide-to="0" class="text-white active">1</li>
+					      <li data-target="#carouselMappa" data-slide-to="1" class="text-white">2</li>
+				        <li data-target="#carouselMappa" data-slide-to="2" class="text-white">3</li>
+				        <p class=""> /3</p>
+				      </ol>
+				      <a class="carousel-control-next" href="#carouselMappa" role="button" data-slide="next">
+				        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				        <span class="sr-only">Next</span>
+				      </a>
+				    </div>
+				    <div class="carousel-inner">
+				      <div class="carousel-item active">
+								<article>
+									<div class='left'>
+										<ul class='list'>
+											<li>
+												<div class='info'>
+													<div class='number'>18</div>
+													<div class='text'>RETI</div>
+												</div>
+												<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
+											</li>
+											<li>
+												<div class='info'>
+													<div class='number'>2062</div>
+													<div class='text'>REALTÀ</div>
+												</div>
+											</li>
+											<li>
+												<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+											</li>
+										</ul>
+									</div>
+									<div class='right'>
+										<figure>
+											<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/italy-map.svg' alt='' title=''>
+										</figure>
+									</div>
+								<article>
+				      </div>
+				      <div class="carousel-item">
+								<article>
+									<div class='left'>
+										<ul class='list'>
+											<li>
+												<div class='info'>
+													<div class='number'>18</div>
+													<div class='text'>RETI</div>
+												</div>
+												<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
+											</li>
+											<li>
+												<div class='info'>
+													<div class='number'>2062</div>
+													<div class='text'>REALTÀ</div>
+												</div>
+											</li>
+											<li>
+												<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+											</li>
+										</ul>
+									</div>
+									<div class='right'>
+										<figure>
+											<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/italy-map.svg' alt='' title=''>
+										</figure>
+									</div>
+								<article>
+				      </div>
+				      <div class="carousel-item">
+								<article>
+									<div class='left'>
+										<ul class='list'>
+											<li>
+												<div class='info'>
+													<div class='number'>18</div>
+													<div class='text'>RETI</div>
+												</div>
+												<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
+											</li>
+											<li>
+												<div class='info'>
+													<div class='number'>2062</div>
+													<div class='text'>REALTÀ</div>
+												</div>
+											</li>
+											<li>
+												<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+											</li>
+										</ul>
+									</div>
+									<div class='right'>
+										<figure>
+											<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/italy-map.svg' alt='' title=''>
+										</figure>
+									</div>
+								<article>
+				      </div>
+				    </div>
+				  </div>
 	</section>
+
+
 
 	<section class="right">
 		<div class='home-content'>
@@ -188,7 +249,7 @@
 				<div class='content'>
 					<a href='<?php echo the_permalink();?>'>
 						<figure>
-							<?php the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-res','alt' => get_the_title())); ?>
+							<?php the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid','alt' => get_the_title())); ?>
 						</figure>
 
 						<article>
@@ -208,100 +269,9 @@
 			 	wp_reset_query();?>
 			</div>
 
-			<div class='box-2'>
-				<!--<div class='head'>
-					<div class='title'>
-						<h5>ULTIME NEWS</h5>
 
-						<div class='arrows'>
-							<figure data-action="prev">
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-white-left.svg' alt='' title=''>
-							</figure>
-							<div class='page-number'>1 / 5</div>
-							<figure data-action="next">
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/arrow-white-right.svg' alt='' title=''>
-							</figure>
-						</div>
-					</div>
-				</div>
-
-				<div class="content">-->
-					<!-- Swiper -->
-				<!--	<div class="swiper-container latest-news-swiper">
-						<div class="swiper-wrapper">
-							<?php //for($i=0; $i<2; $i++): ?>
-							<div class='swiper-slide'>
-								<ul class='items'>
-									<li>
-										<a href=''>
-											<figure>
-												<img src='/assets/img/modules/home/news-1.jpg' alt='' title=''>
-											</figure>
-
-											<div class='title'>
-												<div class='date'>22 MAGGIO 2019</div>
-												<h3>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h3>
-											</div>
-
-											<article>
-												<p>
-													Sed ut perspiciatis unde omnis iste
-													natus error sit voluptatem accusantium
-													doloremque laudantium, totam rem
-													aperiam, eaque ipsa quae ab illo
-													inventore veritatis et quasi architecto
-													beatae vitae dicta sunt explicabo.
-													Nemo enim ipsam voluptatem quia
-													voluptas sit aspernatur aut odit aut.
-												</p>
-											</article>
-										</a>
-									</li>
-									<li>
-										<a href=''>
-											<figure>
-												<img src='/assets/img/modules/home/news-2.jpg' alt='' title=''>
-											</figure>
-
-											<div class='title'>
-												<div class='date'>22 MAGGIO 2019</div>
-												<h3>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h3>
-											</div>
-
-											<article>
-												<p>
-													Sed ut perspiciatis unde omnis iste
-													natus error sit voluptatem accusantium
-													doloremque laudantium, totam rem
-													aperiam, eaque ipsa quae ab illo
-													inventore veritatis et quasi architecto
-													beatae vitae dicta sunt explicabo.
-													Nemo enim ipsam voluptatem quia
-													voluptas sit aspernatur aut odit aut.
-												</p>
-											</article>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<?php //endfor; ?>
-						</div>
-					</div>
-				</div>-->
-			</div>
 			<div class='box-3'>
 				<div class="content">
-
-					<!--<div class='arrows'>
-						<figure data-action="prev">
-							<img src='<?php //echo get_template_directory_uri();?>/assets/img/icons/arrow-white-left.svg' alt='' title=''>
-						</figure>
-						<div class='page-number'>1 / 5</div>
-						<figure data-action="next">
-							<img src='<?php //echo get_template_directory_uri();?>/assets/img/icons/arrow-white-right.svg' alt='' title=''>
-						</figure>
-					</div>-->
-
 					<!-- Swiper -->
 					<div class="swiper-container generic-article-swiper">
 						<div class="swiper-wrapper">
@@ -310,7 +280,10 @@
 								/* Query per Ultime news
 								*---------------------*/
 								$args = array(
-										'posts_per_page' => 10
+									'post_type' => 'post',
+									'posts_per_page' => 10,
+									'category__not_in' => array( 2299,2300 ),
+
 								);
 								$loop = new WP_Query( $args );
 								$i = 0;
@@ -342,7 +315,7 @@
 													</span>
 												</div>
 												<figure>
-													<?php the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-res','alt' => get_the_title())); ?>
+													<?php the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid','alt' => get_the_title())); ?>
 												</figure>
 
 												<div class='title'>
@@ -389,7 +362,7 @@
 									<span>I NOSTRI LIBRI</span>
 								</div>
 								<figure>
-									<?php the_post_thumbnail('icc_libri', array('class' => 'img-res','alt' => get_the_title())); ?>
+									<?php the_post_thumbnail('icc_libri', array('class' => 'img-fluid','alt' => get_the_title())); ?>
 								</figure>
 
 								<div class='title'>

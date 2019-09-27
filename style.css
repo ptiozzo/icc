@@ -419,8 +419,8 @@ CAROUSEL
   color: #000;
 }
 
-.carousel-controll-down .carousel-control-prev,
-.carousel-controll-down .carousel-control-next{
+.carousel-control-prev,
+.carousel-control-next{
   top: unset;
   bottom: unset;
   opacity: 1;
@@ -450,4 +450,31 @@ CAROUSEL
 .carousel-controll-down .card-text{
   font-size: 11px;
   line-height: 13px;
+}
+
+.carousel-control-top .carousel-control-prev{
+  left: unset;
+}
+
+.carousel-control-top .carousel-control-next-icon{
+  background-image: url('assets/img/icons/arrow-white-right.svg');
+  height: 10px;
+  width: 25px;
+}
+.carousel-control-top .carousel-control-prev-icon{
+  background-image: url('assets/img/icons/arrow-white-left.svg');
+  height: 10px;
+  width: 25px;
+}
+.carousel-control-top .carousel-indicators{
+  bottom: -15px;
+  font-size: 12px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.slider-top{
+  width: 85px;
+  float: right;
+  height: 15px;
 }
