@@ -265,13 +265,20 @@ div.contenuti_header select{
     }
 }
 
-
+/*
+row
+*/
 .row{
   padding-top: 30px;
   padding: 20px 30px 0 30px;
 }
 .row{
   border-bottom: solid 1px #D0D0D0;
+}
+.row .title h3{
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
 }
 .row article{
 	padding: 10px;
@@ -540,18 +547,25 @@ CAROUSEL
   margin-right: auto;
   margin-left: auto;
 }
-
 .slider-top{
   width: 85px;
   float: right;
   height: 15px;
 }
 
-.category-i-nostri-contenuti h3{
-  font-size: 18px;
-  line-height: 20px;
-  font-weight: 700;
+/*
+PAGINATION
+*/
+
+.pagination .page-link{
+  color: #000;
 }
+.pagination .active .page-link{
+  background-color: #000;
+  border-color: #000;
+}
+
+
 
 main.piemonte-che-cambia>.page-content>section.right>aside{
   position: unset;

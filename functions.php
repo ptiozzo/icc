@@ -102,6 +102,10 @@ add_action( 'widgets_init', 'icc_sidebars' );
 /* ------------------------------------ */
 require 'inc/custom-post.php';
 
+/*  Bootstrap pagination
+/* ------------------------------------ */
+require 'inc/bootstrap-pagination.php';
+
 /*  Pagina istruzioni su admin
 /* ------------------------------------ */
 add_action( 'admin_menu', 'icc_menu_admin' );

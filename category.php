@@ -202,23 +202,13 @@
         ?>
       </div> <!-- .grid -->
         <!-- paginazione -->
-        <div class="clearfix"></div>
-        <div class="pagination">
-        <br />
-        	<?php
-        		$big = 999999999; // need an unlikely integer
-        		echo paginate_links( array(
-        			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-        			'format' => '?paged=%#%',
-        			'current' => max( 1, get_query_var('paged') ),
-        			'total' => $loop->max_num_pages
-        		) );
-          ?>
-        </div>
+
+      <?php echo bootstrap_pagination($loop); ?>
+
         <?php
       else:
         ?>
-          <br /><br /><br /><br /><br /><p>Spiacente, ma la tua ricerca non ha prodotto nessun risultato</p>
+          <p>Spiacente, ma la tua ricerca non ha prodotto nessun risultato</p>
         <?php
       endif;
     wp_reset_query();
