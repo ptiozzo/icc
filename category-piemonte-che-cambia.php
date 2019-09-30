@@ -3,64 +3,7 @@
   $catPage = 'piemonte-che-cambia';
 ?>
 <main class="piemonte-che-cambia">
-
-	<section class="page-head">
-		<div class='page-name'>
-			<figure>
-				<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/piemonte/piemonte.svg' alt='' title=''>
-			</figure>
-			<span>PIEMONTE CHE CAMBIA</span>
-		</div>
-
-		<div class='right-section'>
-			<ul class='actions'>
-				<li class='active'>
-					<a href=''>Mappa + Giornale</a>
-				</li>
-				<li>
-					<a href=''>Articoli</a>
-				</li>
-				<li>
-					<a href=''>Le Storie</a>
-				</li>
-				<li>
-					<a href=''>Realtà Mappate</a>
-				</li>
-				<li>
-					<a href=''>Sedi</a>
-				</li>
-				<li>
-					<a href=''>Calendario</a>
-				</li>
-				<li>
-					<a href=''>Gruppi</a>
-				</li>
-				<li>
-					<a href=''>Piazza</a>
-				</li>
-				<li>
-					<a href=''>Contattaci</a>
-				</li>
-				<li class='border'>
-					<a href=''>
-						<figure>
-							<img src='/assets/img/icons/signup.svg' alt='' title=''>
-						</figure>
-						<span>Registrati</span>
-					</a>
-				</li>
-				<li class='border'>
-					<a href=''>
-						<figure>
-							<img src='/assets/img/icons/signin.svg' alt='' title=''>
-						</figure>
-						<span>Accedi</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-
-	</section>
+  <?php get_template_part('menu','piemonte'); ?>
 
 	<div class="page-content">
 		<section class='left'>
@@ -157,7 +100,7 @@
 				<div class='box-3'>
 					<div class='head'>
 						<div class='title'>
-							<h5>LOREM IPSUM DOLOR</h5>
+							<h5>ULTIMI ARTICOLI</h5>
 						</div>
 					</div>
           <?php

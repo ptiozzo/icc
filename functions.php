@@ -84,6 +84,7 @@ if ( ! function_exists( 'icc_setup' ) ) {
 	}
 }
 add_action( 'after_setup_theme', 'icc_setup' );
+require_once('assets/bs4navwalker.php');
 
 /*  Register sidebars
 /* ------------------------------------ */
