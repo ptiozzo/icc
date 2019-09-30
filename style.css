@@ -451,6 +451,7 @@ CAROUSEL
     margin-left: 0;
     left: unset;
     position: relative;
+    z-index: 0;
 }
 .carousel-indicators li{
   display: none;
@@ -526,4 +527,8 @@ CAROUSEL
   font-size: 18px;
   line-height: 20px;
   font-weight: 700;
+}
+
+main.piemonte-che-cambia>.page-content>section.right>aside{
+  position: unset;
 }

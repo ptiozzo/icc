@@ -160,40 +160,38 @@
 							<h5>LOREM IPSUM DOLOR</h5>
 						</div>
 					</div>
-
+          <?php
+          $args = array(
+              'category_name' => $catPage,
+              'posts_per_page' => 10,
+          );
+          $loop = new WP_Query( $args );
+          if( $loop->have_posts() ) : ?>
 					<div class="content">
 						<ul class='items'>
-							<?php for($i=0; $i<4; $i++): ?>
-							<li class=''>
-								<a href=''>
-									<figure>
-										<img src='/assets/img/modules/piemonte-che-cambia/piemonte-<?php echo $i + 1; ?>.jpg' alt='' title=''>
-									</figure>
+              <?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+  							<li class=''>
+  								<a href='<?php the_permalink(); ?>'>
+  									<figure>
+  										<?php the_post_thumbnail('icc_category', array('class' => 'img-fluid','alt' => get_the_title())); ?>
+  									</figure>
 
-									<div class='title'>
-										<div class='date'>10 giugno 2019</div>
-										<h3>Racconti on the road di un viaggio… nel Piemonte che Cambia</h3>
-									</div>
+  									<div class='title'>
+  										<div class='date'><?php the_time('j M') ?></div>
+  										<h3><?php the_title(); ?></h3>
+  									</div>
 
-									<article>
-										<p>
-											Sed ut perspiciatis unde omnis iste
-											natus error sit voluptatem accusantium
-											doloremque laudantium, totam rem
-											aperiam, eaque ipsa quae ab illo
-											inventore veritatis et quasi architecto
-											beatae vitae dicta sunt explicabo.
-											Nemo enim ipsam voluptatem quia
-											voluptas sit aspernatur aut odit aut.
-										</p>
-									</article>
+  									<article>
+  										<?php the_excerpt();?>
+  									</article>
 
-									<div class='cta'>LEGGI DI PIÙ</div>
-								</a>
-							</li>
-							<?php endfor; ?>
+  									<div class='cta'>LEGGI DI PIÙ</div>
+  								</a>
+  							</li>
+							<?php endwhile; ?>
 						</ul>
 					</div>
+        <?php endif; ?>
 				</div>
 			</div>
 
