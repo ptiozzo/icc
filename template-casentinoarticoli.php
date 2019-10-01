@@ -1,14 +1,14 @@
 <?php
 /*
-Template Name: Piemonte articoli
+Template Name: Casentino articoli
 */
 ?>
 <?php get_header(); ?>
 <main class="piemonte-che-cambia">
-  <?php get_template_part('menu','piemonte'); ?>
+  <?php get_template_part('menu','casentino'); ?>
 </main>
 <?php
-$Cat1 = 'piemonte-che-cambia';
+$Cat1 = 'casentino-che-cambia';
 $Cat2 = 'le-storie';
  ?>
 <div class="content-no-sidebar" style="margin-top: 40px;">

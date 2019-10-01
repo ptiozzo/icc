@@ -1,23 +1,23 @@
 <?php
 /*
-Template Name: Piemonte articoli
+Template Name: Casentino storie
 */
 ?>
 <?php get_header(); ?>
 <main class="piemonte-che-cambia">
-  <?php get_template_part('menu','piemonte'); ?>
+  <?php get_template_part('menu','casentino'); ?>
 </main>
 <?php
-$Cat1 = 'piemonte-che-cambia';
+$Cat1 = 'casentino-che-cambia';
 $Cat2 = 'le-storie';
  ?>
 <div class="content-no-sidebar" style="margin-top: 40px;">
 
   <?php
+    $CatTerm = $Cat1."+".$Cat2;
     $args = array(
     'post_type' => 'post',
-    'category_name' => $Cat1,
-    'category__not_in' => array(get_category_by_slug( $Cat2 )->term_id),
+    'category_name' => $CatTerm,
     'paged'     => $paged,
     );
     /*eseguo la query */
