@@ -213,25 +213,47 @@ div.contenuti_header select{
   padding: 30px 30px 60px 30px;
   margin-bottom: -100px;
 }
+.card .category{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card .category{
+  position: absolute;
+  border-top: 100px solid red;
+  border-right: 100px solid transparent;
+}
+.card .card-body{
+  position: relative;
+}
 
 .category span{
   display: block;
   position: relative;
   z-index: 1;
-  padding: 10px 0 0 10px;
+  padding: 10px;
   font-size: 11px;
   line-height: 13px;
   color: #FFFFFF;
   font-weight: 700;
+
 }
 
+.card img{
+  position: relative;
+  margin-top: 10px;
+  left 10px;
+}
+
+/*
 .card .category-articoli{background: #68D8B1;}
 .card .category-meme{background: #F79865}
 .card .category-documentari{background: #3D78D0}
 .card .category-rubriche{background: #F270C0}
 .card .category-le-storie{background: #AF0000}
 .card .category-salute-che-cambia{background: #7FD1F5}
-
+*/
 /*
 5 COLONNE
 */
