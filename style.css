@@ -214,12 +214,23 @@ div.contenuti_header select{
   margin-bottom: -100px;
 }
 
-.cat2.category-articoli{background: #68D8B1;}
-.cat2.category-meme{background: #F79865}
-.cat2.category-documentari{background: #3D78D0}
-.cat2.category-rubriche{background: #F270C0}
-.cat2.category-le-storie{background: #AF0000}
-.cat2.category-salute-che-cambia{background: #7FD1F5}
+.category span{
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding: 10px 0 0 10px;
+  font-size: 11px;
+  line-height: 13px;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.card .category-articoli{background: #68D8B1;}
+.card .category-meme{background: #F79865}
+.card .category-documentari{background: #3D78D0}
+.card .category-rubriche{background: #F270C0}
+.card .category-le-storie{background: #AF0000}
+.card .category-salute-che-cambia{background: #7FD1F5}
 
 /*
 5 COLONNE
@@ -303,16 +314,7 @@ row
   justify-content: space-between;
   padding: 0 10px 0;
 }
-.row article a .category span{
-  display: block;
-  position: relative;
-  z-index: 1;
-  padding: 10px 0 0 10px;
-  font-size: 11px;
-  line-height: 13px;
-  /*color: #FFFFFF;*/
-  font-weight: 700;
-}
+
 .row article.category-articoli a:hover .category{background: #68D8B1;}
 .row article.category-meme a:hover .category{background: #F79865}
 .row article.category-documentari a:hover .category{background: #3D78D0}
@@ -515,16 +517,23 @@ CAROUSEL
   height: 25px;
   width: 25px;
 }
-.carousel-controll-down .card-title{
+.card-title{
   margin: 10px 0 0 0;
   padding: 0;
   font-size: 18px;
   line-height: 20px;
   font-weight: 700;
 }
-.carousel-controll-down .card-text{
+.card-text{
   font-size: 11px;
   line-height: 13px;
+}
+
+.card .date{
+  font-size: 11px;
+  line-height: 13px;
+  color: #A3A3A3;
+  margin-top: 10px;
 }
 
 .carousel-control-top .carousel-control-prev{
@@ -552,6 +561,20 @@ CAROUSEL
   float: right;
   height: 15px;
 }
+
+/*
+RASSEGNA STAMPA
+*/
+
+.row article.rassegna-stampa a{
+  background-color: #a3a3a3;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
 
 /*
 PAGINATION
