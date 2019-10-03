@@ -113,6 +113,7 @@ function icc_rassegna_stampa_custom_post() {
             'exclude_from_search' => false, /* esclude (false) il post type dai risultati di ricerca */
             'show_ui' => true, /* definisce se deve essere visualizzata l'interfaccia di default nel pannello di amministrazione */
             'query_var' => true,
+            'taxonomies' => array('post_tag'),
             'menu_position' => 7, /* definisce l'ordine in cui comparire nel menù di amministrazione a sinistra */
             'menu_icon' => 'dashicons-layout', /* imposta l'icona da usare nel menù per il posty type */
             'rewrite'   => array( 'slug' => 'rassegna-stampa', 'with_front' => false ), /* specificare uno slug per leURL */
