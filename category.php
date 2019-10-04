@@ -169,7 +169,7 @@
               <figure>
                 <?php
                   if ($Cat1 != "nostri-libri"){
-                    the_post_thumbnail('icc_category', array('class' => 'img-fluid','alt' => get_the_title()));
+                    the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid','alt' => get_the_title()));
                   } else {
                     the_post_thumbnail('icc_libri', array('class' => 'img-fluid','alt' => get_the_title()));
                   }
