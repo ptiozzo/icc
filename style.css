@@ -213,47 +213,48 @@ div.contenuti_header select{
   padding: 30px 30px 60px 30px;
   margin-bottom: -100px;
 }
-.card .category{
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
-.card .category{
-  position: absolute;
-  border-top: 100px solid red;
-  border-right: 100px solid transparent;
-}
-.card .card-body{
-  position: relative;
-}
+
 
 .category span{
   display: block;
   position: relative;
   z-index: 1;
-  padding: 10px;
+  padding: 5px 0px;
   font-size: 11px;
   line-height: 13px;
-  color: #FFFFFF;
+  color: #fff;
   font-weight: 700;
 
 }
 
-.card img{
-  position: relative;
-  margin-top: 10px;
-  left 10px;
+.card article .category-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-top: 150px solid red;
+  border-right: 150px solid transparent;
 }
 
-/*
-.card .category-articoli{background: #68D8B1;}
-.card .category-meme{background: #F79865}
-.card .category-documentari{background: #3D78D0}
-.card .category-rubriche{background: #F270C0}
-.card .category-le-storie{background: #AF0000}
-.card .category-salute-che-cambia{background: #7FD1F5}
-*/
+.card img{
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+
+.card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
+.card article.category-meme .category-bg{border-top: 150px solid #F79865}
+.card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
+.card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
+.card article.category-le-storie .category-bg{border-top: 150px solid #AF0000}
+.card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
+
 /*
 5 COLONNE
 */
@@ -314,7 +315,7 @@ row
   font-weight: 700;
 }
 .row article{
-	padding: 10px;
+	padding: 5px 0 0 10px;
 }
 .row article a{
   position: relative;
@@ -539,6 +540,7 @@ CAROUSEL
   height: 25px;
   width: 25px;
 }
+
 .card-title{
   margin: 10px 0 0 0;
   padding: 0;
@@ -555,7 +557,6 @@ CAROUSEL
   font-size: 11px;
   line-height: 13px;
   color: #A3A3A3;
-  margin-top: 10px;
 }
 
 .carousel-control-top .carousel-control-prev{
