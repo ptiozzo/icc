@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="container-fluid home-page">
 	<div class="row">
-		<div class="col-lg-5 col-md-6">
+		<div class="col-lg-4 col-md-6">
 
 			<div class='head'>
 				<div class='title'>
@@ -115,14 +115,14 @@
 									<li>
 										<div class='info'>
 											<div class='number'>18</div>
-											<div class='text'>RETI</div>
+											<div class='text'> RETI</div>
 										</div>
 										<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
 									</li>
 									<li>
 										<div class='info'>
 											<div class='number'>2062</div>
-											<div class='text'>REALTÀ</div>
+											<div class='text'> REALTÀ</div>
 										</div>
 									</li>
 									<li>
@@ -144,14 +144,14 @@
 									<li>
 										<div class='info'>
 											<div class='number'>18</div>
-											<div class='text'>RETI</div>
+											<div class='text'> RETI</div>
 										</div>
 										<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
 									</li>
 									<li>
 										<div class='info'>
 											<div class='number'>2062</div>
-											<div class='text'>REALTÀ</div>
+											<div class='text'> REALTÀ</div>
 										</div>
 									</li>
 									<li>
@@ -173,14 +173,14 @@
 									<li>
 										<div class='info'>
 											<div class='number'>18</div>
-											<div class='text'>RETI</div>
+											<div class='text'> RETI</div>
 										</div>
 										<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
 									</li>
 									<li>
 										<div class='info'>
 											<div class='number'>2062</div>
-											<div class='text'>REALTÀ</div>
+											<div class='text'> REALTÀ</div>
 										</div>
 									</li>
 									<li>
@@ -200,7 +200,7 @@
 
 		</div><!-- Fini prima colonna -->
 
-		<div class="col-lg-5 col-md-6">
+		<div class="col-lg-6 col-md-6">
 			<div class='head'>
 				<div class='title'>
 					<h5>RASSEGNA STAMPA</h5>

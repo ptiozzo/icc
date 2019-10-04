@@ -13,6 +13,15 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+/*
+GENERAL
+*/
+
+html,
+body{
+
+}
+
 /*	Menu
 */
 header.stripe .right-col .socials>ul>.twitter>a{
@@ -84,6 +93,97 @@ header.overlay-menu .socials>ul>.twitter>a{
 }
 .navbar-dark .navbar-brand img{
   padding-right: 1rem;
+}
+/*
+TITOLI HOME
+*/
+.head{
+  padding: 15px 0;
+}
+.head .title{
+  position: relative;
+  overflow: hidden;
+}
+.head .title::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #D0D0D0;
+  bottom: 11px;
+  left: 0;
+}
+.head .title h5{
+  position: relative;
+  margin: 0;
+  padding: 0 30px 10px 0;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 11px;
+  font-weight: 900;
+  background: #fff;
+  z-index: 1;
+}
+
+
+.home-page .left{
+  width: 50%;
+  flex-shrink: 0;
+  background: #35A6C3;
+  float: left;
+}
+.home-page .right{
+  width: 50%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.home-page .list{
+  margn: 0;
+  list-style: none;
+  padding: 25px;
+}
+.home-page .list li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+.home-page .list li:last-child{
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.home-page .list li .info{
+  display: flex;
+  align-items: baseline;
+}
+
+.home-page .list li .number{
+  font-size: 42px;
+  line-height: 42px;
+  font-weight: 900;
+  color: #c4e7b5;
+}
+.home-page .list li .info .text{
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #FFF;
+}
+.home-page .list li a.cta{
+  display: block;
+  background: #9BCE8F;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 20px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
 }
 
 
@@ -214,42 +314,6 @@ div.contenuti_header select{
   margin-bottom: -100px;
 }
 
-
-
-.category span{
-  display: block;
-  position: relative;
-  z-index: 1;
-  padding: 5px 0px;
-  font-size: 11px;
-  line-height: 13px;
-  color: #fff;
-  font-weight: 700;
-
-}
-
-.card article .category-bg{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 150px;
-  border-top: 150px solid red;
-  border-right: 150px solid transparent;
-}
-
-.card img{
-  position: relative;
-  z-index: 1;
-}
-
-.card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
-.card article.category-meme .category-bg{border-top: 150px solid #F79865}
-.card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
-.card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
-.card article.category-le-storie .category-bg{border-top: 150px solid #AF0000}
-.card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
-
 /*
 5 COLONNE
 */
@@ -297,13 +361,7 @@ div.contenuti_header select{
 /*
 row
 */
-.row{
-  padding-top: 30px;
-  padding: 20px 30px 0 30px;
-}
-.row{
-  border-bottom: solid 1px #D0D0D0;
-}
+
 .row .title h3{
   font-size: 18px;
   line-height: 20px;
@@ -617,6 +675,44 @@ CAROUSEL
   float: right;
   height: 15px;
 }
+/*
+CARD HOME
+*/
+
+.category span{
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding: 5px 0px;
+  font-size: 11px;
+  line-height: 13px;
+  color: #fff;
+  font-weight: 700;
+
+}
+
+.card article .category-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-top: 150px solid red;
+  border-right: 150px solid transparent;
+}
+
+.card img{
+  position: relative;
+  z-index: 1;
+}
+
+.card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
+.card article.category-meme .category-bg{border-top: 150px solid #F79865}
+.card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
+.card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
+.card article.category-le-storie .category-bg{border-top: 150px solid #AF0000}
+.card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
+
 
 /*
 RASSEGNA STAMPA
