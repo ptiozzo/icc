@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="container-fluid">
+<div class="container-fluid home-page">
 	<div class="row">
 		<div class="col-lg-5 col-md-6">
 
@@ -253,9 +253,12 @@
 				$loop = new WP_Query( $args );
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
 				?>
+
 								<div id="post-<?php the_ID(); ?>" class="card col-lg-6 border-0 p-0">
-									<div class="category p-1">
-										<span <?php post_class(); ?>>
+									<article <?php echo post_class(); ?>>
+									<div class="category-bg"> </div>
+									<div class="category pl-1">
+										<span>
 											<?php
 												if (in_category('documentari')) {
 													echo 'I documentari';
@@ -278,8 +281,9 @@
 										<div class='date'><?php the_time('j M Y') ?></div>
 										<h5 class="card-title"><?php the_title(); ?></h5>
 										<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
-										<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
+										<a href="<?php echo the_permalink();?>" class="stretched-link"><div class="cta">Leggi di più</div></a>
 									</div>
+									</article>
 								</div>
 
 
