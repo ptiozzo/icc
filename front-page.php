@@ -36,7 +36,7 @@
 					?>
 
 						<div class="card border-0 p-1">
-							<?php the_post_thumbnail('icc_single', array('class' => 'img-fluid card-img-top mx-auto d-block','alt' => get_the_title()));?>
+							<?php the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block','alt' => get_the_title()));?>
 							<div class="card-body">
 								<h5 class="card-title"><?php the_title(); ?></h5>
 								<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
@@ -307,7 +307,7 @@
 			</div> <!-- Fini row  -->
 		</div><!-- Fini seconda colonna  -->
 		<div class="col-lg-2">
-			Sidebar
+			<?php get_sidebar(); ?>
 		</div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
 </div><!-- Fine container fluid -->

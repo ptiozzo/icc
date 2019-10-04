@@ -62,7 +62,6 @@ if ( ! function_exists( 'icc_setup' ) ) {
 		// Enable featured image
 		add_theme_support( 'post-thumbnails' );
 		// Thumbnail sizes
-		add_image_size( 'icc_lestoriehome', 239, 151, true ); 	//(cropped)
 		add_image_size( 'icc_rassegnastampahome', 660, 488, true ); 	//(cropped)
 		add_image_size( 'icc_ultimenewshome', 305, 207, true ); 	//(cropped)
 		add_image_size( 'icc_sidebar', 239, 151, true ); 	//(cropped)
