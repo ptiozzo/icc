@@ -243,11 +243,6 @@ div.contenuti_header select{
   z-index: 1;
 }
 
-
-
-
-
-
 .card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
 .card article.category-meme .category-bg{border-top: 150px solid #F79865}
 .card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
@@ -474,6 +469,44 @@ row
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/*
+RASSEGNA STAMPA HOME
+*/
+.rassegna-stampa{
+  position: relative;
+  max-height: 376px;
+  overflow: hidden;
+}
+.rassegna-stampa img{
+  min-width: 100%;
+  min-height: 100%;
+}
+.rassegna-stampa article{
+  position: absolute;
+  background-color: #000;
+  width: 50%;
+  bottom: 15px;
+  left: 15px;
+  padding: 20px 50px 20px 15px;
+  color: #fff;
+}
+.rassegna-stampa article .date{
+  font-size: 11px;
+  line-height: 13px;
+}
+.rassegna-stampa article h5{
+  margin: 15px 0 0 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+}
+.rassegna-stampa article .info{
+  margin: 15px 0 0 0;
+  font-size: 11px;
+  line-height: 13px;
 }
 
 

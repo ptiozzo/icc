@@ -216,11 +216,10 @@
 			if( $loop->have_posts() ) :
 					while( $loop->have_posts() ) : $loop->the_post();
 			?>
-			<div class='content'>
+			<div class='content rassegna-stampa p-0'>
 				<a href='<?php echo the_permalink();?>'>
-					<figure>
+
 						<?php the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid','alt' => get_the_title())); ?>
-					</figure>
 
 					<article>
 						<div class='date'>
@@ -238,8 +237,15 @@
 			endif;
 			wp_reset_query();?>
 
+			<div class='head'>
+				<div class='title'>
+					<h5>ULTIME NEWS</h5>
+				</div>
+			</div>
 
 			<div class="row">
+
+
 
 				<?php
 				/* Query per Ultime news
