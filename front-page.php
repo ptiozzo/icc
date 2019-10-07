@@ -19,6 +19,7 @@
 				'category__not_in' => array( 2299,2300 ),
 
 
+
 			);
 			$loop = new WP_Query( $args );
 			$i = 0;
@@ -253,7 +254,13 @@
 				$args = array(
 					'post_type' => 'post',
 					'posts_per_page' => 10,
-					'category__not_in' => array( 2299,2300 ),
+					'tax_query' => array(
+		        array(
+		            'taxonomy'=> 'icc_altri_filtri',
+		            'field'   => 'slug',
+								'terms'		=> 'InHome',
+		        ),
+    			),
 
 				);
 				$loop = new WP_Query( $args );
