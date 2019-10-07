@@ -143,8 +143,20 @@
 				<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/hand.svg' alt='italia che cambia'>
 			</figure>
 		</header>
+		<?php
+		if (is_category('piemonte-che-cambia') || is_category('casentino-che-cambia')) {
+		?>
+		<main class="piemonte-che-cambia">
+			<?php
+			if (is_category('piemonte-che-cambia')){
+				get_template_part('menu','piemonte');
+			} elseif (is_category('casentino-che-cambia')) {
+				get_template_part('menu','casentino');
+			}
+			?>
+		</main>
 
-
+		<?php } ?>
 
 		<!-- Content -->
 		<div class="wrapper">

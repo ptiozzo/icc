@@ -189,6 +189,10 @@ TITOLI HOME
 
  /*	Sidebar
  */
+.home-page aside{
+  width: 100%;
+}
+
  aside.sidebar div.widget_text:nth-child(1){
    background: #F79865;
    color: #fff;
@@ -432,6 +436,9 @@ row
 }
 /* SINGLE
 */
+.single main.piemonte-che-cambia{
+  margin-top: 45px;
+}
 
 .single .single__nav__category{
   padding: 30px 90px 100px 90px;

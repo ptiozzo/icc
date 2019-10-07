@@ -1,9 +1,9 @@
-<?php require 'header.php'; ?>
+<?php get_header(); ?>
 <?php
   $catPage = 'piemonte-che-cambia';
 ?>
 <main class="piemonte-che-cambia">
-  <?php get_template_part('menu','piemonte'); ?>
+
 
 	<div class="page-content">
 		<section class='left'>
