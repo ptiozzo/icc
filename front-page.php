@@ -37,7 +37,14 @@
 					?>
 
 						<div class="card border-0 p-1">
-							<?php the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block','alt' => get_the_title()));?>
+							<?php
+							if ( has_post_thumbnail() ) {
+								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+							}
+							else{
+								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+							}
+							?>
 							<div class="card-body">
 								<h5 class="card-title"><?php the_title(); ?></h5>
 								<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
@@ -220,7 +227,14 @@
 			<div class='content rassegna-stampa p-0'>
 				<a href='<?php echo the_permalink();?>'>
 
-						<?php the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid','alt' => get_the_title())); ?>
+						<?php
+						if ( has_post_thumbnail() ) {
+							the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+						}
+						else{
+							echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+						}
+						?>
 
 					<article>
 						<div class='date'>
@@ -266,8 +280,8 @@
 				$loop = new WP_Query( $args );
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
 				?>
-
-								<div id="post-<?php the_ID(); ?>" class="card col-lg-6 border-0 p-0">
+							<div class="col-lg-6 mt-3">
+								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
 									<article <?php echo post_class(); ?>>
 									<div class="category-bg"> </div>
 									<div class="category pl-1">
@@ -289,7 +303,14 @@
 											?>
 										</span>
 									</div>
-									<?php the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));?>
+									<?php
+										if ( has_post_thumbnail() ) {
+											the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+										}
+										else{
+											echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+										}
+									?>
 									<div class="card-body p-1">
 										<div class='date'><?php the_time('j M Y') ?></div>
 										<h5 class="card-title"><?php the_title(); ?></h5>
@@ -298,6 +319,7 @@
 									</div>
 									</article>
 								</div>
+							</div>
 
 
 
@@ -311,7 +333,44 @@
 					endif;
 					wp_reset_query();?>
 
-			</div> <!-- Fini row  -->
+			</div> <!-- Fine row  -->
+			<div class="row">
+				<?php
+
+				$args = array(
+					'post_type' => 'nostri-libri',
+					'posts_per_page' => 3,
+				);
+				$loop = new WP_Query( $args );
+				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
+				 ?>
+					<div class="col-lg-4 col-md-6 my-3">
+						<div id="post-<?php the_ID(); ?>" class="card border-0 p-0">
+							<article <?php echo post_class(); ?>>
+							<div class="category-bg"> </div>
+							<div class="category pl-1">
+								<span>
+									<?php
+											echo 'I nostri libri';
+									?>
+								</span>
+								<?php the_post_thumbnail('icc_libri', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title())); ?>
+							</div>
+							<h5 class="card-title"><?php the_title(); ?></h5>
+							<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
+							<a href="<?php echo the_permalink();?>" class="stretched-link"><div class="cta">Leggi di più</div></a>
+							</article>
+						</div>
+
+					</div>
+
+				<?php
+				endwhile;
+				else:
+					echo "<p>Non ho trovato nessun I nostri libri</p>";
+				endif;?>
+
+			</div><!-- Fine colonna libri  -->
 		</div><!-- Fini seconda colonna  -->
 		<div class="col-lg-2">
 			<?php get_sidebar(); ?>

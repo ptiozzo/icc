@@ -287,7 +287,7 @@ aside.sidebar div.widget_nav_menu ul li{
 
 /*	Vista griglia per categorie
 */
-div.-no-sidebar, div.content{
+div.content-no-sidebar, div.content{
   padding: 0 30px;
 }
 div.contenuti_header{
@@ -375,7 +375,6 @@ row
 	padding: 5px 0 0 10px;
 }
 .row article a{
-  position: relative;
   display: block;
   color: #000000;
   text-decoration: none;
@@ -720,7 +719,7 @@ CARD HOME
 .card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
 .card article.category-le-storie .category-bg{border-top: 150px solid #AF0000}
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
-
+.card article.nostri-libri .category-bg{border-top: 150px solid #9064fa;}
 
 /*
 RASSEGNA STAMPA

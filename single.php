@@ -47,14 +47,18 @@
 				<?php
 				if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
 					?>
-					<figure class="youtube">
+					<figure class="embed-responsive embed-responsive-16by9">
 						<iframe width="800" height="480" src="https://www.youtube.com/embed/<?php echo linkifyYouTubeURLs(get_post_meta( get_the_ID(), 'YouTubeLink',true));?>?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 					</figure>
 					<?php
 				}
-				else {
-					the_post_thumbnail('icc_single', array('class' => 'img-res','alt' => get_the_title()));
+				elseif ( has_post_thumbnail() ) {
+					the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
 				}
+				else{
+					echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+				}
+
 				?>
 			</div>
 

@@ -169,7 +169,12 @@
               <figure>
                 <?php
                   if ($Cat1 != "nostri-libri"){
-                    the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid','alt' => get_the_title()));
+                    if ( has_post_thumbnail() ) {
+      								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+      							}
+      							else{
+      								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+      							}
                   } else {
                     the_post_thumbnail('icc_libri', array('class' => 'img-fluid','alt' => get_the_title()));
                   }
