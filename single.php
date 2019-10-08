@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<div class="content-no-sidebar single"><!-- SINGLE -->
-
 	<?php
 	if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
 	?>
@@ -16,7 +14,7 @@
 	</main>
 
 	<?php } ?>
-
+<div class="content-no-sidebar single"><!-- SINGLE -->
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
