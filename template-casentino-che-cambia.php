@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Casentino che cambia
+*/
+?>
+
 <?php get_header(); ?>
 <?php
   $catPage = 'casentino-che-cambia';

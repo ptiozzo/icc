@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Piemonte che cambia
+*/
+?>
+
 <?php get_header(); ?>
 <?php
   $catPage = 'piemonte-che-cambia';
