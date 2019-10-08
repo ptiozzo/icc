@@ -44,7 +44,15 @@ Template Name: Casentino che cambia
                       ?>
                       <div class="carousel-item <?php if ($i == 1){echo 'active';} ?>">
                         <div class="card border-0 p-1">
-                          <?php the_post_thumbnail('icc_single', array('class' => 'img-res card-img-top mx-auto d-block','alt' => get_the_title()));?>
+                          <?php
+            							if ( has_post_thumbnail() ) {
+            								the_post_thumbnail('icc_single', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+            							}
+            							else{
+            								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+            							}
+            							?>
+
                           <div class="card-body">
                             <h5 class="card-title"><?php the_title(); ?></h5>
                             <p class="card-text"><?php echo get_the_excerpt();?></p>
@@ -121,7 +129,14 @@ Template Name: Casentino che cambia
   							<li class=''>
   								<a href='<?php the_permalink(); ?>'>
   									<figure>
-  										<?php the_post_thumbnail('icc_category', array('class' => 'img-fluid','alt' => get_the_title())); ?>
+                      <?php
+                      if ( has_post_thumbnail() ) {
+                        the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+                      }
+                      else{
+                        echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+                      }
+                      ?>
   									</figure>
 
   									<div class='title'>

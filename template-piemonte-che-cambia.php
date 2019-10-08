@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Piemonte che cambia
+Template Name: Casentino che cambia
 */
 ?>
 
@@ -9,7 +9,6 @@ Template Name: Piemonte che cambia
   $catPage = 'piemonte-che-cambia';
 ?>
 <main class="piemonte-che-cambia">
-
 
 	<div class="page-content">
 		<section class='left'>
@@ -45,7 +44,15 @@ Template Name: Piemonte che cambia
                       ?>
                       <div class="carousel-item <?php if ($i == 1){echo 'active';} ?>">
                         <div class="card border-0 p-1">
-                          <?php the_post_thumbnail('icc_single', array('class' => 'img-res card-img-top mx-auto d-block','alt' => get_the_title()));?>
+                          <?php
+            							if ( has_post_thumbnail() ) {
+            								the_post_thumbnail('icc_single', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+            							}
+            							else{
+            								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+            							}
+            							?>
+
                           <div class="card-body">
                             <h5 class="card-title"><?php the_title(); ?></h5>
                             <p class="card-text"><?php echo get_the_excerpt();?></p>
@@ -122,7 +129,14 @@ Template Name: Piemonte che cambia
   							<li class=''>
   								<a href='<?php the_permalink(); ?>'>
   									<figure>
-  										<?php the_post_thumbnail('icc_category', array('class' => 'img-fluid','alt' => get_the_title())); ?>
+                      <?php
+                      if ( has_post_thumbnail() ) {
+                        the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+                      }
+                      else{
+                        echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+                      }
+                      ?>
   									</figure>
 
   									<div class='title'>
@@ -143,80 +157,6 @@ Template Name: Piemonte che cambia
         <?php endif; ?>
 				</div>
 			</div>
-
-			<aside>
-				<section class='actions-group'>
-					<div class='head'>
-						<div class='title'>
-							<h5>TEMI</h5>
-						</div>
-					</div>
-
-					<ul class='actions'>
-						<li>
-							<a href='' class='red'>
-								Inserisci NUOVA REALTÀ
-							</a>
-						</li>
-						<li>
-							<a href='' class='orange'>
-								SEGNALA EVENTI
-							</a>
-						</li>
-					</ul>
-				</section>
-
-				<section class='actions-group'>
-					<div class='head'>
-						<div class='title'>
-							<h5>PROVINCE</h5>
-						</div>
-					</div>
-
-					<ul class='actions'>
-						<li>
-							<a href=''>
-								ALESSANDRIA
-							</a>
-						</li>
-						<li>
-							<a href=''>
-								ASTI
-							</a>
-						</li>
-						<li>
-							<a href=''>
-								BIELLA
-							</a>
-						</li>
-						<li>
-							<a href=''>
-								CUNEO
-							</a>
-						</li>
-						<li>
-							<a href=''>
-								NOVARA
-							</a>
-						</li>
-						<li>
-							<a href=''>
-								TORINO
-							</a>
-						</li>
-						<li>
-							<a href=''>
-								VERBANO
-							</a>
-						</li>
-						<li>
-							<a href=''>
-								VERCELLI
-							</a>
-						</li>
-					</ul>
-				</section>
-			</aside>
 		</section>
 	</div>
 </main>
