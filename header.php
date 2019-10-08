@@ -143,12 +143,16 @@
 				<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/hand.svg' alt='italia che cambia'>
 			</figure>
 		</header>
-		<main class="piemonte-che-cambia">
+
 			<?php
 			if (is_page('piemonte')){
+				echo '<main class="piemonte-che-cambia">';
 				get_template_part('menu','piemonte');
+				echo '</main>';
 			} elseif (is_page('casentino')) {
+				echo '<main class="piemonte-che-cambia">';
 				get_template_part('menu','casentino');
+				echo '</main>';
 			}
 			?>
 		</main>
