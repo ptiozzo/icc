@@ -320,9 +320,8 @@ div.contenuti_header select{
 }
 
 .cat2{
-  margin-top: 20px;
-  padding: 30px 30px 60px 30px;
-  margin-bottom: -100px;
+  padding: 30px 30px 0 30px;
+  margin-bottom: 0px;
 }
 
 /*
@@ -741,7 +740,6 @@ RASSEGNA STAMPA
   font-size: 12px;
 }
 
-
 /*
 PAGINATION
 */
@@ -752,6 +750,13 @@ PAGINATION
 .pagination .active .page-link{
   background-color: #000;
   border-color: #000;
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  border: 1px solid #dee2e6;
+  font-size: 1rem;
 }
 
 

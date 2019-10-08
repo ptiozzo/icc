@@ -1,5 +1,5 @@
 (function(){
-	
+
 	var $numbers = $('main.home > section.left > .box-1 > .articles-container > .articles .articles-foot .arrows .numbers')
 
 	/** Swiper instance */
@@ -8,7 +8,7 @@
 			el: '.swiper-container.instance1 .swiper-pagination',
 		},
 	});
-	
+
 	$('main.home > section.left > .box-1 > .articles-container > .articles .articles-foot .arrows figure[data-action="prev"]').on('click', function(){
 		instance1.slidePrev();
 	});
@@ -27,7 +27,7 @@
 })();
 
 (function(){
-	
+
 	/** Swiper instance */
 	var instance2 = new Swiper('main.home .swiper-container.map-swiper', {
 		pagination: {
@@ -48,7 +48,7 @@
 })();
 
 (function(){
-	
+
 	/** Swiper instance */
 	var instance3 = new Swiper('main.home .swiper-container.latest-news-swiper', {
 		pagination: {
@@ -69,7 +69,7 @@
 })();
 
 (function(){
-	
+
 	/** Swiper instance */
 	var instance4 = new Swiper('main.home .swiper-container.generic-article-swiper', {
 		pagination: {
@@ -92,6 +92,6 @@
 (function(){
 
 	/** STICKY LATERAL BAR **/
-	stickyBar( $('main.home > section.left > .content-container') )
-	
+	stickyBar( $('div.home-page > div.stiky') )
+
 })();

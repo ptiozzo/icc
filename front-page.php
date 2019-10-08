@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="container-fluid home-page">
 	<div class="row">
-		<div class="col-lg-4 col-md-6">
+		<div class="col-lg-4 col-md-6 position-sticky">
 
 			<div class='head'>
 				<div class='title'>
