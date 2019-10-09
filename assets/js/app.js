@@ -1,4 +1,4 @@
-(function(){
+	(function(){
 
 	/**
 	 * Open/Close Menù
