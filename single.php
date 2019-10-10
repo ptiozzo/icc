@@ -78,8 +78,9 @@
 				</h1>
 				<!-- Autore/i -->
 				<div class="single__author">
-					<?php
-						echo "Scritto da <b>".get_the_author()."</b>";
+
+						Scritto da: <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><b><?php the_author(); ?></b></a>
+						<?php
 						/* controllo se esiste un secondo autore */
 						if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
 							echo " e <b>". get_post_meta( get_the_ID(), 'SecondoAutore',true)."</b>";
