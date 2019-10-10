@@ -605,6 +605,12 @@ CAROUSEL
 .slider-footer{
   background-color: #EBEBEB;
 }
+a.carousel-more{
+  color: #000;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: 500;
+}
 .carousel-indicators {
     bottom: -10px;
     margin-right: 0;
@@ -653,8 +659,8 @@ CAROUSEL
   font-weight: 700;
 }
 .card-text{
-  font-size: 11px;
-  line-height: 13px;
+  font-size: 13px;
+  line-height: 15px;
 }
 
 .card .date{
