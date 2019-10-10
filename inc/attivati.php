@@ -39,57 +39,76 @@ function prefix_insert_after_paragraph( $paragraph_id, $content ) {
         }
 
         if ( $paragraph_id == $index + 1 ) {
+            $ad_code = '<div class="single__attivati p-4 mb-2">';
             if (in_category('abitare')){
-              $ad_code = '<div class="single__attivati">ATTIVATI ABITARE</div>';
+              $ad_code .= 'ATTIVATI ABITARE';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('agricoltura')){
-              $ad_code = '<div class="single__attivati">ATTIVATI AGRICOLTURA</div>';
+              $ad_code .= 'ATTIVATI AGRICOLTURA';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('ambiente')){
-              $ad_code = '<div class="single__attivati">ATTIVATI AMBIENTE</div>';
+              $ad_code .= 'ATTIVATI AMBIENTE';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('cicli-produttivi-rifiuti')){
-              $ad_code = '<div class="single__attivati">ATTIVATI CICLI PRODUTTIVI E RIFIUTI</div>';
+              $ad_code .= 'ATTIVATI CICLI PRODUTTIVI E RIFIUTI';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('eventi-clima')){
-              $ad_code = '<div class="single__attivati">ATTIVATI CLIMA</div>';
+              $ad_code .= 'ATTIVATI CLIMA';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('disabilita')){
-              $ad_code = '<div class="single__attivati">ATTIVATI DISABILITA\'</div>';
+              $ad_code .= 'ATTIVATI DISABILITA\'';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('economia')){
-              $ad_code = '<div class="single__attivati">ATTIVATI ECONOMIA</div>';
+              $ad_code .= 'ATTIVATI ECONOMIA';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('educazione')){
-              $ad_code = '<div class="single__attivati">ATTIVATI EDUCAZIONE</div>';
+              $ad_code .= 'ATTIVATI EDUCAZIONE';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('energia')){
-              $ad_code = '<div class="single__attivati">ATTIVATI ENERGIA</div>';
+              $ad_code .= 'ATTIVATI ENERGIA';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('imprenditoria')){
-              $ad_code = '<div class="single__attivati">ATTIVATI IMPRENDITORIA</div>';
+              $ad_code .= 'ATTIVATI IMPRENDITORIA';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('informazione-e-comunicazione')){
-              $ad_code = '<div class="single__attivati">ATTIVATI INFORMAZIONE E COMUNICAZIONE</div>';
+              $ad_code .= 'ATTIVATI INFORMAZIONE E COMUNICAZIONE';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('lavoro')){
-              $ad_code = '<div class="single__attivati">ATTIVATI LAVORO</div>';
+              $ad_code .= 'ATTIVATI LAVORO';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('legalita')){
-              $ad_code = '<div class="single__attivati">ATTIVATI LEGALITA\'</div>';
+              $ad_code .= 'ATTIVATI LEGALITA\'';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('mobilita')){
-              $ad_code = '<div class="single__attivati">ATTIVATI MOBILITA\'</div>';
+              $ad_code .= 'ATTIVATI MOBILITA\'';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('salute-alimentazione')){
-              $ad_code = '<div class="single__attivati">ATTIVATI SALUTE E ALIMENTAZIONE</div>';
+              $ad_code .= 'ATTIVATI SALUTE E ALIMENTAZIONE';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('questione-di-genere')){
-              $ad_code = '<div class="single__attivati">ATTIVATI TEMATICA DI GENERE</div>';
+              $ad_code .= 'ATTIVATI TEMATICA DI GENERE';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
             elseif (in_category('viaggiare')){
-              $ad_code = '<div class="single__attivati">ATTIVATI VIAGGIARE</div>';
+              $ad_code .= 'ATTIVATI VIAGGIARE';
+              $ad_code .= '<a href="" class="stretched-link"></a>';
             }
+            $ad_code .= '</div>';
             $paragraphs[$index] .= $ad_code;
         }
     }

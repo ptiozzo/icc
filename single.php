@@ -14,7 +14,7 @@
 	</main>
 
 	<?php } ?>
-<div class="content-no-sidebar single"><!-- SINGLE -->
+<div class="container single"><!-- SINGLE -->
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
