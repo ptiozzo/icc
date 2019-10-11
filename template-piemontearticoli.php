@@ -9,7 +9,7 @@ Template Name: Piemonte articoli
 $Cat1 = 'piemonte-che-cambia';
 $Cat2 = 'le-storie';
  ?>
-<div class="content-no-sidebar" style="margin-top: 40px;">
+<div class="container-fluid" style="margin-top: 78px;">
 
   <?php
     $args = array(

@@ -9,7 +9,7 @@ Template Name: Casentino articoli
 $Cat1 = 'casentino-che-cambia';
 $Cat2 = 'le-storie';
  ?>
-<div class="content-no-sidebar" style="margin-top: 40px;">
+<div class="container-fluid" style="margin-top: 78px;">
 
   <?php
     $args = array(

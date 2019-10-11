@@ -22,10 +22,14 @@ body{
 
 }
 
+body.page-template-template-piemonte-che-cambia{
+  margin-top: 78px;
+}
+
 .admin-bar header.stripe{
   top:32px;
 }
-.admin-bar main.piemonte-che-cambia>.page-head{
+.admin-bar .menu_regioni{
   top: 112px;
 }
 
@@ -79,8 +83,15 @@ header.overlay-menu .socials>ul>.twitter>a{
    background-size: 25px;
 	 text-indent:-9999px;
  }
+ .menu_regioni{
+   position: fixed;
+   top:80px;
+   z-index: 1020;
+   width: 100vw;
+ }
 .navbar{
   padding: 0;
+  background-color: #34302C;
 }
 .navbar a{
   color: #fff;
@@ -97,16 +108,10 @@ header.overlay-menu .socials>ul>.twitter>a{
 
 .navbar .navbar-brand{
     font-size: 20px;
+    background-color: #749A4F;
 }
 .navbar .navbar-brand img{
   padding-right: 1rem;
-}
-
-.navbar{
-  background-color: #34302C;
-}
-.navbar .navbar-brand{
-  background-color: #749A4F;
 }
 
 /*
