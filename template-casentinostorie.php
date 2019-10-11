@@ -4,9 +4,7 @@ Template Name: Casentino storie
 */
 ?>
 <?php get_header(); ?>
-<main class="piemonte-che-cambia">
-  <?php get_template_part('menu','casentino'); ?>
-</main>
+<?php get_template_part('menu','casentino'); ?>
 <?php
 $Cat1 = 'casentino-che-cambia';
 $Cat2 = 'le-storie';

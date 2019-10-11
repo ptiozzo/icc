@@ -1,6 +1,6 @@
 <aside class="sidebar">
   <?php
-    if (is_category('piemonte-che-cambia'))
+    if (is_page('piemonte'))
     {
       dynamic_sidebar('piemonte');
     }
@@ -8,7 +8,7 @@
     {
       dynamic_sidebar('rassegna-stampa');
     }
-    elseif (is_category('casentino-che-cambia'))
+    elseif (is_page('casentino'))
     {
       dynamic_sidebar('casentino');
     }
