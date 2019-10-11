@@ -2,18 +2,12 @@
 
 	<?php
 	if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
-	?>
-	<main class="piemonte-che-cambia">
-		<?php
 		if (has_category('piemonte-che-cambia')){
 			get_template_part('menu','piemonte');
 		} elseif (has_category('casentino-che-cambia')) {
 			get_template_part('menu','casentino');
 		}
-		?>
-	</main>
-
-	<?php } ?>
+	} ?>
 <div class="container single"><!-- SINGLE -->
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
 
