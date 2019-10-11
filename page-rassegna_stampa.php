@@ -1,38 +1,128 @@
 <?php get_header(); ?>
-<div class="content-no-sidebar">
-<?php if( have_posts() ) : ?>
+<div class="container single"><!-- SINGLE -->
   <?php
-    while(have_posts() ) : the_post();
-?>
+  $args = array(
+    'post_type' => 'rassegna-stampa',
+    'posts_per_page' => 1,
+  );
+  $loop = new WP_Query( $args ); ?>
+	<?php if( $loop->have_posts() ) : while($loop->have_posts()) : $loop->the_post(); ?>
 
-<h1><?php echo get_the_title(); ?></h1>
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<?php echo the_content(); ?>
+			<!-- TAG -->
+			<div class="single__head">
+				<div class="single__tag">
+					<?php $post_tags = wp_get_post_tags($post->ID);
+					if(!empty($post_tags)) {?>
+						<p class="tag"><?php the_tags('', ' ', ''); ?></p>
+					<?php } ?>
+				</div>
+				<!-- DATA -->
+				<div class="single__date">
+					<?php the_time('j M Y') ?>
+				</div>
+				<!-- Title -->
+				<h1 class="single__title">
+					<?php the_title(); ?>
+				</h1>
+				<!-- Autore/i -->
+				<div class="single__author">
 
-<?php
-    endwhile;
-else:
-echo "Non ho trovato nulla";
-endif;
-?>
+						Scritto da: <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><b><?php the_author(); ?></b></a>
+						<?php
+						/* controllo se esiste un secondo autore */
+						if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
+							echo " e <b>". get_post_meta( get_the_ID(), 'SecondoAutore',true)."</b>";
+						}
+					?>
+				</div>
+				<!-- Intervista di -->
+				<div class="single__author">
+					<?php
+						if( !empty (get_post_meta( get_the_ID(), 'IntervistaDi',true))){
+							echo "Intervista di: <b>". get_post_meta( get_the_ID(), 'IntervistaDi',true)."</b>";
+						}
+					?>
+				</div>
+				<!-- Riprese di -->
+				<div class="single__author">
+					<?php
+						if( !empty (get_post_meta( get_the_ID(), 'RipreseDi',true))){
+							echo "Riprese di: <b>". get_post_meta( get_the_ID(), 'RipreseDi',true)."</b>";
+						}
+					?>
+				</div>
+				<!-- Montaggio di -->
+				<div class="single__author">
+					<?php
+						if( !empty (get_post_meta( get_the_ID(), 'MontaggioDi',true))){
+							echo "Montaggio di: <b>". get_post_meta( get_the_ID(), 'MontaggioDi',true)."</b>";
+						}
+					?>
+				</div>
+				<!-- Meta Description -->
+				<h2 class="single__metaDescription">
+					<?php the_excerpt();?>
+				</h2>
+				<!-- Share with -->
+				<div class="single__share">
+					<?php
+					if ( function_exists( 'sharing_display' ) ) {
+	    			sharing_display( '', true );
+					}
 
-<div class="grid">
+					if ( class_exists( 'Jetpack_Likes' ) ) {
+	    			$custom_likes = new Jetpack_Likes;
+	    		echo $custom_likes->post_likes( '' );
+					}
+					 ?>
+				</div>
+			</div>
+			<!-- Content -->
+			<div class="single__articolo">
+				<?php the_content();?>
+			</div>
+		</article>
+		<hr>
+	<?php endwhile; endif;?><!-- Fine articolo -->
+ 	<div class="rassegna__footer">
+		<?php
+		$args = array(
+			'post_type' => 'rassegna-stampa',
+			'posts_per_page' => 3,
+			'post__not_in' => array(get_the_id()),
+		);
+		$loop = new WP_Query( $args );
+		if( $loop->have_posts() ) : ?>
+			<h3 class="p-2">Archivio rassegna stampa</h3>
+			<div class="row">
+				<?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+					<div class="col-lg-4 col-md-6 my-3">
+						<div id="post-<?php the_ID(); ?>" class="card border-0 p-0">
+							<article <?php echo post_class(); ?>>
+							<?php
+								if ( has_post_thumbnail() ) {
+									the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+								}
+								else{
+									echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+								}
+							?>
+							<h5 class="card-title"><?php the_title(); ?></h5>
+							<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
+							<a href="<?php echo the_permalink();?>" class="stretched-link"><div class="cta">Leggi di più</div></a>
+							</article>
+						</div>
 
-<?php
-//loop campagne tematiche
-$custom_query_args = array(
-'post_type' => 'rassegna-stampa',
-'orderby' => 'menu_order',
-'order' => 'ASC',
-);
-$custom_query = new WP_Query( $custom_query_args );
- if ( $custom_query->have_posts() ) : while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-      <?php the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title())); ?>
-      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-      <?php the_excerpt();?>
-    </article>
-  <?php endwhile; endif; wp_reset_postdata(); ?>
-  </div> <!-- .grid 	-->
-</div> <!-- .content 	-->
+					</div>
+				<?php endwhile; ?>
+			</div>
+		<?php else: ?>
+			<p>Non ho trovato nessun altra Rassegna</p>
+		<?php endif; ?>
+	</div>
+</div>
+
+
 <?php get_footer(); ?>

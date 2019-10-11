@@ -38,7 +38,7 @@
 					?>
 				</span>
 				<br />
-				<span><?php the_time('j M Y') ?> - <?php the_title(); ?></span>
+				<span class="single__date"><?php the_time('j M Y') ?> - <?php the_title(); ?></span>
 			</div>
 			<!-- Thumbnail o video youtube -->
 			<div class="single__thumbnail">
