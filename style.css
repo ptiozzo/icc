@@ -23,7 +23,10 @@ body{
 }
 
 body.page-template-template-piemonte-che-cambia,
-body.page-template-template-casentino-che-cambia{
+body.page-template-template-casentino-che-cambia,
+.single article.category-piemonte-che-cambia,
+.single article.category-casentino-che-cambia
+{
   margin-top: 78px;
 }
 
@@ -403,13 +406,11 @@ row
 }
 /* SINGLE
 */
-.wrapper main.piemonte-che-cambia,
-.single main.piemonte-che-cambia{
-  margin-top: 45px;
-}
 
 .single .single__nav__category{
   padding: 30px 90px 100px 90px;
+  color: #000;
+  background: #ccc;
 }
 .single .category-articoli .single__nav__category{background: #68D8B1;}
 .single .category-meme .single__nav__category{background: #F79865}
@@ -723,6 +724,15 @@ CARD HOME
 .card article.category-le-storie .category-bg{border-top: 150px solid #AF0000}
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
 .card article.nostri-libri .category-bg{border-top: 150px solid #9064fa;}
+
+
+/*
+CAMPAGNE TEMATICHE
+*/
+.campagne-tematiche .single__thumbnail{
+  margin-top: 0;
+}
+
 
 
 /*
