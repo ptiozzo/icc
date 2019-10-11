@@ -247,6 +247,7 @@
 			else:
 			 echo "<p>Non ho trovato nessuna Rassegna Stampa</p>";
 			endif;
+			$rassegna_Id = get_the_ID();
 			wp_reset_query();?>
 
 			<div class='head'>
@@ -263,8 +264,9 @@
 				/* Query per Ultime news
 				*---------------------*/
 				$args = array(
-					'post_type' => 'post',
+					'post_type' => array('post','rassegna-stampa'),
 					'posts_per_page' => 10,
+					'post__not_in' => array($rassegna_Id),
 					'tax_query' => array(
 		        array(
 		            'taxonomy'=> 'icc_altri_filtri',
@@ -296,6 +298,8 @@
 													echo 'Salute';
 												}elseif (in_category('articoli')) {
 													echo 'Gli Articoli';
+												}elseif ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
+													echo 'Rassegna stampa';
 												}
 											?>
 										</span>
