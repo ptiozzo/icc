@@ -39,6 +39,13 @@ body.page-template-template-casentino-che-cambia,
 
 /*	Menu
 */
+
+}
+.fa-instagram{
+  color: #000;
+}
+
+
 header.stripe .right-col .socials>ul>.twitter>a{
    width: 20px;
 	 background-image: url('assets/img/icons/twitter.svg');
