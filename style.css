@@ -162,6 +162,9 @@ TITOLI HOME
 .home-page aside{
   width: 100%;
 }
+.widget_wpmailup_widget{
+  background: #F79865;
+}
 
  aside.sidebar div.widget_text:nth-child(1){
    background: #F79865;
