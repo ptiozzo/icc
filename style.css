@@ -462,7 +462,7 @@ row
   margin: 20px 0 5px 0;
 }
 .single .single__thumbnail{
-  margin-top: -70px;
+  margin-top: -20px;
   margin-bottom: 20px;
   display: block;
   margin-left: auto;
@@ -513,7 +513,7 @@ row
   font-size: 15px;
   color: #A3A3A3;
 }
-.single__author a b{
+.single__author b{
   text-transform: uppercase;
 }
 .single .single__head .single__metaDescription{
