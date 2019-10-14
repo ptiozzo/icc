@@ -102,8 +102,16 @@
 
 
   <?php
+    if( ($Cat1 == $ParentCat1) && ($Cat2 == $ParentCat2)){
+      $CatTerm = '';
+    } elseif ($Cat1 == $ParentCat1) {
+      $CatTerm = $Cat2;
+    } elseif ($Cat2 == $ParentCat2) {
+      $CatTerm = $Cat1;
+    } else {
+      $CatTerm = $Cat1.'+'.$Cat2;
+    }
 
-    $CatTerm = $Cat1."+".$Cat2;
     ?>
     <!--
     <?php

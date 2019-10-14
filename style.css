@@ -405,6 +405,9 @@ row
   color: #A3A3A3;
   margin-top: 10px;
 }
+.row article a .autore b{
+  text-transform: uppercase;
+}
 .row article a .title{
   margin: 10px 0 0 0;
   padding: 0;
