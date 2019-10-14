@@ -45,6 +45,13 @@ body.page-template-template-casentino-che-cambia,
   color: #000;
 }
 
+header.stripe .right-col nav>ul>li:not(:last-child){
+  margin-right: 20px;
+}
+header.stripe .right-col .search{
+  padding: 0 15px;
+  margin-right: 10px;
+}
 
 header.stripe .right-col .socials>ul>.twitter>a{
    width: 20px;
@@ -732,7 +739,6 @@ CARD HOME
   line-height: 13px;
   color: #fff;
   font-weight: 700;
-
 }
 
 .card article .category-bg{
