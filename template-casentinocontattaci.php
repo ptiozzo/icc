@@ -5,7 +5,7 @@ Template Name: Casentino contattaci
 ?>
 <?php get_header(); ?>
 <?php get_template_part('menu','casentino'); ?>
-<div class="content-no-sidebar" style="margin-top: 50px;">
+<div class="container" style="margin-top: 50px;">
 
                 <?php the_content();?>
 
