@@ -409,6 +409,10 @@ row
   position: relative;
   margin-top: 10px;
 }
+.row article a figure img{
+  height: 180px;
+  width: 227px;
+}
 .row article a .autore{
   font-size: 11px;
   line-height: 13px;
@@ -761,6 +765,8 @@ CARD HOME
 .card img{
   position: relative;
   z-index: 1;
+  width: 305px;
+  height: 207px;
 }
 
 .card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
@@ -800,6 +806,7 @@ PAGINATION
   border: 1px solid #dee2e6;
   font-size: 1rem;
 }
+
 
 
 
