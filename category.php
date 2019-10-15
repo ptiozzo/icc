@@ -128,7 +128,8 @@
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
-          'order'         => $ord
+          'order'         => $ord,
+          'category__not_in' => array(2299,2300),
       );
     } else {
       $args = array(
