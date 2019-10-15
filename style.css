@@ -53,54 +53,6 @@ header.stripe .right-col .search{
   margin-right: 10px;
 }
 
-header.stripe .right-col .socials>ul>.twitter>a{
-   width: 20px;
-	 background-image: url('assets/img/icons/twitter.svg');
-	 background-repeat: no-repeat;
-	 background-position: left;
-	 text-indent:-9999px;
- }
- header.stripe .right-col .socials>ul>.Facebook>a{
-	 width: 20px;
-	 background-image: url('assets/img/icons/facebook.svg');
-	 background-repeat: no-repeat;
-	 background-position: left;
-	 text-indent:-9999px;
- }
- header.stripe .right-col .socials>ul>.YouTube>a{
-	 width: 20px;
-	 background-image: url('assets/img/icons/youtube.svg');
-	 background-repeat: no-repeat;
-	 background-position: left;
-	 text-indent:-9999px;
- }
-header.overlay-menu .socials>ul>.twitter>a{
-	 width: 25px;
-   display: block;
-	 background-image: url('assets/img/icons/twitter-blu.svg');
-	 background-repeat: no-repeat;
-	 background-position: left;
-   background-size: 25px;
-	 text-indent:-9999px;
- }
- header.overlay-menu .socials>ul>.Facebook>a{
-	 width: 25px;
-   display: block;
-	 background-image: url('assets/img/icons/facebook-blu.svg');
-	 background-repeat: no-repeat;
-	 background-position: left;
-   background-size: 12px;
-	 text-indent:-9999px;
- }
- header.overlay-menu .socials>ul>.YouTube>a{
-	 width: 25px;
-   display: block;
-	 background-image: url('assets/img/icons/youtube-blu.svg');
-	 background-repeat: no-repeat;
-	 background-position: left;
-   background-size: 25px;
-	 text-indent:-9999px;
- }
  .menu_regioni{
    position: fixed;
    top:80px;
@@ -808,8 +760,22 @@ PAGINATION
 }
 
 
-
-
 main.piemonte-che-cambia>.page-content>section.right>aside{
   position: unset;
+}
+
+
+/*
+FONTAWESOME
+*/
+
+footer .fab{
+  color: #ddd;
+}
+
+header .fab{
+  color: #000;
+}
+header.overlay-menu .fab{
+  color: blue;
 }

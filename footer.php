@@ -15,23 +15,30 @@
 <section class='right-col'>
 <ul class='socials'>
   <li>
-    <a href=''>
+    <a href='https://twitter.com/itachecambia'>
       <figure>
-        <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/twitter-grey.svg' title='' alt=''>
+        <i class="fab fa-2x fa-twitter"></i>
       </figure>
     </a>
   </li>
   <li>
-    <a href=''>
+    <a href='https://www.facebook.com/itachecambia/'>
       <figure>
-        <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/facebook-grey.svg' title='' alt=''>
+        <i class="fab fa-2x fa-facebook-f"></i>
       </figure>
     </a>
   </li>
   <li>
-    <a href=''>
+    <a href='https://www.youtube.com/channel/UC0IbeOm9Mxq_AN0DsGMyRTA'>
       <figure>
-        <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/youtube-grey.svg' title='' alt=''>
+        <i class="fab fa-2x fa-youtube"></i>
+      </figure>
+    </a>
+  </li>
+  <li>
+    <a href='https://www.instagram.com/italiachecambia/'>
+      <figure>
+        <i class="fab fa-2x fa-instagram"></i>
       </figure>
     </a>
   </li>
