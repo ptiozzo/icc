@@ -485,6 +485,10 @@ row
   border-bottom: solid 1px #D0D0D0;
   margin-top: 20px;
 }
+.single .nostri-libri .single__head{
+  border-top: none;
+}
+
 .single .single__tag a{
   font-size: 13px;
   line-height: 13px;
