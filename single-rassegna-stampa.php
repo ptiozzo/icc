@@ -73,6 +73,19 @@
 					 ?>
 				</div>
 			</div>
+			<!-- Thumbnail o video youtube -->
+
+				<?php
+				if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
+					?>
+					<div class="single__thumbnail">
+						<figure class="embed-responsive embed-responsive-16by9">
+							<iframe width="800" height="480" src="https://www.youtube.com/embed/<?php echo linkifyYouTubeURLs(get_post_meta( get_the_ID(), 'YouTubeLink',true));?>?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+						</figure>
+					</div>
+					<?php
+				}
+				?>
 			<!-- Content -->
 			<div class="single__articolo">
 				<?php the_content();?>

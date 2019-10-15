@@ -566,10 +566,13 @@ row
 /*
 RASSEGNA STAMPA HOME
 */
-.rassegna-stampa{
+.home-page .rassegna-stampa{
   position: relative;
   max-height: 376px;
   overflow: hidden;
+}
+.single .rassegna-stampa .single__thumbnail{
+  margin-top: 20px;
 }
 .rassegna-stampa img{
   min-width: 100%;
