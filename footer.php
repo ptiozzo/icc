@@ -51,12 +51,12 @@
     </a>
   </li>
   <li>
-    <a href=''>
+    <a href='http://new.italiachecambia.org/informativa-cookie/'>
       COOKIES
     </a>
   </li>
   <li>
-    <a href=''>
+    <a href='http://new.italiachecambia.org/informativa-privacy/'>
       PRIVACY
     </a>
   </li>
