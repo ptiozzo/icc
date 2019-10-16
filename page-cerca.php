@@ -3,9 +3,10 @@
   $ParentCat1='i-nostri-contenuti';
   $ParentCat2='tematica';
 ?>
-<div class="content-no-sidebar">
+<div class="container-fluid cerca">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
-    <div class="contenuti_header">
+    <h1>Cerca</h1>
+    <div class="contenuti_header text-center ">
   <?php
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
@@ -50,17 +51,11 @@
       $SearchAutore = '';
     }
   }
-  if ($SearchCat1 == $ParentCat1){
-    echo "<h1>Cerca</h1>";
-  }
 
-  if($_POST['submit_button'] && $searchterm == ''){
-    echo "Ricerca nulla";
-  }
  ?>
   <!-- Dropdown per selezione contenuto -->
-  <form method="post" action="<?php echo get_pagenum_link(); ?>">
-        <input type="text" name="termine-cercato" value="<?php echo $searchterm; ?>">
+  <form class="mb-2" method="post" action="<?php echo get_pagenum_link(); ?>">
+        <input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>">
         <?php
           if ($searchterm != '')
           {
@@ -94,7 +89,6 @@
           }
           ?>
       </select>
-      <br />
       <!-- Dropdown per autore -->
       <select name="autore-dropdown">
         <option value="autore" <?php if ($SearchAutore == 'autore') {echo 'selected';}?> ><?php echo 'Tutti gli autori'; ?></option>
@@ -123,23 +117,18 @@
     <input name="submit_button" type="Submit" value="Cerca">
   </form>
 </div><!-- contenuti_header -->
-<div class="risultato-ricerca">
-<?php
-  if ($SearchCat1 != $ParentCat1) {
-    echo "<h2>Termine ricercato: </h2>";
-    echo "<h1>".$searchterm."</h1>";
-  }
-?>
-</div>
-
-  <br /><br />
 
   <?php
-  if ($SearchCat1 == '' && $SearchCat2 == '')
-    $SearchCatTerm = '';
-  else {
-    $SearchCatTerm = $SearchCat1."+".$SearchCat2;
+  if( ($SearchCat1 == $ParentCat1) && ($SearchCat2 == $ParentCat2)){
+    $CatTerm = '';
+  } elseif ($SearchCat1 == $ParentCat1) {
+    $SearchCatTerm = $SearchCat2;
+  } elseif ($SearchCat2 == $ParentCat2) {
+    $SearchCatTerm = $SearchCat1;
+  } else {
+    $SearchCatTerm = $SearchCat1.'+'.$SearchCat2;
   }
+  echo "<!--";
   echo $searchterm;
   echo " - ";
   echo $SearchCatTerm;
@@ -147,6 +136,7 @@
   echo $SearchOrd;
   echo " - ";
   echo $SearchAutore;
+  echo "-->";
 
     /* Personalizzo query */
     if ($searchterm != ''){
@@ -166,64 +156,86 @@
     if( $loop->have_posts() ) :
       /* Eseguo qualcosa se ho post nel loop */
       ?>
-      <div class="grid">
+      <div class="row">
       <?php
       while( $loop->have_posts() ) : $loop->the_post(); ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          <!-- Immagine in evidenza -->
-          <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail('icc_category', array('class' => 'img-res','alt' => get_the_title())); ?>
-			    </a>
-          <!-- Autore o autori -->
-          <?php
-            echo "<p>Scritto da ".get_the_author();
-            /* controllo se esiste un secondo autore */
-            if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
-              echo " e ". get_post_meta( get_the_ID(), 'SecondoAutore',true);
-            }
-            echo "</p>";
-          ?>
-          <!-- Titolo -->
-          <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-			    <?php the_excerpt();?>
-          <!-- Leggi tutto -->
-          <a href="<?php the_permalink(); ?>">Leggi tutto</a>
-        </article>
+        <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6">
+          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <a href='<?php the_permalink(); ?>'>
+              <?php
+              if ($Cat1 == $ParentCat1) { ?>
+                <div class='category'>
+                  <span><?php the_time('j M') ?></span>
+                  <span>
+                    <?php
+                      if (in_category('documentari')) {
+                        echo 'I documentari';
+                      } elseif (in_category('le-storie')) {
+                        echo 'Le storie';
+                      }elseif (in_category('meme')) {
+                        echo 'I meme';
+                      }elseif (in_category('rubriche')) {
+                        echo 'Le rubriche';
+                      }elseif (in_category('salute-che-cambia')) {
+                        echo 'Salute';
+                      }elseif (in_category('articoli')) {
+                        echo 'Gli Articoli';
+                      }
+                    ?>
+                  </span>
+                </div>
+              <?php } ?>
+              <!-- Immagine in evidenza -->
+              <figure>
+                <?php
+                  if ($Cat1 != "nostri-libri"){
+                    if ( has_post_thumbnail() ) {
+      								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+      							}
+      							else{
+      								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+      							}
+                  } else {
+                    the_post_thumbnail('icc_libri', array('class' => 'img-fluid','alt' => get_the_title()));
+                  }
+                ?>
+              </figure>
+              <!-- Autore o autori -->
+              <?php
+              if ($Cat1 != "nostri-libri"){
+                echo "<div class='autore'>Scritto da <b>".get_the_author();
+                /* controllo se esiste un secondo autore */
+                if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
+                  echo " e ". get_post_meta( get_the_ID(), 'SecondoAutore',true);
+                }
+                echo "</b></div>";
+              }
+              ?>
+              <!-- Titolo -->
+              <div class='title'>
+                <h3><?php the_title(); ?></h3>
+              </div>
+
+                <?php the_excerpt();?>
+
+              <div class='cta'>LEGGI DI PIÙ</div>
+            </a>
+          </article>
+        </div>
         <?php
       endwhile;
         ?>
       </div> <!-- .grid -->
         <!-- paginazione -->
-        <div class="clearfix"></div>
-        <div class="pagination">
-        <br />
-        	<?php
-        		$big = 999999999; // need an unlikely integer
-        		echo paginate_links( array(
-        			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-        			'format' => '?paged=%#%',
-        			'current' => max( 1, get_query_var('paged') ),
-        			'total' => $loop->max_num_pages
-        		) );
-          ?>
-        </div>
+
+      <?php echo bootstrap_pagination($loop); ?>
+
         <?php
       else:
-        if ($searchterm == ''){
         ?>
-        <p>Inserisci del testo per iniziare la tua ricerca</p>
+          <h3 class="text-center">Inserisci un termine da ricercare</h3>
         <?php
-      } else {
-        echo "<p>I parametri di ricerca inseriti non hanno portato a nessun risultato!</p>";
-      }
       endif;
-      ?>
-        <form method="post" action="<?php echo get_pagenum_link(); ?>">
-          <input type="hidden" name="termine-cercato" value="">
-          <input name="submit_button" type="Submit" value="Reset">
-        </form>
-      </br>
-      <?php
     wp_reset_query();
   ?>
   <!-- fine loop -->

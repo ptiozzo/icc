@@ -52,6 +52,9 @@ header.stripe .right-col .search{
   padding: 0 15px;
   margin-right: 10px;
 }
+header .overlay-menu>figure.hand{
+  bottom: 0;
+}
 
  .menu_regioni{
    position: fixed;
@@ -232,10 +235,6 @@ div.content{
   padding: 0 30px;
 }
 div.contenuti_header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 30px;
   padding: 20px 30px 0 30px;
 }
 div.contenuti_header select{
@@ -243,7 +242,6 @@ div.contenuti_header select{
   align-items: center;
   border: #000000 solid 1px;
 }
-
 .category-i-nostri-contenuti h1{
   margin: 0;
   padding: 0;
@@ -343,7 +341,7 @@ row
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100% - 10px);
+  width: calc(100% - 30px);
   height: 160px;
   justify-content: space-between;
   padding: 0 10px 0;
@@ -430,7 +428,7 @@ row
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 80%;
 }
 .single .single__category{
   padding: 0 90px;
@@ -447,7 +445,7 @@ row
 
 .single .single__tag a{
   font-size: 13px;
-  line-height: 13px;
+  display: inline-block;
   font-weight: 500;
   padding: 15px 20px;
   color: #FFFFFF;
@@ -720,6 +718,10 @@ CARD HOME
   width: 305px;
   height: 207px;
 }
+.card .nostri-libri img{
+  width: auto;
+  height: auto;
+}
 
 .card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
 .card article.category-meme .category-bg{border-top: 150px solid #F79865}
@@ -777,5 +779,5 @@ header .fab{
   color: #000;
 }
 header.overlay-menu .fab{
-  color: blue;
+  color: #1E4674;
 }
