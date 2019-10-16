@@ -643,6 +643,69 @@ a.carousel-more{
   height: 25px;
   width: 25px;
 }
+#carouselMappa article{
+  display: flex;
+}
+#carouselMappa .left{
+  width: 50%;
+  flex-shrink: 0;
+  background: #35A6C3;
+}
+#carouselMappa .right{
+  width: 50%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#carouselMappa .right img{
+  max-width: 100%;
+}
+#carouselMappa .left .list{
+  margin: 0;
+  list-style: none;
+  padding: 25px;
+}
+#carouselMappa .left .list img{
+  float: right;
+}
+#carouselMappa .left .list li{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 15px 0;
+}
+#carouselMappa .left .list .cta{
+  display: block;
+  background: #9BCE8F;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+}
+#carouselMappa .left .list .info{
+  display: flex;
+  align-items: baseline;
+}
+#carouselMappa .left .list .number{
+  font-size: 42px;
+  line-height: 42px;
+  font-weight: 900;
+  color: #C4E7B5;
+}
+#carouselMappa .left .list .text{
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+
 
 .card-title{
   margin: 10px 0 0 0;
