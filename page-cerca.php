@@ -3,7 +3,7 @@
   $ParentCat1='i-nostri-contenuti';
   $ParentCat2='tematica';
 ?>
-<div class="container-fluid cerca">
+<div class="container-fluid content-no-sidebar cerca">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
     <h1>Cerca</h1>
     <div class="contenuti_header text-center ">
@@ -59,6 +59,17 @@
         <?php
           if ($searchterm != '')
           {
+            if( ($SearchCat1 == $ParentCat1) && ($SearchCat2 == $ParentCat2)){
+              $SearchCatTerm = '';
+            } elseif ($SearchCat1 == $ParentCat1) {
+              $SearchCatTerm = $SearchCat2;
+            } elseif ($SearchCat2 == $ParentCat2) {
+              $SearchCatTerm = $SearchCat1;
+            } elseif ( ($SearchCat1 == '') && ($SearchCat2 == '')) {
+              $SearchCatTerm = '';
+            } else {
+              $SearchCatTerm = $SearchCat1.'+'.$SearchCat2;
+            }
          ?>
          <br />
         <select name="contenuti-dropdown">
@@ -119,23 +130,20 @@
 </div><!-- contenuti_header -->
 
   <?php
-  if( ($SearchCat1 == $ParentCat1) && ($SearchCat2 == $ParentCat2)){
-    $CatTerm = '';
-  } elseif ($SearchCat1 == $ParentCat1) {
-    $SearchCatTerm = $SearchCat2;
-  } elseif ($SearchCat2 == $ParentCat2) {
-    $SearchCatTerm = $SearchCat1;
-  } else {
-    $SearchCatTerm = $SearchCat1.'+'.$SearchCat2;
-  }
-  echo "<!--";
+
+  echo "<!-- SearchTerm: ";
   echo $searchterm;
-  echo " - ";
+  echo " -SearchCatTerm: ";
   echo $SearchCatTerm;
-  echo " - ";
+  echo " -SearchOrd: ";
   echo $SearchOrd;
-  echo " - ";
+  echo " -SearchAutore: ";
   echo $SearchAutore;
+
+  echo " -SearchCat1: ";
+  echo $SearchCat1;
+  echo " -SearchCat2: ";
+  echo $SearchCat2;
   echo "-->";
 
     /* Personalizzo query */
