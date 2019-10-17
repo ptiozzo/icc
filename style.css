@@ -37,6 +37,12 @@ body.page-template-template-casentino-che-cambia,
   top: 112px;
 }
 
+@media (min-width: 1200px), all{
+  .container {
+    max-width: 1000px;
+  }
+}
+
 /*	Menu
 */
 
