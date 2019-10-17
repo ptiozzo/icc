@@ -30,7 +30,7 @@ $Cat2 = 'le-storie';
         <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <a href='<?php the_permalink(); ?>'>
-              
+
               <!-- Immagine in evidenza -->
               <figure>
                 <?php
