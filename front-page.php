@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <div class="container-fluid home-page">
 	<div class="row">
-		<div class="col-lg-4 col-md-6 position-sticky">
-
+		<div class="col-lg-4 col-md-6">
+			<div class="sticky">
 			<div class='head'>
 				<div class='title'>
 					<h5>LE NOSTRE STORIE</h5>
@@ -202,7 +202,7 @@
 					</div>
 				</div>
 			</div>
-
+		</div>
 		</div><!-- Fini prima colonna -->
 
 		<div class="col-lg-6 col-md-6">

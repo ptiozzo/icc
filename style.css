@@ -43,6 +43,11 @@ body.page-template-template-casentino-che-cambia,
   }
 }
 
+.sticky{
+  position: sticky;
+  top:80px;
+}
+
 /*	Menu
 */
 
