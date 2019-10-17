@@ -30,29 +30,7 @@ $Cat2 = 'le-storie';
         <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <a href='<?php the_permalink(); ?>'>
-              <?php
-              if ($Cat1 == $ParentCat1) { ?>
-                <div class='category'>
-                  <span><?php the_time('j M') ?></span>
-                  <span>
-                    <?php
-                      if (in_category('documentari')) {
-                        echo 'I documentari';
-                      } elseif (in_category('le-storie')) {
-                        echo 'Le storie';
-                      }elseif (in_category('meme')) {
-                        echo 'I meme';
-                      }elseif (in_category('rubriche')) {
-                        echo 'Le rubriche';
-                      }elseif (in_category('salute-che-cambia')) {
-                        echo 'Salute';
-                      }elseif (in_category('articoli')) {
-                        echo 'Gli Articoli';
-                      }
-                    ?>
-                  </span>
-                </div>
-              <?php } ?>
+              
               <!-- Immagine in evidenza -->
               <figure>
                 <?php

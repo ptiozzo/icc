@@ -127,7 +127,7 @@ TITOLI HOME
  /*	Sidebar
  */
 
-.home-page aside{
+.home-page {
   width: 100%;
 }
 .widget_wpmailup_widget{
@@ -141,7 +141,6 @@ TITOLI HOME
  }
  aside.sidebar div.widget_text:nth-child(2){
    margin-top: 10px;
-   background: #A5DBB9;
    color: #fff;
    text-transform: uppercase;
  }
@@ -231,6 +230,14 @@ aside.sidebar div.widget_nav_menu ul li a{
 }
 aside.sidebar div.widget_nav_menu ul li{
   text-align: center;
+}
+
+aside .pcc-provincie a{
+  display: block;
+  padding: 10px;
+  margin-top: 5px;
+  background: #A5DBB9;
+  color: #000 !important;
 }
 
 /*	Vista griglia per categorie
