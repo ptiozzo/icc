@@ -133,6 +133,9 @@ TITOLI HOME
 .widget_wpmailup_widget{
   background: #F79865;
 }
+aside{
+  width: 100%;
+}
 
  aside.sidebar div.widget_text:nth-child(1){
    background: #F79865;
@@ -186,6 +189,8 @@ aside.sidebar div figure{
    vertical-align: middle;
    display:block;;
    margin: auto;
+   max-width: 100%;
+   height: auto;
  }
  aside.sidebar div div{
    padding: 0;
