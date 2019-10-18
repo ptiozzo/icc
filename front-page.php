@@ -203,6 +203,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="fineSideBar"></div>
 		</div><!-- Fini prima colonna -->
 
 		<div class="col-lg-6 col-md-6">

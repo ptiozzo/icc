@@ -43,12 +43,6 @@ body.page-template-template-casentino-che-cambia,
   }
 }
 
-.sticky{
-  position: fixed;
-  overflow: scroll;
-  width: 200px;
-}
-
 /*	Menu
 */
 
@@ -551,6 +545,7 @@ row
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 .single__attivati{
