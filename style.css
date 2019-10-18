@@ -98,6 +98,15 @@ header .overlay-menu>figure.hand{
   padding-right: 1rem;
 }
 
+#menu-menu-footer .nav-link{
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+}
+
 /*
 TITOLI HOME
 */

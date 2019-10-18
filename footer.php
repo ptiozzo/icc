@@ -1,6 +1,6 @@
 </div>
 
-<footer>
+<footer class="d-flex justify-content-between">
 <section class='left-col'>
 <figure>
   <img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia-footer.svg' title='' alt=''>
@@ -13,54 +13,41 @@
 </article>
 </section>
 <section class='right-col'>
-<ul class='socials'>
-  <li>
-    <a href='https://twitter.com/itachecambia'>
-      <figure>
-        <i class="fab fa-2x fa-twitter"></i>
-      </figure>
-    </a>
-  </li>
-  <li>
-    <a href='https://www.facebook.com/itachecambia/'>
-      <figure>
-        <i class="fab fa-2x fa-facebook-f"></i>
-      </figure>
-    </a>
-  </li>
-  <li>
-    <a href='https://www.youtube.com/channel/UC0IbeOm9Mxq_AN0DsGMyRTA'>
-      <figure>
-        <i class="fab fa-2x fa-youtube"></i>
-      </figure>
-    </a>
-  </li>
-  <li>
-    <a href='https://www.instagram.com/italiachecambia/'>
-      <figure>
-        <i class="fab fa-2x fa-instagram"></i>
-      </figure>
-    </a>
-  </li>
-</ul>
 
-<ul class='links'>
-  <li>
-    <a href=''>
-      CREDITS
-    </a>
-  </li>
-  <li>
-    <a href='http://new.italiachecambia.org/informativa-cookie/'>
-      COOKIES
-    </a>
-  </li>
-  <li>
-    <a href='http://new.italiachecambia.org/informativa-privacy/'>
-      PRIVACY
-    </a>
-  </li>
-</ul>
+  <?php
+  wp_nav_menu([
+    'menu'            => 'menu-social',
+    'theme_location'  => 'menu-social',
+    'container'       => 'nav',
+    'container_id'    => 'bs4navbar',
+    'container_class' => '',
+    'menu_id'         => false,
+    'menu_class'      => 'nav',
+    'depth'           => 0,
+    'fallback_cb'     => 'bs4navwalker::fallback',
+    'walker'          => new bs4navwalker()
+  ]);
+  ?>
+
+
+
+ <?php
+ wp_nav_menu([
+   'menu'            => 'menu-footer',
+   'theme_location'  => 'menu-footer',
+   'container'       => 'nav',
+   'container_id'    => 'bs4navbar',
+   'container_class' => '',
+   'menu_id'         => false,
+   'menu_class'      => 'nav',
+   'depth'           => 0,
+   'fallback_cb'     => 'bs4navwalker::fallback',
+   'walker'          => new bs4navwalker()
+ ]);
+ ?>
+
+
+
 
 </section>
 </footer>
