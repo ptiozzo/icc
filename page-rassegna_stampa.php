@@ -60,10 +60,6 @@
 						}
 					?>
 				</div>
-				<!-- Meta Description -->
-				<h2 class="single__metaDescription">
-					<?php the_excerpt();?>
-				</h2>
 				<!-- Share with -->
 				<div class="single__share">
 					<?php
@@ -91,6 +87,11 @@
           <?php
         }
         ?>
+        <!-- Riassunto -->
+        <h4 class="single__metaDescription">
+          <?php the_excerpt();?>
+        </h4>
+        <hr>
 			<!-- Content -->
 			<div class="single__articolo">
 				<?php the_content();?>
