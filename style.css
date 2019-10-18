@@ -44,8 +44,9 @@ body.page-template-template-casentino-che-cambia,
 }
 
 .sticky{
-  position: sticky;
-  top:80px;
+  position: fixed;
+  overflow: scroll;
+  width: 200px;
 }
 
 /*	Menu
@@ -215,6 +216,7 @@ aside.sidebar div figure{
    font-weight: 900;
    text-align: center;
    text-transform: uppercase;
+   color: #000;
  }
  aside.sidebar div.widget_nav_menu ul{
    margin: 12.5px 0 0 0;
@@ -253,10 +255,15 @@ aside.sidebar div.widget_nav_menu ul li{
 
 aside .pcc-provincie a{
   display: block;
-  padding: 10px;
-  margin-top: 5px;
+  font-size: 11px;
+  line-height: 11px;
+  padding: 19px 0;
+  text-transform: uppercase;
   background: #A5DBB9;
-  color: #000 !important;
+  color: #fff !important;
+}
+aside.sidebar .pcc-provincie p{
+  padding: 0;
 }
 
 /*	Vista griglia per categorie
