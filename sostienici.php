@@ -32,11 +32,11 @@ Template Name: Sostienici
 							</p>
 						</div>
 
-						<!--
+
 						<div class="cta">
-							<a href='' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='http://new.italiachecambia.org/campagna/' target='_blank'>ISCRIVITI ADESSO</a>
 						</div>
-					-->
+
 
 					</article>
 				</li>
@@ -60,11 +60,11 @@ Template Name: Sostienici
 							</p>
 						</div>
 
-						<!--
+
 						<div class="cta">
-							<a href='' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='http://new.italiachecambia.org/5xmille/' target='_blank'>ISCRIVITI ADESSO</a>
 						</div>
-					-->
+
 
 					</article>
 				</li>
@@ -85,11 +85,11 @@ Template Name: Sostienici
 							</p>
 						</div>
 
-						<!--
+
 						<div class="cta">
-							<a href='' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='http://new.italiachecambia.org/adotta-un-articolo/' target='_blank'>ISCRIVITI ADESSO</a>
 						</div>
-					-->
+
 
 					</article>
 				</li>
@@ -111,11 +111,11 @@ Template Name: Sostienici
 								Contribuisci col tuo 5 x mille!
 							</p>
 						</div>
-						<!--
+
 						<div class="cta">
-							<a href='' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='http://new.italiachecambia.org/sostieni-litalia-che-cambia/' target='_blank'>ISCRIVITI ADESSO</a>
 						</div>
-					-->
+
 					</article>
 				</li>
 			</ul>
