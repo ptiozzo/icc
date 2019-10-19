@@ -84,6 +84,18 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 }
 add_action( 'widgets_init', 'icc_sidebars' );
 
+/*
+* Add Response code to video embeds in WordPress
+*
+* @refer  http://alxmedia.se/code/2013/10/make-wordpress-default-video-embeds-responsive/
+*/
+function abl1035_alx_embed_html( $html ) {
+
+ return '<div class="video-container">' . $html . '</div>';
+}
+add_filter( 'embed_oembed_html', 'abl1035_alx_embed_html', 10, 3 );
+add_filter( 'video_embed_html', 'abl1035_alx_embed_html' ); // Jetpack
+
 /*  Custom post type
 /* ------------------------------------ */
 require 'inc/custom-post.php';
@@ -142,6 +154,14 @@ require 'inc/attivati.php';
 /* ------------------------------------ */
 require 'inc/widget.php';
 
+
+function category_has_parent($catid){
+    $category = get_category($catid);
+    if ($category->category_parent > 0){
+        return true;
+    }
+    return false;
+}
 
 /* Prima immagine del post.
 /* ------------------------------------ */
