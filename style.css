@@ -547,10 +547,20 @@ row
 
 
 .single__attivati{
+  align-items: center;
   position: relative;
-  background-color: #00cc66;
+  display: flex;
+  background-color: #68D8B1;
   color: #fff;
-
+  font-size: 22px;
+  line-height: 23px;
+  font-weight: 500;
+}
+.single__attivati2{
+  align-items: center;
+  font-size: 30px;
+  font-weight: 900;
+  
 }
 
 /*
