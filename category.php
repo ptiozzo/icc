@@ -3,7 +3,15 @@
   $ParentCat1='i-nostri-contenuti';
   $ParentCat2='tematica';
 ?>
-<div class="content-no-sidebar">
+<?php
+if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
+  if (has_category('piemonte-che-cambia')){
+    get_template_part('menu','piemonte');
+  } elseif (has_category('casentino-che-cambia')) {
+    get_template_part('menu','casentino');
+  }
+} ?>
+<div class="container-fluid">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
 <div class="contenuti_header">
   <?php
@@ -123,20 +131,27 @@
     -->
     <?php
     /* Personalizzo query */
-    if($Cat1 != "nostri-libri"){
+    if($Cat1 == "nostri-libri"){
+      $args = array(
+      'post_type' => 'nostri-libri',
+      'orderby' => 'menu_order',
+      'paged'          => $paged,
+      'order' => $ord,
+      );
+    } elseif ((has_category('piemonte-che-cambia') || has_category('casentino-che-cambia'))) {
+      $args = array(
+          'category_name' => $CatTerm,
+          'posts_per_page' => 20,
+          'paged'          => $paged,
+          'order'         => $ord,
+      );
+    } else {
       $args = array(
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
           'order'         => $ord,
           'category__not_in' => array(2299,2300),
-      );
-    } else {
-      $args = array(
-      'post_type' => 'nostri-libri',
-      'orderby' => 'menu_order',
-      'paged'          => $paged,
-      'order' => $ord,
       );
     }
     /*eseguo la query */
