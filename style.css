@@ -555,12 +555,13 @@ row
   font-size: 22px;
   line-height: 23px;
   font-weight: 500;
+  min-height: 130px;
 }
 .single__attivati2{
   align-items: center;
   font-size: 30px;
   font-weight: 900;
-  
+
 }
 
 /*
