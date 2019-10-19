@@ -43,6 +43,13 @@ body.page-template-template-casentino-che-cambia,
   }
 }
 
+h1{
+  font-size: 33px;
+  line-height: 33px;
+  font-weight: 900;
+}
+
+
 /*	Menu
 */
 
@@ -58,9 +65,13 @@ header.stripe .right-col .search{
   padding: 0 15px;
   margin-right: 10px;
 }
+header.overlay-menu{
+  z-index: 1030;
+}
 header .overlay-menu>figure.hand{
   bottom: 0;
 }
+
 
  .menu_regioni{
    position: fixed;
