@@ -108,7 +108,7 @@ Template Name: Visione 2040
 									Negli anni passati abbiamo abbattuto le emissioni da parte dell’industria, delle abitazioni private, dei mezzi di trasporto e preso misure di contenimento come la riforestazione e la prevenzione del dissesto idrogeologico. Le conseguenze dei cambiamenti climatici sono ormai evidenti, ma sembra probabile che l’innalzamento delle temperature resterà entro i 2°C.
 								</p>
 							</article>
-							<a href="http://new.italiachecambia.org/visione-2040-economia/" class="stretched-link"></a>
+							<a href="http://new.italiachecambia.org/visione-2040-clima/" class="stretched-link"></a>
 
 						</div>
 					</div>
