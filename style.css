@@ -563,6 +563,10 @@ RASSEGNA STAMPA HOME
 .single .rassegna-stampa .single__thumbnail{
   margin-top: 20px;
 }
+.single .rassegna-stampa .single__metaDescription{
+  background: #a3a3a3;
+  color: #fff;
+}
 .rassegna-stampa img{
   min-width: 100%;
   min-height: 100%;
