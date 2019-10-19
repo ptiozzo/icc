@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Calendario Piemonte
+Template Name: Piemonte calendario
 */
 ?>
 <?php get_header(); ?>
