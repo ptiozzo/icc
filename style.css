@@ -22,14 +22,6 @@ body{
 
 }
 
-body.page-template-template-piemonte-che-cambia,
-body.page-template-template-casentino-che-cambia,
-.single article.category-piemonte-che-cambia,
-.single article.category-casentino-che-cambia
-{
-  margin-top: 78px;
-}
-
 .admin-bar header.stripe{
   top:32px;
 }
@@ -74,7 +66,7 @@ header .overlay-menu>figure.hand{
 
 
  .menu_regioni{
-   position: fixed;
+   position: sticky;
    top:80px;
    z-index: 1020;
    width: 100vw;
@@ -298,14 +290,11 @@ div.contenuti_header select{
 .cat2{
   padding: 30px 30px 90px 30px;
   margin-bottom: -90px;
+  background: #749A4F;
 }
 
 .cat2 h1{
   color: #FFF;
-}
-
-.cat2.category-nostri-libri h1{
-  color: #000;
 }
 
 .cat2.category-articoli{background: #68D8B1;}
@@ -313,6 +302,7 @@ div.contenuti_header select{
 .cat2.category-documentari{background: #3D78D0}
 .cat2.category-rubriche{background: #F270C0}
 .cat2.category-le-storie{background: #AF0000}
+.cat2.category-nostri-libri{background: #9064fa}
 .cat2.category-salute-che-cambia{background: #7FD1F5}
 
 /*
