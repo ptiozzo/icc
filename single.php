@@ -17,23 +17,24 @@
 			if (!has_category('piemonte-che-cambia') && !has_category('casentino-che-cambia')) {
 			?>
 			<div class='single__nav__category'>
-				<span>
+					<a href="/category/i-nostri-contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
 					<?php
 						if (in_category('documentari')) {
-							echo 'I documentari';
+							echo '<a href="/category/i-nostri-contenuti/documentari/">I documentari';
 						} elseif (in_category('le-storie')) {
-							echo 'Le storie';
+							echo '<a href="/category/i-nostri-contenuti/le-storie/">Le storie';
 						}elseif (in_category('meme')) {
-							echo 'I meme';
+							echo '<a href="/category/i-nostri-contenuti/meme/">I meme';
 						}elseif (in_category('rubriche')) {
-							echo 'Le rubriche';
+							echo '<a href="/category/i-nostri-contenuti/rubriche/">Le rubriche';
 						}elseif (in_category('salute-che-cambia')) {
-							echo 'Salute';
+							echo '<a href="/category/salute-che-cambia/">Salute';
 						}elseif (in_category('articoli')) {
-							echo 'Gli Articoli';
+							echo '<a href="/category/i-nostri-contenuti/articoli/">Gli Articoli';
 						}
 					?>
-				</span>
+				</a>
+
 				<br />
 			</div>
 		<?php } ?>

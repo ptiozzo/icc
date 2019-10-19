@@ -431,8 +431,7 @@ row
 */
 
 .single .single__nav__category{
-  padding: 30px 90px 30px 90px;
-  color: #000;
+  padding: 30px 90px 30px 30px;
   background: #ccc;
 }
 .single .category-articoli .single__nav__category{background: #68D8B1;}
@@ -443,18 +442,19 @@ row
 .single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
 .single .rassegna-stampa .single__nav__category{background: #000}
 
-.single .single__nav__category span:nth-child(1){
+.single .single__nav__category a{
   margin: 0;
   padding: 0;
   font-size: 18px;
   font-weight: 900;
   color: #FFFFFF;
 }
-.single .single__nav__category span:nth-child(3){
-  font-size: 13px;
-  line-height: 13px;
-  color: #FFFFFF;
-  margin: 20px 0 5px 0;
+
+.single .single__torna__contenuti{
+  border: 1px solid #fff;
+}
+.single a.single__torna__contenuti{
+  font-weight: 400;
 }
 .single .single__thumbnail{
   margin-top: -20px;
