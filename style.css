@@ -725,6 +725,10 @@ a.carousel-more{
   height: 25px;
   width: 25px;
 }
+#carouselLeNostreStorie .card{
+  background: #F7F7F7;
+}
+
 #carouselMappa article{
   display: flex;
 }
