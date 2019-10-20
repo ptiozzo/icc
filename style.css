@@ -42,6 +42,84 @@ h1{
 }
 
 
+/*
+Layout
+*/
+@media (min-width: 1200px){
+  .col-lg-home1{
+    width: 580px;
+    flex: none;
+    max-width: none;
+  }
+  .col-lg-home2{
+    flex: none;
+    max-width: calc(100% - 580px - 285px);
+  }
+  .col-lg-home3{
+    width: 270px;
+  }
+}
+@media (max-width: 1199px) and (min-width: 992px){
+  .col-lg-home1,
+  .col-lg-home2{
+    width: calc(100% - 270px);
+    flex: none;
+    max-width: none;
+  }
+  .col-lg-home3{
+    position: absolute;
+    top: 80px;
+    right: 0;
+  }
+}
+
+
+/*
+5 COLONNE
+*/
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-5ths {
+    flex: 0 0 20%;
+    float: left;
+}
+@media (min-width: 576px) {
+    .col-sm-5ths{
+      flex: 0 0 20%;
+      float: left;
+    }
+}
+@media (min-width: 768px) {
+    .col-md-5ths {
+        flex: 0 0 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-5ths {
+        flex: 0 0 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-5ths {
+        flex: 0 0 20%;
+        float: left;
+    }
+}
+
+
+
 /*	Menu
 */
 
@@ -146,7 +224,7 @@ TITOLI HOME
   background: #F79865;
 }
 aside{
-  width: 100%;
+  width: 270px;
 }
 
  aside.sidebar div.widget_text:nth-child(1){
@@ -305,49 +383,6 @@ div.contenuti_header select{
 .cat2.category-nostri-libri{background: #9064fa}
 .cat2.category-salute-che-cambia{background: #7FD1F5}
 
-/*
-5 COLONNE
-*/
-.col-xs-5ths,
-.col-sm-5ths,
-.col-md-5ths,
-.col-lg-5ths {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.col-xs-5ths {
-    flex: 0 0 20%;
-    float: left;
-}
-@media (min-width: 576px) {
-    .col-sm-5ths{
-      flex: 0 0 20%;
-      float: left;
-    }
-}
-@media (min-width: 768px) {
-    .col-md-5ths {
-        flex: 0 0 20%;
-        float: left;
-    }
-}
-
-@media (min-width: 992px) {
-    .col-lg-5ths {
-        flex: 0 0 20%;
-        float: left;
-    }
-}
-
-@media (min-width: 1200px) {
-    .col-xl-5ths {
-        flex: 0 0 20%;
-        float: left;
-    }
-}
 
 /*
 row
@@ -586,7 +621,7 @@ RASSEGNA STAMPA HOME
 .rassegna-stampa article{
   position: absolute;
   background-color: #000;
-  width: 50%;
+  max-width: calc(100% - 30px);
   bottom: 15px;
   left: 15px;
   padding: 20px 50px 20px 15px;
@@ -825,8 +860,9 @@ CARD HOME
 .card img{
   position: relative;
   z-index: 1;
-  width: 305px;
-  height: 207px;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.25rem;
 }
 .card .nostri-libri img{
   width: auto;

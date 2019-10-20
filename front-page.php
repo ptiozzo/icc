@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="container-fluid home-page">
 	<div class="row">
-		<div class="col-lg-4 col-md-6">
+		<div class="col-lg-home1 col-md-12">
 			<div class="sticky">
 			<div class='head'>
 				<div class='title'>
@@ -39,7 +39,7 @@
 								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
 							}
 							else{
-								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+								echo '<img class="img-fluid card-img-top mx-auto d-block" src="'.catch_that_image().'" />';
 							}
 							?>
 							<div class="card-body">
@@ -206,7 +206,7 @@
 		<div id="fineSideBar"></div>
 		</div><!-- Fini prima colonna -->
 
-		<div class="col-lg-6 col-md-6">
+		<div class="col-lg-home2 col-md-12">
 			<div class='head'>
 				<div class='title'>
 					<h5>RASSEGNA STAMPA</h5>
@@ -280,7 +280,7 @@
 				$loop = new WP_Query( $args );
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
 				?>
-							<div class="col-lg-6 mt-3">
+							<div class="col-md-6 mt-3">
 								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
 									<article <?php echo post_class(); ?>>
 									<div class="category-bg"> </div>
@@ -346,7 +346,7 @@
 				$loop = new WP_Query( $args );
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
 				 ?>
-					<div class="col-lg-4 col-md-6 my-3">
+					<div class="col-md-4 col-xs-6 my-3">
 						<div id="post-<?php the_ID(); ?>" class="card border-0 p-0">
 							<article <?php echo post_class(); ?>>
 							<div class="category-bg"> </div>
@@ -374,7 +374,7 @@
 
 			</div><!-- Fine colonna libri  -->
 		</div><!-- Fini seconda colonna  -->
-		<div class="col-lg-2">
+		<div class="col-lg-home3 d-none d-lg-block">
 			<?php get_sidebar(); ?>
 		</div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
