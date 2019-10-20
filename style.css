@@ -911,7 +911,16 @@ PAGINATION
 main.piemonte-che-cambia>.page-content>section.right>aside{
   position: unset;
 }
-
+/*
+FOOTER
+*/
+footer article{
+  color: #A3A3A3;
+  font-size: 12px;
+}
+footer article b{
+  color: #fff;
+}
 
 /*
 FONTAWESOME
