@@ -1,13 +1,13 @@
 </div>
 
 <footer>
-<div class="d-flex flex-xl-row flex-sm-column justify-content-between align-items-center">
-  <div class="d-flex flex-sm-column flex-md-row align-items-center">
-    <figure class="pr-5">
+<div class="d-flex flex-lg-row flex-column justify-content-between align-items-center">
+  <div class="d-flex flex-column flex-xl-row align-items-center">
+    <figure class="pr-xl-5 mx-auto">
       <img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia-footer.svg' title='' alt=''>
     </figure>
 
-    <article>
+    <article class="text-center text-xl-left">
       <b>ITALIA CHE CAMBIA</b> <br>
       <b>Associazione di promozione sociale</b> <br>
       Via Aldo Banzi, 88 - 00128, Roma (RM) <br>
@@ -23,7 +23,7 @@
       'container_id'    => 'bs4navbar',
       'container_class' => '',
       'menu_id'         => false,
-      'menu_class'      => 'nav ml-md-auto mx-sm-auto mx-md-0',
+      'menu_class'      => 'nav mx-auto mx-md-0 ml-md-auto ',
       'depth'           => 0,
       'fallback_cb'     => 'bs4navwalker::fallback',
       'walker'          => new bs4navwalker()
