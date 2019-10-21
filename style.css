@@ -431,6 +431,7 @@ row
 .row article a figure img{
   height: 180px;
   width: 227px;
+  object-fit: contain;
 }
 .row article a .autore{
   font-size: 11px;
