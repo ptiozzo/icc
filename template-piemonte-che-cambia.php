@@ -11,7 +11,7 @@ Template Name: Piemonte che cambia
 <?php get_header(); ?>
 <div class="container-fluid home-page">
 	<div class="row">
-		<div class="col-lg-4 col-md-6 position-sticky">
+		<div class="col-lg-home1 col-md-12">
 
 			<div class='head'>
 				<div class='title'>
@@ -201,7 +201,7 @@ Template Name: Piemonte che cambia
 
 		</div><!-- Fini prima colonna -->
 
-		<div class="col-lg-6 col-md-6">
+		<div class="col-lg-home2 col-md-12">
 
 			<div class='head'>
 				<div class='title'>
