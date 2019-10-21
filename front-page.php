@@ -39,10 +39,10 @@
 								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
 							}
 							else{
-								echo '<img class="img-fluid card-img-top mx-auto d-block" src="'.catch_that_image().'" />';
+								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
 							}
 							?>
-							<div class="card-body">
+							<div class="card-body p-1">
 								<h5 class="card-title"><?php the_title(); ?></h5>
 								<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
 								<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
