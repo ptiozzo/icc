@@ -66,6 +66,7 @@ if ( ! function_exists( 'icc_setup' ) ) {
 			'menu-regioni' => esc_html__( 'Menu regioni', 'icc' ),
 			'menu-piemonte' => esc_html__( 'Menu piemonte', 'icc' ),
 			'menu-casentino' => esc_html__( 'Menu casentino', 'icc' ),
+			'menu-liguria' => esc_html__( 'Menu liguria', 'icc' ),
 		) );
 	}
 }
