@@ -8,7 +8,6 @@ Template Name: Casentino che cambia
 <?php
   $catPage = 'casentino-che-cambia';
 ?>
-<?php get_header(); ?>
 <div class="container-fluid home-page">
 	<div class="row">
 		<div class="col-lg-6 col-md-12">

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Mappa Piemonte
+Template Name: Piemonte mappa
 */
 ?>
 <?php get_header(); ?>

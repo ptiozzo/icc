@@ -8,7 +8,6 @@ Template Name: Piemonte che cambia
 <?php
   $catPage = 'piemonte-che-cambia';
 ?>
-<?php get_header(); ?>
 <div class="container-fluid home-page">
 	<div class="row">
 		<div class="col-lg-home1 col-md-12">
