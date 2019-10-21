@@ -302,6 +302,8 @@ aside.sidebar div figure{
  aside.sidebar div.widget_nav_menu ul li:not(:last-child){
     margin-bottom: 4px;
  }
+
+ /*
  aside.sidebar div.widget_nav_menu ul li:nth-child(1){
    background: #A5DBB8;
  }
@@ -314,6 +316,7 @@ aside.sidebar div figure{
  aside.sidebar div.widget_nav_menu ul li:nth-child(4){
    background: #41B2C4;
  }
+ */
 aside.sidebar div.widget_nav_menu ul li a{
   display: block;
   color: #000000;
@@ -890,6 +893,17 @@ CAMPAGNE TEMATICHE
 .campagne-tematiche .single__thumbnail{
   margin-top: 0;
 }
+
+/*
+SFONDI
+*/
+.bg-regione-ita{
+  background: #A5DBB8;
+}
+.bg-regione-ger{
+  background: #73C6BE;
+}
+
 
 
 
