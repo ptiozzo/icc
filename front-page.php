@@ -16,7 +16,13 @@
 				'post_type' => 'post',
 				'posts_per_page' => 10,
 				'category_name' => 'le-storie',
-				'category__not_in' => array( 2299,2300 ),
+				'tax_query' => array(
+					array(
+							'taxonomy'=> 'icc_altri_filtri',
+							'field'   => 'slug',
+							'terms'		=> 'InHome',
+					),
+				),
 			);
 			$loop = new WP_Query( $args );
 			$i = 0;
@@ -57,7 +63,12 @@
 						?>
 
 				<?php
-				endwhile; ?>
+
+				endwhile;
+				if ($i % 2 == 1){ ?>
+						</div>
+					</div>
+				<?php } ?>
 					</div>
 					<div class="slider-footer d-flex flex-row align-items-center justify-content-between">
 						<a class="carousel-control-prev pl-2" href="#carouselLeNostreStorie" role="button" data-slide="prev">
