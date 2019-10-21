@@ -149,6 +149,8 @@
 				get_template_part('menu','piemonte');
 			} elseif (is_page('casentino')) {
 				get_template_part('menu','casentino');
+			} elseif (is_page('liguria')) {
+				get_template_part('menu','liguria');
 			}
 			?>
 		</main>
