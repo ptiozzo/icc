@@ -23,7 +23,7 @@
       'container_id'    => 'bs4navbar',
       'container_class' => '',
       'menu_id'         => false,
-      'menu_class'      => 'nav mx-auto mx-md-0 ml-md-auto ',
+      'menu_class'      => 'nav mx-auto mx-lg-0 ml-lg-auto ',
       'depth'           => 0,
       'fallback_cb'     => 'bs4navwalker::fallback',
       'walker'          => new bs4navwalker()
