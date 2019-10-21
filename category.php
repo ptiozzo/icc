@@ -15,7 +15,7 @@ if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia'))
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
 <div class="contenuti_header">
   <?php
-  if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
+  if (!has_category('piemonte-che-cambia') || !has_category('casentino-che-cambia')) {
 
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
