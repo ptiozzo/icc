@@ -155,7 +155,8 @@ require 'inc/attivati.php';
 /* ------------------------------------ */
 require 'inc/widget.php';
 
-
+/* Funzione per categoria figlia di.
+/* ------------------------------------ */
 function category_has_parent($catid){
     $category = get_category($catid);
     if ($category->category_parent > 0){
