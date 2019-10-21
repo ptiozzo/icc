@@ -47,13 +47,13 @@ Layout
 */
 @media (min-width: 1200px){
   .col-lg-home1{
-    width: 580px;
+    width: calc(50% - 135px);
     flex: none;
     max-width: none;
   }
   .col-lg-home2{
     flex: none;
-    max-width: calc(100% - 580px - 285px);
+    max-width: calc(50% - 135px);
   }
   .col-lg-home3{
     width: 270px;
