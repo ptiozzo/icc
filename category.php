@@ -15,6 +15,8 @@ if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia'))
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
 <div class="contenuti_header">
   <?php
+  if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
+
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
   if ($_POST['submit_button']){
@@ -97,6 +99,7 @@ if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia'))
     </select>
     <input name="submit_button" type="Submit" value="Filtra">
   </form>
+<?php } ?>
 </div><!-- contenuti_header -->
 <?php if ($Cat1 != $ParentCat1){ ?>
   <div class="cat2 category-<?php echo $Cat1 ?>">
