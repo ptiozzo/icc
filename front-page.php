@@ -2,7 +2,7 @@
 <div class="container-fluid home-page">
 	<div class="row">
 		<div class="col-lg-home1 col-md-12">
-			<div class="sticky">
+
 			<div class='head'>
 				<div class='title'>
 					<h5>LE NOSTRE STORIE</h5>
@@ -98,8 +98,8 @@
 				echo "<p>Non ho trovato nessun Le storie</p>";
 			endif;
 			wp_reset_query();?>
-
-
+			
+			<div class="sticky pb-3">
 			<div class='head'>
 				<div class='title'>
 					<h5>LA MAPPA DELL’ITALIA CHE CAMBIA</h5>

@@ -74,6 +74,11 @@ Layout
 }
 
 
+.sticky{
+  position: sticky;
+  top: calc(100vh - 409px);
+}
+
 /*
 5 COLONNE
 */
