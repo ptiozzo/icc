@@ -432,9 +432,29 @@ row
   margin-top: 10px;
 }
 .row article a figure img{
-  height: 180px;
-  width: 227px;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 576px) {
+  .row article a figure img{
+    height: 170px;
+  }
+}
+@media (min-width: 768px) {
+  .row article a figure img{
+    height: 145px;
+  }
+}
+@media (min-width: 992px) {
+  .row article a figure img{
+    height: 150px;
+  }
+}
+@media (min-width: 1200px) {
+  .row article a figure img{
+    height: 145px;
+  }
 }
 .row article a .autore{
   font-size: 11px;
@@ -902,6 +922,17 @@ SFONDI
 }
 .bg-regione-ger{
   background: #73C6BE;
+}
+
+/*
+CERCA
+*/
+.cerca{
+  background: #F88466;
+}
+
+.cerca .autore{
+  color: #000 !important;
 }
 
 
