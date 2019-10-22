@@ -242,6 +242,7 @@
       else:
         ?>
           <h3 class="text-center">Inserisci un termine da ricercare</h3>
+          <br>
         <?php
       endif;
     wp_reset_query();
