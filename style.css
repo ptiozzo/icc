@@ -621,7 +621,7 @@ row
   font-weight: 500;
   min-height: 100px;
 }
-@media (min-width: 768px) {
+@media (max-width: 992px) {
   .single__attivati img{
     width: 50%;
   }
