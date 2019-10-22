@@ -83,9 +83,9 @@
 				}
 				?>
 				<!-- Riassunto -->
-				<h4 class="single__metaDescription p-4">
+				<div class="single__metaDescription p-4">
 					<?php the_excerpt();?>
-				</h4>
+				</div>
 				<hr>
 			<!-- Content -->
 			<div class="single__articolo">
