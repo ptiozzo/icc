@@ -4,6 +4,7 @@
     <button class="navbar-toggler" style="border:none;" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <a class="navbar-brand text-white" href="/liguria">
      LIGURIA CHE CAMBIA
    </a>
    <?php
