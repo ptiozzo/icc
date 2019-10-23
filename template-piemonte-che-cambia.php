@@ -19,14 +19,14 @@ Template Name: Piemonte che cambia
 			</div>
 
 			<?php
-			/* Query per Le storie
+			/* Query per Articoli in evidenza
 			*---------------------*/
       $i = 0;
       $args = array(
           'category_name' => $catPage,
           'post__in' => get_option( 'sticky_posts' ),
           'ignore_sticky_posts' => 1,
-          'posts_per_page' => 6
+          'posts_per_page' => 10,
       );
 			$loop = new WP_Query( $args );
 			if( $loop->have_posts() ) : ?>
@@ -218,6 +218,8 @@ Template Name: Piemonte che cambia
         $args = array(
             'category_name' => $catPage,
             'posts_per_page' => 10,
+            'post__not_in' => get_option( 'sticky_posts' ),
+
         );
 				$loop = new WP_Query( $args );
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
