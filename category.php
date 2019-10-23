@@ -141,7 +141,7 @@ if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia'))
       'paged'          => $paged,
       'order' => $ord,
       );
-    } elseif ((has_category('piemonte-che-cambia') || has_category('casentino-che-cambia'))) {
+    } elseif (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
       $args = array(
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
