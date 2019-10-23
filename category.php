@@ -57,7 +57,7 @@ if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia'))
   }
  ?>
   <!-- Dropdown per selezione contenuto -->
-  <form method="post" action="<?php echo get_pagenum_link(); ?>">
+  <form class="pt-2 text-center" method="post" action="<?php echo get_pagenum_link(); ?>">
     <?php
       if(is_category('i-nostri-contenuti')){
         ?>
