@@ -2,7 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title><?php bloginfo( 'name' ); ?></title>
+		<title>
+			<?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(); ?>
+		</title>
 		<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 		<meta name="title" content="<?php bloginfo( 'name' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
