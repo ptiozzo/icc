@@ -45,13 +45,21 @@
 					?>
 				</nav>
 
-				<section class='search'>
-					<figure>
-						<a href="<?php echo home_url(); ?>/cerca/">
-							<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
-						</a>
-					</figure>
+				<section class='search align-items-center'>
+					<div class="dropdown">
+					  <button class="btn dropdown-toggle" type="button" id="dropdownMenuSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					   <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
+					  </button>
+					  <div class="dropdown-menu cerca p-3" aria-labelledby="dropdownMenuSearch">
+							<form class="" action="/cerca/" method="post">
+								<input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>" placeholder="Scrivi e premi invio">
+								<input name="submit_button" type="hidden" value="Cerca">
+							</form>
+					  </div>
+					</div>
 				</section>
+
+
 				<section class='socials'>
           <?php
           wp_nav_menu( array(
