@@ -7,6 +7,7 @@
 		} elseif (has_category('casentino-che-cambia')) {
 			get_template_part('menu','casentino');
 		}
+		echo "<br>";
 	} ?>
 <div class="container single"><!-- SINGLE -->
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
@@ -17,21 +18,14 @@
 			if (!has_category('piemonte-che-cambia') && !has_category('casentino-che-cambia')) {
 			?>
 			<div class='single__nav__category'>
+				<?php
+				if(isset($_SESSION['cat1'])) { ?>
 					<a href="/category/i-nostri-contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
-					<?php
-						if (in_category('documentari')) {
-							echo '<a href="/category/i-nostri-contenuti/documentari/">I documentari';
-						} elseif (in_category('le-storie')) {
-							echo '<a href="/category/i-nostri-contenuti/le-storie/">Le storie';
-						}elseif (in_category('meme')) {
-							echo '<a href="/category/i-nostri-contenuti/meme/">I meme';
-						}elseif (in_category('rubriche')) {
-							echo '<a href="/category/i-nostri-contenuti/rubriche/">Le rubriche';
-						}elseif (in_category('salute-che-cambia')) {
-							echo '<a href="/category/salute-che-cambia/">Salute';
-						}elseif (in_category('articoli')) {
-							echo '<a href="/category/i-nostri-contenuti/articoli/">Gli Articoli';
-						}
+				<?php } else { ?>
+					<a href="/category/i-nostri-contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Vai ai contenuti</a>
+				<?php
+				}
+					the_category(' ');
 					?>
 				</a>
 
