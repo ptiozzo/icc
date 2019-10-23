@@ -5,7 +5,7 @@
 ?>
 <div class="container-fluid content-no-sidebar cerca">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
-    <h1>Cerca</h1>
+    <h1 class="pt-4">Cerca</h1>
     <div class="contenuti_header text-center ">
   <?php
   // Verifico se ho premuto submit e setto le categorie
