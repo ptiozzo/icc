@@ -14,6 +14,12 @@
     <?php if(!is_page('cerca')){
             $_SESSION['termine-cercato'] = '';
           }
+					if(!is_single() && !is_category('i-nostri-contenuti')){
+						unset ($_SESSION['cat1']);
+						unset ($_SESSION['cat2']);
+						unset ($_SESSION['ord']);
+						echo "Resettata sessione i nostri contenuti";
+					}
     ?>
 	</head>
 	<body <?php body_class(); ?>>
