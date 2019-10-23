@@ -7,6 +7,14 @@
       if (is_archive()){
         the_archive_title('<h1 class="archive-title">', '</h1>');
       }
+      if (is_author()){
+        if (get_the_author_meta('description')) : // Checking if the user has added any author descript or not. If it is added only, then lets move ahead ?>
+          <div class="author-box">
+            <div class="author-img"><?php echo get_avatar(get_the_author_meta('user_email'), '100'); // Display the author gravatar image with the size of 100 ?></div>
+            <p class="author-description"><?php esc_textarea(the_author_meta('description')); // Displays the author description added in Biographical Info ?></p>
+          </div>
+        <?php endif;
+      }
       ?>
       <div class="row">
       <?php
