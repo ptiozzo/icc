@@ -18,7 +18,6 @@
 						unset ($_SESSION['cat1']);
 						unset ($_SESSION['cat2']);
 						unset ($_SESSION['ord']);
-						echo "Resettata sessione i nostri contenuti";
 					}
     ?>
 	</head>
