@@ -10,7 +10,8 @@ Template Name: Piemonte che cambia
 ?>
 <div class="container-fluid home-page">
 	<div class="row">
-		<div class="col-lg-home1 col-md-12">
+    <div id="sidebar" class="col-lg-home1 col-md-12">
+      <div class="sidebar__inner">
 
 			<div class='head'>
 				<div class='title'>
@@ -83,7 +84,7 @@ Template Name: Piemonte che cambia
 			endif;
 			wp_reset_query();?>
 
-
+      <div class="pb-3">
 			<div class='head'>
 				<div class='title'>
 					<h5>LA MAPPA DEL PIEMONTE CHE CAMBIA</h5>
@@ -197,6 +198,8 @@ Template Name: Piemonte che cambia
 					</div>
 				</div>
 			</div>
+      </div>
+    </div>
 
 		</div><!-- Fini prima colonna -->
 

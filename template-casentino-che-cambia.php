@@ -10,7 +10,8 @@ Template Name: Casentino che cambia
 ?>
 <div class="container-fluid home-page">
 	<div class="row">
-		<div class="col-lg-6 col-md-12">
+    <div id="sidebar" class="col-lg-6 col-md-12">
+        <div class="sidebar__inner">
 
 			<div class='head'>
 				<div class='title'>
@@ -79,10 +80,10 @@ Template Name: Casentino che cambia
 				</div>
 			<?php
 			else:
-				echo "<p>Non ho trovato nessun Le storie</p>";
+				echo "<p>Non ho trovato nessun articolo in evidenza</p>";
 			endif;
 			wp_reset_query();?>
-
+    <div class="pb-3">
 
 			<div class='head'>
 				<div class='title'>
@@ -197,7 +198,8 @@ Template Name: Casentino che cambia
 					</div>
 				</div>
 			</div>
-
+    </div>
+    </div>
 		</div><!-- Fini prima colonna -->
 
 		<div class="col-lg-6 col-md-12">
