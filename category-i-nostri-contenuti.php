@@ -134,6 +134,7 @@
       $args = array(
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
+          'ignore_sticky_posts' => 1,
           'paged'          => $paged,
           'order'         => $ord,
           'cat' => array(-2298),
