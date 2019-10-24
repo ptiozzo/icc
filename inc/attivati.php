@@ -59,7 +59,7 @@ function prefix_insert_after_paragraph( $paragraph_id, $content ) {
               $ad_code .= '<a href="/visione-2040-ambiente/" class="stretched-link"></a></div>';
             }
             elseif (in_category('cicli-produttivi-rifiuti')){
-              $ad_code .= "<p class='px-5 py-2 my-0'>Vuoi cambiare la situazione dei clicli produttivi e dell'ambiente in italia?</p>";
+              $ad_code .= "<p class='px-5 py-2 my-0'>Vuoi cambiare la situazione di cicli produttivi e rifiuti in italia?</p>";
               $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='d-none d-md-block' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
               $ad_code .= "<p class='single__attivati2 px-lg-5 pl-2 my-0'>ATTIVATI</p>";
               $ad_code .= '<a href="/visione-2040-cicli-produttivi-e-rifiuti/" class="stretched-link"></a></div>';
