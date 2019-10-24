@@ -1,15 +1,26 @@
 <?php get_header(); ?>
 
-<div class="container-fluid">
+<?php
+if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
+{
+  if (get_query_var('cat') == "casentino-che-cambia"){
+    get_template_part('menu','casentino');
+  } else {
+    get_template_part('menu','piemonte');
+  }
+}
+ ?>
+
+<div class="container-fluid mt-1">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
     <div class="cat2 category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?>">
-      <h1> <?php echo get_term_by('name', single_cat_title('',false), 'category')->name ?></h1>
+      <h1><?php echo get_term_by('name', single_cat_title('',false), 'category')->name ?></h1>
     </div>
 
 
     <?php
     $CatTerm = get_term_by('name', single_cat_title('',false), 'category')->slug;
-    if ( $CatTerm == 'piemonte-che-cambia' || $CatTerm == 'casentino-che-cambia') {
+    if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) )) {
       $args = array(
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
@@ -38,7 +49,7 @@
               <?php
               if ($Cat1 == $ParentCat1) { ?>
                 <div class='category'>
-                  <span><?php the_time('j M') ?></span>
+                  <span class="ml-4"><?php the_time('j M') ?></span>
                   <span>
                     <?php
                       if (in_category('documentari')) {

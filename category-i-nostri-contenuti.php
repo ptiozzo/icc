@@ -136,7 +136,7 @@
           'posts_per_page' => 20,
           'paged'          => $paged,
           'order'         => $ord,
-          'category__not_in' => array(2299,2300),
+          'cat' => array(-2298),
       );
     }
     /*eseguo la query */
