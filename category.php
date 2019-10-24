@@ -6,18 +6,10 @@
       <h1> <?php echo get_term_by('name', single_cat_title('',false), 'category')->name ?></h1>
     </div>
 
-    <!--
-    <?php
-    echo "Contenuto ".$Cat1;
-    echo " - Tematica ".$Cat2;
-    echo " - Categoria di Ricerca ".$CatTerm;
-    echo " - Ordinamento ".$ord;
-    ?>
-    -->
+
     <?php
     $CatTerm = get_term_by('name', single_cat_title('',false), 'category')->slug;
-
-    if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
+    if ( $CatTerm == 'piemonte-che-cambia' || $CatTerm == 'casentino-che-cambia') {
       $args = array(
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
