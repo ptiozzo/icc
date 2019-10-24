@@ -14,9 +14,6 @@
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<!-- Categorie -->
-			<?php
-			if (!has_category('piemonte-che-cambia') && !has_category('casentino-che-cambia')) {
-			?>
 			<div class='single__nav__category'>
 				<?php
 				if(isset($_SESSION['cat1'])) { ?>
@@ -31,7 +28,6 @@
 
 				<br />
 			</div>
-		<?php } ?>
 			<!-- Thumbnail o video youtube -->
 
 				<?php
