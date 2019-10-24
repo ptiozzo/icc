@@ -1,129 +1,11 @@
 <?php get_header(); ?>
-<?php
-  $ParentCat1='i-nostri-contenuti';
-  $ParentCat2='tematica';
-?>
-<?php
-if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
-  if (has_category('piemonte-che-cambia')){
-    get_template_part('menu','piemonte');
-  } elseif (has_category('casentino-che-cambia')) {
-    get_template_part('menu','casentino');
-  }
-} ?>
+
 <div class="container-fluid">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
-<div class="contenuti_header">
-  <?php
-  if (!has_category('piemonte-che-cambia') || !has_category('casentino-che-cambia')) {
+    <div class="cat2 category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?>">
+      <h1> <?php echo get_term_by('name', single_cat_title('',false), 'category')->name ?></h1>
+    </div>
 
-  // Verifico se ho premuto submit e setto le categorie
-  // il paged e salvo tutto in sessione
-  if ($_POST['submit_button']){
-    $Cat1 = $_POST['contenuti-dropdown'];
-    $Cat2 = $_POST['tematica-dropdown'];
-    $ord = $_POST['order-dropdown'];
-    $paged = 0;
-    $_SESSION['cat1'] = $Cat1;
-    $_SESSION['cat2'] = $Cat2;
-    $_SESSION['ord'] = $ord;
-  } else {
-    //Se non ho premuto submit verifico se ho qualcosa in sesisone,
-    //altrimenti vado ai valori di default
-    if(isset($_SESSION['cat1'])) {
-        $Cat1 = $_SESSION['cat1'];
-    } else {
-      $Cat1=$ParentCat1;
-    }
-    if(isset($_SESSION['cat2'])) {
-        $Cat2 = $_SESSION['cat2'];
-    } else {
-      $Cat2=$ParentCat2;
-    }
-    if(isset($_SESSION['ord'])) {
-        $ord = $_SESSION['ord'];
-    } else {
-      $ord="DESC";
-    }
-  }
-  if(!is_category('i-nostri-contenuti')){
-    $Cat1 = get_term_by('name', single_cat_title('',false), 'category')->slug;
-  }
-  if ($Cat1 == $ParentCat1){
-    echo "<h1>".get_category_by_slug($ParentCat1)->name."</h1>";
-  }
-  else {
-    echo "<h2>".get_category_by_slug($ParentCat1)->name."</h2>";
-  }
- ?>
-  <!-- Dropdown per selezione contenuto -->
-  <form class="pt-2 text-center" method="post" action="<?php echo get_pagenum_link(); ?>">
-    <?php
-      if(is_category('i-nostri-contenuti')){
-        ?>
-        <select name="contenuti-dropdown">
-          <option value="i-nostri-contenuti" <?php if ($Cat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
-          <?php
-            $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
-            foreach ($categories as $category) {
-              $option = '<option value="'.$category->category_nicename.'" ';
-              if ($Cat1 == $category->category_nicename) {$option .= 'selected ';};
-              $option .= '>'.$category->cat_name;
-              $option .= '</option>';
-              echo $option;
-            }
-          ?>
-          <option value="nostri-libri" <?php if ($Cat1 == 'nostri-libri') {echo 'selected';}?>>I nostri libri</option>
-        </select>
-        <?php
-        }
-        ?>
-      <!-- Dropdown per selezione tematica -->
-      <select name="tematica-dropdown">
-        <option value="tematica" <?php if ($Cat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tematica'; ?></option>
-        <?php
-          $categories = get_categories('child_of='.get_category_by_slug($ParentCat2)->term_id);
-          foreach ($categories as $category) {
-            $option = '<option value="'.$category->category_nicename.'" ';
-            if ($Cat2 == $category->category_nicename) {$option .= 'selected ';};
-            $option .= '>'.$category->cat_name;
-            $option .= '</option>';
-            echo $option;
-          }
-          ?>
-      </select>
-    <!-- Dropdown per ordinemento post -->
-    <select name="order-dropdown">
-        <option value="DESC" <?php if ($ord == 'DESC') {echo 'selected';}?> >Ordina per data più recente</option>
-        <option value="ASC" <?php if ($ord == 'ASC') {echo 'selected';}?> >Ordina per data meno recente</option>
-    </select>
-    <input name="submit_button" type="Submit" value="Filtra">
-  </form>
-<?php } ?>
-</div><!-- contenuti_header -->
-<?php if ($Cat1 != $ParentCat1){ ?>
-  <div class="cat2 category-<?php echo $Cat1 ?>">
-    <?php if ($Cat1 != "nostri-libri"){ ?>
-      <h1><?php echo get_category_by_slug($Cat1)->name ?></h1>
-    <?php } else { ?>
-      <h1>I nostri libri</h1>
-    <?php } ?>
-  </div>
-<?php } ?>
-
-
-  <?php
-    if( ($Cat1 == $ParentCat1) && ($Cat2 == $ParentCat2)){
-      $CatTerm = '';
-    } elseif ($Cat1 == $ParentCat1) {
-      $CatTerm = $Cat2;
-    } elseif ($Cat2 == $ParentCat2) {
-      $CatTerm = $Cat1;
-    } else {
-      $CatTerm = $Cat1.'+'.$Cat2;
-    }
-
-    ?>
     <!--
     <?php
     echo "Contenuto ".$Cat1;
@@ -133,27 +15,19 @@ if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia'))
     ?>
     -->
     <?php
-    /* Personalizzo query */
-    if($Cat1 == "nostri-libri"){
-      $args = array(
-      'post_type' => 'nostri-libri',
-      'orderby' => 'menu_order',
-      'paged'          => $paged,
-      'order' => $ord,
-      );
-    } elseif (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
+    $CatTerm = get_term_by('name', single_cat_title('',false), 'category')->slug;
+
+    if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
       $args = array(
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
-          'order'         => $ord,
       );
     } else {
       $args = array(
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
-          'order'         => $ord,
           'category__not_in' => array(2299,2300),
       );
     }

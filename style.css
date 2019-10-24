@@ -424,12 +424,12 @@ row
   padding: 0 10px 0;
 }
 
-.row article.category-articoli a:hover .category{background: #68D8B1;}
-.row article.category-meme a:hover .category{background: #F79865}
-.row article.category-documentari a:hover .category{background: #3D78D0}
-.row article.category-rubriche a:hover .category{background: #F270C0}
-.row article.category-le-storie a:hover .category{background: #AF0000}
-.row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
+.contenuti .row article.category-articoli a:hover .category{background: #68D8B1;}
+.contenuti .row article.category-meme a:hover .category{background: #F79865}
+.contenuti .row article.category-documentari a:hover .category{background: #3D78D0}
+.contenuti .row article.category-rubriche a:hover .category{background: #F270C0}
+.contenuti .row article.category-le-storie a:hover .category{background: #AF0000}
+.contenuti .row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
 
 
 .row article a figure{
