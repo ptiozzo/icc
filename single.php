@@ -18,10 +18,7 @@
 				<?php
 				if(isset($_SESSION['cat1'])) { ?>
 					<a href="/category/i-nostri-contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
-				<?php } else { ?>
-					<a href="/category/i-nostri-contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Vai ai contenuti</a>
-				<?php
-				}
+				<?php } 
 					the_category(' ');
 					?>
 				</a>
