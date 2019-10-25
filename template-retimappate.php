@@ -5,8 +5,8 @@
 $reti = [
 	'{"value": "38", "text": "Action aid", "color": "#82C1BD"}',
 	'{"value": "12", "text": "Arcipelago scec", "color": "#1F8ABD"}',
-	'{"value": "50", "text": "associazione botteghe del mondo", "color": "#8BCFBB"}',
-	'{"value": "41", "text": "Banca etnica", "color": "#82C1BD"}',
+	'{"value": "50", "text": "Associazione botteghe del mondo", "color": "#8BCFBB"}',
+	'{"value": "41", "text": "Banca etica", "color": "#82C1BD"}',
 	'{"value": "104", "text": "Banca del tempo", "color": "#BAE3B6"}',
 	'{"value": "14", "text": "Civiltà contadina", "color": "#82C1BD"}',
 	'{"value": "60", "text": "Comuni virtuosi", "color": "#63BABF"}',
