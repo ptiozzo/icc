@@ -519,7 +519,7 @@ row
 
 .single .single__nav__category{
   padding: 30px 90px 30px 30px;
-  background: #ccc;
+  background: #749A4F;
 }
 .single .category-articoli .single__nav__category{background: #68D8B1;}
 .single .category-meme .single__nav__category{background: #F79865}
@@ -986,7 +986,8 @@ PAGINATION
 .pagination .page-link{
   color: #000;
 }
-.pagination .active .page-link{
+.pagination .active .page-link,
+.pagination span{
   background-color: #000;
   border-color: #000;
   position: relative;
@@ -997,7 +998,9 @@ PAGINATION
   border: 1px solid #dee2e6;
   font-size: 1rem;
 }
-
+.pagination span{
+  background: #fff;
+}
 
 main.piemonte-che-cambia>.page-content>section.right>aside{
   position: unset;
