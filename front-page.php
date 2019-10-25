@@ -3,7 +3,7 @@
 
 <div class="container-fluid home-page">
   <div class="row">
-    <div id="sidebar" class="col-lg-home1 col-md-12">
+    <div id="sidebar" class="col-lg-home1 col-md-12 order-2 order-xl-1">
       <div class="sidebar__inner">
         <div class='head'>
   				<div class='title'>
@@ -138,7 +138,7 @@
   										<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
   									</li>
   									<li>
-  										<div class='info'>
+  										<div class='info d-flex flex-column flex-md-row'>
   											<div class='number'>2062</div>
   											<div class='text'> REALTÀ</div>
   										</div>
@@ -168,7 +168,7 @@
   									</li>
   									<li>
   										<div class='info'>
-  											<div class='number'>2062</div>
+  											<div class='number d-flex flex-column flex-md-row'>2062</div>
   											<div class='text'> REALTÀ</div>
   										</div>
   									</li>
@@ -197,7 +197,7 @@
   									</li>
   									<li>
   										<div class='info'>
-  											<div class='number'>2062</div>
+  											<div class='number d-flex flex-column flex-md-row'>2062</div>
   											<div class='text'> REALTÀ</div>
   										</div>
   									</li>
@@ -218,12 +218,10 @@
   		</div>
       </div>
     </div>
-    <div class="col-lg-home2 col-md-12">
-			<div class='head'>
-				<div class='title'>
-					<h5>RASSEGNA STAMPA</h5>
-				</div>
-			</div>
+
+
+    <div class="col-lg-home2 col-md-12 order-1 order-xl-2">
+
 			<?php
 			$args = array(
 			'post_type' => 'rassegna-stampa',
@@ -234,6 +232,11 @@
 			if( $loop->have_posts() ) :
 					while( $loop->have_posts() ) : $loop->the_post();
 			?>
+      <div class='head'>
+				<div class='title'>
+					<h5>RASSEGNA STAMPA</h5>
+				</div>
+			</div>
 			<div class='content rassegna-stampa p-0'>
 				<a href='<?php echo the_permalink();?>'>
 
@@ -386,7 +389,7 @@
 
 			</div><!-- Fine colonna libri  -->
 		</div><!-- Fini seconda colonna  -->
-    <div class="col-lg-home3">
+    <div class="col-lg-home3 order-last">
       <?php get_sidebar(); ?>
     </div>
   </div>

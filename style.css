@@ -90,6 +90,11 @@ Layout
     right: 0;
   }
 }
+@media (max-width:991px){
+  .col-lg-home3{
+    width: 100%;
+  }
+}
 
 /*
 5 COLONNE
@@ -243,6 +248,12 @@ TITOLI HOME
 aside{
   width: 270px;
 }
+@media (max-width: 991px){
+  aside{
+    width: 100%;
+  }
+}
+
 
  aside.sidebar div.widget_text:nth-child(1){
    background: #F79865;
