@@ -98,7 +98,12 @@
 			</div>
 		</article>
 		<hr>
-	<?php endwhile; endif;?><!-- Fine articolo -->
+	<?php
+    endwhile;
+  else:
+    echo "<p class='mt-2'>Spiacente, il contenuto cercato non è stato trovato</p>";
+  endif;?>
+  <!-- Fine articolo -->
  	<div class="rassegna__footer">
 		<?php
 		$args = array(
@@ -131,8 +136,6 @@
 					</div>
 				<?php endwhile; ?>
 			</div>
-		<?php else: ?>
-			<p>Non ho trovato nessun altra Rassegna</p>
 		<?php endif; ?>
 	</div>
 </div>
