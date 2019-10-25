@@ -665,7 +665,7 @@ row
 }
 
 /*
-RASSEGNA STAMPA HOME
+RASSEGNA STAMPA
 */
 .home-page .rassegna-stampa{
   position: relative;
@@ -674,6 +674,7 @@ RASSEGNA STAMPA HOME
 }
 .single .rassegna-stampa .single__thumbnail{
   margin-top: 20px;
+  width: 100%;
 }
 .single .rassegna-stampa .single__metaDescription{
   background: #a3a3a3;
