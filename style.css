@@ -968,7 +968,8 @@ SFONDI
 /*
 CERCA
 */
-.cerca{
+.cerca,
+.quattrozeroquattro{
   background: #F88466;
 }
 
@@ -1029,4 +1030,13 @@ header .fab{
 }
 header.overlay-menu .fab{
   color: #1E4674;
+}
+
+/*
+404
+*/
+
+.quattrozeroquattro a{
+  color: #212529;
+  text-decoration: underline;
 }

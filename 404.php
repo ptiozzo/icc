@@ -1,9 +1,9 @@
 <?php get_header(); ?>
-<div class="container-fluid cerca">
+<div class="container-fluid quattrozeroquattro">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
     <h1 class="pt-4">OPS!</h1>
-    <p>La pagina cercata non esiste, prova ad effettuare un'ulteriore ricerca, grazie</p>
-    <p>La pagina è stata segnalata alla redazione!</p>
+    <p>La pagina cercata non è stata trovata ed è stata segnalata alla redazione</p>
+    <p>Puoi continuare la tua navigazione effettuando una ricerca tramite il form sottostante oppure puoi tornare in <a href="/">Home page</a></p>
     <?php
     $to = 'ptiozzo@me.com';
     $subject = '[ICC] 404';
