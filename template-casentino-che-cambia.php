@@ -42,7 +42,7 @@ Template Name: Casentino che cambia
     						<div class="card border-0 p-1">
     							<?php
     							if ( has_post_thumbnail() ) {
-    								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+    								the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
     							}
     							else{
     								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
