@@ -3,10 +3,12 @@
 <?php
 if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
 {
-  if (get_query_var('cat') == "casentino-che-cambia"){
+  if (get_query_var('cat') == "2300"){
     get_template_part('menu','casentino');
-  } else {
+  } elseif (get_query_var('cat') == "2299") {
     get_template_part('menu','piemonte');
+  } elseif (get_query_var('cat') == "2359") {
+    get_template_part('menu','liguria');
   }
 }
  ?>
