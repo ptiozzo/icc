@@ -260,8 +260,6 @@
 			</div>
 			<?php
 			endwhile;
-			else:
-			 echo "<p>Non ho trovato nessuna Rassegna Stampa</p>";
 			endif;
 			$rassegna_Id = get_the_ID();
 			wp_reset_query();?>
