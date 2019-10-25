@@ -28,24 +28,24 @@ $reti = [
  * Mappa regioni
  */
 $regioni = [
-	'{"id": "Path_632", "value": "184", "text": "TOSCANA"}',
-	'{"id": "Path_633", "value": "38", "text": "TOSCANA"}',
-	'{"id": "Path_643", "value": "12", "text": "TOSCANA"}',
-	'{"id": "Path_644", "value": "50", "text": "TOSCANA"}',
-	'{"id": "Path_645", "value": "41", "text": "TOSCANA"}',
-	'{"id": "Path_646", "value": "104", "text": "TOSCANA"}',
-	'{"id": "Path_647", "value": "14", "text": "TOSCANA"}',
-	'{"id": "Path_648", "value": "60", "text": "TOSCANA"}',
-	'{"id": "Path_649", "value": "24", "text": "TOSCANA"}',
-	'{"id": "Path_650", "value": "3", "text": "TOSCANA"}',
-	'{"id": "Path_651", "value": "7", "text": "TOSCANA"}',
-	'{"id": "Path_652", "value": "109", "text": "TOSCANA"}',
-	'{"id": "Path_653", "value": "47", "text": "TOSCANA"}',
-	'{"id": "Path_654", "value": "23", "text": "TOSCANA"}',
-	'{"id": "Path_655", "value": "23", "text": "TOSCANA"}',
-	'{"id": "Path_656", "value": "30", "text": "TOSCANA"}',
-	'{"id": "Path_657", "value": "111", "text": "TOSCANA"}',
-	'{"id": "Path_658", "value": "11", "text": "TOSCANA"}',
+	'{"id": "Path_632", "value": "184", "text": "SARDEGNA"}',
+	'{"id": "Path_633", "value": "38", "text": "SICILIA"}',
+	'{"id": "Path_643", "value": "12", "text": "VENETO"}',
+	'{"id": "Path_644", "value": "50", "text": "EMILIA ROMAGNA"}',
+	'{"id": "Path_645", "value": "41", "text": "TRENTINO ALTO ADIGE"}',
+	'{"id": "Path_646", "value": "104", "text": "FRIULI VENEZIA GIULIA"}',
+	'{"id": "Path_647", "value": "14", "text": "MARCHE"}',
+	'{"id": "Path_648", "value": "60", "text": "UMBRIA"}',
+	'{"id": "Path_649", "value": "24", "text": "MOLISE"}',
+	'{"id": "Path_650", "value": "3", "text": "UMBRIA"}',
+	'{"id": "Path_651", "value": "7", "text": "VALLE AOSTA"}',
+	'{"id": "Path_652", "value": "109", "text": "CAMPANIA"}',
+	'{"id": "Path_653", "value": "47", "text": "CALABRIA"}',
+	'{"id": "Path_654", "value": "23", "text": "BASILICATA"}',
+	'{"id": "Path_655", "value": "23", "text": "LOMBARDIA"}',
+	'{"id": "Path_656", "value": "30", "text": "PUGLIA"}',
+	'{"id": "Path_657", "value": "111", "text": "LIGURIA"}',
+	'{"id": "Path_658", "value": "11", "text": "LAZIO"}',
 	'{"id": "Path_659", "value": "18", "text": "PIEMONTE"}',
 	'{"id": "Path_660", "value": "65", "text": "TOSCANA"}',
 ];
@@ -145,43 +145,19 @@ $regioni = [
 		</div>
 	</section>
 
+	<!--
+
 	<section class="sezione-realta-inserite">
 		<div class="head chain-effect scale">
 			<h1>LE ULTIME REALTÀ INSERITE</h1>
 		</div>
 
 		<div class="content">
-			<ul class='items'>
-				<?php for($i=0; $i<5; $i++): ?>
-				<li class='chain-effect scale'>
-					<a href='#'>
-						<figure>
-							<img src='/assets/img/modules/home/articoli-<?php echo $i + 1; ?>.jpg' alt='' title=''>
-						</figure>
 
-						<div class='title'>
-							<div class='date'>CATEGORIA ABITARE</div>
-							<h3>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h3>
-						</div>
-
-						<article>
-							<p>
-								Sed ut perspiciatis unde omnis iste
-								natus error sit voluptatem accusantium
-								doloremque laudantium, totam rem
-								aperiam, eaque ipsa quae ab illo
-								inventore veritatis et quasi architecto
-								beatae vitae dicta sunt explicabo.
-								Nemo enim ipsam voluptatem quia
-								voluptas sit aspernatur aut odit aut.
-							</p>
-						</article>
-					</a>
-				</li>
-				<?php endfor; ?>
-			</ul>
 		</div>
 	</section>
+
+-->
 
 	<!-- Infowindow che effetivamente verrà mostrato -->
 	<div class="infowindow"></div>
