@@ -57,6 +57,7 @@ Template Name: Casentino che cambia
 							</div>
 						</div>
 				<?php
+        $exclude_posts[] = $post->ID;
 				endwhile; ?>
 					</div>
 					<div class="slider-footer d-flex flex-row align-items-center justify-content-between">
@@ -220,7 +221,7 @@ Template Name: Casentino che cambia
         $args = array(
             'category_name' => $catPage,
             'posts_per_page' => 10,
-            'post__not_in' => get_option( 'sticky_posts' ),
+            'post__not_in' => $exclude_posts,
         );
 				$loop = new WP_Query( $args );
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();

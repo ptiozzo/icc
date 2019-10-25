@@ -65,7 +65,7 @@
   						?>
 
   				<?php
-
+          $exclude_posts[] = $post->ID;
   				endwhile;
   				if ($i % 2 == 1){ ?>
   						</div>
@@ -259,9 +259,9 @@
 				</a>
 			</div>
 			<?php
+      $exclude_posts[] = $post->ID;
 			endwhile;
 			endif;
-			$rassegna_Id = get_the_ID();
 			wp_reset_query();?>
 
 			<div class='head'>
@@ -280,7 +280,7 @@
 				$args = array(
 					'post_type' => array('post','rassegna-stampa'),
 					'posts_per_page' => 10,
-					'post__not_in' => array($rassegna_Id),
+					'post__not_in' => $exclude_posts,
 					'tax_query' => array(
 		        array(
 		            'taxonomy'=> 'icc_altri_filtri',
