@@ -70,7 +70,7 @@ Template Name: Liguria che cambia
     <?php
 
     $args = array(
-        'category_name' => $catPage.'+le-storie',
+        'category_name' => $catPage.'+io-faccio-cosi',
         'posts_per_page' => 10,
     );
     $loop = new WP_Query( $args );

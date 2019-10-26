@@ -7,7 +7,7 @@ Template Name: Piemonte storie
 <?php get_template_part('menu','piemonte'); ?>
 <?php
 $Cat1 = 'piemonte-che-cambia';
-$Cat2 = 'le-storie';
+$Cat2 = 'io-faccio-cosi';
  ?>
 <div class="container-fluid">
 
