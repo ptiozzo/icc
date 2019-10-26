@@ -7,7 +7,7 @@
       <div class="sidebar__inner">
         <div class='head'>
   				<div class='title'>
-  					<h5>LE NOSTRE STORIE</h5>
+  					<h5>APPROFONDIMENTI</h5>
   				</div>
   			</div>
 
@@ -17,7 +17,7 @@
   			$args = array(
   				'post_type' => 'post',
   				'posts_per_page' => 10,
-  				'category_name' => 'le-storie',
+  				'category_name' => 'io-faccio-cosi,meme',
   				'tax_query' => array(
   					array(
   							'taxonomy'=> 'icc_altri_filtri',
@@ -81,7 +81,7 @@
   							<span class="carousel-control-next-icon" aria-hidden="true"></span>
   							<span class="sr-only">Next</span>
   						</a>
-  						<a href="<?php echo get_home_url(); ?>/category/i-nostri-contenuti/le-storie/" class="carousel-more mx-auto">Vedi tutto</a>
+  						<a href="<?php echo get_home_url(); ?>/category/i-nostri-contenuti/io-faccio-cosi/" class="carousel-more mx-auto">Vedi tutto</a>
   						<ol class="carousel-indicators pr-2">
   							<?php
   							$i = $i/2;
@@ -234,7 +234,7 @@
 			?>
       <div class='head'>
 				<div class='title'>
-					<h5>RASSEGNA STAMPA</h5>
+					<h5>IN EVIDENZA</h5>
 				</div>
 			</div>
 			<div class='content rassegna-stampa p-0'>
@@ -302,8 +302,8 @@
 											<?php
 												if (in_category('documentari')) {
 													echo 'I documentari';
-												} elseif (in_category('le-storie')) {
-													echo 'Le storie';
+												} elseif (in_category('io-faccio-cosi')) {
+													echo 'Io faccio così';
 												}elseif (in_category('meme')) {
 													echo 'I meme';
 												}elseif (in_category('rubriche')) {
