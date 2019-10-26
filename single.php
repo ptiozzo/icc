@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
 	<?php
-	if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia')) {
+	if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia') || has_category('liguria-che-cambia')) {
 		if (has_category('piemonte-che-cambia')){
 			get_template_part('menu','piemonte');
 		} elseif (has_category('casentino-che-cambia')) {
 			get_template_part('menu','casentino');
+		} elseif (has_category('liguria-che-cambia')) {
+			get_template_part('menu','liguria');
 		}
 		echo "<br>";
 	} ?>
@@ -17,8 +19,11 @@
 			<div class='single__nav__category'>
 				<?php
 				if(isset($_SESSION['cat1'])) { ?>
-					<a href="/category/i-nostri-contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
-				<?php } 
+					<a href="/category/contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
+				<?php }
+				if(isset($_SESSION['termine-cercato'])) { ?>
+					<a href="/cerca/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
+				<?php }
 					the_category(' ');
 					?>
 				</a>
