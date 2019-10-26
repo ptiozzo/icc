@@ -4,9 +4,8 @@ Template Name: Piemonte calendario
 */
 ?>
 <?php get_header(); ?>
-<main class="piemonte-che-cambia">
-  <?php get_template_part('menu','piemonte'); ?>
-</main>
+<?php get_template_part('menu','piemonte'); ?>
+
 
 
 

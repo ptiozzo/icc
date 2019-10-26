@@ -4,9 +4,8 @@ Template Name: Casentino mappa
 */
 ?>
 <?php get_header(); ?>
-<main class="casentino-che-cambia">
-  <?php get_template_part('menu','casentino'); ?>
-</main>
+<?php get_template_part('menu','casentino'); ?>
+
 
 
 
