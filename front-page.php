@@ -372,8 +372,8 @@
 								<?php the_post_thumbnail('icc_libri', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title())); ?>
 							</div>
 							<h5 class="card-title"><?php the_title(); ?></h5>
-							<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
-							<a href="<?php echo the_permalink();?>" class="stretched-link"><div class="cta">Leggi di più</div></a>
+
+							<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
 							</article>
 						</div>
 
