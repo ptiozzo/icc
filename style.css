@@ -387,7 +387,7 @@ div.contenuti_header select{
   align-items: center;
   border: #000000 solid 1px;
 }
-.category-i-nostri-contenuti h1{
+.category-contenuti h1{
   margin: 0;
   padding: 0;
   font-size: 33px;
@@ -410,7 +410,7 @@ div.contenuti_header select{
 .cat2.category-meme{background: #F79865}
 .cat2.category-documentari{background: #3D78D0}
 .cat2.category-rubriche{background: #F270C0}
-.cat2.category-le-storie{background: #AF0000}
+.cat2.category-io-faccio-cosi{background: #AF0000}
 .cat2.category-nostri-libri{background: #9064fa}
 .cat2.category-salute-che-cambia{background: #7FD1F5}
 
@@ -451,7 +451,7 @@ row
 .contenuti .row article.category-meme a:hover .category{background: #F79865}
 .contenuti .row article.category-documentari a:hover .category{background: #3D78D0}
 .contenuti .row article.category-rubriche a:hover .category{background: #F270C0}
-.contenuti .row article.category-le-storie a:hover .category{background: #AF0000}
+.contenuti .row article.category-io-faccio-cosi a:hover .category{background: #AF0000}
 .contenuti .row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
 
 
@@ -525,7 +525,7 @@ row
 .single .category-meme .single__nav__category{background: #F79865}
 .single .category-documentari .single__nav__category{background: #3D78D0}
 .single .category-rubriche .single__nav__category{background: #F270C0}
-.single .category-le-storie .single__nav__category{background: #AF0000}
+.single .category-io-faccio-cosi .single__nav__category{background: #AF0000}
 .single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
 .single .rassegna-stampa .single__nav__category{background: #000}
 
@@ -577,7 +577,7 @@ row
 .single .category-meme .single__tag a{background: #F79865}
 .single .category-documentari .single__tag a{background: #3D78D0}
 .single .category-rubriche .single__tag a{background: #F270C0}
-.single .category-le-storie .single__tag a{background: #AF0000}
+.single .category-io-faccio-cosi .single__tag a{background: #AF0000}
 .single .category-salute-che-cambia .single__tag a{background: #7FD1F5}
 
 .single .single__head .single__date{
@@ -738,7 +738,9 @@ p.orange{
   background-color: #F79865;
 }
 
-
+main.chi-siamo>section.content>.description>.title{
+  margin-top: 80px;
+}
 
 /*
 CAROUSEL
@@ -943,7 +945,7 @@ CARD HOME
 .card article.category-meme .category-bg{border-top: 150px solid #F79865}
 .card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
 .card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
-.card article.category-le-storie .category-bg{border-top: 150px solid #AF0000}
+.card article.category-io-faccio-cosi .category-bg{border-top: 150px solid #AF0000}
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
 .card article.nostri-libri .category-bg{border-top: 150px solid #9064fa;}
 .card article.rassegna-stampa .category-bg{border-top: 150px solid #000;}
