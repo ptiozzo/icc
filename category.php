@@ -13,7 +13,7 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
 }
  ?>
 
-<div class="container-fluid mt-1">
+<div class="container-fluid mt-1 contenuti">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
     <div class="cat2 category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?>">
       <h1><?php echo get_term_by('name', single_cat_title('',false), 'category')->name ?></h1>
@@ -56,8 +56,8 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
                     <?php
                       if (in_category('documentari')) {
                         echo 'I documentari';
-                      } elseif (in_category('le-storie')) {
-                        echo 'Le storie';
+                      } elseif (in_category('io-faccio-cosi')) {
+                        echo 'Io faccio così';
                       }elseif (in_category('meme')) {
                         echo 'I meme';
                       }elseif (in_category('rubriche')) {
