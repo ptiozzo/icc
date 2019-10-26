@@ -254,9 +254,12 @@ aside{
   }
 }
 
+.libri .row article a figure img{
+  height: 100%;
+}
+
 
  aside.sidebar div.widget_text:nth-child(1){
-   background: #F79865;
    color: #fff;
    text-transform: uppercase;
  }
@@ -359,7 +362,8 @@ aside.sidebar div.widget_nav_menu ul li{
   text-align: center;
 }
 
-aside .pcc-provincie a{
+aside .pcc-provincie a,
+aside .pcc-pianfut a{
   display: block;
   font-size: 11px;
   line-height: 11px;
@@ -367,6 +371,9 @@ aside .pcc-provincie a{
   text-transform: uppercase;
   background: #A5DBB9;
   color: #fff !important;
+}
+aside .pcc-pianfut a{
+  background: #F79865;
 }
 aside.sidebar .pcc-provincie p{
   padding: 0;
@@ -502,8 +509,8 @@ row
 }
 .row article a p{
   margin: 10px 0 1rem 0;
-  font-size: 11px;
-  line-height: 13px;
+  font-size: 15px;
+  line-height: 17px;
 }
 .row article a .cta{
   display: inline-block;
@@ -545,12 +552,12 @@ row
   font-weight: 400;
 }
 .single .single__thumbnail{
-  margin-top: -20px;
+  margin-top: 0px;
   margin-bottom: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 100%;
 }
 .single .single__category{
   padding: 0 90px;
@@ -869,8 +876,8 @@ a.carousel-more{
   font-weight: 700;
 }
 .card-text{
-  font-size: 13px;
-  line-height: 15px;
+  font-size: 15px;
+  line-height: 17px;
 }
 
 .card .date{
