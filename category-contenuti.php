@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php
-  $ParentCat1='i-nostri-contenuti';
+  $ParentCat1='contenuti';
   $ParentCat2='tematica';
 ?>
 <div class="container-fluid contenuti">
@@ -36,7 +36,7 @@
       $ord="DESC";
     }
   }
-  if(!is_category('i-nostri-contenuti')){
+  if(!is_category('contenuti')){
     $Cat1 = get_term_by('name', single_cat_title('',false), 'category')->slug;
   }
   if ($Cat1 == $ParentCat1){
@@ -49,10 +49,10 @@
   <!-- Dropdown per selezione contenuto -->
   <form class="pt-2 text-center" method="post" action="<?php echo get_pagenum_link(); ?>">
     <?php
-      if(is_category('i-nostri-contenuti')){
+      if(is_category('contenuti')){
         ?>
         <select name="contenuti-dropdown">
-          <option value="i-nostri-contenuti" <?php if ($Cat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'I nostri contenuti'; ?></option>
+          <option value="contenuti" <?php if ($Cat1 == 'contenuti') {echo 'selected';}?> ><?php echo 'Tutti i contenuti'; ?></option>
           <?php
             $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
             foreach ($categories as $category) {
@@ -160,8 +160,8 @@
                     <?php
                       if (in_category('documentari')) {
                         echo 'I documentari';
-                      } elseif (in_category('le-storie')) {
-                        echo 'Le storie';
+                      } elseif (in_category('io-faccio-cosi')) {
+                        echo 'Io faccio così';
                       }elseif (in_category('meme')) {
                         echo 'I meme';
                       }elseif (in_category('rubriche')) {
