@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="content-no-sidebar">
+<div class="container-fluid libri pt-4">
 <?php if( have_posts() ) : ?>
   <?php
     while(have_posts() ) : the_post();
@@ -22,8 +22,6 @@ endif;
 //loop i nostri libri
 $custom_query_args = array(
 'post_type' => 'nostri-libri',
-'orderby' => 'menu_order',
-'order' => 'ASC',
 );
 $custom_query = new WP_Query( $custom_query_args );
 ?>
@@ -37,7 +35,7 @@ $custom_query = new WP_Query( $custom_query_args );
             <?php
               if ($Cat1 != "nostri-libri"){
                 if ( has_post_thumbnail() ) {
-                  the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+                  the_post_thumbnail('icc_libri', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
                 }
                 else{
                   echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
