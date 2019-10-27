@@ -267,6 +267,7 @@ aside{
    margin-top: 10px;
    color: #fff;
    text-transform: uppercase;
+   padding: 0;
  }
  aside.sidebar div.icc_Widget_CampagneTematiche h3{
   display: block;
@@ -299,6 +300,7 @@ aside{
  }
  aside.sidebar div a{
    color: #000;
+   text-align: center;
  }
  aside.sidebar div a:hover{
    text-decoration: none;
@@ -425,7 +427,23 @@ div.contenuti_header select{
 .cat2.category-articoli{background: #68D8B1;}
 .cat2.category-meme{background: #F79865}
 .cat2.category-documentari{background: #3D78D0}
-.cat2.category-rubriche{background: #F270C0}
+.cat2.category-rubriche,
+.cat2.category-appunti-viaggio,
+.cat2.category-diari-di-bordo-maestro-di-strada,
+.cat2.category-dizionario-eretico,
+.cat2.category-economia-bene-comune,
+.cat2.category-blog,
+.cat2.category-in-un-flash,
+.cat2.category-in-viaggio,
+.cat2.category-invece-si-puo,
+.cat2.category-via-uscita-dentro,
+.cat2.category-voce-astice,
+.cat2.category-mondo-chiama-italia,
+.cat2.category-pensare-altro,
+.cat2.category-pillole-transizione,
+.cat2.category-terranave,
+.cat2.category-una-favola-puo-fare,
+.cat2.category-voci-italia-che-cambia{background: #F270C0}
 .cat2.category-io-faccio-cosi{background: #AF0000}
 .cat2.category-nostri-libri{background: #9064fa}
 .cat2.category-salute-che-cambia{background: #7FD1F5}
@@ -540,7 +558,7 @@ row
 .single .category-articoli .single__nav__category{background: #68D8B1;}
 .single .category-meme .single__nav__category{background: #F79865}
 .single .category-documentari .single__nav__category{background: #3D78D0}
-.single .category-rubriche .single__nav__category{background: #F270C0}
+.single .category-rubriche .single__nav__category,{background: #F270C0}
 .single .category-io-faccio-cosi .single__nav__category{background: #AF0000}
 .single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
 .single .rassegna-stampa .single__nav__category{background: #000}
