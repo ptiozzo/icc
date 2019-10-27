@@ -372,8 +372,17 @@ aside .pcc-pianfut a{
   background: #A5DBB9;
   color: #fff !important;
 }
-aside .pcc-pianfut a{
+aside .pcc-pianfut .btn-group{
+  width: 100%;
+}
+aside .pcc-pianfut button{
   background: #F79865;
+}
+aside .pcc-pianfut button:hover{
+  background: #F79865;
+}
+aside .pcc-pianfut .dropdown-menu{
+  text-transform: none;
 }
 aside.sidebar .pcc-provincie p{
   padding: 0;
