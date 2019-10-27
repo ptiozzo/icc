@@ -165,7 +165,7 @@ Template Name: Visione 2040
 									Quanto si può imparare dalla Natura? La scuola del 2040 è basata sulla semplicità, sul rapporto con la Natura e su un’alimentazione sana. Esiste ancora una solida struttura di teorie pedagogiche, ma si presenta in forma esperienziale, prediligendo l’apprendimento ludico, basato su progetti e attività concrete.
 								</p>
 							</article>
-							<a href="http://new.italiachecambia.org/visione-2040-economia/" class="stretched-link"></a>
+							<a href="http://new.italiachecambia.org/visione-2040-educazione	/" class="stretched-link"></a>
 
 						</div>
 					</div>
