@@ -114,6 +114,10 @@ require 'inc/custom-post.php';
 /* ------------------------------------ */
 require 'inc/bootstrap-pagination.php';
 
+/*  Bootstrap pagination
+/* ------------------------------------ */
+require 'inc/rewrite.php';
+
 /*  Pagina istruzioni su admin
 /* ------------------------------------ */
 add_action( 'admin_menu', 'icc_menu_admin' );
