@@ -12,7 +12,7 @@
   			</div>
 
         <?php
-  			/* Query per Le storie
+  			/* Query per Io faccio così/Meme
   			*---------------------*/
   			$args = array(
   				'post_type' => 'post',
