@@ -2,6 +2,19 @@
 /**
  * Template Name: Reti Mappate
  */
+require 'header.php';
+
+echo get_query_var( 'par1' );
+echo "<br>";
+echo get_query_var( 'par2' );
+
+if (get_query_var( 'par1' )) {
+
+	echo "iframeluca";
+	echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="http://api.pianetafuturo.it/widget/map/std2.php?a=3&tagoverride=1&sidebar=1"></iframe>';
+
+} else {
+
 $reti = [
 	'{"value": "38", "text": "Action aid", "color": "#82C1BD"}',
 	'{"value": "12", "text": "Arcipelago scec", "color": "#1F8ABD"}',
@@ -51,7 +64,7 @@ $regioni = [
 ];
 ?>
 
-<?php require 'header.php'; ?>
+
 
 <main class="mappa" data-parallax='{"hook": ".8", "showIndicators": false, "progCallback": "default"}'>
 
@@ -179,5 +192,5 @@ $regioni = [
 	</section>
 	<!-- Contenuto del infowindow sulla mappa -->
 </main>
-
+<?php } ?>
 <?php require 'footer.php'; ?>
