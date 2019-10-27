@@ -4,14 +4,49 @@
  */
 require 'header.php';
 
-echo get_query_var( 'par1' );
-echo "<br>";
-echo get_query_var( 'par2' );
+//echo get_query_var( 'par1' );
+//echo "<br>";
+//echo get_query_var( 'par2' );
 
 if (get_query_var( 'par1' )) {
+	
+	$codici_regioni = array( "abruzzo" => 16,
+							 "basilicata" => 19,
+							 "calabria" => 20,
+							 "campania" => 4,
+							 "emilia-romagna" => 13,
+							 "friuli-venezia-giulia" => 10,
+							 "lazio" => 3,
+							 "liguria" => 8,
+							 "lombardia" => 1,
+							 "marche" => 14,
+							 "molise" => 17,
+							 "piemonte" => 2,
+							 "puglia" => 18,
+							 "sardegna" => 7,
+							 "sicilia" => 6,
+							 "toscana" => 9,
+							 "casentino" => 21,
+							 "trentino-alto-adige" => 11,
+							 "umbria" => 15,
+							 "valle-d-aosta" => 12,
+							 "veneto" => 5 );
+	
+	$key_filtro = get_query_var( 'par1' );
 
-	echo "iframeluca";
-	echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="http://api.pianetafuturo.it/widget/map/std2.php?a=3&tagoverride=1&sidebar=1"></iframe>';
+	$open = "";
+	if (get_query_var( 'par2' )) {
+		
+		$slug_realta = get_query_var( 'par2' );
+		// check stringa valida con regexp
+		// riempire variabile open
+	}
+	
+	if (isset($codici_regioni[$key_filtro])) {
+		echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?a='.$codici_regioni[$key_filtro].'&tagoverride=1&sidebar=1'.$open.'"></iframe>';
+	} else {
+		echo "errore";
+	}
 
 } else {
 
