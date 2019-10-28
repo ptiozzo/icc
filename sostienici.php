@@ -34,7 +34,7 @@ Template Name: Sostienici
 
 
 						<div class="cta">
-							<a href='http://new.italiachecambia.org/campagna/' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='<?php echo home_url(); ?>/campagna/' target='_blank'>ISCRIVITI ADESSO</a>
 						</div>
 
 
@@ -62,7 +62,7 @@ Template Name: Sostienici
 
 
 						<div class="cta">
-							<a href='http://new.italiachecambia.org/5xmille/' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='<?php echo home_url(); ?>/5xmille/' target='_blank'>ISCRIVITI ADESSO</a>
 						</div>
 
 
@@ -87,7 +87,7 @@ Template Name: Sostienici
 
 
 						<div class="cta">
-							<a href='http://new.italiachecambia.org/adotta-un-articolo/' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='<?php echo home_url(); ?>/adotta-un-articolo/' target='_blank'>ISCRIVITI ADESSO</a>
 						</div>
 
 
@@ -113,7 +113,7 @@ Template Name: Sostienici
 						</div>
 
 						<div class="cta">
-							<a href='http://new.italiachecambia.org/sostieni-litalia-che-cambia/' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='<?php echo home_url(); ?>/sostieni-litalia-che-cambia/' target='_blank'>ISCRIVITI ADESSO</a>
 						</div>
 
 					</article>
