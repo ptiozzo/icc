@@ -149,7 +149,9 @@ Layout
 .fa-instagram{
   color: #000;
 }
-
+header.stripe{
+  z-index: 1040;
+}
 header.stripe .right-col nav>ul>li:not(:last-child){
   margin-right: 20px;
 }
