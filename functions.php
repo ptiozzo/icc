@@ -16,9 +16,6 @@ add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 
 
-add_filter( 'jetpack_development_mode', '__return_true' );
-
-
 /*  Include Styles & Script
 /* ------------------------------------ */
 if ( ! function_exists( 'icc_styles_scripts' ) ) {
