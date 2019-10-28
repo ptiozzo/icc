@@ -7,7 +7,7 @@
       <div class="sidebar__inner">
         <div class='head'>
   				<div class='title'>
-  					<h5>APPROFONDIMENTI</h5>
+  					<h5>APPROFONDIMENTI - ICC TV</h5>
   				</div>
   			</div>
 
