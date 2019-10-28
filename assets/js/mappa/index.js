@@ -28,7 +28,15 @@
 		/**
 		 * Versa il contenuto HTML nel infowindow
 		 */
-		$infowindow.html($content.clone().children());
+		$infowindow.find('.content').html($content.clone().children());
+
+	});
+	
+	/**
+	 * On click delle regioni
+	 */
+	$paths.on('click', function(e) {
+		window.location.href = 'http://italiachecambia.org/mappa/' + $contents.filter('[data-id=' + $(this).attr('id') + ']').attr('data-slug');
 	});
 
 	/**
