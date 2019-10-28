@@ -144,7 +144,7 @@
   										</div>
   									</li>
   									<li>
-  										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+  										<a class='cta' href='<?php echo home_url(); ?>/mappa/' target='_blank'>VAI ALLA MAPPA</a>
   									</li>
   								</ul>
   							</div>
@@ -173,7 +173,7 @@
   										</div>
   									</li>
   									<li>
-  										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+  										<a class='cta' href='<?php echo home_url(); ?>/mappa/' target='_blank'>VAI ALLA MAPPA</a>
   									</li>
   								</ul>
   							</div>
@@ -202,7 +202,7 @@
   										</div>
   									</li>
   									<li>
-  										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+  										<a class='cta' href='<?php echo home_url(); ?>/mappa/' target='_blank'>VAI ALLA MAPPA</a>
   									</li>
   								</ul>
   							</div>
