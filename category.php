@@ -5,7 +5,7 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
 {
   if (get_query_var('cat') == "2300"){
     get_template_part('menu','casentino');
-  } elseif (get_query_var('cat') == "2299") {
+  } elseif ((get_query_var('cat') == "2299") || cat_is_ancestor_of( 2299, get_query_var( 'cat' ))) {
     get_template_part('menu','piemonte');
   } elseif (get_query_var('cat') == "2359") {
     get_template_part('menu','liguria');
@@ -17,8 +17,8 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
     <div class="cat2 category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?>">
       <h1><?php echo get_term_by('name', single_cat_title('',false), 'category')->name ?></h1>
+      <?php the_archive_description( '<h6 class="text-white">', '</h6>' ); ?>
     </div>
-
 
     <?php
     $CatTerm = get_term_by('name', single_cat_title('',false), 'category')->slug;
