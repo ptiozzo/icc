@@ -9,7 +9,7 @@ require 'header.php';
 //echo get_query_var( 'par2' );
 
 if (get_query_var( 'par1' )) {
-	
+
 	$codici_regioni = array( "abruzzo" => 16,
 							 "basilicata" => 19,
 							 "calabria" => 20,
@@ -31,21 +31,43 @@ if (get_query_var( 'par1' )) {
 							 "umbria" => 15,
 							 "valle-d-aosta" => 12,
 							 "veneto" => 5 );
-	
+
+	$codici_reti = array( "action-aid" => 3180,
+						  "arcipelago-scec" => 3185,
+						  "associazione-botteghe-del-mondo" => 3192,
+						  "banca-etica" => 3197,
+						  "banche-del-tempo" => 3181,
+						  "civilta-contadina" => 3186,
+						  "comuni-virtuosi" => 3193,
+						  "genuino-clandestino" => 3198,
+						  "gruppo-acquisto-terreni" => 3182,
+						  "impact-hub" => 3187,
+						  "libera" => 3194,
+						  "movimento-per-la-decrescita-felice" => 3199,
+						  "rete-di-economia-solidale" => 3183,
+						  "rete-italiana-villaggi-ecologici" => 3190,
+						  "rete-sostenibilita-e-salute" => 3195,
+						  "salviamo-il-paesaggio" => 3200,
+						  "sentiero-bioregionale" => 3184,
+						  "transition-italia" => 3191,
+						  "vivi-consapevole-in-romagna" => 3196 );
+
 	$key_filtro = get_query_var( 'par1' );
 
 	$open = "";
 	if (get_query_var( 'par2' )) {
-		
+
 		$slug_realta = get_query_var( 'par2' );
 		// check stringa valida con regexp
 		// riempire variabile open
 	}
-	
+
 	if (isset($codici_regioni[$key_filtro])) {
 		echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?a='.$codici_regioni[$key_filtro].'&tagoverride=1&sidebar=1'.$open.'"></iframe>';
 	} else {
-		echo "errore";
+		if (isset($codici_reti[$key_filtro])) {
+			echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?n='.$codici_reti[$key_filtro].'&tagoverride=1&sidebar=1"></iframe>';
+		} else echo "ERRORE Rete o regione inesistente";
 	}
 
 } else {
@@ -75,157 +97,198 @@ $reti = [
 /**
  * Mappa regioni
  */
-$regioni = [
-	'{"id": "Path_632", "value": "184", "text": "SARDEGNA"}',
-	'{"id": "Path_633", "value": "38", "text": "SICILIA"}',
-	'{"id": "Path_643", "value": "12", "text": "VENETO"}',
-	'{"id": "Path_644", "value": "50", "text": "EMILIA ROMAGNA"}',
-	'{"id": "Path_645", "value": "41", "text": "TRENTINO ALTO ADIGE"}',
-	'{"id": "Path_646", "value": "104", "text": "FRIULI VENEZIA GIULIA"}',
-	'{"id": "Path_647", "value": "14", "text": "MARCHE"}',
-	'{"id": "Path_648", "value": "60", "text": "UMBRIA"}',
-	'{"id": "Path_649", "value": "24", "text": "MOLISE"}',
-	'{"id": "Path_650", "value": "3", "text": "UMBRIA"}',
-	'{"id": "Path_651", "value": "7", "text": "VALLE AOSTA"}',
-	'{"id": "Path_652", "value": "109", "text": "CAMPANIA"}',
-	'{"id": "Path_653", "value": "47", "text": "CALABRIA"}',
-	'{"id": "Path_654", "value": "23", "text": "BASILICATA"}',
-	'{"id": "Path_655", "value": "23", "text": "LOMBARDIA"}',
-	'{"id": "Path_656", "value": "30", "text": "PUGLIA"}',
-	'{"id": "Path_657", "value": "111", "text": "LIGURIA"}',
-	'{"id": "Path_658", "value": "11", "text": "LAZIO"}',
-	'{"id": "Path_659", "value": "18", "text": "PIEMONTE"}',
-	'{"id": "Path_660", "value": "65", "text": "TOSCANA"}',
-];
-?>
+ $regioni = [
+ 	'{"id": "Path_632", "value": "184", "text": "SARDEGNA", "color": "#65afbd", "slug": "sardegna"}',
+ 	'{"id": "Path_633", "value": "38", "text": "SICILIA", "color": "#2f8ab9", "slug": "sicilia"}',
+ 	'{"id": "Path_643", "value": "12", "text": "VENETO", "color": "#9cd4bc", "slug": "veneto"}',
+ 	'{"id": "Path_644", "value": "50", "text": "EMILIA - ROMAGNA", "color": "#82c1bd", "slug": "emilia-romagna"}',
+ 	'{"id": "Path_645", "value": "41", "text": "TRENTINO-ALTO ADIGE", "color": "#82c1bd", "slug": "trentino-alto-adige"}',
+ 	'{"id": "Path_646", "value": "104", "text": "FRIULI - VENEZIA GIULIA", "color": "#8dc5c1", "slug": "friuli-venezia-giulia"}',
+ 	'{"id": "Path_647", "value": "14", "text": "MARCHE", "color": "#63babf", "slug": "marche"}',
+ 	'{"id": "Path_648", "value": "60", "text": "ABRUZZO", "color": "#0e88a8", "slug": "abruzzo"}',
+ 	'{"id": "Path_649", "value": "24", "text": "MOLISE", "color": "#349ec0", "slug": "molise"}',
+ 	'{"id": "Path_650", "value": "3", "text": "UMBRIA", "color": "#41b2c4", "slug": "umbria"}',
+ 	'{"id": "Path_651", "value": "7", "text": "VALLE D\'AOSTA", "color": "#b3d698", "slug": "valle-daosta"}',
+ 	'{"id": "Path_652", "value": "109", "text": "CAMPANIA", "color": "#2373b2", "slug": "campania"}',
+ 	'{"id": "Path_653", "value": "47", "text": "CALABRIA", "color": "#2467ac", "slug": "calabria"}',
+ 	'{"id": "Path_654", "value": "90", "text": "BASILICATA", "color": "#1f8abd", "slug": "basilicata"}',
+ 	'{"id": "Path_655", "value": "23", "text": "LOMBARDIA", "color": "#8bcfbb", "slug": "lombardia"}',
+ 	'{"id": "Path_656", "value": "30", "text": "PUGLIA", "color": "#2d79b3", "slug": "puglia"}',
+ 	'{"id": "Path_657", "value": "111", "text": "LIGURIA", "color": "#93d4b9", "slug": "liguria"}',
+ 	'{"id": "Path_658", "value": "11", "text": "LAZIO", "color": "#5ebfc1", "slug": "lazio"}',
+ 	'{"id": "Path_659", "value": "18", "text": "PIEMONTE", "color": "#bae3b6", "slug": "piemonte"}',
+ 	'{"id": "Path_660", "value": "65", "text": "TOSCANA", "color": "#7fd1c9", "slug": "toscana"}',
+ ];
+ ?>
 
+ <?php require 'header.php'; ?>
 
+ <main class="mappa" data-parallax='{"hook": ".8", "showIndicators": false, "progCallback": "default"}'>
 
-<main class="mappa" data-parallax='{"hook": ".8", "showIndicators": false, "progCallback": "default"}'>
+ 	<section class="sezione-mappa">
+ 		<div class="head chain-effect scale">
+ 			<h1>Mappa Italia che Cambia</h1>
+ 		</div>
 
-	<section class="sezione-mappa">
-		<div class="head chain-effect scale">
-			<h1>Mappa Italia che Cambia</h1>
-		</div>
+ 		<div class="content">
+ 			<div class="left chain-effect scale">
+ 				<div class="title">
+ 					<small>
+ 						CLICCA UNA REGIONE
+ 					</small>
+ 				</div>
+ 				<div class="map-container">
+ 					<figure class="map-svg">
+ 						<?php require 'assets/img/svg/italy-map.svg'; ?>
 
-		<div class="content">
-			<div class="left chain-effect scale">
-				<div class="title">
-					<small>
-						CLICCA UNA REGIONE
-					</small>
-				</div>
-				<div class="map-container">
-					<figure class="map-svg">
-						<?php require 'assets/img/svg/italy-map.svg'; ?>
-					</figure>
-				</div>
-				<div class="info">
-					<div class="realta col">
-						<h3 class="value">
-							2092
-						</h3>
-						<span>
-							REALTÀ
-						</span>
-					</div>
-					<div class="reti col">
-						<h3 class="value">
-							18
-						</h3>
-						<span>
-							RETI
-						</span>
-					</div>
-				</div>
-			</div>
-			<div class="right chain-effect scale">
-				<div class="title">
-					<small>
-						FILTRA LA MAPPA
-					</small>
-				</div>
-				<div class="content">
-					<p>
-						La mappa dell’Italia che cambia raccoglie le centinaia di realtà
-						che abbiamo incontrato durante i nostri viaggi o che ci sono
-						state segnalate: imprese, associazioni, comitati, persone che stanno contribuendo a cambiare in meglio il nostro paese.
-					</p>
-					<p>
-						Alcune di queste esperienze fanno parti di reti, altre sono singole iniziative.Navigando al suo interno puoi conoscere le realtà più vicine a te, oppure scoprire cosa succede in altre zone d’Italia.
-					</p>
-					<p>
-						Spesso chi vive in un territorio non ha la minima idea di cosa
-						accada intorno a sé e gli stessi protagonisti del cambiamento
-						non sanno che esistono altri soggetti che lavorano per obiettivi
-						simili e complementari.
-					</p>
-					<p>
-						La mappa è navigabile per categoria, per regione e per reti.
-						Per iniziare clicca su una delle regioni oppure seleziona dal box
-						qui sopra la categoria o la rete che vuoi cercare. Buona
-						navigazione nella mappa dell’Italia che Cambia!
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
+ 						<?php foreach ($regioni as $key => $value): ?>
+ 							<?php $value = json_decode($value) ?>
+ 							<style>
+ 								<?php echo '#' . $value->id ?> {
+ 									fill: <?php echo $value->color ?>
+ 								}
+ 							</style>
+ 						<?php endforeach ?>
+ 					</figure>
+ 				</div>
+ 				<div class="info">
+ 					<div class="realta col">
+ 						<h3 class="value">
+ 							2092
+ 						</h3>
+ 						<span>
+ 							REALTÀ
+ 						</span>
+ 					</div>
+ 					<div class="reti col">
+ 						<h3 class="value">
+ 							18
+ 						</h3>
+ 						<span>
+ 							RETI
+ 						</span>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="right chain-effect scale">
+ 				<div class="title">
+ 					<small>
+ 						FILTRA LA MAPPA
+ 					</small>
+ 				</div>
+ 				<div class="content">
+ 					<p>
+ 						La mappa dell’Italia che cambia raccoglie le centinaia di realtà
+ 						che abbiamo incontrato durante i nostri viaggi o che ci sono
+ 						state segnalate: imprese, associazioni, comitati, persone che stanno contribuendo a cambiare in meglio il nostro paese.
+ 					</p>
+ 					<p>
+ 						Alcune di queste esperienze fanno parti di reti, altre sono singole iniziative.Navigando al suo interno puoi conoscere le realtà più vicine a te, oppure scoprire cosa succede in altre zone d’Italia.
+ 					</p>
+ 					<p>
+ 						Spesso chi vive in un territorio non ha la minima idea di cosa
+ 						accada intorno a sé e gli stessi protagonisti del cambiamento
+ 						non sanno che esistono altri soggetti che lavorano per obiettivi
+ 						simili e complementari.
+ 					</p>
+ 					<p>
+ 						La mappa è navigabile per categoria, per regione e per reti.
+ 						Per iniziare clicca su una delle regioni oppure seleziona dal box
+ 						qui sopra la categoria o la rete che vuoi cercare. Buona
+ 						navigazione nella mappa dell’Italia che Cambia!
+ 					</p>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</section>
 
-	<section class="sezione-reti-mappate">
-		<div class="head chain-effect scale">
-			<h1>Le Reti Mappate</h1>
-		</div>
+ 	<section class="sezione-reti-mappate">
+ 		<div class="head chain-effect scale">
+ 			<h1>Le Reti Mappate</h1>
+ 		</div>
 
-		<div class="content chain-effect scale">
-			<ul class="reti">
-				<?php foreach ($reti as $key => $value): ?>
-					<?php $value = json_decode($value) ?>
-					<li class="rete" style="background: <?php echo $value->color ?>">
-						<h3 class="value">
-							<?php echo $value->value ?>
-						</h3>
-						<span>
-							<?php echo strtoupper($value->text) ?>
-						</span>
-					</li>
-				<?php endforeach ?>
-			</ul>
-		</div>
-	</section>
+ 		<div class="content chain-effect scale">
+ 			<ul class="reti">
+ 				<?php foreach ($reti as $key => $value): ?>
+ 					<?php $value = json_decode($value) ?>
+ 					<li class="rete" style="background: <?php echo $value->color ?>">
+ 						<h3 class="value">
+ 							<?php echo $value->value ?>
+ 						</h3>
+ 						<span>
+ 							<?php echo strtoupper($value->text) ?>
+ 						</span>
+ 					</li>
+ 				<?php endforeach ?>
+ 			</ul>
+ 		</div>
+ 	</section>
+<!--
+ 	<section class="sezione-realta-inserite">
+ 		<div class="head chain-effect scale">
+ 			<h1>LE ULTIME REALTÀ INSERITE</h1>
+ 		</div>
 
-	<!--
+ 		<div class="content">
+ 			<ul class='items'>
+ 				<?php for($i=0; $i<5; $i++): ?>
+ 				<li class='chain-effect scale'>
+ 					<a href='#'>
+ 						<figure>
+ 							<img src='/assets/img/modules/home/articoli-<?php echo $i + 1; ?>.jpg' alt='' title=''>
+ 						</figure>
 
-	<section class="sezione-realta-inserite">
-		<div class="head chain-effect scale">
-			<h1>LE ULTIME REALTÀ INSERITE</h1>
-		</div>
+ 						<div class='title'>
+ 							<div class='date'>CATEGORIA ABITARE</div>
+ 							<h3>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h3>
+ 						</div>
 
-		<div class="content">
-
-		</div>
-	</section>
-
+ 						<article>
+ 							<p>
+ 								Sed ut perspiciatis unde omnis iste
+ 								natus error sit voluptatem accusantium
+ 								doloremque laudantium, totam rem
+ 								aperiam, eaque ipsa quae ab illo
+ 								inventore veritatis et quasi architecto
+ 								beatae vitae dicta sunt explicabo.
+ 								Nemo enim ipsam voluptatem quia
+ 								voluptas sit aspernatur aut odit aut.
+ 							</p>
+ 						</article>
+ 					</a>
+ 				</li>
+ 				<?php endfor; ?>
+ 			</ul>
+ 		</div>
+ 	</section>
 -->
+ 	<!-- Infowindow che effetivamente verrà mostrato -->
+ 	<div class="infowindow">
+ 		<div class="content">
 
-	<!-- Infowindow che effetivamente verrà mostrato -->
-	<div class="infowindow"></div>
-	<!-- Infowindow che effetivamente verrà mostrato -->
+ 		</div>
+ 		<figure class="pistolino">
+ 			<?php require 'assets/img/svg/pistolino-infowindow.svg'; ?>
+ 		</figure>
+ 	</div>
+ 	<!-- Infowindow che effetivamente verrà mostrato -->
 
-	<!-- Contenuto del infowindow sulla mappa -->
-	<section class="regioni">
-		<?php foreach ($regioni as $key => $value): ?>
-			<?php $value = json_decode($value) ?>
-			<div class="regione" data-id="<?php echo $value->id ?>">
-				<h3 class="value">
-					<?php echo $value->value ?>
-				</h3>
-				<span>
-					<?php echo strtoupper($value->text) ?>
-				</span>
-			</div>
-		<?php endforeach ?>
-	</section>
-	<!-- Contenuto del infowindow sulla mappa -->
-</main>
+ 	<!-- Contenuto del infowindow sulla mappa -->
+ 	<section class="regioni">
+ 		<?php foreach ($regioni as $key => $value): ?>
+ 			<?php $value = json_decode($value) ?>
+ 			<div class="regione" data-id="<?php echo $value->id ?>" data-color="<?php echo $value->color ?>" data-slug="<?php echo $value->slug ?>">
+ 				<h3 class="value">
+ 					<?php echo $value->value ?>
+ 				</h3>
+ 				<span>
+ 					<?php echo strtoupper($value->text) ?>
+ 				</span>
+ 			</div>
+ 		<?php endforeach ?>
+ 	</section>
+ 	<!-- Contenuto del infowindow sulla mappa -->
+ </main>
+
 <?php } ?>
 <?php require 'footer.php'; ?>
