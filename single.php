@@ -11,7 +11,7 @@
 		}
 		echo "<br>";
 	} ?>
-<div class="container single"><!-- SINGLE -->
+<div class="container single clearfix"><!-- SINGLE -->
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -19,10 +19,10 @@
 			<div class='single__nav__category'>
 				<?php
 				if(isset($_SESSION['cat1'])) { ?>
-					<a href="/category/contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
+					<a href="<?php echo home_url(); ?>/category/contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
 				<?php }
 				if(isset($_SESSION['termine-cercato'])) { ?>
-					<a href="/cerca/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
+					<a href="<?php echo home_url(); ?>/cerca/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
 				<?php }
 					the_category(' ');
 					?>
@@ -117,6 +117,21 @@
 			<!-- Content -->
 			<div class="single__articolo">
 				<?php the_content();?>
+			</div>
+
+
+
+			<div class="single__share">
+				<?php
+				if ( function_exists( 'sharing_display' ) ) {
+					sharing_display( '', true );
+				}
+
+				if ( class_exists( 'Jetpack_Likes' ) ) {
+					$custom_likes = new Jetpack_Likes;
+				echo $custom_likes->post_likes( '' );
+				}
+				 ?>
 			</div>
 
 
