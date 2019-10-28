@@ -558,7 +558,7 @@ row
 .single .category-articoli .single__nav__category{background: #68D8B1;}
 .single .category-meme .single__nav__category{background: #F79865}
 .single .category-documentari .single__nav__category{background: #3D78D0}
-.single .category-rubriche .single__nav__category,{background: #F270C0}
+.single .category-rubriche .single__nav__category{background: #F270C0}
 .single .category-io-faccio-cosi .single__nav__category{background: #AF0000}
 .single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
 .single .rassegna-stampa .single__nav__category{background: #000}
@@ -606,6 +606,7 @@ row
   padding: 15px 20px;
   color: #FFFFFF;
   margin-top: 30px;
+  background: #749A4F;
 }
 .single .category-articoli .single__tag a{background: #68D8B1;}
 .single .category-meme .single__tag a{background: #F79865}
@@ -655,7 +656,7 @@ row
   padding: 5px;
 }
 .single__articolo .wp-caption{
-  max-width: 100% !important;
+  width: 100% !important;
 }
 .single__articolo .wp-caption-text{
   font-size: 13px;
@@ -663,7 +664,7 @@ row
   font-style: italic;
 }
 .single__articolo img{
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -716,7 +717,7 @@ RASSEGNA STAMPA
 }
 .rassegna-stampa img{
   min-width: 100%;
-  min-height: 100%;
+
 }
 .rassegna-stampa article{
   position: absolute;
@@ -1076,4 +1077,12 @@ header.overlay-menu .fab{
 .quattrozeroquattro a{
   color: #212529;
   text-decoration: underline;
+}
+
+
+/*
+VISIONE2040
+*/
+main.visione>section.content>.list>ul>li .box{
+	position:relative;
 }
