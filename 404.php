@@ -10,7 +10,7 @@
     $body = "E' stata trovata una pagina 404 <br>". get_pagenum_link();
     $headers = array('Content-Type: text/html; charset=UTF-8');
 
-    wp_mail( $to, $subject, $body, $headers );
+    //wp_mail( $to, $subject, $body, $headers );
      ?>
     <div class="contenuti_header text-center ">
       <form class="mb-2" method="post" action="/cerca/">
