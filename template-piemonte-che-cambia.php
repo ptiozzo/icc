@@ -100,9 +100,7 @@ Template Name: Piemonte che cambia
 					</a>
 					<ol class="carousel-indicators pr-2 text-white">
 						<li data-target="#carouselMappa" data-slide-to="0" class="text-white active">1</li>
-						<li data-target="#carouselMappa" data-slide-to="1" class="text-white">2</li>
-						<li data-target="#carouselMappa" data-slide-to="2" class="text-white">3</li>
-						<p class=""> /3</p>
+						<p class=""> /1</p>
 					</ol>
 					<a class="carousel-control-next" href="#carouselMappa" role="button" data-slide="next">
 						<span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -112,92 +110,13 @@ Template Name: Piemonte che cambia
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<article>
-							<div class='left'>
-								<ul class='list'>
-									<li>
-										<div class='info'>
-											<div class='number'>18</div>
-											<div class='text'> RETI</div>
-										</div>
-										<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
-									</li>
-									<li>
-										<div class='info'>
-											<div class='number'>2062</div>
-											<div class='text'> REALTÀ</div>
-										</div>
-									</li>
-									<li>
-										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
-									</li>
-								</ul>
-							</div>
-							<div class='right'>
 								<figure>
-									<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/italy-map.svg' alt='' title=''>
+									<a href="<?php echo home_url(); ?>/piemonte/mappa/"><img class="img-fluid" src='<?php echo get_template_directory_uri();?>/assets/img/modules/piemonte/Piemonte-mappa.png' alt='' title=''></a>
 								</figure>
-							</div>
-						</article>
-					</div>
-					<div class="carousel-item">
-						<article>
-							<div class='left'>
-								<ul class='list'>
-									<li>
-										<div class='info'>
-											<div class='number'>18</div>
-											<div class='text'> RETI</div>
-										</div>
-										<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
-									</li>
-									<li>
-										<div class='info'>
-											<div class='number'>2062</div>
-											<div class='text'> REALTÀ</div>
-										</div>
-									</li>
-									<li>
-										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
-									</li>
-								</ul>
-							</div>
-							<div class='right'>
-								<figure>
-									<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/italy-map.svg' alt='' title=''>
-								</figure>
-							</div>
-						</article>
-					</div>
-					<div class="carousel-item">
-						<article>
-							<div class='left'>
-								<ul class='list'>
-									<li>
-										<div class='info'>
-											<div class='number'>18</div>
-											<div class='text'> RETI</div>
-										</div>
-										<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
-									</li>
-									<li>
-										<div class='info'>
-											<div class='number'>2062</div>
-											<div class='text'> REALTÀ</div>
-										</div>
-									</li>
-									<li>
-										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
-									</li>
-								</ul>
-							</div>
-							<div class='right'>
-								<figure>
-									<img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/italy-map.svg' alt='' title=''>
-								</figure>
-							</div>
 						</article>
 					</div>
 				</div>
+
 			</div>
       </div>
     </div>

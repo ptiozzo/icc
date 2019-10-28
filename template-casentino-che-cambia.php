@@ -128,7 +128,7 @@ Template Name: Casentino che cambia
 										</div>
 									</li>
 									<li>
-										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+										<a class='cta' href='<?php echo home_url(); ?>/casentino/casentino-mappa/' target='_blank'>VAI ALLA MAPPA</a>
 									</li>
 								</ul>
 							</div>
@@ -157,7 +157,7 @@ Template Name: Casentino che cambia
 										</div>
 									</li>
 									<li>
-										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+										<a class='cta' href='<?php echo home_url(); ?>/casentino/casentino-mappa/' target='_blank'>VAI ALLA MAPPA</a>
 									</li>
 								</ul>
 							</div>
@@ -186,7 +186,7 @@ Template Name: Casentino che cambia
 										</div>
 									</li>
 									<li>
-										<a class='cta' href='' target='_blank'>VAI ALLA MAPPA</a>
+										<a class='cta' href='<?php echo home_url(); ?>/casentino/casentino-mappa/' target='_blank'>VAI ALLA MAPPA</a>
 									</li>
 								</ul>
 							</div>
