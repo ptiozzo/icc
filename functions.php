@@ -91,6 +91,14 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 }
 add_action( 'widgets_init', 'icc_sidebars' );
 
+
+function myfeed_request($qv) {
+    if (isset($qv['feed']) && !isset($qv['post_type']))
+        $qv['post_type'] = array('post', 'rassegna-stampa');
+    return $qv;
+}
+add_filter('request', 'myfeed_request');
+
 /*
 * Add Response code to video embeds in WordPress
 *
