@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>
-			<?php is_front_page() ? bloginfo('description') : wp_title(""); ?> | <?php bloginfo('name'); ?>
+			<?php if (!is_front_page()){ wp_title(""); echo " | ";} ?><?php bloginfo('name'); ?>
 		</title>
 		<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 		<meta name="title" content="<?php bloginfo( 'name' ); ?>">
