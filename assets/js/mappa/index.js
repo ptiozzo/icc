@@ -4,7 +4,7 @@
 		$contents = $('.regioni .regione'),
 		$infowindow = $('.infowindow'),
 		timeout;
-	
+
 	/**
 	 * On mouse enter in una regione
 	 */
@@ -31,12 +31,12 @@
 		$infowindow.find('.content').html($content.clone().children());
 
 	});
-	
+
 	/**
 	 * On click delle regioni
 	 */
 	$paths.on('click', function(e) {
-		window.location.href = 'http://italiachecambia.org/mappa/' + $contents.filter('[data-id=' + $(this).attr('id') + ']').attr('data-slug');
+		window.location.href = 'http://www.italiachecambia.org/mappa/' + $contents.filter('[data-id=' + $(this).attr('id') + ']').attr('data-slug');
 	});
 
 	/**
