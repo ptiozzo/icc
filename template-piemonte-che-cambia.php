@@ -147,7 +147,7 @@ Template Name: Piemonte che cambia
 				$loop = new WP_Query( $args );
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
 				?>
-							<div class="col-lg-6 mt-3">
+							<div class="col-lg-home2 mt-3">
 								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
 									<article <?php echo post_class(); ?>>
 									<?php
@@ -177,7 +177,7 @@ Template Name: Piemonte che cambia
 
 			</div> <!-- Fine row  -->
 		</div><!-- Fini seconda colonna  -->
-		<div class="col-lg-2">
+		<div class="col-lg-home3">
 			<?php get_sidebar(); ?>
 		</div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
