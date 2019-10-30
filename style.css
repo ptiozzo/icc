@@ -1062,10 +1062,24 @@ footer article{
 footer article b{
   color: #fff;
 }
-
+footer .widget h3{
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+}
+footer .widget p{
+  color: #A3A3A3;
+  font-size: 12px;
+}
 /*
 FONTAWESOME
 */
+footer{
+  padding-bottom: 30px;
+}
 
 footer .fab{
   color: #ddd;
