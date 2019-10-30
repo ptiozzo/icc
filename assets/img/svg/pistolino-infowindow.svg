@@ -4,10 +4,6 @@
       .cls-1 {
         fill: #fff;
       }
-
-      .cls-2 {
-        filter: url(#Path_667);
-      }
     </style>
     <filter id="Path_667" x="0" y="0" width="28" height="33.075" filterUnits="userSpaceOnUse">
       <feOffset input="SourceAlpha"/>
