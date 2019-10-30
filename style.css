@@ -989,7 +989,9 @@ COLORI HOME
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
 .card article.nostri-libri .category-bg{border-top: 150px solid #9064fa;}
 .card article.rassegna-stampa .category-bg{border-top: 150px solid #000;}
-.card article.category-piemonte-che-cambia .category-bg{border-top: 150px solid #749A4F;}
+.card article.category-piemonte-che-cambia .category-bg,
+.card article.category-liguria-che-cambia .category-bg,
+.card article.category-casentino-che-cambia .category-bg{border-top: 150px solid #749A4F;}
 
 
 /*

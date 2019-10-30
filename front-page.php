@@ -316,6 +316,8 @@
                           echo 'Articoli - Piemonte';
                         }elseif (in_category('casentino-che-cambia')){
                           echo 'Articoli - Casentino';
+                        }elseif (in_category('liguria-che-cambia')){
+                            echo 'Articoli - Liguria';
                         }elseif ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
 													echo 'Rassegna stampa';
 												}
