@@ -978,6 +978,9 @@ CARD HOME
   height: auto;
 }
 
+/*
+COLORI HOME
+*/
 .card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
 .card article.category-meme .category-bg{border-top: 150px solid #F79865}
 .card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
@@ -986,6 +989,7 @@ CARD HOME
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
 .card article.nostri-libri .category-bg{border-top: 150px solid #9064fa;}
 .card article.rassegna-stampa .category-bg{border-top: 150px solid #000;}
+.card article.category-piemonte-che-cambia .category-bg{border-top: 150px solid #749A4F;}
 
 
 /*

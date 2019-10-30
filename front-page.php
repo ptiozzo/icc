@@ -312,7 +312,11 @@
 													echo 'Salute';
 												}elseif (in_category('articoli')) {
 													echo 'Gli Articoli';
-												}elseif ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
+												}elseif (in_category('piemonte-che-cambia')){
+                          echo 'Articoli - Piemonte';
+                        }elseif (in_category('casentino-che-cambia')){
+                          echo 'Articoli - Casentino';
+                        }elseif ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
 													echo 'Rassegna stampa';
 												}
 											?>
