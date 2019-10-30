@@ -73,25 +73,25 @@ if (get_query_var( 'par1' )) {
 } else {
 
 $reti = [
-	'{"value": "38", "text": "Action aid", "color": "#82C1BD"}',
-	'{"value": "12", "text": "Arcipelago scec", "color": "#1F8ABD"}',
-	'{"value": "50", "text": "Associazione botteghe del mondo", "color": "#8BCFBB"}',
-	'{"value": "41", "text": "Banca etica", "color": "#82C1BD"}',
-	'{"value": "104", "text": "Banca del tempo", "color": "#BAE3B6"}',
-	'{"value": "14", "text": "Civilta\' contadina", "color": "#82C1BD"}',
-	'{"value": "60", "text": "Comuni virtuosi", "color": "#63BABF"}',
-	'{"value": "24", "text": "Genuino clandestino", "color": "#41B2C4"}',
-	'{"value": "3", "text": "Gruppo Acquisto Terreni", "color": "#73C6BE"}',
-	'{"value": "7", "text": "Impact Hub", "color": "#2F8AB9"}',
-	'{"value": "109", "text": "Libera", "color": "#2373B2"}',
-	'{"value": "47", "text": "Movimento per la decrescita felice", "color": "#B3D698"}',
-	'{"value": "23", "text": "Reti di economia solidale", "color": "#BAE3B6"}',
-	'{"value": "23", "text": "Rete Italiana Villaggi Ecologici", "color": "#73C6BE"}',
-	'{"value": "30", "text": "Rete sostenilita\' e salute", "color": "#41B2C4"}',
-	'{"value": "111", "text": "Salviamo il paesaggio", "color": "#63BABF"}',
-	'{"value": "11", "text": "Sentiero bioregionale", "color": "#0E88A8"}',
-	'{"value": "18", "text": "Transition italia", "color": "#82C1BD"}',
-	'{"value": "65", "text": "Vivi Consapevole in Romagna", "color": "#63BABF"}',
+	'{"value": "38", "text": "Action aid", "color": "#82C1BD", "slug": "action-aid"}',
+	'{"value": "12", "text": "Arcipelago scec", "color": "#1F8ABD", "slug": "arcipelago-scec"}',
+	'{"value": "50", "text": "Associazione botteghe del mondo", "color": "#8BCFBB", "slug": "associazione-botteghe-del-mondo"}',
+	'{"value": "41", "text": "Banca etica", "color": "#82C1BD", "slug": "banca-etica"}',
+	'{"value": "104", "text": "Banca del tempo", "color": "#BAE3B6", "slug": "banche-del-tempo"}',
+	'{"value": "14", "text": "Civilta\' contadina", "color": "#82C1BD", "slug": "civilta-contadina"}',
+	'{"value": "60", "text": "Comuni virtuosi", "color": "#63BABF", "slug": "comuni-virtuosi"}',
+	'{"value": "24", "text": "Genuino clandestino", "color": "#41B2C4", "slug": "genuino-clandestino"}',
+	'{"value": "3", "text": "Gruppo Acquisto Terreni", "color": "#73C6BE", "slug": "gruppo-acquisto-terreni"}',
+	'{"value": "7", "text": "Impact Hub", "color": "#2F8AB9", "slug": "impact-hub"}',
+	'{"value": "109", "text": "Libera", "color": "#2373B2", "slug": "libera"}',
+	'{"value": "47", "text": "Movimento per la decrescita felice", "color": "#B3D698", "slug": "movimento-per-la-decrescita-felice"}',
+	'{"value": "23", "text": "Reti di economia solidale", "color": "#BAE3B6", "slug": "rete-di-economia-solidale"}',
+	'{"value": "23", "text": "Rete Italiana Villaggi Ecologici", "color": "#73C6BE", "slug": "rete-italiana-villaggi-ecologici"}',
+	'{"value": "30", "text": "Rete sostenilita\' e salute", "color": "#41B2C4", "slug": "rete-sostenibilita-e-salute"}',
+	'{"value": "111", "text": "Salviamo il paesaggio", "color": "#63BABF", "slug": "salviamo-il-paesaggio"}',
+	'{"value": "11", "text": "Sentiero bioregionale", "color": "#0E88A8", "slug": "sentiero-bioregionale"}',
+	'{"value": "18", "text": "Transition italia", "color": "#82C1BD", "slug": "transition-italia"}',
+	'{"value": "66", "text": "Vivi Consapevole in Romagna", "color": "#63BABF", "slug": "vivi-consapevole-in-romagna"}',
 ];
 
 /**
@@ -211,6 +211,7 @@ $reti = [
  			<ul class="reti">
  				<?php foreach ($reti as $key => $value): ?>
  					<?php $value = json_decode($value) ?>
+					<a href="http://www.italiachecambia.org/mappa/<?php echo $value->slug ?>">
  					<li class="rete" style="background: <?php echo $value->color ?>">
  						<h3 class="value">
  							<?php echo $value->value ?>
@@ -219,49 +220,12 @@ $reti = [
  							<?php echo strtoupper($value->text) ?>
  						</span>
  					</li>
+					</a>
  				<?php endforeach ?>
  			</ul>
  		</div>
  	</section>
-<!--
- 	<section class="sezione-realta-inserite">
- 		<div class="head chain-effect scale">
- 			<h1>LE ULTIME REALTÀ INSERITE</h1>
- 		</div>
 
- 		<div class="content">
- 			<ul class='items'>
- 				<?php for($i=0; $i<5; $i++): ?>
- 				<li class='chain-effect scale'>
- 					<a href='#'>
- 						<figure>
- 							<img src='/assets/img/modules/home/articoli-<?php echo $i + 1; ?>.jpg' alt='' title=''>
- 						</figure>
-
- 						<div class='title'>
- 							<div class='date'>CATEGORIA ABITARE</div>
- 							<h3>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h3>
- 						</div>
-
- 						<article>
- 							<p>
- 								Sed ut perspiciatis unde omnis iste
- 								natus error sit voluptatem accusantium
- 								doloremque laudantium, totam rem
- 								aperiam, eaque ipsa quae ab illo
- 								inventore veritatis et quasi architecto
- 								beatae vitae dicta sunt explicabo.
- 								Nemo enim ipsam voluptatem quia
- 								voluptas sit aspernatur aut odit aut.
- 							</p>
- 						</article>
- 					</a>
- 				</li>
- 				<?php endfor; ?>
- 			</ul>
- 		</div>
- 	</section>
--->
  	<!-- Infowindow che effetivamente verrà mostrato -->
  	<div class="infowindow">
  		<div class="content">
