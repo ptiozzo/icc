@@ -1116,3 +1116,10 @@ MAPPA
 .reti a{
   text-decoration: none;
 }
+
+/*
+PROVINCE
+*/
+.province h1{
+  text-transform: capitalize;
+}

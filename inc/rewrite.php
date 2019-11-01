@@ -23,7 +23,9 @@ function myplugin_rewrite_rule() {
 
   add_rewrite_rule( '^mappa/([^/]*)/([^/]*)/?', 'index.php?pagename=mappa&par1=$matches[1]&par2=$matches[2]','top' );
   add_rewrite_rule( '^mappa/([^/]*)/?', 'index.php?pagename=mappa&par1=$matches[1]','top' );
-	
+	add_rewrite_rule( '^piemonte/([^/]*)/page/?([0-9]{1,})/?', 'index.php?pagename=template-province&par1=$matches[1]&paged=$matches[2]','top' );
+	add_rewrite_rule( '^piemonte/([^/]*)/?', 'index.php?pagename=template-province&par1=$matches[1]','top' );
+
 
 }
 add_action('init', 'myplugin_rewrite_rule', 10, 0);
