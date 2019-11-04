@@ -44,11 +44,11 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="row">
-			<div class="col-12 col-md-6" style="border: 1px solid red">
+			<div class="col-12 col-md-6">
 				<?php dynamic_sidebar('testatasx'); ?>
 			</div>
-			<div class="col-12 col-md-6" style="border: 1px solid red">
-				<?php dynamic_sidebar('testatadx'); ?>	
+			<div class="col-12 col-md-6">
+				<?php dynamic_sidebar('testatadx'); ?>
 			</div>
 		</div>
 		<!-- Header -->
