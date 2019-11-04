@@ -85,6 +85,8 @@ Template Name: Piemonte che cambia
 			endif;
 			wp_reset_query();?>
 
+      <?php dynamic_sidebar('homepiemontesx'); ?>
+
       <div class="pb-3">
 			<div class='head'>
 				<div class='title'>
@@ -145,7 +147,17 @@ Template Name: Piemonte che cambia
 
         );
 				$loop = new WP_Query( $args );
+        $i = 0;
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
+        $i++;
+
+
+        if($i == 3)
+        {
+          echo '<div class="col-12">';
+          dynamic_sidebar('homepiemontedx');
+          echo '</div>';
+        }
 				?>
 							<div class="col-lg-6 mt-3">
 								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">

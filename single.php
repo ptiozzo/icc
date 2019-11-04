@@ -11,7 +11,13 @@
 		}
 		echo "<br>";
 	} ?>
+
 <div class="container single clearfix"><!-- SINGLE -->
+	<div class="row">
+		<div class="col-12 col-md-6 offset-md-3">
+			<?php dynamic_sidebar('singlestart'); ?>
+		</div>
+	</div>
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -143,7 +149,11 @@
 	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'miotema'); ?> </h3>
 
 	<?php endif; ?>
-
+	<div class="row">
+		<div class="col-12 col-md-6 offset-md-3">
+			<?php dynamic_sidebar('singleend'); ?>
+		</div>
+	</div>
 </div>
 
 

@@ -101,6 +101,10 @@
   			endif;
   			wp_reset_query();?>
 
+
+        <?php dynamic_sidebar('homesx'); ?>
+
+
   			<div class="pb-3">
   			<div class='head'>
   				<div class='title'>
@@ -291,8 +295,19 @@
 
 				);
 				$loop = new WP_Query( $args );
+        $i = 0;
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
-				?>
+				    $i++;
+
+            if($i == 3)
+            {
+              echo '<div class="col-12">';
+              dynamic_sidebar('homedx');
+              echo '</div>';
+            }
+
+        ?>
+
 							<div class="col-md-6 mt-3">
 								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
 									<article <?php echo post_class(); ?>>
@@ -302,7 +317,7 @@
 											<?php
 												if (in_category('documentari')) {
 													echo 'I documentari';
-												} elseif (in_category('io-faccio-cosi')) {
+												}elseif (in_category('io-faccio-cosi')) {
 													echo 'Io faccio così';
 												}elseif (in_category('meme')) {
 													echo 'I meme';

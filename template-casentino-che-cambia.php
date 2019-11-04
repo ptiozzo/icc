@@ -84,6 +84,10 @@ Template Name: Casentino che cambia
 				echo "<p>Non ho trovato nessun articolo in evidenza</p>";
 			endif;
 			wp_reset_query();?>
+
+      <?php dynamic_sidebar('homecasentinosx'); ?>
+
+
     <div class="pb-3">
 
 			<div class='head'>
@@ -142,7 +146,17 @@ Template Name: Casentino che cambia
             'post__not_in' => $exclude_posts,
         );
 				$loop = new WP_Query( $args );
+        $i = 0;
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
+        $i++;
+
+
+        if($i == 3)
+        {
+          echo '<div class="col-12">';
+          dynamic_sidebar('homecasentinodx');
+          echo '</div>';
+        }
 				?>
 							<div class="col-lg-6 mt-3">
 								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">

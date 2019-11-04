@@ -392,6 +392,22 @@ aside .pcc-pianfut .dropdown-menu{
 aside.sidebar .pcc-provincie p{
   padding: 0;
 }
+.widget h3{
+  font-size: 11px;
+  line-height: 11px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+}
+.widget p{
+  font-size: 15px;
+  line-height: 17px;
+}
+.widget img{
+  max-width: 100%;
+  height: auto;
+}
 
 /*	Vista griglia per categorie
 */
