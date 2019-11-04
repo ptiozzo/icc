@@ -64,7 +64,7 @@ Template Name: Template province
               <?php
               if ($Cat1 == $ParentCat1) { ?>
                 <div class='category'>
-                  <span class="ml-4"><?php the_time('j M') ?></span>
+                  <span class="ml-4"><?php the_time('j M Y') ?></span>
                   <span>
                     <?php
                       if (in_category('documentari')) {

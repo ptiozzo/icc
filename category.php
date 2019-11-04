@@ -51,7 +51,7 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
               <?php
               if ($Cat1 == $ParentCat1) { ?>
                 <div class='category'>
-                  <span class="ml-4"><?php the_time('j M') ?></span>
+                  <span class="ml-4"><?php the_time('j M Y') ?></span>
                   <span>
                     <?php
                       if (in_category('documentari')) {
