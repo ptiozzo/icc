@@ -21,9 +21,10 @@ body,
 header{
   max-width: 1400px;
   margin: auto;
+  padding-top: 0;
 }
 
-.admin-bar header.stripe{
+.admin-bar header{
   top:32px;
 }
 .admin-bar .menu_regioni{
@@ -87,7 +88,6 @@ Layout
   }
   .col-lg-home3{
     position: absolute;
-    top: 80px;
     right: 0;
   }
 }
@@ -152,6 +152,7 @@ Layout
 }
 header.stripe{
   z-index: 1040;
+  position: sticky;
 }
 header.stripe .right-col nav>ul>li:not(:last-child){
   margin-right: 20px;
@@ -471,7 +472,9 @@ div.contenuti_header select{
 /*
 row
 */
-
+.row{
+  position: relative;
+}
 .row .title h3{
   font-size: 18px;
   line-height: 20px;

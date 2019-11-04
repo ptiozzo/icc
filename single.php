@@ -9,7 +9,6 @@
 		} elseif (has_category('liguria-che-cambia')) {
 			get_template_part('menu','liguria');
 		}
-		echo "<br>";
 	} ?>
 
 <div class="container single clearfix"><!-- SINGLE -->
