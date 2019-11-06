@@ -142,6 +142,36 @@ Layout
 }
 
 
+/*
+LINK
+*/
+
+.category-articoli a{color: #68D8B1;}
+.category-meme a{color: #F79865}
+.category-documentari a{color: #3D78D0}
+.category-rubriche a,
+.category-appunti-viaggio a,
+.category-diari-di-bordo-maestro-di-strada a,
+.category-dizionario-eretico a,
+.category-economia-bene-comune a,
+.category-blog a,
+.category-in-un-flash a,
+.category-in-viaggio a,
+.category-invece-si-puo a,
+.category-via-uscita-dentro a,
+.category-voce-astice a,
+.category-mondo-chiama-italia a,
+.category-pensare-altro a,
+.category-pillole-transizione a,
+.category-terranave a,
+.category-una-favola-puo-fare a,
+.category-voci-italia-che-cambia a{color: #F270C0}
+.category-io-faccio-cosi a{color: #AF0000}
+.category-nostri-libri a{color: #9064fa}
+.category-salute-che-cambia a{color: #7FD1F5}
+.rassegna-stampa a{color: #a3a3a3}
+
+
 
 /*	Menu
 */
@@ -340,20 +370,6 @@ aside.sidebar div figure{
     margin-bottom: 4px;
  }
 
- /*
- aside.sidebar div.widget_nav_menu ul li:nth-child(1){
-   background: #A5DBB8;
- }
- aside.sidebar div.widget_nav_menu ul li:nth-child(2){
-   background: #8BCFBB;
- }
- aside.sidebar div.widget_nav_menu ul li:nth-child(3){
-   background: #73C6BE;
- }
- aside.sidebar div.widget_nav_menu ul li:nth-child(4){
-   background: #41B2C4;
- }
- */
 aside.sidebar div.widget_nav_menu ul li a{
   display: block;
   color: #000000;
@@ -467,6 +483,7 @@ div.contenuti_header select{
 .cat2.category-io-faccio-cosi{background: #AF0000}
 .cat2.category-nostri-libri{background: #9064fa}
 .cat2.category-salute-che-cambia{background: #7FD1F5}
+.cat2.category-rassegna-stampa{background: #a3a3a3}
 
 
 /*
@@ -509,6 +526,7 @@ row
 .contenuti .row article.category-rubriche a:hover .category{background: #F270C0}
 .contenuti .row article.category-io-faccio-cosi a:hover .category{background: #AF0000}
 .contenuti .row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
+.contenuti .row article.rassenga-stampa a:hover .category{background: #a3a3a3}
 
 
 .row article a figure{
@@ -583,7 +601,7 @@ row
 .single .category-rubriche .single__nav__category{background: #F270C0}
 .single .category-io-faccio-cosi .single__nav__category{background: #AF0000}
 .single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
-.single .rassegna-stampa .single__nav__category{background: #000}
+.single .rassegna-stampa .single__nav__category{background: #a3a3a3}
 
 .single .single__nav__category a{
   margin: 0;
