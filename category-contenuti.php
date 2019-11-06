@@ -64,6 +64,7 @@
             }
           ?>
           <option value="nostri-libri" <?php if ($Cat1 == 'nostri-libri') {echo 'selected';}?>>I nostri libri</option>
+          <option value="rassegna-stampa" <?php if ($Cat1 == 'rassegna-stampa') {echo 'selected';}?>>Io non mi rassegno</option>
         </select>
         <?php
         }
@@ -123,14 +124,21 @@
     -->
     <?php
     /* Personalizzo query */
-    if($Cat1 == "nostri-libri"){
+    if ($Cat1 == "nostri-libri") {
       $args = array(
       'post_type' => 'nostri-libri',
       'orderby' => 'menu_order',
       'paged'          => $paged,
       'order' => $ord,
       );
-    } else {
+    } elseif ($Cat1 == "rassegna-stampa") {
+      $args = array(
+        'post_type' => 'rassegna-stampa',
+        'orderby' => 'menu_order',
+        'paged'          => $paged,
+        'order' => $ord,
+      );
+    }else {
       $args = array(
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
