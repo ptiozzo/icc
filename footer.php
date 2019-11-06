@@ -1,20 +1,27 @@
 </div>
 
 <footer>
-<div class="d-flex flex-lg-row flex-column justify-content-between align-items-center">
-  <div class="d-flex flex-column flex-xl-row align-items-center">
-    <figure class="pr-xl-5 mx-auto">
+<div class="row">
+  <div class="col-12 col-md-4 text-center">
+    <figure>
       <img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia-footer.svg' title='' alt=''>
     </figure>
-
-    <article class="text-center text-xl-left">
+  </div>
+  <div class="col-12 col-md-4 text-center">
+    <article class="text-center">
       <b>ITALIA CHE CAMBIA</b> <br>
       <b>Associazione di promozione sociale</b> <br>
       Via Aldo Banzi, 88 - 00128, Roma (RM) <br>
       CF: 97761390588 | P. IVA: 12511651007 <br>
     </article>
   </div>
-  <div class="d-flex flex-column">
+  <div class="col-12 col-md-4 text-center">
+    <article>
+      <b>“Italia che Cambia”</b> è una testata giornalistica registrata al Tribunale di Roma n. 65/2015 del 28 aprile 2015.
+      Iscrizione ROC n. 24323 ©2012-2019 Associazione Italia Che Cambia.
+    </article>
+  </div>
+  <div class="col-12">
     <?php
     wp_nav_menu([
       'menu'            => 'menu-social',
@@ -23,13 +30,14 @@
       'container_id'    => 'bs4navbar',
       'container_class' => '',
       'menu_id'         => false,
-      'menu_class'      => 'nav mx-auto mx-lg-0 ml-lg-auto ',
+      'menu_class'      => 'nav float-right',
       'depth'           => 0,
       'fallback_cb'     => 'bs4navwalker::fallback',
       'walker'          => new bs4navwalker()
     ]);
     ?>
-
+  </div>
+  <div class="col-12">
 
 
    <?php
@@ -40,16 +48,12 @@
      'container_id'    => 'bs4navbar',
      'container_class' => '',
      'menu_id'         => false,
-     'menu_class'      => 'nav ml-auto',
+     'menu_class'      => 'nav float-right',
      'depth'           => 0,
      'fallback_cb'     => 'bs4navwalker::fallback',
      'walker'          => new bs4navwalker()
    ]);
    ?>
-
-
-
-
   </div>
 </div>
   <div class="row mt-4">
