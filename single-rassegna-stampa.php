@@ -125,6 +125,12 @@
 
 					</div>
 				<?php endwhile; ?>
+				<div class="col-12 pb-2">
+					<form class="pt-2 text-center" method="post" action="/categoria/contenuti/">
+						<input name="contenuti-dropdown" type="hidden" value="rassegna-stampa">
+						<input name="submit_button" type="submit" value="Vedi tutto" class="btn btn-link">
+					</form>
+				</div>
 			</div>
 		<?php else: ?>
 			<p>Non ho trovato nessun altra Rassegna</p>
