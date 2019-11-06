@@ -81,7 +81,7 @@
   							<span class="carousel-control-next-icon" aria-hidden="true"></span>
   							<span class="sr-only">Next</span>
   						</a>
-  						<a href="<?php echo get_home_url(); ?>/category/i-nostri-contenuti/io-faccio-cosi/" class="carousel-more mx-auto">Vedi tutto</a>
+  						<a href="<?php echo get_home_url(); ?>/categoria/i-nostri-contenuti/io-faccio-cosi/" class="carousel-more mx-auto">Vedi tutto</a>
   						<ol class="carousel-indicators pr-2">
   							<?php
   							$i = $i/2;
