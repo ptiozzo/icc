@@ -85,6 +85,14 @@
 						}
 					?>
 				</div>
+				<!-- Video Realizzato da -->
+				<div class="single__author">
+					<?php
+						if( !empty (get_post_meta( get_the_ID(), 'VideoRealizzatoDa',true))){
+							echo "Video realizzato da: <b>". get_post_meta( get_the_ID(), 'VideoRealizzatoDa',true)."</b>";
+						}
+					?>
+				</div>
 				<!-- Riprese di -->
 				<div class="single__author">
 					<?php
