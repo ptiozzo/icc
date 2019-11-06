@@ -34,9 +34,9 @@
   }
  ?>
   <!-- Dropdown per selezione contenuto -->
-  <form class="pt-2 text-center" method="post" action="<?php echo get_pagenum_link(); ?>">
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
 
-        <select name="rubriche-dropdown">
+        <select name="rubriche-dropdown" class="custom-select">
           <option value="rubriche" <?php if ($RubricheCat1 == 'rubriche') {echo 'selected';}?> ><?php echo 'Tutte le rubriche'; ?></option>
           <?php
             $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
@@ -50,7 +50,7 @@
           ?>
         </select>
 
-    <input name="submit_button" type="Submit" value="Filtra">
+    <input name="submit_button" type="Submit" value="Filtra" class="btn btn-secondary">
   </form>
 </div><!-- contenuti_header -->
 <?php if ($RubricheCat1 != $ParentCat1){ ?>

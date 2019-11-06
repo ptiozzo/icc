@@ -47,11 +47,12 @@
   }
  ?>
   <!-- Dropdown per selezione contenuto -->
-  <form class="pt-2 text-center" method="post" action="<?php echo get_pagenum_link(); ?>">
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+
     <?php
       if(is_category('contenuti')){
         ?>
-        <select name="contenuti-dropdown">
+        <select name="contenuti-dropdown" class="custom-select">
           <option value="contenuti" <?php if ($Cat1 == 'contenuti') {echo 'selected';}?> ><?php echo 'Tutti i contenuti'; ?></option>
           <?php
             $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
@@ -70,7 +71,7 @@
         }
         ?>
       <!-- Dropdown per selezione tematica -->
-      <select name="tematica-dropdown">
+      <select name="tematica-dropdown"  class="custom-select">
         <option value="tematica" <?php if ($Cat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tematica'; ?></option>
         <?php
           $categories = get_categories('child_of='.get_category_by_slug($ParentCat2)->term_id);
@@ -84,11 +85,12 @@
           ?>
       </select>
     <!-- Dropdown per ordinemento post -->
-    <select name="order-dropdown">
+    <select name="order-dropdown"  class="custom-select">
         <option value="DESC" <?php if ($ord == 'DESC') {echo 'selected';}?> >Ordina per data più recente</option>
         <option value="ASC" <?php if ($ord == 'ASC') {echo 'selected';}?> >Ordina per data meno recente</option>
     </select>
-    <input name="submit_button" type="Submit" value="Filtra">
+    <input name="submit_button" type="Submit" value="Filtra" class="btn btn-secondary">
+
   </form>
 </div><!-- contenuti_header -->
 <?php if ($Cat1 != $ParentCat1){ ?>
@@ -127,14 +129,12 @@
     if ($Cat1 == "nostri-libri") {
       $args = array(
       'post_type' => 'nostri-libri',
-      'orderby' => 'menu_order',
       'paged'          => $paged,
       'order' => $ord,
       );
     } elseif ($Cat1 == "rassegna-stampa") {
       $args = array(
         'post_type' => 'rassegna-stampa',
-        'orderby' => 'menu_order',
         'paged'          => $paged,
         'order' => $ord,
       );
