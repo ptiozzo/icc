@@ -30,7 +30,7 @@
       'container_id'    => 'bs4navbar',
       'container_class' => '',
       'menu_id'         => false,
-      'menu_class'      => 'nav float-right',
+      'menu_class'      => 'nav justify-content-center',
       'depth'           => 0,
       'fallback_cb'     => 'bs4navwalker::fallback',
       'walker'          => new bs4navwalker()
@@ -48,7 +48,7 @@
      'container_id'    => 'bs4navbar',
      'container_class' => '',
      'menu_id'         => false,
-     'menu_class'      => 'nav float-right',
+     'menu_class'      => 'nav justify-content-center',
      'depth'           => 0,
      'fallback_cb'     => 'bs4navwalker::fallback',
      'walker'          => new bs4navwalker()
