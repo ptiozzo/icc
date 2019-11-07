@@ -70,7 +70,8 @@ if (get_query_var( 'par1' )) {
 
 if (get_option('icc_mappa_reti')){
 	$reti = get_option('icc_mappa_reti');
-} else {
+	echo "<!-- Reti esiste sul DB -->";
+}else{
 	$reti = [
 		'{"value": "38", "text": "Action aid", "color": "#82C1BD", "slug": "action-aid"}',
 		'{"value": "12", "text": "Arcipelago scec", "color": "#1F8ABD", "slug": "arcipelago-scec"}',
@@ -92,35 +93,40 @@ if (get_option('icc_mappa_reti')){
 		'{"value": "18", "text": "Transition italia", "color": "#82C1BD", "slug": "transition-italia"}',
 		'{"value": "66", "text": "Vivi Consapevole in Romagna", "color": "#63BABF", "slug": "vivi-consapevole-in-romagna"}',
 	];
-	update_option('icc_mappa_reti',$reti);
-	
+	update_option('icc_mappa_reti',$reti,'no');
 }
 
 /**
  * Mappa regioni
  */
- $regioni = [
- 	'{"id": "Path_632", "value": "44", "text": "SARDEGNA", "color": "#65afbd", "slug": "sardegna"}',
- 	'{"id": "Path_633", "value": "103", "text": "SICILIA", "color": "#2f8ab9", "slug": "sicilia"}',
- 	'{"id": "Path_643", "value": "106", "text": "VENETO", "color": "#9cd4bc", "slug": "veneto"}',
- 	'{"id": "Path_644", "value": "261", "text": "EMILIA - ROMAGNA", "color": "#82c1bd", "slug": "emilia-romagna"}',
- 	'{"id": "Path_645", "value": "33", "text": "TRENTINO-ALTO ADIGE", "color": "#82c1bd", "slug": "trentino-alto-adige"}',
- 	'{"id": "Path_646", "value": "41", "text": "FRIULI - VENEZIA GIULIA", "color": "#8dc5c1", "slug": "friuli-venezia-giulia"}',
- 	'{"id": "Path_647", "value": "56", "text": "MARCHE", "color": "#63babf", "slug": "marche"}',
- 	'{"id": "Path_648", "value": "40", "text": "ABRUZZO", "color": "#0e88a8", "slug": "abruzzo"}',
- 	'{"id": "Path_649", "value": "16", "text": "MOLISE", "color": "#349ec0", "slug": "molise"}',
- 	'{"id": "Path_650", "value": "47", "text": "UMBRIA", "color": "#41b2c4", "slug": "umbria"}',
- 	'{"id": "Path_651", "value": "6", "text": "VALLE D\'AOSTA", "color": "#b3d698", "slug": "valle-d-aosta"}',
- 	'{"id": "Path_652", "value": "75", "text": "CAMPANIA", "color": "#2373b2", "slug": "campania"}',
- 	'{"id": "Path_653", "value": "55", "text": "CALABRIA", "color": "#2467ac", "slug": "calabria"}',
- 	'{"id": "Path_654", "value": "22", "text": "BASILICATA", "color": "#1f8abd", "slug": "basilicata"}',
- 	'{"id": "Path_655", "value": "285", "text": "LOMBARDIA", "color": "#8bcfbb", "slug": "lombardia"}',
- 	'{"id": "Path_656", "value": "93", "text": "PUGLIA", "color": "#2d79b3", "slug": "puglia"}',
- 	'{"id": "Path_657", "value": "57", "text": "LIGURIA", "color": "#93d4b9", "slug": "liguria"}',
- 	'{"id": "Path_658", "value": "224", "text": "LAZIO", "color": "#5ebfc1", "slug": "lazio"}',
- 	'{"id": "Path_659", "value": "347", "text": "PIEMONTE", "color": "#bae3b6", "slug": "piemonte"}',
- 	'{"id": "Path_660", "value": "187", "text": "TOSCANA", "color": "#7fd1c9", "slug": "toscana"}',
- ];
+ if ( get_option('icc_mappa_regioni')){
+	 $regioni = get_option('icc_mappa_regioni');
+	 echo "<!-- Regioni esiste sul DB -->";
+ }else{
+	 $regioni = [
+	 	'{"id": "Path_632", "value": "44", "text": "SARDEGNA", "color": "#65afbd", "slug": "sardegna"}',
+	 	'{"id": "Path_633", "value": "103", "text": "SICILIA", "color": "#2f8ab9", "slug": "sicilia"}',
+	 	'{"id": "Path_643", "value": "106", "text": "VENETO", "color": "#9cd4bc", "slug": "veneto"}',
+	 	'{"id": "Path_644", "value": "261", "text": "EMILIA - ROMAGNA", "color": "#82c1bd", "slug": "emilia-romagna"}',
+	 	'{"id": "Path_645", "value": "33", "text": "TRENTINO-ALTO ADIGE", "color": "#82c1bd", "slug": "trentino-alto-adige"}',
+	 	'{"id": "Path_646", "value": "41", "text": "FRIULI - VENEZIA GIULIA", "color": "#8dc5c1", "slug": "friuli-venezia-giulia"}',
+	 	'{"id": "Path_647", "value": "56", "text": "MARCHE", "color": "#63babf", "slug": "marche"}',
+	 	'{"id": "Path_648", "value": "40", "text": "ABRUZZO", "color": "#0e88a8", "slug": "abruzzo"}',
+	 	'{"id": "Path_649", "value": "16", "text": "MOLISE", "color": "#349ec0", "slug": "molise"}',
+	 	'{"id": "Path_650", "value": "47", "text": "UMBRIA", "color": "#41b2c4", "slug": "umbria"}',
+	 	'{"id": "Path_651", "value": "6", "text": "VALLE D\'AOSTA", "color": "#b3d698", "slug": "valle-d-aosta"}',
+	 	'{"id": "Path_652", "value": "75", "text": "CAMPANIA", "color": "#2373b2", "slug": "campania"}',
+	 	'{"id": "Path_653", "value": "55", "text": "CALABRIA", "color": "#2467ac", "slug": "calabria"}',
+	 	'{"id": "Path_654", "value": "22", "text": "BASILICATA", "color": "#1f8abd", "slug": "basilicata"}',
+	 	'{"id": "Path_655", "value": "285", "text": "LOMBARDIA", "color": "#8bcfbb", "slug": "lombardia"}',
+	 	'{"id": "Path_656", "value": "93", "text": "PUGLIA", "color": "#2d79b3", "slug": "puglia"}',
+	 	'{"id": "Path_657", "value": "57", "text": "LIGURIA", "color": "#93d4b9", "slug": "liguria"}',
+	 	'{"id": "Path_658", "value": "224", "text": "LAZIO", "color": "#5ebfc1", "slug": "lazio"}',
+	 	'{"id": "Path_659", "value": "347", "text": "PIEMONTE", "color": "#bae3b6", "slug": "piemonte"}',
+	 	'{"id": "Path_660", "value": "187", "text": "TOSCANA", "color": "#7fd1c9", "slug": "toscana"}',
+	 ];
+	 update_option('icc_mappa_regioni',$regioni,'no');
+ }
  ?>
 
  <main class="mappa" data-parallax='{"hook": ".8", "showIndicators": false, "progCallback": "default"}'>
@@ -140,7 +146,7 @@ if (get_option('icc_mappa_reti')){
  				<div class="map-container">
  					<figure class="map-svg">
  						<?php require 'assets/img/svg/italy-map.svg'; ?>
-
+						<?php $realta_mappate = 0; ?>
  						<?php foreach ($regioni as $key => $value): ?>
  							<?php $value = json_decode($value) ?>
  							<style>
@@ -148,13 +154,20 @@ if (get_option('icc_mappa_reti')){
  									fill: <?php echo $value->color ?>
  								}
  							</style>
+							<?php $realta_mappate += $value->value;  ?>
  						<?php endforeach ?>
+						<?php $reti_mappate = 0; ?>
+						<?php foreach ($reti as $key => $value): ?>
+ 							<?php $value = json_decode($value) ?>
+							<?php $reti_mappate ++;  ?>
+ 						<?php endforeach ?>
+
  					</figure>
  				</div>
  				<div class="info">
  					<div class="realta col">
  						<h3 class="value">
- 							2092
+ 							<?php echo $realta_mappate; ?>
  						</h3>
  						<span>
  							REALTÀ
@@ -162,7 +175,7 @@ if (get_option('icc_mappa_reti')){
  					</div>
  					<div class="reti col">
  						<h3 class="value">
- 							18
+ 							<?php echo $reti_mappate; ?>
  						</h3>
  						<span>
  							RETI
@@ -208,8 +221,7 @@ if (get_option('icc_mappa_reti')){
 
  		<div class="content chain-effect scale">
  			<ul class="reti">
-				<?php $reti2 = get_option('icc_mappa_reti'); ?>
- 				<?php foreach ($reti2 as $key => $value): ?>
+ 				<?php foreach ($reti as $key => $value): ?>
  					<?php $value = json_decode($value) ?>
 					<a href="http://www.italiachecambia.org/mappa/<?php echo $value->slug ?>">
  					<li class="rete" style="background: <?php echo $value->color ?>">
