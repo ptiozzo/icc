@@ -334,7 +334,7 @@
                         }elseif (in_category('liguria-che-cambia')){
                             echo 'Articoli - Liguria';
                         }elseif ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
-													echo 'Rassegna stampa';
+													echo 'Io non mi rassegno';
 												}
 											?>
 										</span>

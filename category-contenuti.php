@@ -179,6 +179,8 @@
                         echo 'Salute';
                       }elseif (in_category('articoli')) {
                         echo 'Gli Articoli';
+                      }elseif (get_post_type( get_the_ID() ) == 'rassegna-stampa'){
+                        echo 'Io non mi rassegno';
                       }
                     ?>
                   </span>

@@ -535,7 +535,7 @@ row
 .contenuti .row article.category-rubriche a:hover .category{background: #F270C0}
 .contenuti .row article.category-io-faccio-cosi a:hover .category{background: #AF0000}
 .contenuti .row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
-.contenuti .row article.rassenga-stampa a:hover .category{background: #a3a3a3}
+.contenuti .row article.rassegna-stampa a:hover .category{background: #a3a3a3}
 
 
 .row article a figure{
@@ -1035,7 +1035,7 @@ COLORI HOME
 .card article.category-io-faccio-cosi .category-bg{border-top: 150px solid #AF0000}
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
 .card article.nostri-libri .category-bg{border-top: 150px solid #9064fa;}
-.card article.rassegna-stampa .category-bg{border-top: 150px solid #000;}
+.card article.rassegna-stampa .category-bg{border-top: 150px solid #a3a3a3;}
 .card article.category-piemonte-che-cambia .category-bg,
 .card article.category-liguria-che-cambia .category-bg,
 .card article.category-casentino-che-cambia .category-bg{border-top: 150px solid #749A4F;}
