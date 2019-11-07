@@ -57,11 +57,14 @@
   </div>
 </div>
   <div class="row mt-4">
-    <div class="col-12 col-lg-6 text-center">
+    <div class="col-12 text-center">
       <?php dynamic_sidebar('footer1'); ?>
     </div>
     <div class="col-12 col-lg-6 text-center">
       <?php dynamic_sidebar('footer2'); ?>
+    </div>
+    <div class="col-12 col-lg-6 text-center">
+      <?php dynamic_sidebar('footer3'); ?>
     </div>
   </div>
 </footer>
