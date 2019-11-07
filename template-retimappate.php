@@ -2,11 +2,7 @@
 /**
  * Template Name: Reti Mappate
  */
-require 'header.php';
-
-//echo get_query_var( 'par1' );
-//echo "<br>";
-//echo get_query_var( 'par2' );
+get_header();
 
 if (get_query_var( 'par1' )) {
 
@@ -63,10 +59,10 @@ if (get_query_var( 'par1' )) {
 	}
 
 	if (isset($codici_regioni[$key_filtro])) {
-		echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?a='.$codici_regioni[$key_filtro].'&tagoverride=1&sidebar=1'.$open.'"></iframe>';
+		echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?a='.$codici_regioni[$key_filtro].'&tagoverride=1&sidebar=1&nored=1'.$open.'"></iframe>';
 	} else {
 		if (isset($codici_reti[$key_filtro])) {
-			echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?n='.$codici_reti[$key_filtro].'&tagoverride=1&sidebar=1"></iframe>';
+			echo '<iframe style="border: 0px; width:100%; height: 80vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?n='.$codici_reti[$key_filtro].'&tagoverride=1&sidebar=1&nored=1"></iframe>';
 		} else echo "ERRORE Rete o regione inesistente";
 	}
 
@@ -108,7 +104,7 @@ $reti = [
  	'{"id": "Path_648", "value": "40", "text": "ABRUZZO", "color": "#0e88a8", "slug": "abruzzo"}',
  	'{"id": "Path_649", "value": "16", "text": "MOLISE", "color": "#349ec0", "slug": "molise"}',
  	'{"id": "Path_650", "value": "47", "text": "UMBRIA", "color": "#41b2c4", "slug": "umbria"}',
- 	'{"id": "Path_651", "value": "6", "text": "VALLE D\'AOSTA", "color": "#b3d698", "slug": "valle-daosta"}',
+ 	'{"id": "Path_651", "value": "6", "text": "VALLE D\'AOSTA", "color": "#b3d698", "slug": "valle-d-aosta"}',
  	'{"id": "Path_652", "value": "75", "text": "CAMPANIA", "color": "#2373b2", "slug": "campania"}',
  	'{"id": "Path_653", "value": "55", "text": "CALABRIA", "color": "#2467ac", "slug": "calabria"}',
  	'{"id": "Path_654", "value": "22", "text": "BASILICATA", "color": "#1f8abd", "slug": "basilicata"}',
@@ -120,8 +116,6 @@ $reti = [
  	'{"id": "Path_660", "value": "187", "text": "TOSCANA", "color": "#7fd1c9", "slug": "toscana"}',
  ];
  ?>
-
- <?php require 'header.php'; ?>
 
  <main class="mappa" data-parallax='{"hook": ".8", "showIndicators": false, "progCallback": "default"}'>
 
@@ -173,30 +167,29 @@ $reti = [
  			<div class="right chain-effect scale">
  				<div class="title">
  					<small>
- 						FILTRA LA MAPPA
+ 						LA MAPPA
  					</small>
  				</div>
  				<div class="content">
- 					<p>
- 						La mappa dell’Italia che cambia raccoglie le centinaia di realtà
- 						che abbiamo incontrato durante i nostri viaggi o che ci sono
- 						state segnalate: imprese, associazioni, comitati, persone che stanno contribuendo a cambiare in meglio il nostro paese.
- 					</p>
- 					<p>
- 						Alcune di queste esperienze fanno parti di reti, altre sono singole iniziative.Navigando al suo interno puoi conoscere le realtà più vicine a te, oppure scoprire cosa succede in altre zone d’Italia.
- 					</p>
- 					<p>
- 						Spesso chi vive in un territorio non ha la minima idea di cosa
- 						accada intorno a sé e gli stessi protagonisti del cambiamento
- 						non sanno che esistono altri soggetti che lavorano per obiettivi
- 						simili e complementari.
- 					</p>
- 					<p>
- 						La mappa è navigabile per categoria, per regione e per reti.
- 						Per iniziare clicca su una delle regioni oppure seleziona dal box
- 						qui sopra la categoria o la rete che vuoi cercare. Buona
- 						navigazione nella mappa dell’Italia che Cambia!
- 					</p>
+ 					<?php /*<p style="font-size: 32px; color: red; background: #fff; border: 3px solid red; padding: 10px; text-align: center; line-height: 40px;">
+						MAPPA IN TRASFERIMENTO<br />Sarà online nelle prossime 48 ore
+					</p>*/ ?>
+					<p>
+						La mappa dell’Italia che cambia raccoglie le centinaia di realtà
+						che abbiamo incontrato durante i nostri viaggi o che ci sono
+						state segnalate e sono state ritenute di interesse giornalistico dalla nostra redazione.
+					</p>
+					<p>
+						Imprese, associazioni, comitati, persone che stanno contribuendo a cambiare in meglio il nostro paese:
+						alcune di queste esperienze fanno parti di reti, altre sono singole iniziative.
+					</p>
+					<p>					
+						La mappa è navigabile per categoria tematica, per tipologia organizzativa, per rete di appartenenza.
+						Esplorandola puoi conoscere le realtà più vicine a te, oppure scoprire cosa succede in altre zone d'Italia.
+					</p>
+					<p>
+						Per iniziare clicca su una delle regioni o su una rete. Buona navigazione nella mappa dell'Italia che Cambia!
+					</p>
  				</div>
  			</div>
  		</div>
