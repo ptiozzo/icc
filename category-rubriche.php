@@ -101,7 +101,7 @@
               <?php
               if ($RubricheCat1 == $ParentCat1) { ?>
                 <div class='category'>
-                  <span><?php the_time('j M') ?></span>
+                  <span><?php the_time('j M Y') ?></span>
                   <span>
                     <?php
                       if (in_category('documentari')) {
