@@ -68,27 +68,33 @@ if (get_query_var( 'par1' )) {
 
 } else {
 
-$reti = [
-	'{"value": "38", "text": "Action aid", "color": "#82C1BD", "slug": "action-aid"}',
-	'{"value": "12", "text": "Arcipelago scec", "color": "#1F8ABD", "slug": "arcipelago-scec"}',
-	'{"value": "50", "text": "Associazione botteghe del mondo", "color": "#8BCFBB", "slug": "associazione-botteghe-del-mondo"}',
-	'{"value": "41", "text": "Banca etica", "color": "#82C1BD", "slug": "banca-etica"}',
-	'{"value": "104", "text": "Banca del tempo", "color": "#BAE3B6", "slug": "banche-del-tempo"}',
-	'{"value": "14", "text": "Civilta\' contadina", "color": "#82C1BD", "slug": "civilta-contadina"}',
-	'{"value": "60", "text": "Comuni virtuosi", "color": "#63BABF", "slug": "comuni-virtuosi"}',
-	'{"value": "24", "text": "Genuino clandestino", "color": "#41B2C4", "slug": "genuino-clandestino"}',
-	'{"value": "3", "text": "Gruppo Acquisto Terreni", "color": "#73C6BE", "slug": "gruppo-acquisto-terreni"}',
-	'{"value": "7", "text": "Impact Hub", "color": "#2F8AB9", "slug": "impact-hub"}',
-	'{"value": "109", "text": "Libera", "color": "#2373B2", "slug": "libera"}',
-	'{"value": "47", "text": "Movimento per la decrescita felice", "color": "#B3D698", "slug": "movimento-per-la-decrescita-felice"}',
-	'{"value": "23", "text": "Reti di economia solidale", "color": "#BAE3B6", "slug": "rete-di-economia-solidale"}',
-	'{"value": "19", "text": "Rete Italiana Villaggi Ecologici", "color": "#73C6BE", "slug": "rete-italiana-villaggi-ecologici"}',
-	'{"value": "30", "text": "Rete sostenilita\' e salute", "color": "#41B2C4", "slug": "rete-sostenibilita-e-salute"}',
-	'{"value": "111", "text": "Salviamo il paesaggio", "color": "#63BABF", "slug": "salviamo-il-paesaggio"}',
-	'{"value": "11", "text": "Sentiero bioregionale", "color": "#0E88A8", "slug": "sentiero-bioregionale"}',
-	'{"value": "18", "text": "Transition italia", "color": "#82C1BD", "slug": "transition-italia"}',
-	'{"value": "66", "text": "Vivi Consapevole in Romagna", "color": "#63BABF", "slug": "vivi-consapevole-in-romagna"}',
-];
+if (get_option('icc_mappa_reti')){
+	$reti = get_option('icc_mappa_reti');
+} else {
+	$reti = [
+		'{"value": "38", "text": "Action aid", "color": "#82C1BD", "slug": "action-aid"}',
+		'{"value": "12", "text": "Arcipelago scec", "color": "#1F8ABD", "slug": "arcipelago-scec"}',
+		'{"value": "50", "text": "Associazione botteghe del mondo", "color": "#8BCFBB", "slug": "associazione-botteghe-del-mondo"}',
+		'{"value": "41", "text": "Banca etica", "color": "#82C1BD", "slug": "banca-etica"}',
+		'{"value": "104", "text": "Banca del tempo", "color": "#BAE3B6", "slug": "banche-del-tempo"}',
+		'{"value": "14", "text": "Civilta\' contadina", "color": "#82C1BD", "slug": "civilta-contadina"}',
+		'{"value": "60", "text": "Comuni virtuosi", "color": "#63BABF", "slug": "comuni-virtuosi"}',
+		'{"value": "24", "text": "Genuino clandestino", "color": "#41B2C4", "slug": "genuino-clandestino"}',
+		'{"value": "3", "text": "Gruppo Acquisto Terreni", "color": "#73C6BE", "slug": "gruppo-acquisto-terreni"}',
+		'{"value": "7", "text": "Impact Hub", "color": "#2F8AB9", "slug": "impact-hub"}',
+		'{"value": "109", "text": "Libera", "color": "#2373B2", "slug": "libera"}',
+		'{"value": "47", "text": "Movimento per la decrescita felice", "color": "#B3D698", "slug": "movimento-per-la-decrescita-felice"}',
+		'{"value": "23", "text": "Reti di economia solidale", "color": "#BAE3B6", "slug": "rete-di-economia-solidale"}',
+		'{"value": "19", "text": "Rete Italiana Villaggi Ecologici", "color": "#73C6BE", "slug": "rete-italiana-villaggi-ecologici"}',
+		'{"value": "30", "text": "Rete sostenilita\' e salute", "color": "#41B2C4", "slug": "rete-sostenibilita-e-salute"}',
+		'{"value": "111", "text": "Salviamo il paesaggio", "color": "#63BABF", "slug": "salviamo-il-paesaggio"}',
+		'{"value": "11", "text": "Sentiero bioregionale", "color": "#0E88A8", "slug": "sentiero-bioregionale"}',
+		'{"value": "18", "text": "Transition italia", "color": "#82C1BD", "slug": "transition-italia"}',
+		'{"value": "66", "text": "Vivi Consapevole in Romagna", "color": "#63BABF", "slug": "vivi-consapevole-in-romagna"}',
+	];
+	update_option('icc_mappa_reti',$reti);
+	
+}
 
 /**
  * Mappa regioni
@@ -183,7 +189,7 @@ $reti = [
 						Imprese, associazioni, comitati, persone che stanno contribuendo a cambiare in meglio il nostro paese:
 						alcune di queste esperienze fanno parti di reti, altre sono singole iniziative.
 					</p>
-					<p>					
+					<p>
 						La mappa è navigabile per categoria tematica, per tipologia organizzativa, per rete di appartenenza.
 						Esplorandola puoi conoscere le realtà più vicine a te, oppure scoprire cosa succede in altre zone d'Italia.
 					</p>
@@ -202,7 +208,8 @@ $reti = [
 
  		<div class="content chain-effect scale">
  			<ul class="reti">
- 				<?php foreach ($reti as $key => $value): ?>
+				<?php $reti2 = get_option('icc_mappa_reti'); ?>
+ 				<?php foreach ($reti2 as $key => $value): ?>
  					<?php $value = json_decode($value) ?>
 					<a href="http://www.italiachecambia.org/mappa/<?php echo $value->slug ?>">
  					<li class="rete" style="background: <?php echo $value->color ?>">
