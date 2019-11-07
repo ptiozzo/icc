@@ -170,8 +170,17 @@ LINK
 .category-nostri-libri a{color: #9064fa}
 .category-salute-che-cambia a{color: #7FD1F5}
 .rassegna-stampa a{color: #a3a3a3}
+.category-piemonte-che-cambia a,
+.category-casentino-che-cambia a {color: #749A4F}
 
 
+div.single a {
+  font-weight: 700;
+  text-decoration: none;
+}
+div.single a:hover{
+  text-decoration: underline;
+}
 
 /*	Menu
 */
