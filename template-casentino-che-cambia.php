@@ -158,7 +158,7 @@ Template Name: Casentino che cambia
           echo '</div>';
         }
 				?>
-							<div class="col-lg-6 mt-3">
+							<div class="col-lg-6 mt-3 text-break">
 								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
 									<article <?php echo post_class(); ?>>
 									<?php

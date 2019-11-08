@@ -116,7 +116,7 @@
 			<h3 class="p-2">Archivio rassegna stampa</h3>
 			<div class="row">
 				<?php while( $loop->have_posts() ) : $loop->the_post(); ?>
-					<div class="col-lg-4 col-md-6 my-3">
+					<div class="col-lg-4 col-md-6 my-3 text-break">
 						<div id="post-<?php the_ID(); ?>" class="card border-0 p-0">
 							<article <?php echo post_class(); ?>>
 							<?php

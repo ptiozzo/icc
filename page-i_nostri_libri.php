@@ -27,7 +27,7 @@ $custom_query = new WP_Query( $custom_query_args );
 ?>
 
   <?php if ( $custom_query->have_posts() ) : while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
-    <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6">
+    <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <a href='<?php the_permalink(); ?>'>
           <!-- Immagine in evidenza -->

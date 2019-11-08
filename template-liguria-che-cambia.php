@@ -30,7 +30,7 @@ Template Name: Liguria che cambia
       $loop = new WP_Query( $args );
       if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
       ?>
-        <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6">
+        <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
           <div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
             <article <?php echo post_class(); ?>>
             <?php
@@ -76,7 +76,7 @@ Template Name: Liguria che cambia
     $loop = new WP_Query( $args );
     if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
     ?>
-      <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6">
+      <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
         <div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
           <article <?php echo post_class(); ?>>
           <?php
