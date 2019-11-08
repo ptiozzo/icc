@@ -17,7 +17,7 @@
   } else {
     //Se non ho premuto submit verifico se ho qualcosa in sesisone,
     //altrimenti vado ai valori di default
-    if(isset($_SESSION['cat1'])) {
+    if(isset($_SESSION['RubricheCat1'])) {
         $RubricheCat1 = $_SESSION['RubricheCat1'];
     } else {
       $RubricheCat1 = $ParentCat1;
