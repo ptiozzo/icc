@@ -24,7 +24,10 @@
 			<div class='single__nav__category'>
 				<?php
 				if(isset($_SESSION['cat1'])) { ?>
-					<a href="<?php echo home_url(); ?>/category/contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
+					<a href="<?php echo home_url(); ?>/categoria/contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
+				<?php }
+				if(isset($_SESSION['RubricheCat1'])) { ?>
+					<a href="<?php echo home_url(); ?>/categoria/contenuti/rubriche/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alle rubriche</a>
 				<?php }
 				if(isset($_SESSION['termine-cercato'])) { ?>
 					<a href="<?php echo home_url(); ?>/cerca/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
