@@ -5,7 +5,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand text-white" href="/liguria">
-     LIGURIA CHE CAMBIA
+      <img src='<?php echo get_template_directory_uri();?>/assets/img/modules/liguria/liguria.svg' class="d-none d-sm-inline-block" alt='' title=''>
+      LIGURIA CHE CAMBIA
    </a>
    <?php
    wp_nav_menu([
