@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Piemonte articoli
+Template Name: Casentino articoli
 */
 ?>
 <?php get_header(); ?>
@@ -9,7 +9,7 @@ Template Name: Piemonte articoli
 $Cat1 = 'piemonte-che-cambia';
 $Cat2 = 'le-storie';
  ?>
-<div class="container-fluid"">
+<div class="container-fluid">
 
   <?php
     $args = array(
