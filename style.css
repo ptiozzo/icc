@@ -607,7 +607,23 @@ row
 .single .category-articoli .single__nav__category{background: #68D8B1;}
 .single .category-meme .single__nav__category{background: #F79865}
 .single .category-documentari .single__nav__category{background: #3D78D0}
-.single .category-rubriche .single__nav__category{background: #F270C0}
+.single .category-rubriche .single__nav__category,
+.single .category-appunti-viaggio .single__nav__category,
+.single .category-diari-di-bordo-maestro-di-strada .single__nav__category,
+.single .category-dizionario-eretico .single__nav__category,
+.single .category-economia-bene-comune .single__nav__category,
+.single .category-blog .single__nav__category,
+.single .category-in-un-flash .single__nav__category,
+.single .category-in-viaggio .single__nav__category,
+.single .category-invece-si-puo .single__nav__category,
+.single .category-via-uscita-dentro .single__nav__category,
+.single .category-voce-astice .single__nav__category,
+.single .category-mondo-chiama-italia .single__nav__category
+.single .category-pensare-altro .single__nav__category
+.single .category-pillole-transizione .single__nav__category
+.single .category-terranave .single__nav__category
+.single .category-una-favola-puo-fare .single__nav__category
+.single .category-voci-italia-che-cambia .single__nav__category{background: #F270C0}
 .single .category-io-faccio-cosi .single__nav__category{background: #AF0000}
 .single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
 .single .rassegna-stampa .single__nav__category{background: #a3a3a3}
@@ -660,7 +676,23 @@ row
 .single .category-articoli .single__tag a{background: #68D8B1;}
 .single .category-meme .single__tag a{background: #F79865}
 .single .category-documentari .single__tag a{background: #3D78D0}
-.single .category-rubriche .single__tag a{background: #F270C0}
+.single .category-rubriche .single__tag a,
+.single .category-appunti-viaggio .single__tag a,
+.single .category-diari-di-bordo-maestro-di-strada .single__tag a,
+.single .category-dizionario-eretico .single__tag a,
+.single .category-economia-bene-comune .single__tag a,
+.single .category-blog .single__tag a,
+.single .category-in-un-flash .single__tag a,
+.single .category-in-viaggio .single__tag a,
+.single .category-invece-si-puo .single__tag a,
+.single .category-via-uscita-dentro .single__tag a,
+.single .category-voce-astice .single__tag a,
+.single .category-mondo-chiama-italia .single__tag a
+.single .category-pensare-altro .single__tag a
+.single .category-pillole-transizione .single__tag a
+.single .category-terranave .single__tag a
+.single .category-una-favola-puo-fare .single__tag a
+.single .category-voci-italia-che-cambia .single__tag a{background: #F270C0}
 .single .category-io-faccio-cosi .single__tag a{background: #AF0000}
 .single .category-salute-che-cambia .single__tag a{background: #7FD1F5}
 
