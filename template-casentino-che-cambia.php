@@ -10,7 +10,7 @@ Template Name: Casentino che cambia
 ?>
 <div class="container-fluid home-page">
 	<div class="row">
-    <div id="sidebar" class="col-lg-6 col-md-12">
+    <div id="sidebar" class="col-lg-home1 col-md-12">
         <div class="sidebar__inner">
 
 			<div class='head'>
@@ -125,7 +125,7 @@ Template Name: Casentino che cambia
     </div>
 		</div><!-- Fini prima colonna -->
 
-		<div class="col-lg-6 col-md-12">
+		<div class="col-lg-home2 col-md-12">
 
 			<div class='head'>
 				<div class='title'>
@@ -188,9 +188,9 @@ Template Name: Casentino che cambia
 
 			</div> <!-- Fine row  -->
 		</div><!-- Fini seconda colonna  -->
-		<div class="col-lg-2">
-
-		</div><!-- Fine sidebar  -->
+      <div class="col-lg-home3">
+        <?php get_sidebar(); ?>
+      </div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
 </div><!-- Fine container fluid -->
 <?php get_footer(); ?>
