@@ -117,7 +117,7 @@
 					<?php the_excerpt();?>
 				</h2>
 				<!-- Share with -->
-				<div class="single__share">
+				<div class="single__share mb-1">
 					<?php
 					if ( function_exists( 'sharing_display' ) ) {
 	    			sharing_display( '', true );
@@ -126,8 +126,12 @@
 					if ( class_exists( 'Jetpack_Likes' ) ) {
 	    			$custom_likes = new Jetpack_Likes;
 	    		echo $custom_likes->post_likes( '' );
+
 					}
 					 ?>
+					 <div class="fb-like" data-href="https://www.facebook.com/itachecambia/" data-width="" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+
+
 				</div>
 			</div>
 			<!-- Content -->
@@ -137,7 +141,7 @@
 
 
 
-			<div class="single__share">
+			<div class="single__share mb-1">
 				<?php
 				if ( function_exists( 'sharing_display' ) ) {
 					sharing_display( '', true );
@@ -148,6 +152,7 @@
 				echo $custom_likes->post_likes( '' );
 				}
 				 ?>
+				 <div class="fb-like" data-href="https://www.facebook.com/itachecambia/" data-width="" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
 			</div>
 
 
