@@ -59,6 +59,12 @@ Template Name: Liguria che cambia
 
     </div> <!-- Fine row  -->
 
+    <div class="row">
+      <div class="col-8 offset-2">
+        <?php dynamic_sidebar('homeliguria'); ?>
+      </div>
+    </div>
+
 
     <div class='head'>
       <div class='title'>
