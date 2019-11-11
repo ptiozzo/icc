@@ -513,7 +513,6 @@ row
   display: block;
   color: #000000;
   text-decoration: none;
-  padding-top: 5px;
 }
 .row article a:hover{
   text-decoration: none;
@@ -885,7 +884,6 @@ a.carousel-more{
   text-indent: 0;
   margin-right: 10px;
   display: contents;
-  color: #000;
 }
 
 .carousel-control-prev,

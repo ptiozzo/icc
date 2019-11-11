@@ -227,44 +227,120 @@
     <div class="col-lg-home2 col-md-12 order-1 order-xl-2">
 
 			<?php
-			$args = array(
+			$argsRassegna = array(
 			'post_type' => 'rassegna-stampa',
-			'posts_per_page' => 1
+			'posts_per_page' => 1,
+      'date_query' => array(
+         array(
+           'after' => '6 hours ago',
+         )
+        )
 			);
-			$loop = new WP_Query( $args );
+			$loopRassegna = new WP_Query( $argsRassegna );
+      $argsSticky = array(
+          'post__in' => get_option( 'sticky_posts' ),
+          'ignore_sticky_posts' => 1,
+          'posts_per_page' => 10,
+          'tax_query' => array(
+  					array(
+  							'taxonomy'=> 'icc_altri_filtri',
+  							'field'   => 'slug',
+  							'terms'		=> 'InHome',
+  					),
+  				),
+      );
+			$loopSticky = new WP_Query( $argsSticky );
 			$i = 0;
-			if( $loop->have_posts() ) :
-					while( $loop->have_posts() ) : $loop->the_post();
-			?>
-      <div class='head'>
-				<div class='title'>
-					<h5>IN EVIDENZA</h5>
-				</div>
-			</div>
-			<div class='content rassegna-stampa p-0'>
-				<a href='<?php echo the_permalink();?>'>
+      $icc_ArticNumber = $loopRassegna->found_posts+$loopSticky->found_posts;
+			if( $loopRassegna->have_posts() || $loopSticky->have_posts() ) : ?>
+        <div class='head'>
+  				<div class='title'>
+  					<h5>IN EVIDENZA</h5>
+  				</div>
+  			</div>
+        <div id="carouselRassegnaEvidenza" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="2000">
+          <?php if ($icc_ArticNumber > 1) { ?>
+            <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
+              <a class="carousel-control-prev" href="#carouselRassegnaEvidenza" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <ol class="carousel-indicators pr-2 text-white">
+                 <?php for ($count = 0;$count <= $icc_ArticNumber; $count++){ ?>
+  							         <li data-target="#carouselRassegnaEvidenza" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
+  							<?php }	?>
+                <p class=""> /<?php echo $icc_ArticNumber;?></p>
+              </ol>
+              <a class="carousel-control-next" href="#carouselRassegnaEvidenza" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          <?php } ?>
+          <div class="carousel-inner">
+				<?php	while( $loopRassegna->have_posts() ) : $loopRassegna->the_post();
+          $i++; ?>
+          <div class="carousel-item active">
+            <article class="p-0">
+              <div class='content rassegna-stampa p-0'>
+        				<a href='<?php echo the_permalink();?>'>
+        						<?php
+        						if ( has_post_thumbnail() ) {
+        							the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+        						}
+        						else{
+        							echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+        						}
+        						?>
+        					<article>
+        						<div class='date'>
+        							<?php the_time('j M Y') ?>
+        						</div>
+        						<h5><?php the_title(); ?></h5>
+        						<div class='info'>A cura di <b><?php echo get_the_author();?></b></div>
+        					</article>
+        				</a>
+        			</div>
+            </article>
+          </div>
+          <?php
+          $exclude_posts[] = $post->ID;
+          endwhile;
+        	while( $loopSticky->have_posts() ) : $loopSticky->the_post();?>
+            <div class="carousel-item <?php if ($i == 0){echo "active";} ?>">
+              <article class="p-0">
+    							<div class="card-group">
+        						<div class="card border-0 p-1">
+        							<?php
+        							if ( has_post_thumbnail() ) {
+        								the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+        							}
+        							else{
+        								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+        							}
+        							?>
+        							<div class="card-body">
+        								<h5 class="card-title"><?php the_title(); ?></h5>
+        								<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
+        								<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
+        							</div>
+        						</div>
+    							</div>
+              </article>
+            </div>
+            <?php
+            $exclude_posts[] = $post->ID;
+            endwhile;
+            ?>
+        </div>
+      </div>
 
-						<?php
-						if ( has_post_thumbnail() ) {
-							the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
-						}
-						else{
-							echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
-						}
-						?>
 
-					<article>
-						<div class='date'>
-							<?php the_time('j M Y') ?>
-						</div>
-						<h5><?php the_title(); ?></h5>
-						<div class='info'>A cura di <b><?php echo get_the_author();?></b></div>
-					</article>
-				</a>
-			</div>
+
+
+
 			<?php
-      $exclude_posts[] = $post->ID;
-			endwhile;
+
 			endif;
 			wp_reset_query();?>
 
