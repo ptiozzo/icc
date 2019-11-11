@@ -782,7 +782,7 @@ row
 /*
 RASSEGNA STAMPA
 */
-.home-page .rassegna-stampa{
+.home-page .carousel .rassegna-stampa{
   position: relative;
   max-height: 376px;
   overflow: hidden;
