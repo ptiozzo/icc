@@ -129,9 +129,6 @@
 
 					}
 					 ?>
-					 <div class="fb-like" data-href="https://www.facebook.com/itachecambia/" data-width="" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
-
-
 				</div>
 			</div>
 			<!-- Content -->
@@ -152,7 +149,6 @@
 				echo $custom_likes->post_likes( '' );
 				}
 				 ?>
-				 <div class="fb-like" data-href="https://www.facebook.com/itachecambia/" data-width="" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
 			</div>
 
 
