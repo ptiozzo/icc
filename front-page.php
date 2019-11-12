@@ -429,7 +429,6 @@
 
             if($i == 3)
             {
-              echo "AREA SIDEBAR";
               echo '<div class="col-12">';
               dynamic_sidebar('homedx');
               echo '</div>';
