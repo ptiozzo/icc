@@ -258,7 +258,7 @@
   					<h5>IN EVIDENZA</h5>
   				</div>
   			</div>
-        <div id="carouselRassegnaEvidenza" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="2000">
+        <div id="carouselRassegnaEvidenza" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="5000">
           <?php if ($icc_ArticNumber > 1) { ?>
             <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
               <a class="carousel-control-prev" href="#carouselRassegnaEvidenza" role="button" data-slide="prev">
