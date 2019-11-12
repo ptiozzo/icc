@@ -341,7 +341,8 @@ aside{
    line-height: 13px;
    text-align: center;
  }
- aside.sidebar div a{
+ aside.sidebar div a,
+ .pcc-pianfut a{
    color: #000;
    text-align: center;
  }
@@ -394,7 +395,7 @@ aside.sidebar div.widget_nav_menu ul li{
 }
 
 aside .pcc-provincie a,
-aside .pcc-pianfut a{
+.pcc-pianfut a{
   display: block;
   font-size: 11px;
   line-height: 11px;
@@ -403,16 +404,16 @@ aside .pcc-pianfut a{
   background: #A5DBB9;
   color: #fff !important;
 }
-aside .pcc-pianfut .btn-group{
+.pcc-pianfut .btn-group{
   width: 100%;
 }
-aside .pcc-pianfut button{
+.pcc-pianfut button{
   background: #F79865;
 }
-aside .pcc-pianfut button:hover{
+.pcc-pianfut button:hover{
   background: #F79865;
 }
-aside .pcc-pianfut .dropdown-menu{
+.pcc-pianfut .dropdown-menu{
   text-transform: none;
 }
 aside.sidebar .pcc-provincie p{

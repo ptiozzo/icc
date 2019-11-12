@@ -25,10 +25,15 @@ Template Name: Liguria che cambia
       <?php
       $args = array(
           'category_name' => $catPage.'+realta-mappate',
-          'posts_per_page' => 10,
+          'posts_per_page' => 9,
       );
       $loop = new WP_Query( $args );
+      $i = 0;
       if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
+      $i++;
+      if ($i == 5){
+        dynamic_sidebar('liguria');
+      }
       ?>
         <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
           <div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
@@ -55,7 +60,15 @@ Template Name: Liguria che cambia
       else:
         echo "<p>Non ho trovato nessun Ultimi articoli</p>";
       endif;
-      wp_reset_query();?>
+      wp_reset_query();
+
+      if ($i < 5){
+      ?>
+
+        <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
+          <?php dynamic_sidebar('liguria'); ?>
+        </div>
+      <?php } ?>
 
     </div> <!-- Fine row  -->
 
