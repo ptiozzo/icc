@@ -911,6 +911,9 @@ a.carousel-more{
 #carouselLeNostreStorie .card{
   background: #F7F7F7;
 }
+#carouselRassegnaEvidenza.controll-visible{
+  top: -26px;
+}
 
 #carouselMappa article{
   display: flex;
