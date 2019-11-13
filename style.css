@@ -798,7 +798,6 @@ RASSEGNA STAMPA
 }
 .rassegna-stampa img{
   min-width: 100%;
-
 }
 .rassegna-stampa article{
   position: absolute;
@@ -912,7 +911,7 @@ a.carousel-more{
   background: #F7F7F7;
 }
 #carouselRassegnaEvidenza.controll-visible{
-  top: -26px;
+  margin-top: -26px;
 }
 
 #carouselMappa article{
