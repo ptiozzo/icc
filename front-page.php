@@ -277,6 +277,7 @@
             </div>
           <?php } ?>
           <div class="carousel-inner">
+            <!-- Rassegna stampa -->
 				<?php	while( $loopRassegna->have_posts() ) : $loopRassegna->the_post();
           $i++; ?>
           <div class="carousel-item active">
@@ -304,26 +305,30 @@
           </div>
           <?php
           $exclude_posts[] = $post->ID;
-          endwhile;
-        	while( $loopSticky->have_posts() ) : $loopSticky->the_post();?>
+          endwhile;?>
+          <!-- Post in evidenza con flag InHome -->
+        	<?php while( $loopSticky->have_posts() ) : $loopSticky->the_post();?>
             <div class="carousel-item <?php if ($i == 0){echo "active";} ?>">
               <article class="p-0">
-    							<div class="card-group">
-        						<div class="card border-0 p-1">
-        							<?php
-        							if ( has_post_thumbnail() ) {
-        								the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
-        							}
-        							else{
-        								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
-        							}
-        							?>
-        							<div class="card-body">
-        								<h5 class="card-title"><?php the_title(); ?></h5>
-        								<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
-        							</div>
-        						</div>
-    							</div>
+                <div class='content rassegna-stampa p-0'>
+          				<a href='<?php echo the_permalink();?>'>
+          						<?php
+          						if ( has_post_thumbnail() ) {
+          							the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+          						}
+          						else{
+          							echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+          						}
+          						?>
+          					<article>
+          						<div class='date'>
+          							<?php the_time('j M Y') ?>
+          						</div>
+          						<h5><?php the_title(); ?></h5>
+          						<div class='info'>A cura di <b><?php echo get_the_author();?></b></div>
+          					</article>
+          				</a>
+          			</div>
               </article>
             </div>
             <?php
@@ -332,16 +337,12 @@
             ?>
         </div>
       </div>
-
-
-
-
-
 			<?php
-
 			endif;
 			wp_reset_query();?>
 
+
+      <!-- Ultime news -->
 			<div class='head'>
 				<div class='title'>
 					<h5>ULTIME NEWS</h5>
@@ -354,6 +355,10 @@
 
 				<?php
         $i = 0;
+        /*controllo se ho una rassegna in evidenza,
+        se NO metto una rassegna e poi 9 post,
+        se SI metto 10 post
+        */
         if ($loopRassegna->found_posts == 0){
           $UltimeNewsPost = 9;
           $argsRassegna = array(
@@ -370,9 +375,7 @@
               <div class="category pl-1">
                 <span>
                   <?php
-                    if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
-                      echo 'Io non mi rassegno';
-                    }
+                    get_template_part('inc/post','etichetta');
                   ?>
                 </span>
               </div>
@@ -393,23 +396,14 @@
               </article>
             </div>
           </div>
-
-
-
-
-
-
-            <?php
-            endwhile;
-            endif;
+          <?php
+          endwhile;
+          endif;
         } else {
           $UltimeNewsPost = 10;
         }
-
         /* Query per Ultime news
 				*---------------------*/
-
-
 				$argsUltimeNews = array(
 					'post_type' => array('post'),
 					'posts_per_page' => $UltimeNewsPost,
@@ -427,6 +421,7 @@
 				if ( $loopUltimeNews->have_posts() ) : while( $loopUltimeNews->have_posts() ) : $loopUltimeNews->the_post();
 				    $i++;
 
+            //dopo 2 articoli metto area widget per bannerq
             if($i == 3)
             {
               echo '<div class="col-12">';
@@ -437,50 +432,30 @@
         ?>
 
 							<div class="col-md-6 mt-3  text-break">
-								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
+								<div id="post-<?php the_ID(); ?>" class="card border-0 p-0">
 									<article <?php echo post_class(); ?>>
-									<div class="category-bg"> </div>
-									<div class="category pl-1">
-										<span>
-											<?php
-												if (in_category('documentari')) {
-													echo 'I documentari';
-												}elseif (in_category('io-faccio-cosi')) {
-													echo 'Io faccio così';
-												}elseif (in_category('meme')) {
-													echo 'I meme';
-												}elseif (in_category('rubriche')) {
-													echo 'Le rubriche';
-												}elseif (in_category('salute-che-cambia')) {
-													echo 'Salute';
-												}elseif (in_category('articoli')) {
-													echo 'Gli Articoli';
-												}elseif (in_category('piemonte-che-cambia')){
-                          echo 'Articoli - Piemonte';
-                        }elseif (in_category('casentino-che-cambia')){
-                          echo 'Articoli - Casentino';
-                        }elseif (in_category('liguria-che-cambia')){
-                            echo 'Articoli - Liguria';
-                        }elseif ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
-													echo 'Io non mi rassegno';
-												}
-											?>
-										</span>
-									</div>
-									<?php
-										if ( has_post_thumbnail() ) {
-											the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
-										}
-										else{
-											echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
-										}
-									?>
-									<div class="card-body p-1">
-										<div class='date'><?php the_time('j M Y') ?></div>
-										<h5 class="card-title"><?php the_title(); ?></h5>
-										<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
-										<a href="<?php echo the_permalink();?>" class="stretched-link"><div class="cta">Leggi di più</div></a>
-									</div>
+  									<div class="category-bg"> </div>
+  									<div class="category pl-1">
+  										<span>
+  											<?php
+                          get_template_part('inc/post','etichetta');
+  											?>
+  										</span>
+  									</div>
+  									<?php
+  										if ( has_post_thumbnail() ) {
+  											the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+  										}
+  										else{
+  											echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+  										}
+  									?>
+  									<div class="card-body p-1">
+  										<div class='date'><?php the_time('j M Y') ?></div>
+  										<h5 class="card-title"><?php the_title(); ?></h5>
+  										<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
+  										<a href="<?php echo the_permalink();?>" class="stretched-link"><div class="cta">Leggi di più</div></a>
+  									</div>
 									</article>
 								</div>
 							</div>
