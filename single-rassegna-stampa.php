@@ -82,6 +82,18 @@
 					<?php
 				}
 				?>
+				<div class="single__share mb-1">
+					<?php
+					if ( function_exists( 'sharing_display' ) ) {
+						sharing_display( '', true );
+					}
+
+					if ( class_exists( 'Jetpack_Likes' ) ) {
+						$custom_likes = new Jetpack_Likes;
+					echo $custom_likes->post_likes( '' );
+					}
+					 ?>
+				</div>
 				<!-- Riassunto -->
 				<div class="single__metaDescription p-4">
 					<?php the_excerpt();?>
@@ -92,8 +104,21 @@
 				<?php the_content();?>
 			</div>
 		</article>
+		<div class="single__share mb-1">
+			<?php
+			if ( function_exists( 'sharing_display' ) ) {
+				sharing_display( '', true );
+			}
+
+			if ( class_exists( 'Jetpack_Likes' ) ) {
+				$custom_likes = new Jetpack_Likes;
+			echo $custom_likes->post_likes( '' );
+			}
+			 ?>
+		</div>
 		<hr>
-	<?php endwhile; endif;?><!-- Fine articolo -->
+	<?php endwhile;?>
+	<?php endif;?><!-- Fine articolo -->
  	<div class="rassegna__footer">
 		<?php
 		$args = array(
