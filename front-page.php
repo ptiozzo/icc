@@ -280,7 +280,7 @@
             <!-- Rassegna stampa -->
 				<?php	while( $loopRassegna->have_posts() ) : $loopRassegna->the_post();
           $i++; ?>
-          <div class="carousel-item active">
+          <div class="carousel-item <?php if ($i == 1){echo "active";} ?>">
             <article class="p-0">
               <div class='content rassegna-stampa p-0'>
         				<a href='<?php echo the_permalink();?>'>
@@ -307,8 +307,9 @@
           $exclude_posts[] = $post->ID;
           endwhile;?>
           <!-- Post in evidenza con flag InHome -->
-        	<?php while( $loopSticky->have_posts() ) : $loopSticky->the_post();?>
-            <div class="carousel-item <?php if ($i == 0){echo "active";} ?>">
+        	<?php while( $loopSticky->have_posts() ) : $loopSticky->the_post();
+          $i++?>
+            <div class="carousel-item <?php if ($i == 1){echo "active";} ?>">
               <article class="p-0">
                 <div class='content rassegna-stampa p-0'>
           				<a href='<?php echo the_permalink();?>'>
