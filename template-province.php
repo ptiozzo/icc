@@ -27,7 +27,7 @@ Template Name: Template province
     }
   }
  ?>
-
+<script>document.title = "<?php echo ucfirst($CatTerm) ?> | <?php bloginfo('name')?>";</script>
 <div class="container-fluid mt-1 province">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
     <div class="cat2 category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?>">
