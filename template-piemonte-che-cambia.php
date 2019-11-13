@@ -69,7 +69,7 @@ Template Name: Piemonte che cambia
 							<span class="carousel-control-next-icon" aria-hidden="true"></span>
 							<span class="sr-only">Next</span>
 						</a>
-						<a href="<?php echo get_home_url(); ?>/category/i-nostri-contenuti/le-storie/" class="carousel-more mx-auto">Vedi tutto</a>
+						<a href="<?php echo get_home_url(); ?>/piemonte/storie/" class="carousel-more mx-auto">Vedi tutto</a>
 						<ol class="carousel-indicators pr-2">
 							<?php
 							for ($count = 0;$count <= $i-1; $count++){ ?>
