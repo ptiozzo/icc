@@ -28,8 +28,26 @@
   			);
   			$loop = new WP_Query( $args );
   			$i = 0;
+
+
   			if( $loop->have_posts() ) : ?>
-  				<div id="carouselLeNostreStorie" class="carousel carousel-controll-down slide" data-ride="carousel" data-interval="false">
+  				<div id="carouselLeNostreStorie" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
+            <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
+              <a class="carousel-control-prev" href="#carouselLeNostreStorie" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <ol class="carousel-indicators pr-2 text-white">
+                 <?php for ($count = 0;$count <= 10; $count++){ ?>
+  							         <li data-target="#carouselRassegnaEvidenza" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
+  							<?php }	?>
+                <p class=""> /<?php echo '5';?></p>
+              </ol>
+              <a class="carousel-control-next" href="#carouselLeNostreStorie" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
   					<div class="carousel-inner">
   					<?php
   					while( $loop->have_posts() ) : $loop->the_post();
@@ -70,28 +88,6 @@
   						</div>
   					</div>
   				<?php } ?>
-  					</div>
-  					<div class="slider-footer d-flex flex-row align-items-center justify-content-between">
-  						<a class="carousel-control-prev pl-2" href="#carouselLeNostreStorie" role="button" data-slide="prev">
-  							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  							<span class="sr-only">Previous</span>
-  						</a>
-  						<a class="carousel-control-next pl-2" href="#carouselLeNostreStorie" role="button" data-slide="next">
-  							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-  							<span class="sr-only">Next</span>
-  						</a>
-  						<a href="<?php echo get_home_url(); ?>/categoria/i-nostri-contenuti/io-faccio-cosi/" class="carousel-more mx-auto">Vedi tutto</a>
-  						<ol class="carousel-indicators pr-2">
-  							<?php
-  							$i = $i/2;
-  							for ($count = 0;$count <= $i-1; $count++){
-  							 ?>
-  							<li data-target="#carouselLeNostreStorie" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
-  							<?php
-  							}
-  							?>
-  							<p class="font-weight-bold h4">/<?php echo $i;?></p>
-  						</ol>
   					</div>
   				</div>
   			<?php

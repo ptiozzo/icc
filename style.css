@@ -894,25 +894,12 @@ a.carousel-more{
   opacity: 1;
   width: unset;
 }
-.carousel-controll-down .carousel-control-next{
-  left: 30px;
-  right: unset;
-}
-.carousel-controll-down .carousel-control-next-icon{
-  background-image: url('assets/img/icons/arrow-circle-right.svg');
-  height: 25px;
-  width: 25px;
-}
-.carousel-controll-down .carousel-control-prev-icon{
-  background-image: url('assets/img/icons/arrow-circle-left.svg');
-  height: 25px;
-  width: 25px;
-}
 #carouselLeNostreStorie .card{
   background: #F7F7F7;
   min-height: 316px;
 }
-#carouselRassegnaEvidenza.controll-visible{
+#carouselRassegnaEvidenza.controll-visible,
+#carouselLeNostreStorie{
   margin-top: -26px;
 }
 
