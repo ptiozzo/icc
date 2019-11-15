@@ -899,7 +899,8 @@ a.carousel-more{
   min-height: 374px;
 }
 #carouselRassegnaEvidenza.controll-visible,
-#carouselLeNostreStorie{
+#carouselLeNostreStorie,
+#carouselEvidenza.controll-visible{
   margin-top: -26px;
 }
 

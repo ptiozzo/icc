@@ -13,11 +13,6 @@ Template Name: Casentino che cambia
     <div id="sidebar" class="col-lg-home1 col-md-12">
         <div class="sidebar__inner">
 
-			<div class='head'>
-				<div class='title'>
-					<h5>ARTICOLI IN EVIDENZA</h5>
-				</div>
-			</div>
 
 			<?php
 			/* Query per Le storie
@@ -30,8 +25,32 @@ Template Name: Casentino che cambia
           'posts_per_page' => 10
       );
 			$loop = new WP_Query( $args );
+      $icc_numeroPost = $loop->found_posts;
 			if( $loop->have_posts() ) : ?>
-				<div id="carouselEvidenza" class="carousel carousel-controll-down slide" data-ride="carousel" data-interval="false">
+        <div class='head'>
+  				<div class='title'>
+  					<h5>ARTICOLI IN EVIDENZA</h5>
+  				</div>
+  			</div>
+				<div id="carouselEvidenza" class="carousel carousel-control-top slide <?php if ($icc_numeroPost > 1){echo "controll-visible";} ?>" data-ride="carousel" data-interval="false">
+          <?php if ($icc_numeroPost > 1) { ?>
+            <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
+              <a class="carousel-control-prev" href="#carouselEvidenza" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <ol class="carousel-indicators pr-2 text-white">
+                 <?php for ($count = 0;$count <= $icc_numeroPost; $count++){ ?>
+                         <li data-target="#carouselRassegnaEvidenza" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
+                <?php }	?>
+                <p class=""> /<?php echo $icc_numeroPost;?></p>
+              </ol>
+              <a class="carousel-control-next" href="#carouselEvidenza" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          <?php } ?>
 					<div class="carousel-inner">
 					<?php
 					while( $loop->have_posts() ) : $loop->the_post();
@@ -60,28 +79,9 @@ Template Name: Casentino che cambia
         $exclude_posts[] = $post->ID;
 				endwhile; ?>
 					</div>
-					<div class="slider-footer d-flex flex-row align-items-center justify-content-between">
-						<a class="carousel-control-prev pl-2" href="#carouselEvidenza" role="button" data-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next pl-2" href="#carouselEvidenza" role="button" data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>
-						<a href="<?php echo get_home_url(); ?>/casentino/articoli/" class="carousel-more mx-auto">Vedi tutto</a>
-						<ol class="carousel-indicators pr-2">
-							<?php
-							for ($count = 0;$count <= $i-1; $count++){ ?>
-							         <li data-target="#carouselEvidenza" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
-							<?php }	?>
-							<p class="font-weight-bold h4">/<?php echo $i;?></p>
-						</ol>
-					</div>
 				</div>
 			<?php
-			else:
-				echo "<p>Non ho trovato nessun articolo in evidenza</p>";
+			
 			endif;
 			wp_reset_query();?>
 

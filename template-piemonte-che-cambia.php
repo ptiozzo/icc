@@ -11,27 +11,47 @@ Template Name: Piemonte che cambia
 <div class="container-fluid home-page">
 	<div class="row">
     <div id="sidebar" class="col-lg-home1 col-md-12">
-      <div class="sidebar__inner">
+        <div class="sidebar__inner">
 
-			<div class='head'>
-				<div class='title'>
-					<h5>ARTICOLI IN EVIDENZA</h5>
-				</div>
-			</div>
+
 
 			<?php
-			/* Query per Articoli in evidenza
+			/* Query per Le storie
 			*---------------------*/
       $i = 0;
       $args = array(
           'category_name' => $catPage,
           'post__in' => get_option( 'sticky_posts' ),
           'ignore_sticky_posts' => 1,
-          'posts_per_page' => 10,
+          'posts_per_page' => 10
       );
 			$loop = new WP_Query( $args );
+      $icc_numeroPost = $loop->found_posts;
 			if( $loop->have_posts() ) : ?>
-				<div id="carouselEvidenza" class="carousel carousel-controll-down slide" data-ride="carousel" data-interval="false">
+        <div class='head'>
+  				<div class='title'>
+  					<h5>ARTICOLI IN EVIDENZA</h5>
+  				</div>
+  			</div>
+				<div id="carouselEvidenza" class="carousel carousel-control-top slide <?php if ($icc_numeroPost > 1){echo "controll-visible";} ?>" data-ride="carousel" data-interval="false">
+          <?php if ($icc_numeroPost > 1) { ?>
+            <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
+              <a class="carousel-control-prev" href="#carouselEvidenza" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <ol class="carousel-indicators pr-2 text-white">
+                 <?php for ($count = 0;$count <= $icc_numeroPost; $count++){ ?>
+                         <li data-target="#carouselRassegnaEvidenza" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
+                <?php }	?>
+                <p class=""> /<?php echo $icc_numeroPost;?></p>
+              </ol>
+              <a class="carousel-control-next" href="#carouselEvidenza" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          <?php } ?>
 					<div class="carousel-inner">
 					<?php
 					while( $loop->have_posts() ) : $loop->the_post();
@@ -60,34 +80,17 @@ Template Name: Piemonte che cambia
         $exclude_posts[] = $post->ID;
 				endwhile; ?>
 					</div>
-					<div class="slider-footer d-flex flex-row align-items-center justify-content-between">
-						<a class="carousel-control-prev pl-2" href="#carouselEvidenza" role="button" data-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next pl-2" href="#carouselEvidenza" role="button" data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>
-						<a href="<?php echo get_home_url(); ?>/piemonte/storie/" class="carousel-more mx-auto">Vedi tutto</a>
-						<ol class="carousel-indicators pr-2">
-							<?php
-							for ($count = 0;$count <= $i-1; $count++){ ?>
-							         <li data-target="#carouselEvidenza" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
-							<?php }	?>
-							<p class="font-weight-bold h4">/<?php echo $i;?></p>
-						</ol>
-					</div>
 				</div>
 			<?php
-			else:
-				echo "<p>Non ho trovato nessun Le storie</p>";
+
 			endif;
 			wp_reset_query();?>
 
-      <?php dynamic_sidebar('homepiemontesx'); ?>
+      <?php dynamic_sidebar('homecasentinosx'); ?>
 
-      <div class="pb-3">
+
+    <div class="pb-3">
+
 			<div class='head'>
 				<div class='title'>
 					<h5>LA MAPPA DEL PIEMONTE CHE CAMBIA</h5>
@@ -113,16 +116,14 @@ Template Name: Piemonte che cambia
 					<div class="carousel-item active">
 						<article>
 								<figure>
-									<a href="<?php echo home_url(); ?>/piemonte/mappa/"><img class="img-fluid" src='<?php echo get_template_directory_uri();?>/assets/img/modules/piemonte/Piemonte-mappa.png' alt='' title=''></a>
+									<a href="<?php echo home_url(); ?>/casentino/mappa/"><img class="img-fluid" src='<?php echo get_template_directory_uri();?>/assets/img/modules/casentino/Casentino-mappa.jpg' alt='' title=''></a>
 								</figure>
 						</article>
 					</div>
 				</div>
-
 			</div>
-      </div>
     </div>
-
+    </div>
 		</div><!-- Fini prima colonna -->
 
 		<div class="col-lg-home2 col-md-12">
@@ -144,7 +145,6 @@ Template Name: Piemonte che cambia
             'category_name' => $catPage,
             'posts_per_page' => 10,
             'post__not_in' => $exclude_posts,
-
         );
 				$loop = new WP_Query( $args );
         $i = 0;
@@ -155,7 +155,7 @@ Template Name: Piemonte che cambia
         if($i == 3)
         {
           echo '<div class="col-12">';
-          dynamic_sidebar('homepiemontedx');
+          dynamic_sidebar('homecasentinodx');
           echo '</div>';
         }
 				?>
@@ -189,9 +189,9 @@ Template Name: Piemonte che cambia
 
 			</div> <!-- Fine row  -->
 		</div><!-- Fini seconda colonna  -->
-		<div class="col-lg-home3">
-			<?php get_sidebar(); ?>
-		</div><!-- Fine sidebar  -->
+      <div class="col-lg-home3">
+        <?php get_sidebar(); ?>
+      </div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
 </div><!-- Fine container fluid -->
 <?php get_footer(); ?>
