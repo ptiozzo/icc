@@ -77,8 +77,8 @@ Template Name: Sostienici
 
 						<div class='description'>
 							<p>
-								Partecipando con l’1% del tuo stipendio, qualunque esso sia, contribuirai a sostenere le attività di Italia che Cambia orientate alla costruzione di un nuovo immaginario del nostro Paese, al racconto, mappatura e messa in rete dei processi in atto e realtà concrete del cambiamento italiano. <br>
-								Grazie al tuo contributo, continueremo a produrre contenuti originali per ispirare attraverso le storie del cambiamento, la mappatura delle realtà significative, per vedere tutto quel che già c’è in Italia e a organizzare incontri sul territorio per creare nuove relazioni.
+								Ogni giorno ci sono decine di argomenti e <b>storie interessanti da raccontare.</b> Alcune di esse sono destinate a restare nel cassetto, almeno per un po’. Come sceglierle? Quali privilegiare? <br>
+								Da oggi anche tu puoi aiutarci in questo arduo compito adottando un articolo. Facendolo contribuisci a <b>sostenere le nostre attività</b> quotidiane e ci permetti di approfondire il tema da te scelto con un articolo, un video, una storia.
 							</p>
 							<p>
 								Collaborando possiamo davvero cambiare le cose!
@@ -87,7 +87,7 @@ Template Name: Sostienici
 
 
 						<div class="cta">
-							<a href='<?php echo home_url(); ?>/adotta-un-articolo/' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='<?php echo home_url(); ?>/adotta-un-articolo/' target='_blank'>ADOTTA ORA</a>
 						</div>
 
 
@@ -107,13 +107,10 @@ Template Name: Sostienici
 							<p>
 								Anche tu puoi partecipare a questo cambiamento e far sì che diventi inarrestabile!
 							</p>
-							<p>
-								Contribuisci col tuo 5 x mille!
-							</p>
 						</div>
 
 						<div class="cta">
-							<a href='<?php echo home_url(); ?>/sostieni-litalia-che-cambia/' target='_blank'>ISCRIVITI ADESSO</a>
+							<a href='<?php echo home_url(); ?>/sostieni-litalia-che-cambia/' target='_blank'>DONA ADESSO</a>
 						</div>
 
 					</article>
