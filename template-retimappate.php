@@ -9,8 +9,15 @@ get_header();
 $currentDate = strtotime(date('Y-m-d H:i:s'));
 // Getting the value of old date + 24 hours
 $oldDate = get_option('icc_mappa_reti_lastupdate')+86400;
+echo "<!--";
+echo " CurrentDate;";
+echo $currentDate;
+echo " - oldDate: ";
+echo $oldDate;
+echo "-->";
 
-if ($oldDate > $currentDate || get_option('icc_mappa_reti_lastupdate') || get_option('icc_mappa_regioni_lastupdate')) {
+
+if ($oldDate > $currentDate && get_option('icc_mappa_reti_lastupdate') && get_option('icc_mappa_regioni_lastupdate')) {
   //Db aggiornato
 	$dbDaAggiornare = 'no';
 } else {
@@ -123,7 +130,7 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
  */
  if ( get_option('icc_mappa_regioni') && $dbDaAggiornare == 'no'){
 	 $regioni = get_option('icc_mappa_regioni');
-	 echo "<!-- Regioni esiste sul DB,, DB Aggiornato -->";
+	 echo "<!-- Regioni esiste sul DB, DB Aggiornato -->";
  }else{
 	 echo "<!-- DB da Aggiornare -->";
 	 $regioni = [
