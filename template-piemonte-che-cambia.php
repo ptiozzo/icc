@@ -116,7 +116,7 @@ Template Name: Piemonte che cambia
 					<div class="carousel-item active">
 						<article>
 								<figure>
-									<a href="<?php echo home_url(); ?>/casentino/mappa/"><img class="img-fluid" src='<?php echo get_template_directory_uri();?>/assets/img/modules/casentino/Casentino-mappa.jpg' alt='' title=''></a>
+									<a href="<?php echo home_url(); ?>/piemonte/mappa/"><img class="img-fluid" src='<?php echo get_template_directory_uri();?>/assets/img/modules/piemonte/Piemonte-mappa.png' alt='' title=''></a>
 								</figure>
 						</article>
 					</div>
