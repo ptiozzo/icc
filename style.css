@@ -1192,3 +1192,76 @@ PROVINCE
 .province h1{
   text-transform: capitalize;
 }
+
+/*
+NEWSBAR
+*/
+.newsbar{
+  background: #ebebeb;
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+
+}
+.newsbar .time{
+  background: #9BCE8F;
+  color: #fff;
+  font-weight: 600;
+}
+.newsbar a{
+  text-decoration: none;
+  color: #1c1c1c;
+}
+.newsbar a:hover{
+  text-decoration: none;
+}
+.newsbar h3{
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.marquee{
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+.marquee span{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  /* Starting position */
+  -moz-transform:translateX(100%);
+  -webkit-transform:translateX(100%);
+  transform:translateX(100%);
+  /* Apply animation to this element */
+  -moz-animation: marquee 20s linear infinite;
+  -webkit-animation: marquee 20s linear infinite;
+  animation: marquee 20s linear infinite;
+}
+.marquee span:hover{
+  animation-play-state: paused;
+}
+/* Move it (define the animation) */
+@-moz-keyframes marquee {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes marquee {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes marquee {
+ 0%   {
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);
+ }
+ 100% {
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%);
+ }
+}

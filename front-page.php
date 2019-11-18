@@ -508,9 +508,10 @@
 
 			</div><!-- Fine colonna libri  -->
 		</div><!-- Fini seconda colonna  -->
-    <div class="col-lg-home3 order-last">
+    <div class="col-lg-home3 order-3">
       <?php get_sidebar(); ?>
     </div>
+    <?php get_template_part('inc/loop','newsbar') ?>
   </div>
 </div>
 
