@@ -76,7 +76,7 @@ class icc_Widget_UnaFavolaPuoFare extends WP_Widget {
      if ( $custom_query->have_posts() ) :
        while ( $custom_query->have_posts() ) : $custom_query->the_post();?>
         <a href="<?php the_permalink(); ?>">
-          <figure class="mt-0">
+          <figure class="my-0">
             <?php the_post_thumbnail('icc_sidebar', array('class' => 'img-res','alt' => get_the_title())); ?>
           </figure>
           <h4 class="my-1"><?php the_title(); ?></h4>
