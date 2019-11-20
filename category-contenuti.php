@@ -106,7 +106,7 @@
 
   <?php
     if( ($Cat1 == $ParentCat1) && ($Cat2 == $ParentCat2)){
-      $CatTerm = $Cat1.'+'.$Cat2;
+      $CatTerm = '';
     } elseif ($Cat1 == $ParentCat1) {
       $CatTerm = $Cat2;
     } elseif ($Cat2 == $ParentCat2) {
@@ -226,7 +226,7 @@
         <?php
       endwhile;
         ?>
-      </div> 
+      </div>
         <!-- paginazione -->
 
       <?php echo bootstrap_pagination($loop); ?>
