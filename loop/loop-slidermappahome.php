@@ -32,24 +32,18 @@ if ($oldDate > $currentDate && get_option('icc_realta_mappate_lastupdate')) {
 
 if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
 	$realtaMappate = get_option('icc_realta_mappate');
-	echo "<!-- Raltà mappate esiste sul DB, DB Aggiornato -->";
+	echo "<!-- Raltà mappate esiste sul DB -->";
 }else{
 	echo "<!-- DB da Aggiornare -->";
   $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last'));
-  $realtaMappate = [
-    '{ "nome" : "Focus Cooperativa", "slugregione" : "liguria", "slugrealta" : "focus", "img" : "https://www.pianetafuturo.it/uploads/pagine/focus.jpg" }',
-    '{ "nome" : "Open011", "slugregione" : "piemonte", "slugrealta" : "open011", "img" : "https://www.pianetafuturo.it/uploads/pagine/open011.jpg" }',
-    '{ "nome" : "MondoQui", "slugregione" : "piemonte", "slugrealta" : "mondoqui", "img" : "https://www.pianetafuturo.it/uploads/pagine/mondoqui.jpg" }',
-    '{ "nome" : "Scuola nel Bosco di Pianoro", "slugregione" : "emilia-romagna", "slugrealta" : "scuola-nel-bosco-di-pianoro", "img" : "https://www.pianetafuturo.it/uploads/pagine/scuola-nel-bosco-di-pianoro.jpg" }',
-    '{ "nome" : "Rete Olistica Livorno", "slugregione" : "toscana", "slugrealta" : "rete-olistica-livorno", "img" : "https://www.pianetafuturo.it/uploads/pagine/rete-olistica-livorno.jpg" }',  
-  ];
-  echo $realtaMappate;
   update_option('icc_realta_mappate',$realtaMappate,'no');
 	update_option('icc_realta_mappate_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
+  echo "<!-- Aggiornato DB Raltà mappate -->";
 }
 
 ?>
 
+<?php $realtaMappateDecoded = json_decode($realtaMappate);?>
 
 <div id="carouselMappa" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
   <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
@@ -59,7 +53,13 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
     </a>
     <ol class="carousel-indicators pr-2 text-white">
       <li data-target="#carouselMappa" data-slide-to="0" class="text-white active">1</li>
-      <p class=""> /1</p>
+      <?php
+      $i = 1;
+      foreach ($realtaMappateDecoded as $key): ?>
+        <li data-target="#carouselMappa" data-slide-to="<?php echo $i; ?>" class="text-white"><?php echo $i+1; ?></li>
+        <?php $i++;
+      endforeach;?>
+      <p class=""> /<?php echo $i; ?></p>
     </ol>
     <a class="carousel-control-next" href="#carouselMappa" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -96,5 +96,21 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
         </div>
       </article>
     </div>
+    <?php $i=0; foreach ($realtaMappateDecoded as $key): ?>
+      <div class="carousel-item">
+        <article class="card border-0" style="min-width: 327px;">
+          <img src="<?php echo $realtaMappateDecoded[$i]->img;?>" class="card-img-top img-fluid p-0" alt="<?php echo $realtaMappateDecoded[$i]->nome; ?>">
+          <div class="card-body pt-0">
+            <h5 class="card-title"><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>
+            <a href="<?php echo home_url(); ?>/mappa/<?php echo $realtaMappateDecoded[$i]->slugregione;?>/<?php echo $realtaMappateDecoded[$i]->slugrealta;?>" class="stretched-link">
+              <div class="cta mt-2">Leggi di più</div>
+            </a>
+          </div>
+          <?php // echo $realtaMappateDecoded[$i]->slugregione; ?>
+          <?php // echo $realtaMappateDecoded[$i]->slugrealta; ?>
+          <?php $i++;?>
+        </article>
+      </div>
+    <?php endforeach;?>
   </div>
 </div>
