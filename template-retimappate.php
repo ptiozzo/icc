@@ -77,13 +77,13 @@ if (get_query_var( 'par1' )) {
 						  "vivi-consapevole-in-romagna" => 3196 );
 
 	$key_filtro = get_query_var( 'par1' );
-
+	
 	$open = "";
 	if (get_query_var( 'par2' )) {
 
 		$slug_realta = get_query_var( 'par2' );
 		// check stringa valida con regexp
-		// riempire variabile open
+		$open = "&open=".$slug_realta;
 	}
 
 	if (isset($codici_regioni[$key_filtro])) {

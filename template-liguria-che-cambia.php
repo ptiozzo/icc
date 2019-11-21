@@ -10,10 +10,7 @@ Template Name: Liguria che cambia
 ?>
 <div class="container-fluid home-page">
 
-
   <div style="margin-top: 0px;"><iframe style="border: 0px; width:100%; height: 60vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?a=8&tagoverride=1&sidebar=1&nored=1"></iframe></div>
-
-
 
 			<div class='head'>
 				<div class='title'>
