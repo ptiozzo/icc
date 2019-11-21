@@ -434,6 +434,9 @@ aside.sidebar .pcc-provincie p{
   max-width: 100%;
   height: auto;
 }
+.icc_Widget_UnaFavolaPuoFare{
+  padding-top: 0 !important;
+}
 
 /*	Vista griglia per categorie
 */
