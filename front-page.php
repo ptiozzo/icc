@@ -102,7 +102,7 @@
 
   			<div class="pb-3">
           <?php get_template_part('loop/loop','slidermappahome'); ?>
-  		    </div>
+  		  </div>
       </div>
     </div>
 
@@ -259,9 +259,7 @@
               <div class="category-bg"> </div>
               <div class="category pl-1">
                 <span>
-                  <?php
-                    get_template_part('inc/post','etichetta');
-                  ?>
+                  <?php get_template_part('inc/post','etichetta'); ?>
                 </span>
               </div>
               <?php

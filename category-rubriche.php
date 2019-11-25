@@ -103,21 +103,7 @@
                 <div class='category'>
                   <span><?php the_time('j M Y') ?></span>
                   <span>
-                    <?php
-                      if (in_category('documentari')) {
-                        echo 'I documentari';
-                      } elseif (in_category('io-faccio-cosi')) {
-                        echo 'Io faccio così';
-                      }elseif (in_category('meme')) {
-                        echo 'I meme';
-                      }elseif (in_category('rubriche')) {
-                        echo 'Le rubriche';
-                      }elseif (in_category('salute-che-cambia')) {
-                        echo 'Salute';
-                      }elseif (in_category('articoli')) {
-                        echo 'Gli Articoli';
-                      }
-                    ?>
+                    <?php get_template_part('inc/post','etichetta'); ?>
                   </span>
                 </div>
               <?php } ?>

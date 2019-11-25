@@ -689,11 +689,11 @@ row
 .single .category-invece-si-puo .single__tag a,
 .single .category-via-uscita-dentro .single__tag a,
 .single .category-voce-astice .single__tag a,
-.single .category-mondo-chiama-italia .single__tag a
-.single .category-pensare-altro .single__tag a
-.single .category-pillole-transizione .single__tag a
-.single .category-terranave .single__tag a
-.single .category-una-favola-puo-fare .single__tag a
+.single .category-mondo-chiama-italia .single__tag a,
+.single .category-pensare-altro .single__tag a,
+.single .category-pillole-transizione .single__tag a,
+.single .category-terranave .single__tag a,
+.single .category-una-favola-puo-fare .single__tag a,
 .single .category-voci-italia-che-cambia .single__tag a{background: #F270C0}
 .single .category-io-faccio-cosi .single__tag a{background: #AF0000}
 .single .category-salute-che-cambia .single__tag a{background: #7FD1F5}
@@ -1042,10 +1042,10 @@ CARD HOME
   position: absolute;
   top: 0;
   left: 0;
-  width: 150px;
+  width: 200px;
   height: 150px;
   border-top: 150px solid red;
-  border-right: 150px solid transparent;
+  border-right: 200px solid transparent;
 }
 
 .card img{
@@ -1066,6 +1066,23 @@ COLORI HOME
 .card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
 .card article.category-meme .category-bg{border-top: 150px solid #F79865}
 .card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
+.card article.category-rubriche .category-bg,
+.card article.category-appunti-viaggio .category-bg,
+.card article.category-diari-di-bordo-maestro-di-strada .category-bg,
+.card article.category-dizionario-eretico .category-bg,
+.card article.category-economia-bene-comune .category-bg,
+.card article.category-blog .category-bg,
+.card article.category-in-un-flash .category-bg,
+.card article.category-in-viaggio .category-bg,
+.card article.category-invece-si-puo .category-bg,
+.card article.category-via-uscita-dentro .category-bg,
+.card article.category-voce-astice .category-bg,
+.card article.category-mondo-chiama-italia .category-bg,
+.card article.category-pensare-altro .category-bg,
+.card article.category-pillole-transizione .category-bg,
+.card article.category-terranave .category-bg,
+.card article.category-una-favola-puo-fare .category-bg,
+.card article.category-voci-italia-che-cambia .category-bg
 .card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
 .card article.category-io-faccio-cosi .category-bg{border-top: 150px solid #AF0000}
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
