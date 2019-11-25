@@ -1240,9 +1240,9 @@ NEWSBAR
   -webkit-transform:translateX(100%);
   transform:translateX(100%);
   /* Apply animation to this element */
-  -moz-animation: marquee 20s linear infinite;
-  -webkit-animation: marquee 20s linear infinite;
-  animation: marquee 20s linear infinite;
+  -moz-animation: marquee 40s linear infinite;
+  -webkit-animation: marquee 40s linear infinite;
+  animation: marquee linear 40s infinite;
 }
 .marquee span:hover{
   animation-play-state: paused;
@@ -1250,11 +1250,11 @@ NEWSBAR
 /* Move it (define the animation) */
 @-moz-keyframes marquee {
  0%   { -moz-transform: translateX(100%); }
- 100% { -moz-transform: translateX(-100%); }
+ 100% { -moz-transform: translateX(-300%); }
 }
 @-webkit-keyframes marquee {
  0%   { -webkit-transform: translateX(100%); }
- 100% { -webkit-transform: translateX(-100%); }
+ 100% { -webkit-transform: translateX(-300%); }
 }
 @keyframes marquee {
  0%   {
@@ -1263,8 +1263,8 @@ NEWSBAR
  transform: translateX(100%);
  }
  100% {
- -moz-transform: translateX(-100%); /* Firefox bug fix */
- -webkit-transform: translateX(-100%); /* Firefox bug fix */
- transform: translateX(-100%);
+ -moz-transform: translateX(-300%); /* Firefox bug fix */
+ -webkit-transform: translateX(-300%); /* Firefox bug fix */
+ transform: translateX(-300%);
  }
 }

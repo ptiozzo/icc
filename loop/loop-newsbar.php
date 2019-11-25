@@ -1,24 +1,26 @@
 <?php
+  $argsRassegna = array(
+  'post_type' => 'rassegna-stampa',
+  'posts_per_page' => 1,
+  );
+
   $args = array(
   'post_type' => 'post',
-  'posts_per_page' => 10,
+  'posts_per_page' => 7,
   'tax_query' => array(
     array(
         'taxonomy'=> 'icc_altri_filtri',
         'field'   => 'slug',
-        'terms'		=> 'NewsBar',
+        'terms'		=> 'InHome',
       ),
     ),
   );
+$loopRassegna = new WP_Query( $argsRassegna );
 $loopNewsbar = new WP_Query( $args );
 
-if( $loopNewsbar->have_posts() ) : ?>
-  <?php
-    $i = $loopNewsbar->found_posts;
-    $count = 0;
-  ?>
-      <div class="row newsbar">
-        <div class="time py-2 col-2 text-center">
+if( $loopNewsbar->have_posts() || $loopRassegna->have_posts() ) : ?>
+      <div class="row newsbar mx-0">
+        <div class="time py-2 col-auto text-center">
           <div id="clockbox"></div>
 
           <script type="text/javascript">
@@ -43,13 +45,17 @@ if( $loopNewsbar->have_posts() ) : ?>
 
         </div>
         <?php //Thanks to https://www.quackit.com/css/codes/marquees/how_to_pause_a_marquee_on_hover.cfm ?>
-        <div class="marquee py-2 col-10">
+        <div class="marquee py-2 col">
           <span>
-          <?php while( $loopNewsbar->have_posts() ) : $loopNewsbar->the_post(); $count++; ?>
+          <?php while( $loopRassegna->have_posts() ) : $loopRassegna->the_post(); ?>
             <a href="<?php echo the_permalink(); ?>"><h3 class="m-0 d-inline"><?php the_title(); ?></h3></a>
-            <?php if ($i > 1 && $count < $i){echo " | ";} ?>
+            <?php if ($loopNewsbar->found_posts > 1){echo " | ";} ?>
           <?php endwhile; ?>
-          <span>
+          <?php while( $loopNewsbar->have_posts() ) : $loopNewsbar->the_post(); ?>
+            <a href="<?php echo the_permalink(); ?>"><h3 class="m-0 d-inline"><?php the_title(); ?></h3></a>
+            <?php if (($loopNewsbar->current_post +1) != ($loopNewsbar->post_count)){echo " | ";} ?>
+          <?php endwhile; ?>
+        </span>
         </div>
       </div>
 <?php endif; ?>
