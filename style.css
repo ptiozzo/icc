@@ -968,6 +968,9 @@ a.carousel-more{
   font-weight: 700;
   color: #FFFFFF;
 }
+#carouselMappa .card{
+  min-height: 327px;
+}
 
 
 
