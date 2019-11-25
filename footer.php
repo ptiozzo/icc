@@ -1,5 +1,5 @@
 </div>
-
+<?php get_template_part('loop/loop','newsbar') ?>
 <footer>
 <div class="row">
   <div class="col-12 col-md-4 text-center">

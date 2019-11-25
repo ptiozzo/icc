@@ -399,7 +399,6 @@
     <div class="col-lg-home3 order-3">
       <?php get_sidebar(); ?>
     </div>
-    <?php get_template_part('loop/loop','newsbar') ?>
   </div>
 </div>
 
