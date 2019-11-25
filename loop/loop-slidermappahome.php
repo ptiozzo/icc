@@ -96,9 +96,11 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
         </div>
       </article>
     </div>
+
     <?php $i=0; foreach ($realtaMappateDecoded as $key): ?>
       <div class="carousel-item">
         <article class="card border-0">
+          <img src="<?php echo get_template_directory_uri();?>/assets/img/regioni/<?php echo $realtaMappateDecoded[$i]->slugregione; ?>.svg" class="regione-slider">
           <img src="<?php echo $realtaMappateDecoded[$i]->img;?>" class="card-img-top img-fluid p-0" alt="<?php echo $realtaMappateDecoded[$i]->nome; ?>">
           <div class="card-body pt-0">
             <h5 class="card-title"><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>

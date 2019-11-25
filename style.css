@@ -971,6 +971,12 @@ a.carousel-more{
 #carouselMappa .card{
   min-height: 327px;
 }
+#carouselMappa .regione-slider{
+  background: #749A4F;
+  height: 67px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
 
 
 
