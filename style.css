@@ -1229,7 +1229,7 @@ NEWSBAR
 }
 .newsbar h3{
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .marquee{
@@ -1249,9 +1249,9 @@ NEWSBAR
   -webkit-transform:translateX(100%);
   transform:translateX(100%);
   /* Apply animation to this element */
-  -moz-animation: marquee 40s linear infinite;
-  -webkit-animation: marquee 40s linear infinite;
-  animation: marquee linear 40s infinite;
+  -moz-animation: marquee 50s linear infinite;
+  -webkit-animation: marquee 50s linear infinite;
+  animation: marquee linear 50s infinite;
 }
 .marquee span:hover{
   animation-play-state: paused;

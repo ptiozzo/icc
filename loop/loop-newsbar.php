@@ -33,7 +33,7 @@ if( $loopNewsbar->have_posts() || $loopRassegna->have_posts() ) : ?>
             var nhour=d.getHours(),nmin=d.getMinutes();
             if(nmin<=9) nmin="0"+nmin
 
-            var clocktext=""+ndate+" "+tmonth[nmonth]+" "+nyear+" "+nhour+":"+nmin+"";
+            var clocktext=""+ndate+" "+tmonth[nmonth]+" "+nhour+":"+nmin+"";
             document.getElementById('clockbox').innerHTML=clocktext;
             }
 
