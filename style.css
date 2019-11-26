@@ -1282,11 +1282,11 @@ NEWSBAR
 /* Move it (define the animation) */
 @-moz-keyframes marquee {
  0%   { -moz-transform: translateX(100%); }
- 100% { -moz-transform: translateX(-300%); }
+ 100% { -moz-transform: translateX(-1400%); }
 }
 @-webkit-keyframes marquee {
  0%   { -webkit-transform: translateX(100%); }
- 100% { -webkit-transform: translateX(-300%); }
+ 100% { -webkit-transform: translateX(-1400%); }
 }
 @keyframes marquee {
  0%   {
@@ -1295,8 +1295,33 @@ NEWSBAR
  transform: translateX(100%);
  }
  100% {
- -moz-transform: translateX(-300%); /* Firefox bug fix */
- -webkit-transform: translateX(-300%); /* Firefox bug fix */
- transform: translateX(-300%);
+ -moz-transform: translateX(-1400%); /* Firefox bug fix */
+ -webkit-transform: translateX(-1400%); /* Firefox bug fix */
+ transform: translateX(-1400%);
  }
+}
+
+@media (min-width: 900px) {
+
+  /* Move it (define the animation) */
+  @-moz-keyframes marquee {
+   0%   { -moz-transform: translateX(100%); }
+   100% { -moz-transform: translateX(-300%); }
+  }
+  @-webkit-keyframes marquee {
+   0%   { -webkit-transform: translateX(100%); }
+   100% { -webkit-transform: translateX(-300%); }
+  }
+  @keyframes marquee {
+   0%   {
+   -moz-transform: translateX(100%); /* Firefox bug fix */
+   -webkit-transform: translateX(100%); /* Firefox bug fix */
+   transform: translateX(100%);
+   }
+   100% {
+   -moz-transform: translateX(-300%); /* Firefox bug fix */
+   -webkit-transform: translateX(-300%); /* Firefox bug fix */
+   transform: translateX(-300%);
+   }
+  }
 }
