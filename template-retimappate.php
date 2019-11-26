@@ -11,9 +11,9 @@ $currentDate = strtotime(date('Y-m-d H:i:s'));
 $oldDate = get_option('icc_mappa_reti_lastupdate')+86400;
 echo "<!--";
 echo " CurrentDate;";
-echo $currentDate;
+echo date("d/m/Y h:i:s A T",$currentDate);
 echo " - oldDate: ";
-echo $oldDate;
+echo date("d/m/Y h:i:s A T",$oldDate);
 echo "-->";
 
 
@@ -77,7 +77,7 @@ if (get_query_var( 'par1' )) {
 						  "vivi-consapevole-in-romagna" => 3196 );
 
 	$key_filtro = get_query_var( 'par1' );
-	
+
 	$open = "";
 	if (get_query_var( 'par2' )) {
 

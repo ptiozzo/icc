@@ -10,9 +10,9 @@ $currentDate = strtotime(date('Y-m-d H:i:s'));
 $oldDate = get_option('icc_realta_mappate_lastupdate')+86400;
 echo "<!--";
 echo " CurrentDate;";
-echo $currentDate;
+echo date("d/m/Y h:i:s A T",$currentDate);
 echo " - oldDate: ";
-echo $oldDate;
+echo date("d/m/Y h:i:s A T",$oldDate);
 echo "-->";
 
 if ($oldDate > $currentDate && get_option('icc_realta_mappate_lastupdate')) {
@@ -119,7 +119,7 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
         <?php $i++;?>
     <?php endforeach;?>
 
-    <?php if ($i%2 == 0){ ?>
+    <?php if ($i%2 == 1){ ?>
       </div>
     <?php } ?>
 
