@@ -187,12 +187,17 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
  							</style>
 							<?php $realta_mappate += $value->value;  ?>
  						<?php endforeach ?>
+						<?php if($dbDaAggiornare == 'yes'){
+							update_option('icc_mappa_realta_mappate',$realta_mappate,'no');
+						} ?>
 						<?php $reti_mappate = 0; ?>
 						<?php foreach ($reti as $key => $value): ?>
  							<?php $value = json_decode($value) ?>
 							<?php $reti_mappate ++;  ?>
  						<?php endforeach ?>
-
+						<?php if($dbDaAggiornare == 'yes'){
+							update_option('icc_mappa_reti_mappate',$reti_mappate,'no');
+						} ?>
  					</figure>
  				</div>
  				<div class="info">
