@@ -59,7 +59,7 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
         <li data-target="#carouselMappa" data-slide-to="<?php echo $i; ?>" class="text-white"><?php echo $i+1; ?></li>
         <?php $i++;
       endforeach;?>
-      <p class=""> /<?php echo $i; ?></p>
+      <p class=""> /<?php echo floor($i/2+1); ?></p>
     </ol>
     <a class="carousel-control-next" href="#carouselMappa" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -97,22 +97,26 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
       </article>
     </div>
 
-    <?php $i=0; foreach ($realtaMappateDecoded as $key): ?>
-      <div class="carousel-item">
-        <article class="card border-0">
-          <img src="<?php echo get_template_directory_uri();?>/assets/img/regioni/<?php echo $realtaMappateDecoded[$i]->slugregione; ?>.svg" class="regione-slider">
-          <img src="<?php echo $realtaMappateDecoded[$i]->img;?>" class="card-img-top img-fluid p-0" alt="<?php echo $realtaMappateDecoded[$i]->nome; ?>">
-          <div class="card-body pt-0">
-            <h5 class="card-title"><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>
-            <a href="<?php echo home_url(); ?>/mappa/<?php echo $realtaMappateDecoded[$i]->slugregione;?>/<?php echo $realtaMappateDecoded[$i]->slugrealta;?>" class="stretched-link">
-              <div class="cta mt-2">Leggi di più</div>
-            </a>
+    <?php $i=0; foreach ($realtaMappateDecoded as $key):
+      if ($i%2 == 0){ ?>
+        <div class="carousel-item">
+      <?php
+      }
+      ?>
+        <article class="border-0 relta__mappata p-0 <?php if ($i%2 == 0) {echo "mb-7px";}?>">
+          <img src="<?php echo $realtaMappateDecoded[$i]->img;?>" class="img-fluid p-0" alt="<?php echo $realtaMappateDecoded[$i]->nome; ?>">
+          <div class="relta__mappata__detail text-white">
+            <h5 class=""><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>
+            <h5 class=""><?php echo $realtaMappateDecoded[$i]->slugregione; ?></h5>
           </div>
+          <a href="<?php echo home_url(); ?>/mappa/<?php echo $realtaMappateDecoded[$i]->slugregione;?>/<?php echo $realtaMappateDecoded[$i]->slugrealta;?>" class="stretched-link"></a>
           <?php // echo $realtaMappateDecoded[$i]->slugregione; ?>
           <?php // echo $realtaMappateDecoded[$i]->slugrealta; ?>
-          <?php $i++;?>
         </article>
-      </div>
+        <?php if ($i%2 == 1){ ?>
+          </div>
+        <?php } ?>
+        <?php $i++;?>
     <?php endforeach;?>
   </div>
 </div>

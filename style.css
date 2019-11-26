@@ -977,7 +977,21 @@ a.carousel-more{
   padding: 5px;
   margin-bottom: 10px;
 }
-
+#carouselMappa .relta__mappata{
+  position: relative;
+  max-height: 160px;
+}
+#carouselMappa .relta__mappata__detail{
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  padding: 5px 20px;
+  background: rgba(0,0,0,.8);
+  text-transform: capitalize;
+}
+#carouselMappa .mb-7px{
+  margin-bottom: 7px;
+}
 
 
 .card-title{
