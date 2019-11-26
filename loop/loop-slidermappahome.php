@@ -118,5 +118,10 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
         <?php } ?>
         <?php $i++;?>
     <?php endforeach;?>
+
+    <?php if ($i%2 == 0){ ?>
+      </div>
+    <?php } ?>
+
   </div>
 </div>
