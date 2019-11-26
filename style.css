@@ -1086,11 +1086,16 @@ COLORI HOME
 .card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
 .card article.category-io-faccio-cosi .category-bg{border-top: 150px solid #AF0000}
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
-.card article.nostri-libri .category-bg{border-top: 150px solid #9064fa;}
 .card article.rassegna-stampa .category-bg{border-top: 150px solid #a3a3a3;}
 .card article.category-piemonte-che-cambia .category-bg,
 .card article.category-liguria-che-cambia .category-bg,
 .card article.category-casentino-che-cambia .category-bg{border-top: 150px solid #749A4F;}
+.card article.nostri-libri .category-bg{
+  border-top: 150px solid #9064fa;
+  width: 150px;
+  border-right: 150px solid transparent;
+}
+
 
 
 /*
@@ -1230,7 +1235,8 @@ NEWSBAR
   position: sticky;
   bottom: 0;
   z-index: 1000;
-
+  color: #9BCE8F;
+  font-weight: 1000;
 }
 .newsbar .time{
   background: #9BCE8F;
