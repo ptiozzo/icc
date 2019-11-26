@@ -1301,7 +1301,7 @@ NEWSBAR
  }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
 
   /* Move it (define the animation) */
   @-moz-keyframes marquee {
