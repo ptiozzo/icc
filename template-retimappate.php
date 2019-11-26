@@ -11,9 +11,9 @@ $currentDate = strtotime(date('Y-m-d H:i:s'));
 $oldDate = get_option('icc_mappa_reti_lastupdate')+86400;
 echo "<!--";
 echo " CurrentDate;";
-echo date("d/m/Y h:i:s A T",$currentDate);
+echo date("d/m/Y H:i:s T",$currentDate);
 echo " - oldDate: ";
-echo date("d/m/Y h:i:s A T",$oldDate);
+echo date("d/m/Y H:i:s T",$oldDate);
 echo "-->";
 
 
