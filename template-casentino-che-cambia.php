@@ -81,7 +81,7 @@ Template Name: Casentino che cambia
 					</div>
 				</div>
 			<?php
-			
+
 			endif;
 			wp_reset_query();?>
 
@@ -90,37 +90,8 @@ Template Name: Casentino che cambia
 
     <div class="pb-3">
 
-			<div class='head'>
-				<div class='title'>
-					<h5>LA MAPPA DEL CASENTINO CHE CAMBIA</h5>
-				</div>
-			</div>
+			<?php get_template_part('loop/loop','slidermappacasentino'); ?>
 
-			<div id="carouselMappa" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
-				<div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
-					<a class="carousel-control-prev" href="#carouselMappa" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<ol class="carousel-indicators pr-2 text-white">
-						<li data-target="#carouselMappa" data-slide-to="0" class="text-white active">1</li>
-						<p class=""> /1</p>
-					</ol>
-					<a class="carousel-control-next" href="#carouselMappa" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<article>
-								<figure>
-									<a href="<?php echo home_url(); ?>/casentino/mappa/"><img class="img-fluid" src='<?php echo get_template_directory_uri();?>/assets/img/modules/casentino/Casentino-mappa.jpg' alt='' title=''></a>
-								</figure>
-						</article>
-					</div>
-				</div>
-			</div>
     </div>
     </div>
 		</div><!-- Fini prima colonna -->

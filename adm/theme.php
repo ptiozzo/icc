@@ -74,11 +74,29 @@
     update_option('icc_mappa_reti_mappate',$reti_mappate,'no');
     echo "Aggiornato <b>Totale reti mappate</b><br>";
 
-    //aggiorno ultime realtà mappate
+    //aggiorno ultime realtà mappate nazionale
     $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last'));
     update_option('icc_realta_mappate',$realtaMappate,'no');
     update_option('icc_realta_mappate_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
-    echo "Aggiornato <b>Ultime realtà mappate (home)</b><br>";
+    echo "Aggiornato <b>Ultime realtà mappate nazionale (home)</b><br>";
+
+    //aggiorno ultime realtà mappate casentino
+    $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last&a=21'));
+    update_option('icc_realta_mappate_casentino',$realtaMappate,'no');
+    update_option('icc_realta_mappate_casentino_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
+    echo "Aggiornato <b>Ultime realtà mappate casentino</b><br>";
+
+    //aggiorno ultime realtà mappate piemonte
+    $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last&a=2'));
+    update_option('icc_realta_mappate_piemonte',$realtaMappate,'no');
+    update_option('icc_realta_mappate_piemonte_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
+    echo "Aggiornato <b>Ultime realtà mappate piemonte</b><br>";
+
+    //aggiorno ultime realtà mappate liguria
+    $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last&a=8'));
+    update_option('icc_realta_mappate_liguria',$realtaMappate,'no');
+    update_option('icc_realta_mappate_liguria_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
+    echo "Aggiornato <b>Ultime realtà mappate liguria</b><br>";
   }
 
   ?>
@@ -93,8 +111,14 @@
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_regioni_lastupdate')); ?></p>
   <p><b>Mappa per reti</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_reti_lastupdate')); ?></p>
-  <p><b>Ultime realtà mappate (home)</b></p>
+  <p><b>Ultime realtà mappate nazionale (home)</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_lastupdate')); ?></p>
+  <p><b>Ultime realtà mappate casentino (home)</b></p>
+  <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_casentino_lastupdate')); ?></p>
+  <p><b>Ultime realtà mappate piemonte (home)</b></p>
+  <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_piemonte_lastupdate')); ?></p>
+  <p><b>Ultime realtà mappate liguria (home)</b></p>
+  <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_liguria_lastupdate')); ?></p>
 
   <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
     <input name="submit_button" type="Submit" value="Aggiorna dati" class="btn btn-secondary">
