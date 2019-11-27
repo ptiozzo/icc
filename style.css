@@ -968,7 +968,7 @@ a.carousel-more{
   font-weight: 700;
   color: #FFFFFF;
 }
-#carouselMappa .card{
+#carouselMappa .carousel-item{
   min-height: 327px;
 }
 #carouselMappa .regione-slider{
