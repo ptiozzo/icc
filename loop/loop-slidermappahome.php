@@ -77,7 +77,7 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
                   if (get_option('icc_mappa_reti_mappate')){
                     echo get_option('icc_mappa_reti_mappate');
                   } else{
-                    echo "18";
+                    echo "0";
                   } ?></div>
                 <div class='text'> RETI</div>
               </div>
@@ -89,7 +89,7 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
                   if (get_option('icc_mappa_realta_mappate')){
                     echo get_option('icc_mappa_realta_mappate');
                   } else{
-                    echo "2375";
+                    echo "0";
                   } ?></div>
                 <div class='text'> REALTÀ</div>
               </div>
