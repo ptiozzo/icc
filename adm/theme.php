@@ -113,11 +113,11 @@
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_reti_lastupdate')); ?></p>
   <p><b>Ultime realtà mappate nazionale (home)</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_lastupdate')); ?></p>
-  <p><b>Ultime realtà mappate casentino (home)</b></p>
+  <p><b>Ultime realtà mappate casentino</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_casentino_lastupdate')); ?></p>
-  <p><b>Ultime realtà mappate piemonte (home)</b></p>
+  <p><b>Ultime realtà mappate piemonte</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_piemonte_lastupdate')); ?></p>
-  <p><b>Ultime realtà mappate liguria (home)</b></p>
+  <p><b>Ultime realtà mappate liguria</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_liguria_lastupdate')); ?></p>
 
   <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
