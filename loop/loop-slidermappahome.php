@@ -117,7 +117,7 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
           <img src="<?php echo $realtaMappateDecoded[$i]->img;?>" class="img-fluid p-0" alt="<?php echo $realtaMappateDecoded[$i]->nome; ?>">
           <div class="relta__mappata__detail text-white">
             <h5 class="relta__mappata_regione"><?php echo $realtaMappateDecoded[$i]->slugregione; ?></h5>
-            <h5 class="relta__mappata_nome"><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>
+            <h5 class="relta__mappata_nome font-weight-bold"><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>
           </div>
           <a href="<?php echo home_url(); ?>/mappa/<?php echo $realtaMappateDecoded[$i]->slugregione;?>/<?php echo $realtaMappateDecoded[$i]->slugrealta;?>" class="stretched-link"></a>
           <?php // echo $realtaMappateDecoded[$i]->slugregione; ?>
