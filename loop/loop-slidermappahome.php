@@ -73,14 +73,24 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
           <ul class='list'>
             <li>
               <div class='info'>
-                <div class='number'>19</div>
+                <div class='number'><?php
+                  if (get_option('icc_mappa_reti_mappate')){
+                    echo get_option('icc_mappa_reti_mappate');
+                  } else{
+                    echo "18";
+                  } ?></div>
                 <div class='text'> RETI</div>
               </div>
               <img src='<?php echo get_template_directory_uri();?>/assets/img/modules/home/transparent-hand.svg' alt='' title=''>
             </li>
             <li>
               <div class='info d-flex flex-column flex-md-row'>
-                <div class='number'>2375</div>
+                <div class='number'><?php
+                  if (get_option('icc_mappa_realta_mappate')){
+                    echo get_option('icc_mappa_realta_mappate');
+                  } else{
+                    echo "2375";
+                  } ?></div>
                 <div class='text'> REALTÀ</div>
               </div>
             </li>
