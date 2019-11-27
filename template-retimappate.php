@@ -179,14 +179,14 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
  						<?php require 'assets/img/svg/italy-map.svg'; ?>
 						<?php $realta_mappate = 0; ?>
  						<?php foreach ($regioni as $key => $value): ?>
- 							<?php $value = json_decode($value) ?>
+ 							<?php $value = json_decode($value); ?>
  							<style>
- 								<?php echo '#' . $value->id ?> {
- 									fill: <?php echo $value->color ?>
+ 								<?php echo '#' . $value->id; ?> {
+ 									fill: <?php echo $value->color; ?>
  								}
  							</style>
 							<?php $realta_mappate += $value->value;  ?>
- 						<?php endforeach ?>
+ 						<?php endforeach; ?>
 						<?php if($dbDaAggiornare == 'yes'){
 							update_option('icc_mappa_realta_mappate',$realta_mappate,'no');
 						} ?>
@@ -194,7 +194,7 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
 						<?php foreach ($reti as $key => $value): ?>
  							<?php $value = json_decode($value) ?>
 							<?php $reti_mappate ++;  ?>
- 						<?php endforeach ?>
+ 						<?php endforeach; ?>
 						<?php if($dbDaAggiornare == 'yes'){
 							update_option('icc_mappa_reti_mappate',$reti_mappate,'no');
 						} ?>
