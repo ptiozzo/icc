@@ -19,7 +19,6 @@ Template Name: Sostienici
 						<h4>
 							DIVENTA UN AGENTE
 							DEL CAMBIAMENTO!
-							A ITALIA CHE CAMBIA
 						</h4>
 
 						<div class='description'>
