@@ -989,6 +989,12 @@ a.carousel-more{
   background: rgba(0,0,0,.8);
   text-transform: capitalize;
 }
+#carouselMappa .relta__mappata_regione{
+  font-size: 16px;
+}
+#carouselMappa .relta__mappata_nome{
+  font-size: 18px;
+}
 #carouselMappa .mb-7px{
   margin-bottom: 7px;
 }
