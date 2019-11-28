@@ -1,8 +1,6 @@
 <div class="wrap">
   <?php
-  if ($_POST['submit_button']){
-
-
+  if ($_POST['update_all'] || $_POST['update_icc_mappa_reti']){
     //aggiorno Reti mappate
     $reti = [
   		'{"value": "'.wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=network&n=3180')).'", "text": "Action aid", "color": "#82C1BD", "slug": "action-aid"}',
@@ -28,7 +26,9 @@
   	update_option('icc_mappa_reti',$reti,'no');
   	update_option('icc_mappa_reti_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
     echo "Aggiornato <b>Reti mappate</b><br>";
+  }
 
+  if ($_POST['update_all'] || $_POST['update_icc_mappa_regioni']){
     //aggiorno Realtà mappate per regioni
     $regioni = [
  	 	'{"id": "Path_632", "value": "'.wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=count&a=7')).'", "text": "SARDEGNA", "color": "#65afbd", "slug": "sardegna"}',
@@ -55,43 +55,53 @@
  	 update_option('icc_mappa_regioni',$regioni,'no');
  	 update_option('icc_mappa_regioni_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
    echo "Aggiornato <b>Realtà mappate per regioni</b><br>";
-
+  }
+  if ($_POST['update_all'] || $_POST['update_icc_mappa_realta_mappate']){
     //aggiorno totale realtà mappate
     $realta_mappate = 0;
+    $regioni = get_option('icc_mappa_regioni');
     foreach ($regioni as $key => $value):
      $value = json_decode($value);
      $realta_mappate += $value->value;
     endforeach;
     update_option('icc_mappa_realta_mappate',$realta_mappate,'no');
+    update_option('icc_mappa_realta_mappate_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
     echo "Aggiornato <b>Totale realtà mappate</b><br>";
-
-
+  }
+  if ($_POST['update_all'] || $_POST['update_icc_mappa_reti_mappate']){
     //aggiorno totale reti mappate
     $reti_mappate = 0;
+    $reti = get_option('icc_mappa_reti');
     foreach ($reti as $key => $value):
      $reti_mappate ++;
     endforeach;
     update_option('icc_mappa_reti_mappate',$reti_mappate,'no');
-    echo "Aggiornato <b>Totale reti mappate</b><br>";
+    update_option('icc_mappa_reti_mappate_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
 
+    echo "Aggiornato <b>Totale reti mappate</b><br>";
+  }
+  if ($_POST['update_all'] || $_POST['update_icc_realta_mappate']){
     //aggiorno ultime realtà mappate nazionale
     $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last'));
     update_option('icc_realta_mappate',$realtaMappate,'no');
     update_option('icc_realta_mappate_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
     echo "Aggiornato <b>Ultime realtà mappate nazionale (home)</b><br>";
-
+  }
+  if ($_POST['update_all'] || $_POST['update_icc_realta_mappate_casentino']){
     //aggiorno ultime realtà mappate casentino
     $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last&a=21'));
     update_option('icc_realta_mappate_casentino',$realtaMappate,'no');
     update_option('icc_realta_mappate_casentino_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
     echo "Aggiornato <b>Ultime realtà mappate casentino</b><br>";
-
+  }
+  if ($_POST['update_all'] || $_POST['update_icc_realta_mappate_piemonte']){
     //aggiorno ultime realtà mappate piemonte
     $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last&a=2'));
     update_option('icc_realta_mappate_piemonte',$realtaMappate,'no');
     update_option('icc_realta_mappate_piemonte_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
     echo "Aggiornato <b>Ultime realtà mappate piemonte</b><br>";
-
+  }
+  if ($_POST['update_all'] || $_POST['update_icc_realta_mappate_liguria']){
     //aggiorno ultime realtà mappate liguria
     $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last&a=8'));
     update_option('icc_realta_mappate_liguria',$realtaMappate,'no');
@@ -103,24 +113,81 @@
   <h2>Tema</h2>
   <p>Tema costruito per il sito italiachecambia.org</p>
   <h2>Aggiornamenti dati tramite API di pianetafuturo</h2>
-  <p><b>Totale realtà mappate</b></p>
-  <p><?php echo get_option('icc_mappa_realta_mappate'); ?></p>
-  <p><b>Totale reti mappate</b></p>
-  <p><?php echo get_option('icc_mappa_reti_mappate'); ?></p>
-  <p><b>Mappa per regione</b></p>
-  <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_regioni_lastupdate')); ?></p>
+
   <p><b>Mappa per reti</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_reti_lastupdate')); ?></p>
+  <code><?php echo get_option('icc_mappa_reti'); ?></code>
+  <br><br>
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+    <input name="update_icc_mappa_reti" type="Submit" value="Aggiorna i dati" class="button">
+  </form>
+  <hr>
+
+  <p><b>Mappa per regione</b></p>
+  <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_regioni_lastupdate')); ?></p>
+  <code><?php echo get_option('icc_mappa_regioni'); ?></code>
+  <br><br>
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+    <input name="update_icc_mappa_regioni" type="Submit" value="Aggiorna i dati" class="button">
+  </form>
+  <hr>
+
+  <p><b>Totale realtà mappate</b></p>
+  <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_realta_mappate_lastupdate')); ?></p>
+  <code><?php echo get_option('icc_mappa_realta_mappate'); ?></code>
+  <br><br>
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+    <input name="update_icc_mappa_realta_mappate" type="Submit" value="Aggiorna i dati" class="button">
+  </form>
+  <hr>
+
+  <p><b>Totale reti mappate</b></p>
+  <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_reti_mappate_lastupdate')); ?></p>
+  <code><?php echo get_option('icc_mappa_reti_mappate'); ?></code>
+  <br><br>
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+    <input name="update_icc_mappa_reti_mappate" type="Submit" value="Aggiorna i dati" class="button">
+  </form>
+  <hr>
+
   <p><b>Ultime realtà mappate nazionale (home)</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_lastupdate')); ?></p>
+  <code><?php echo get_option('icc_realta_mappate'); ?></code>
+  <br><br>
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+    <input name="update_icc_realta_mappate" type="Submit" value="Aggiorna i dati" class="button">
+  </form>
+  <hr>
+
   <p><b>Ultime realtà mappate casentino</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_casentino_lastupdate')); ?></p>
+  <code><?php echo get_option('icc_realta_mappate_casentino'); ?></code>
+  <br><br>
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+    <input name="update_icc_realta_mappate_casentino" type="Submit" value="Aggiorna i dati" class="button">
+  </form>
+  <hr>
+
   <p><b>Ultime realtà mappate piemonte</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_piemonte_lastupdate')); ?></p>
+  <code><?php echo get_option('icc_realta_mappate_piemonte'); ?></code>
+  <br><br>
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+    <input name="update_icc_realta_mappate_piemonte" type="Submit" value="Aggiorna i dati" class="button">
+  </form>
+  <hr>
+
   <p><b>Ultime realtà mappate liguria</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_realta_mappate_liguria_lastupdate')); ?></p>
-
+  <code><?php echo get_option('icc_realta_mappate_liguria'); ?></code>
+  <br><br>
   <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
-    <input name="submit_button" type="Submit" value="Aggiorna dati" class="btn btn-secondary">
+    <input name="update_icc_realta_mappate_liguria" type="Submit" value="Aggiorna i dati" class="button">
+  </form>
+  <hr>
+
+  <h3>Sconsigliato, rischia di sovraccaricare il server</h3>
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+    <input name="update_all" type="Submit" value="Aggiorna tutti i dati" class="button" style="color: #b52727; border-color: #b52727;">
   </form>
 </div>
