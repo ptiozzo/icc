@@ -48,10 +48,6 @@
  ?>
   <!-- Dropdown per selezione contenuto -->
   <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
-
-    <?php
-      if(is_category('contenuti')){
-        ?>
         <select name="contenuti-dropdown" class="custom-select">
           <option value="contenuti" <?php if ($Cat1 == 'contenuti') {echo 'selected';}?> ><?php echo 'Tutti i contenuti'; ?></option>
           <?php
@@ -67,9 +63,6 @@
           <option value="rassegna-stampa" <?php if ($Cat1 == 'rassegna-stampa') {echo 'selected';}?>>Io non mi rassegno</option>
           <option value="nostri-libri" <?php if ($Cat1 == 'nostri-libri') {echo 'selected';}?>>I nostri libri</option>
         </select>
-        <?php
-        }
-        ?>
       <!-- Dropdown per selezione tematica -->
       <select name="tematica-dropdown"  class="custom-select">
         <option value="tematica" <?php if ($Cat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tematica'; ?></option>
@@ -140,7 +133,7 @@
       );
     }else {
       $args = array(
-          'post_type' => array('post','nostri-libri','rassegna-stampa'),
+          'post_type' => array('post','rassegna-stampa','nostri-libri'),
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'ignore_sticky_posts' => 1,
@@ -214,8 +207,7 @@
         <!-- paginazione -->
 
       <?php echo bootstrap_pagination($loop); ?>
-
-        <?php
+      <?php
       else:
         ?>
           <p>Spiacente, ma la tua ricerca non ha prodotto nessun risultato</p>
