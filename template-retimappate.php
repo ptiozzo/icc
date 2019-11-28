@@ -189,6 +189,7 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
  						<?php endforeach; ?>
 						<?php if($dbDaAggiornare == 'yes'){
 							update_option('icc_mappa_realta_mappate',$realta_mappate,'no');
+							update_option('icc_mappa_realta_mappate_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
 						} ?>
 						<?php $reti_mappate = 0; ?>
 						<?php foreach ($reti as $key => $value): ?>
@@ -197,6 +198,7 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
  						<?php endforeach; ?>
 						<?php if($dbDaAggiornare == 'yes'){
 							update_option('icc_mappa_reti_mappate',$reti_mappate,'no');
+							update_option('icc_mappa_reti_mappate_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
 						} ?>
  					</figure>
  				</div>
