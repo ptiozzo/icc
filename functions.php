@@ -158,6 +158,14 @@ function icc_menu_admin()
 			'icc-theme-istruction',
 			'icc_menu_admin_page_istruction'
 		);
+		add_submenu_page(
+			'icc-theme',
+			'ICC Suggerimenti scrittura',
+			'Suggerimenti scrittura',
+			'administrator',
+			'icc-theme-suggestion',
+			'icc_menu_admin_page_suggestion'
+		);
 
 }
 function icc_menu_admin_page()
@@ -167,6 +175,10 @@ function icc_menu_admin_page()
 function icc_menu_admin_page_istruction()
 {
   require 'adm/theme-istruction.php';
+}
+function icc_menu_admin_page_suggestion()
+{
+  require 'adm/theme-scritturaarticoli.php';
 }
 
 /* Inizio una sessione
