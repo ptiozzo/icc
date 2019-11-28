@@ -45,9 +45,9 @@
       <article class="p-0">
       <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php echo $realtaMappateDecoded[$i]->img;?>">
       <div class="card-body p-0">
-        <div class='date'><?php echo $realtaMappateDecoded[$i]->slugregione; ?></div>
+        <div class="date text-capitalize"><?php echo $realtaMappateDecoded[$i]->slugregione; ?></div>
         <h5 class="card-title"><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>
-        <a href="<?php echo home_url(); ?>/mappa/<?php echo $realtaMappateDecoded[$i]->slugregione;?>/<?php echo $realtaMappateDecoded[$i]->slugrealta;?>" class="stretched-link"><div class="cta">Leggi di più</div></a>
+        <a href="<?php echo home_url(); ?>/mappa/<?php echo $realtaMappateDecoded[$i]->slugregione;?>/<?php echo $realtaMappateDecoded[$i]->slugrealta;?>" class="stretched-link"></a>
       </div>
       </article>
     </div>
