@@ -252,7 +252,7 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
 
  	<section class="sezione-reti-mappate">
  		<div class="head chain-effect scale">
- 			<h1>Le Reti Mappate</h1>
+ 			<h2>Le Reti Mappate</h2>
  		</div>
 
  		<div class="content chain-effect scale">
@@ -273,6 +273,8 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
  			</ul>
  		</div>
  	</section>
+
+	<?php get_template_part('loop/loop','ultimerealtamappate'); ?>
 
  	<!-- Infowindow che effetivamente verrà mostrato -->
  	<div class="infowindow">

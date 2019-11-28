@@ -1240,6 +1240,11 @@ MAPPA
   text-decoration: none;
 }
 
+.mappa .card img{
+  min-height: 150px;
+  object-fit: cover;
+}
+
 /*
 PROVINCE
 */
