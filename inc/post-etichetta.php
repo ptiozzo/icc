@@ -42,6 +42,52 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
     echo 'Una favola può fare';
 }elseif (in_category('voci-italia-che-cambia')){
     echo 'Voci da Italia che cambia';
+}elseif (in_category('abitare')){
+    echo 'Abitare';
+}elseif (in_category('agricoltura')){
+    echo 'Agricoltura';
+}elseif (in_category('arte-cultura')){
+    echo 'Arte e cultura';
+}elseif (in_category('informazione-e-comunicazione')){
+    echo 'Informazione e comunicazione';
+}elseif (in_category('cicli-produttivi-rifiuti')){
+    echo 'Cicli produttivi e rifiuti';
+}elseif (in_category('economia')){
+    echo 'Economia';
+}elseif (in_category('educazione')){
+    echo 'Educazione';
+}elseif (in_category('energia')){
+    echo 'Energia';
+}elseif (in_category('integrazione-sociale')){
+    echo 'Integrazione sociale';
+}elseif (in_category('disabilita')){
+    echo 'Disabilità';
+}elseif (in_category('questione-di-genere')){
+    echo 'Questione di genere';
+}elseif (in_category('lavoro-imprenditoria')){
+    echo 'Lavoro e imprenditoria';
+}elseif (in_category('imprenditoria')){
+    echo 'Imprenditoria';
+}elseif (in_category('lavoro')){
+    echo 'Lavoro';
+}elseif (in_category('legalita')){
+    echo 'Legalità';
+}elseif (in_category('mobilita')){
+    echo 'Mobilità';
+}elseif (in_category('salute-alimentazione')){
+    echo 'Salute e alimentazione';
+}elseif (in_category('sostenibilita-ambientale')){
+    echo 'Sostenibilità ambientale';
+}elseif (in_category('ambiente')){
+    echo 'Ambiente';
+}elseif (in_category('animali')){
+    echo 'Animali';
+}elseif (in_category('clima')){
+    echo 'Clima';
+}elseif (in_category('stili-di-vita')){
+    echo 'Stili di vita';
+}elseif (in_category('viaggiare')){
+    echo 'Viaggiare';
 }elseif (in_category('documentari')) {
   echo 'I documentari';
 }elseif (in_category('io-faccio-cosi')) {
