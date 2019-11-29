@@ -3,91 +3,91 @@
 if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Rassegna stampa';
 }elseif (in_category('piemonte-che-cambia')){
-  echo 'Articoli - Piemonte';
+  echo 'News dal Piemonte';
 }elseif (in_category('casentino-che-cambia')){
-  echo 'Articoli - Casentino';
+  echo 'News dal Casentino';
 }elseif (in_category('liguria-che-cambia')){
-    echo 'Articoli - Liguria';
+  echo 'News dalla Liguria';
 }elseif (in_category('appunti-viaggio')){
-    echo 'Appunti di viaggio';
+  echo 'Appunti di viaggio';
 }elseif (in_category('diari-di-bordo-maestro-di-strada')){
-    echo 'Maestro di strada';
+  echo 'Maestro di strada';
 }elseif (in_category('dizionario-eretico')){
-    echo 'Dizionario eretico';
+  echo 'Dizionario eretico';
 }elseif (in_category('economia-bene-comune')){
-    echo 'Economia del bene comune';
+  echo 'Economia del bene comune';
 }elseif (in_category('blog')){
-    echo 'In diretta dal camper';
+  echo 'In diretta dal camper';
 }elseif (in_category('in-un-flash')){
-    echo 'Rubrica - In un flash';
+  echo 'Rubrica - In un flash';
 }elseif (in_category('in-viaggio')){
-    echo 'Rubrica - In viaggio';
+  echo 'Rubrica - In viaggio';
 }elseif (in_category('invece-si-puo')){
-    echo 'Rubrica - Invece si può!';
+  echo 'Rubrica - Invece si può!';
 }elseif (in_category('via-uscita-dentro')){
-    echo 'La via d\'uscita è dentro';
+  echo 'La via d\'uscita è dentro';
 }elseif (in_category('voce-astice')){
-    echo 'La Voce dell\'Astice';
+  echo 'La Voce dell\'Astice';
 }elseif (in_category('mondo-chiama-italia')){
-    echo 'Mondo chiama Italia';
+  echo 'Mondo chiama Italia';
 }elseif (in_category('pensare-altro')){
-    echo 'Rubrica - Pensare altro';
+  echo 'Rubrica - Pensare altro';
 }elseif (in_category('pillole-transizione')){
-    echo 'Pillole per la Transizione';
+  echo 'Pillole per la Transizione';
 }elseif (in_category('salute-che-cambia')) {
-    echo 'Salute';
+  echo 'Salute';
 }elseif (in_category('terranave')){
-    echo 'Rubrica - Terranave';
+  echo 'Rubrica - Terranave';
 }elseif (in_category('una-favola-puo-fare')){
-    echo 'Una favola può fare';
+  echo 'Una favola può fare';
 }elseif (in_category('voci-italia-che-cambia')){
-    echo 'Voci da Italia che cambia';
+  echo 'Voci da Italia che cambia';
 }elseif (in_category('abitare')){
-    echo 'Abitare';
+  echo 'Abitare';
 }elseif (in_category('agricoltura')){
-    echo 'Agricoltura';
+  echo 'Agricoltura';
 }elseif (in_category('arte-cultura')){
-    echo 'Arte e cultura';
+  echo 'Arte e cultura';
 }elseif (in_category('informazione-e-comunicazione')){
-    echo 'Informazione e comunicazione';
+  echo 'Informazione e comunicazione';
 }elseif (in_category('cicli-produttivi-rifiuti')){
-    echo 'Cicli produttivi e rifiuti';
+  echo 'Cicli produttivi e rifiuti';
 }elseif (in_category('economia')){
-    echo 'Economia';
+  echo 'Economia';
 }elseif (in_category('educazione')){
-    echo 'Educazione';
+  echo 'Educazione';
 }elseif (in_category('energia')){
-    echo 'Energia';
+  echo 'Energia';
 }elseif (in_category('integrazione-sociale')){
-    echo 'Integrazione sociale';
+  echo 'Integrazione sociale';
 }elseif (in_category('disabilita')){
-    echo 'Disabilità';
+  echo 'Disabilità';
 }elseif (in_category('questione-di-genere')){
-    echo 'Questione di genere';
+  echo 'Questione di genere';
 }elseif (in_category('lavoro-imprenditoria')){
-    echo 'Lavoro e imprenditoria';
+  echo 'Lavoro e imprenditoria';
 }elseif (in_category('imprenditoria')){
-    echo 'Imprenditoria';
+  echo 'Imprenditoria';
 }elseif (in_category('lavoro')){
-    echo 'Lavoro';
+  echo 'Lavoro';
 }elseif (in_category('legalita')){
-    echo 'Legalità';
+  echo 'Legalità';
 }elseif (in_category('mobilita')){
-    echo 'Mobilità';
+  echo 'Mobilità';
 }elseif (in_category('salute-alimentazione')){
-    echo 'Salute e alimentazione';
+  echo 'Salute e alimentazione';
 }elseif (in_category('sostenibilita-ambientale')){
-    echo 'Sostenibilità ambientale';
+  echo 'Sostenibilità ambientale';
 }elseif (in_category('ambiente')){
-    echo 'Ambiente';
+  echo 'Ambiente';
 }elseif (in_category('animali')){
-    echo 'Animali';
+  echo 'Animali';
 }elseif (in_category('clima')){
-    echo 'Clima';
+  echo 'Clima';
 }elseif (in_category('stili-di-vita')){
-    echo 'Stili di vita';
+  echo 'Stili di vita';
 }elseif (in_category('viaggiare')){
-    echo 'Viaggiare';
+  echo 'Viaggiare';
 }elseif (in_category('documentari')) {
   echo 'I documentari';
 }elseif (in_category('io-faccio-cosi')) {
