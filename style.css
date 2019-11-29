@@ -970,7 +970,7 @@ a.carousel-more{
   color: #FFFFFF;
 }
 #carouselMappa .carousel-item{
-  min-height: 327px;
+  height: 347px;
 }
 #carouselMappa .regione-slider{
   background: #749A4F;
@@ -980,7 +980,7 @@ a.carousel-more{
 }
 #carouselMappa .relta__mappata{
   position: relative;
-  max-height: 160px;
+  max-height: 170px;
 }
 #carouselMappa .relta__mappata__detail{
   position: absolute;
@@ -999,6 +999,7 @@ a.carousel-more{
 #carouselMappa .mb-7px{
   margin-bottom: 7px;
 }
+
 
 
 .card-title{
@@ -1244,6 +1245,14 @@ MAPPA
 .mappa .card img{
   min-height: 150px;
   object-fit: cover;
+}
+.realtaliguria .card-body,
+.mappa .card-body{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0,0,0,.8);
+  z-index: 2;
 }
 
 /*

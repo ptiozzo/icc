@@ -21,13 +21,6 @@ if ($oldDate > $currentDate && get_option('icc_realta_mappate_casentino_lastupda
 } else {
   //Db da aggiornare
 	$dbDaAggiornare = 'yes';
-
-	$to = 'ptiozzo@me.com';
-	$subject = '[ICC] Aggiornato ultime realtà mappate';
-	$body = "I dati relativi alle ultime realtà mappate sono stati aggiornati";
-	$headers = array('Content-Type: text/html; charset=UTF-8');
-
-	//wp_mail( $to, $subject, $body, $headers );
 }
 
 if (get_option('icc_realta_mappate_casentino') && $dbDaAggiornare == 'no'){

@@ -21,13 +21,6 @@ if ($oldDate > $currentDate && get_option('icc_realta_mappate_piemonte_lastupdat
 } else {
   //Db da aggiornare
 	$dbDaAggiornare = 'yes';
-
-	$to = 'ptiozzo@me.com';
-	$subject = '[ICC] Aggiornato ultime realtà mappate';
-	$body = "I dati relativi alle ultime realtà mappate sono stati aggiornati";
-	$headers = array('Content-Type: text/html; charset=UTF-8');
-
-	//wp_mail( $to, $subject, $body, $headers );
 }
 
 if (get_option('icc_realta_mappate_piemonte') && $dbDaAggiornare == 'no'){
@@ -88,8 +81,6 @@ if (get_option('icc_realta_mappate_piemonte') && $dbDaAggiornare == 'no'){
             <h5 class="relta__mappata_nome font-weight-bold"><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>
           </div>
           <a href="<?php echo home_url(); ?>/mappa/<?php echo $realtaMappateDecoded[$i]->slugregione;?>/<?php echo $realtaMappateDecoded[$i]->slugrealta;?>" class="stretched-link"></a>
-          <?php // echo $realtaMappateDecoded[$i]->slugregione; ?>
-          <?php // echo $realtaMappateDecoded[$i]->slugrealta; ?>
         </article>
         <?php if ($i%2 == 1){ ?>
           </div>

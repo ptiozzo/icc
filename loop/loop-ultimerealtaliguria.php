@@ -16,13 +16,6 @@
   } else {
     //Db da aggiornare
     $dbDaAggiornare = 'yes';
-
-    $to = 'ptiozzo@me.com';
-    $subject = '[ICC] Aggiornato ultime realtà mappate';
-    $body = "I dati relativi alle ultime realtà mappate sono stati aggiornati";
-    $headers = array('Content-Type: text/html; charset=UTF-8');
-
-    //wp_mail( $to, $subject, $body, $headers );
   }
 
   if (get_option('icc_realta_mappate_liguria') && $dbDaAggiornare == 'no'){
@@ -40,11 +33,11 @@
   <?php $realtaMappateDecoded = json_decode($realtaMappate);
 
   $i=0; foreach ($realtaMappateDecoded as $key): ?>
-  <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
+  <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break realtaliguria">
     <div class="card border-0 p-0">
       <article class="p-0">
       <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php echo $realtaMappateDecoded[$i]->img;?>">
-      <div class="card-body p-0">
+      <div class="card-body p-2 text-white">
         <div class="date text-capitalize"><?php echo $realtaMappateDecoded[$i]->slugregione; ?></div>
         <h5 class="card-title"><?php echo $realtaMappateDecoded[$i]->nome; ?></h5>
         <a href="<?php echo home_url(); ?>/mappa/<?php echo $realtaMappateDecoded[$i]->slugregione;?>/<?php echo $realtaMappateDecoded[$i]->slugrealta;?>" class="stretched-link"></a>
@@ -54,7 +47,13 @@
   </div>
   <?php
   $i++;
-  if ($i >= 4){
+  if ($i == 4){
+  ?>
+    <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
+      <?php dynamic_sidebar('liguria'); ?>
+    </div>
+  <?php }
+  if ($i >= 9){
     break;
   }
   endforeach;?>

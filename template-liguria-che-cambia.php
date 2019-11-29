@@ -24,14 +24,7 @@ Template Name: Liguria che cambia
 
       <?php get_template_part('loop/loop','ultimerealtaliguria'); ?>
 
-      <?php
-      if ($i < 5){
-      ?>
-
-        <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
-          <?php dynamic_sidebar('liguria'); ?>
-        </div>
-      <?php } ?>
+      
 
     </div> <!-- Fine row  -->
 

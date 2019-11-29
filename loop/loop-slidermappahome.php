@@ -21,13 +21,6 @@ if ($oldDate > $currentDate && get_option('icc_realta_mappate_lastupdate')) {
 } else {
   //Db da aggiornare
 	$dbDaAggiornare = 'yes';
-
-	$to = 'ptiozzo@me.com';
-	$subject = '[ICC] Aggiornato ultime realtà mappate';
-	$body = "I dati relativi alle ultime realtà mappate sono stati aggiornati";
-	$headers = array('Content-Type: text/html; charset=UTF-8');
-
-	//wp_mail( $to, $subject, $body, $headers );
 }
 
 if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
@@ -59,7 +52,7 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
         <li data-target="#carouselMappa" data-slide-to="<?php echo $i; ?>" class="text-white"><?php echo $i+1; ?></li>
         <?php $i++;
       endforeach;?>
-      <p class=""> /<?php echo floor($i/2+1); ?></p>
+      <p class=""> /<?php echo floor($i/2); ?></p>
     </ol>
     <a class="carousel-control-next" href="#carouselMappa" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -125,9 +118,12 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
         </article>
         <?php if ($i%2 == 1){ ?>
           </div>
-        <?php } ?>
-        <?php $i++;?>
-    <?php endforeach;?>
+        <?php }
+        $i++;
+        if ($i >= 8){
+          break;
+        }
+      endforeach;?>
 
     <?php if ($i%2 == 1){ ?>
       </div>
