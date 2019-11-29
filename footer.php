@@ -1,6 +1,6 @@
 </div>
 <?php
-if (!is_page(44544)){
+if (!is_page(array(44544,58562,59229,57957))){
   get_template_part('loop/loop','newsbar');
 }
 ?>
