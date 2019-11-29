@@ -82,7 +82,7 @@
 					<?php
 				}
 				?>
-				
+
 				<!-- Riassunto -->
 				<div class="single__metaDescription p-4">
 					<?php the_excerpt();?>
@@ -140,7 +140,7 @@
 					</div>
 				<?php endwhile; ?>
 				<div class="col-12 pb-2">
-					<form class="pt-2 text-center" method="post" action="/categoria/contenuti/">
+					<form class="pt-2 text-center" method="post" action="/contenuti/">
 						<input name="contenuti-dropdown" type="hidden" value="rassegna-stampa">
 						<input name="submit_button" type="submit" value="Vedi tutto" class="btn btn-lg btn-outline-dark">
 					</form>

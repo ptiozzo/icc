@@ -85,11 +85,14 @@
 </div><!-- contenuti_header -->
 <?php if ($Cat1 != $ParentCat1){ ?>
   <div class="cat2 category-<?php echo $Cat1 ?>">
-    <?php if ($Cat1 != "nostri-libri"){ ?>
-      <h1><?php echo get_category_by_slug($Cat1)->name ?></h1>
-    <?php } else { ?>
-      <h1>I nostri libri</h1>
-    <?php } ?>
+    <?php
+    if ($Cat1 == "nostri-libri"){
+      echo "<h1>I nostri libri</h1>";
+    }elseif ($Cat1 == "rassegna-stampa"){
+      echo "<h1>Rassegna stampa</h1>";
+    }else {
+      echo "<h1>". get_category_by_slug($Cat1)->name. "</h1>";
+    } ?>
   </div>
 <?php } ?>
 
