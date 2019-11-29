@@ -23,13 +23,6 @@ if ($oldDate > $currentDate && get_option('icc_mappa_reti_lastupdate') && get_op
 } else {
   //Db da aggiornare
 	$dbDaAggiornare = 'yes';
-
-	$to = 'ptiozzo@me.com';
-	$subject = '[ICC] Mappa aggiornata';
-	$body = "I dati della mappa sono stati aggiornati";
-	$headers = array('Content-Type: text/html; charset=UTF-8');
-
-	wp_mail( $to, $subject, $body, $headers );
 }
 
 if (get_query_var( 'par1' )) {
