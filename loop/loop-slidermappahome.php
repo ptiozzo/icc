@@ -45,7 +45,7 @@ if (get_option('icc_realta_mappate') && $dbDaAggiornare == 'no'){
 
 <?php $realtaMappateDecoded = json_decode($realtaMappate);?>
 
-<div id="carouselMappa" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
+<div id="carouselMappa" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="5000">
   <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
     <a class="carousel-control-prev" href="#carouselMappa" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
