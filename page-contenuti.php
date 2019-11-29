@@ -36,9 +36,6 @@
       $ord="DESC";
     }
   }
-  if(!is_category('contenuti')){
-    $Cat1 = get_term_by('name', single_cat_title('',false), 'category')->slug;
-  }
   if ($Cat1 == $ParentCat1){
     echo "<h1>".get_category_by_slug($ParentCat1)->name."</h1>";
   }

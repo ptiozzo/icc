@@ -32,7 +32,7 @@
     <?php if(!is_single() && !is_page('cerca')){
             unset($_SESSION['termine-cercato']);
           }
-					if(!is_single() && !is_category('contenuti')){
+					if(!is_single() && !is_page('contenuti')){
 						unset ($_SESSION['cat1']);
 						unset ($_SESSION['cat2']);
 						unset ($_SESSION['ord']);
