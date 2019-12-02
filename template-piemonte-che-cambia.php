@@ -8,7 +8,7 @@ Template Name: Piemonte che cambia
 <?php
   $catPage = 'piemonte-che-cambia';
 ?>
-<div class="container-fluid home-page">
+<div class="container-fluid home-page <?php echo $catPage;?>">
 	<div class="row">
     <div id="sidebar" class="col-lg-home1 col-md-12">
         <div class="sidebar__inner">

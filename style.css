@@ -972,6 +972,9 @@ a.carousel-more{
 #carouselMappa .carousel-item{
   height: 347px;
 }
+.piemonte-che-cambia #carouselMappa .minatura-piemonte{
+  border: 26px solid #a1dbb9;
+}
 #carouselMappa .regione-slider{
   background: #749A4F;
   height: 67px;

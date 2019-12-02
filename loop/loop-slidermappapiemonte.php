@@ -52,7 +52,7 @@ if (get_option('icc_realta_mappate_piemonte') && $dbDaAggiornare == 'no'){
         <li data-target="#carouselMappa" data-slide-to="<?php echo $i; ?>" class="text-white"><?php echo $i+1; ?></li>
         <?php $i++;
       endforeach;?>
-      <p class=""> /<?php echo floor($i/2+1); ?></p>
+      <p class=""> /<?php echo floor($i/2); ?></p>
     </ol>
     <a class="carousel-control-next" href="#carouselMappa" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -63,7 +63,7 @@ if (get_option('icc_realta_mappate_piemonte') && $dbDaAggiornare == 'no'){
     <div class="carousel-item active">
       <article>
           <figure>
-            <a href="<?php echo home_url(); ?>/piemonte/mappa/"><img class="img-fluid" src='<?php echo get_template_directory_uri();?>/assets/img/modules/piemonte/Piemonte-mappa.png' alt='' title=''></a>
+            <a href="<?php echo home_url(); ?>/piemonte/mappa/"><img class="img-fluid minatura-piemonte" src='<?php echo get_template_directory_uri();?>/assets/img/modules/piemonte/Piemonte-mappa2.png' alt='' title=''></a>
           </figure>
       </article>
     </div>
@@ -85,8 +85,11 @@ if (get_option('icc_realta_mappate_piemonte') && $dbDaAggiornare == 'no'){
         <?php if ($i%2 == 1){ ?>
           </div>
         <?php } ?>
-        <?php $i++;?>
-    <?php endforeach;?>
+        <?php $i++;
+        if ($i >= 8){
+          break;
+        }
+     endforeach;?>
 
     <?php if ($i%2 == 1){ ?>
       </div>
