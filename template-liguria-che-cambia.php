@@ -18,13 +18,13 @@ Template Name: Liguria che cambia
     </div>
   </div>
 
-      <div class="row mb-3">
+      <div class="row mb-2">
 
 
 
       <?php get_template_part('loop/loop','ultimerealtaliguria'); ?>
 
-      
+
 
     </div> <!-- Fine row  -->
 

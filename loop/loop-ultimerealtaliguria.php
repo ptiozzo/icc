@@ -1,3 +1,5 @@
+<div class="col-xl-5ths4cols col-lg-9 col-md-8 col-12 text-break">
+  <div class="row">
   <?php
   // Getting current date
   $currentDate = strtotime(date('Y-m-d H:i:s'));
@@ -33,7 +35,7 @@
   <?php $realtaMappateDecoded = json_decode($realtaMappate);
 
   $i=0; foreach ($realtaMappateDecoded as $key): ?>
-  <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break realtaliguria">
+  <div class="col-xl-3 col-lg-4 col-md-6 col-12 text-break realtaliguria">
     <div class="card border-0 p-0">
       <article class="p-0">
       <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php echo $realtaMappateDecoded[$i]->img;?>">
@@ -47,13 +49,14 @@
   </div>
   <?php
   $i++;
-  if ($i == 4){
-  ?>
-    <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
-      <?php dynamic_sidebar('liguria'); ?>
-    </div>
-  <?php }
-  if ($i >= 9){
+  if ($i >= 8){
     break;
   }
   endforeach;?>
+  </div>
+</div>
+
+
+<div class="col-xl-5ths col-lg-3 col-md-4 col-12 text-break">
+  <?php dynamic_sidebar('liguria'); ?>
+</div>

@@ -140,7 +140,13 @@ Layout
         float: left;
     }
 }
-
+@media (min-width: 1200px){
+.col-xl-5ths4cols {
+    flex: 0 0 80%;
+    float: left;
+    max-width: 80%;
+  }
+}
 
 /*
 LINK
