@@ -86,7 +86,7 @@ Template Name: Piemonte che cambia
 			endif;
 			wp_reset_query();?>
 
-      <?php dynamic_sidebar('homecasentinosx'); ?>
+      <?php dynamic_sidebar('homepiemontesx'); ?>
 
 
     <div class="pb-3">
@@ -127,7 +127,7 @@ Template Name: Piemonte che cambia
         if($i == 3)
         {
           echo '<div class="col-12">';
-          dynamic_sidebar('homecasentinodx');
+          dynamic_sidebar('homepiemontedx');
           echo '</div>';
         }
 				?>
