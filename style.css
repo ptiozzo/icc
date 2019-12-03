@@ -754,6 +754,13 @@ figcaption{
   color: #A3A3A3;
   font-style: italic;
 }
+.wp-block-gallery{
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+.wp-block-gallery .blocks-gallery-item{
+  margin: 0;
+}
 .single__articolo img{
   width: 100%;
   height: auto;
@@ -980,6 +987,8 @@ a.carousel-more{
 }
 .piemonte-che-cambia #carouselMappa .minatura-piemonte{
   border: 26px solid #a1dbb9;
+  height: 350px;
+  object-fit: cover;
 }
 #carouselMappa .regione-slider{
   background: #749A4F;

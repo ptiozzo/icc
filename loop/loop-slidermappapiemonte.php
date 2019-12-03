@@ -61,7 +61,7 @@ if (get_option('icc_realta_mappate_piemonte') && $dbDaAggiornare == 'no'){
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <article>
+      <article class="p-0">
           <figure>
             <a href="<?php echo home_url(); ?>/piemonte/mappa/"><img class="img-fluid minatura-piemonte" src='<?php echo get_template_directory_uri();?>/assets/img/modules/piemonte/Piemonte-mappa2.png' alt='' title=''></a>
           </figure>
