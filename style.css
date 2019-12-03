@@ -1017,7 +1017,9 @@ a.carousel-more{
 #carouselMappa .mb-7px{
   margin-bottom: 7px;
 }
-
+#carouselLibri .card{
+  height: 370px
+}
 
 
 .card-title{

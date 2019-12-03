@@ -356,43 +356,9 @@
 					wp_reset_query();?>
 
 			</div> <!-- Fine row  -->
-			<div class="row">
-				<?php
-
-				$args = array(
-					'post_type' => 'nostri-libri',
-					'posts_per_page' => 3,
-				);
-				$loop = new WP_Query( $args );
-				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
-				 ?>
-					<div class="col-md-4 col-xs-6 my-3">
-						<div id="post-<?php the_ID(); ?>" class="card border-0 p-0">
-							<article <?php echo post_class(); ?>>
-							<div class="category-bg"> </div>
-							<div class="category pl-1">
-								<span>
-									<?php
-											echo 'I nostri libri';
-									?>
-								</span>
-								<?php the_post_thumbnail('icc_libri', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title())); ?>
-							</div>
-							<h5 class="card-title"><?php the_title(); ?></h5>
-
-							<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
-							</article>
-						</div>
-
-					</div>
-
-				<?php
-				endwhile;
-				else:
-					echo "<p>Non ho trovato nessun I nostri libri</p>";
-				endif;?>
-
-			</div><!-- Fine colonna libri  -->
+      <!-- Slider Libri  -->
+        <?php get_template_part('loop/loop','sliderlibrihome') ?>
+      <!-- Fine slider libri  -->
 		</div><!-- Fini seconda colonna  -->
     <div class="col-lg-home3 order-3">
       <?php get_sidebar(); ?>
