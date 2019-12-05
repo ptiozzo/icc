@@ -116,7 +116,11 @@
 
   <p><b>Mappa per reti</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_reti_lastupdate')); ?></p>
-  <code><?php echo get_option('icc_mappa_reti'); ?></code>
+  <code><?php $reti = get_option('icc_mappa_reti');
+    foreach ($reti as $key => $value):
+       echo $value;
+     endforeach; ?>
+  </code>
   <br><br>
   <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
     <input name="update_icc_mappa_reti" type="Submit" value="Aggiorna i dati" class="button">
@@ -125,7 +129,11 @@
 
   <p><b>Mappa per regione</b></p>
   <p><?php echo date("d/m/Y H:i:s T",get_option('icc_mappa_regioni_lastupdate')); ?></p>
-  <code><?php echo get_option('icc_mappa_regioni'); ?></code>
+  <code><?php $regioni = get_option('icc_mappa_regioni');
+    foreach ($regioni as $key => $value):
+       echo $value;
+     endforeach; ?>
+  </code>
   <br><br>
   <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
     <input name="update_icc_mappa_regioni" type="Submit" value="Aggiorna i dati" class="button">
