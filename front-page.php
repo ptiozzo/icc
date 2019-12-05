@@ -121,7 +121,7 @@
 			);
 			$loopRassegna = new WP_Query( $argsRassegna );
       $argsSticky = array(
-          'post__in' => get_option( 'sticky_posts' ),
+          'post__in' => array_diff(get_option( 'sticky_posts' ),$exclude_posts),
           'ignore_sticky_posts' => 1,
           'posts_per_page' => 10,
           'tax_query' => array(
