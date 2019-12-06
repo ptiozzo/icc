@@ -1,6 +1,7 @@
 </div>
+</div>
 <?php
-if (!is_page(array(44544,58562,59229,57957))){
+if (!is_page(array(44544,58562,59229,57957))){ //escludo la pagina mappa e le pagine con il calendario
   get_template_part('loop/loop','newsbar');
 }
 ?>

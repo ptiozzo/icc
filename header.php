@@ -186,7 +186,7 @@
 				<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/hand.svg' alt='italia che cambia'>
 			</figure>
 		</header>
-
+<div id="swup" class="transition">
 			<?php
 			if (is_page('piemonte')){
 				get_template_part('menu','piemonte');
@@ -196,7 +196,7 @@
 				get_template_part('menu','liguria');
 			}
 			?>
-		</main>
+
 
 		<!-- Content -->
 		<div class="wrapper">
