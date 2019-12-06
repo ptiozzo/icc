@@ -9,7 +9,7 @@
               new SwupFormsPlugin(),
               new SwupGaPlugin(),
       ],
-    cache: false,
+    cache: true,
     linkSelector:
       'a[href^="' +
       window.location.origin +
