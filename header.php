@@ -29,18 +29,6 @@
 		<link rel="icon" type="image/png" href="">
 
 		<?php wp_head(); ?>
-    <?php if(!is_single() && !is_page('cerca')){
-            unset($_SESSION['termine-cercato']);
-          }
-					if(!is_single() && !is_page('contenuti')){
-						unset ($_SESSION['cat1']);
-						unset ($_SESSION['cat2']);
-						unset ($_SESSION['ord']);
-					}
-					if(!is_single() && !is_category('rubriche')){
-						unset($_SESSION['RubricheCat1']);
-					}
-    ?>
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="row">
@@ -187,6 +175,21 @@
 			</figure>
 		</header>
 <div id="swup" class="transition">
+
+	<?php
+
+				if(!is_single() && !is_page('cerca')){
+					unset($_SESSION['termine-cercato']);
+				}
+				if(!is_single() && !is_page('contenuti')){
+					unset ($_SESSION['cat1']);
+					unset ($_SESSION['cat2']);
+					unset ($_SESSION['ord']);
+				}
+				if(!is_single() && !is_category('rubriche')){
+					unset($_SESSION['RubricheCat1']);
+				}
+	?>
 			<?php
 			if (is_page('piemonte')){
 				get_template_part('menu','piemonte');

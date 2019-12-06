@@ -34,7 +34,7 @@
   }
  ?>
   <!-- Dropdown per selezione contenuto -->
-  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" data-swup-form>
 
         <select name="rubriche-dropdown" class="custom-select">
           <option value="rubriche" <?php if ($RubricheCat1 == 'rubriche') {echo 'selected';}?> ><?php echo 'Tutte le rubriche'; ?></option>

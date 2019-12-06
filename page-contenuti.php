@@ -44,7 +44,7 @@
   }
  ?>
   <!-- Dropdown per selezione contenuto -->
-  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+  <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" data-swup-form>
         <select name="contenuti-dropdown" class="custom-select">
           <option value="contenuti" <?php if ($Cat1 == 'contenuti') {echo 'selected';}?> ><?php echo 'Tutti i contenuti'; ?></option>
           <?php

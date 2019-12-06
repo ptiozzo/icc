@@ -5,7 +5,11 @@
     animateHistoryBrowsing: false,
     animationSelector: '[class*="transition-"]',
     containers: ["#swup"],
-    cache: true,
+    plugins: [new SwupScrollPlugin(),
+              new SwupFormsPlugin(),
+              new SwupGaPlugin(),
+      ],
+    cache: false,
     linkSelector:
       'a[href^="' +
       window.location.origin +
@@ -18,6 +22,27 @@
       }
     };
 
+    new SwupScrollPlugin({
+      doScrollingRightAway: false,
+      animateScroll: true,
+      scrollFriction: 0.3,
+      scrollAcceleration: 0.02,
+    });
+
+    new SwupFormsPlugin({
+      formSelector: 'form[data-swup-form]',
+    });
+
   const swup = new Swup(options);
+
+
+  function unload() {
+      $('header.overlay-menu').removeClass('show')
+  }
+  swup.on('willReplaceContent', unload);
+
+
+  swup.cache.remove('/contenuti');
+  swup.cache.remove('/categoria/contenuti/rubriche');
 
 }(jQuery));
