@@ -9,7 +9,7 @@
               new SwupFormsPlugin(),
               new SwupGaPlugin(),
       ],
-    cache: true,
+    cache: false,
     linkSelector:
       'a[href^="' +
       window.location.origin +
@@ -49,11 +49,11 @@
         leftSpacing: 15,
         bottomSpacing: 20
     });
+
   }
   swup.on('contentReplaced', init);
 
 
-  swup.cache.remove('/contenuti');
-  swup.cache.remove('/categoria/contenuti/rubriche');
+
 
 }(jQuery));
