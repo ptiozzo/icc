@@ -41,6 +41,17 @@
   }
   swup.on('willReplaceContent', unload);
 
+  function init() {
+    var sidebar = new StickySidebar('#sidebar', {
+        containerSelector: '.row',
+        innerWrapperSelector: '.sidebar__inner',
+        topSpacing: 80,
+        leftSpacing: 15,
+        bottomSpacing: 20
+    });
+  }
+  swup.on('contentReplaced', init);
+
 
   swup.cache.remove('/contenuti');
   swup.cache.remove('/categoria/contenuti/rubriche');
