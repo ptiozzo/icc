@@ -1,0 +1,18 @@
+.transition{
+  transition: 2s;
+  opacity: 1;
+  position: relative;
+  top:0;
+  left: 0;
+}
+
+/* in */
+html.is-animatig .transition{
+  opacity: 0;
+  top: -20px;
+}
+/* out */
+html.is-leaving .transition{
+  opacity: 0;
+  top: 70px;
+}
