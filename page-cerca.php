@@ -56,6 +56,7 @@
   <!-- Dropdown per selezione contenuto -->
   <form class="mb-2" method="post" action="<?php echo get_pagenum_link(); ?>">
         <input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>">
+        <div class="form-inline">
         <?php
           if ($searchterm != '')
           {
@@ -72,7 +73,7 @@
             }
          ?>
          <br />
-        <select name="contenuti-dropdown">
+        <select name="contenuti-dropdown" class="custom-select">
           <option value="i-nostri-contenuti" <?php if ($SearchCat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'Tutti i nostri contenuti'; ?></option>
           <?php
             $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
@@ -87,7 +88,7 @@
           <option value="nostri-libri" <?php if ($SearchCat1 == 'nostri-libri') {echo 'selected';}?>>I nostri libri</option>
         </select>
       <!-- Dropdown per selezione tematica -->
-      <select name="tematica-dropdown">
+      <select name="tematica-dropdown" class="custom-select">
         <option value="tematica" <?php if ($SearchCat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tutte le tematiche'; ?></option>
         <?php
           $categories = get_categories('child_of='.get_category_by_slug($ParentCat2)->term_id);
@@ -101,7 +102,7 @@
           ?>
       </select>
       <!-- Dropdown per autore -->
-      <select name="autore-dropdown">
+      <select name="autore-dropdown" class="custom-select">
         <option value="autore" <?php if ($SearchAutore == 'autore') {echo 'selected';}?> ><?php echo 'Tutti gli autori'; ?></option>
         <?php
         $args = array(
@@ -120,12 +121,13 @@
          ?>
       </select>
     <!-- Dropdown per ordinemento post -->
-    <select name="order-dropdown">
+    <select name="order-dropdown" class="custom-select">
         <option value="DESC" <?php if ($SearchOrd == 'DESC') {echo 'selected';}?> >Ordina per data più recente</option>
         <option value="ASC" <?php if ($SearchOrd == 'ASC') {echo 'selected';}?> >Ordina per data meno recente</option>
     </select>
   <?php } ?>
     <input name="submit_button" type="Submit" value="Cerca">
+  </div>
   </form>
 </div><!-- contenuti_header -->
 
