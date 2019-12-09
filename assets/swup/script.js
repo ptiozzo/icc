@@ -6,7 +6,6 @@
     animationSelector: '[class*="transition-"]',
     containers: ["#swup"],
     plugins: [new SwupScrollPlugin(),
-              new SwupFormsPlugin(),
               new SwupGaPlugin(),
       ],
     cache: false,
