@@ -9,33 +9,36 @@
   <?php
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
+  //echo "TRAN PRIMA: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
   if ($_POST['submit_button']){
     $Cat1 = $_POST['contenuti-dropdown'];
     $Cat2 = $_POST['tematica-dropdown'];
     $ord = $_POST['order-dropdown'];
     $paged = 0;
-    $_SESSION['cat1'] = $Cat1;
-    $_SESSION['cat2'] = $Cat2;
-    $_SESSION['ord'] = $ord;
+    set_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'],$Cat1,12 * HOUR_IN_SECONDS);
+    set_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'],$Cat2,12 * HOUR_IN_SECONDS);
+    set_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'],$ord,12 * HOUR_IN_SECONDS);
   } else {
     //Se non ho premuto submit verifico se ho qualcosa in sesisone,
     //altrimenti vado ai valori di default
-    if(isset($_SESSION['cat1'])) {
-        $Cat1 = $_SESSION['cat1'];
+    if(get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])) {
+        $Cat1 = get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']);
     } else {
-      $Cat1=$ParentCat1;
+      $Cat1 = $ParentCat1;
     }
-    if(isset($_SESSION['cat2'])) {
-        $Cat2 = $_SESSION['cat2'];
+    if(get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])) {
+        $Cat2 = get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID']);
     } else {
-      $Cat2=$ParentCat2;
+      $Cat2 = $ParentCat2;
     }
-    if(isset($_SESSION['ord'])) {
-        $ord = $_SESSION['ord'];
+    if(get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])) {
+        $ord = get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID']);
     } else {
-      $ord="DESC";
+      $ord = "DESC";
     }
   }
+  //echo "TRAN DOPO: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
+  //echo "VAR: ".$Cat1."-".$Cat2."-".$ord."<br>";
   if ($Cat1 == $ParentCat1){
     echo "<h1>".get_category_by_slug($ParentCat1)->name."</h1>";
   }

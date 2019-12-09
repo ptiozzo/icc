@@ -17,12 +17,7 @@
 			?>
 
 		</title>
-		<!--
-<?php echo wp_title(""); echo "|||"?>
-<?php echo bloginfo('name'); echo "|||"?>
-<?php bloginfo( 'description' ); ?>
 
-	-->
 		<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 		<meta name="title" content="<?php bloginfo( 'name' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -177,17 +172,20 @@
 <div id="swup" class="transition">
 
 	<?php
-
 				if(!is_single() && !is_page('cerca')){
-					unset($_SESSION['termine-cercato']);
+					delete_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID']);
+			    delete_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID']);
+			    delete_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID']);
+			    delete_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID']);
+			    delete_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID']);
 				}
 				if(!is_single() && !is_page('contenuti')){
-					unset ($_SESSION['cat1']);
-					unset ($_SESSION['cat2']);
-					unset ($_SESSION['ord']);
+					delete_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']);
+					delete_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID']);
+					delete_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID']);
 				}
 				if(!is_single() && !is_category('rubriche')){
-					unset($_SESSION['RubricheCat1']);
+					delete_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID']);
 				}
 	?>
 			<?php

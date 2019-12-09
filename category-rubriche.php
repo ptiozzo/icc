@@ -12,13 +12,12 @@
     $RubricheCat1 = $_POST['rubriche-dropdown'];
     $ord = $_POST['order-dropdown'];
     $paged = 0;
-    $_SESSION['RubricheCat1'] = $RubricheCat1;
-    $_SESSION['ord'] = $ord;
+    set_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID'],$RubricheCat1,12 * HOUR_IN_SECONDS);
   } else {
     //Se non ho premuto submit verifico se ho qualcosa in sesisone,
     //altrimenti vado ai valori di default
-    if(isset($_SESSION['RubricheCat1'])) {
-        $RubricheCat1 = $_SESSION['RubricheCat1'];
+    if(get_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID'])) {
+        $RubricheCat1 = get_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID']);
     } else {
       $RubricheCat1 = $ParentCat1;
     }

@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header();?>
 
 	<?php
 	if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia') || has_category('liguria-che-cambia')) {
@@ -23,13 +23,14 @@
 			<!-- Categorie -->
 			<div class='single__nav__category'>
 				<?php
-				if(isset($_SESSION['cat1'])) { ?>
+				//echo "TRAN PRIMA: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
+				if(get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']) || get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])) { ?>
 					<a href="<?php echo home_url(); ?>/contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
 				<?php }
-				if(isset($_SESSION['RubricheCat1'])) { ?>
+				if(get_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID'])) { ?>
 					<a href="<?php echo home_url(); ?>/categoria/contenuti/rubriche/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alle rubriche</a>
 				<?php }
-				if(isset($_SESSION['termine-cercato'])) { ?>
+				if(get_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'])) { ?>
 					<a href="<?php echo home_url(); ?>/cerca/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
 				<?php }
 					the_category(' ');

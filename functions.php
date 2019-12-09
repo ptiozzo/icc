@@ -203,7 +203,7 @@ function end_session() {
 add_action('wp_logout','end_session');
 add_action('wp_login','end_session');
 add_action('end_session_action','end_session');
-
+//fine sessione
 
 
 /* Aggiunta banner ATTIVATI dopo secondo paragrafo.

@@ -17,36 +17,36 @@
     $SearchOrd = $_POST['order-dropdown'];
     $SearchAutore = $_POST['autore-dropdown'];
     $paged = 0;
-    $_SESSION['termine-cercato'] = $searchterm;
-    $_SESSION['SearchCat1'] = $SearchCat1;
-    $_SESSION['SearchCat2'] = $SearchCat2;
-    $_SESSION['SearchOrd'] = $SearchOrd;
-    $_SESSION['SearchAutore'] = $SearchAutore;
+    set_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'],$searchterm,12 * HOUR_IN_SECONDS);
+    set_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID'],$SearchCat1,12 * HOUR_IN_SECONDS);
+    set_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID'],$SearchCat2,12 * HOUR_IN_SECONDS);
+    set_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID'],$SearchOrd,12 * HOUR_IN_SECONDS);
+    set_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID'],$SearchAutore,12 * HOUR_IN_SECONDS);
   } else {
     //Se non ho premuto submit verifico se ho qualcosa in sesisone,
     //altrimenti vado ai valori di default
-    if(isset($_SESSION['termine-cercato'])) {
-        $searchterm = $_SESSION['termine-cercato'];
+    if(get_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'])) {
+        $searchterm = get_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID']);
     } else {
       $searchterm='';
     }
-    if(isset($_SESSION['SearchCat1'])) {
-        $SearchCat1 = $_SESSION['SearchCat1'];
+    if(get_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID'])) {
+        $SearchCat1 = get_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID']);
     } else {
       $SearchCat1=$ParentCat1;
     }
-    if(isset($_SESSION['SearchCat2'])) {
-        $SearchCat2 = $_SESSION['SearchCat2'];
+    if(get_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID'])) {
+        $SearchCat2 = get_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID']);
     } else {
       $SearchCat2=$ParentCat2;
     }
-    if(isset($_SESSION['SearchOrd'])) {
-        $SearchOrd = $_SESSION['SearchOrd'];
+    if(get_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID'])) {
+        $SearchOrd = get_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID']);
     } else {
       $SearchOrd="DESC";
     }
-    if(isset($_SESSION['SearchAutore'])) {
-      $SearchAutore = $_SESSION['SearchAutore'];
+    if(get_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID'])) {
+      $SearchAutore = get_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID']);
     } else {
       $SearchAutore = '';
     }
