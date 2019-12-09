@@ -191,10 +191,19 @@ function icc_menu_admin_page_suggestion()
 /* ------------------------------------ */
 function start_session() {
 	if(!session_id()) {
-	session_start();
+		session_start();
 	}
 }
 add_action('init', 'start_session', 1);
+
+function end_session() {
+	session_destroy ();
+}
+
+add_action('wp_logout','end_session');
+add_action('wp_login','end_session');
+add_action('end_session_action','end_session');
+
 
 
 /* Aggiunta banner ATTIVATI dopo secondo paragrafo.
