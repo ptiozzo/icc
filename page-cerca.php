@@ -126,7 +126,7 @@
         <option value="ASC" <?php if ($SearchOrd == 'ASC') {echo 'selected';}?> >Ordina per data meno recente</option>
     </select>
   <?php } ?>
-    <input name="submit_button" type="Submit" value="Cerca">
+    <input name="submit_button" type="Submit" value="Cerca" class="btn btn-secondary">
   </div>
   </form>
 </div><!-- contenuti_header -->
