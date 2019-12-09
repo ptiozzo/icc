@@ -236,7 +236,7 @@ function catch_that_image() {
   $first_img = $matches[1][0];
 
   if(empty($first_img)) {
-    $first_img = "https://via.placeholder.com/305x207?text=ItaliaCheCambiia.org";
+    $first_img = "https://via.placeholder.com/305x207?text=ItaliaCheCambia.org";
   }
   return $first_img;
 }

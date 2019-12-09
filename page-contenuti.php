@@ -14,10 +14,10 @@
     $Cat1 = $_POST['contenuti-dropdown'];
     $Cat2 = $_POST['tematica-dropdown'];
     $ord = $_POST['order-dropdown'];
-    $paged = 0;
     set_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'],$Cat1,12 * HOUR_IN_SECONDS);
     set_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'],$Cat2,12 * HOUR_IN_SECONDS);
     set_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'],$ord,12 * HOUR_IN_SECONDS);
+    $paged = 0;
   } else {
     //Se non ho premuto submit verifico se ho qualcosa in sesisone,
     //altrimenti vado ai valori di default
@@ -37,7 +37,7 @@
       $ord = "DESC";
     }
   }
-  //echo "TRAN DOPO: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
+  echo "TRAN DOPO: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
   //echo "VAR: ".$Cat1."-".$Cat2."-".$ord."<br>";
   if ($Cat1 == $ParentCat1){
     echo "<h1>".get_category_by_slug($ParentCat1)->name."</h1>";
@@ -146,8 +146,8 @@
       );
     }
     /*eseguo la query */
-    $loop = new WP_Query( $args );
 
+    $loop = new WP_Query( $args );
     if( $loop->have_posts() ) :
       /* Eseguo qualcosa se ho post nel loop */
       ?>
@@ -157,32 +157,31 @@
         <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <a href='<?php the_permalink(); ?>'>
-              <?php
-              if ($Cat1 == $ParentCat1) { ?>
                 <div class='category'>
                   <span><?php the_time('j M Y') ?></span>
                   <span>
                     <?php get_template_part('inc/post','etichetta'); ?>
                   </span>
                 </div>
-              <?php } ?>
               <!-- Immagine in evidenza -->
               <figure>
                 <?php
+
                   if ($Cat1 != "nostri-libri"){
                     if ( has_post_thumbnail() ) {
-      								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
-      							}
-      							else{
-      								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+      								echo get_the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+      							}else{
+                      echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
       							}
                   } else {
                     the_post_thumbnail('icc_libri', array('class' => 'img-fluid','alt' => get_the_title()));
                   }
+
                 ?>
               </figure>
               <!-- Autore o autori -->
               <?php
+
               if ($Cat1 != "nostri-libri"){
                 echo "<div class='autore'>Scritto da <b>".get_the_author();
                 /* controllo se esiste un secondo autore */
