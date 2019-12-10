@@ -37,7 +37,7 @@
       $ord = "DESC";
     }
   }
-  echo "TRAN DOPO: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
+  //echo "TRAN DOPO: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
   //echo "VAR: ".$Cat1."-".$Cat2."-".$ord."<br>";
   if ($Cat1 == $ParentCat1){
     echo "<h1>".get_category_by_slug($ParentCat1)->name."</h1>";
@@ -169,7 +169,7 @@
 
                   if ($Cat1 != "nostri-libri"){
                     if ( has_post_thumbnail() ) {
-      								echo get_the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+      								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
       							}else{
                       echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
       							}
