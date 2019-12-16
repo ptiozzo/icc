@@ -2,6 +2,7 @@
 <?php
   $ParentCat1='i-nostri-contenuti';
   $ParentCat2='tematica';
+  $ParentReg='regioni';
 ?>
 <div class="container-fluid content-no-sidebar cerca">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
@@ -16,12 +17,14 @@
     $SearchCat2 = $_POST['tematica-dropdown'];
     $SearchOrd = $_POST['order-dropdown'];
     $SearchAutore = $_POST['autore-dropdown'];
+    $SearchReg = $_POST['regione-dropdown'];
     $paged = 0;
     set_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'],$searchterm,12 * HOUR_IN_SECONDS);
     set_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID'],$SearchCat1,12 * HOUR_IN_SECONDS);
     set_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID'],$SearchCat2,12 * HOUR_IN_SECONDS);
     set_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID'],$SearchOrd,12 * HOUR_IN_SECONDS);
     set_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID'],$SearchAutore,12 * HOUR_IN_SECONDS);
+    set_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID'],$SearchReg,12 * HOUR_IN_SECONDS);
   } else {
     //Se non ho premuto submit verifico se ho qualcosa in sesisone,
     //altrimenti vado ai valori di default
@@ -50,28 +53,21 @@
     } else {
       $SearchAutore = '';
     }
+    if(get_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID'])) {
+      $SearchReg = get_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID']);
+    } else {
+      $SearchReg = '';
+    }
   }
 
  ?>
   <!-- Dropdown per selezione contenuto -->
   <form class="mb-2" method="post" action="<?php echo get_pagenum_link(); ?>">
         <input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>">
+        <input name="submit_button" type="Submit" value="Cerca" class="btn btn-secondary">
         <div class="form-inline">
-        <?php
-          if ($searchterm != '')
-          {
-            if( ($SearchCat1 == $ParentCat1) && ($SearchCat2 == $ParentCat2)){
-              $SearchCatTerm = '';
-            } elseif ($SearchCat1 == $ParentCat1) {
-              $SearchCatTerm = $SearchCat2;
-            } elseif ($SearchCat2 == $ParentCat2) {
-              $SearchCatTerm = $SearchCat1;
-            } elseif ( ($SearchCat1 == '') && ($SearchCat2 == '')) {
-              $SearchCatTerm = '';
-            } else {
-              $SearchCatTerm = $SearchCat1.'+'.$SearchCat2;
-            }
-         ?>
+
+
          <br />
         <select name="contenuti-dropdown" class="custom-select">
           <option value="i-nostri-contenuti" <?php if ($SearchCat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'Tutti i nostri contenuti'; ?></option>
@@ -120,17 +116,51 @@
         }
          ?>
       </select>
+      <!-- Dropdown per selezione regione -->
+      <select name="regione-dropdown"  class="custom-select">
+        <option value="regioni" <?php if ($SearchReg == 'regioni') {echo 'selected';}?> ><?php echo 'Nazionale'; ?></option>
+        <?php
+          $categories = get_categories('child_of='.get_category_by_slug($ParentReg)->term_id);
+          foreach ($categories as $category) {
+            $option = '<option value="'.$category->category_nicename.'" ';
+            if ($SearchReg == $category->category_nicename) {$option .= 'selected ';};
+            $option .= '>'.$category->cat_name;
+            $option .= '</option>';
+            echo $option;
+          }
+          ?>
+      </select>
     <!-- Dropdown per ordinemento post -->
     <select name="order-dropdown" class="custom-select">
         <option value="DESC" <?php if ($SearchOrd == 'DESC') {echo 'selected';}?> >Ordina per data più recente</option>
         <option value="ASC" <?php if ($SearchOrd == 'ASC') {echo 'selected';}?> >Ordina per data meno recente</option>
     </select>
-  <?php } ?>
-    <input name="submit_button" type="Submit" value="Cerca" class="btn btn-secondary">
   </div>
   </form>
 </div><!-- contenuti_header -->
-
+<?php
+  if ($searchterm != ''){
+    $SearchCatTerm = '';
+    if($SearchCat1 != $ParentCat1){
+      $SearchCatTerm = $SearchCat1;
+    }
+    if($SearchCat2 != $ParentCat2){
+      if($SearchCatTerm == ''){
+        $SearchCatTerm = $SearchCat2;
+      }else{
+        $SearchCatTerm .= "+".$SearchCat2;
+      }
+    }
+    if($SearchReg != $ParentReg){
+      if($SearchCatTerm == ''){
+        $SearchCatTerm = $SearchReg;
+      }else{
+        $SearchCatTerm .= "+".$SearchReg;
+      }
+    }
+  }
+    echo $SearchCatTerm;
+ ?>
   <?php
 
   echo "<!-- SearchTerm: ";

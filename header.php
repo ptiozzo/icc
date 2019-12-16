@@ -178,10 +178,12 @@
 			    delete_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID']);
 			    delete_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID']);
 			    delete_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID']);
+					delete_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID']);
 				}
 				if(!is_single() && !is_page('contenuti')){
 					delete_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']);
 					delete_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID']);
+					delete_transient('icc_contenutiReg_'.(string) $_COOKIE['PHPSESSID']);
 					delete_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID']);
 				}
 				if(!is_single() && !is_category('rubriche')){

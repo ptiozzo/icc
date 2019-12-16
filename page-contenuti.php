@@ -2,6 +2,7 @@
 <?php
   $ParentCat1='contenuti';
   $ParentCat2='tematica';
+  $ParentReg='regioni';
 ?>
 <div class="container-fluid contenuti">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
@@ -13,9 +14,11 @@
   if ($_POST['submit_button']){
     $Cat1 = $_POST['contenuti-dropdown'];
     $Cat2 = $_POST['tematica-dropdown'];
+    $reg = $_POST['regione-dropdown'];
     $ord = $_POST['order-dropdown'];
     set_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'],$Cat1,12 * HOUR_IN_SECONDS);
     set_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'],$Cat2,12 * HOUR_IN_SECONDS);
+    set_transient('icc_contenutiReg_'.(string) $_COOKIE['PHPSESSID'],$reg,12 * HOUR_IN_SECONDS);
     set_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'],$ord,12 * HOUR_IN_SECONDS);
     $paged = 0;
   } else {
@@ -30,6 +33,11 @@
         $Cat2 = get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID']);
     } else {
       $Cat2 = $ParentCat2;
+    }
+    if(get_transient('icc_contenutiReg_'.(string) $_COOKIE['PHPSESSID'])) {
+        $reg = get_transient('icc_contenutiReg_'.(string) $_COOKIE['PHPSESSID']);
+    } else {
+      $reg = $ParentReg;
     }
     if(get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])) {
         $ord = get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID']);
@@ -77,6 +85,20 @@
           }
           ?>
       </select>
+      <!-- Dropdown per selezione regione -->
+      <select name="regione-dropdown"  class="custom-select">
+        <option value="regioni" <?php if ($reg == 'regioni') {echo 'selected';}?> ><?php echo 'Nazionale'; ?></option>
+        <?php
+          $categories = get_categories('child_of='.get_category_by_slug($ParentReg)->term_id);
+          foreach ($categories as $category) {
+            $option = '<option value="'.$category->category_nicename.'" ';
+            if ($reg == $category->category_nicename) {$option .= 'selected ';};
+            $option .= '>'.$category->cat_name;
+            $option .= '</option>';
+            echo $option;
+          }
+          ?>
+      </select>
     <!-- Dropdown per ordinemento post -->
     <select name="order-dropdown"  class="custom-select">
         <option value="DESC" <?php if ($ord == 'DESC') {echo 'selected';}?> >Ordina per data più recente</option>
@@ -101,14 +123,23 @@
 
 
   <?php
-    if( ($Cat1 == $ParentCat1) && ($Cat2 == $ParentCat2)){
-      $CatTerm = '';
-    } elseif ($Cat1 == $ParentCat1) {
-      $CatTerm = $Cat2;
-    } elseif ($Cat2 == $ParentCat2) {
-      $CatTerm = $Cat1;
-    } else {
-      $CatTerm = $Cat1.'+'.$Cat2;
+    $CatTerm = '';
+    if($Cat1 != $ParentCat1) {
+      $CatTerm .= $Cat1;
+    }
+    if($Cat2 != $ParentCat2) {
+      if($CatTerm == ''){
+        $CatTerm = $Cat2;
+      }else{
+        $CatTerm .= "+".$Cat2;
+      }
+    }
+    if($reg != $ParentReg) {
+      if($CatTerm == ''){
+        $CatTerm = $reg;
+      }else{
+        $CatTerm .= "+".$reg;
+      }
     }
 
     ?>
@@ -134,7 +165,16 @@
         'paged'          => $paged,
         'order' => $ord,
       );
-    }else {
+    } elseif($reg != $ParentReg) {
+      $args = array(
+          'post_type' => array('post','rassegna-stampa','nostri-libri'),
+          'category_name' => $CatTerm,
+          'posts_per_page' => 20,
+          'ignore_sticky_posts' => 1,
+          'paged'          => $paged,
+          'order'         => $ord,
+      );
+    } else {
       $args = array(
           'post_type' => array('post','rassegna-stampa','nostri-libri'),
           'category_name' => $CatTerm,
