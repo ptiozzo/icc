@@ -157,6 +157,7 @@ LINK
 .category-documentari a{color: #3D78D0}
 .category-rubriche a,
 .category-appunti-viaggio a,
+.category-ashoka-fellow a,
 .category-diari-di-bordo-maestro-di-strada a,
 .category-dizionario-eretico a,
 .category-economia-bene-comune a,
@@ -484,6 +485,7 @@ div.contenuti_header select{
 .cat2.category-documentari{background: #3D78D0}
 .cat2.category-rubriche,
 .cat2.category-appunti-viaggio,
+.cat2.category-ashoka-fellow,
 .cat2.category-diari-di-bordo-maestro-di-strada,
 .cat2.category-dizionario-eretico,
 .cat2.category-economia-bene-comune,
@@ -618,6 +620,7 @@ row
 .single .category-documentari .single__nav__category{background: #3D78D0}
 .single .category-rubriche .single__nav__category,
 .single .category-appunti-viaggio .single__nav__category,
+.single .category-ashoka-fellow .single__nav__category,
 .single .category-diari-di-bordo-maestro-di-strada .single__nav__category,
 .single .category-dizionario-eretico .single__nav__category,
 .single .category-economia-bene-comune .single__nav__category,
@@ -687,6 +690,7 @@ row
 .single .category-documentari .single__tag a{background: #3D78D0}
 .single .category-rubriche .single__tag a,
 .single .category-appunti-viaggio .single__tag a,
+.single .category-ashoka-fellow .single__tag a,
 .single .category-diari-di-bordo-maestro-di-strada .single__tag a,
 .single .category-dizionario-eretico .single__tag a,
 .single .category-economia-bene-comune .single__tag a,
@@ -1110,6 +1114,7 @@ COLORI HOME
 .card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
 .card article.category-rubriche .category-bg,
 .card article.category-appunti-viaggio .category-bg,
+.card article.category-ashoka-fellow .category-bg,
 .card article.category-diari-di-bordo-maestro-di-strada .category-bg,
 .card article.category-dizionario-eretico .category-bg,
 .card article.category-economia-bene-comune .category-bg,
