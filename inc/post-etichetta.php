@@ -10,6 +10,8 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'News dalla Liguria';
 }elseif (in_category('appunti-viaggio')){
   echo 'Appunti di viaggio';
+}elseif (in_category('ashoka-fellow')){
+  echo 'Gli Ashoka Fellow';
 }elseif (in_category('diari-di-bordo-maestro-di-strada')){
   echo 'Maestro di strada';
 }elseif (in_category('dizionario-eretico')){
