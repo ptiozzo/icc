@@ -199,6 +199,7 @@ div.single a:hover{
 header.stripe{
   z-index: 1040;
   position: sticky;
+  position: -webkit-sticky;
 }
 header.stripe .right-col nav>ul>li:not(:last-child){
   margin-right: 20px;
@@ -217,6 +218,7 @@ header .overlay-menu>figure.hand{
 
  .menu_regioni{
    position: sticky;
+   position: -webkit-sticky;
    top:80px;
    z-index: 1020;
    width: 100vw;
@@ -1293,6 +1295,7 @@ NEWSBAR
 .newsbar{
   background: #ebebeb;
   position: sticky;
+  position: -webkit-sticky;
   bottom: 0;
   z-index: 1000;
   color: #9BCE8F;
