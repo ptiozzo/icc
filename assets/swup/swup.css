@@ -1,4 +1,4 @@
-.transition{
+.swuptransition{
   transition: 0.6s;
   opacity: 1;
   position: relative;
@@ -7,12 +7,12 @@
 }
 
 /* in */
-html.is-animatig .transition{
+html.is-animatig .swuptransition{
   opacity: 0;
   top: -20px;
 }
 /* out */
-html.is-leaving .transition{
+html.is-leaving .swuptransition{
   opacity: 0;
   top: 70px;
 }

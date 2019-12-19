@@ -169,7 +169,7 @@
 				<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/hand.svg' alt='italia che cambia'>
 			</figure>
 		</header>
-<div id="swup" class="transition">
+<div id="swup" class="swuptransition">
 
 	<?php
 				if(!is_single() && !is_page('cerca')){

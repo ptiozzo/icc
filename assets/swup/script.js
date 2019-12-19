@@ -3,7 +3,7 @@
   /* swup */
   const options = {
     animateHistoryBrowsing: false,
-    animationSelector: '[class*="transition-"]',
+    animationSelector: '[class*="swuptransition-"]',
     containers: ["#swup"],
     plugins: [new SwupScrollPlugin(),
               new SwupGaPlugin(),
