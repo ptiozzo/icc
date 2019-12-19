@@ -118,7 +118,7 @@
       </select>
       <!-- Dropdown per selezione regione -->
       <select name="regione-dropdown"  class="custom-select">
-        <option value="regioni" <?php if ($SearchReg == 'regioni') {echo 'selected';}?> ><?php echo 'Nazionale'; ?></option>
+        <option value="regioni" <?php if ($SearchReg == 'regioni') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
         <?php
           $categories = get_categories('child_of='.get_category_by_slug($ParentReg)->term_id);
           foreach ($categories as $category) {
@@ -131,10 +131,12 @@
           ?>
       </select>
     <!-- Dropdown per ordinemento post -->
+    <!--
     <select name="order-dropdown" class="custom-select">
-        <option value="DESC" <?php if ($SearchOrd == 'DESC') {echo 'selected';}?> >Ordina per data più recente</option>
-        <option value="ASC" <?php if ($SearchOrd == 'ASC') {echo 'selected';}?> >Ordina per data meno recente</option>
+        <option value="DESC" <?php if ($SearchOrd == 'DESC') {echo 'selected';}?> >Ordina per più recente</option>
+        <option value="ASC" <?php if ($SearchOrd == 'ASC') {echo 'selected';}?> >Ordina per meno recente</option>
     </select>
+  -->
   </div>
   </form>
 </div><!-- contenuti_header -->
