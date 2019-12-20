@@ -36,7 +36,7 @@ Template Name: Piemonte che cambia
 				<div id="carouselEvidenza" class="carousel carousel-control-top slide <?php if ($icc_numeroPost > 1){echo "controll-visible";} ?>" data-ride="carousel" data-interval="false">
           <?php if ($icc_numeroPost > 1) { ?>
             <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
-              <a class="carousel-control-prev" href="#carouselEvidenza" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#carouselEvidenza" data-no-swup role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
               </a>
@@ -46,7 +46,7 @@ Template Name: Piemonte che cambia
                 <?php }	?>
                 <p class=""> /<?php echo $icc_numeroPost;?></p>
               </ol>
-              <a class="carousel-control-next" href="#carouselEvidenza" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#carouselEvidenza" data-no-swup role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </a>
