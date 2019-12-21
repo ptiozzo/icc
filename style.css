@@ -201,6 +201,9 @@ header.stripe{
   position: sticky;
   position: -webkit-sticky;
 }
+header.stripe .btn{
+  margin: 15px 0;
+}
 header.stripe .right-col nav>ul>li:not(:last-child){
   margin-right: 20px;
 }

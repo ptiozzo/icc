@@ -40,7 +40,7 @@ if (get_option('icc_realta_mappate_casentino') && $dbDaAggiornare == 'no'){
 
 <div id="carouselMappa" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
   <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
-    <a class="carousel-control-prev" href="#carouselMappa" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carouselMappa" data-no-swup role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
@@ -54,7 +54,7 @@ if (get_option('icc_realta_mappate_casentino') && $dbDaAggiornare == 'no'){
       endforeach;?>
       <p class=""> /<?php echo floor($i/2+1); ?></p>
     </ol>
-    <a class="carousel-control-next" href="#carouselMappa" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselMappa" data-no-swup role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
