@@ -110,16 +110,30 @@
     <div class="col-lg-home2 col-md-12 order-1 order-xl-2">
 
 			<?php
-			$argsRassegna = array(
+      $argsRassegna = array(
 			'post_type' => 'rassegna-stampa',
 			'posts_per_page' => 1,
-      'date_query' => array(
-         array(
-           'after' => '6 hours ago',
-         )
-        )
+      'tax_query' => array(
+        array(
+            'taxonomy'=> 'icc_altri_filtri',
+            'field'   => 'slug',
+            'terms'		=> 'RassegnaSticky',
+        ),
+      ),
 			);
-			$loopRassegna = new WP_Query( $argsRassegna );
+      $loopRassegna = new WP_Query( $argsRassegna );
+      if(!$loopRassegna->have_posts()){
+  			$argsRassegna = array(
+  			'post_type' => 'rassegna-stampa',
+  			'posts_per_page' => 1,
+        'date_query' => array(
+           array(
+             'after' => '6 hours ago',
+           )
+          )
+  			);
+  			$loopRassegna = new WP_Query( $argsRassegna );
+      }
       $argsSticky = array(
           'post__in' => array_diff(get_option( 'sticky_posts' ),$exclude_posts),
           'ignore_sticky_posts' => 1,
