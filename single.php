@@ -113,6 +113,14 @@
 						}
 					?>
 				</div>
+				<!-- llustrazione di -->
+				<div class="single__author">
+						<?php
+						if( !empty (get_post_meta( get_the_ID(), 'IllustrazioniDi',true))){
+							echo "Illustrazioni di: <b>". get_post_meta( get_the_ID(), 'IllustrazioniDi',true)."</b>";
+						}
+					?>
+				</div>
 				<!-- Meta Description -->
 				<h2 class="single__metaDescription">
 					<?php the_excerpt();?>
