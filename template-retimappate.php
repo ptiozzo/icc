@@ -51,6 +51,7 @@ if (get_query_var( 'par1' )) {
 
 	$codici_reti = array( "action-aid" => 3180,
 						  "arcipelago-scec" => 3185,
+							"ashoka" => 3974,
 						  "associazione-botteghe-del-mondo" => 3192,
 						  "banca-etica" => 3197,
 						  "banche-del-tempo" => 3181,
@@ -96,6 +97,7 @@ if (get_option('icc_mappa_reti') && $dbDaAggiornare == 'no'){
 	$reti = [
 		'{"value": "'.wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=network&n=3180')).'", "text": "Action aid", "color": "#82C1BD", "slug": "action-aid"}',
 		'{"value": "'.wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=network&n=3185')).'", "text": "Arcipelago scec", "color": "#1F8ABD", "slug": "arcipelago-scec"}',
+		'{"value": "'.wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=network&n=3974')).'", "text": "Ashoka", "color": "#82C1BD", "slug": "ashoka"}',
 		'{"value": "'.wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=network&n=3192')).'", "text": "Associazione botteghe del mondo", "color": "#8BCFBB", "slug": "associazione-botteghe-del-mondo"}',
 		'{"value": "'.wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=network&n=3197')).'", "text": "Banca etica", "color": "#82C1BD", "slug": "banca-etica"}',
 		'{"value": "'.wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=network&n=3181')).'", "text": "Banca del tempo", "color": "#BAE3B6", "slug": "banche-del-tempo"}',
