@@ -57,5 +57,6 @@ if( $loopNewsbar->have_posts() || $loopRassegna->have_posts() ) : ?>
           <?php endwhile; ?>
         </span>
         </div>
+        <?php get_template_part('loop/custom','contribuisci'); ?>
       </div>
 <?php endif; ?>
