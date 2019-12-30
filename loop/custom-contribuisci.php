@@ -1,4 +1,4 @@
-<div class="row contribuisci collapse show mx-0" id="contribuisci">
+<div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close'){echo "show";} ?> mx-0" id="contribuisci">
   <div class="col-7 offset-lg-2 p-2 font-weight-light">
     <p>Sempre più persone, come te, comprendono la necessità di un giornalismo indipendente e costruttivo.<br>
     <b>Italia che Cambia</b> è da sempre impegnata nella diffusione di notizie che contribuiscano a costruire un nuovo immaginario sul nostro Paese, fornendo esempi concreti per la transizione verso un mondo migliore.
@@ -7,5 +7,12 @@
     <p>Se ne hai la possibilità contribuisci a Italia che Cambia oggi anche con un piccolo contributo.</p>
   </div>
   <div class="col-auto d-flex align-items-end"><a class="btn btn-dark mb-3" href="/sostienici/">Contribuisci</a></div>
-  <div class="col-auto"><button class="btn btn-dark mt-1 text-black" type="button" data-toggle="collapse" data-target="#contribuisci" aria-expanded="false" aria-controls="collapseExample">X</a></div>
+  <div class="col-auto"><button class="btn btn-dark mt-1 text-black" type="button" data-toggle="collapse" data-target="#contribuisci" aria-expanded="false" aria-controls="collapsContribuisci">X</a></div>
 </div>
+<script>
+$('#contribuisci').on('hidden.bs.collapse', function () {
+  var date = new Date();
+  date.setTime(date.getTime()+(30*24*60*60*1000));
+  document.cookie = "contribuisci=close; expires=" + date.toGMTString() + ";path=/";
+})
+</script>
