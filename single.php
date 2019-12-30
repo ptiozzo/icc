@@ -171,6 +171,16 @@
 	<?php endif; ?>
 	<div class="row">
 		<div class="col-12 col-md-6 offset-md-3">
+			<?php
+			if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia') || has_category('liguria-che-cambia')) {
+				if (has_category('piemonte-che-cambia')){
+					dynamic_sidebar('singlepiemonteend');
+				} elseif (has_category('casentino-che-cambia')) {
+					dynamic_sidebar('singlecasentinoend');
+				} elseif (has_category('liguria-che-cambia')) {
+					dynamic_sidebar('singleliguriaend');
+				}
+			} ?>
 			<?php dynamic_sidebar('singleend'); ?>
 		</div>
 	</div>
