@@ -291,6 +291,22 @@ TITOLI HOME
   z-index: 1;
 }
 
+/*Contribuisci*/
+.contribuisci{
+  background-color: yellow;
+  color: black;
+}
+.contribuisci a{
+  color: white;
+}
+
+/*Botton per iscrizione su menu regionali*/
+.btn-region{
+  color: white;
+  background-color: #749A4F;
+  border-color: #749A4F;
+}
+
  /*	Sidebar
  */
 
@@ -1390,13 +1406,4 @@ NEWSBAR
    transform: translateX(-300%);
    }
   }
-}
-
-/*Contribuisci*/
-.contribuisci{
-  background-color: yellow;
-  color: black;
-}
-.contribuisci a{
-  color: white;
 }

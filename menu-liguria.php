@@ -22,6 +22,54 @@
      'walker'          => new bs4navwalker()
    ]);
    ?>
+   <button type="button" class="btn btn-outline-dark border-0 mr-2 text-white" data-toggle="modal" data-target="#LiguriaAccedi">
+     <img src="https://www.pianetafuturo.it/uploads/favicon.png" width="32px" height="32px" alt="Accedi"> Accedi
+   </button>
+
+   <button type="button" class="btn btn-region mr-2" data-toggle="modal" data-target="#LiguriaIscriviti">
+    Iscriviti
+   </button>
 </nav>
+
+
+
+
+<div class="modal fade" id="LiguriaAccedi" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="LiguriaAccediTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="LiguriaAccediTitle">Accedi</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <iframe src="https://api.pianetafuturo.it/widget/account/ext_login.php?a=8" height="300px" width="100%"></iframe>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="LiguriaIscriviti" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="LiguriaIscrivitiTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="LiguriaIscrivitiTitle">Iscriviti</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <iframe src="https://api.pianetafuturo.it/widget/account/ext_register.php?a=8" height="400px" width="100%"></iframe>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
 
 </header>
