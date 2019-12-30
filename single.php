@@ -170,7 +170,7 @@
 
 	<?php endif; ?>
 	<div class="row">
-		<div class="col-12 col-md-6 offset-md-3">
+		<div class="col-12">
 			<?php
 			if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia') || has_category('liguria-che-cambia')) {
 				if (has_category('piemonte-che-cambia')){
@@ -181,6 +181,8 @@
 					dynamic_sidebar('singleliguriaend');
 				}
 			} ?>
+		</div>
+		<div class="col-12 col-md-6 offset-md-3">
 			<?php dynamic_sidebar('singleend'); ?>
 		</div>
 	</div>
