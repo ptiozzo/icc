@@ -1,4 +1,4 @@
-<div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close2'){echo "show";} ?> mx-0" id="contribuisci">
+<div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close'){echo "show";} ?> mx-0" id="contribuisci">
   <div class="col-12 col-md-7 offset-lg-2 p-2 font-weight-light">
     <p class="d-none d-md-block">Sempre più persone, come te, comprendono la necessità di un giornalismo indipendente e costruttivo.<br>
     <b>Italia che Cambia</b> è da sempre impegnata nella diffusione di notizie che contribuiscano a costruire un nuovo immaginario sul nostro Paese, fornendo esempi concreti per la transizione verso un mondo migliore.
