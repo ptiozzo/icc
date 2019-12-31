@@ -115,7 +115,8 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 }
 add_action( 'widgets_init', 'icc_sidebars' );
 
-
+/*  Include Rassegna stampa in RSS
+/* ------------------------------------ */
 function myfeed_request($qv) {
     if (isset($qv['feed']) && !isset($qv['post_type']))
         $qv['post_type'] = array('post', 'rassegna-stampa');
@@ -134,6 +135,26 @@ function abl1035_alx_embed_html( $html ) {
 }
 add_filter( 'embed_oembed_html', 'abl1035_alx_embed_html', 10, 3 );
 add_filter( 'video_embed_html', 'abl1035_alx_embed_html' ); // Jetpack
+
+/*  Exclude regione che cambia da category list in singolo articolo
+/* ------------------------------------ */
+add_filter('get_the_terms', 'hide_categories_terms', 10, 3);
+function hide_categories_terms($terms, $post_id, $taxonomy){
+
+    // list of category slug to exclude,
+    $exclude = array('piemonte-che-cambia', 'casentino-che-cambia','liguria-che-cambia');
+
+    if (!is_admin() && is_single()) {
+        foreach($terms as $key => $term){
+            if($term->taxonomy == "category"){
+                if(in_array($term->slug, $exclude)) unset($terms[$key]);
+            }
+        }
+    }
+
+    return $terms;
+}
+
 
 /*  Custom post type
 /* ------------------------------------ */
