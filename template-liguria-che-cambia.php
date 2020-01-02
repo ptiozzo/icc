@@ -22,7 +22,7 @@ Template Name: Liguria che cambia
 
 
 
-      <?php get_template_part('loop/loop','ultimerealtaliguria'); ?>
+      <?php get_template_part('loop/loop','liguriaultimerealta'); ?>
 
 
 

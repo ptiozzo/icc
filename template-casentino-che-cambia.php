@@ -90,7 +90,7 @@ Template Name: Casentino che cambia
 
     <div class="pb-3">
 
-			<?php get_template_part('loop/loop','slidermappacasentino'); ?>
+			<?php get_template_part('loop/loop','casentinoslidermappa'); ?>
 
     </div>
     </div>

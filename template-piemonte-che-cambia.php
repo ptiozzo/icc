@@ -91,7 +91,7 @@ Template Name: Piemonte che cambia
 
     <div class="pb-3">
 
-      <?php get_template_part('loop/loop','slidermappapiemonte'); ?>
+      <?php get_template_part('loop/loop','piemonteslidermappa'); ?>
 
 
     </div>

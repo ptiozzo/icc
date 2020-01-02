@@ -3,105 +3,15 @@
 
 <div class="container-fluid home-page">
   <div class="row">
-    <div id="sidebar" class="col-lg-home1 col-md-12 order-2 order-xl-1">
+    <div id="sidebar" class="col-lg-home1 col-md-12 order-2 order-xl-1 d-none d-md-block">
       <div class="sidebar__inner">
-        <div class='head'>
-  				<div class='title'>
-  					<h5>APPROFONDIMENTI - ICC TV</h5>
-  				</div>
-  			</div>
 
-        <?php
-  			/* Query per Io faccio così/Meme
-  			*---------------------*/
-  			$args = array(
-  				'post_type' => 'post',
-  				'posts_per_page' => 10,
-  				'category_name' => 'io-faccio-cosi,meme',
-  				'tax_query' => array(
-  					array(
-  							'taxonomy'=> 'icc_altri_filtri',
-  							'field'   => 'slug',
-  							'terms'		=> 'InHome',
-  					),
-  				),
-  			);
-  			$loop = new WP_Query( $args );
-  			$i = 0;
-
-
-  			if( $loop->have_posts() ) : ?>
-  				<div id="carouselLeNostreStorie" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
-            <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
-              <a class="carousel-control-prev" href="#carouselLeNostreStorie" data-no-swup role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <ol class="carousel-indicators pr-2 text-white">
-                 <?php for ($count = 0;$count <= 10; $count++){ ?>
-  							         <li data-target="#carouselRassegnaEvidenza" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
-  							<?php }	?>
-                <p class=""> /<?php echo '5';?></p>
-              </ol>
-              <a class="carousel-control-next" href="#carouselLeNostreStorie" data-no-swup role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-  					<div class="carousel-inner">
-  					<?php
-  					while( $loop->have_posts() ) : $loop->the_post();
-  					$i++;
-  					if ($i % 2 == 1){ ?>
-  						<div class="carousel-item <?php if ($i == 1){echo 'active';} ?>">
-  							<div class="card-group">
-  					<?php
-  					}
-  					?>
-
-  						<div class="card border-0 p-1">
-  							<?php
-  							if ( has_post_thumbnail() ) {
-  								the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
-  							}
-  							else{
-  								echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
-  							}
-  							?>
-  							<div class="card-body p-1">
-  								<h5 class="card-title"><?php the_title(); ?></h5>
-  								<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
-  							</div>
-  						</div>
-  						<?php
-  						if ($i % 2 == 0){ ?>
-  								</div>
-  							</div>
-  						<?php
-  						}
-  						?>
-
-  				<?php
-          $exclude_posts[] = $post->ID;
-  				endwhile;
-  				if ($i % 2 == 1){ ?>
-  						</div>
-  					</div>
-  				<?php } ?>
-  					</div>
-  				</div>
-  			<?php
-  			else:
-  				echo "<p>Non ho trovato nessun Le storie</p>";
-  			endif;
-  			wp_reset_query();?>
-
+        <?php include('loop/loop-homeicctv.php'); ?>
 
         <?php dynamic_sidebar('homesx'); ?>
 
-
   			<div class="pb-3">
-          <?php get_template_part('loop/loop','slidermappahome'); ?>
+          <?php get_template_part('loop/loop','homeslidermappa'); ?>
   		  </div>
       </div>
     </div>
@@ -109,136 +19,7 @@
 
     <div class="col-lg-home2 col-md-12 order-1 order-xl-2">
 
-			<?php
-      $argsRassegna = array(
-			'post_type' => 'rassegna-stampa',
-			'posts_per_page' => 1,
-      'tax_query' => array(
-        array(
-            'taxonomy'=> 'icc_altri_filtri',
-            'field'   => 'slug',
-            'terms'		=> 'RassegnaSticky',
-        ),
-      ),
-			);
-      $loopRassegna = new WP_Query( $argsRassegna );
-      if(!$loopRassegna->have_posts()){
-  			$argsRassegna = array(
-  			'post_type' => 'rassegna-stampa',
-  			'posts_per_page' => 1,
-        'date_query' => array(
-           array(
-             'after' => '6 hours ago',
-           )
-          )
-  			);
-  			$loopRassegna = new WP_Query( $argsRassegna );
-      }
-      $argsSticky = array(
-          'post__in' => array_diff(get_option( 'sticky_posts' ),$exclude_posts),
-          'ignore_sticky_posts' => 1,
-          'posts_per_page' => 10,
-          'tax_query' => array(
-  					array(
-  							'taxonomy'=> 'icc_altri_filtri',
-  							'field'   => 'slug',
-  							'terms'		=> 'InHome',
-  					),
-  				),
-      );
-			$loopSticky = new WP_Query( $argsSticky );
-			$i = 0;
-      $icc_ArticNumber = $loopRassegna->found_posts+$loopSticky->found_posts;
-			if( $loopRassegna->have_posts() || $loopSticky->have_posts() ) : ?>
-        <div class='head'>
-  				<div class='title'>
-  					<h5>IN EVIDENZA</h5>
-  				</div>
-  			</div>
-        <div id="carouselRassegnaEvidenza" class="carousel carousel-control-top slide <?php if ($icc_ArticNumber > 1){echo "controll-visible";} ?>" data-ride="carousel" data-interval="5000">
-          <?php if ($icc_ArticNumber > 1) { ?>
-            <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
-              <a class="carousel-control-prev" href="#carouselRassegnaEvidenza" data-no-swup role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <ol class="carousel-indicators pr-2 text-white">
-                 <?php for ($count = 0;$count <= $icc_ArticNumber; $count++){ ?>
-  							         <li data-target="#carouselRassegnaEvidenza" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
-  							<?php }	?>
-                <p class=""> /<?php echo $icc_ArticNumber;?></p>
-              </ol>
-              <a class="carousel-control-next" href="#carouselRassegnaEvidenza" data-no-swup role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          <?php } ?>
-          <div class="carousel-inner">
-            <!-- Rassegna stampa -->
-				<?php	while( $loopRassegna->have_posts() ) : $loopRassegna->the_post();
-          $i++; ?>
-          <div class="carousel-item <?php if ($i == 1){echo "active";} ?>">
-            <article class="p-0">
-              <div class='content rassegna-stampa p-0'>
-        				<a href='<?php echo the_permalink();?>'>
-        						<?php
-        						if ( has_post_thumbnail() ) {
-        							the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
-        						}
-        						else{
-        							echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
-        						}
-        						?>
-        					<article>
-        						<div class='date'>
-        							<?php the_time('j M Y') ?>
-        						</div>
-        						<h5><?php the_title(); ?></h5>
-        						<div class='info'>A cura di <b><?php echo get_the_author();?></b></div>
-        					</article>
-        				</a>
-        			</div>
-            </article>
-          </div>
-          <?php
-          $exclude_posts[] = $post->ID;
-          endwhile;?>
-          <!-- Post in evidenza con flag InHome -->
-        	<?php while( $loopSticky->have_posts() ) : $loopSticky->the_post();
-          $i++?>
-            <div class="carousel-item <?php if ($i == 1){echo "active";} ?>">
-              <article class="p-0">
-                <div class='content rassegna-stampa p-0'>
-          				<a href='<?php echo the_permalink();?>'>
-          						<?php
-          						if ( has_post_thumbnail() ) {
-          							the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
-          						}
-          						else{
-          							echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
-          						}
-          						?>
-          					<article>
-          						<div class='date'>
-          							<?php the_time('j M Y') ?>
-          						</div>
-          						<h5><?php the_title(); ?></h5>
-          						<div class='info'>A cura di <b><?php echo get_the_author();?></b></div>
-          					</article>
-          				</a>
-          			</div>
-              </article>
-            </div>
-            <?php
-            $exclude_posts[] = $post->ID;
-            endwhile;
-            ?>
-        </div>
-      </div>
-			<?php
-			endif;
-			wp_reset_query();?>
+			<?php include('loop/loop-homeevidenza.php'); ?>
 
 
       <!-- Ultime news -->
@@ -318,11 +99,29 @@
 				if ( $loopUltimeNews->have_posts() ) : while( $loopUltimeNews->have_posts() ) : $loopUltimeNews->the_post();
 				    $i++;
 
-            //dopo 2 articoli metto area widget per bannerq
+            //dopo 2 articoli metto area widget per banner
             if($i == 3)
             {
               echo '<div class="col-12">';
               dynamic_sidebar('homedx');
+              echo '</div>';
+              echo '<div class="col-12 d-md-none">';
+              get_template_part("loop/loop","homeicctv");
+              echo '</div>';
+            }
+            if($i == 5)
+            {
+              echo '<div class="col-12 d-md-none">';
+              get_template_part("loop/loop","homeslidermappa");
+              echo '</div>';
+              echo '<div class="col-12 d-md-none">';
+              dynamic_sidebar('mobile-1');
+              echo '</div>';
+            }
+            if($i == 7)
+            {
+              echo '<div class="col-12 d-md-none">';
+              dynamic_sidebar('mobile-2');
               echo '</div>';
             }
 
@@ -371,10 +170,10 @@
 
 			</div> <!-- Fine row  -->
       <!-- Slider Libri  -->
-        <?php get_template_part('loop/loop','sliderlibrihome') ?>
+        <?php get_template_part('loop/loop','homesliderlibri') ?>
       <!-- Fine slider libri  -->
 		</div><!-- Fini seconda colonna  -->
-    <div class="col-lg-home3 order-3">
+    <div class="col-lg-home3 order-3 d-none d-md-block">
       <?php get_sidebar(); ?>
     </div>
   </div>
