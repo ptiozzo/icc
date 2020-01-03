@@ -7,6 +7,7 @@
     containers: ["#swup"],
     plugins: [new SwupScrollPlugin(),
               new SwupGaPlugin(),
+              new SwupScriptsPlugin(),
       ],
     cache: false,
     linkSelector:
