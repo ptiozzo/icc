@@ -106,23 +106,23 @@
               dynamic_sidebar('homedx');
               echo '</div>';
               echo '<div class="col-12 d-md-none">';
-              get_template_part("loop/loop","homeicctv");
+              get_template_part("loop/loop","homeicctvmobile");
               echo '</div>';
             }
             if($i == 5)
             {
               echo '<div class="col-12 d-md-none">';
-              get_template_part("loop/loop","homeslidermappa");
+              get_template_part("loop/loop","homeslidermappamobile");
               echo '</div>';
-              echo '<div class="col-12 d-md-none">';
+              echo '<aside class="col-12 d-md-none sidebar">';
               dynamic_sidebar('mobile-1');
-              echo '</div>';
+              echo '</aside>';
             }
             if($i == 7)
             {
-              echo '<div class="col-12 d-md-none">';
+              echo '<aside class="col-12 sidebar d-md-none">';
               dynamic_sidebar('mobile-2');
-              echo '</div>';
+              echo '</aside>';
             }
 
         ?>
@@ -170,7 +170,17 @@
 
 			</div> <!-- Fine row  -->
       <!-- Slider Libri  -->
-        <?php get_template_part('loop/loop','homesliderlibri') ?>
+      <?php
+        echo '<div class="col-12 d-md-none">';
+        get_template_part("loop/loop","homesliderlibrimobile");
+        echo '</div>';
+        echo '<div class="col-12 d-none d-md-block">';
+        get_template_part("loop/loop","homesliderlibri");
+        echo '</div>';
+        echo '<aside class="col-12 sidebar d-md-none">';
+        dynamic_sidebar('mobile-3');
+        echo '</aside>';
+      ?>
       <!-- Fine slider libri  -->
 		</div><!-- Fini seconda colonna  -->
     <div class="col-lg-home3 order-3 d-none d-md-block">
