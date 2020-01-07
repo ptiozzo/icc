@@ -21,6 +21,13 @@
 
 			<?php include('loop/loop-homeevidenza.php'); ?>
 
+      <!--
+      <?php
+      foreach ($exclude_posts as $item){
+        echo $item . ' - ';
+      }
+      ?>
+      -->
 
       <!-- Ultime news -->
 			<div class='head'>
@@ -97,33 +104,9 @@
 				);
 				$loopUltimeNews = new WP_Query( $argsUltimeNews );
 				if ( $loopUltimeNews->have_posts() ) : while( $loopUltimeNews->have_posts() ) : $loopUltimeNews->the_post();
-				    $i++;
 
-            //dopo 2 articoli metto area widget per banner
-            if($i == 3)
-            {
-              echo '<div class="col-12">';
-              dynamic_sidebar('homedx');
-              echo '</div>';
-              echo '<div class="col-12 d-md-none">';
-              get_template_part("loop/loop","homeicctvmobile");
-              echo '</div>';
-            }
-            if($i == 5)
-            {
-              echo '<div class="col-12 d-md-none">';
-              get_template_part("loop/loop","homeslidermappamobile");
-              echo '</div>';
-              echo '<aside class="col-12 d-md-none sidebar">';
-              dynamic_sidebar('mobile-1');
-              echo '</aside>';
-            }
-            if($i == 7)
-            {
-              echo '<aside class="col-12 sidebar d-md-none">';
-              dynamic_sidebar('mobile-2');
-              echo '</aside>';
-            }
+
+
 
         ?>
 
@@ -155,13 +138,35 @@
 									</article>
 								</div>
 							</div>
+              <?php
 
+                $i++;
+                //dopo 2 articoli metto area widget per banner
+                if($i == 2)
+                {
+                  echo '<div class="col-12">';
+                  dynamic_sidebar('homedx');
+                  echo '</div>';
+                  echo '<div class="col-12 d-md-none">';
+                  get_template_part("loop/loop","homeicctvmobile");
+                  echo '</div>';
+                }
+                if($i == 4)
+                {
+                  echo '<div class="col-12 d-md-none">';
+                  get_template_part("loop/loop","homeslidermappamobile");
+                  echo '</div>';
+                  echo '<aside class="col-12 d-md-none sidebar">';
+                  dynamic_sidebar('mobile-1');
+                  echo '</aside>';
+                }
+                if($i == 6)
+                {
+                  echo '<aside class="col-12 sidebar d-md-none">';
+                  dynamic_sidebar('mobile-2');
+                  echo '</aside>';
+                }
 
-
-
-
-
-					<?php
 					 endwhile;
 					else:
 					 echo "<p>Non ho trovato nessun Ultime news</p>";
