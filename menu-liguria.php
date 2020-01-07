@@ -22,8 +22,10 @@
      'walker'          => new bs4navwalker()
    ]);
    ?>
+
+   <img src="<?php echo get_template_directory_uri();?>/assets/img/modules/pianetafuturo/pfuturo_logo_grigio_32.png" width="32px" height="32px" alt="Accedi">
    <button type="button" class="btn btn-outline-pf border-0 mr-2" data-toggle="modal" data-target="#LiguriaAccedi">
-     <img src="<?php echo get_template_directory_uri();?>/assets/img/modules/pianetafuturo/pfuturo_logo_grigio_32.png" width="32px" height="32px" alt="Accedi"> Accedi
+      Accedi
    </button>
 
    <button type="button" class="btn btn-region mr-2" data-toggle="modal" data-target="#LiguriaIscriviti">
