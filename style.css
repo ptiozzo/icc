@@ -314,16 +314,15 @@ TITOLI HOME
 
 /*Botton per iscrizione su menu regionali*/
 .btn-region{
-  color: rgba(255,255,255,.75);
   background-color: #749A4F;
   border-color: #749A4F;
 }
 .btn-region:hover{
-  color: rgba(255,255,255,.75);
-  text-decoration: underline;
+  background-color: #5D7B41;
+  border-color: #5D7B41;
 }
 .btn-outline-pf{
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.5);
   font-size: 13px;
 }
 .btn-outline-pf:hover{
