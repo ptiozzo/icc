@@ -46,7 +46,8 @@
       </button>
     </div>
     <div class="modal-body">
-      <iframe src="https://api.pianetafuturo.it/widget/account/ext_login.php?a=8" class="border-0" height="390px" width="100%"></iframe>
+      <iframe src="https://api.pianetafuturo.it/widget/account/ext_login.php?a=8" class="border-0" height="235px" width="100%"></iframe>
+      <button type="button" class="btn btn-link-pf" data-dismiss="modal" data-toggle="modal" data-target="#LiguriaIscriviti">Non sei ancora registrato? ISCRIVITI!</button>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -65,7 +66,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <iframe src="https://api.pianetafuturo.it/widget/account/ext_register.php?a=8" class="border-0" height="390px" width="100%"></iframe>
+      <iframe src="https://api.pianetafuturo.it/widget/account/ext_register.php?a=8" class="border-0" height="395px" width="100%"></iframe>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
