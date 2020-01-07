@@ -68,7 +68,7 @@ if( $loopRassegna->have_posts() || $loopSticky->have_posts() ) : ?>
   <?php	while( $loopRassegna->have_posts() ) : $loopRassegna->the_post();
     $i++; ?>
     <div class="carousel-item <?php if ($i == 1){echo "active";} ?>">
-      <article class="p-0">
+      <article id="post-<?php the_ID(); ?>" class="p-0">
         <div class='content rassegna-stampa p-0'>
           <a href='<?php echo the_permalink();?>'>
               <?php
@@ -97,7 +97,7 @@ if( $loopRassegna->have_posts() || $loopSticky->have_posts() ) : ?>
     <?php while( $loopSticky->have_posts() ) : $loopSticky->the_post();
     $i++?>
       <div class="carousel-item <?php if ($i == 1){echo "active";} ?>">
-        <article class="p-0">
+        <article id="post-<?php the_ID(); ?>" class="p-0">
           <div class='content rassegna-stampa p-0'>
             <a href='<?php echo the_permalink();?>'>
                 <?php
