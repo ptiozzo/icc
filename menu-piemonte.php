@@ -33,8 +33,12 @@
    </button>
 </nav>
 
-<div class="modal fade" id="PiemonteAccedi" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+
+
+</header>
+
+<div class="modal fade" id="PiemonteAccedi" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="PiemonteAccediTitle">Accedi</h5>
@@ -43,7 +47,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <iframe src="https://api.pianetafuturo.it/widget/account/ext_login.php?a=2" class="border-0" height="240px" width="100%"></iframe>
+        <iframe src="https://api.pianetafuturo.it/widget/account/ext_login.php?a=2" class="border-0" height="245px" width="100%"></iframe>
         <button type="button" class="btn btn-link-pf" data-dismiss="modal" data-toggle="modal" data-target="#PiemonteIscriviti">Non sei ancora registrato? ISCRIVITI!</button>
       </div>
       <div class="modal-footer">
@@ -53,8 +57,8 @@
   </div>
 </div>
 
-<div class="modal fade" id="PiemonteIscriviti" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="PiemonteIscrivitiTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+<div class="modal fade" id="PiemonteIscriviti" tabindex="-1" role="dialog" aria-labelledby="PiemonteIscrivitiTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="PiemonteIscrivitiTitle">Iscriviti</h5>
@@ -71,5 +75,3 @@
     </div>
   </div>
 </div>
-
-</header>
