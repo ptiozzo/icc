@@ -305,11 +305,11 @@ TITOLI HOME
 
 /*Contribuisci*/
 .contribuisci{
-  background-color: yellow;
+  background-color: #ffc107;
   color: black;
 }
 .contribuisci a{
-  color: #ffc107;
+  color: white;
 }
 
 /*Botton per iscrizione su menu regionali*/
