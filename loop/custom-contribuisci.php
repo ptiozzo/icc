@@ -1,6 +1,6 @@
 <div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close2'){echo "show";} ?> mx-0" id="contribuisci">
   <div class="col-2 d-none d-md-block mx-auto my-auto">
-    <img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia-header.svg' alt='Italia che cambia' title='Italia che cambia'>
+    <img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia_nero.png' alt='Italia che cambia' title='Italia che cambia'>
   </div>
   <div class="col-12 col-md-7 p-2 font-weight-light">
     <p class="d-none d-md-block">Sempre più persone, come te, comprendono la necessità di un giornalismo indipendente e costruttivo.<br>
