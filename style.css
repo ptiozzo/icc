@@ -1370,6 +1370,9 @@ NEWSBAR
   color: #9BCE8F;
   font-weight: 1000;
 }
+.newsbar .contribuisci img{
+  width: 100%;
+}
 .newsbar .time{
   background: #9BCE8F;
   color: #fff;

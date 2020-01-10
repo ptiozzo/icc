@@ -1,5 +1,8 @@
 <div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close2'){echo "show";} ?> mx-0" id="contribuisci">
-  <div class="col-12 col-md-7 offset-lg-2 p-2 font-weight-light">
+  <div class="col-2 d-none d-md-block mx-auto my-auto">
+    <img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia-header.svg' alt='Italia che cambia' title='Italia che cambia'>
+  </div>
+  <div class="col-12 col-md-7 p-2 font-weight-light">
     <p class="d-none d-md-block">Sempre più persone, come te, comprendono la necessità di un giornalismo indipendente e costruttivo.<br>
     <b>Italia che Cambia</b> è da sempre impegnata nella diffusione di notizie che contribuiscano a costruire un nuovo immaginario sul nostro Paese, fornendo esempi concreti per la transizione verso un mondo migliore.
     Abbiamo scelto di mantenere le nostre notizie gratuite e disponibili per tutti, riconoscendo l’importanza che ciascuno di noi abbia accesso a un giornalismo accurato e costruttivo.</p>
