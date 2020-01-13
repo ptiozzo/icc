@@ -8,30 +8,35 @@
      <img src='<?php echo get_template_directory_uri();?>/assets/img/modules/piemonte/piemonte.svg' class="d-none d-sm-inline-block" alt='' title=''>
      PIEMONTE CHE CAMBIA
    </a>
-   <?php
-   wp_nav_menu([
-     'menu'            => 'menu-piemonte',
-     'theme_location'  => 'menu-piemonte',
-     'container'       => 'div',
-     'container_id'    => 'bs4navbar',
-     'container_class' => 'collapse navbar-collapse',
-     'menu_id'         => false,
-     'menu_class'      => 'navbar-nav mr-auto',
-     'depth'           => 0,
-     'fallback_cb'     => 'bs4navwalker::fallback',
-     'walker'          => new bs4navwalker()
-   ]);
-   ?>
+   <div  id="bs4navbar" class="collapse navbar-collapse">
 
-   <img src="<?php echo get_template_directory_uri();?>/assets/img/modules/pianetafuturo/pfuturo_logo_grigio_32.png" width="32px" height="32px" alt="Accedi">
-   <button type="button" class="btn btn-outline-pf border-0 mr-2" data-toggle="modal" data-target="#PiemonteAccedi">
-      Accedi
-   </button>
 
-   <button type="button" class="btn btn-region mr-2 text-white" data-toggle="modal" data-target="#PiemonteIscriviti">
-    Iscriviti
-   </button>
-</nav>
+     <?php
+     wp_nav_menu([
+       'menu'            => 'menu-piemonte',
+       'theme_location'  => 'menu-piemonte',
+       'container'       => '',
+       'container_id'    => '',
+       'container_class' => '',
+       'menu_id'         => false,
+       'menu_class'      => 'navbar-nav ml-2',
+       'depth'           => 0,
+       'fallback_cb'     => 'bs4navwalker::fallback',
+       'walker'          => new bs4navwalker()
+     ]);
+     ?>
+   </div>
+   <div class="mx-auto mr-md-0 p-2">
+     <img class="ml-2" src="<?php echo get_template_directory_uri();?>/assets/img/modules/pianetafuturo/pfuturo_logo_grigio_32.png" width="32px" height="32px" alt="Accedi">
+     <button type="button" class="btn btn-outline-pf border-0 mr-2" data-toggle="modal" data-target="#PiemonteAccedi">
+        Accedi
+     </button>
+
+     <button type="button" class="btn btn-region mr-2 text-white" data-toggle="modal" data-target="#PiemonteIscriviti">
+      Iscriviti
+     </button>
+   </div>
+ </nav>
 
 
 
