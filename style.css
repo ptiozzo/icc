@@ -221,6 +221,10 @@ header.stripe .left-col .logo{
   margin-left: 0px;
 }
 
+header .socials.d-xl-block{
+  display: flex!important;
+}
+
 @media (min-width: 992px) and (max-width: 1210px) {
   header.stripe .right-col nav{
     margin-right: 0;
@@ -228,6 +232,14 @@ header.stripe .left-col .logo{
   header.stripe .right-col nav>ul>li:not(:last-child){
     margin-right: 10px;
   }
+}
+
+.manoicc{
+  background-image: url('/wp-content/themes/icc/assets/img/logo/mano_bianca.png');
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-left: 35px;
+  background-size: 30px;
 }
 
 

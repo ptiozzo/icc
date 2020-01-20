@@ -1,4 +1,4 @@
-<div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close2'){echo "show";} ?> mx-0" id="contribuisci">
+<div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close'){echo "show";} ?> mx-0" id="contribuisci">
   <div class="col-2 d-none d-md-block mx-auto my-auto">
     <img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia_nero.png' alt='Italia che cambia' title='Italia che cambia'>
   </div>
@@ -18,4 +18,5 @@ $('#contribuisci').on('hidden.bs.collapse', function () {
   date.setTime(date.getTime()+(7*24*60*60*1000));
   document.cookie = "contribuisci=close; expires=" + date.toGMTString() + ";path=/";
 })
+
 </script>

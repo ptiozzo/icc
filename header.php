@@ -78,7 +78,7 @@
 				</section>
 
 
-				<section class='socials'>
+				<section class='socials d-none d-xl-flex'>
           <?php
           wp_nav_menu( array(
             'theme_location' => 'menu-social',
