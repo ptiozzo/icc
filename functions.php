@@ -22,6 +22,7 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 	function icc_style_scripts() {
 		//wp_enqueue_script;
 		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+		wp_enqueue_style( 'icc-caveat','//fonts.googleapis.com/css?family=Caveat&display=swap"');
 		//wp_enqueue_style( 'icc-normalize', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css');
 		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css');
 		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css');
