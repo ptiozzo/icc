@@ -4,7 +4,7 @@
     <button class="navbar-toggler" style="border:none;" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand text-white" href="/liguria">
+    <a class="navbar-brand text-white" href="/liguria/">
       <img src='<?php echo get_template_directory_uri();?>/assets/img/modules/liguria/liguria.svg' class="d-none d-sm-inline-block" alt='' title=''>
       LIGURIA CHE CAMBIA
    </a>
