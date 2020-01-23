@@ -8,6 +8,69 @@ Template Name: Piemonte che cambia
 <?php
   $catPage = 'piemonte-che-cambia';
 ?>
+
+
+<div class="modal fade" id="PiemonteMappaProgetto" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="PiemonteAccediTitle">Mappa un progetto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <p>Vuoi inserire il tuo progetto o segnalare un progetto che ritieni interessante?</p>
+        <p>Per farlo accedi a PianetaFuturo, la piattaforma che offre gli strumenti per la community di Italia che Cambia.</p>
+        <p class="font-weight-lighter">N.B. I progetti inseriti dagli utenti non compaiono automaticamente nella mappa nazionale di Italia che Cambia, che raccoglie soltanto quelle iniziative che sono considerate di interesse giornalistico dalla redazione.</p>
+        <a href="https://piemonte.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="PiemonteSegnalaEvento" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="PiemonteAccediTitle">Segnala un evento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <p>Vuoi segnalare un evento che organizzi o ritieni interessante?</p>
+        <p>Per farlo accedi a PianetaFuturo, la piattaforma che offre gli strumenti per la community di Piemonte che Cambia.</p>
+        <a href="https://piemonte.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="PiemonteScendiPiazza" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="PiemonteAccediTitle">Scendi in piazza</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <p>La piazza è il luogo virtuale dove la community di Piemonte che Cambia condivide e scambia idee, informazioni, contenuti multimediali.</p>
+        <p>Per accedere alla piazza devi essere registrato a PianetaFuturo, la piattaforma che offre gli strumenti per la nostra community.</p>
+        <a href="https://piemonte.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-fluid home-page <?php echo $catPage;?>">
 	<div class="row">
     <div id="sidebar" class="col-lg-home1 col-md-12">
@@ -162,6 +225,21 @@ Template Name: Piemonte che cambia
 			</div> <!-- Fine row  -->
 		</div><!-- Fini seconda colonna  -->
       <div class="col-lg-home3">
+        <aside class="sidebar">
+          <div class="pcc-pianfut">
+            <h3>Pianeta Futuro</h3>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteMappaProgetto">
+               Mappa un progetto
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteSegnalaEvento">
+               Segnala un evento
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteScendiPiazza">
+               Scendi in piazza
+            </button>
+          </div>
+        </aside>
+
         <?php get_sidebar(); ?>
       </div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
