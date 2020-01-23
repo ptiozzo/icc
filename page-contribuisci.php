@@ -13,7 +13,11 @@
       echo $_POST['email']." ";
       echo $_POST['telephone']." ";
       echo $_POST['frequenza']." ";
-      echo $_POST['contributo']." ";
+      if ($_POST['contributoLibero'] != ''){
+          echo $_POST['contributoLibero']." ";
+      }else{
+        echo $_POST['contributo']." ";
+      }
       echo $_POST['metodopagamento']." ";
 
     }
@@ -78,7 +82,7 @@
               <input type="radio" name="contributo" id="inlineRadio6" value="500"> 500€
             </label>
             <label class="btn btn-light">
-              <input type="text" name="contributo" id="inlineRadio7" value="libero" class="w-100">
+              <input type="text" name="contributoLibero" id="inlineRadio7" placeholder="libero" class="w-100">
             </label>
           </div>
 
