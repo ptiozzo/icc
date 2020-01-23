@@ -29,10 +29,6 @@
       scrollAcceleration: 0.02,
     });
 
-    new SwupFormsPlugin({
-      formSelector: 'form[data-swup-form]',
-    });
-
   const swup = new Swup(options);
 
 
