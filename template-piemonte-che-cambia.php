@@ -8,21 +8,36 @@ Template Name: Piemonte che cambia
 <?php
   $catPage = 'piemonte-che-cambia';
 ?>
-
-
-<div class="modal fade" id="PiemonteMappaProgetto" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
+<?php
+$argsPiemSegnalaProgetto = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'piemonte-segnala-progetto',
+    ),
+  ),
+);
+$loopPiemSegnalaProgetto = new WP_Query( $argsPiemSegnalaProgetto );
+if($loopPiemSegnalaProgetto->have_posts()):
+ ?>
+<div class="modal fade" id="PiemonteSegnalaProgetto" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="PiemonteAccediTitle">Mappa un progetto</h5>
+        <h5 class="modal-title" id="PiemonteAccediTitle">Segnala un progetto</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body pcc-pianfut">
-        <p>Vuoi inserire il tuo progetto o segnalare un progetto che ritieni interessante?</p>
-        <p>Per farlo accedi a PianetaFuturo, la piattaforma che offre gli strumenti per la community di Italia che Cambia.</p>
-        <p class="font-weight-lighter">N.B. I progetti inseriti dagli utenti non compaiono automaticamente nella mappa nazionale di Italia che Cambia, che raccoglie soltanto quelle iniziative che sono considerate di interesse giornalistico dalla redazione.</p>
+        <?php
+          while($loopPiemSegnalaProgetto->have_posts()) :  $loopPiemSegnalaProgetto->the_post();
+            the_content();
+          endwhile;
+          ?>
         <a href="https://piemonte.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
@@ -31,6 +46,7 @@ Template Name: Piemonte che cambia
     </div>
   </div>
 </div>
+<?php endif; ?>
 <div class="modal fade" id="PiemonteSegnalaEvento" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -228,8 +244,8 @@ Template Name: Piemonte che cambia
         <aside class="sidebar">
           <div class="pcc-pianfut">
             <h3>Pianeta Futuro</h3>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteMappaProgetto">
-               Mappa un progetto
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteSegnalaProgetto">
+               Segnala un progetto
             </button>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteSegnalaEvento">
                Segnala un evento
