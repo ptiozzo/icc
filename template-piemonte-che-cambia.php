@@ -47,6 +47,21 @@ if($loopPiemSegnalaProgetto->have_posts()):
   </div>
 </div>
 <?php endif; ?>
+<?php
+$argsPiemSegnalaEvento = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'piemonte-segnala-evento',
+    ),
+  ),
+);
+$loopPiemSegnalaEvento = new WP_Query( $argsPiemSegnalaEvento );
+if($loopPiemSegnalaEvento->have_posts()):
+ ?>
 <div class="modal fade" id="PiemonteSegnalaEvento" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -57,8 +72,11 @@ if($loopPiemSegnalaProgetto->have_posts()):
         </button>
       </div>
       <div class="modal-body pcc-pianfut">
-        <p>Vuoi segnalare un evento che organizzi o ritieni interessante?</p>
-        <p>Per farlo accedi a PianetaFuturo, la piattaforma che offre gli strumenti per la community di Piemonte che Cambia.</p>
+        <?php
+          while($loopPiemSegnalaEvento->have_posts()) :  $loopPiemSegnalaEvento->the_post();
+            the_content();
+          endwhile;
+          ?>
         <a href="https://piemonte.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
@@ -67,6 +85,22 @@ if($loopPiemSegnalaProgetto->have_posts()):
     </div>
   </div>
 </div>
+<?php endif; ?>
+<?php
+$argsPiemScendiPiazza = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'piemonte-scendi-piazza',
+    ),
+  ),
+);
+$loopPiemScendiPiazza = new WP_Query( $argsPiemScendiPiazza );
+if($loopPiemScendiPiazza->have_posts()):
+ ?>
 <div class="modal fade" id="PiemonteScendiPiazza" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -77,8 +111,11 @@ if($loopPiemSegnalaProgetto->have_posts()):
         </button>
       </div>
       <div class="modal-body pcc-pianfut">
-        <p>La piazza è il luogo virtuale dove la community di Piemonte che Cambia condivide e scambia idee, informazioni, contenuti multimediali.</p>
-        <p>Per accedere alla piazza devi essere registrato a PianetaFuturo, la piattaforma che offre gli strumenti per la nostra community.</p>
+        <?php
+          while($loopPiemScendiPiazza->have_posts()) :  $loopPiemScendiPiazza->the_post();
+            the_content();
+          endwhile;
+          ?>
         <a href="https://piemonte.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
@@ -87,6 +124,7 @@ if($loopPiemSegnalaProgetto->have_posts()):
     </div>
   </div>
 </div>
+<?php endif; ?>
 <div class="container-fluid home-page <?php echo $catPage;?>">
 	<div class="row">
     <div id="sidebar" class="col-lg-home1 col-md-12">

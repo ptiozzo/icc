@@ -8,6 +8,126 @@ Template Name: Casentino che cambia
 <?php
   $catPage = 'casentino-che-cambia';
 ?>
+
+<?php
+$argsPiemSegnalaProgetto = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'casentino-segnala-progetto',
+    ),
+  ),
+);
+$loopPiemSegnalaProgetto = new WP_Query( $argsPiemSegnalaProgetto );
+if($loopPiemSegnalaProgetto->have_posts()):
+ ?>
+<div class="modal fade" id="CasentinoSegnalaProgetto" tabindex="-1" role="dialog" aria-labelledby="CasentinoAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CasentinoAccediTitle">Segnala un progetto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopPiemSegnalaProgetto->have_posts()) :  $loopPiemSegnalaProgetto->the_post();
+            the_content();
+          endwhile;
+          ?>
+        <a href="https://Casentino.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+<?php
+$argsCasentinoSegnalaEvento = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'casentino-segnala-evento',
+    ),
+  ),
+);
+$loopCasentinoSegnalaEvento = new WP_Query( $argsCasentinoSegnalaEvento );
+if($loopCasentinoSegnalaEvento->have_posts()):
+ ?>
+<div class="modal fade" id="CasentinoSegnalaEvento" tabindex="-1" role="dialog" aria-labelledby="CasentinoAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CasentinoAccediTitle">Segnala un evento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopCasentinoSegnalaEvento->have_posts()) :  $loopCasentinoSegnalaEvento->the_post();
+            the_content();
+          endwhile;
+          ?>
+        <a href="https://Casentino.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+<?php
+$argsCasentinoScendiPiazza = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'casentino-scendi-piazza',
+    ),
+  ),
+);
+$loopCasentinoScendiPiazza = new WP_Query( $argsCasentinoScendiPiazza );
+if($loopCasentinoScendiPiazza->have_posts()):
+ ?>
+<div class="modal fade" id="CasentinoScendiPiazza" tabindex="-1" role="dialog" aria-labelledby="CasentinoAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CasentinoAccediTitle">Scendi in piazza</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopCasentinoScendiPiazza->have_posts()) :  $loopCasentinoScendiPiazza->the_post();
+            the_content();
+          endwhile;
+          ?>
+        <a href="https://Casentino.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+
+
 <div class="container-fluid home-page">
 	<div class="row">
     <div id="sidebar" class="col-lg-home1 col-md-12">
@@ -160,6 +280,20 @@ Template Name: Casentino che cambia
 			</div> <!-- Fine row  -->
 		</div><!-- Fini seconda colonna  -->
       <div class="col-lg-home3">
+        <aside class="sidebar">
+          <div class="pcc-pianfut">
+            <h3>Pianeta Futuro</h3>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoSegnalaProgetto">
+               Segnala un progetto
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoSegnalaEvento">
+               Segnala un evento
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoScendiPiazza">
+               Scendi in piazza
+            </button>
+          </div>
+        </aside>
         <?php get_sidebar(); ?>
       </div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
