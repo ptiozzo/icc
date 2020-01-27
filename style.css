@@ -237,7 +237,7 @@ header .socials.d-xl-block{
 .manoicc{
   background-image: url('/wp-content/themes/icc/assets/img/logo/mano_bianca.png');
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: 3px center;
   padding-left: 35px;
   background-size: 30px;
 }
