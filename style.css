@@ -1481,9 +1481,13 @@ NEWSBAR
 .category-una-favola-puo-fare .single__metaDescription,
 .category-una-favola-puo-fare .single__articolo
 {
-  font-family: 'Caveat', cursive;
+  font-family: 'Parisienne', cursive;
   font-size: 1.5rem!important;
 }
 .category-una-favola-puo-fare .single__title{
   font-size: 32px!important;
+}
+.category-una-favola-puo-fare .single__metaDescription{
+  font-size: 1.2rem!important;
+  line-height: 1.3rem!important;
 }
