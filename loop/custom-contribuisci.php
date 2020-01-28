@@ -1,4 +1,4 @@
-<div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close2'){echo "show";} ?> mx-0" id="contribuisci">
+<div class="row contribuisci collapse <?php if($_COOKIE['contribuisci']!= 'close'){echo "show";} ?> mx-0" id="contribuisci">
   <?php
   $argsContribuisciDesktop = array(
     'post_type' => 'contenuti-speciali',
