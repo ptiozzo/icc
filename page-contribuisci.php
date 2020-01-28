@@ -5,25 +5,38 @@
     <?php
       while(have_posts() ) : the_post();
   ?>
-  <?php
-    if ($_POST['submit_button']){
-      echo "FORM INVIATO <br>";
-      echo $_POST['fullname']." ";
-      echo $_POST['fullsurname']." ";
-      echo $_POST['email']." ";
-      echo $_POST['telephone']." ";
-      echo $_POST['frequenza']." ";
-      if ($_POST['contributoLibero'] != ''){
-          echo $_POST['contributoLibero']." ";
-      }else{
-        echo $_POST['contributo']." ";
-      }
-      echo $_POST['metodopagamento']." ";
-
-    }
-  ?>
   <div class="row">
     <div class="col-12 col-md-6">
+      <?php
+        if ($_POST['submit_button']){
+
+          echo "FORM INVIATO <br>";
+          echo $_POST['fullname']." ";
+          echo $_POST['fullsurname']." ";
+          echo $_POST['email']." ";
+          echo $_POST['telephone']." ";
+          echo $_POST['frequenza']." ";
+          if ($_POST['contributoLibero'] != ''){
+              echo $_POST['contributoLibero']." ";
+          }else{
+            echo $_POST['contributo']." ";
+          }
+          echo $_POST['metodopagamento']." ";
+
+          ?>
+            <script
+              src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M">
+            </script>
+            <div id="paypal-button-container"></div>
+
+            <script>
+              paypal.Buttons().render('#paypal-button-container');
+              // This function displays Smart Payment Buttons on your web page.
+            </script>
+          <?php
+
+        }else{
+      ?>
       <form action="<?php echo get_pagenum_link(); ?>" method="post" class="form-inline mb-3">
 
         <h3 class="col-12 mb-3">Dati anagrafici</h3>
@@ -133,6 +146,7 @@
 
         <input id="inviaform" class="btn btn-primary mt-2" name="submit_button" type="submit" value="Procedi ora">
       </form>
+    <?php } ?>
     </div>
 
 
