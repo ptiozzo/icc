@@ -22,7 +22,7 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 	function icc_style_scripts() {
 		//wp_enqueue_script;
 		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
-		wp_enqueue_style( 'icc-parisien','fonts.googleapis.com/css?family=Parisienne&display=swap');
+		wp_enqueue_style( 'icc-fontfavole','//fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
 		//wp_enqueue_style( 'icc-normalize', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css');
 		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css');
 		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css');
@@ -164,6 +164,7 @@ function hide_categories_terms($terms, $post_id, $taxonomy){
 /*  Custom post type
 /* ------------------------------------ */
 require 'inc/custom-post.php';
+require 'inc/custom-tassonomy.php';
 
 /*  Bootstrap pagination
 /* ------------------------------------ */
