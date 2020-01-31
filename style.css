@@ -357,7 +357,8 @@ TITOLI HOME
 .home-page {
   width: 100%;
 }
-.widget_wpmailup_widget{
+.widget_wpmailup_widget,
+.btn-newsletter{
   background: #F79865;
 }
 aside{
@@ -372,8 +373,9 @@ aside{
 .libri .row article a figure img{
   height: 100%;
 }
-
-
+.btn-newsletter{
+  height: 70px;
+}
  aside.sidebar div.widget_text:nth-child(1){
    color: #fff;
    text-transform: uppercase;
@@ -434,7 +436,8 @@ aside.sidebar div figure{
  aside.sidebar div div{
    padding: 0;
  }
- aside.sidebar div h3{
+ aside.sidebar div h3,
+ .btn-newsletter{
    font-size: 11px;
    line-height: 11px;
    font-weight: 900;
@@ -1481,7 +1484,7 @@ NEWSBAR
 .category-una-favola-puo-fare .single__metaDescription,
 .category-una-favola-puo-fare .single__articolo
 {
-  font-family: 'Parisienne', cursive;
+  font-family: 'Annie Use Your Telescope', cursive;
   font-size: 1.5rem!important;
 }
 .category-una-favola-puo-fare .single__title{
