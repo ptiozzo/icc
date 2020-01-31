@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 <?php
-  //controllo le pagina è figlia di Liguria
+  //controllo le pagina è figlia di una regione
   if ( $post->post_parent == '58464' ) {
-    get_template_part('menu','liguria');
+    get_template_part('liguria/menu','liguria');
   } elseif ( $post->post_parent == '44546' ) {
-    get_template_part('menu','piemonte');
+    get_template_part('piemonte/menu','piemonte');
   } elseif ( $post->post_parent == '44548' ) {
-    get_template_part('menu','casentino');
+    get_template_part('casentino/menu','casentino');
   }
 ?>
 <div class="container pt-4">

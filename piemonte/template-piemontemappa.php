@@ -4,7 +4,7 @@ Template Name: Piemonte mappa
 */
 ?>
 <?php get_header(); ?>
-<?php get_template_part('menu','piemonte'); ?>
+<?php get_template_part('piemonte/menu','piemonte'); ?>
 
 
 

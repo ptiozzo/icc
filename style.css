@@ -437,7 +437,8 @@ aside.sidebar div figure{
    padding: 0;
  }
  aside.sidebar div h3,
- .btn-newsletter{
+ .btn-newsletter,
+ .pcc-pianfut h3{
    font-size: 11px;
    line-height: 11px;
    font-weight: 900;

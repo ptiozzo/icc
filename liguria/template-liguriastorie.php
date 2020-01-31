@@ -1,21 +1,21 @@
 <?php
 /*
-Template Name: Casentino articoli
+Template Name: Liguria storie
 */
 ?>
 <?php get_header(); ?>
-<?php get_template_part('menu','casentino'); ?>
+<?php get_template_part('liguria/menu','liguria'); ?>
 <?php
-$Cat1 = 'casentino-che-cambia';
-$Cat2 = 'le-storie';
+$Cat1 = 'liguria-che-cambia';
+$Cat2 = 'io-faccio-cosi';
  ?>
-<div class="container-fluid" style="margin-top: 78px;">
+<div class="container-fluid">
 
   <?php
+    $CatTerm = $Cat1."+".$Cat2;
     $args = array(
     'post_type' => 'post',
-    'category_name' => $Cat1,
-    'category__not_in' => array(get_category_by_slug( $Cat2 )->term_id),
+    'category_name' => $CatTerm,
     'paged'     => $paged,
     );
     /*eseguo la query */
@@ -30,6 +30,7 @@ $Cat2 = 'le-storie';
         <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <a href='<?php the_permalink(); ?>'>
+
 
               <!-- Immagine in evidenza -->
               <figure>

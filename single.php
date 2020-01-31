@@ -3,11 +3,11 @@
 	<?php
 	if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia') || has_category('liguria-che-cambia')) {
 		if (has_category('piemonte-che-cambia')){
-			get_template_part('menu','piemonte');
+			get_template_part('piemonte/menu','piemonte');
 		} elseif (has_category('casentino-che-cambia')) {
-			get_template_part('menu','casentino');
+			get_template_part('casentino/menu','casentino');
 		} elseif (has_category('liguria-che-cambia')) {
-			get_template_part('menu','liguria');
+			get_template_part('liguria/menu','liguria');
 		}
 	} ?>
 

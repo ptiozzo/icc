@@ -192,11 +192,11 @@
 	?>
 			<?php
 			if (is_page('piemonte')){
-				get_template_part('menu','piemonte');
+				get_template_part('piemonte/menu','piemonte');
 			} elseif (is_page('casentino')) {
-				get_template_part('menu','casentino');
+				get_template_part('casentino/menu','casentino');
 			} elseif (is_page('liguria')) {
-				get_template_part('menu','liguria');
+				get_template_part('liguria/menu','liguria');
 			}
 			?>
 

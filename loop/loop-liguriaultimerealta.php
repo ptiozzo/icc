@@ -58,7 +58,7 @@
 
 
 <div class="col-xl-5ths col-lg-3 col-md-4 col-12 text-break">
-  <div class="">
+  <div class="mb-2">
     <div class="pcc-pianfut">
       <h3>Pianeta Futuro</h3>
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaProgetto">

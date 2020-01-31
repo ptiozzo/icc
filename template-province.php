@@ -19,11 +19,11 @@ Template Name: Template province
   if (cat_is_ancestor_of( 2298, $catID ))
   {
     if ($catID == "2300"){
-      get_template_part('menu','casentino');
+      get_template_part('casentino/menu','casentino');
     } elseif (($catID == "2299") || cat_is_ancestor_of( 2299, $catID)) {
-      get_template_part('menu','piemonte');
+      get_template_part('piemonte/menu','piemonte');
     } elseif ($catID == "2359") {
-      get_template_part('menu','liguria');
+      get_template_part('liguria/menu','liguria');
     }
   }
  ?>
