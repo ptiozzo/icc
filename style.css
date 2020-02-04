@@ -198,7 +198,7 @@ div.single a:hover{
 }
 header.stripe{
   z-index: 1040;
-  widows: 100%;
+  width: 100%;
   position: sticky;
   position: -webkit-sticky;
 }
