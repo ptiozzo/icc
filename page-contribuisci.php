@@ -18,20 +18,46 @@
           echo $_POST['frequenza']." ";
           if ($_POST['contributoLibero'] != ''){
               echo $_POST['contributoLibero']." ";
+              $amount = $_POST['contributoLibero'];
           }else{
             echo $_POST['contributo']." ";
+            $amount = $_POST['contributo'];
           }
           echo $_POST['metodopagamento']." ";
 
           ?>
-            <script
-              src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M">
-            </script>
-            <div id="paypal-button-container"></div>
-
+          <!-- 10€ -->
+          <script src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M&currency=EUR&disable-funding=venmo,sofort"></script>
+          <div class="paypal-button" id="paypal-button-container"></div>
             <script>
-              paypal.Buttons().render('#paypal-button-container');
-              // This function displays Smart Payment Buttons on your web page.
+              paypal.Buttons({
+                createOrder: function(data, actions) {
+                  // This function sets up the details of the transaction, including the amount and line item details.
+                  return actions.order.create({
+                    purchase_units: [{
+                      amount: {
+                        value: '<?php echo $amount; ?>'
+                      }
+                    }]
+                  });
+                },
+                onApprove: function(data, actions) {
+                  // This function captures the funds from the transaction.
+                  return actions.order.capture().then(function(details) {
+                    // This function shows a transaction success message to your buyer.
+                    window.location.href = "/contribuisci/grazie";
+
+                  });
+                },
+                onCancel: function (data) {
+                  // Show a cancel page, or return to cart
+                  window.location.href = "/contribuisci/cancellata";
+                },
+                onError: function (err) {
+                  // Show an error page here, when an error occurs
+                  window.location.href = "/contribuisci/errore";
+                }
+              }).render('#paypal-button-container');
             </script>
           <?php
 
