@@ -249,7 +249,7 @@ header .socials.d-xl-block{
    position: -webkit-sticky;
    top:80px;
    z-index: 1020;
-   width: 100vw;
+   width: 100%;
  }
 .navbar{
   padding: 0;
