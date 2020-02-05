@@ -10,12 +10,6 @@
       <?php
         if ($_POST['submit_button']){
 
-          echo "FORM INVIATO <br>";
-          echo $_POST['fullname']." ";
-          echo $_POST['fullsurname']." ";
-          echo $_POST['email']." ";
-          echo $_POST['telephone']." ";
-          echo $_POST['frequenza']." ";
           if ($_POST['contributoLibero'] != ''){
               echo $_POST['contributoLibero']." ";
               $amount = $_POST['contributoLibero'];
@@ -23,43 +17,137 @@
             echo $_POST['contributo']." ";
             $amount = $_POST['contributo'];
           }
-          echo $_POST['metodopagamento']." ";
-
           ?>
-          <!-- 10€ -->
-          <script src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M&currency=EUR&disable-funding=venmo,sofort"></script>
-          <div class="paypal-button" id="paypal-button-container"></div>
-            <script>
-              paypal.Buttons({
-                createOrder: function(data, actions) {
-                  // This function sets up the details of the transaction, including the amount and line item details.
-                  return actions.order.create({
-                    purchase_units: [{
-                      amount: {
-                        value: '<?php echo $amount; ?>'
-                      }
-                    }]
-                  });
-                },
-                onApprove: function(data, actions) {
-                  // This function captures the funds from the transaction.
-                  return actions.order.capture().then(function(details) {
-                    // This function shows a transaction success message to your buyer.
-                    window.location.href = "/contribuisci/grazie";
+          <?php if ($_POST['frequenza'] == "singola"): ?>
 
-                  });
-                },
-                onCancel: function (data) {
-                  // Show a cancel page, or return to cart
-                  window.location.href = "/contribuisci/cancellata";
-                },
-                onError: function (err) {
-                  // Show an error page here, when an error occurs
-                  window.location.href = "/contribuisci/errore";
+            <!-- Pagamento ine time -->
+            <script src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M&currency=EUR&disable-funding=venmo,sofort"></script>
+            <h2>Contributo singolo</h2>
+            <p><strong>Nome:</strong> <?php echo $_POST['fullname']; ?></p>
+            <p><strong>Cognome:</strong> <?php echo $_POST['fullsurname']; ?></p>
+            <p><strong>eMail:</strong> <?php echo $_POST['email']; ?></p>
+            <p><strong>Telefono:</strong> <?php echo $_POST['telephone']; ?></p>
+            <p><strong>CAP:</strong> <?php echo $_POST['cap']; ?></p>
+            <p><strong>Contributo:</strong> <?php echo $amount; ?>€</p>
+            <div class="paypal-button" id="paypal-button-container"></div>
+              <script>
+                //Donazione singola
+                paypal.Buttons({
+                  createOrder: function(data, actions) {
+                    // This function sets up the details of the transaction, including the amount and line item details.
+                    return actions.order.create({
+                      purchase_units: [{
+                        amount: {
+                          value: '<?php echo $amount; ?>'
+                        }
+                      }]
+                    });
+                  },
+                  onApprove: function(data, actions) {
+                    // This function captures the funds from the transaction.
+                    return actions.order.capture().then(function(details) {
+                      // This function shows a transaction success message to your buyer.
+                      window.location.href = "/contribuisci/grazie";
+
+                    });
+                  },
+                  onCancel: function (data) {
+                    // Show a cancel page, or return to cart
+                    window.location.href = "/contribuisci/cancellata";
+                  },
+                  onError: function (err) {
+                    // Show an error page here, when an error occurs
+                    window.location.href = "/contribuisci/errore";
+                  }
+                }).render('#paypal-button-container');
+              </script>
+            <?php else:
+              ?>
+
+              <script src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M&currency=EUR&disable-funding=venmo,sofort&vault=true"></script>
+              <?php
+                if($_POST['frequenza'] == 'mensile'){
+                  if( $amount == 10){
+                    $codicePiano = 'P-9AU56054CD509794XLY5KCRA'; //10mese
+                  } elseif($amount == 20){
+                    $codicePiano = 'P-2A100646DT395035VLY5KDCQ'; //20mese
+                  } elseif($amount == 50){
+                    $codicePiano = 'P-7U871187DY6980310LY5KEKY'; //50mese
+                  } elseif($amount == 100){
+                    $codicePiano = 'P-17D00947XB807025FLY5KFGY'; //100mese
+                  } elseif($amount == 250){
+                    $codicePiano = 'P-7EN57308226310709LY5KFTA'; //250mese
+                  } elseif($amount == 500){
+                    $codicePiano = 'P-0UM89965CV242504NLY5KF5I'; //500mese
+                  } else{
+                    $codicePiano = 'ERRORE';
+                  }
+                } elseif ($_POST['frequenza'] == 'annuale') {
+                  if( $amount == 10){
+                    $codicePiano = 'P-80480559B2684774KLY5OAVQ'; //10anno
+                  } elseif($amount == 20){
+                    $codicePiano = 'P-6AS83261CA290731ELY5OBCQ'; //20anno
+                  } elseif($amount == 50){
+                    $codicePiano = 'P-7GH57463U0107712NLY5OBOA'; //50ano
+                  } elseif($amount == 100){
+                    $codicePiano = 'P-2322185446664332VLY5OBYI'; //100anno
+                  } elseif($amount == 250){
+                    $codicePiano = 'P-67K52472AA427112VLY5OCGY'; //250anno
+                  } elseif($amount == 500){
+                    $codicePiano = 'P-8N131668LC884432DLY5OCQQ'; //500anno
+                  } else{
+                    $codicePiano = 'ERRORE';
+                  }
                 }
-              }).render('#paypal-button-container');
-            </script>
+              ?>
+              <h2>Contributo <?php echo $_POST['frequenza'];?></h2>
+              <p><strong>Nome:</strong> <?php echo $_POST['fullname']; ?></p>
+              <p><strong>Cognome:</strong> <?php echo $_POST['fullsurname']; ?></p>
+              <p><strong>eMail:</strong> <?php echo $_POST['email']; ?></p>
+              <p><strong>Telefono:</strong> <?php echo $_POST['telephone']; ?></p>
+              <p><strong>CAP:</strong> <?php echo $_POST['cap']; ?></p>
+              <p><strong>Contributo  <?php echo $_POST['frequenza'];?>:</strong> <?php echo $amount; ?>€</p>
+              <?php
+                if($codicePiano != 'ERRORE'){
+                  ?>
+              <div class="paypal-button" id="paypal-button-container"></div>
+                <script>
+                //Donazione in abbonamento
+                  paypal.Buttons({
+                    createSubscription: function(data, actions) {
+                      return actions.subscription.create({
+                        'plan_id': '<?php echo $codicePiano; ?>'
+                      });
+
+                    },
+                    onApprove: function(data, actions) {
+                      // This function captures the funds from the transaction.
+                      window.location.href = "/contribuisci/grazie";
+                        // This function shows a transaction success message to your buyer.
+                    },
+                    onCancel: function (data) {
+                      // Show a cancel page, or return to cart
+                      window.location.href = "/contribuisci/cancellata";
+                    },
+                    onError: function (err) {
+                      // Show an error page here, when an error occurs
+                      window.location.href = "/contribuisci/errore";
+                    }
+                  }).render('#paypal-button-container');
+                </script>
+
+                <?php
+              }else{
+                ?>
+                 <h3>Il contributo selezionato non è al momento disponibile</h3>
+                 <p>Il contributo libero è disponible per la sola donazione singola, grazie</p>
+                 <a href="/contribuisci/" data-no-swup>Torna alla pagina contribuisci</a>
+                <?php
+              }
+             ?>
+
           <?php
+            endif;
 
         }else{
       ?>
@@ -82,6 +170,10 @@
           <div class="form-group col-12 col-md-6  p-2">
             <label for="telephone">Telefono</label>
             <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telefono">
+          </div>
+          <div class="form-group col-12 col-md-6  p-2">
+            <label for="cap">Cap</label>
+            <input id="cap" name="cap" type="text" class="form-control" placeholder="CAP">
           </div>
         </div>
 
@@ -124,7 +216,9 @@
               <input type="text" name="contributoLibero" id="inlineRadio7" placeholder="libero" class="w-100">
             </label>
           </div>
+          <small id="emailHelp" class="form-text text-muted">Il contributo libero è disponibile per la sola donazione singola</small>
 
+          <!--
         <h3 class="col-12 my-3">Seleziona modalità di pagamento</h3>
 
         <div class="btn-group btn-group-toggle col-12 my-3" data-toggle="buttons">
@@ -162,13 +256,17 @@
             </div>
           </label>
         </div>
+      -->
 
 
-
-        <input id="privacy-check" checked="checked" name="privacy" type="checkbox" value="privacy" class="col-auto">
-        <small class="form-text text-muted col-auto">
-        * Cliccando sul bottone "PROCEDI ORA" dichiari di aver preso visione ed accettare i <a href="/termini-e-condizioni">TERMINI e le CONDIZIONI</a> nonchè la <a href="//www.iubenda.com/privacy-policy/7778043" class="iubenda-white iubenda-embed" title="Privacy Policy">PRIVACY POLICY</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script></small>
-        <br>
+      <div class="form-check mt-3">
+        <input class="form-check-input" checked="checked" type="checkbox" value="privacy" id="privacy-check">
+        <label class="form-check-label" for="privacy-check">
+          Accetto la privacy policy
+        </label>
+      </div>
+      <small class="form-text text-muted">
+      * Cliccando sul bottone "PROCEDI ORA" dichiari di aver preso visione ed accettare i <a href="/termini-e-condizioni">TERMINI e le CONDIZIONI</a> nonchè la <a href="//www.iubenda.com/privacy-policy/7778043" class="iubenda-white iubenda-embed" title="Privacy Policy">PRIVACY POLICY</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script></small>
 
         <input id="inviaform" class="btn btn-primary mt-2" name="submit_button" type="submit" value="Procedi ora">
       </form>
