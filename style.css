@@ -324,6 +324,9 @@ TITOLI HOME
 .contribuisci a{
   color: white;
 }
+.contribuisci strong{
+  font-weight: 600;
+}
 
 /*Botton per iscrizione su menu regionali*/
 .btn-region{
