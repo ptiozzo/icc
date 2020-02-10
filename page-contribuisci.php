@@ -11,16 +11,16 @@
         if ($_POST['submit_button']){
 
           if ($_POST['contributoLibero'] != ''){
-              echo $_POST['contributoLibero']." ";
               $amount = $_POST['contributoLibero'];
           }else{
-            echo $_POST['contributo']." ";
             $amount = $_POST['contributo'];
           }
+//add contribuisci OLD
           ?>
+
           <?php if ($_POST['frequenza'] == "singola"): ?>
 
-            <!-- Pagamento ine time -->
+            <!-- Pagamento one time -->
             <script src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M&currency=EUR&disable-funding=venmo,sofort"></script>
             <h2>Contributo singolo</h2>
             <p><strong>Nome:</strong> <?php echo $_POST['fullname']; ?></p>
@@ -29,7 +29,21 @@
             <p><strong>Telefono:</strong> <?php echo $_POST['telephone']; ?></p>
             <p><strong>CAP:</strong> <?php echo $_POST['cap']; ?></p>
             <p><strong>Contributo:</strong> <?php echo $amount; ?>€</p>
+
             <div class="paypal-button" id="paypal-button-container"></div>
+
+
+            <form action="/contribuisci/grazie" id="contribuisci_ok" name="contribuisci_ok" method="post" style="display:none;">
+              <input type="text" name="fullname" value="<?php echo $_POST['fullname'];?>" />
+              <input type="text" name="fullsurname" value="<?php echo $_POST['fullsurname'];?>" />
+              <input type="text" name="email" value="<?php echo $_POST['email'];?>" />
+              <input type="text" name="telephone" value="<?php echo $_POST['telephone'];?>" />
+              <input type="text" name="cap" value="<?php echo $_POST['cap'];?>" />
+              <input type="text" name="amount" value="<?php echo $amount;?>" />
+              <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
+            </form>
+
+
               <script>
                 //Donazione singola
                 paypal.Buttons({
@@ -46,8 +60,8 @@
                   onApprove: function(data, actions) {
                     // This function captures the funds from the transaction.
                     return actions.order.capture().then(function(details) {
-                      // This function shows a transaction success message to your buyer.
-                      window.location.href = "/contribuisci/grazie";
+                      //window.location.href = "/contribuisci/grazie";
+                      document.getElementById("contribuisci_ok").submit();
 
                     });
                   },
@@ -122,8 +136,7 @@
                     },
                     onApprove: function(data, actions) {
                       // This function captures the funds from the transaction.
-                      window.location.href = "/contribuisci/grazie";
-                        // This function shows a transaction success message to your buyer.
+                      document.getElementById("contribuisci_ok").submit();
                     },
                     onCancel: function (data) {
                       // Show a cancel page, or return to cart

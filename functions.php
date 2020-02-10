@@ -170,9 +170,15 @@ require 'inc/custom-tassonomy.php';
 /* ------------------------------------ */
 require 'inc/bootstrap-pagination.php';
 
-/*  Bootstrap pagination
+/*  URL Rewrite
 /* ------------------------------------ */
 require 'inc/rewrite.php';
+
+/*  DB contribuisci
+/* ------------------------------------ */
+require 'inc/contribuisci-db.php';
+
+
 
 /*  Pagina istruzioni su admin
 /* ------------------------------------ */
