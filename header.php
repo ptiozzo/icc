@@ -27,10 +27,10 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="row">
-			<div class="col-12 col-md-6">
+			<div class="col-12 col-md-6 text-center my-1">
 				<?php dynamic_sidebar('testatasx'); ?>
 			</div>
-			<div class="col-12 col-md-6">
+			<div class="col-12 col-md-6 text-center mt-md-1 mb-1">
 				<?php dynamic_sidebar('testatadx'); ?>
 			</div>
 		</div>
