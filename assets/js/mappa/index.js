@@ -1,3 +1,4 @@
+(function($) {
 (function(){
 
 	var $paths = $('.sezione-mappa .map-svg svg path'),
@@ -88,3 +89,4 @@
 		}, 100);
 	});
 })();
+})(jQuery);

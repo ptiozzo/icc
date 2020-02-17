@@ -7,13 +7,12 @@
     containers: ["#swup"],
     plugins: [new SwupScrollPlugin(),
               new SwupGaPlugin(),
-              new SwupScriptsPlugin(),
       ],
     cache: false,
     linkSelector:
       'a[href^="' +
       window.location.origin +
-      '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])',
+      '"]:not([data-no-swup]):not([rel="data-no-swup"]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])',
     skipPopStateHandling: function(event) {
       if (event.state && event.state.source == "swup") {
         return false;
