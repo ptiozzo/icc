@@ -170,23 +170,23 @@
         <div class="row mx-auto">
           <div class="form-group col-12 col-md-6 p-2">
             <label for="fullname">Nome</label>
-            <input id="fullname" name="fullname" type="text" class="form-control" placeholder="Nome">
+            <input id="fullname" name="fullname" type="text" class="form-control" placeholder="Nome" required>
           </div>
           <div class="form-group col-12 col-md-6  p-2">
             <label for="fullsurname">Cognome</label>
-            <input id="fullsurname" name="fullsurname" type="text" class="form-control" placeholder="Cognome">
+            <input id="fullsurname" name="fullsurname" type="text" class="form-control" placeholder="Cognome" required>
           </div>
           <div class="form-group col-12 col-md-6  p-2">
             <label for="email">eMail</label>
-            <input id="email" name="email" type="email" class="form-control" placeholder="email">
+            <input id="email" name="email" type="email" class="form-control" placeholder="email" required>
           </div>
           <div class="form-group col-12 col-md-6  p-2">
             <label for="telephone">Telefono</label>
-            <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telefono">
+            <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telefono" required>
           </div>
           <div class="form-group col-12 col-md-6  p-2">
             <label for="cap">Cap</label>
-            <input id="cap" name="cap" type="text" class="form-control" placeholder="CAP">
+            <input id="cap" name="cap" type="text" class="form-control" placeholder="CAP" required>
           </div>
         </div>
 
