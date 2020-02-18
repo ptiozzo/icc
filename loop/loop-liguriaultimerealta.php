@@ -70,6 +70,9 @@
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaScendiPiazza">
          Scendi in piazza
       </button>
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaBacheca">
+         Inserisci un anuncio
+      </button>
     </div>
   </div>
   <?php dynamic_sidebar('liguria'); ?>

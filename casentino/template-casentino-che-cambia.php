@@ -127,6 +127,46 @@ if($loopCasentinoScendiPiazza->have_posts()):
 </div>
 <?php endif; ?>
 
+<?php
+$argsCasentinoBacheca = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'casentino-bacheca',
+    ),
+  ),
+);
+$loopCasentinoBacheca = new WP_Query( $argsCasentinoBacheca );
+if($loopCasentinoBacheca->have_posts()):
+ ?>
+<div class="modal fade" id="CasentinoBacheca" tabindex="-1" role="dialog" aria-labelledby="CasentinoBacheca" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CasentinoAccediTitle">Inserisci un annuncio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopCasentinoBacheca->have_posts()) :  $loopCasentinoBacheca->the_post();
+            the_content();
+          endwhile;
+          ?>
+        <a href="https://Casentino.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+
 
 <div class="container-fluid home-page">
 	<div class="row">
@@ -291,6 +331,9 @@ if($loopCasentinoScendiPiazza->have_posts()):
             </button>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoScendiPiazza">
                Scendi in piazza
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoBacheca">
+               Inserisci un annuncio
             </button>
           </div>
         </aside>

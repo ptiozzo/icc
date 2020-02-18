@@ -125,6 +125,47 @@ if($loopLiguriaScendiPiazza->have_posts()):
   </div>
 </div>
 <?php endif; ?>
+
+<?php
+$argsLiguriaBacheca = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'liguria-bacheca',
+    ),
+  ),
+);
+$loopLiguriaBacheca = new WP_Query( $argsLiguriaBacheca );
+if($loopLiguriaBacheca->have_posts()):
+ ?>
+<div class="modal fade" id="LiguriaBacheca" tabindex="-1" role="dialog" aria-labelledby="LiguriaAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="LiguriaAccediTitle">Inserisci un annuncio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopLiguriaBacheca->have_posts()) :  $loopLiguriaBacheca->the_post();
+            the_content();
+          endwhile;
+          ?>
+        <a href="https://liguria.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+
 <div class="container-fluid home-page <?php echo $catPage; ?>">
 
   <div style="margin-top: 0px;"><iframe style="border: 0px; width:100%; height: 60vh;" src="https://api.pianetafuturo.it/widget/map/std2.php?a=8&tagoverride=1&sidebar=1&nored=1"></iframe></div>

@@ -125,6 +125,45 @@ if($loopPiemScendiPiazza->have_posts()):
   </div>
 </div>
 <?php endif; ?>
+<?php
+$argsPiemBacheca = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'piemonte-bacheca',
+    ),
+  ),
+);
+$loopPiemBacheca = new WP_Query( $argsPiemBacheca );
+if($loopPiemBacheca->have_posts()):
+ ?>
+<div class="modal fade" id="PiemonteBacheca" tabindex="-1" role="dialog" aria-labelledby="PiemonteAccediTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="PiemonteAccediTitle">Inserisci un annuncio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopPiemBacheca->have_posts()) :  $loopPiemBacheca->the_post();
+            the_content();
+          endwhile;
+          ?>
+        <a href="https://piemonte.pianetafuturo.it">Vai a PianetaFuturo</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
 <div class="container-fluid home-page <?php echo $catPage;?>">
 	<div class="row">
     <div id="sidebar" class="col-lg-home1 col-md-12">
@@ -290,6 +329,9 @@ if($loopPiemScendiPiazza->have_posts()):
             </button>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteScendiPiazza">
                Scendi in piazza
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteBacheca">
+               Inserisci un annuncio
             </button>
           </div>
         </aside>
