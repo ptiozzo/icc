@@ -25,7 +25,7 @@ function myplugin_rewrite_rule() {
   add_rewrite_rule( '^mappa/([^/]*)/?', 'index.php?pagename=mappa&par1=$matches[1]','top' );
 	add_rewrite_rule( '^piemonte/articoli/page/?([0-9]{1,})/?', 'index.php?page_id=41188&paged=$matches[1]','top' );
 	add_rewrite_rule( '^piemonte/articoli/?', 'index.php?page_id=41188','top' );
-	add_rewrite_rule( '^piemonte/bacheca/?', 'index.php?page_id=66111','top' );
+	add_rewrite_rule( '^piemonte/bacheca/?', 'index.php?page_id=68057','top' );
 	add_rewrite_rule( '^piemonte/calendario/?', 'index.php?page_id=57957','top' );
 	add_rewrite_rule( '^piemonte/contattaci/?', 'index.php?page_id=41204','top' );
 	add_rewrite_rule( '^piemonte/mappa/?', 'index.php?page_id=57961','top' );
