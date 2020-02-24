@@ -48,6 +48,7 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_script( 'icc-swupFormsPlugin-js', get_template_directory_uri().'/assets/swup/SwupFormsPlugin.min.js','','',true);
 		wp_enqueue_script( 'icc-swupGaPlugin-js', get_template_directory_uri().'/assets/swup/SwupGaPlugin.min.js','','',true);
 		wp_enqueue_script( 'icc-swupScriptsPlugin-js', get_template_directory_uri().'/assets/swup/SwupScriptsPlugin.min.js','','',true);
+		wp_enqueue_script( 'icc-swupHeadPlugin-js', get_template_directory_uri().'/assets/swup/SwupHeadPlugin.min.js','','',true);
 		wp_enqueue_script( 'icc-swup-custom-js', get_template_directory_uri().'/assets/swup/script.js','','',true);
 		wp_enqueue_script( 'icc-fontawsome-js', '//kit.fontawesome.com/befb91387f.js','','',true);
 
