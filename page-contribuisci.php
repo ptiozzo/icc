@@ -279,7 +279,7 @@
         </label>
       </div>
       <small class="form-text text-muted">
-      * Cliccando sul bottone "PROCEDI ORA" dichiari di aver preso visione ed accettare i <a href="/termini-e-condizioni">TERMINI e le CONDIZIONI</a> nonchè la <a href="//www.iubenda.com/privacy-policy/7778043" class="iubenda-white iubenda-embed" title="Privacy Policy">PRIVACY POLICY</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script></small>
+      * Cliccando sul bottone "PROCEDI ORA" dichiari di aver preso visione ed accettare i <a href="/contribuisci/termini-e-condizioni/">TERMINI e le CONDIZIONI</a> nonchè la <a href="//www.iubenda.com/privacy-policy/7778043" class="iubenda-white iubenda-embed" title="Privacy Policy">PRIVACY POLICY</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script></small>
 
         <input id="inviaform" class="btn btn-primary mt-2" name="submit_button" type="submit" value="Procedi ora">
       </form>
