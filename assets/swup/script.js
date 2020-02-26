@@ -8,7 +8,6 @@
     plugins: [new SwupScrollPlugin(),
               new SwupGaPlugin(),
               new SwupScriptsPlugin(),
-              new SwupHeadPlugin(),
       ],
     cache: false,
     linkSelector:
