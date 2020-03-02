@@ -246,7 +246,9 @@ add_action('end_session_action','end_session');
 /* Aggiunta banner ATTIVATI dopo secondo paragrafo.
 /* ------------------------------------ */
 require 'inc/attivati.php';
-
+/* Aggiunta banner PIANETA FUTURO dopo secondo paragrafo.
+/* ------------------------------------ */
+require 'inc/pianetafuturo.php';
 
 /* Aggiunta dei Widget.
 /* ------------------------------------ */

@@ -863,31 +863,54 @@ figcaption{
 
 
 .single__attivati{
+  background-color: #68D8B1;
+  font-weight: 500;
+  color: #fff;
+}
+.single__pianetafuturo{
+  background-color: #72bff9;
+}
+.single__attivati,
+.single__pianetafuturo{
   align-items: center;
   position: relative;
   display: flex;
-  background-color: #68D8B1;
-  color: #fff;
   font-size: 22px;
   line-height: 23px;
-  font-weight: 500;
   min-height: 100px;
 }
+
+.single__attivati2{
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.single__pianetafuturo2{
+  font-size: 60px;
+  font-weight: 300;
+}
+.single__pianetafuturo2 b{
+  font-weight: 900;
+}
+
 @media (max-width: 992px) {
-  .single__attivati img{
+  .single__attivati img,
+  .single__pianetafuturo img{
     width: 50%;
   }
 }
 @media (max-width: 767.99px) {
-  .single__attivati img{
+  .single__attivati img,
+  .single__pianetafuturo img{
     width: 25%;
   }
+  .single__pianetafuturo2{
+    font-size: 30px;
+    line-height: 32px;
+  }
 }
-.single__attivati2{
-  font-size: 30px;
-  font-weight: 900;
 
-}
+
 
 /*
 RASSEGNA STAMPA
