@@ -8,7 +8,7 @@ Template Name: Piemonte calendario
 
 <!-- CONTENUTO -->
 
-<div class="row">
+<div class="row no-gutters">
   <div class="col-lg-home-reg">
       <div style="margin-top: 5px; padding: 20px;"><iframe style="border: 0px; width:100%; height: 1000px;" src="https://api.pianetafuturo.it/widget/calendar/calendar.php?a=2"></iframe></div>
   </div>
@@ -30,7 +30,9 @@ Template Name: Piemonte calendario
         </button>
       </div>
     </aside>
-
+    <aside class="sidebar">
+      <?php dynamic_sidebar('piemonte'); ?>
+    </aside>
   </div>
 
 </div>
