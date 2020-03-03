@@ -46,7 +46,7 @@
     </div>
     <?php
     endwhile; ?>
-    <div class="col-auto d-flex align-items-end"><a class="btn btn-dark mb-3 text-white rounded-pill" href="/sostienici/">Contribuisci</a></div>
+    <div class="col-auto d-flex align-items-end"><a class="btn btn-dark mb-3 text-white rounded-pill" href="/contribuisci/">Contribuisci</a></div>
     <div class="col-auto ml-auto"><button class="btn btn-outline-dark my-3 rounded-pill" type="button" data-toggle="collapse" data-target="#contribuisci" aria-expanded="false" aria-controls="collapsContribuisci">X</a></div>
   <?php endif; ?>
 </div>
