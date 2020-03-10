@@ -24,7 +24,7 @@ if (!is_page(array(44544,58562,59229,57957))){ //escludo la pagina mappa e le pa
   <div class="col-12 col-md-4 text-center">
     <article>
       <b>“Italia che Cambia”</b> è una testata giornalistica registrata al Tribunale di Roma n. 65/2015 del 28 aprile 2015.
-      Iscrizione ROC n. 24323 ©2012-2019 Associazione Italia Che Cambia.
+      Iscrizione ROC n. 24323 ©2012-<?php echo date("Y"); ?> Associazione Italia Che Cambia.
     </article>
   </div>
   <div class="col-12">
