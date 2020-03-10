@@ -892,6 +892,9 @@ figcaption{
 .single__pianetafuturo2 b{
   font-weight: 900;
 }
+.single__pianetafuturo img{
+  max-width: 500px;
+}
 
 @media (max-width: 992px) {
   .single__attivati img,
@@ -900,8 +903,7 @@ figcaption{
   }
 }
 @media (max-width: 767.99px) {
-  .single__attivati img,
-  .single__pianetafuturo img{
+  .single__attivati img{
     width: 25%;
   }
   .single__pianetafuturo2{

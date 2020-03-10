@@ -125,34 +125,11 @@
 				<h2 class="single__metaDescription">
 					<?php the_excerpt();?>
 				</h2>
-				<!-- Share with -->
-				<div id="singleShare" class="single__share mb-1">
-					<?php
-					if ( function_exists( 'sharing_display' ) ) {
-	    			sharing_display( '', true );
-					}
-
-					 ?>
-				</div>
 			</div>
 			<!-- Content -->
 			<div class="single__articolo">
 				<?php the_content();?>
 			</div>
-
-
-
-			<div id="singleShare" class="single__share mb-1">
-				<?php
-				if ( function_exists( 'sharing_display' ) ) {
-					sharing_display( '', true );
-				}
-
-				 ?>
-			</div>
-
-
-
 		</article>
 
 	<?php endwhile; else : ?>
