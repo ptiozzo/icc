@@ -1,5 +1,39 @@
 <?php get_header(); ?>
 
+<?php
+
+if ($_SERVER['SERVER_NAME'] == 'www.italiachecambia.org'){
+  $icc_paypal_API = 'ARN1KrIpgxFNuB0ZkZQ31y4CbJJ4o36N9TZSFajcSkvMrukjHzEQbjnsLAIjzauR9MBfGMNT3UtOwn7O';
+  $icc10mese = 'P-37224294SU217912RLZWS6LQ';
+  $icc20mese = 'P-5HE28648AN455770LLZWS65I';
+  $icc50mese = 'P-3F385464EP992694TLZWTG7I';
+  $icc100mese = 'P-9BR47289TH950191FLZWTHLY';
+  $icc250mese = 'P-8ER19785J92642247LZWTH3Y';
+  $icc500mese = 'P-9AM39017SH726754RLZWTIFI';
+  $icc10anno = 'P-3PP066687Y715944MLZWTJIY';
+  $icc20anno = 'P-06F43075088441902LZWTJSY';
+  $icc50anno = 'P-50P95046WF434302CLZWTJ7A';
+  $icc100anno = 'P-7NP38256C5143092CLZWTKJA';
+  $icc250anno = 'P-2BR781013N798401DLZWTKXQ';
+  $icc500anno = 'P-7F9378847M556733YLZWTLCI';
+}
+else{ //se server differente da WWW
+  $icc_paypal_API = 'AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M';
+  $icc10mese = 'P-9AU56054CD509794XLY5KCRA';
+  $icc20mese = 'P-2A100646DT395035VLY5KDCQ';
+  $icc50mese = 'P-7U871187DY6980310LY5KEKY';
+  $icc100mese = 'P-17D00947XB807025FLY5KFGY';
+  $icc250mese = 'P-7EN57308226310709LY5KFTA';
+  $icc500mese = 'P-0UM89965CV242504NLY5KF5I';
+  $icc10anno = 'P-80480559B2684774KLY5OAVQ';
+  $icc20anno = 'P-6AS83261CA290731ELY5OBCQ';
+  $icc50anno = 'P-7GH57463U0107712NLY5OBOA';
+  $icc100anno = 'P-2322185446664332VLY5OBYI';
+  $icc250anno = 'P-67K52472AA427112VLY5OCGY';
+  $icc500anno = 'P-8N131668LC884432DLY5OCQQ';
+}
+
+ ?>
 <div class="container pt-4">
   <?php if( have_posts() ) : ?>
     <?php
@@ -21,7 +55,7 @@
           <?php if ($_POST['frequenza'] == "singola"): ?>
 
             <!-- Pagamento one time -->
-            <script src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M&currency=EUR&disable-funding=venmo,sofort"></script>
+            <script src="https://www.paypal.com/sdk/js?client-id=<?php echo $icc_paypal_API;?>&currency=EUR&disable-funding=venmo,sofort"></script>
             <h2>Contributo singolo</h2>
             <p><strong>Nome:</strong> <?php echo $_POST['fullname']; ?></p>
             <p><strong>Cognome:</strong> <?php echo $_POST['fullsurname']; ?></p>
@@ -82,33 +116,33 @@
               <?php
                 if($_POST['frequenza'] == 'mensile'){
                   if( $amount == 10){
-                    $codicePiano = 'P-9AU56054CD509794XLY5KCRA'; //10mese
+                    $codicePiano = $icc10mese; //10mese
                   } elseif($amount == 20){
-                    $codicePiano = 'P-2A100646DT395035VLY5KDCQ'; //20mese
+                    $codicePiano = $icc20mese; //20mese
                   } elseif($amount == 50){
-                    $codicePiano = 'P-7U871187DY6980310LY5KEKY'; //50mese
+                    $codicePiano = $icc50mese; //50mese
                   } elseif($amount == 100){
-                    $codicePiano = 'P-17D00947XB807025FLY5KFGY'; //100mese
+                    $codicePiano = $icc100mese; //100mese
                   } elseif($amount == 250){
-                    $codicePiano = 'P-7EN57308226310709LY5KFTA'; //250mese
+                    $codicePiano = $icc250mese; //250mese
                   } elseif($amount == 500){
-                    $codicePiano = 'P-0UM89965CV242504NLY5KF5I'; //500mese
+                    $codicePiano = $icc500mese; //500mese
                   } else{
                     $codicePiano = 'ERRORE';
                   }
                 } elseif ($_POST['frequenza'] == 'annuale') {
                   if( $amount == 10){
-                    $codicePiano = 'P-80480559B2684774KLY5OAVQ'; //10anno
+                    $codicePiano = $icc10anno; //10anno
                   } elseif($amount == 20){
-                    $codicePiano = 'P-6AS83261CA290731ELY5OBCQ'; //20anno
+                    $codicePiano = $icc20anno; //20anno
                   } elseif($amount == 50){
-                    $codicePiano = 'P-7GH57463U0107712NLY5OBOA'; //50ano
+                    $codicePiano = $icc50anno; //50anno
                   } elseif($amount == 100){
-                    $codicePiano = 'P-2322185446664332VLY5OBYI'; //100anno
+                    $codicePiano = $icc100anno; //100anno
                   } elseif($amount == 250){
-                    $codicePiano = 'P-67K52472AA427112VLY5OCGY'; //250anno
+                    $codicePiano = $icc250anno; //250anno
                   } elseif($amount == 500){
-                    $codicePiano = 'P-8N131668LC884432DLY5OCQQ'; //500anno
+                    $codicePiano = $icc500anno; //500anno
                   } else{
                     $codicePiano = 'ERRORE';
                   }
