@@ -126,9 +126,35 @@
 					<?php the_excerpt();?>
 				</h2>
 			</div>
+			<!-- Share with -->
+			<div class="single__share">
+				<?php
+				if ( function_exists( 'sharing_display' ) ) {
+					sharing_display( '', true );
+				}
+
+				if ( class_exists( 'Jetpack_Likes' ) ) {
+					$custom_likes = new Jetpack_Likes;
+				echo $custom_likes->post_likes( '' );
+				}
+				 ?>
+			</div>
 			<!-- Content -->
 			<div class="single__articolo">
 				<?php the_content();?>
+			</div>
+			<!-- Share with -->
+			<div class="single__share">
+				<?php
+				if ( function_exists( 'sharing_display' ) ) {
+					sharing_display( '', true );
+				}
+
+				if ( class_exists( 'Jetpack_Likes' ) ) {
+					$custom_likes = new Jetpack_Likes;
+				echo $custom_likes->post_likes( '' );
+				}
+				 ?>
 			</div>
 		</article>
 
