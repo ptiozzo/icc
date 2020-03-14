@@ -143,6 +143,10 @@
 			<div class="single__articolo">
 				<?php the_content();?>
 			</div>
+			<div class="single__contribuisci mb-2">
+				<button type="button" class="btn btn-lg btn-block btn-warning">Contribuisci all'Italia Che Cambia</button>
+				<a href="/contribuisci" class="stretched-link"></a>
+			</div>
 			<!-- Share with -->
 			<div class="single__share">
 				<?php
