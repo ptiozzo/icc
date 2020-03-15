@@ -49,8 +49,18 @@ else{ //se server differente da WWW
           }else{
             $amount = $_POST['contributo'];
           }
-//add contribuisci OLD
           ?>
+
+          <form action="/contribuisci/grazie" id="contribuisci_ok" name="contribuisci_ok" method="post" style="display:none;">
+            <input type="text" name="fullname" value="<?php echo $_POST['fullname'];?>" />
+            <input type="text" name="fullsurname" value="<?php echo $_POST['fullsurname'];?>" />
+            <input type="text" name="email" value="<?php echo $_POST['email'];?>" />
+            <input type="text" name="telephone" value="<?php echo $_POST['telephone'];?>" />
+            <input type="text" name="cap" value="<?php echo $_POST['cap'];?>" />
+            <input type="text" name="amount" value="<?php echo $amount;?>" />
+            <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
+          </form>
+
 
           <?php if ($_POST['frequenza'] == "singola"): ?>
 
@@ -65,19 +75,6 @@ else{ //se server differente da WWW
             <p><strong>Contributo:</strong> <?php echo $amount; ?>€</p>
 
             <div class="paypal-button" id="paypal-button-container"></div>
-
-
-            <form action="/contribuisci/grazie" id="contribuisci_ok" name="contribuisci_ok" method="post" style="display:none;">
-              <input type="text" name="fullname" value="<?php echo $_POST['fullname'];?>" />
-              <input type="text" name="fullsurname" value="<?php echo $_POST['fullsurname'];?>" />
-              <input type="text" name="email" value="<?php echo $_POST['email'];?>" />
-              <input type="text" name="telephone" value="<?php echo $_POST['telephone'];?>" />
-              <input type="text" name="cap" value="<?php echo $_POST['cap'];?>" />
-              <input type="text" name="amount" value="<?php echo $amount;?>" />
-              <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
-            </form>
-
-
               <script>
                 //Donazione singola
                 paypal.Buttons({
@@ -112,7 +109,7 @@ else{ //se server differente da WWW
             <?php else:
               ?>
 
-              <script src="https://www.paypal.com/sdk/js?client-id=AcuA_crJU2LOSvbTXAT907AY1CeUpQHqzwTpD5yxlRi4bLBAPs9OrrUps22VHoSc-WKGAgs-SQDio90M&currency=EUR&disable-funding=venmo,sofort&vault=true"></script>
+              <script src="https://www.paypal.com/sdk/js?client-id=<?php echo $icc_paypal_API;?>&currency=EUR&disable-funding=venmo,sofort&vault=true"></script>
               <?php
                 if($_POST['frequenza'] == 'mensile'){
                   if( $amount == 10){
@@ -265,45 +262,7 @@ else{ //se server differente da WWW
           </div>
           <small id="emailHelp" class="form-text text-muted">Il contributo libero è disponibile per la sola donazione singola</small>
 
-          <!--
-        <h3 class="col-12 my-3">Seleziona modalità di pagamento</h3>
 
-        <div class="btn-group btn-group-toggle col-12 my-3" data-toggle="buttons">
-          <label class="btn btn-light">
-            <input type="radio" name="metodopagamento" id="PayWhirl" value="PayWhirl">
-            <div class="row">
-              <div class="col-12">
-                CARTA DI CREDITO
-              </div>
-              <div class="col-12">
-                <img class="" src="https://www.italiachecambia.org/wp-content/uploads/2016/01/paywhirl.png" alt="">
-              </div>
-            </div>
-          </label>
-          <label class="btn btn-light active">
-            <input type="radio" name="metodopagamento" id="PayPal" value="PayPal" checked>
-            <div class="row">
-              <div class="col-12">
-                PAYPAL
-              </div>
-              <div class="col-12">
-                <img src="https://www.italiachecambia.org/wp-content/uploads/2016/03/paypal.png" alt="">
-              </div>
-            </div>
-          </label>
-          <label class="btn btn-light">
-            <input type="radio" name="metodopagamento" id="SlimPay" value="SlimPay">
-            <div class="row">
-              <div class="col-12">
-                BONIFICO RICORRENTE (SLIMPAY)
-              </div>
-              <div class="col-12">
-                <img src="https://www.italiachecambia.org/wp-content/uploads/2016/01/slimpay.png" alt="">
-              </div>
-            </div>
-          </label>
-        </div>
-      -->
 
 
       <div class="form-check mt-3">
