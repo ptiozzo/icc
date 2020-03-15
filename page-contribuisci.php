@@ -40,7 +40,7 @@ else{ //se server differente da WWW
       while(have_posts() ) : the_post();
   ?>
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-lg-6 order-2 order-lg-1">
       <?php
         if ($_POST['submit_button']){
 
@@ -321,7 +321,7 @@ else{ //se server differente da WWW
     </div>
 
 
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-lg-6 order-1 order-lg-2">
       <div class="contribuisci p-3 rounded">
         <h1><?php echo get_the_title(); ?></h1>
         <?php echo the_content(); ?>
