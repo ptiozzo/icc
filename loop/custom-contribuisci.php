@@ -51,10 +51,12 @@
   <?php endif; ?>
 </div>
 <script>
-$('#contribuisci').on('hidden.bs.collapse', function () {
-  var date = new Date();
-  date.setTime(date.getTime()+(7*24*60*60*1000));
-  document.cookie = "contribuisci=close; expires=" + date.toGMTString() + ";path=/";
-})
+(function($) {
+  $('#contribuisci').on('hidden.bs.collapse', function () {
+    var date = new Date();
+    date.setTime(date.getTime()+(7*24*60*60*1000));
+    document.cookie = "contribuisci=close; expires=" + date.toGMTString() + ";path=/";
+  })
+})(jQuery);
 
 </script>
