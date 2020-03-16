@@ -735,6 +735,7 @@ row
   line-height: 35px;
   font-weight: 900;
   color: #FFFFFF;
+  display: inline;
 }
 
 .single .single__torna__contenuti{
@@ -912,7 +913,41 @@ figcaption{
   }
 }
 
+.single__action{
+  position: sticky;
+  top: 40vh;
+}
 
+.single__action div{
+  width: 60px;
+  height: 60px;
+}
+
+.single__action i{color: #749A4F}
+
+.single .category-articoli .single__action i{color: #68D8B1;}
+.single .category-meme .single__action i{color: #F79865}
+.single .category-documentari .single__action i{color: #3D78D0}
+.single .category-rubriche .single__action i,
+.single .category-appunti-viaggio .single__action i,
+.single .category-ashoka-fellow .single__action i,
+.single .category-diari-di-bordo-maestro-di-strada .single__action i,
+.single .category-dizionario-eretico .single__action i,
+.single .category-economia-bene-comune .single__action i,
+.single .category-blog .single__action i,
+.single .category-in-un-flash .single__action i,
+.single .category-in-viaggio .single__action i,
+.single .category-invece-si-puo .single__action i,
+.single .category-via-uscita-dentro .single__action i,
+.single .category-voce-astice .single__action i,
+.single .category-mondo-chiama-italia .single__action i,
+.single .category-pensare-altro .single__action i,
+.single .category-pillole-transizione .single__action i,
+.single .category-terranave .single__action i,
+.single .category-una-favola-puo-fare .single__action i,
+.single .category-voci-italia-che-cambia .single__action i{color: #F270C0}
+.single .category-io-faccio-cosi .single__action i{color: #AF0000}
+.single .category-salute-che-cambia .single__action i{color: #7FD1F5}
 
 /*
 RASSEGNA STAMPA

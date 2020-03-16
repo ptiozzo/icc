@@ -169,6 +169,25 @@
 				<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/hand.svg' alt='italia che cambia'>
 			</figure>
 		</header>
+
+		<div class="modal fade" id="IscrizioneNewsletter" tabindex="-1" role="dialog" aria-labelledby="CasentinoAccediTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="IscrizioneNewsletterTitle">Iscrizione Newsletter</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <iframe src="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=3&idForm=305&guid=07a29581-54e5-43a8-bd98-db29eab5335c" class="border-0" width="100%" height="730px"></iframe>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 <div id="swup" class="swuptransition">
 
 	<?php

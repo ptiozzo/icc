@@ -11,15 +11,46 @@
 		}
 	} ?>
 
-<div class="container single clearfix"><!-- SINGLE -->
-	<div class="row">
-		<div class="col-12 col-md-6 offset-md-3">
-			<?php dynamic_sidebar('singlestart'); ?>
-		</div>
-	</div>
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
-
+<div class="single">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+			<div class="row">
+				<div class="col-1">
+					<div class="single__action d-none d-lg-block">
+						<div class="my-1 d-flex justify-content-center position-relative">
+							<i class="fas fa-map-marked-alt fa-2x my-auto"></i>
+							<?php
+								if( !empty (get_post_meta( get_the_ID(), 'MappaProgetto',true))){
+									echo '<a href="'.get_post_meta( get_the_ID(), 'MappaProgetto',true).'" class="stretched-link"></a>';
+								} else {
+									echo '<a href="/mappa" class="stretched-link"></a>';
+								}
+							?>
+						</div>
+						<div class="my-1 d-flex justify-content-center position-relative">
+							<button href="#" class="stretched-link btn btn-link" data-toggle="modal" data-target="#IscrizioneNewsletter">
+								<i class="far fa-envelope fa-2x my-auto"></i>
+							</button>
+						</div>
+						<div class="my-1 d-flex justify-content-center position-relative">
+							<i class="fas fa-binoculars fa-2x my-auto"></i>
+							<a href="/visione-2040/" class="stretched-link"></a>
+						</div>
+						<div class="my-1 d-flex justify-content-center position-relative">
+							<i class="fas fa-thumbs-up fa-2x my-auto"></i>
+							<a href="https://www.facebook.com/itachecambia/" class="stretched-link"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-10">
+					<div class="container clearfix"><!-- SINGLE -->
+						<div class="row">
+							<div class="col-12 col-md-6 offset-md-3">
+								<?php dynamic_sidebar('singlestart'); ?>
+							</div>
+						</div>
+
 			<!-- Categorie -->
 			<div class='single__nav__category'>
 				<?php
@@ -160,8 +191,10 @@
 				}
 				 ?>
 			</div>
+		</div>
+		</div>
 		</article>
-
+	</div>
 	<?php endwhile; else : ?>
 
 	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'miotema'); ?> </h3>
@@ -188,6 +221,7 @@
 		</div>
 	</div>
 </div>
+
 
 
 <?php get_footer(); ?>
