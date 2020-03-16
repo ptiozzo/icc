@@ -25,9 +25,10 @@
       <li>Aggiungere il campo personalizzato o selezionarlo dal menu' a tendina</li>
       <li>Inserire il valore da visualizzare</li>
     </ul>
-    I nomi dei campi sono: SecondoAutore, IntervistaDi, RipreseDi, MontaggioDi, VideoRalizzatoDa, YouTubeLink<br>
+    I nomi dei campi sono: SecondoAutore, IntervistaDi, RipreseDi, MontaggioDi, VideoRalizzatoDa, YouTubeLink, MappaProgetto<br>
     Per quanto riguarda i link di youtube si possono inserire i link copiati dall'URL del browser,
-     i link "corti" generati da youtube, il solo identificativo del video.
+     i link "corti" generati da youtube, il solo identificativo del video.<br>
+    MappaProgetto server ad indicare il link che verrà inserito nel pulsante dele actiona sinistra.
   </p>
 
 
