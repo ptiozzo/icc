@@ -17,7 +17,7 @@
 
 			<div class="row">
 				<div class="col-12 col-md-1">
-					<div class="single__action d-flex d-md-block text-center">
+					<div class="single__action d-flex d-md-block justify-content-center text-center">
 						<div class="my-1 d-flex flex-column justify-content-center position-relative">
 							<i class="fas fa-map-marker-alt fa-2x my-auto"></i>
 							<?php
@@ -38,7 +38,7 @@
 						<div class="my-1 d-flex flex-column justify-content-center position-relative">
 							<i class="fas fa-search fa-2x my-auto"></i>
 							<a href="/visione-2040/" class="stretched-link"></a>
-							<p>Visione 2040</p>
+							<p>Visione2040</p>
 						</div>
 						<div class="my-1 d-flex flex-column justify-content-center position-relative">
 							<button href="#" class="stretched-link btn btn-link" data-toggle="modal" data-target="#IscrizioneFB">
