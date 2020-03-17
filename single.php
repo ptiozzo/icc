@@ -44,7 +44,7 @@
 							<button href="#" class="stretched-link btn btn-link" data-toggle="modal" data-target="#IscrizioneFB">
 								<i class="fab fa-facebook-f fa-2x my-auto"></i>
 							</button>
-							<p>Facebook</p>
+							<p>Attivati</p>
 						</div>
 					</div>
 				</div>
