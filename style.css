@@ -918,6 +918,14 @@ figcaption{
   top: 40vh;
 }
 
+@media (max-width: 768px) {
+  .col_single_action{
+    position: sticky;
+    bottom: 40px;
+    background-color: white;
+  }
+}
+
 .single__action div{
   width: 60px;
   height: 60px;
@@ -1482,7 +1490,7 @@ NEWSBAR
   bottom: 0;
   z-index: 1000;
   color: #9BCE8F;
-  font-weight: 1000;
+  font-weight: 900;
 }
 .newsbar .contribuisci img{
   width: 100%;
