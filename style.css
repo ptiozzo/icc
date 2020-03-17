@@ -959,6 +959,15 @@ figcaption{
 .single .category-io-faccio-cosi .single__action{color: #AF0000}
 .single .category-salute-che-cambia .single__action{color: #7FD1F5}
 
+
+.single__contribuisci{
+  border-top: 1px solid;
+  border-color: var(--warning);
+  background-color: #f6f6f6;
+}
+.single__contribuisci img{
+  height: 25px;
+}
 /*
 RASSEGNA STAMPA
 */

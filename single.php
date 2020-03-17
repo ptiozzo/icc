@@ -17,7 +17,7 @@
 
 			<div class="row">
 				<div class="col-12 col-md-1">
-					<div class="single__action d-flex d-md-block justify-content-center text-center">
+					<div class="single__action d-flex d-md-block justify-content-around text-center">
 						<div class="my-1 d-flex flex-column justify-content-center position-relative">
 							<i class="fas fa-map-marker-alt fa-2x my-auto"></i>
 							<?php
@@ -180,7 +180,33 @@
 				<?php the_content();?>
 			</div>
 			<div class="single__contribuisci mb-2 position-relative">
-				<button type="button" class="btn btn-lg btn-block btn-warning">Contribuisci all'Italia Che Cambia</button>
+				<?php
+					$argsContribuisciSingle = array(
+			    'post_type' => 'contenuti-speciali',
+			    'posts_per_page' => 1,
+			    'tax_query' => array(
+			      array(
+			          'taxonomy'=> 'contenuti_speciali_filtri',
+			          'field'   => 'slug',
+			          'terms'		=> 'contribuisci-singolo-articolo',
+			      ),
+			    ),
+			  );
+			  $loopContribuisciSingle = new WP_Query( $argsContribuisciSingle );
+				if( $loopContribuisciSingle->have_posts()):
+					while( $loopContribuisciSingle->have_posts() ) : $loopContribuisciSingle->the_post();
+					?>
+					<div class="m-2">
+					<?php the_content(); ?>
+					</div>
+					<?php
+					endwhile;
+				endif;
+				?>
+				<button type="button" class="btn btn-lg btn-block btn-warning">
+					Contribuisci adesso all'Italia che Cambia
+					<img src='<?php echo get_template_directory_uri();?>/assets/img/payment-methods.png'>
+				</button>
 				<a href="/contribuisci" class="stretched-link"></a>
 			</div>
 			<!-- Share with -->
