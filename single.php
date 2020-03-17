@@ -16,10 +16,10 @@
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<div class="row">
-				<div class="col-1">
-					<div class="single__action d-none d-lg-block">
-						<div class="my-1 d-flex justify-content-center position-relative">
-							<i class="fas fa-map-marked-alt fa-2x my-auto"></i>
+				<div class="col-12 col-md-1">
+					<div class="single__action d-flex d-md-block text-center">
+						<div class="my-1 d-flex flex-column justify-content-center position-relative">
+							<i class="fas fa-map-marker-alt fa-2x my-auto"></i>
 							<?php
 								if( !empty (get_post_meta( get_the_ID(), 'MappaProgetto',true))){
 									echo '<a href="'.get_post_meta( get_the_ID(), 'MappaProgetto',true).'" class="stretched-link"></a>';
@@ -27,23 +27,28 @@
 									echo '<a href="/mappa" class="stretched-link"></a>';
 								}
 							?>
+							<p>Mappa</p>
 						</div>
-						<div class="my-1 d-flex justify-content-center position-relative">
+						<div class="my-1 d-flex flex-column justify-content-center position-relative">
 							<button href="#" class="stretched-link btn btn-link" data-toggle="modal" data-target="#IscrizioneNewsletter">
 								<i class="far fa-envelope fa-2x my-auto"></i>
 							</button>
+							<p>Newsletter</p>
 						</div>
-						<div class="my-1 d-flex justify-content-center position-relative">
-							<i class="fas fa-binoculars fa-2x my-auto"></i>
+						<div class="my-1 d-flex flex-column justify-content-center position-relative">
+							<i class="fas fa-search fa-2x my-auto"></i>
 							<a href="/visione-2040/" class="stretched-link"></a>
+							<p>Visione 2040</p>
 						</div>
-						<div class="my-1 d-flex justify-content-center position-relative">
-							<i class="fas fa-thumbs-up fa-2x my-auto"></i>
-							<a href="https://www.facebook.com/itachecambia/" class="stretched-link"></a>
+						<div class="my-1 d-flex flex-column justify-content-center position-relative">
+							<button href="#" class="stretched-link btn btn-link" data-toggle="modal" data-target="#IscrizioneFB">
+								<i class="fab fa-facebook-f fa-2x my-auto"></i>
+							</button>
+							<p>Facebook</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-10">
+				<div class="col-12 col-md-10">
 					<div class="container clearfix"><!-- SINGLE -->
 						<div class="row">
 							<div class="col-12 col-md-6 offset-md-3">

@@ -188,6 +188,24 @@
 		    </div>
 		  </div>
 		</div>
+		<div class="modal fade" id="IscrizioneFB" tabindex="-1" role="dialog" aria-labelledby="IscrizioneFB" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="IscrizioneFBTitle">Iscrizione Facebook</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body text-center">
+		        <?php dynamic_sidebar('modalSingle'); ?>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 <div id="swup" class="swuptransition">
 
 	<?php
