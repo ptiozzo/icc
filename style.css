@@ -16,6 +16,27 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /*
 GENERAL
 */
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  src: url('assets/fonts/opendyslexic/OpenDyslexic-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('assets/fonts/opendyslexic/OpenDyslexic-Bold.woff') format('woff');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('assets/fonts/opendyslexic/OpenDyslexic-Bold-Italic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('assets/fonts/opendyslexic/OpenDyslexic-Italic.woff') format('woff');
+  font-style: italic;
+}
 
 body,
 header{
@@ -1588,13 +1609,13 @@ NEWSBAR
 .category-una-favola-puo-fare .single__metaDescription,
 .category-una-favola-puo-fare .single__articolo
 {
-  font-family: 'Annie Use Your Telescope', cursive;
-  font-size: 1.5rem!important;
+  font-family: 'OpenDyslexic';
+  font-size: 1.2rem!important;
 }
 .category-una-favola-puo-fare .single__title{
   font-size: 32px!important;
 }
 .category-una-favola-puo-fare .single__metaDescription{
-  font-size: 1.3rem!important;
-  line-height: 1.4rem!important;
+  font-size: 1rem!important;
+  line-height: 1.1rem!important;
 }
