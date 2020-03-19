@@ -132,6 +132,20 @@ function myfeed_request($qv) {
 }
 add_filter('request', 'myfeed_request');
 
+function wpse28145_add_custom_types( $query ) {
+    if( is_tag() && $query->is_main_query() ) {
+
+        // this gets all post types:
+        $post_types = get_post_types();
+
+        // alternately, you can add just specific post types using this line instead of the above:
+        // $post_types = array( 'post', 'your_custom_type' );
+
+        $query->set( 'post_type', $post_types );
+    }
+}
+add_filter( 'pre_get_posts', 'wpse28145_add_custom_types' );
+
 /*
 * Add Response code to video embeds in WordPress
 *
