@@ -176,7 +176,7 @@
   	<?php endwhile;?>
   	<?php endif;?><!-- Fine articolo -->
   	<hr>
-   	<?php get_template_part("template-part/rassegna","footer"); ?>
+    <?php include("template-part/rassegna-footer.php"); ?>
   </div>
 
 

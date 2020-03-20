@@ -3,7 +3,7 @@
   $args = array(
     'post_type' => 'rassegna-stampa',
     'posts_per_page' => 3,
-    'post__not_in' => array(get_the_id()),
+    'post__not_in' => array($icc_article_ID),
   );
   $loop = new WP_Query( $args );
   if( $loop->have_posts() ) : ?>
