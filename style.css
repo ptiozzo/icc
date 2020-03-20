@@ -987,6 +987,7 @@ figcaption{
 .single .category-voci-italia-che-cambia .single__action{color: #F270C0}
 .single .category-io-faccio-cosi .single__action{color: #AF0000}
 .single .category-salute-che-cambia .single__action{color: #7FD1F5}
+.single .rassegna-stampa .single__action{color: #a3a3a3}
 
 
 .single__contribuisci{
@@ -996,6 +997,7 @@ figcaption{
 }
 .single__contribuisci img{
   height: 25px;
+  min-width: auto!important;
 }
 /*
 RASSEGNA STAMPA

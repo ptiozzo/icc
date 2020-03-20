@@ -1,155 +1,174 @@
 <?php get_header(); ?>
-<div class="container single"><!-- SINGLE -->
-	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
-
+<div class="single"><!-- SINGLE -->
+	<?php if (have_posts()) :?><?php while(have_posts()) : the_post();
+	include("inc/single-visione.php");
+	$icc_article_ID = get_the_ID();
+	?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-			<!-- TAG -->
-			<div class="single__head">
-				<div class="single__tag">
-					<?php $post_tags = wp_get_post_tags($post->ID);
-					if(!empty($post_tags)) {?>
-						<p class="tag"><?php the_tags('', ' ', ''); ?></p>
-					<?php } ?>
-				</div>
-				<!-- DATA -->
-				<div class="single__date">
-					<?php the_time('j M Y') ?>
-				</div>
-				<!-- Title -->
-				<h1 class="single__title">
-					<?php the_title(); ?>
-				</h1>
-				<!-- Autore/i -->
-				<div class="single__author">
-
-						Scritto da: <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><b><?php the_author(); ?></b></a>
-						<?php
-						/* controllo se esiste un secondo autore */
-						if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
-							echo " e <b>". get_post_meta( get_the_ID(), 'SecondoAutore',true)."</b>";
-						}
-					?>
-				</div>
-				<!-- Intervista di -->
-				<div class="single__author">
-					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'IntervistaDi',true))){
-							echo "Intervista di: <b>". get_post_meta( get_the_ID(), 'IntervistaDi',true)."</b>";
-						}
-					?>
-				</div>
-				<!-- Riprese di -->
-				<div class="single__author">
-					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'RipreseDi',true))){
-							echo "Riprese di: <b>". get_post_meta( get_the_ID(), 'RipreseDi',true)."</b>";
-						}
-					?>
-				</div>
-				<!-- Montaggio di -->
-				<div class="single__author">
-					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'MontaggioDi',true))){
-							echo "Montaggio di: <b>". get_post_meta( get_the_ID(), 'MontaggioDi',true)."</b>";
-						}
-					?>
-				</div>
-				<!-- Share with -->
-				<div class="single__share">
-					<?php
-					if ( function_exists( 'sharing_display' ) ) {
-	    			sharing_display( '', true );
-					}
-
-					if ( class_exists( 'Jetpack_Likes' ) ) {
-	    			$custom_likes = new Jetpack_Likes;
-	    		echo $custom_likes->post_likes( '' );
-					}
-					 ?>
-				</div>
-			</div>
-			<!-- Thumbnail o video youtube -->
-
-				<?php
-				if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
-					?>
-					<div class="single__thumbnail">
-						<figure class="video-container">
-							<iframe width="800" height="480" src="https://www.youtube.com/embed/<?php echo linkifyYouTubeURLs(get_post_meta( get_the_ID(), 'YouTubeLink',true));?>?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-						</figure>
-					</div>
-					<?php
-				}
-				?>
-
-				<!-- Riassunto -->
-				<div class="single__metaDescription p-4">
-					<?php the_excerpt();?>
-				</div>
-				<hr>
-			<!-- Content -->
-			<div class="single__articolo">
-				<?php the_content();?>
-			</div>
-		</article>
-		<div class="single__share mb-1">
-			<?php
-			if ( function_exists( 'sharing_display' ) ) {
-				sharing_display( '', true );
-			}
-
-			if ( class_exists( 'Jetpack_Likes' ) ) {
-				$custom_likes = new Jetpack_Likes;
-			echo $custom_likes->post_likes( '' );
-			}
-			 ?>
-		</div>
-		<hr>
-	<?php endwhile;?>
-	<?php endif;?><!-- Fine articolo -->
- 	<div class="rassegna__footer">
-		<?php
-		$args = array(
-			'post_type' => 'rassegna-stampa',
-			'posts_per_page' => 3,
-			'post__not_in' => array(get_the_id()),
-		);
-		$loop = new WP_Query( $args );
-		if( $loop->have_posts() ) : ?>
-			<h3 class="p-2">Archivio rassegna stampa</h3>
 			<div class="row">
-				<?php while( $loop->have_posts() ) : $loop->the_post(); ?>
-					<div class="col-lg-4 col-md-6 my-3 text-break">
-						<div id="post-<?php the_ID(); ?>" class="card border-0 p-0">
-							<article <?php echo post_class(); ?>>
-							<?php
-								if ( has_post_thumbnail() ) {
-									the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
-								}
-								else{
-									echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+				<div class="col-12 col-md-10 order-md-2">
+					<div class="container"><!-- SINGLE -->
+					<div class="single__head">
+						<!-- TAG -->
+						<div class="single__tag">
+							<?php $post_tags = wp_get_post_tags($post->ID);
+							if(!empty($post_tags)) {?>
+								<p class="tag"><?php the_tags('', ' ', ''); ?></p>
+							<?php } ?>
+						</div>
+						<!-- DATA -->
+						<div class="single__date">
+							<?php the_time('j M Y') ?>
+						</div>
+						<!-- Title -->
+						<h1 class="single__title">
+							<?php the_title(); ?>
+						</h1>
+						<!-- Autore/i -->
+						<div class="single__author">
+
+								Scritto da: <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><b><?php the_author(); ?></b></a>
+								<?php
+								/* controllo se esiste un secondo autore */
+								if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
+									echo " e <b>". get_post_meta( get_the_ID(), 'SecondoAutore',true)."</b>";
 								}
 							?>
-							<h5 class="card-title"><?php the_title(); ?></h5>
-							<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
-							<a href="<?php echo the_permalink();?>" class="stretched-link"><div class="cta">Leggi di più</div></a>
-							</article>
 						</div>
+						<!-- Intervista di -->
+						<div class="single__author">
+							<?php
+								if( !empty (get_post_meta( get_the_ID(), 'IntervistaDi',true))){
+									echo "Intervista di: <b>". get_post_meta( get_the_ID(), 'IntervistaDi',true)."</b>";
+								}
+							?>
+						</div>
+						<!-- Riprese di -->
+						<div class="single__author">
+							<?php
+								if( !empty (get_post_meta( get_the_ID(), 'RipreseDi',true))){
+									echo "Riprese di: <b>". get_post_meta( get_the_ID(), 'RipreseDi',true)."</b>";
+								}
+							?>
+						</div>
+						<!-- Montaggio di -->
+						<div class="single__author">
+							<?php
+								if( !empty (get_post_meta( get_the_ID(), 'MontaggioDi',true))){
+									echo "Montaggio di: <b>". get_post_meta( get_the_ID(), 'MontaggioDi',true)."</b>";
+								}
+							?>
+						</div>
+						<!-- Share with -->
+						<div class="single__share">
+							<?php
+							if ( function_exists( 'sharing_display' ) ) {
+			    			sharing_display( '', true );
+							}
 
+							if ( class_exists( 'Jetpack_Likes' ) ) {
+			    			$custom_likes = new Jetpack_Likes;
+			    		echo $custom_likes->post_likes( '' );
+							}
+							 ?>
+						</div>
 					</div>
-				<?php endwhile; ?>
-				<div class="col-12 pb-2">
-					<form class="pt-2 text-center" method="post" action="/contenuti/">
-						<input name="contenuti-dropdown" type="hidden" value="rassegna-stampa">
-						<input name="submit_button" type="submit" value="Vedi tutto" class="btn btn-lg btn-outline-dark">
-					</form>
+					<!-- Thumbnail o video youtube -->
+					<?php
+					if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
+						?>
+						<div class="single__thumbnail">
+							<figure class="video-container">
+								<iframe width="800" height="480" src="https://www.youtube.com/embed/<?php echo linkifyYouTubeURLs(get_post_meta( get_the_ID(), 'YouTubeLink',true));?>?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+							</figure>
+						</div>
+						<?php
+					}
+					?>
+
+					<!-- Riassunto -->
+					<div class="single__metaDescription p-4">
+						<?php the_excerpt();?>
+					</div>
+					<hr>
+					<!-- Content -->
+					<div class="single__articolo">
+						<?php the_content();?>
+					</div>
+					<div class="single__share mb-1">
+						<?php
+						if ( function_exists( 'sharing_display' ) ) {
+							sharing_display( '', true );
+						}
+
+						if ( class_exists( 'Jetpack_Likes' ) ) {
+							$custom_likes = new Jetpack_Likes;
+						echo $custom_likes->post_likes( '' );
+						}
+						 ?>
+					</div>
+					<div class="single__contribuisci mb-2 position-relative">
+						<?php
+						$argsContribuisciSingleDesktop = array(
+					    'post_type' => 'contenuti-speciali',
+					    'posts_per_page' => 1,
+					    'tax_query' => array(
+					      array(
+					          'taxonomy'=> 'contenuti_speciali_filtri',
+					          'field'   => 'slug',
+					          'terms'		=> 'contribuisci-singolo-articolo-desktop',
+					      ),
+					    ),
+					  );
+					  $loopContribuisciSingleDesktop = new WP_Query( $argsContribuisciSingleDesktop );
+
+						$argsContribuisciSingleMobile = array(
+					    'post_type' => 'contenuti-speciali',
+					    'posts_per_page' => 1,
+					    'tax_query' => array(
+					      array(
+					          'taxonomy'=> 'contenuti_speciali_filtri',
+					          'field'   => 'slug',
+					          'terms'		=> 'contribuisci-singolo-articolo-mobile',
+					      ),
+					    ),
+					  );
+					  $loopContribuisciSingleMobile = new WP_Query( $argsContribuisciSingleMobile );
+
+						if( $loopContribuisciSingleDesktop->have_posts() || $loopContribuisciSingleMobile->have_posts()):
+							while( $loopContribuisciSingleDesktop->have_posts() ) : $loopContribuisciSingleDesktop->the_post();
+							?>
+							<div class="m-2 d-none d-md-block">
+							<?php the_content(); ?>
+							</div>
+							<?php
+							endwhile;
+							while( $loopContribuisciSingleMobile->have_posts() ) : $loopContribuisciSingleMobile->the_post();
+							?>
+							<div class="m-2 d-block d-md-none">
+							<?php the_content(); ?>
+							</div>
+							<?php
+							endwhile;
+						endif;
+						?>
+						<button type="button" class="btn btn-lg btn-block btn-warning">
+							<b>Contribuisci adesso all'Italia che Cambia</b>
+							<img src='<?php echo get_template_directory_uri();?>/assets/img/payment-methods.png' class="ml-2">
+						</button>
+						<a href="/contribuisci" class="stretched-link"></a>
+					</div>
 				</div>
 			</div>
-		<?php else: ?>
-			<p>Non ho trovato nessun altra Rassegna</p>
-		<?php endif; ?>
-	</div>
+			<div class="col-12 col-md-1 col_single_action">
+				<?php include("template-part/single-action.php"); ?>
+			</div>
+		</div>
+		</article>
+	<?php endwhile;?>
+	<?php endif;?><!-- Fine articolo -->
+	<hr>
+ 	<?php get_template_part("template-part/rassegna","footer"); ?>
 </div>
 
 
