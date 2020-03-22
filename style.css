@@ -360,6 +360,14 @@ TITOLI HOME
 .contribuisci strong{
   font-weight: 600;
 }
+@media (max-width: 576px) {
+  .contribuisci_form .btn{
+    padding: .375rem 4px;
+  }
+}
+.contribuisci_form #inlineRadio7{
+  min-width: 50px;
+}
 
 /*Botton per iscrizione su menu regionali*/
 .btn-region{

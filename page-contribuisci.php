@@ -34,7 +34,7 @@ else{ //se server differente da WWW
 }
 
  ?>
-<div class="container pt-4">
+<div class="container contribuisci_form pt-4">
   <?php if( have_posts() ) : ?>
     <?php
       while(have_posts() ) : the_post();
