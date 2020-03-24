@@ -349,17 +349,25 @@ TITOLI HOME
   z-index: 1;
 }
 
-/*Contribuisci*/
-.contribuisci{
+/*Contribuisci banner*/
+.contribuisci-banner{
   background-color: #ffc107;
   color: black;
+  position: sticky!important;
+  bottom: 40px;
+  z-index: 1060;
 }
-.contribuisci a{
+.contribuisci-banner a{
   color: white;
 }
-.contribuisci strong{
+.contribuisci-banner strong{
   font-weight: 600;
 }
+.contribuisci-banner img{
+  width: 100%;
+}
+
+/*Contribuisci page*/
 @media (max-width: 576px) {
   .contribuisci_form .btn{
     padding: .375rem 4px;
