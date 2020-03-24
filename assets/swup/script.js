@@ -50,7 +50,6 @@
         leftSpacing: 15,
         bottomSpacing: 20
     });
-
   }
   swup.on('contentReplaced', init);
 
