@@ -33,7 +33,7 @@
     <div class="col-2 mx-auto my-auto d-none d-md-block">
       <img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia_nero.png' alt='Italia che cambia' title='Italia che cambia'>
     </div>
-    <div class="col-12 col-md-7 p-2 font-weight-light d-none d-md-block">
+    <div class="col-12 col-md-7 mt-2 p-2 font-weight-light d-none d-md-block">
       <?php the_content(); ?>
     </div>
     <?php
@@ -58,5 +58,4 @@
     document.cookie = "contribuisci=close; expires=" + date.toGMTString() + ";path=/";
   })
 })(jQuery);
-
 </script>

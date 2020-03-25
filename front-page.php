@@ -192,6 +192,6 @@
     </div>
   </div>
 </div>
-<?php get_template_part('loop/custom','contribuisci'); ?>
+
 
 <?php get_footer(); ?>

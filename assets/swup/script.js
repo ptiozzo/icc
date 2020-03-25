@@ -51,6 +51,17 @@
         bottomSpacing: 20
     });
 
+    function getCookie(name) {
+      var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+      return v ? v[2] : null;
+    }
+    .collapse('dispose');
+    /*if(getCookie("contribuisci") == 'close'){
+      $('#contribuisci').collapse('hide');
+    } else{
+      $('#contribuisci').collapse('show');
+    }*/
+
   }
   swup.on('contentReplaced', init);
 

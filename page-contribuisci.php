@@ -1,5 +1,12 @@
 <?php get_header(); ?>
-
+<script>
+    var date = new Date();
+    date.setTime(date.getTime()+(7*24*60*60*1000));
+    document.cookie = "contribuisci=close; expires=" + date.toGMTString() + ";path=/";
+    jQuery(function($){
+      $('#contribuisci').collapse('hide');
+    });
+</script>
 <?php
 
 if ($_SERVER['SERVER_NAME'] == 'www.italiachecambia.org'){
