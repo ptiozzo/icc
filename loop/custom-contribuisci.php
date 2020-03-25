@@ -58,4 +58,4 @@
     document.cookie = "contribuisci=close; expires=" + date.toGMTString() + ";path=/";
   })
 })(jQuery);
-</script>
+</script> 
