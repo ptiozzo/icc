@@ -1,4 +1,4 @@
-
+<?php get_template_part('loop/custom','contribuisci'); ?>
 
 </div> <!--wrapper -->
 </div> <!--swup -->
