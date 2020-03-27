@@ -368,6 +368,10 @@ TITOLI HOME
 }
 
 /*Contribuisci page*/
+.contribuisci{
+  background-color: #ffc107
+}
+
 @media (max-width: 576px) {
   .contribuisci_form .btn{
     padding: .375rem 4px;
