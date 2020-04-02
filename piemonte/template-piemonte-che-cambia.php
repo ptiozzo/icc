@@ -22,9 +22,15 @@ Template Name: Piemonte che cambia
       $i = 0;
       $args = array(
           'category_name' => $catPage,
-          'post__in' => get_option( 'sticky_posts' ),
           'ignore_sticky_posts' => 1,
-          'posts_per_page' => 10
+          'posts_per_page' => 10,
+          'tax_query' => array(
+            array(
+                'taxonomy'=> 'icc_altri_filtri',
+                'field'   => 'slug',
+                'terms'		=> 'PiemonteSticky',
+            ),
+          ),
       );
 			$loop = new WP_Query( $args );
       $icc_numeroPost = $loop->found_posts;
