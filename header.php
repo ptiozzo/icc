@@ -217,7 +217,7 @@
 		    </div>
 		  </div>
 		</div>
-<div id="swup" class="swuptransition">
+<!--<div id="swup" class="swuptransition">-->
 
 	<?php
 				if(!is_single() && !is_page('cerca')){

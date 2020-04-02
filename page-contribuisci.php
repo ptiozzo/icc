@@ -63,6 +63,9 @@ else{ //se server differente da WWW
             <input type="text" name="fullsurname" value="<?php echo $_POST['fullsurname'];?>" />
             <input type="text" name="email" value="<?php echo $_POST['email'];?>" />
             <input type="text" name="telephone" value="<?php echo $_POST['telephone'];?>" />
+            <input type="text" name="indirizzo" value="<?php echo $_POST['indirizzo'];?>" />
+            <input type="text" name="citta" value="<?php echo $_POST['citta'];?>" />
+            <input type="text" name="provincia" value="<?php echo $_POST['provincia'];?>" />
             <input type="text" name="cap" value="<?php echo $_POST['cap'];?>" />
             <input type="text" name="amount" value="<?php echo $amount;?>" />
             <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
@@ -78,6 +81,9 @@ else{ //se server differente da WWW
             <p><strong>Cognome:</strong> <?php echo $_POST['fullsurname']; ?></p>
             <p><strong>eMail:</strong> <?php echo $_POST['email']; ?></p>
             <p><strong>Telefono:</strong> <?php echo $_POST['telephone']; ?></p>
+            <p><strong>Indirizzo:</strong> <?php echo $_POST['indirizzo']; ?></p>
+            <p><strong>Città:</strong> <?php echo $_POST['citta']; ?></p>
+            <p><strong>Provincia:</strong> <?php echo $_POST['provincia']; ?></p>
             <p><strong>CAP:</strong> <?php echo $_POST['cap']; ?></p>
             <p><strong>Contributo:</strong> <?php echo $amount; ?>€</p>
 
@@ -221,6 +227,18 @@ else{ //se server differente da WWW
           <div class="form-group col-12 col-md-6  p-2">
             <label for="telephone">Telefono</label>
             <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telefono" required>
+          </div>
+          <div class="form-group col-12 col-md-6  p-2">
+            <label for="indirizzo">Indirizzo</label>
+            <input id="indirizzo" name="indirizzo" type="text" class="form-control" placeholder="Indirizzo" required>
+          </div>
+          <div class="form-group col-12 col-md-6  p-2">
+            <label for="citta">Città</label>
+            <input id="citta" name="citta" type="text" class="form-control" placeholder="Città" required>
+          </div>
+          <div class="form-group col-12 col-md-6  p-2">
+            <label for="provincia">Provincia</label>
+            <input id="provincia" name="provincia" type="text" class="form-control" placeholder="Provincia" required>
           </div>
           <div class="form-group col-12 col-md-6  p-2">
             <label for="cap">Cap</label>

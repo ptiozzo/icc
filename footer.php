@@ -1,7 +1,7 @@
 <?php get_template_part('loop/custom','contribuisci'); ?>
 
 </div> <!--wrapper -->
-</div> <!--swup -->
+<!-- </div> swup -->
 <?php
 if (!is_page(array(44544,58562,59229,57957,69021))){ //escludo la pagina mappa e le pagine con il calendario e contribuisci
   get_template_part('loop/loop','newsbar');

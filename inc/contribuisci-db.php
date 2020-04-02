@@ -1,6 +1,6 @@
 <?php
 global $icc_contribuisci_db_version;
-$icc_contribuisci_db_version = '1.0';
+$icc_contribuisci_db_version = '1.1';
 
 
 function icc_contribuisci_db_init(){
@@ -10,7 +10,7 @@ function icc_contribuisci_db_init(){
   $table_name = $wpdb->prefix.'icc_contribuisci';
   $installed_ver = get_option( "icc_contribuisci_db_version" );
 
-  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name || $installed_ver!= $icc_contribuisci_db_version) {
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name || $installed_ver != $icc_contribuisci_db_version) {
        //table not in database. Create new table
        $charset_collate = $wpdb->get_charset_collate();
 
@@ -21,6 +21,9 @@ function icc_contribuisci_db_init(){
             fullsurname text NOT NULL,
             email text NOT NULL,
             telephone text NOT NULL,
+            indirizzo text NOT NULL,
+            citta text NOT NULL,
+            provincia text NOT NULL,
             cap text NOT NULL,
             amount text NOT NULL,
             frequenza text NOT NULL,
@@ -29,12 +32,15 @@ function icc_contribuisci_db_init(){
        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
        dbDelta( $sql );
   }
-
-  add_option( 'icc_contribuisci_db_version', $icc_contribuisci_db_version );
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name){
+      add_option( 'icc_contribuisci_db_version', $icc_contribuisci_db_version );
+  } else {
+    update_option('icc_contribuisci_db_version', $icc_contribuisci_db_version );
+  }
 }
 add_action( 'init', 'icc_contribuisci_db_init' );
 
-function icc_contribuisci_db_add_data($fullname,$fullsurname,$email,$telephone,$cap,$amount,$frequenza){
+function icc_contribuisci_db_add_data($fullname,$fullsurname,$email,$telephone,$indirizzo,$citta,$provincia,$cap,$amount,$frequenza){
   global $wpdb;
   $table_name = $wpdb->prefix.'icc_contribuisci';
   $wpdb->insert(
@@ -45,6 +51,9 @@ function icc_contribuisci_db_add_data($fullname,$fullsurname,$email,$telephone,$
 			'fullsurname' => $fullsurname,
       'email' => $email,
       'telephone' => $telephone,
+      'indirizzo' => $indirizzo,
+      'citta' => $citta,
+      'provincia' => $provincia,
       'cap' => $cap,
       'amount' => $amount,
       'frequenza' => $frequenza,
@@ -165,9 +174,14 @@ class Custom_Table_Example_List_Table extends WP_List_Table
             'fullname' => __('Nome', 'icc'),
             'fullsurname' => __('Cognome', 'icc'),
             'email' => __('eMail', 'icc'),
+            'telephone' => __('Telefono', 'icc'),
+            'indirizzo' => __('Indirizzo', 'icc'),
+            'citta' => __('Citta', 'icc'),
+            'provincia' => __('Provincia', 'icc'),
             'cap' => __('CAP', 'icc'),
             'amount' => __('Cifra', 'icc'),
             'frequenza' => __('Frequenza', 'icc'),
+            'time' => __('Data', 'icc'),
         );
         return $columns;
     }
@@ -185,6 +199,7 @@ class Custom_Table_Example_List_Table extends WP_List_Table
             'fullname' => array('fullname', true),
             'fullsurname' => array('fullsurname', false),
             'email' => array('email', false),
+            'time' => array('time', false),
         );
         return $sortable_columns;
     }
