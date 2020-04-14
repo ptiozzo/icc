@@ -1572,6 +1572,7 @@ NEWSBAR
   -webkit-animation: marquee 40s linear infinite;
   animation: marquee linear 40s infinite;
 }
+
 .marquee span:hover{
   animation-play-state: paused;
 }
