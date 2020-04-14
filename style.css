@@ -1560,70 +1560,41 @@ NEWSBAR
   overflow: hidden;
   box-sizing: border-box;
   position: relative;
+  margin: 0 auto;
 }
 .marquee span{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  text-align: center;
-  /* Starting position */
-  -moz-transform:translateX(100%);
-  -webkit-transform:translateX(100%);
-  transform:translateX(100%);
+  display: inline-block;
+  padding-left: 100%;
+  will-change: transform;
+
   /* Apply animation to this element */
-  -moz-animation: marquee 50s linear infinite;
-  -webkit-animation: marquee 50s linear infinite;
-  animation: marquee linear 50s infinite;
+  -moz-animation: marquee 40s linear infinite;
+  -webkit-animation: marquee 40s linear infinite;
+  animation: marquee linear 40s infinite;
 }
 .marquee span:hover{
   animation-play-state: paused;
 }
 /* Move it (define the animation) */
 @-moz-keyframes marquee {
- 0%   { -moz-transform: translateX(100%); }
- 100% { -moz-transform: translateX(-1400%); }
+ 0%   { -moz-transform: translateX(0); }
+ 100% { -moz-transform: translateX(-100%); }
 }
 @-webkit-keyframes marquee {
- 0%   { -webkit-transform: translateX(100%); }
- 100% { -webkit-transform: translateX(-1400%); }
+ 0%   { -webkit-transform: translateX(0); }
+ 100% { -webkit-transform: translateX(-100%); }
 }
 @keyframes marquee {
  0%   {
- -moz-transform: translateX(100%); /* Firefox bug fix */
- -webkit-transform: translateX(100%); /* Firefox bug fix */
- transform: translateX(100%);
+ -moz-transform: translateX(0); /* Firefox bug fix */
+ -webkit-transform: translateX(0); /* Firefox bug fix */
+ transform: translateX(0);
  }
  100% {
- -moz-transform: translateX(-1400%); /* Firefox bug fix */
- -webkit-transform: translateX(-1400%); /* Firefox bug fix */
- transform: translateX(-1400%);
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%);
  }
-}
-
-@media (min-width: 992px) {
-
-  /* Move it (define the animation) */
-  @-moz-keyframes marquee {
-   0%   { -moz-transform: translateX(100%); }
-   100% { -moz-transform: translateX(-300%); }
-  }
-  @-webkit-keyframes marquee {
-   0%   { -webkit-transform: translateX(100%); }
-   100% { -webkit-transform: translateX(-300%); }
-  }
-  @keyframes marquee {
-   0%   {
-   -moz-transform: translateX(100%); /* Firefox bug fix */
-   -webkit-transform: translateX(100%); /* Firefox bug fix */
-   transform: translateX(100%);
-   }
-   100% {
-   -moz-transform: translateX(-300%); /* Firefox bug fix */
-   -webkit-transform: translateX(-300%); /* Firefox bug fix */
-   transform: translateX(-300%);
-   }
-  }
 }
 
 /*FAVOLA*/
