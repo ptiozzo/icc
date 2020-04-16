@@ -1,20 +1,14 @@
 <?php
 
-//remove version
-function wpbeginner_remove_version() {
-	return '';
-}
-add_filter('the_generator', 'wpbeginner_remove_version');
-
 // remove wp version param from any enqueued scripts
 function vc_remove_wp_ver_css_js( $src ) {
     if ( strpos( $src, 'ver=' ) )
         $src = remove_query_arg( 'ver', $src );
     return $src;
 }
-add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 
+remove_action('wp_head', 'wp_generator');
 
 /*  Include Styles & Script
 /* ------------------------------------ */
@@ -24,15 +18,14 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 		wp_enqueue_style( 'icc-fontfavole','//fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
 		//wp_enqueue_style( 'icc-normalize', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css');
-		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css');
-		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css');
-		wp_enqueue_style( 'icc8', get_template_directory_uri().'/assets/css/modules/visione/index.css');
-		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css');
-		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css');
-		wp_enqueue_style( 'icc-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css');
-		wp_enqueue_style( 'icc-swup-css', get_template_directory_uri().'/assets/swup/swup.css');
-		wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css');
-
+		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css',array(),filemtime(get_template_directory() . '/assets/css/main.css'),'all');
+		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/chi-siamo/index.css'),'all');
+		wp_enqueue_style( 'icc8', get_template_directory_uri().'/assets/css/modules/visione/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/visione/index.css'),'all');
+		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/sostienici/index.css'),'all');
+		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/mappa/index.css'),'all');
+		wp_enqueue_style( 'icc-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css',array(),filemtime(get_template_directory() . '/assets/css/bootstrap.min.css'),'all');
+		wp_enqueue_style( 'icc-swup-css', get_template_directory_uri().'/assets/swup/swup.css',array(),filemtime(get_template_directory() . '/assets/swup/swup.css'),'all');
+	  wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css',array(),filemtime(get_template_directory() . '/style.css'),'all');
 		wp_enqueue_script('jquery');
 
 		wp_enqueue_script( 'icc-scripts2', get_template_directory_uri() . '/assets/js/app.js','','',true);
