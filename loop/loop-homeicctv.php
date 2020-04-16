@@ -4,7 +4,7 @@
 $args = array(
   'post_type' => 'post',
   'posts_per_page' => 10,
-  'category_name' => 'io-faccio-cosi,meme',
+  'category_name' => 'io-faccio-cosi,meme,matrix-dentro-di-noi',
   'tax_query' => array(
     array(
         'taxonomy'=> 'icc_altri_filtri',
