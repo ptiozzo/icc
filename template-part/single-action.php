@@ -5,7 +5,7 @@
       if( !empty (get_post_meta( $icc_article_ID, 'MappaProgetto',true))){
         echo '<a href="'.get_post_meta( $icc_article_ID, 'MappaProgetto',true).'" class="stretched-link"></a>';
       } else {
-        echo '<a href="mappa" class="stretched-link"></a>';
+        echo '<a href="/mappa" class="stretched-link"></a>';
       }
     ?>
     <p>Mappa</p>
@@ -27,4 +27,13 @@
     </button>
     <p>Mi piace</p>
   </div>
+  <?php
+    if (is_singular('rassegna-stampa') || is_archive('rassegna-stampa')){
+  ?>
+    <div class="my-1 d-flex flex-column justify-content-center position-relative">
+      <a href="https://open.spotify.com/show/2vhde08tuNa5MbNts3uAg6" target="_blank" class="stretched-link"></a>
+      <i class="fab fa-spotify fa-2x my-auto"></i>
+      <p>Spotify</p>
+    </div>
+  <?php } ?>
 </div>
