@@ -154,27 +154,27 @@ add_filter( 'video_embed_html', 'abl1035_alx_embed_html' ); // Jetpack
 /*  Exclude category list in singolo articolo
 /* ------------------------------------ */
 
-function exclude_post_categories($excl='', $spacer=' ') {
-  $categories = get_the_category($post->ID);
-  if (!empty($categories)) {
-    $exclude = $excl;
-    $exclude = explode(",", $exclude);
-    $thecount = count(get_the_category()) - count($exclude);
-    foreach ($categories as $cat) {
-      $html = '';
-      if (!in_array($cat->cat_ID, $exclude)) {
-        $html .= '<a href="' . get_category_link($cat->cat_ID) . '" ';
-        $html .= 'title="' . $cat->cat_name . '">' . $cat->cat_name . '</a> ';
-        if ($thecount > 0) {
-          $html .= $spacer;
-        }
-        $thecount--;
-        echo $html;
-      }
-    }
-  }
-}
+add_filter( 'get_the_categories', 'remove_category_link' );
 
+function remove_category_link( $categories ) {
+
+    if ( is_admin() )
+        return $categories;
+
+    $remove = array();
+
+    foreach ( $categories as $category ) {
+
+    if ( $category->name == "Articoli" ||
+         $category->name == "Piemonte che cambia" ||
+         $category->name == "Casentino che cambia" ||
+         $category->name == "Liguria che cambia" )
+      continue;
+
+    $remove[] = $category;
+    }
+    return $remove;
+}
 
 /*  Custom post type
 /* ------------------------------------ */

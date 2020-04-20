@@ -39,7 +39,7 @@
 				if(get_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'])) { ?>
 					<a href="<?php echo home_url(); ?>/cerca/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
 				<?php }
-					exclude_post_categories("15,2300,2359,2299"); // 15 Articoli, 2300 Casentino, 2359 Liguria, 2299 Piemonte
+					the_category(' ');
 					?>
 				</a>
 
