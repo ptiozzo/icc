@@ -206,6 +206,7 @@ LINK
 .category-terranave a,
 .category-una-favola-puo-fare a,
 .category-voci-italia-che-cambia a{color: #F270C0}
+.category-matrix-dentro-di-noi a{color: #9370DB}
 .category-io-faccio-cosi a{color: #AF0000}
 .category-nostri-libri a{color: #9064fa}
 .category-salute-che-cambia a{color: #7FD1F5}
@@ -630,6 +631,7 @@ div.contenuti_header select{
 .cat2.category-terranave,
 .cat2.category-una-favola-puo-fare,
 .cat2.category-voci-italia-che-cambia{background: #F270C0}
+.cat2.category-matrix-dentro-di-noi{background: #9370DB}
 .cat2.category-io-faccio-cosi{background: #AF0000}
 .cat2.category-nostri-libri{background: #9064fa}
 .cat2.category-salute-che-cambia{background: #7FD1F5}
@@ -676,7 +678,7 @@ row
 .contenuti .row article.category-io-faccio-cosi a:hover .category{background: #AF0000}
 .contenuti .row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
 .contenuti .row article.rassegna-stampa a:hover .category{background: #a3a3a3}
-
+.contenuti .row article.category-matrix-dentro-di-noi{background: #9370DB}
 
 .row article a figure{
   position: relative;
@@ -765,6 +767,7 @@ row
 .single .category-terranave .single__nav__category,
 .single .category-una-favola-puo-fare .single__nav__category,
 .single .category-voci-italia-che-cambia .single__nav__category{background: #F270C0}
+.single .category-matrix-dentro-di-noi .single__nav__category{background: #9370DB}
 .single .category-io-faccio-cosi .single__nav__category{background: #AF0000}
 .single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
 .single .rassegna-stampa .single__nav__category{background: #a3a3a3}
@@ -836,6 +839,7 @@ row
 .single .category-terranave .single__tag a,
 .single .category-una-favola-puo-fare .single__tag a,
 .single .category-voci-italia-che-cambia .single__tag a{background: #F270C0}
+.single .category-matrix-dentro-di-noi .single__tag a{background: #9370DB}
 .single .category-io-faccio-cosi .single__tag a{background: #AF0000}
 .single .category-salute-che-cambia .single__tag a{background: #7FD1F5}
 
@@ -1005,6 +1009,7 @@ figcaption{
 .single .category-terranave .single__action,
 .single .category-una-favola-puo-fare .single__action,
 .single .category-voci-italia-che-cambia .single__action{color: #F270C0}
+.single .category-matrix-dentro-di-noi .single__action {color: #9370DB}
 .single .category-io-faccio-cosi .single__action{color: #AF0000}
 .single .category-salute-che-cambia .single__action{color: #7FD1F5}
 .single .rassegna-stampa .single__action{color: #a3a3a3}
@@ -1367,6 +1372,7 @@ COLORI HOME
 .card article.category-una-favola-puo-fare .category-bg,
 .card article.category-voci-italia-che-cambia .category-bg
 .card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
+.card article.category-matrix-dentro-di-noi .category-bg {background: #9370DB}
 .card article.category-io-faccio-cosi .category-bg{border-top: 150px solid #AF0000}
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
 .card article.rassegna-stampa .category-bg{border-top: 150px solid #a3a3a3;}
