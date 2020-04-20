@@ -151,23 +151,28 @@ function abl1035_alx_embed_html( $html ) {
 add_filter( 'embed_oembed_html', 'abl1035_alx_embed_html', 10, 3 );
 add_filter( 'video_embed_html', 'abl1035_alx_embed_html' ); // Jetpack
 
-/*  Exclude regione che cambia da category list in singolo articolo
+/*  Exclude category list in singolo articolo
 /* ------------------------------------ */
-add_filter('get_the_terms', 'hide_categories_terms', 10, 3);
-function hide_categories_terms($terms, $post_id, $taxonomy){
 
-    // list of category slug to exclude,
-    $exclude = array('piemonte-che-cambia', 'casentino-che-cambia','liguria-che-cambia');
-
-    if (!is_admin() && is_single()) {
-        foreach($terms as $key => $term){
-            if($term->taxonomy == "category"){
-                if(in_array($term->slug, $exclude)) unset($terms[$key]);
-            }
+function exclude_post_categories($excl='', $spacer=' ') {
+  $categories = get_the_category($post->ID);
+  if (!empty($categories)) {
+    $exclude = $excl;
+    $exclude = explode(",", $exclude);
+    $thecount = count(get_the_category()) - count($exclude);
+    foreach ($categories as $cat) {
+      $html = '';
+      if (!in_array($cat->cat_ID, $exclude)) {
+        $html .= '<a href="' . get_category_link($cat->cat_ID) . '" ';
+        $html .= 'title="' . $cat->cat_name . '">' . $cat->cat_name . '</a> ';
+        if ($thecount > 0) {
+          $html .= $spacer;
         }
+        $thecount--;
+        echo $html;
+      }
     }
-
-    return $terms;
+  }
 }
 
 
