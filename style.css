@@ -678,7 +678,7 @@ row
 .contenuti .row article.category-io-faccio-cosi a:hover .category{background: #AF0000}
 .contenuti .row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
 .contenuti .row article.rassegna-stampa a:hover .category{background: #a3a3a3}
-.contenuti .row article.category-matrix-dentro-di-noi{background: #9370DB}
+.contenuti .row article.category-matrix-dentro-di-noi a:hover .category{background: #9370DB}
 
 .row article a figure{
   position: relative;
