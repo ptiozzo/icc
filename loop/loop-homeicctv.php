@@ -28,10 +28,17 @@ $argsICCTV = array(
   'posts_per_page' => 10-$loopICCTVSticky->post_count,
   'category_name' => 'icc-tv',
   'tax_query' => array(
+    'relation' => 'AND',
     array(
         'taxonomy'=> 'icc_altri_filtri',
         'field'   => 'slug',
         'terms'		=> 'InHome',
+    ),
+    array(
+        'taxonomy'=> 'icc_altri_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'icctvsticky',
+        'operator' => 'NOT IN',
     ),
   ),
 );
