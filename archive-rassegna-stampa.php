@@ -104,6 +104,9 @@
               <?php
               if( !empty (get_post_meta( get_the_ID(), 'MP3Rassegna',true))){ ?>
               <div class="row">
+                <div class="col-12">
+  								<h3>Podcast:</h3>
+  							</div>
                 <div class="col-12 col-lg-8">
                   <?php echo do_shortcode('[audio mp3=' . get_post_meta( get_the_ID(), 'MP3Rassegna',true) . ']'); ?>
                 </div>
