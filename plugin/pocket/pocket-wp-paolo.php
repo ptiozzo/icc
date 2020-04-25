@@ -423,7 +423,7 @@ class PocketWP {
             } else{
               $html[] = '<div class="col-12">';
             }
-			   		$html[] = '<p class="pwp_item_excerpt">' . $item[2] . '</p>';
+			   		$html[] = '<p class="pwp_item_excerpt mb-0">' . $item[2] . '</p>';
             $html[] = '</div>';
 			  	}
 
@@ -434,7 +434,7 @@ class PocketWP {
 			  		if($item[4] != ""){
 				  	  	$html[] = '<p class="pwp_tag_list">';
 					  	foreach($item[4] as $tag) {
-					  		$html[] = '<span class="pwp_tags">#' . $tag['tag'] . '</span>';
+					  		$html[] = '<span class="pwp_tags font-weight-lighter">#' . $tag['tag'] . '</span>';
 					  	}
 					  	$html[] ='</p>';
 
