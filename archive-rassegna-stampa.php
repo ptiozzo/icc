@@ -98,7 +98,6 @@
   					<div class="single__metaDescription p-4">
   						<?php the_excerpt();?>
   					</div>
-  					<hr>
   					<!-- Content -->
   					<div class="single__articolo">
               <?php
@@ -117,16 +116,19 @@
                   <a href="https://open.spotify.com/show/2vhde08tuNa5MbNts3uAg6" target="_blank"><i class="fab fa-spotify fa-2x"></i> <span class="">Spotify</span></a>
                 </div>
               </div>
+              <hr>
               <?php
               }
               ?>
-              
+
+              <h3>Articoli:</h3>
               <!-- DA POCKET -->
   						<?php
   							if( !empty (get_post_meta( get_the_ID(), 'PocketTAG',true))){
   								echo do_shortcode("[pocket_links tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."' tag_list='no']" );
   							}
   						?>
+              <hr>
 
   						<?php the_content();?>
   					</div>
