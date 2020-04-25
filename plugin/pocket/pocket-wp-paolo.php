@@ -431,10 +431,10 @@ class PocketWP {
 
 			  	// Display tag list if tag_list not set to no.
 			  	if(strtolower($tag_list) != 'no') {
-			  		if($item[3] != ""){
+			  		if($item[4] != ""){
 				  	  	$html[] = '<p class="pwp_tag_list">';
-					  	foreach($item[3] as $tag) {
-					  		$html[] = '<span class="pwp_tags">' . $tag['tag'] . '</span>';
+					  	foreach($item[4] as $tag) {
+					  		$html[] = '<span class="pwp_tags">#' . $tag['tag'] . '</span>';
 					  	}
 					  	$html[] ='</p>';
 
