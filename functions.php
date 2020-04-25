@@ -17,7 +17,6 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		//wp_enqueue_script;
 		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 		wp_enqueue_style( 'icc-fontfavole','//fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
-		//wp_enqueue_style( 'icc-normalize', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css');
 		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css',array(),filemtime(get_template_directory() . '/assets/css/main.css'),'all');
 		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/chi-siamo/index.css'),'all');
 		wp_enqueue_style( 'icc8', get_template_directory_uri().'/assets/css/modules/visione/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/visione/index.css'),'all');
@@ -277,6 +276,17 @@ function category_has_parent($catid){
     }
     return false;
 }
+
+/* Attivazione plugin pocket
+/* ------------------------------------ */
+add_action('init', 'pocket_wp_paolo_init');
+
+if(!function_exists('pocket_wp_paolo_init')){
+  function pocket_wp_paolo_init(){
+    require 'plugin/pocket/pocket-wp-paolo.php';
+  }
+}
+
 
 /* Prima immagine del post.
 /* ------------------------------------ */

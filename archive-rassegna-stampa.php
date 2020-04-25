@@ -120,7 +120,14 @@
               <?php
               }
               ?>
-              <hr>
+              
+              <!-- DA POCKET -->
+  						<?php
+  							if( !empty (get_post_meta( get_the_ID(), 'PocketTAG',true))){
+  								echo do_shortcode("[pocket_links tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."' tag_list='no']" );
+  							}
+  						?>
+
   						<?php the_content();?>
   					</div>
   					<div class="single__share mb-1">
