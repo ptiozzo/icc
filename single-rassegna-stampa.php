@@ -90,9 +90,41 @@
 					<div class="single__metaDescription p-4">
 						<?php the_excerpt();?>
 					</div>
-					<hr>
+
 					<!-- Content -->
 					<div class="single__articolo">
+						<?php
+						if( !empty (get_post_meta( get_the_ID(), 'MP3Rassegna',true))){ ?>
+						<div class="row">
+							<div class="col-12">
+								<h3>Podcast:</h3>
+							</div>
+							<div class="col-12 col-lg-8">
+								<?php echo do_shortcode('[audio mp3=' . get_post_meta( get_the_ID(), 'MP3Rassegna',true) . ']'); ?>
+							</div>
+							<div class="col p-2 p-lg-0 text-center">
+								<a href="<?php echo get_post_meta( get_the_ID(), 'MP3Rassegna',true) ?>" class="btn btn-outline-success" download data-no-swup>Scarica</a>
+							</div>
+							<div class="col p-2 p-lg-0 text-center">
+								<a href="https://open.spotify.com/show/2vhde08tuNa5MbNts3uAg6" target="_blank"><i class="fab fa-spotify fa-2x"></i> <span class="">Spotify</span></a>
+							</div>
+						</div>
+						<hr>
+						<?php
+						}
+						?>
+
+						<h3>Articoli:</h3>
+						<!-- DA POCKET -->
+						<?php
+							if( !empty (get_post_meta( get_the_ID(), 'PocketTAG',true))){
+								echo do_shortcode("[pocket_links tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
+							}
+						?>
+
+						<hr>
+
+
 						<?php the_content();?>
 					</div>
 
