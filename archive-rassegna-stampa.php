@@ -127,9 +127,10 @@
   							if( !empty (get_post_meta( get_the_ID(), 'PocketTAG',true))){
                   echo "<h3>Articoli:</h3>";
   								echo do_shortcode("[pocket_links tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
+                  echo "<hr>";
   							}
   						?>
-              <hr>
+
 
   						<?php the_content();?>
   					</div>
