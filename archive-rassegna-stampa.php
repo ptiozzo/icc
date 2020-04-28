@@ -109,8 +109,8 @@
                 <div class="col-12 col-lg-8">
                   <?php echo do_shortcode('[audio mp3=' . get_post_meta( get_the_ID(), 'MP3Rassegna',true) . ']'); ?>
                 </div>
-                <div class="col p-2 p-lg-0 text-center">
-                  <a href="<?php echo get_post_meta( get_the_ID(), 'MP3Rassegna',true) ?>" class="btn btn-outline-success" download data-no-swup>Scarica</a>
+                <div class="col p-2 p-lg-0 text-center wp-block-button">
+                  <a href="<?php echo get_post_meta( get_the_ID(), 'MP3Rassegna',true) ?>" class="wp-block-button__link" download data-no-swup>Scarica</a>
                 </div>
                 <div class="col p-2 p-lg-0 text-center">
                   <a href="https://open.spotify.com/show/2vhde08tuNa5MbNts3uAg6" target="_blank"><i class="fab fa-spotify fa-2x"></i> <span class="">Spotify</span></a>
