@@ -165,6 +165,7 @@ function remove_category_link( $categories ) {
     foreach ( $categories as $category ) {
 
     if ( $category->name == "Articoli" ||
+         $category->name == "ICC-TV" ||
          $category->name == "Piemonte che cambia" ||
          $category->name == "Casentino che cambia" ||
          $category->name == "Liguria che cambia" )
