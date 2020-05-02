@@ -1024,6 +1024,14 @@ figcaption{
   height: 25px;
   min-width: auto!important;
 }
+.sd-social-official .sd-content>ul>li>a.sd-button{
+  background-color: #435A64!important;
+}
+.sd-social-official .sd-content>ul>li>a.sd-button span{
+  color: #fff;
+  font-weight: 700;
+}
+
 /*
 RASSEGNA STAMPA
 */
