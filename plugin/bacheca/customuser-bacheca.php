@@ -32,7 +32,7 @@
 	             $role->add_cap( 'edit_published_cerco-offros' );
 
 	             $role->add_cap( 'publish_cerco-offros' );
-               
+
                $role->add_cap( 'delete_cerco-offros' );
 	             $role->add_cap( 'delete_others_cerco-offros' );
 	             $role->add_cap( 'delete_private_cerco-offros' );

@@ -121,6 +121,24 @@ function admin_style() {
 }
 add_action('login_enqueue_scripts', 'admin_style');
 
+//user redirect
+function redirect_admin( $redirect_to, $request, $user ){
+
+  if (isset($user->roles) && is_array($user->roles)) {
+        //is this a icc_user subscriber?
+        if (in_array('icc_user', $user->roles)) {
+            // redirect them to home
+            $redirect_to = "/";
+        } else {
+            //all other logged in user
+            $redirect_to = "wp-admin";;
+        }
+    }
+    return $redirect_to;
+
+}
+add_filter( 'login_redirect', 'redirect_admin', 10, 3 );
+
 /*  Include Rassegna stampa in RSS
 /* ------------------------------------ */
 function myfeed_request($qv) {
