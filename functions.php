@@ -115,6 +115,12 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 }
 add_action( 'widgets_init', 'icc_sidebars' );
 
+// Update CSS within in Admin
+function admin_style() {
+  wp_enqueue_style('admin-styles', get_template_directory_uri().'/admin.css');
+}
+add_action('login_enqueue_scripts', 'admin_style');
+
 /*  Include Rassegna stampa in RSS
 /* ------------------------------------ */
 function myfeed_request($qv) {
@@ -285,6 +291,16 @@ add_action('init', 'pocket_wp_paolo_init');
 if(!function_exists('pocket_wp_paolo_init')){
   function pocket_wp_paolo_init(){
     require 'plugin/pocket/pocket-wp-paolo.php';
+  }
+}
+
+/* Attivazione plugin bacheca
+/* ------------------------------------ */
+add_action('init', 'bacheca_wp_paolo_init');
+
+if(!function_exists('bacheca_wp_paolo_init')){
+  function bacheca_wp_paolo_init(){
+    require 'plugin/bacheca/bacheca.php';
   }
 }
 
