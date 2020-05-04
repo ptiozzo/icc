@@ -29,16 +29,15 @@
 			<!-- Categorie -->
 			<div class='single__nav__category'>
 				<?php
-				//echo "TRAN PRIMA: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
-				if(get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']) || get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])) { ?>
-					<a href="<?php echo home_url(); ?>/contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
+
+				if( strpos($_SERVER["HTTP_REFERER"],"rubriche")) { ?>
+				<a href="<?php echo home_url(); ?>/categoria/contenuti/rubriche/<?php {echo "page/".get_transient('icc_rubrichePaged_'.(string) $_COOKIE['PHPSESSID'])."/";}?>" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alle rubriche</a>
+			<?php } elseif (strpos($_SERVER["HTTP_REFERER"],"contenuti") && get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])) { ?>
+				<a href="<?php echo home_url(); ?>/contenuti/<?php {echo "page/".get_transient('icc_contenutiPaged_'.(string) $_COOKIE['PHPSESSID'])."/";} ?>" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
+			<?php } elseif (strpos($_SERVER["HTTP_REFERER"],"cerca")) { ?>
+				<a href="/cerca/<?php {echo "page/".get_transient('icc_cercaPaged_'.(string) $_COOKIE['PHPSESSID'])."/";} ?>" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
 				<?php }
-				if(get_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID'])) { ?>
-					<a href="<?php echo home_url(); ?>/categoria/contenuti/rubriche/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alle rubriche</a>
-				<?php }
-				if(get_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'])) { ?>
-					<a href="<?php echo home_url(); ?>/cerca/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
-				<?php }
+				
 					the_category(' ');
 					?>
 				</a>

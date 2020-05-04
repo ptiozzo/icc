@@ -220,6 +220,7 @@
 <!--<div id="swup" class="swuptransition">-->
 
 	<?php
+/*
 				if(!is_single() && !is_page('cerca')){
 					delete_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID']);
 			    delete_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID']);
@@ -237,6 +238,8 @@
 				if(!is_single() && !is_category('rubriche')){
 					delete_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID']);
 				}
+*/
+
 	?>
 			<?php
 			if (is_page('piemonte')){
