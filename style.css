@@ -435,6 +435,10 @@ aside{
   background-color: #73C6BE;
 }
 
+.Widget_ICCUser p{
+  font-size: 15px!important;
+}
+
 .Widget_ICCUser_logout{
   font-size: 10px;
 }

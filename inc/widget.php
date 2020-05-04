@@ -124,12 +124,13 @@ class icc_Widget_ICCUser extends WP_Widget {
       $user_info = wp_get_current_user();
       ?>
         <?php echo get_avatar( $user_info->ID ); ?><br>
-        Benvenuto
+        <p class="pt-2 text-left p-0">Benvenuto
         <b><?php echo $user_info->display_name; ?></b>
-        <span class="Widget_ICCUser_logout"><a href="/wp-login.php?action=logout">(logout)</a></span><br>
+        <span class="Widget_ICCUser_logout"><a href="/wp-login.php?action=logout">(logout)</a></span></p>
+
         <hr>
         <h5>Azioni:</h5>
-        <a class="Widget_ICCUser_action" href="wp-admin/post-new.php?post_type=cerco-offro">Aggiungi nuovo cerco/offro</a>
+        <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="wp-admin/post-new.php?post_type=cerco-offro">Aggiungi nuovo cerco/offro</a></p>
 
       <?php
     } else { ?>
