@@ -314,13 +314,7 @@ if(!function_exists('pocket_wp_paolo_init')){
 
 /* Attivazione plugin bacheca
 /* ------------------------------------ */
-add_action('init', 'bacheca_wp_paolo_init');
-
-if(!function_exists('bacheca_wp_paolo_init')){
-  function bacheca_wp_paolo_init(){
-    require 'plugin/bacheca/bacheca.php';
-  }
-}
+require 'plugin/bacheca/bacheca.php';
 
 
 /* Prima immagine del post.
