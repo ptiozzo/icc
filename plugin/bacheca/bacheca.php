@@ -10,8 +10,16 @@
  * License: GPL2
  */
 
- require 'customuser-bacheca.php';
- require 'cpt-bacheca.php';
- require 'tassonomia-bacheca.php';
+
+ add_action('init', 'bacheca_paolo_init');
+
+ if(!function_exists('bacheca_paolo_init')){
+   function bacheca_paolo_init(){
+     require 'customuser-bacheca.php';
+     require 'cpt-bacheca.php';
+     require 'tassonomia-bacheca.php';
+   }
+ }
+
 
  ?>
