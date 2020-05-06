@@ -25,6 +25,10 @@
 		"show_in_rest" => true,
 		"rest_base" => "regione",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
+		'capabilities' => array(
+        'assign_terms' => 'assign_regione',
+    ),
+    'map_meta_cap' => true,
 		"show_in_quick_edit" => true,
 		];
 	register_taxonomy( "regione", [ "cerco-offro" ], $args );
@@ -55,6 +59,10 @@
 		"show_in_rest" => true,
 		"rest_base" => "tematica",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
+		'capabilities' => array(
+        'assign_terms' => 'assign_tematica',
+    ),
+    'map_meta_cap' => true,
 		"show_in_quick_edit" => true,
 		];
 	register_taxonomy( "tematica", [ "cerco-offro" ], $args );

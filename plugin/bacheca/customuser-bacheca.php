@@ -62,6 +62,10 @@
               $role->add_cap( 'read_cerco-offros');
               $role->add_cap( 'read_private_cerco-offros' );
 
+              $role->add_cap('assign_tematica');
+              $role->add_cap('assign_regione');
+
+
               $role->add_cap( 'upload_files' );
 
 		}
