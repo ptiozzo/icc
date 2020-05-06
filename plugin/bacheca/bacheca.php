@@ -12,6 +12,6 @@
 
  require 'customuser-bacheca.php';
  require 'cpt-bacheca.php';
-
+ require 'tassonomia-bacheca.php';
 
  ?>
