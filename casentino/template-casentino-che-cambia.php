@@ -170,23 +170,6 @@ Template Name: Casentino che cambia
 			</div> <!-- Fine row  -->
 		</div><!-- Fini seconda colonna  -->
       <div class="col-lg-home3">
-        <aside class="sidebar">
-          <div class="pcc-pianfut">
-            <h3>Pianeta Futuro</h3>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoSegnalaProgetto">
-               Segnala un progetto
-            </button>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoSegnalaEvento">
-               Segnala un evento
-            </button>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoScendiPiazza">
-               Scendi in piazza
-            </button>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CasentinoBacheca">
-               Inserisci un annuncio
-            </button>
-          </div>
-        </aside>
         <?php get_sidebar(); ?>
       </div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
