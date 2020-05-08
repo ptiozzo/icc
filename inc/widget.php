@@ -135,7 +135,7 @@ class icc_Widget_ICCUser extends WP_Widget {
       <?php
     } else { ?>
     <div class="">
-      <a href="/wp-login.php">Accedi</a>
+      <a href="/wp-login.php?redirect_to=/">Accedi</a>
       /
       <a href="wp-login.php?action=register">Registrati</a>
     </div>
