@@ -30,7 +30,6 @@
             $BachecaTematica = $BachecaTematica1;
           }
         }
-        echo "Regione ".$BachecaRegione.", Tematica ". $BachecaTematica;
         ?>
 
         <!-- Dropdown per selezione contenuto -->
@@ -68,7 +67,7 @@
           'post_type' => array('cerco-offro'),
           'posts_per_page' => 20,
           'paged'          => $paged,
-          
+
       );
       $loopBacheca = new WP_Query( $argsBacheca );
        ?>
