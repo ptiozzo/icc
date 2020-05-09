@@ -44,7 +44,6 @@
               $headers = array('Content-Type: text/html; charset=UTF-8');
               $headers[] = 'From: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
               $headers[] = 'Cc: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
-              $headers[] = 'Bcc: ptiozzo@me.com';
 
               wp_mail( $to, $subject, $body, $headers );
 
