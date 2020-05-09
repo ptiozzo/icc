@@ -118,8 +118,9 @@ class icc_Widget_ICCUser extends WP_Widget {
   // Create the widget output.
   public function widget( $args, $instance ) {
     $title = apply_filters( 'widget_title', $instance[ 'title' ] );
-    echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title'];?>
+    echo $args['before_widget'];?>
     <div class="Widget_ICCUser p-2">
+    <?php echo $args['before_title'] . $title . $args['after_title']; ?>
     <?php if(is_user_logged_in()){
       $user_info = wp_get_current_user();
       ?>
