@@ -97,53 +97,67 @@
 
             <?php if(is_user_logged_in()){
               the_content();?>
-              <hr>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#MessaggioPubblico" aria-expanded="false" aria-controls="collapseExample">
-                Messaggi pubblici
-              </button>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#MessaggioPrivato" aria-expanded="false" aria-controls="collapseExample">
-                Messaggio privato
-              </button>
 
-              <div class="collapse" id="MessaggioPubblico">
-                <?php
-                if ( comments_open() ) {
-                  comments_template();
-                }
-                ?>
-              </div>
-
-              <div class="collapse" id="MessaggioPrivato">
-                <h3>Contatta privatamente l'inserzionista</h3>
-
-                <form class="pt-2" action="<?php echo get_pagenum_link(); ?>" method="post">
-                  <div class="form-row">
-                    <input name="emailRicevente" type="hidden" class="form-control" id="emailRicevente" aria-describedby="emailHelp" value="<?php echo get_the_author_meta( 'user_email'); ?>">
-                    <div class="form-group col-12 col-md-6">
-                      <label for="nome">Nome</label>
-                      <input name="nome" type="input" class="form-control" id="nome" aria-describedby="firstName" value="<?php echo wp_get_current_user()->user_firstname; ?>">
-                      <small id="emailHelp" class="form-text text-muted">Questo dato sarà visibile all'inserzionista</small>
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                      <label for="cognome">Cognome</label>
-                      <input name="cognome" type="input" class="form-control" id="cognome" aria-describedby="emailHelp" value="<?php echo wp_get_current_user()->user_lastname; ?>">
-                      <small id="emailHelp" class="form-text text-muted">Questo dato sarà visibile all'inserzionista</small>
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                      <label for="email">Tuo indirizzo email</label>
-                      <input name="emailMittente" type="email" class="form-control" id="emailMittente" aria-describedby="emailHelp" value="<?php echo wp_get_current_user()->user_email; ?>">
-                      <small id="emailHelp" class="form-text text-muted">Questo indirizzo email sarà visibile all'inserzionista</small>
-                    </div>
-                    <div class="form-group col-12">
-                      <label for="messaggio">Messaggio</label>
-                      <textarea name="messaggio" class="form-control" id="messaggio" rows="4" required></textarea>
-                    </div>
-                    <button name="submit_email" type="submit" value="submit" class="btn btn-primary my-2">Invia mail</button>
+              <div class="accordion mb-2" id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Messaggi pubblici
+                      </button>
+                    </h2>
                   </div>
-                </form>
+
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <?php
+                      if ( comments_open() ) {
+                        comments_template();
+                      }
+                      ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Messaggio privato
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      <h3>Contatta privatamente l'inserzionista</h3>
+                      <form class="pt-2" action="<?php echo get_pagenum_link(); ?>" method="post">
+                        <div class="form-row">
+                          <input name="emailRicevente" type="hidden" class="form-control" id="emailRicevente" aria-describedby="emailHelp" value="<?php echo get_the_author_meta( 'user_email'); ?>">
+                          <div class="form-group col-12 col-md-6">
+                            <label for="nome">Nome</label>
+                            <input name="nome" type="input" class="form-control" id="nome" aria-describedby="firstName" value="<?php echo wp_get_current_user()->user_firstname; ?>">
+                            <small id="emailHelp" class="form-text text-muted">Questo dato sarà visibile all'inserzionista</small>
+                          </div>
+                          <div class="form-group col-12 col-md-6">
+                            <label for="cognome">Cognome</label>
+                            <input name="cognome" type="input" class="form-control" id="cognome" aria-describedby="emailHelp" value="<?php echo wp_get_current_user()->user_lastname; ?>">
+                            <small id="emailHelp" class="form-text text-muted">Questo dato sarà visibile all'inserzionista</small>
+                          </div>
+                          <div class="form-group col-12 col-md-6">
+                            <label for="email">Tuo indirizzo email</label>
+                            <input name="emailMittente" type="email" class="form-control" id="emailMittente" aria-describedby="emailHelp" value="<?php echo wp_get_current_user()->user_email; ?>">
+                            <small id="emailHelp" class="form-text text-muted">Questo indirizzo email sarà visibile all'inserzionista</small>
+                          </div>
+                          <div class="form-group col-12">
+                            <label for="messaggio">Messaggio</label>
+                            <textarea name="messaggio" class="form-control" id="messaggio" rows="4" required></textarea>
+                          </div>
+                          <button name="submit_email" type="submit" value="submit" class="btn btn-primary my-2">Invia mail</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-
 
               <!-- Share with -->
         			<div class="single__share">
