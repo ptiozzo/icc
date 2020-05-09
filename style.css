@@ -776,7 +776,8 @@ row
 .single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
 .single .rassegna-stampa .single__nav__category{background: #a3a3a3}
 
-.single .single__nav__category a{
+.single .single__nav__category a,
+.single .single__nav__category .btn-link{
   margin: 0;
   padding: 0;
   font-size: 18px;

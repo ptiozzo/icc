@@ -16,6 +16,12 @@
   			<div class="row">
   				<div class="col-12 col-md-10 order-md-2">
   					<div class="container"><!-- SINGLE -->
+              <div class='single__nav__category'>
+  				       <form class="" method="post" action="/contenuti/">
+  				         <input name="contenuti-dropdown" type="hidden" value="rassegna-stampa">
+  				         <input name="submit_button" type="submit" value="Rassegna stampa" class="btn btn-link p-0 border-0">
+  				       </form>
+  						</div>
   					<div class="single__head">
   						<!-- TAG -->
   						<div class="single__tag">
