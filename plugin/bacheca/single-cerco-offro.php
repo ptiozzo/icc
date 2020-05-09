@@ -31,6 +31,25 @@
     			</div>
 
           <div class="single__head">
+
+            <?php
+
+            if( $_POST['submit_email'] ){
+
+              echo '<div class="alert alert-success" role="alert">  Email inviata con successo!</div>';
+
+              $to = $_POST['emailRicevente'];
+              $subject = 'ItaliaCheCambia - Cerco\Offro: '.get_the_title();
+              $body = $_POST['messaggio'];
+              $headers = array('Content-Type: text/html; charset=UTF-8');
+              $headers[] = 'From: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
+              $headers[] = 'Cc: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
+              $headers[] = 'Bcc: ptiozzo@me.com';
+
+              wp_mail( $to, $subject, $body, $headers );
+
+            }
+            ?>
             <!-- DATA -->
             <div class="single__date">
               <?php the_time('j M Y') ?>
@@ -88,24 +107,6 @@
               ?>
 
               <h3>Contatta privatamente l'inserzionista</h3>
-              <?php
-
-              if( $_POST['submit_email'] ){
-
-                echo '<div class="alert alert-success" role="alert">  Email inviata con successo!</div>';
-
-                $to = $_POST['emailRicevente'];
-                $subject = 'ItaliaCheCambia - Cerco\Offro: '.get_the_title();
-                $body = $_POST['messaggio'];
-                $headers = array('Content-Type: text/html; charset=UTF-8');
-                $headers[] = 'From: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
-                $headers[] = 'Cc: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
-                $headers[] = 'Bcc: ptiozzo@me.com';
-
-                wp_mail( $to, $subject, $body, $headers );
-
-              }
-              ?>
 
               <form class="pt-2" action="<?php echo get_pagenum_link(); ?>" method="post">
                 <div class="form-row">
