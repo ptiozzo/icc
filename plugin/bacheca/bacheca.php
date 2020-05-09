@@ -21,6 +21,13 @@
    }
  }
 
+add_action( 'wp_enqueue_scripts', 'bacheca_style_scripts' );
+if(!function_exists('bacheca_style_scripts')){
+  function bacheca_style_scripts(){
+    wp_enqueue_style( 'bacheca', get_template_directory_uri().'/plugin/bacheca/bacheca.css',array(),filemtime(get_template_directory() . '/plugin/bacheca/bacheca.css'),'all');
+  }
+}
+
  add_filter('template_include', 'cercooffro_archive_template');
 
  function cercooffro_archive_template( $template ) {
@@ -57,5 +64,11 @@
     return 20;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+function comment_reform ($arg) {
+$arg['title_reply'] = __('Lascia un commento pubblico');
+return $arg;
+}
+add_filter('comment_form_defaults','comment_reform');
 
  ?>

@@ -55,7 +55,11 @@
     				</div>
             <!-- Meta Description -->
     				<h2 class="single__metaDescription">
-    					<?php the_excerpt();?>
+              <?php
+              if(has_excerpt()){
+    					 the_excerpt();
+              }
+              ?>
     				</h2>
           </div>
 
@@ -75,6 +79,65 @@
 
             <?php if(is_user_logged_in()){
               the_content();?>
+              <hr>
+
+              <?php
+              if ( comments_open() ) {
+                comments_template();
+              }
+              ?>
+
+              <h3>Contatta privatamente l'inserzionista</h3>
+              <?php
+
+              if( $_POST['submit_email'] ){
+
+                echo '<div class="alert alert-success" role="alert">  Email inviata con successo!</div>';
+
+                $to = $_POST['emailRicevente'];
+                $subject = 'ItaliaCheCambia - Cerco\Offro: '.get_the_title();
+                $body = $_POST['messaggio'];
+                $headers = array('Content-Type: text/html; charset=UTF-8');
+                $headers[] = 'From: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
+                $headers[] = 'Cc: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
+                $headers[] = 'Bcc: ptiozzo@me.com';
+
+                wp_mail( $to, $subject, $body, $headers );
+
+              }
+              ?>
+
+              <form class="pt-2" action="<?php echo get_pagenum_link(); ?>" method="post">
+                <div class="form-row">
+                  <input name="emailRicevente" type="hidden" class="form-control" id="emailRicevente" aria-describedby="emailHelp" value="<?php echo get_the_author_meta( 'user_email'); ?>">
+                  <div class="form-group col-12 col-md-6">
+                    <label for="nome">Nome</label>
+                    <input name="nome" type="input" class="form-control" id="nome" aria-describedby="firstName" value="<?php echo wp_get_current_user()->user_firstname; ?>">
+                    <small id="emailHelp" class="form-text text-muted">Questo dato sarà visibile all'inserzionista</small>
+                  </div>
+                  <div class="form-group col-12 col-md-6">
+                    <label for="cognome">Cognome</label>
+                    <input name="cognome" type="input" class="form-control" id="cognome" aria-describedby="emailHelp" value="<?php echo wp_get_current_user()->user_lastname; ?>">
+                    <small id="emailHelp" class="form-text text-muted">Questo dato sarà visibile all'inserzionista</small>
+                  </div>
+                  <div class="form-group col-12 col-md-6">
+                    <label for="email">Tuo indirizzo email</label>
+                    <input name="emailMittente" type="email" class="form-control" id="emailMittente" aria-describedby="emailHelp" value="<?php echo wp_get_current_user()->user_email; ?>">
+                    <small id="emailHelp" class="form-text text-muted">Questo indirizzo email sarà visibile all'inserzionista</small>
+                  </div>
+                  <div class="form-group col-12">
+                    <label for="messaggio">Messaggio</label>
+                    <textarea name="messaggio" class="form-control" id="messaggio" rows="4" required></textarea>
+                  </div>
+                  <button name="submit_email" type="submit" value="submit" class="btn btn-primary my-2">Invia mail</button>
+
+
+
+                </div>
+              </form>
+
+
+
               <!-- Share with -->
         			<div class="single__share">
         				<?php
