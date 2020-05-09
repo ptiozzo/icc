@@ -8,6 +8,9 @@
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class='single__nav__category'>
             <?php
+            if(strpos($_SERVER["HTTP_REFERER"],"cerco-offro")) { ?>
+    					<a href="<?php echo home_url(); ?>/cerco-offro/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai cerco/offro</a>
+    				<?php }
               echo "Regione: ";
               $term1 = "regione";
               $terms = get_the_terms( $post->ID , $term1 );
@@ -17,7 +20,7 @@
 
               echo "Tematica: ";
               $term1 = "tematica";
-              $terms = get_the_terms( $post->ID , $term1 );
+              $terms = get_the_terms( get_the_ID() , $term1 );
               foreach ( $terms as $term ) {
                 echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a>';
               }

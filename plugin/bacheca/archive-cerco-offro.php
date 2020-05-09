@@ -10,34 +10,41 @@
         <?php
         // Verifico se ho premuto submit e setto le ricerche
         // il paged e salvo tutto in sessione
-        if ($_POST['submit_button']){
-          $BachecaRegione = $_POST['regione'];
-          $BachecaTematica = $_POST['tematica'];
+        if ($_POST['reset_button']){
+          $BachecaRegione = $BachecaRegione1;
+          $BachecaTematica = $BachecaTematica1;
           $_SESSION['BachecaRegione'] = $BachecaRegione;
           $_SESSION['BachecaTematica'] = $BachecaTematica;
           $paged = 0;
-        } else {
-          //Se non ho premuto submit verifico se ho qualcosa in sesisone,
-          //altrimenti vado ai valori di default
+        }else{
+          if ($_POST['submit_button']){
+            $BachecaRegione = $_POST['regione'];
+            $BachecaTematica = $_POST['tematica'];
+            $_SESSION['BachecaRegione'] = $BachecaRegione;
+            $_SESSION['BachecaTematica'] = $BachecaTematica;
+            $paged = 0;
+          } else {
+            //Se non ho premuto submit verifico se ho qualcosa in sesisone,
+            //altrimenti vado ai valori di default
 
-          if($_SESSION['BachecaRegione']){
-            $BachecaRegione = $_SESSION['BachecaRegione'];
-          } else {
-            $BachecaRegione = $BachecaRegione1;
-          }
-          if($_SESSION['BachecaTematica']){
-            $BachecaTematica = $_SESSION['BachecaTematica'];
-          } else {
-            $BachecaTematica = $BachecaTematica1;
+            if($_SESSION['BachecaRegione']){
+              $BachecaRegione = $_SESSION['BachecaRegione'];
+            } else {
+              $BachecaRegione = $BachecaRegione1;
+            }
+            if($_SESSION['BachecaTematica']){
+              $BachecaTematica = $_SESSION['BachecaTematica'];
+            } else {
+              $BachecaTematica = $BachecaTematica1;
+            }
           }
         }
-        $BachecaRegione = $BachecaRegione1;
         ?>
 
         <!-- Dropdown per selezione contenuto -->
         <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
           <select name="regione" class="custom-select">
-            <option value="tutteleregioni" <?php if ( $BachecaRegione == 'tutteleregioni') {echo 'selected';}?> >Tutte le regioni</option>
+
             <?php
               $categories = get_terms( array('taxonomy' => 'regione','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
               foreach ($categories as $category) {
@@ -63,9 +70,11 @@
             ?>
           </select>
           <input name="submit_button" type="Submit" value="Filtra" class="btn btn-secondary">
+          <input name="reset_button" type="Submit" value="Vedi tutto" class="btn btn-secondary ml-2">
         </form>
       </div>
       <?php
+
       if($BachecaRegione == $BachecaRegione1 && $BachecaTematica == $BachecaTematica1){
         $argsBacheca = array(
             'post_type' => array('cerco-offro'),
@@ -135,6 +144,7 @@
       }
 
       $loopBacheca = new WP_Query( $argsBacheca );
+      echo "Regione:". $_SESSION['BachecaRegione'] . " Tematica: ".$BachecaTematica." Paged: " .$paged ." Loop: ".$loopBacheca->post_count;
        ?>
       <div class="row mr-0">
         <?php
@@ -148,20 +158,33 @@
             }else{
               $image = catch_that_image();
             }
-            //echo $image;
             ?>
 
-            <div class="card">
-              <img src="<?php echo $image;?>" class="card-img-top p-0" alt="<?php the_title(); ?>">
-              <div class="card-body">
-                <h5 class="card-title"><?php the_title(); ?></h5>
-                <p class="card-text"><?php the_excerpt();?></p>
-                <a href="<?php the_permalink(); ?>" class="btn btn-primary">Leggi di più</a>
+              <div class="card h-100">
+                <img src="<?php echo $image;?>" class="card-img-top p-0" alt="<?php the_title(); ?>">
+                <div class="card-body p-1">
+                  <h5 class="card-title"><?php the_title(); ?></h5>
+                  <p class="card-text"><?php echo get_the_excerpt();?></p>
+                  <a href="<?php the_permalink(); ?>" class="btn btn-primary">Leggi di più</a>
+                </div>
+                <div class="card-footer text-muted p-1">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item font-weight-lighter p-0 bg-transparent"><small><?php the_time('j M Y') ?></small></li>
+                    <li class="list-group-item font-weight-lighter p-0 bg-transparent">
+                      Regione:
+                      <?php foreach ( get_the_terms( get_the_ID() , 'regione' ) as $term ) {
+                        echo  $term->name." ";
+                      } ?>
+                    </li>
+                    <li class="list-group-item font-weight-lighter p-0 bg-transparent">
+                      Tematica:
+                      <?php foreach ( get_the_terms( get_the_ID() , 'tematica' ) as $term ) {
+                        echo  $term->name." ";
+                      } ?>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="card-footer text-muted">
-                <?php the_time('j M Y') ?>
-              </div>
-            </div>
           </div>
 
 
@@ -169,6 +192,9 @@
           endwhile;endif;
         ?>
       </div>
+      <!-- paginazione -->
+
+    <?php echo bootstrap_pagination($loopBacheca); ?>
     </div>
     <div class="col-lg-home3">
       <aside class="sidebar">
