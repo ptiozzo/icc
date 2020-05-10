@@ -6,6 +6,26 @@ global $wpdb, $user_ID;
 <div class="container pt-4">
 <h1><?php echo get_the_title(); ?></h1>
 
+<?php if($_GET['nl']){
+  echo "<div class='mt-5' style='height: 100vh;'>";
+  if ($_GET['nl']== "RishiestaOK"){
+    echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter! Controlla la tua mail per confermare</div>';
+  } elseif ($_GET['nl']== "IscrizioneOK"){
+    echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter</div>';
+  } elseif ($_GET['nl']== "ErroreGenerico"){
+    echo '<div class="alert alert-danger" role="alert">Vi è stato un errore, contatta la redazione per maggiori informazioni</div>';
+  } elseif ($_GET['nl']== "IndirizzoGiaRegistrato"){
+    echo '<div class="alert alert-warning" role="alert">L\'indirizzo email risulta già rricevere la NewsLetter, contatta la redazione per maggiori informazioni</div>';
+  } elseif ($_GET['nl']== "DatiNonConsistenti"){
+    echo '<div class="alert alert-danger" role="alert">Alcuni dati forniti risultano già esistenti o mancanti, contatta la redazione per maggiori informazioni</div>';
+  }
+  echo "</div>";
+  echo "</div>"; //chiudo il container
+  get_footer(); //carico il footer
+  exit; //interrompo il caricamento
+
+} ?>
+
 <?php echo the_content();
 
 //Check whether the user is already logged in
@@ -149,7 +169,7 @@ if ($user_ID)
             </form>
 
             <div class="alert alert-success" role="alert">
-              Registrazione avvenuta con successo. Effettua il <a href="/wp-login.php?redirect_to=/">login</a> o torna alla <a href="/">home page</a>
+              Registrazione avvenuta con successo. Effettua il <a class="alert-link" href="/wp-login.php?redirect_to=/">login</a> o torna alla <a class="alert-link" href="/">home page</a>
             </div>
             <?php
         }
