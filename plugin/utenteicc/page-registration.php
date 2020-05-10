@@ -89,7 +89,7 @@ if ($user_ID)
             */
 
             //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username );
-            $to = "$_POST['email']";
+            $to = $_POST['email'];
             $subject = 'Benvenuto nella piattaforma di ItaliaCheCambia';
             $body = "Ciao ".$_POST['firstname']."<br>Benvenuto nella piattaforma di ItaliaCheCambia";
             $body .= "<br>Il tuo nome utente è ".$_POST['username'];
