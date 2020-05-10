@@ -144,7 +144,7 @@
       }
 
       $loopBacheca = new WP_Query( $argsBacheca );
-      echo "Regione:". $_SESSION['BachecaRegione'] . " Tematica: ".$BachecaTematica." Paged: " .$paged ." Loop: ".$loopBacheca->post_count;
+      
        ?>
       <div class="row mr-0">
         <?php
