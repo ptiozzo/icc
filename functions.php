@@ -294,6 +294,10 @@ if(!function_exists('pocket_wp_paolo_init')){
   }
 }
 
+/* Attivazione utenteICC
+/* ------------------------------------ */
+require 'plugin/utenteicc/utenteicc.php';
+
 /* Attivazione plugin bacheca
 /* ------------------------------------ */
 require 'plugin/bacheca/bacheca.php';

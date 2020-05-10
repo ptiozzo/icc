@@ -15,7 +15,6 @@
 
  if(!function_exists('bacheca_paolo_init')){
    function bacheca_paolo_init(){
-     require 'customuser-bacheca.php';
      require 'cpt-bacheca.php';
      require 'tassonomia-bacheca.php';
    }
@@ -65,10 +64,9 @@ if(!function_exists('bacheca_style_scripts')){
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
-function comment_reform ($arg) {
+function wcc_comment_reform ($arg) {
 $arg['title_reply'] = __('Lascia un commento pubblico');
 return $arg;
 }
-add_filter('comment_form_defaults','comment_reform');
-
+add_filter('comment_form_defaults','wcc_comment_reform');
  ?>
