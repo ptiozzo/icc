@@ -11,7 +11,7 @@ global $wpdb, $user_ID;
   if ($_GET['nl']== "RishiestaOK"){
     echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter! Controlla la tua mail per confermare</div>';
   } elseif ($_GET['nl']== "IscrizioneOK"){
-    echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter</div>';
+    echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter con successo</div>';
   } elseif ($_GET['nl']== "ErroreGenerico"){
     echo '<div class="alert alert-danger" role="alert">Vi è stato un errore, contatta la redazione per maggiori informazioni</div>';
   } elseif ($_GET['nl']== "IndirizzoGiaRegistrato"){
