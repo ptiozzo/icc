@@ -89,7 +89,14 @@ if ($user_ID)
             */
 
             //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username );
+            $to = "$_POST['email']";
+            $subject = 'Benvenuto nella piattaforma di ItaliaCheCambia';
+            $body = "Ciao ".$_POST['firstname']."<br>Benvenuto nella piattaforma di ItaliaCheCambia";
+            $body .= "<br>Il tuo nome utente è ".$_POST['username'];
+            $headers = array('Content-Type: text/html; charset=UTF-8');
 
+            wp_mail( $to, $subject, $body, $headers );
+            wp_mail( 'ptiozzo@me.com', '[ICC] nuovo utente registrato', $body, $headers );
             ?>
             <div class="alert alert-success" role="alert">
               Registrazione avvenuta con successo
