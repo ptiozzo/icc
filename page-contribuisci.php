@@ -226,7 +226,7 @@ else{ //se server differente da WWW
           </div>
           <div class="form-group col-12 col-md-6  p-2">
             <label for="telephone">Telefono</label>
-            <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telefono" required>
+            <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telefono">
           </div>
           <div class="form-group col-12 col-md-6  p-2">
             <label for="indirizzo">Indirizzo</label>
