@@ -428,21 +428,6 @@ aside{
   }
 }
 
-.icc_Widget_ICCUser{
-  padding: 0!important;
-}
-.Widget_ICCUser{
-  background-color: #73C6BE;
-}
-
-.Widget_ICCUser p{
-  font-size: 15px!important;
-}
-
-.Widget_ICCUser_logout{
-  font-size: 10px;
-}
-
 .libri .row article a figure img{
   height: 100%;
 }

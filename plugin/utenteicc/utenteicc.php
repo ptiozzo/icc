@@ -17,4 +17,11 @@ add_filter('template_include', 'icc_custom_registration_form');
 
 require 'widget.php';
 
+add_action( 'wp_enqueue_scripts', 'utenteicc_style_scripts' );
+if(!function_exists('utenteicc_style_scripts')){
+  function utenteicc_style_scripts(){
+    wp_enqueue_style( 'bacheca', get_template_directory_uri().'/plugin/utenteicc/utenteicc.css',array(),filemtime(get_template_directory() . '/plugin/utenteicc/utenteicc.css'),'all');
+  }
+}
+
 ?>
