@@ -6,6 +6,32 @@
   <div class="row mx-0 pt-2">
     <div class="col-lg-home-reg">
       <h1>Cerco/Offro</h1>
+        <?php
+        $argsCercoOffroArchivio = array(
+          'post_type' => 'contenuti-speciali',
+          'posts_per_page' => 1,
+          'tax_query' => array(
+            array(
+                'taxonomy'=> 'contenuti_speciali_filtri',
+                'field'   => 'slug',
+                'terms'		=> 'cerco-offro archivio',
+            ),
+          ),
+        );
+        $loopCercoOffroArchivio = new WP_Query( $argsCercoOffroArchivio );
+        if( $loopCercoOffroArchivio->have_posts()) :
+          echo '<div class="mt-3">';
+          while( $loopCercoOffroArchivio->have_posts() ) : $loopCercoOffroArchivio->the_post();
+            the_content();
+          endwhile;
+          echo '</div>';
+        endif;
+        ?>
+
+
+
+
+
       <div class="contenuti_header">
         <?php
         // Verifico se ho premuto submit e setto le ricerche
@@ -144,7 +170,7 @@
       }
 
       $loopBacheca = new WP_Query( $argsBacheca );
-      
+
        ?>
       <div class="row mr-0">
         <?php
