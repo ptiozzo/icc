@@ -36,8 +36,6 @@
 
             if( $_POST['submit_email'] ){
 
-              echo '<div class="alert alert-success" role="alert">  Email inviata con successo!</div>';
-
               $to = $_POST['emailRicevente'];
               $subject = 'ItaliaCheCambia - Cerco\Offro: '.get_the_title();
               $body = $_POST['messaggio'];
@@ -46,6 +44,8 @@
               $headers[] = 'Cc: '.$_POST["cognome"].' '.$_POST["nome"].'<'.$_POST["emailMittente"].'>';
 
               wp_mail( $to, $subject, $body, $headers );
+
+              echo '<div class="alert alert-success" role="alert">  Email inviata con successo!</div>';
 
             }
             ?>
@@ -79,6 +79,9 @@
               }
               ?>
     				</h2>
+            <div class="single__edit__post">
+              <?php edit_post_link(__('Modifica annuncio')); ?>
+            </div>
           </div>
 
           <!-- Share with -->
@@ -103,7 +106,7 @@
                   <div class="card-header" id="headingOne">
                     <h2 class="mb-0">
                       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Messaggi pubblici
+                        Vedi i commenti pubblici presenti e lascia il tuo
                       </button>
                     </h2>
                   </div>
@@ -122,13 +125,13 @@
                   <div class="card-header" id="headingTwo">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Messaggio privato
+                        Invia un messaggio privato all'inserzionista
                       </button>
                     </h2>
                   </div>
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
-                      <h3>Contatta privatamente l'inserzionista</h3>
+                      <h3>Invia un messaggio privato all'inserzionista</h3>
                       <form class="pt-2" action="<?php echo get_pagenum_link(); ?>" method="post">
                         <div class="form-row">
                           <input name="emailRicevente" type="hidden" class="form-control" id="emailRicevente" aria-describedby="emailHelp" value="<?php echo get_the_author_meta( 'user_email'); ?>">
