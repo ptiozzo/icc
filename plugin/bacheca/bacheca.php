@@ -27,7 +27,14 @@ if(!function_exists('bacheca_cercooffro_shortcode')){
     $a = shortcode_atts( array(
       'regione' => '_tutteleregioni'
    ), $atts );
-    include 'shortcode.php';
+   if(!is_archive()) {
+     ob_start();
+     include 'shortcode.php';
+     return ob_get_clean();
+   } else{
+     include 'shortcode.php';
+     return true;
+   }
   }
 }
 

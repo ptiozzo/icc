@@ -224,4 +224,3 @@
       </aside>
     </div>
   <?php } ?>
-  </div>
