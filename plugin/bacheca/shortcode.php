@@ -89,7 +89,7 @@
         </form>
       </div>
       <?php
-      echo "Regione: ".$BachecaRegione." - Tematica: ".$BachecaTematica . " --tematica base: ".$BachecaTematica1;
+    
       if($BachecaRegione != "_tutteleregioni" && $BachecaTematica != $BachecaTematica1){
         //Filtro sia per regione che per tematica
         echo "Filtro1";
