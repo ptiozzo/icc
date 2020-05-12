@@ -20,6 +20,17 @@
    }
  }
 
+add_shortcode( 'bacheca-cercooffro', 'bacheca_cercooffro_shortcode' );
+
+if(!function_exists('bacheca_cercooffro_shortcode')){
+  function bacheca_cercooffro_shortcode($atts) {
+    $a = shortcode_atts( array(
+      'regione' => '_tutteleregioni'
+   ), $atts );
+    include 'shortcode.php';
+  }
+}
+
 add_action( 'wp_enqueue_scripts', 'bacheca_style_scripts' );
 if(!function_exists('bacheca_style_scripts')){
   function bacheca_style_scripts(){
