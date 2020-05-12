@@ -89,10 +89,9 @@
         </form>
       </div>
       <?php
-    
+
       if($BachecaRegione != "_tutteleregioni" && $BachecaTematica != $BachecaTematica1){
         //Filtro sia per regione che per tematica
-        echo "Filtro1";
         $argsBacheca = array(
             'post_type' => array('cerco-offro'),
             'posts_per_page' => 20,
@@ -122,7 +121,6 @@
 
       } elseif ($BachecaTematica == $BachecaTematica1 && $BachecaRegione != "_tutteleregioni"){
         //tutte le tematiche filtrate per regione
-        echo "Filtro2";
         $argsBacheca = array(
             'post_type' => array('cerco-offro'),
             'posts_per_page' => 20,
@@ -144,7 +142,6 @@
 
       } elseif ($BachecaRegione == "_tutteleregioni" && $BachecaTematica != $BachecaTematica1){
         //tutte le regioni filtrate per temetica
-        echo "Filtro3";
         $argsBacheca = array(
             'post_type' => array('cerco-offro'),
             'posts_per_page' => 20,
@@ -158,7 +155,6 @@
             ),
         );
       }else{
-        echo "TUTTO!";
         //tutti i cerco/offro
         $argsBacheca = array(
             'post_type' => array('cerco-offro'),
