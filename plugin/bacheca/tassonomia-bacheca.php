@@ -67,5 +67,37 @@
 		];
 	register_taxonomy( "tematica", [ "cerco-offro" ], $args );
 
+	/**
+	 * Taxonomy: cercooffro.
+	 */
+
+	$labels = [
+		"name" => __( "Cerco/Offro", "icc" ),
+		"singular_name" => __( "Cerco/Offro", "icc" ),
+		"menu_name" => __( "Cerco/Offro", "icc" ),
+	];
+
+	$args = [
+		"label" => __( "Cerco/Offro", "icc" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'cercooffor', 'with_front' => true,  'hierarchical' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"rest_base" => "cercooffro",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		'capabilities' => array(
+				'assign_terms' => 'assign_cercooffro',
+		),
+		'map_meta_cap' => true,
+		"show_in_quick_edit" => true,
+		];
+	register_taxonomy( "cercooffro", [ "cerco-offro" ], $args );
 
 ?>
