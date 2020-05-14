@@ -87,4 +87,14 @@ $arg['title_reply'] = __('Lascia un commento pubblico');
 return $arg;
 }
 add_filter('comment_form_defaults','wcc_comment_reform');
+
+function icc_custom_new_cerco_offro( $template ) {
+  if ( is_page('nuovo-cercooffro') ) {
+    return dirname( __FILE__ ) . '/new-cercooffro.php';
+  }
+  return $template;
+}
+add_filter('template_include', 'icc_custom_new_cerco_offro');
+
+
  ?>
