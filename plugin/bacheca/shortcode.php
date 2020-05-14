@@ -1,6 +1,7 @@
 <?php
   $BachecaRegione1 = $a['regione'];
   $BachecaTematica1 = "tutteletematiche";
+  $BachecaCercoOffro1 = "cercooffro";
  ?>
   <div class="row mx-0 pt-2">
     <div class=" <?php if(is_archive()) { echo 'col-lg-home-reg';}?>">
@@ -38,8 +39,10 @@
           if ($_POST['submit_button']){
             $BachecaRegione = $_POST['regione'];
             $BachecaTematica = $_POST['tematica'];
+            $BachecaCercoOffro = $_POST['cercooffro'];
             $_SESSION['BachecaRegione'] = $BachecaRegione;
             $_SESSION['BachecaTematica'] = $BachecaTematica;
+            $_SESSION['BachecaCercoOffro'] = $BachecaCercoOffro;
             $paged = 0;
           } else {
             //Se non ho premuto submit verifico se ho qualcosa in sesisone,
@@ -54,6 +57,11 @@
               $BachecaTematica = $_SESSION['BachecaTematica'];
             } else {
               $BachecaTematica = $BachecaTematica1;
+            }
+            if($_SESSION['BachecaCercoOffro']){
+              $BachecaCercoOffro = $_SESSION['BachecaCercoOffro'];
+            } else {
+              $BachecaCercoOffro = $BachecaCercoOffro1;
             }
           }
         ?>
@@ -85,84 +93,78 @@
               }
             ?>
           </select>
+          <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+              <select name="cercooffro" class="custom-select">
+                <option value="cercooffro" <?php if ( $BachecaCercoOffro == 'cercooffro') {echo 'selected';}?> >Cerco/Offro</option>
+                <?php
+                  $categories = get_terms( array('taxonomy' => 'cercooffro','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
+                  foreach ($categories as $category) {
+                    $option = '<option value="'.$category->slug.'" ';
+                    if ($BachecaCercoOffro == $category->slug) {$option .= 'selected ';};
+                    $option .= '>'.$category->name;
+                    $option .= '</option>';
+                    echo $option;
+                  }
+                ?>
+              </select>
           <input name="submit_button" type="Submit" value="Filtra" class="btn btn-secondary">
         </form>
       </div>
       <?php
+      if ($BachecaRegione != "_tutteleregioni"){
+        $filtroRegione = array('relation' => 'OR',
+                          array(
+                              'taxonomy' => 'regione',
+                              'field'    => 'slug',
+                              'terms'    => $BachecaRegione,
+                          ),
+                          array(
+                              'taxonomy' => 'regione',
+                              'field'    => 'slug',
+                              'terms'    => 'aanazionale',
+                          ),
+                        );
+      } else {
+        $filtroRegione = '';
+      }
 
-      if($BachecaRegione != "_tutteleregioni" && $BachecaTematica != $BachecaTematica1){
-        //Filtro sia per regione che per tematica
+      if ($BachecaTematica != $BachecaTematica1){
+        $filtroTematica = array(
+                              'taxonomy' => 'tematica',
+                              'field'    => 'slug',
+                              'terms'    => $BachecaTematica,
+                          );
+      } else {
+        $filtroTematica = '';
+
+      }
+
+      if ($BachecaCercoOffro != $BachecaCercoOffro1){
+        $filtroCercoOffro = array(
+                              'taxonomy' => 'cercooffro',
+                              'field'    => 'slug',
+                              'terms'    => $BachecaCercoOffro,
+                            );
+      } else {
+        $filtroCercoOffro = '';
+      }
+
+
+
+
+
         $argsBacheca = array(
             'post_type' => array('cerco-offro'),
             'posts_per_page' => 20,
             'paged'          => $paged,
             'tax_query' => array(
                 'relation' => 'AND',
-                array('relation' => 'OR',
-                  array(
-                      'taxonomy' => 'regione',
-                      'field'    => 'slug',
-                      'terms'    => $BachecaRegione,
-                  ),
-                  array(
-                      'taxonomy' => 'regione',
-                      'field'    => 'slug',
-                      'terms'    => 'aanazionale',
-                  ),
-                ),
-                array(
-                    'taxonomy' => 'tematica',
-                    'field'    => 'slug',
-                    'terms'    => $BachecaTematica,
-                ),
+                $filtroRegione,
+                $filtroTematica,
+                $filtroCercoOffro,
               ),
+            );
 
-        );
-
-      } elseif ($BachecaTematica == $BachecaTematica1 && $BachecaRegione != "_tutteleregioni"){
-        //tutte le tematiche filtrate per regione
-        $argsBacheca = array(
-            'post_type' => array('cerco-offro'),
-            'posts_per_page' => 20,
-            'paged'          => $paged,
-            'tax_query' => array(
-                'relation' => 'OR',
-                array(
-                    'taxonomy' => 'regione',
-                    'field'    => 'slug',
-                    'terms'    => $BachecaRegione,
-                ),
-                array(
-                    'taxonomy' => 'regione',
-                    'field'    => 'slug',
-                    'terms'    => 'aanazionale',
-                ),
-            ),
-        );
-
-      } elseif ($BachecaRegione == "_tutteleregioni" && $BachecaTematica != $BachecaTematica1){
-        //tutte le regioni filtrate per temetica
-        $argsBacheca = array(
-            'post_type' => array('cerco-offro'),
-            'posts_per_page' => 20,
-            'paged'          => $paged,
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'tematica',
-                    'field'    => 'slug',
-                    'terms'    => $BachecaTematica,
-                ),
-            ),
-        );
-      }else{
-        //tutti i cerco/offro
-        $argsBacheca = array(
-            'post_type' => array('cerco-offro'),
-            'posts_per_page' => 20,
-            'paged'          => $paged,
-
-        );
-      }
 
       $loopBacheca = new WP_Query( $argsBacheca );
 
