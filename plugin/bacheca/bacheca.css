@@ -26,3 +26,7 @@
 .comment-form-comment label{
   display: block;
 }
+
+.cerco-offro a{
+  display: inline-block!important;
+}

@@ -24,4 +24,10 @@ if(!function_exists('utenteicc_style_scripts')){
   }
 }
 
+add_action('wp_logout','go_home');
+function go_home(){
+  wp_redirect( home_url() );
+  exit();
+}
+
 ?>

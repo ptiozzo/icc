@@ -177,7 +177,7 @@
         			</div>
               <?php
             } else {
-              echo "<p>Per poter visualizzare più dettagli e contattare l'utente devi prima <a href='/wp-login.php?redirect_to=".get_the_permalink()."'>effettuare l'accesso</a></p>";
+              echo "<p>Per poter visualizzare più dettagli e contattare l'utente devi prima <a href='/wp-login.php?redirect_to=".get_the_permalink()."'>effettuare l'accesso</a> o <a href='/registrati/?redirect_to=".get_the_permalink()."'>registrarti</a></p>";
             }
 
             ?>
