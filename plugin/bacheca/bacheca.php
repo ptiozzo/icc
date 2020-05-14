@@ -88,13 +88,33 @@ return $arg;
 }
 add_filter('comment_form_defaults','wcc_comment_reform');
 
+
+function add_nuovo_cercooffro_page() {
+    // Create post object
+    if(!get_page_by_path('nuovocercooffro')){
+      $my_post = array(
+        'post_title'    => wp_strip_all_tags( 'Nuovo cerco/offro' ),
+        'post_content'  => '',
+        'post_status'   => 'publish',
+        'post_author'   => 1,
+        'post_type'     => 'page',
+        'post_name'     => 'nuovocercooffro'
+      );
+
+      // Insert the post into the database
+    wp_insert_post( $my_post );
+
+
+    }
+}
+add_filter('init', 'add_nuovo_cercooffro_page');
+
 function icc_custom_new_cerco_offro( $template ) {
-  if ( is_page('nuovo-cercooffro') ) {
+  if ( is_page('nuovocercooffro') ) {
     return dirname( __FILE__ ) . '/new-cercooffro.php';
   }
   return $template;
 }
 add_filter('template_include', 'icc_custom_new_cerco_offro');
-
 
  ?>

@@ -27,7 +27,7 @@ class icc_Widget_ICCUser extends WP_Widget {
         <hr>
         <h5>Azioni:</h5>
         <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/profile.php">Modifica il tuo profilo</a></p>
-        <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/nuovo-cercooffro/">Aggiungi nuovo cerco/offro</a></p>
+        <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/nuovocercooffro/">Aggiungi nuovo cerco/offro</a></p>
         <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/edit.php?post_type=cerco-offro">Modifica i tuoi cerco/offro</a></p>
 
       <?php
