@@ -18,7 +18,7 @@
                 echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a>';
               }
 
-              echo "Tematica: ";
+              echo " Tematica: ";
               $term1 = "tematica";
               $terms = get_the_terms( get_the_ID() , $term1 );
               foreach ( $terms as $term ) {
