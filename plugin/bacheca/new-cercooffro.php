@@ -50,7 +50,7 @@ if( $_POST['submit_button'] ){
     $post_title = $_POST['tipologia']."...".$_POST['titolo'];
 
     $new_post = array(
-			'post_title' => $post_title,
+			'post_title' => ucfirst($post_title),
 			'post_content' => " ",
 			'post_status' => 'pending',
 			'post_name' => $_POST['titolo'],
