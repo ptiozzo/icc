@@ -37,7 +37,6 @@ if( $_POST['submit_button'] ){
   }
 
   if(0 === count($errors)){
-    echo "Registro il post e redirigo su admin";
 
     global $current_user;
 		get_currentuserinfo();
@@ -66,9 +65,22 @@ if( $_POST['submit_button'] ){
     wp_set_object_terms($post_id,$_POST['tipologia'],'cercooffro');
 
     $url = home_url()."/wp-admin/post.php?post=".$post_id."&action=edit";
-    wp_redirect($url);
+
+    echo '<div class="alert alert-success mt-3" role="alert">';
+    echo "Annuncio creato correttamente, potrai completare il tuo annuncio a breve";
+    echo ' o <a class="alert-link" href="'.$url.'">clicca qui</a> per farlo immediatamente';
+    echo '</div>';
+
+    ?>
+    <script>
+      setTimeout(function(){
+        window.location.href = "<?php echo $url;?>";
+      }, 3000);
+    </script>
+    <?php
+    //wp_redirect($url);
     $success = 1;
-    
+
   } else {
     ?>
     <div class="alert alert-danger" role="alert">
