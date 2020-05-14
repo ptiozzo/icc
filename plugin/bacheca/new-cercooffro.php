@@ -68,6 +68,7 @@ if( $_POST['submit_button'] ){
     $url = home_url()."/wp-admin/post.php?post=".$post_id."&action=edit";
     wp_redirect($url);
     $success = 1;
+    
   } else {
     ?>
     <div class="alert alert-danger" role="alert">
