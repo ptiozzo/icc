@@ -36,10 +36,74 @@
 	if(term_exists( 'aanazionale', 'regione' ) !== 0){
 		wp_insert_term('Nazionale','regione',array('slug' => 'aanazionale' ) );
 	}
-
 	if(term_exists( '_tutteleregioni', 'regione' ) !== 0){
 		wp_insert_term('Tutte le regioni','regione',array('slug' => '_tutteleregioni' ) );
 	}
+
+	if(term_exists( 'abruzzo', 'regione' ) !== 0){
+		wp_insert_term('Abruzzo','regione',array('slug' => 'abruzzo' ) );
+	}
+	if(term_exists( 'basilicata', 'regione' ) !== 0){
+		wp_insert_term('Basilica','regione',array('slug' => 'basilicata' ) );
+	}
+	if(term_exists( 'calabria', 'regione' ) !== 0){
+		wp_insert_term('Calabria','regione',array('slug' => 'calabria' ) );
+	}
+	if(term_exists( 'campania', 'regione' ) !== 0){
+		wp_insert_term('Campania','regione',array('slug' => 'campania' ) );
+	}
+	if(term_exists( 'emiliaromagna', 'regione' ) !== 0){
+		wp_insert_term('Emilia Romagna','regione',array('slug' => 'emiliaromagna' ) );
+	}
+	if(term_exists( 'friuliveneziagiulia', 'regione' ) !== 0){
+		wp_insert_term('Friuli Venezia Giulia','regione',array('slug' => 'friuliveneziagiulia' ) );
+	}
+	if(term_exists( 'lazio', 'regione' ) !== 0){
+		wp_insert_term('Lazio','regione',array('slug' => 'lazio' ) );
+	}
+	if(term_exists( 'liguria', 'regione' ) !== 0){
+		wp_insert_term('Liguria','regione',array('slug' => 'liguria' ) );
+	}
+	if(term_exists( 'lombardia', 'regione' ) !== 0){
+		wp_insert_term('Lombardia','regione',array('slug' => 'lombardia' ) );
+	}
+	if(term_exists( 'marche', 'regione' ) !== 0){
+		wp_insert_term('Marche','regione',array('slug' => 'marche' ) );
+	}
+	if(term_exists( 'molise', 'regione' ) !== 0){
+		wp_insert_term('Molise','regione',array('slug' => 'molise' ) );
+	}
+	if(term_exists( 'piemonte', 'regione' ) !== 0){
+		wp_insert_term('Piemonte','regione',array('slug' => 'piemonte' ) );
+	}
+	if(term_exists( 'puglia', 'regione' ) !== 0){
+		wp_insert_term('Puglia','regione',array('slug' => 'puglia' ) );
+	}
+	if(term_exists( 'sardegna', 'regione' ) !== 0){
+		wp_insert_term('Sardegna','regione',array('slug' => 'sardegna' ) );
+	}
+	if(term_exists( 'sicilia', 'regione' ) !== 0){
+		wp_insert_term('Sicilia','regione',array('slug' => 'sicilia' ) );
+	}
+	if(term_exists( 'toscana', 'regione' ) !== 0){
+		wp_insert_term('Toscana','regione',array('slug' => 'toscana' ) );
+	}
+	if(term_exists( 'toscana', 'regione' ) !== 0){
+		wp_insert_term('Toscana','regione',array('slug' => 'toscana' ) );
+	}
+	if(term_exists( 'trentinoaltoadige', 'regione' ) !== 0){
+		wp_insert_term('Trentino-Alto Adige','regione',array('slug' => 'trentinoaltoadige' ) );
+	}
+	if(term_exists( 'umbria', 'regione' ) !== 0){
+		wp_insert_term('Umbria','regione',array('slug' => 'umbria' ) );
+	}
+	if(term_exists( 'valledaosta', 'regione' ) !== 0){
+		wp_insert_term('Valle d\'Aosta','regione',array('slug' => 'valledaosta' ) );
+	}
+	if(term_exists( 'veneto', 'regione' ) !== 0){
+		wp_insert_term('Veneto','regione',array('slug' => 'veneto' ) );
+	}
+
 
 	/**
 	 * Taxonomy: Tematica.
@@ -113,6 +177,7 @@
 	if(term_exists( 'offro', 'cercooffro' ) !== 0){
 		wp_insert_term('Offro','cercooffro',array('slug' => 'offro' ) );
 	}
+
 
 
 
