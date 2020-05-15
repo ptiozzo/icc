@@ -33,6 +33,13 @@
 		];
 	register_taxonomy( "regione", [ "cerco-offro" ], $args );
 
+	if(term_exists( 'aanazionale', 'regione' ) !== 0){
+		wp_insert_term('Nazionale','regione',array('slug' => 'aanazionale' ) );
+	}
+
+	if(term_exists( '_tutteleregioni', 'regione' ) !== 0){
+		wp_insert_term('Tutte le regioni','regione',array('slug' => '_tutteleregioni' ) );
+	}
 
 	/**
 	 * Taxonomy: Tematica.
@@ -99,5 +106,14 @@
 		"show_in_quick_edit" => true,
 		];
 	register_taxonomy( "cercooffro", [ "cerco-offro" ], $args );
+
+	if(term_exists( 'cerco', 'cercooffro' ) !== 0){
+		wp_insert_term('Cerco','cercooffro',array('slug' => 'cerco' ) );
+	}
+	if(term_exists( 'offro', 'cercooffro' ) !== 0){
+		wp_insert_term('Offro','cercooffro',array('slug' => 'offro' ) );
+	}
+
+
 
 ?>
