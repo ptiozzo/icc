@@ -302,6 +302,10 @@ require 'plugin/utenteicc/utenteicc.php';
 /* ------------------------------------ */
 require 'plugin/bacheca/bacheca.php';
 
+/* Attivazione plugin altriautori
+/* ------------------------------------ */
+require 'plugin/altriautori/altriautori.php';
+
 
 /* Prima immagine del post.
 /* ------------------------------------ */
