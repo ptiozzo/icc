@@ -1,41 +1,49 @@
 <?php get_header(); ?>
 <?php
-  $user_ids = get_the_author_meta( 'ID' );
-  echo "ID autore: ".$user_ids."<br>";
+  $user_ids = get_the_author_ID();
 
   $posts1 = array(
     'author' => $user_ids,
+    'posts_per_page' => -1,
+    'ignore_sticky_posts' => 1,
   );
   $query1 = new WP_Query($posts1);
-  echo "Query 1: ".$query1->found_posts."<br>";
+
 
   $posts2 = array(
     'meta_key' => 'Secondo_Autore',
     'meta_value' => $user_ids,
     'posts_per_page' => -1,
+    'ignore_sticky_posts' => 1,
   );
   $query2 = new WP_Query($posts2);
-  echo "Query 2: ".$query2->found_posts."<br>";
-
 
   $allTheIDs = array();
+
   if( $query1->have_posts() ) : while ($query1->have_posts()) : $query1->the_post();
+    $allTheIDs[] = $post->ID;
+  endwhile;endif;
+
+  if( $query2->have_posts() ) : while ($query2->have_posts()) : $query2->the_post();
     $allTheIDs[] = $post->ID;
   endwhile;endif;
 
   $finalArg = array(
     'post__in' => $allTheIDs,
     'ignore_sticky_posts' => 1,
-
+    'posts_per_page' => 20,
+    'paged' => $paged,
   );
 
-  $finalQuery = new WP_Query($allTheIDs);
+  $finalQuery = new WP_Query($finalArg);
 
-
-
-
+  echo "<!--";
+  echo "ID autore: ".$user_ids."<br>";
+  echo "Query 1: ".$query1->found_posts."<br>";
+  echo "Query 2: ".$query2->found_posts."<br>";
   echo "Query finale: ".$finalQuery->found_posts."<br>";
   echo "Paged: ".$paged."<br>";
+  echo "-->";
 ?>
   <div class="content-no-sidebar pt-2 index">
     <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
@@ -43,11 +51,11 @@
 
       if( $finalQuery->have_posts() ) :
 
-          echo '<h1 class="archive-title">' . get_the_author() . '</h1>' ;
-          if (get_the_author_meta('description')) : // Checking if the user has added any author descript or not. If it is added only, then lets move ahead ?>
+          echo '<h1 class="archive-title">' . get_user_by('ID',$user_ids)->display_name . '</h1>' ;
+          if (get_the_author_meta('description',$user_ids)) : // Checking if the user has added any author descript or not. If it is added only, then lets move ahead ?>
             <div class="author-box">
-              <div class="author-img"><?php echo get_avatar(get_the_author_meta('user_email'), '100'); // Display the author gravatar image with the size of 100 ?></div>
-              <p class="author-description"><?php esc_textarea(the_author_meta('description')); // Displays the author description added in Biographical Info ?></p>
+              <div class="author-img"><?php echo get_avatar(get_the_author_meta('user_email',$user_ids), '100'); // Display the author gravatar image with the size of 100 ?></div>
+              <p class="author-description"><?php esc_textarea(the_author_meta('description',$user_ids)); // Displays the author description added in Biographical Info ?></p>
             </div>
           <?php endif; ?>
         <div class="row">
@@ -83,7 +91,9 @@
                 if ($Cat1 != "nostri-libri"){
                   echo "<div class='autore'>Scritto da <b>".get_the_author();
                   /* controllo se esiste un secondo autore */
-                  if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
+                  if( !empty (get_post_meta( get_the_ID(), 'Secondo_Autore',true))){
+                    echo " e ". get_user_by('ID',get_post_meta( get_the_ID(), 'Secondo_Autore',true))->display_name;
+                  } elseif( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
                     echo " e ". get_post_meta( get_the_ID(), 'SecondoAutore',true);
                   }
                   echo "</b></div>";
