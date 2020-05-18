@@ -417,7 +417,7 @@ class PocketWP {
           }
           return $retval;
       });
-      var_dump($pwp_items);
+      //var_dump($pwp_items);
 			foreach($pwp_items as $item){
 				$html[] = '<div class="pwp-links-shortcode mt-3">';
 
