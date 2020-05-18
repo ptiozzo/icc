@@ -1,7 +1,7 @@
 <?php
 
 
-/* Salvo il secondo autore
+/* Salvo altri autori
 -----------------------------*/
 
 add_action("save_post", "save_autori_meta_box", 10, 2);
