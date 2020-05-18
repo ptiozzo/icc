@@ -389,7 +389,7 @@ class PocketWP {
 	public function pwp_shortcode ($atts, $content = null){
 		extract( shortcode_atts( array(
 								 'count' => '',
-								 'tag' => '',
+								 'filter_tag' => '',
 								 'excerpt' => '',
 								 'tag_list' => '',
 								 'credit' => ''
@@ -398,7 +398,7 @@ class PocketWP {
 		);
 
 		//Get the array that was extracted from the cURL request
-		$pwp_items = $this->pwp_get_links($count, $tag);
+		$pwp_items = $this->pwp_get_links($count, $filter_tag);
 
 		// Loop through array and get link details.
 		if(is_array($pwp_items)){
@@ -434,7 +434,9 @@ class PocketWP {
 			  		if($item[4] != ""){
 				  	  	$html[] = '<p class="pwp_tag_list">';
 					  	foreach($item[4] as $tag) {
-					  		$html[] = '<span class="pwp_tags font-weight-lighter">#' . $tag['tag'] . '</span>';
+                if($tag['tag'] != $filter_tag){
+					  		 $html[] = '<span class="pwp_tags font-weight-lighter">#' . $tag['tag'] . '</span>';
+                }
 					  	}
 					  	$html[] ='</p>';
 

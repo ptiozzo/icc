@@ -125,7 +125,7 @@
               <!-- DA POCKET -->
   						<?php
   							if( !empty (get_post_meta( get_the_ID(), 'PocketTAG',true))){
-  								echo do_shortcode("[pocket_links tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
+  								echo do_shortcode("[pocket_links filter_tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
   							}
   						?>
               <hr>
