@@ -114,7 +114,7 @@
 
 				<div class='collapse-container'>
 					<div class='collapse-head'>
-						<h5>Contenuti</h5>
+						<h5><a href="/contenuti/" class="text-dark">Contenuti</a></h5>
 					</div>
 					<?php
 					wp_nav_menu( array(
@@ -127,7 +127,7 @@
 
 				<div class='collapse-container'>
 					<div class='collapse-head'>
-						<h5>ICC TV</h5>
+						<h5><a href="/categoria/contenuti/icc-tv/" class="text-dark">ICC TV</a></h5>
 					</div>
 					<?php
 					wp_nav_menu( array(
