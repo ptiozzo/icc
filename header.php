@@ -126,6 +126,19 @@
 				</div>
 
 				<div class='collapse-container'>
+					<div class='collapse-head'>
+						<h5>ICC TV</h5>
+					</div>
+					<?php
+					wp_nav_menu( array(
+            'theme_location' => 'menu-icc-tv',
+            'menu_class' => 'menu-1',
+            'container' => false)
+          );
+					?>
+				</div>
+
+				<div class='collapse-container'>
 					<div class='collapse-head hidden-mobile'>
 						<h5>Le Regioni</h5>
 					</div>

@@ -70,6 +70,7 @@ if ( ! function_exists( 'icc_setup' ) ) {
 			'menu-social' => esc_html__( 'Menu social', 'icc' ),
 			'menu-footer' => esc_html__( 'Menu footer', 'icc' ),
 			'menu-i-nostri-contenuti' => esc_html__( 'Menu i nostri contenuti', 'icc' ),
+      'menu-icc-tv' => esc_html__( 'Menu ICC TV', 'icc' ),
 			'menu-regioni' => esc_html__( 'Menu regioni', 'icc' ),
 			'menu-piemonte' => esc_html__( 'Menu piemonte', 'icc' ),
 			'menu-casentino' => esc_html__( 'Menu casentino', 'icc' ),
@@ -114,6 +115,12 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 	}
 }
 add_action( 'widgets_init', 'icc_sidebars' );
+
+// Update CSS within in Admin
+function admin_style() {
+  wp_enqueue_style('admin-styles', get_template_directory_uri().'/admin.css');
+}
+add_action('login_enqueue_scripts', 'admin_style');
 
 /*  Include Rassegna stampa in RSS
 /* ------------------------------------ */
@@ -287,6 +294,14 @@ if(!function_exists('pocket_wp_paolo_init')){
     require 'plugin/pocket/pocket-wp-paolo.php';
   }
 }
+
+/* Attivazione utenteICC
+/* ------------------------------------ */
+require 'plugin/utenteicc/utenteicc.php';
+
+/* Attivazione plugin bacheca
+/* ------------------------------------ */
+require 'plugin/bacheca/bacheca.php';
 
 
 /* Prima immagine del post.
