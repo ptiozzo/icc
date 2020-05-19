@@ -114,11 +114,24 @@
 
 				<div class='collapse-container'>
 					<div class='collapse-head'>
-						<h5>Contenuti</h5>
+						<h5><a href="/contenuti/" class="text-dark">Contenuti</a></h5>
 					</div>
 					<?php
 					wp_nav_menu( array(
             'theme_location' => 'menu-i-nostri-contenuti',
+            'menu_class' => 'menu-1',
+            'container' => false)
+          );
+					?>
+				</div>
+
+				<div class='collapse-container'>
+					<div class='collapse-head'>
+						<h5><a href="/categoria/contenuti/icc-tv/" class="text-dark">ICC TV</a></h5>
+					</div>
+					<?php
+					wp_nav_menu( array(
+            'theme_location' => 'menu-icc-tv',
             'menu_class' => 'menu-1',
             'container' => false)
           );
@@ -169,7 +182,6 @@
 				<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/hand.svg' alt='italia che cambia'>
 			</figure>
 		</header>
-
 		<div class="modal fade" id="IscrizioneNewsletter" tabindex="-1" role="dialog" aria-labelledby="CasentinoAccediTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		    <div class="modal-content">
@@ -188,9 +200,9 @@
 								<?php dynamic_sidebar('modalSingleNewsletter'); ?>
 							</aside>
 							<?php
-						} else { ?>
-		        	<iframe src="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=3&idForm=305&guid=07a29581-54e5-43a8-bd98-db29eab5335c" class="border-0" width="100%" height="730px"></iframe>
-							<?php
+						} else {
+		        		include "template-part/IscrizioneNewsletter.php";
+
 						} ?>
 		      </div>
 		      <div class="modal-footer">
@@ -220,6 +232,7 @@
 <!--<div id="swup" class="swuptransition">-->
 
 	<?php
+/*
 				if(!is_single() && !is_page('cerca')){
 					delete_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID']);
 			    delete_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID']);
@@ -237,6 +250,8 @@
 				if(!is_single() && !is_category('rubriche')){
 					delete_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID']);
 				}
+*/
+
 	?>
 			<?php
 			if (is_page('piemonte')){

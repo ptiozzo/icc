@@ -3,6 +3,13 @@
   $ParentCat1='contenuti';
   $ParentCat2='tematica';
   $ParentReg='regioni';
+
+  if ($_SERVER['REQUEST_URI'] == "/contenuti/"){
+    delete_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_contenutiReg_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID']);
+  }
 ?>
 <div class="container-fluid contenuti">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
@@ -10,7 +17,7 @@
   <?php
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
-  //echo "TRAN PRIMA: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
+  set_transient('icc_contenutiPaged_'.(string) $_COOKIE['PHPSESSID'],$paged,12 * HOUR_IN_SECONDS);
   if ($_POST['submit_button']){
     $Cat1 = $_POST['contenuti-dropdown'];
     $Cat2 = $_POST['tematica-dropdown'];
@@ -22,6 +29,9 @@
     set_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'],$ord,12 * HOUR_IN_SECONDS);
     $paged = 0;
   } else {
+    if (get_transient('icc_contenutiPaged_'.(string) $_COOKIE['PHPSESSID'])){
+      $paged = get_transient('icc_contenutiPaged_'.(string) $_COOKIE['PHPSESSID']);
+    }
     //Se non ho premuto submit verifico se ho qualcosa in sesisone,
     //altrimenti vado ai valori di default
     if(get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])) {

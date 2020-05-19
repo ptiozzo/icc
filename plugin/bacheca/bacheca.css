@@ -1,0 +1,32 @@
+/* COMMENTI */
+.cerco-offro .comment a,
+.comment-form .logged-in-as a,
+.comment-form p.logged-in-as{
+  font-size: 12px;
+  font-weight: 200;
+}
+.cerco-offro .comment img{
+  width: 50px;
+  height: 50px;
+}
+.cerco-offro .comment .comment-edit-link{
+  margin-top: -20px;
+}
+
+.cerco-offro .commentlist li{
+  margin-top: 20px;
+  background-color: #e9967a;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.cerco-offro .single__nav__category{
+  background-color: #e9967a;
+}
+.comment-form-comment label{
+  display: block;
+}
+
+.cerco-offro a{
+  display: inline-block!important;
+}

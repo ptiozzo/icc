@@ -8,6 +8,8 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'News dal Casentino';
 }elseif (in_category('liguria-che-cambia')){
   echo 'News dalla Liguria';
+}elseif (in_category('matrix-dentro-di-noi')){
+  echo 'Matrix è dentro di noi';
 }elseif (in_category('appunti-viaggio')){
   echo 'Appunti di viaggio';
 }elseif (in_category('ashoka-fellow')){

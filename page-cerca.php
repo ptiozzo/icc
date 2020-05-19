@@ -3,6 +3,15 @@
   $ParentCat1='i-nostri-contenuti';
   $ParentCat2='tematica';
   $ParentReg='regioni';
+
+  if ($_SERVER['REQUEST_URI'] == "/cerca/"){
+    delete_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID']);
+  }
 ?>
 <div class="container-fluid content-no-sidebar cerca">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
@@ -11,6 +20,7 @@
   <?php
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
+  set_transient('icc_cercaPaged_'.(string) $_COOKIE['PHPSESSID'],$paged,12 * HOUR_IN_SECONDS);
   if ($_POST['submit_button']){
     $searchterm = $_POST['termine-cercato'];
     $SearchCat1 = $_POST['contenuti-dropdown'];
@@ -161,7 +171,7 @@
       }
     }
   }
-    echo $SearchCatTerm;
+    //echo $SearchCatTerm;
  ?>
   <?php
 

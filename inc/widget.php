@@ -104,6 +104,9 @@ class icc_Widget_UnaFavolaPuoFare extends WP_Widget {
 
 }
 
+
+
+
 // Register the widget.
 function jpen_register_example_widget() {
   register_widget( 'icc_Widget_CampagneTematiche' );

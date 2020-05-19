@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 <?php
   $ParentCat1='rubriche';
+
+  if ($_SERVER['REQUEST_URI'] == "/categoria/contenuti/rubriche/"){
+    delete_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID']);
+  }
 ?>
 <div class="container-fluid contenuti">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
@@ -8,6 +12,7 @@
   <?php
   // Verifico se ho premuto submit e setto le categorie
   // il paged e salvo tutto in sessione
+  set_transient('icc_rubrichePaged_'.(string) $_COOKIE['PHPSESSID'],$paged,12 * HOUR_IN_SECONDS);
   if ($_POST['submit_button']){
     $RubricheCat1 = $_POST['rubriche-dropdown'];
     $ord = $_POST['order-dropdown'];

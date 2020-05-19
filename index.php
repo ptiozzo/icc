@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="content-no-sidebar pt-2">
+<div class="content-no-sidebar pt-2 index">
   <div class="category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?> clearfix">
 <?php
 
@@ -28,21 +28,7 @@
                 <div class='category'>
                   <span><?php the_time('j M Y') ?></span>
                   <span>
-                    <?php
-                      if (in_category('documentari')) {
-                        echo 'I documentari';
-                      } elseif (in_category('le-storie')) {
-                        echo 'Le storie';
-                      }elseif (in_category('meme')) {
-                        echo 'I meme';
-                      }elseif (in_category('rubriche')) {
-                        echo 'Le rubriche';
-                      }elseif (in_category('salute-che-cambia')) {
-                        echo 'Salute';
-                      }elseif (in_category('articoli')) {
-                        echo 'Gli Articoli';
-                      }
-                    ?>
+                    <?php get_template_part('inc/post','etichetta'); ?>
                   </span>
                 </div>
               <?php } ?>

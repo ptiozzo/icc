@@ -16,6 +16,12 @@
   			<div class="row">
   				<div class="col-12 col-md-10 order-md-2">
   					<div class="container"><!-- SINGLE -->
+              <div class='single__nav__category'>
+  				       <form class="" method="post" action="/contenuti/">
+  				         <input name="contenuti-dropdown" type="hidden" value="rassegna-stampa">
+  				         <input name="submit_button" type="submit" value="Rassegna stampa" class="btn btn-link p-0 border-0">
+  				       </form>
+  						</div>
   					<div class="single__head">
   						<!-- TAG -->
   						<div class="single__tag">
@@ -109,8 +115,8 @@
                 <div class="col-12 col-lg-8">
                   <?php echo do_shortcode('[audio mp3=' . get_post_meta( get_the_ID(), 'MP3Rassegna',true) . ']'); ?>
                 </div>
-                <div class="col p-2 p-lg-0 text-center">
-                  <a href="<?php echo get_post_meta( get_the_ID(), 'MP3Rassegna',true) ?>" class="btn btn-outline-success" download data-no-swup>Scarica</a>
+                <div class="col p-2 p-lg-0 text-center wp-block-button">
+                  <a href="<?php echo get_post_meta( get_the_ID(), 'MP3Rassegna',true) ?>" class="wp-block-button__link" download data-no-swup>Scarica</a>
                 </div>
                 <div class="col p-2 p-lg-0 text-center">
                   <a href="https://open.spotify.com/show/2vhde08tuNa5MbNts3uAg6" target="_blank"><i class="fab fa-spotify fa-2x"></i> <span class="">Spotify</span></a>
@@ -121,17 +127,18 @@
               }
               ?>
 
-              <h3>Articoli:</h3>
+
               <!-- DA POCKET -->
   						<?php
   							if( !empty (get_post_meta( get_the_ID(), 'PocketTAG',true))){
   								echo do_shortcode("[pocket_links filter_tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
   							}
   						?>
-              <hr>
+
 
   						<?php the_content();?>
   					</div>
+
   					<div class="single__share mb-1">
   						<?php
   						if ( function_exists( 'sharing_display' ) ) {
@@ -144,57 +151,10 @@
   						}
   						 ?>
   					</div>
-  					<div class="single__contribuisci mb-2 position-relative">
-  						<?php
-  						$argsContribuisciSingleDesktop = array(
-  					    'post_type' => 'contenuti-speciali',
-  					    'posts_per_page' => 1,
-  					    'tax_query' => array(
-  					      array(
-  					          'taxonomy'=> 'contenuti_speciali_filtri',
-  					          'field'   => 'slug',
-  					          'terms'		=> 'contribuisci-singolo-articolo-desktop',
-  					      ),
-  					    ),
-  					  );
-  					  $loopContribuisciSingleDesktop = new WP_Query( $argsContribuisciSingleDesktop );
 
-  						$argsContribuisciSingleMobile = array(
-  					    'post_type' => 'contenuti-speciali',
-  					    'posts_per_page' => 1,
-  					    'tax_query' => array(
-  					      array(
-  					          'taxonomy'=> 'contenuti_speciali_filtri',
-  					          'field'   => 'slug',
-  					          'terms'		=> 'contribuisci-singolo-articolo-mobile',
-  					      ),
-  					    ),
-  					  );
-  					  $loopContribuisciSingleMobile = new WP_Query( $argsContribuisciSingleMobile );
+            <!-- Box contribuisci fondo articolo -->
+            <?php get_template_part('contribuisci/article','contribuisci'); ?>
 
-  						if( $loopContribuisciSingleDesktop->have_posts() || $loopContribuisciSingleMobile->have_posts()):
-  							while( $loopContribuisciSingleDesktop->have_posts() ) : $loopContribuisciSingleDesktop->the_post();
-  							?>
-  							<div class="m-2 d-none d-md-block">
-  							<?php the_content(); ?>
-  							</div>
-  							<?php
-  							endwhile;
-  							while( $loopContribuisciSingleMobile->have_posts() ) : $loopContribuisciSingleMobile->the_post();
-  							?>
-  							<div class="m-2 d-block d-md-none">
-  							<?php the_content(); ?>
-  							</div>
-  							<?php
-  							endwhile;
-  						endif;
-  						?>
-  						<button type="button" class="btn btn-lg btn-block btn-warning">
-  							<b>Contribuisci adesso all'Italia che Cambia</b>
-  							<img src='<?php echo get_template_directory_uri();?>/assets/img/payment-methods.png' class="ml-2">
-  						</button>
-  						<a href="/contribuisci" class="stretched-link"></a>
-  					</div>
   				</div>
   			</div>
   			<div class="col-12 col-md-1 col_single_action">

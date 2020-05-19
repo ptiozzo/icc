@@ -29,16 +29,15 @@
 			<!-- Categorie -->
 			<div class='single__nav__category'>
 				<?php
-				//echo "TRAN PRIMA: ".get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])."-".get_transient('icc_contenutiOrd_'.(string) $_COOKIE['PHPSESSID'])."<br>";
-				if(get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']) || get_transient('icc_contenutiCat2_'.(string) $_COOKIE['PHPSESSID'])) { ?>
-					<a href="<?php echo home_url(); ?>/contenuti/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
+
+				if( strpos($_SERVER["HTTP_REFERER"],"rubriche")) { ?>
+				<a href="<?php echo home_url(); ?>/categoria/contenuti/rubriche/<?php {echo "page/".get_transient('icc_rubrichePaged_'.(string) $_COOKIE['PHPSESSID'])."/";}?>" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alle rubriche</a>
+			<?php } elseif (strpos($_SERVER["HTTP_REFERER"],"contenuti") && get_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID'])) { ?>
+				<a href="<?php echo home_url(); ?>/contenuti/<?php {echo "page/".get_transient('icc_contenutiPaged_'.(string) $_COOKIE['PHPSESSID'])."/";} ?>" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai contenuti</a>
+			<?php } elseif (strpos($_SERVER["HTTP_REFERER"],"cerca")) { ?>
+				<a href="/cerca/<?php {echo "page/".get_transient('icc_cercaPaged_'.(string) $_COOKIE['PHPSESSID'])."/";} ?>" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
 				<?php }
-				if(get_transient('icc_rubricheCat1_'.(string) $_COOKIE['PHPSESSID'])) { ?>
-					<a href="<?php echo home_url(); ?>/categoria/contenuti/rubriche/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alle rubriche</a>
-				<?php }
-				if(get_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'])) { ?>
-					<a href="<?php echo home_url(); ?>/cerca/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
-				<?php }
+				
 					the_category(' ');
 					?>
 				</a>
@@ -82,15 +81,19 @@
 						Scritto da: <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><b><?php the_author(); ?></b></a>
 						<?php
 						/* controllo se esiste un secondo autore */
-						if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
-							echo " e <b>". get_post_meta( get_the_ID(), 'SecondoAutore',true)."</b>";
+						if( !empty (get_post_meta( get_the_ID(), 'Secondo_Autore',true))){
+							echo " e <a href='".get_author_posts_url(get_post_meta( get_the_ID(), 'Secondo_Autore',true))."'><b>". get_userdata(get_post_meta( get_the_ID(), 'Secondo_Autore',true))->display_name."</b></a>";
+						} elseif( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
+							echo " e ". get_post_meta( get_the_ID(), 'SecondoAutore',true);
 						}
 					?>
 				</div>
 				<!-- Intervista di -->
 				<div class="single__author">
 					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'IntervistaDi',true))){
+					if( !empty (get_post_meta( get_the_ID(), 'Intervista_Di',true))){
+						echo "Intervista di: <b>". get_userdata(get_post_meta( get_the_ID(), 'Intervista_Di',true))->display_name."</b>";
+					} elseif( !empty (get_post_meta( get_the_ID(), 'IntervistaDi',true))) {
 							echo "Intervista di: <b>". get_post_meta( get_the_ID(), 'IntervistaDi',true)."</b>";
 						}
 					?>
@@ -98,7 +101,9 @@
 				<!-- Video Realizzato da -->
 				<div class="single__author">
 					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'VideoRealizzatoDa',true))){
+						if( !empty (get_post_meta( get_the_ID(), 'Video_Realizzato_Da',true))){
+							echo "Video realizzato da: <b>". get_userdata(get_post_meta( get_the_ID(), 'Video_Realizzato_Da',true))->display_name."</b>";
+						} elseif( !empty (get_post_meta( get_the_ID(), 'VideoRealizzatoDa',true))){
 							echo "Video realizzato da: <b>". get_post_meta( get_the_ID(), 'VideoRealizzatoDa',true)."</b>";
 						}
 					?>
@@ -106,6 +111,9 @@
 				<!-- Riprese di -->
 				<div class="single__author">
 					<?php
+						if( !empty (get_post_meta( get_the_ID(), 'Riprese_Di',true))){
+							echo "Riprese di: <b>". get_userdata(get_post_meta( get_the_ID(), 'Riprese_Di',true))->display_name."</b>";
+						}
 						if( !empty (get_post_meta( get_the_ID(), 'RipreseDi',true))){
 							echo "Riprese di: <b>". get_post_meta( get_the_ID(), 'RipreseDi',true)."</b>";
 						}
@@ -114,7 +122,9 @@
 				<!-- Montaggio di -->
 				<div class="single__author">
 					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'MontaggioDi',true))){
+						if( !empty (get_post_meta( get_the_ID(), 'Montaggio_Di',true))){
+							echo "Montaggio di: <b>". get_userdata(get_post_meta( get_the_ID(), 'Montaggio_Di',true))->display_name."</b>";
+						}	elseif( !empty (get_post_meta( get_the_ID(), 'MontaggioDi',true))){
 							echo "Montaggio di: <b>". get_post_meta( get_the_ID(), 'MontaggioDi',true)."</b>";
 						}
 					?>
@@ -122,7 +132,9 @@
 				<!-- llustrazione di -->
 				<div class="single__author">
 						<?php
-						if( !empty (get_post_meta( get_the_ID(), 'IllustrazioniDi',true))){
+						if( !empty (get_post_meta( get_the_ID(), 'Illustrazioni_Di',true))){
+							echo "Illustrazioni di: <b>". get_post_meta( get_the_ID(), 'Illustrazioni_Di',true)."</b>";
+						}	elseif( !empty (get_post_meta( get_the_ID(), 'IllustrazioniDi',true))){
 							echo "Illustrazioni di: <b>". get_post_meta( get_the_ID(), 'IllustrazioniDi',true)."</b>";
 						}
 					?>
@@ -149,57 +161,7 @@
 			<div class="single__articolo">
 				<?php the_content();?>
 			</div>
-			<div class="single__contribuisci mb-2 position-relative">
-				<?php
-				$argsContribuisciSingleDesktop = array(
-			    'post_type' => 'contenuti-speciali',
-			    'posts_per_page' => 1,
-			    'tax_query' => array(
-			      array(
-			          'taxonomy'=> 'contenuti_speciali_filtri',
-			          'field'   => 'slug',
-			          'terms'		=> 'contribuisci-singolo-articolo-desktop',
-			      ),
-			    ),
-			  );
-			  $loopContribuisciSingleDesktop = new WP_Query( $argsContribuisciSingleDesktop );
 
-				$argsContribuisciSingleMobile = array(
-			    'post_type' => 'contenuti-speciali',
-			    'posts_per_page' => 1,
-			    'tax_query' => array(
-			      array(
-			          'taxonomy'=> 'contenuti_speciali_filtri',
-			          'field'   => 'slug',
-			          'terms'		=> 'contribuisci-singolo-articolo-mobile',
-			      ),
-			    ),
-			  );
-			  $loopContribuisciSingleMobile = new WP_Query( $argsContribuisciSingleMobile );
-
-				if( $loopContribuisciSingleDesktop->have_posts() || $loopContribuisciSingleMobile->have_posts()):
-					while( $loopContribuisciSingleDesktop->have_posts() ) : $loopContribuisciSingleDesktop->the_post();
-					?>
-					<div class="m-2 d-none d-md-block">
-					<?php the_content(); ?>
-					</div>
-					<?php
-					endwhile;
-					while( $loopContribuisciSingleMobile->have_posts() ) : $loopContribuisciSingleMobile->the_post();
-					?>
-					<div class="m-2 d-block d-md-none">
-					<?php the_content(); ?>
-					</div>
-					<?php
-					endwhile;
-				endif;
-				?>
-				<button type="button" class="btn btn-lg btn-block btn-warning">
-					<b>Contribuisci adesso all'Italia che Cambia</b>
-					<img src='<?php echo get_template_directory_uri();?>/assets/img/payment-methods.png' class="ml-2">
-				</button>
-				<a href="/contribuisci" class="stretched-link"></a>
-			</div>
 			<!-- Share with -->
 			<div class="single__share">
 				<?php
@@ -213,6 +175,8 @@
 				}
 				 ?>
 			</div>
+			<!-- Box contribuisci fondo articolo -->
+			<?php get_template_part('contribuisci/article','contribuisci'); ?>
 		</div>
 		</div>
 		<div class="col-12 col-md-1 col_single_action">
@@ -222,7 +186,7 @@
 	</div>
 	<?php endwhile; else : ?>
 
-	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'miotema'); ?> </h3>
+	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'icc'); ?> </h3>
 
 	<?php endif; ?>
 	<div class="row">

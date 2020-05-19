@@ -21,11 +21,11 @@ function ICC_register_my_taxes() {
 		"show_in_nav_menus" => true,
 		"query_var" => true,
 		"rewrite" => [ 'slug' => 'icc_altri_filtri', 'with_front' => true, ],
-		"show_admin_column" => false,
+		"show_admin_column" => true,
 		"show_in_rest" => true,
 		"rest_base" => "icc_altri_filtri",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
-		"show_in_quick_edit" => false,
+		"show_in_quick_edit" => true,
 		];
 	register_taxonomy( "icc_altri_filtri", [ "post", "rassegna-stampa" ], $args );
 
