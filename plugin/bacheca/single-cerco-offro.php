@@ -3,8 +3,8 @@
   <div class="col-lg-home-reg">
     <div class="container single">
       <?php
-        if(have_posts()):while(have_posts()) : the_post();
-      ?>
+        if(have_posts()):while(have_posts()) : the_post(); ?>
+
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class='single__nav__category'>
             <?php
@@ -15,14 +15,14 @@
               $term1 = "regione";
               $terms = get_the_terms( $post->ID , $term1 );
               foreach ( $terms as $term ) {
-                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a>';
+                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
               }
 
               echo " Tematica: ";
               $term1 = "tematica";
               $terms = get_the_terms( get_the_ID() , $term1 );
               foreach ( $terms as $term ) {
-                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a>';
+                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
               }
 
             ?>
@@ -33,6 +33,11 @@
           <div class="single__head">
 
             <?php
+
+            if( $_POST['submit_risolto'] ){
+              wp_set_object_terms($post->ID,'risolto','cercooffro');
+              echo '<div class="alert alert-success" role="alert">Annuncio segnato come risolto!</div>';
+            }
 
             if( $_POST['submit_email'] ){
 
@@ -45,7 +50,7 @@
 
               wp_mail( $to, $subject, $body, $headers );
 
-              echo '<div class="alert alert-success" role="alert">  Email inviata con successo!</div>';
+              echo '<div class="alert alert-success" role="alert">Email inviata con successo!</div>';
 
             }
             ?>
@@ -80,8 +85,20 @@
               ?>
     				</h2>
             <div class="single__edit__post">
-              <?php edit_post_link(__('Modifica annuncio')); ?>
+              <?php
+                edit_post_link(__('Modifica annuncio'));
+              ?>
             </div>
+            <?
+            if( current_user_can('edit_post',$post->ID) ){
+              ?>
+              <form class="mb-2" action="<?php echo get_pagenum_link(); ?>" method="post">
+                <button type="submit" value="submit" class="btn btn-warning" name="submit_risolto">Segna lo scambio come risolto!</button>
+              </form>
+              <?
+            }
+            ?>
+
           </div>
 
           <!-- Share with -->
@@ -99,7 +116,8 @@
     			</div>
 
             <?php if(is_user_logged_in()){
-              the_content();?>
+              the_content();
+            ?>
 
               <div class="accordion mb-2" id="accordion">
                 <div class="card">

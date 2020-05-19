@@ -112,11 +112,13 @@ if($success != 1 && is_user_logged_in() ){
       <?php
         $categories = get_terms( array('taxonomy' => 'cercooffro','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
         foreach ($categories as $category) {
-          $option = '<option value="'.$category->slug.'" ';
-          if ($_POST['tipologia'] == $category->slug) {$option .= 'selected ';};
-          $option .= '>'.$category->name;
-          $option .= '</option>';
-          echo $option;
+          if($category->slug != 'risolto'){
+            $option = '<option value="'.$category->slug.'" ';
+            if ($_POST['tipologia'] == $category->slug) {$option .= 'selected ';};
+            $option .= '>'.$category->name;
+            $option .= '</option>';
+            echo $option;
+          }
         }
       ?>
     </select>

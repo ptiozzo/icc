@@ -17,7 +17,7 @@
             array(
                 'taxonomy'=> 'contenuti_speciali_filtri',
                 'field'   => 'slug',
-                'terms'		=> 'cerco-offro archivio',
+                'terms'		=> 'cerco-offro-archivio',
             ),
           ),
         );
@@ -99,11 +99,13 @@
                 <?php
                   $categories = get_terms( array('taxonomy' => 'cercooffro','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
                   foreach ($categories as $category) {
-                    $option = '<option value="'.$category->slug.'" ';
-                    if ($BachecaCercoOffro == $category->slug) {$option .= 'selected ';};
-                    $option .= '>'.$category->name;
-                    $option .= '</option>';
-                    echo $option;
+                    if($category->slug != 'risolto'){
+                      $option = '<option value="'.$category->slug.'" ';
+                      if ($BachecaCercoOffro == $category->slug) {$option .= 'selected ';};
+                      $option .= '>'.$category->name;
+                      $option .= '</option>';
+                      echo $option;
+                    }
                   }
                 ?>
               </select>
@@ -141,10 +143,10 @@
 
       if ($BachecaCercoOffro != $BachecaCercoOffro1){
         $filtroCercoOffro = array(
-                              'taxonomy' => 'cercooffro',
-                              'field'    => 'slug',
-                              'terms'    => $BachecaCercoOffro,
-                            );
+                                'taxonomy' => 'cercooffro',
+                                'field'    => 'slug',
+                                'terms'    => $BachecaCercoOffro,
+                              );
       } else {
         $filtroCercoOffro = '';
       }
@@ -162,6 +164,12 @@
                 $filtroRegione,
                 $filtroTematica,
                 $filtroCercoOffro,
+                array(
+                  'taxonomy' => 'cercooffro',
+                  'field'    => 'slug',
+                  'terms'    => 'risolto',
+                  'operator' => 'NOT IN',
+                ),
               ),
             );
 
