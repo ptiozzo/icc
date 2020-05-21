@@ -117,7 +117,10 @@ function autori_meta_box_markup($post)
   </select>
 
   <label>Illustrazioni di</label>
-  <input type="text" name="IllustrazioniDi" value="<?php echo get_post_meta($post->ID, 'IllustrazioniDi', true);?>">
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Illustrazioni_Di" value="<?php echo get_post_meta($post->ID, 'Illustrazioni_Di', true);?>">
+  <br>
+  <label>Regia di</label>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Regia_Di" value="<?php echo get_post_meta($post->ID, 'Regia_Di', true);?>">
 
   <?php
 }
