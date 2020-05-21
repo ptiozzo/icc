@@ -129,6 +129,16 @@
 						}
 					?>
 				</div>
+				<!-- Regia di -->
+				<div class="single__author">
+						<?php
+						if( !empty (get_post_meta( get_the_ID(), 'Regia_Di',true))){
+							echo "Regia di: <b>". get_post_meta( get_the_ID(), 'Regia_Di',true)."</b>";
+						}	elseif( !empty (get_post_meta( get_the_ID(), 'RegiaDi',true))){
+							echo "Regia di: <b>". get_post_meta( get_the_ID(), 'RegiaDi',true)."</b>";
+						}
+					?>
+				</div>
 				<!-- llustrazione di -->
 				<div class="single__author">
 						<?php

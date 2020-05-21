@@ -48,10 +48,16 @@ function save_autori_meta_box($post_id, $post)
         delete_post_meta($post_id,"Montaggio_Di");
     }
 
-    if($_POST["IllustrazioniDi"] != "") {
-        update_post_meta($post_id, "IllustrazioniDi", $_POST["IllustrazioniDi"]);
-    } elseif (get_post_meta($post_id,"IllustrazioniDi")) {
-        delete_post_meta($post_id,"IllustrazioniDi");
+    if($_POST["Illustrazioni_Di"] != "") {
+        update_post_meta($post_id, "Illustrazioni_Di", $_POST["Illustrazion_Di"]);
+    } elseif (get_post_meta($post_id,"Illustrazioni_Di")) {
+        delete_post_meta($post_id,"Illustrazioni_Di");
+    }
+
+    if($_POST["Regia_Di"] != "") {
+        update_post_meta($post_id, "Regia_Di", $_POST["Regia_Di"]);
+    } elseif (get_post_meta($post_id,"Regia_Di")) {
+        delete_post_meta($post_id,"Regia_Di");
     }
 
 }

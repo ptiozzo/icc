@@ -39,8 +39,8 @@
 
   echo "<!--";
   echo "ID autore: ".$user_ids."<br>";
-  echo "Query 1: ".$query1->found_posts."<br>";
-  echo "Query 2: ".$query2->found_posts."<br>";
+  echo "Autore: ".$query1->found_posts."<br>";
+  echo "Co-Autore: ".$query2->found_posts."<br>";
   echo "Query finale: ".$finalQuery->found_posts."<br>";
   echo "Paged: ".$paged."<br>";
   echo "-->";
