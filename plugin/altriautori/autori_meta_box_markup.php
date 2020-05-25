@@ -37,90 +37,27 @@ function autori_meta_box_markup($post)
   </select>
 
   <label>Intervista Di</label>
-  <select class="" name="Intervista_Di" style="width:80%; margin-bottom: 10px;">
-    <option value="" <?php if ($Intervista_Di == '') {echo 'selected';}?> >Seleziona intervista di</option>
-    <?php
-    $args = array(
-              'orderby' => 'display_name',
-              'order'=>'ASC',
-              'has_published_posts'=> false,
-    );
-    $allUsers = get_users($args);
-    foreach($allUsers as $user){
-      $option = '<option value="'.$user->ID.'" ';
-      if ($Intervista_Di == $user->ID) {$option .= 'selected ';};
-      $option .= '>'.$user->display_name;
-      $option .= '</option>';
-      echo $option;
-    }
-     ?>
-  </select>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Intervista_Di" value="<?php echo get_post_meta($post->ID, 'Intervista_Di', true);?>">
 
-  <label>Video Realizzato Da</label>
-  <select class="" name="Video_Realizzato_Da" style="width:80%; margin-bottom: 10px;">
-    <option value="" <?php if ($Video_Realizzato_Da == '') {echo 'selected';}?> >Seleziona video realizzato da</option>
-    <?php
-    $args = array(
-              'orderby' => 'display_name',
-              'order'=>'ASC',
-              'has_published_posts'=> false,
-    );
-    $allUsers = get_users($args);
-    foreach($allUsers as $user){
-      $option = '<option value="'.$user->ID.'" ';
-      if ($Video_Realizzato_Da == $user->ID) {$option .= 'selected ';};
-      $option .= '>'.$user->display_name;
-      $option .= '</option>';
-      echo $option;
-    }
-     ?>
-  </select>
+  <label>Video Realizzato Da</label
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Video_Realizzato_Da" value="<?php echo get_post_meta($post->ID, 'Video_Realizzato_Da', true);?>">
 
   <label>Riprese di</label>
-  <select class="" name="Riprese_Di" style="width:80%; margin-bottom: 10px;">
-    <option value="" <?php if ($Riprese_Di == '') {echo 'selected';}?> >Seleziona riprese di</option>
-    <?php
-    $args = array(
-              'orderby' => 'display_name',
-              'order'=>'ASC',
-              'has_published_posts'=> false,
-    );
-    $allUsers = get_users($args);
-    foreach($allUsers as $user){
-      $option = '<option value="'.$user->ID.'" ';
-      if ($Riprese_Di == $user->ID) {$option .= 'selected ';};
-      $option .= '>'.$user->display_name;
-      $option .= '</option>';
-      echo $option;
-    }
-     ?>
-  </select>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Riprese_Di" value="<?php echo get_post_meta($post->ID, 'Riprese_Di', true);?>">
 
   <label>Montaggio di</label>
-  <select class="" name="Montaggio_Di" style="width:80%; margin-bottom: 10px;">
-    <option value="" <?php if ($Montaggio_Di == '') {echo 'selected';}?> >Seleziona montaggio di</option>
-    <?php
-    $args = array(
-              'orderby' => 'display_name',
-              'order'=>'ASC',
-              'has_published_posts'=> false,
-    );
-    $allUsers = get_users($args);
-    foreach($allUsers as $user){
-      $option = '<option value="'.$user->ID.'" ';
-      if ($Montaggio_Di == $user->ID) {$option .= 'selected ';};
-      $option .= '>'.$user->display_name;
-      $option .= '</option>';
-      echo $option;
-    }
-     ?>
-  </select>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Montaggio_Di" value="<?php echo get_post_meta($post->ID, 'Montaggio_Di', true);?>">
 
   <label>Illustrazioni di</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Illustrazioni_Di" value="<?php echo get_post_meta($post->ID, 'Illustrazioni_Di', true);?>">
-  <br>
+
   <label>Regia di</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Regia_Di" value="<?php echo get_post_meta($post->ID, 'Regia_Di', true);?>">
+
+  <label>Campo libero descrizione</label>
+  <input style="width:90%; margin-bottom: 1px;" type="text" name="Campo_Libero_Desc" value="<?php echo get_post_meta($post->ID, 'Campo_Libero_Desc', true);?>">
+  <label>Campo libero dato</label>
+  <input style="width:90%; margin-bottom: 1px;" type="text" name="Campo_Libero_Dato" value="<?php echo get_post_meta($post->ID, 'Campo_Libero_Dato', true);?>">
 
   <?php
 }

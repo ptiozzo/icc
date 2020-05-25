@@ -49,7 +49,7 @@ function save_autori_meta_box($post_id, $post)
     }
 
     if($_POST["Illustrazioni_Di"] != "") {
-        update_post_meta($post_id, "Illustrazioni_Di", $_POST["Illustrazion_Di"]);
+        update_post_meta($post_id, "Illustrazioni_Di", $_POST["Illustrazioni_Di"]);
     } elseif (get_post_meta($post_id,"Illustrazioni_Di")) {
         delete_post_meta($post_id,"Illustrazioni_Di");
     }
@@ -58,6 +58,17 @@ function save_autori_meta_box($post_id, $post)
         update_post_meta($post_id, "Regia_Di", $_POST["Regia_Di"]);
     } elseif (get_post_meta($post_id,"Regia_Di")) {
         delete_post_meta($post_id,"Regia_Di");
+    }
+
+    if($_POST["Campo_Libero_Desc"] != "") {
+        update_post_meta($post_id, "Campo_Libero_Desc", $_POST["Campo_Libero_Desc"]);
+    } elseif (get_post_meta($post_id,"Campo_Libero_Desc")) {
+        delete_post_meta($post_id,"Campo_Libero_Desc");
+    }
+    if($_POST["Campo_Libero_Dato"] != "") {
+        update_post_meta($post_id, "Campo_Libero_Dato", $_POST["Campo_Libero_Dato"]);
+    } elseif (get_post_meta($post_id,"Campo_Libero_Dato")) {
+        delete_post_meta($post_id,"Campo_Libero_Dato");
     }
 
 }
