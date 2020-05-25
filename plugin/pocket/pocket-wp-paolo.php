@@ -428,7 +428,7 @@ class PocketWP {
               $html[] = '<p class="pwp_tag_list mb-0">';
             foreach($item[4] as $tag) {
               if($tag['tag'] != $filter_tag){
-               $html[] = '<span class="pwp_tags font-weight-lighter">#' . $tag['tag'] . '</span>';
+               $html[] = '<span class="pwp_tags font-weight-bold">#' . $tag['tag'] . '</span>';
               }
             }
 
@@ -458,7 +458,7 @@ class PocketWP {
           $html[] = '<div class="col-3">';
           $html[] = '<img src="'.$item[3].'">';
           $html[] = '</div>';
-        }*/
+        }
 
 
 				//Display excerpt if excerpt is not set to no.
@@ -471,6 +471,7 @@ class PocketWP {
 			   		$html[] = '<p class="pwp_item_excerpt mb-0">' . $item[2] . '</p>';
             $html[] = '</div>';
 			  	}
+          */
 
           $html[] = '</div>';
 
