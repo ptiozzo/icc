@@ -79,6 +79,32 @@
 							 ?>
 						</div>
 					</div>
+
+					<!-- Seguici su -->
+					<div class="row justify-content-around mt-3">
+						<div class="col-12">
+							<h3>Seguici su:</h3>
+						</div>
+						<div class="col-4 col-md-2 text-center mt-2">
+							<a href="https://chat.whatsapp.com/IVfMUBwtQb3HiBSODZSXAQ" target="_blank"><i class="fab fa-whatsapp fa-2x"></i><br><span class="">WhatApp</span></a>
+						</div>
+						<div class="col-4 col-md-2 text-center mt-2">
+							<a href="https://t.me/iononmirassegno" target="_blank"><i class="fab fa-telegram fa-2x"></i><br><span class="">Telegram</span></a>
+						</div>
+						<div class="col-4 col-md-2 text-center mt-2">
+							<a href="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=15&idForm=307&guid=65da3bdb-24d7-4cba-a318-a6fda6aa2266&utm_source=newsletter&utm_medium=email" target="_blank"><i class="far fa-envelope fa-2x"></i><br><span class="">NewsLetter</span></a>
+						</div>
+						<div class="col-4 col-md-2 text-center mt-2">
+							<a href="https://open.spotify.com/show/2vhde08tuNa5MbNts3uAg6" target="_blank"><i class="fab fa-spotify fa-2x"></i><br><span class="">Spotify</span></a>
+						</div>
+						<div class="col-4 col-md-2 text-center mt-2">
+							<a href="https://www.spreaker.com/show/iononmirassegno" target="_blank"><i class="fas fa-podcast fa-2x"></i><br><span class="">Spreaker</span></a>
+						</div>
+						<div class="col-4 col-md-2 text-center mt-2">
+							<a href="#" target="_blank"><i class="fas fa-podcast fa-2x"></i><br><span class="">Apple podcast</span></a>
+						</div>
+					</div>
+
 					<!-- Thumbnail o video youtube -->
 					<?php
 					if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
@@ -119,28 +145,6 @@
 						<?php
 						}
 						?>
-						<!-- Seguici su -->
-						<div class="row justify-content-around mt-3">
-							<div class="col-12">
-								<h3>Seguici su:</h3>
-							</div>
-							<div class="col text-center">
-								<a href="https://open.spotify.com/show/2vhde08tuNa5MbNts3uAg6" target="_blank"><i class="fab fa-spotify fa-2x"></i><br><span class="">Spotify</span></a>
-							</div>
-							<div class="col text-center">
-								<a href="#" target="_blank"><i class="fas fa-podcast fa-2x"></i><br><span class="">Apple podcast</span></a>
-							</div>
-							<div class="col text-center">
-								<a href="https://chat.whatsapp.com/IVfMUBwtQb3HiBSODZSXAQ" target="_blank"><i class="fab fa-whatsapp fa-2x"></i><br><span class="">WhatApp</span></a>
-							</div>
-							<div class="col text-center">
-								<a href="https://t.me/iononmirassegno" target="_blank"><i class="fab fa-telegram fa-2x"></i><br><span class="">Telegram</span></a>
-							</div>
-							<div class="col text-center">
-								<a href="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=15&idForm=307&guid=65da3bdb-24d7-4cba-a318-a6fda6aa2266&utm_source=newsletter&utm_medium=email" target="_blank"><i class="far fa-envelope fa-2x"></i><br><span class="">NewsLetter</span></a>
-							</div>
-						</div>
-
 
 						<!-- DA POCKET -->
 						<?php
