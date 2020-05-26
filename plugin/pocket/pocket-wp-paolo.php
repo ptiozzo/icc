@@ -443,9 +443,9 @@ class PocketWP {
 
         //Display fonte
         if($item[0] != ""){
-            $html[] = '<p class="pwp_tag_list mb-0">';
+            $html[] = '<p class="mb-0">';
             $url = preg_replace('#^www\.(.+\.)#i', '$1', parse_url($item[0], PHP_URL_HOST));
-            $html[] = '<span class="pwp_tags font-weight-lighter">' . $url . '</span>';
+            $html[] = '<span class="pwp_fonte font-weight-lighter">' . $url . '</span>';
             $html[] = '</p>';
         }
 
