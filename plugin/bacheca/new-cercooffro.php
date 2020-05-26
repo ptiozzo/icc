@@ -71,8 +71,8 @@ if( $_POST['submit_button'] ){
     $url = get_post_permalink($post_id);
 
     echo '<div class="alert alert-success mt-3" role="alert">';
-    echo "Annuncio creato correttamente, potrai visualizzare il tuo annuncio a breve";
-    echo ' o <a class="alert-link" href="'.$url.'">clicca qui</a> per farlo immediatamente<br>';
+    echo "Annuncio creato correttamente, potrai visualizzarlo a breve. ";
+    echo '<a class="alert-link" href="'.$url.'">Clicca qui</a> per farlo immediatamente<br>';
     echo '</div>';
 
     ?>
