@@ -20,10 +20,6 @@ $errors = array();
 
 if( $_POST['submit_button'] ){
 
-  if(0 === preg_match("/.{6,}/", $_POST['titolo'])){
-    $errors['titolo'] = "Il titolo deve essere di almeno 6 caratteri";
-  }
-
   if($_POST['tipologia'] == "cercooffro"){
     $errors['tipologia'] = "Devi selezionare una tipologia";
   }
@@ -34,6 +30,14 @@ if( $_POST['submit_button'] ){
 
   if($_POST['tematica'] == "tutteletematiche"){
     $errors['tematica'] = "Devi selezionare una tematica";
+  }
+
+  if(0 === preg_match("/.{6,}/", $_POST['titolo'])){
+    $errors['titolo'] = "Il titolo deve essere di almeno 6 caratteri";
+  }
+
+  if(0 === preg_match("/.{6,}/", $_POST['content'])){
+    $errors['content'] = "Devi inserire un contenuto";
   }
 
   if(0 === count($errors)){
@@ -51,8 +55,8 @@ if( $_POST['submit_button'] ){
 
     $new_post = array(
 			'post_title' => ucfirst($post_title),
-			'post_content' => " ",
-			'post_status' => 'pending',
+			'post_content' => $_POST['content'],
+			'post_status' => 'publish',
 			'post_name' => $_POST['titolo'],
 			'post_type' => 'cerco-offro',
       'comment_status' => 'open'
@@ -64,11 +68,11 @@ if( $_POST['submit_button'] ){
     wp_set_object_terms($post_id,$_POST['regione'],'regione');
     wp_set_object_terms($post_id,$_POST['tipologia'],'cercooffro');
 
-    $url = home_url()."/wp-admin/post.php?post=".$post_id."&action=edit";
+    $url = get_post_permalink($post_id);
 
     echo '<div class="alert alert-success mt-3" role="alert">';
-    echo "Annuncio creato correttamente, potrai completare il tuo annuncio a breve";
-    echo ' o <a class="alert-link" href="'.$url.'">clicca qui</a> per farlo immediatamente';
+    echo "Annuncio creato correttamente, potrai visualizzare il tuo annuncio a breve";
+    echo ' o <a class="alert-link" href="'.$url.'">clicca qui</a> per farlo immediatamente<br>';
     echo '</div>';
 
     ?>
@@ -154,8 +158,12 @@ if($success != 1 && is_user_logged_in() ){
       ?>
     </select>
     <div class="form-group my-2 col-12 d-block px-0">
-      <input id="titolo" class="form-control w-75" type="text" name="titolo" placeholder="Inserisci il titolo del tuo cerco/offro">
+      <input id="titolo" class="form-control w-75" type="text" name="titolo" placeholder="Inserisci il titolo del tuo cerco/offro" <?php echo 'value="'.$_POST['titolo'] .'"';?>>
       <small id="titoloHelp" class="form-text text-muted">Non iniziare con cerco o offro, verranno aggiunti automaticamente.</small>
+    </div>
+    <div class="form-group my-2 col-12 d-block px-0">
+      <textarea id="content" class="form-control w-75" type="text" name="content" placeholder="Inserisci il tuo annuncio qui" rows="5"><?php echo $_POST['content'];?></textarea>
+      <small id="contentHelp" class="form-text text-muted">Questo sarà il testo del tuo annuncio.</small>
     </div>
 
     <input name="submit_button" type="Submit" value="Aggiunti cerco/offro" class="btn btn-secondary">
