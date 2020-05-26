@@ -7,7 +7,7 @@
     <div class=" <?php if(is_archive()) { echo 'col-lg-home-reg';}?>">
       <?php
       if(is_archive()) { ?>
-        <h1>Cerco/Offro</h1>
+        <h1 class="text-center">Bacheca Cerco/Offro</h1>
         <?php
 
         $argsCercoOffroArchivio = array(

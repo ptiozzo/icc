@@ -4,8 +4,6 @@ get_header();
 global $wpdb, $user_ID;
 ?>
 <div class="container pt-4">
-<h1><?php echo get_the_title(); ?></h1>
-
 <?php if($_GET['nl']){
   echo "<div class='mt-5' style='height: 100vh;'>";
   if ($_GET['nl']== "RishiestaOK"){
@@ -26,7 +24,13 @@ global $wpdb, $user_ID;
 
 } ?>
 
-<?php echo the_content();
+<?php
+  if(!$_POST){
+    echo "<h1>";
+    echo get_the_title();
+    echo "</h1>";
+  }
+  echo the_content();
 
 //Check whether the user is already logged in
 if ($user_ID)

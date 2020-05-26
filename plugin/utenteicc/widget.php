@@ -15,8 +15,9 @@ class icc_Widget_ICCUser extends WP_Widget {
     $title = apply_filters( 'widget_title', $instance[ 'title' ] );
     echo $args['before_widget'];?>
     <div class="Widget_ICCUser p-2">
-    <?php echo $args['before_title'] . $title . $args['after_title']; ?>
     <?php if(is_user_logged_in()){
+    echo $args['before_title'] . $title . $args['after_title'];
+
       $user_info = wp_get_current_user();
       ?>
         <?php echo get_avatar( $user_info->ID ); ?><br>
