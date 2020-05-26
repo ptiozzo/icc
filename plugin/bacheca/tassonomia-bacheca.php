@@ -104,7 +104,6 @@
 		wp_insert_term('Veneto','regione',array('slug' => 'veneto' ) );
 	}
 
-
 	/**
 	 * Taxonomy: Tematica.
 	 */
@@ -176,6 +175,9 @@
 	}
 	if(term_exists( 'offro', 'cercooffro' ) !== 0){
 		wp_insert_term('Offro','cercooffro',array('slug' => 'offro' ) );
+	}
+	if(term_exists( 'risolto', 'cercooffro' ) !== 0){
+		wp_insert_term('Risolto','cercooffro',array('slug' => 'risolto' ) );
 	}
 
 

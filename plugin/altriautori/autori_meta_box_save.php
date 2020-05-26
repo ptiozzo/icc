@@ -48,10 +48,27 @@ function save_autori_meta_box($post_id, $post)
         delete_post_meta($post_id,"Montaggio_Di");
     }
 
-    if($_POST["IllustrazioniDi"] != "") {
-        update_post_meta($post_id, "IllustrazioniDi", $_POST["IllustrazioniDi"]);
-    } elseif (get_post_meta($post_id,"IllustrazioniDi")) {
-        delete_post_meta($post_id,"IllustrazioniDi");
+    if($_POST["Illustrazioni_Di"] != "") {
+        update_post_meta($post_id, "Illustrazioni_Di", $_POST["Illustrazioni_Di"]);
+    } elseif (get_post_meta($post_id,"Illustrazioni_Di")) {
+        delete_post_meta($post_id,"Illustrazioni_Di");
+    }
+
+    if($_POST["Regia_Di"] != "") {
+        update_post_meta($post_id, "Regia_Di", $_POST["Regia_Di"]);
+    } elseif (get_post_meta($post_id,"Regia_Di")) {
+        delete_post_meta($post_id,"Regia_Di");
+    }
+
+    if($_POST["Campo_Libero_Desc"] != "") {
+        update_post_meta($post_id, "Campo_Libero_Desc", $_POST["Campo_Libero_Desc"]);
+    } elseif (get_post_meta($post_id,"Campo_Libero_Desc")) {
+        delete_post_meta($post_id,"Campo_Libero_Desc");
+    }
+    if($_POST["Campo_Libero_Dato"] != "") {
+        update_post_meta($post_id, "Campo_Libero_Dato", $_POST["Campo_Libero_Dato"]);
+    } elseif (get_post_meta($post_id,"Campo_Libero_Dato")) {
+        delete_post_meta($post_id,"Campo_Libero_Dato");
     }
 
 }
