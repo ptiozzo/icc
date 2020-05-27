@@ -86,16 +86,18 @@
     				</h2>
             <div class="single__edit__post">
               <?php
-                edit_post_link(__('Modifica annuncio'));
+                edit_post_link(__('Modifica con editor avanzato'));
               ?>
             </div>
             <?
             if( current_user_can('edit_post',$post->ID) ){
+
               ?>
               <form class="mb-2" action="<?php echo get_pagenum_link(); ?>" method="post">
                 <button type="submit" value="submit" class="btn btn-warning" name="submit_risolto">Segna lo scambio come risolto!</button>
               </form>
-              <?
+
+              <?php
             }
             ?>
 
@@ -120,25 +122,6 @@
             ?>
 
               <div class="accordion mb-2" id="accordion">
-                <div class="card">
-                  <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Vedi i commenti pubblici presenti e lascia il tuo
-                      </button>
-                    </h2>
-                  </div>
-
-                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                      <?php
-                      if ( comments_open() ) {
-                        comments_template();
-                      }
-                      ?>
-                    </div>
-                  </div>
-                </div>
                 <div class="card">
                   <div class="card-header" id="headingTwo">
                     <h2 class="mb-0">
@@ -178,8 +161,12 @@
                     </div>
                   </div>
                 </div>
-              </div>
-
+              </div><!-- Fine accordion -->
+              <?php
+              if ( comments_open() ) {
+                comments_template();
+              }
+              ?>
               <!-- Share with -->
         			<div class="single__share">
         				<?php
