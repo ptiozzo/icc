@@ -18,7 +18,7 @@ if(!is_user_logged_in()){
 
 $errors = array();
 
-if( $_POST['submit_button'] ){
+  if( $_POST['submit_button'] ){
 
   if($_POST['tipologia'] == "cercooffro"){
     $errors['tipologia'] = "Devi selezionare una tipologia";
@@ -36,9 +36,15 @@ if( $_POST['submit_button'] ){
     $errors['titolo'] = "Il titolo deve essere di almeno 6 caratteri";
   }
 
-  if(0 === preg_match("/.{6,}/", $_POST['content'])){
-    $errors['content'] = "Devi inserire un contenuto";
+  if(str_word_count($_POST['content']) < 6){
+    $errors['content'] = "Devi inserire un contenuto di almeno 6 parole";
   }
+
+  echo $_FILES['immagine']['name'];
+  if($_FILES['immagine'] != ""){
+    $errors['immagine'] = "Immagine";
+  }
+
 
   if(0 === count($errors)){
 
@@ -63,6 +69,9 @@ if( $_POST['submit_button'] ){
 		);
 
     $post_id = wp_insert_post($new_post);
+
+
+
 
     wp_set_object_terms($post_id,$_POST['tematica'],'tematica');
     wp_set_object_terms($post_id,$_POST['regione'],'regione');
@@ -100,10 +109,6 @@ if( $_POST['submit_button'] ){
 
     <?php
   }
-
-
-
-
 }
 
 
@@ -164,6 +169,10 @@ if($success != 1 && is_user_logged_in() ){
     <div class="form-group my-2 col-12 d-block px-0">
       <textarea id="content" class="form-control w-75" type="text" name="content" placeholder="Inserisci il tuo annuncio qui" rows="5"><?php echo $_POST['content'];?></textarea>
       <small id="contentHelp" class="form-text text-muted">Questo sarà il testo del tuo annuncio.</small>
+    </div>
+    <div class="form-group my-2 col-12">
+      <label for="immagine">Aggiungi un'immagine al tuo annuncio</label>
+      <input type="file" name="immagine" class="form-control-file" id="immagine">
     </div>
 
     <input name="submit_button" type="Submit" value="Aggiunti cerco/offro" class="btn btn-secondary">
