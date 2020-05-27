@@ -87,18 +87,7 @@
   							 ?>
   						</div>
   					</div>
-            <!-- Seguici su -->
-            <div class="row mt-3 rassegna_seguici">
-              <div class="col-12">
-                <h3>Seguici su:</h3>
-              </div>
-              <div class="col-12">
-                <a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://chat.whatsapp.com/IVfMUBwtQb3HiBSODZSXAQ" target="_blank"><i class="fab fa-whatsapp"></i> <span class="">WhatApp</span></a>
-                <a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://t.me/iononmirassegno" target="_blank"><i class="fab fa-telegram"></i> <span class="">Telegram</span></a>
-                <a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=15&idForm=307&guid=65da3bdb-24d7-4cba-a318-a6fda6aa2266&utm_source=newsletter&utm_medium=email" target="_blank"><i class="far fa-envelope"></i> <span class="">NewsLetter</span></a>
-                <a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://www.youtube.com/playlist?list=PL0WvMTrbIjqpEEOqbLjtIzI38-U8jI0H6" target="_blank"><i class="fab fa-youtube"></i> <span class="">Youtube</span></a>
-              </div>
-            </div>
+
 
   					<!-- Thumbnail o video youtube -->
   					<?php
@@ -130,15 +119,6 @@
                 </div>
                 <div class="col p-2 p-lg-0 text-center wp-block-button">
                   <a href="<?php echo get_post_meta( get_the_ID(), 'MP3Rassegna',true) ?>" class="wp-block-button__link" download>Scarica</a>
-                </div>
-                <div class="col text-center mt-2">
-                  <a href="https://open.spotify.com/show/2vhde08tuNa5MbNts3uAg6" target="_blank"><i class="fab fa-spotify fa-2x"></i><br><span class="">Spotify</span></a>
-                </div>
-                <div class="col text-center mt-2">
-                  <a href="https://www.spreaker.com/show/iononmirassegno" target="_blank"><i class="fas fa-podcast fa-2x"></i><br><span class="">Spreaker</span></a>
-                </div>
-                <div class="col text-center mt-2">
-                  <a href="#" target="_blank"><i class="fas fa-podcast fa-2x"></i><br><span class="">Apple podcast</span></a>
                 </div>
               </div>
               <?php
