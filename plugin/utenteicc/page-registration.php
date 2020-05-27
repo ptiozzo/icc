@@ -179,7 +179,7 @@ if ($user_ID)
               <?php
               if($_GET['redirect_to']){
                 ?>
-                o <a class="alert-link" href="<?php echo $_GET['redirect_to']; ?>"> al post che stavi visualizzando</a>
+                o <a class="alert-link" href="<?php echo $_GET['redirect_to']; ?>"> alla pagina che sta visualizzando.</a>
                 <?php
               }
                ?>
