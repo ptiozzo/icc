@@ -99,7 +99,7 @@
                 <a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://www.youtube.com/playlist?list=PL0WvMTrbIjqpEEOqbLjtIzI38-U8jI0H6" target="_blank"><i class="fab fa-youtube"></i> <span class="">Youtube</span></a>
               </div>
             </div>
-
+            
   					<!-- Thumbnail o video youtube -->
   					<?php
   					if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
