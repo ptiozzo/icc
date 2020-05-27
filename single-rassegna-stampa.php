@@ -86,13 +86,13 @@
 							<h3>Seguici su:</h3>
 						</div>
 						<div class="col-12">
-							<a class="border p-2 rounded mr-2" href="https://chat.whatsapp.com/IVfMUBwtQb3HiBSODZSXAQ" target="_blank"><i class="fab fa-whatsapp"></i> <span class="">WhatApp</span></a>
-							<a class="border p-2 rounded mr-2" href="https://t.me/iononmirassegno" target="_blank"><i class="fab fa-telegram"></i> <span class="">Telegram</span></a>
-							<a class="border p-2 rounded mr-2" href="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=15&idForm=307&guid=65da3bdb-24d7-4cba-a318-a6fda6aa2266&utm_source=newsletter&utm_medium=email" target="_blank"><i class="far fa-envelope"></i> <span class="">NewsLetter</span></a>
-							<a class="border p-2 rounded mr-2" href="https://www.youtube.com/playlist?list=PL0WvMTrbIjqpEEOqbLjtIzI38-U8jI0H6" target="_blank"><i class="fab fa-youtube"></i> <span class="">Youtube</span></a>
+							<a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://chat.whatsapp.com/IVfMUBwtQb3HiBSODZSXAQ" target="_blank"><i class="fab fa-whatsapp"></i> <span class="">WhatApp</span></a>
+							<a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://t.me/iononmirassegno" target="_blank"><i class="fab fa-telegram"></i> <span class="">Telegram</span></a>
+							<a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=15&idForm=307&guid=65da3bdb-24d7-4cba-a318-a6fda6aa2266&utm_source=newsletter&utm_medium=email" target="_blank"><i class="far fa-envelope"></i> <span class="">NewsLetter</span></a>
+							<a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://www.youtube.com/playlist?list=PL0WvMTrbIjqpEEOqbLjtIzI38-U8jI0H6" target="_blank"><i class="fab fa-youtube"></i> <span class="">Youtube</span></a>
 						</div>
 					</div>
-
+					
 					<!-- Thumbnail o video youtube -->
 					<?php
 					if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
