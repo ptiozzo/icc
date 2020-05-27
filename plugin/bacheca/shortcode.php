@@ -224,7 +224,9 @@
 
 
         <?php
-          endwhile;endif;
+      endwhile;else:
+        echo "<div class='col-12'><p>Nessuna inserzione disponibile al momento</p></div>";
+      endif;
         ?>
       </div>
       <!-- paginazione -->
