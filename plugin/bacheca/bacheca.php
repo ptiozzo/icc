@@ -42,7 +42,19 @@ add_action( 'wp_enqueue_scripts', 'bacheca_style_scripts' );
 if(!function_exists('bacheca_style_scripts')){
   function bacheca_style_scripts(){
     wp_enqueue_style( 'bacheca', get_template_directory_uri().'/plugin/bacheca/bacheca.css',array(),filemtime(get_template_directory() . '/plugin/bacheca/bacheca.css'),'all');
+
   }
+}
+
+add_action('admin_head', 'bacheca_admin_style_scripts');
+function bacheca_admin_style_scripts() {
+
+  $user = wp_get_current_user();
+  if ( in_array( 'icc_user', (array) $user->roles ) ) {
+    wp_enqueue_style( 'bacheca-admin', get_template_directory_uri().'/plugin/bacheca/bacheca-admin.css',array(),filemtime(get_template_directory() . '/plugin/bacheca/bacheca-admin.css'),'all');
+    wp_enqueue_script('bacheca-admin-js', get_template_directory_uri() . '/plugin/bacheca/bacheca-admin.js');
+  }
+
 }
 
  add_filter('template_include', 'cercooffro_archive_template');
