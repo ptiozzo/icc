@@ -20,6 +20,24 @@
    }
  }
 
+add_shortcode( 'bacheca-cercooffro', 'bacheca_cercooffro_shortcode' );
+
+if(!function_exists('bacheca_cercooffro_shortcode')){
+  function bacheca_cercooffro_shortcode($atts) {
+    $a = shortcode_atts( array(
+      'regione' => '_tutteleregioni'
+   ), $atts );
+   if(!is_archive()) {
+     ob_start();
+     include 'shortcode.php';
+     return ob_get_clean();
+   } else{
+     include 'shortcode.php';
+     return true;
+   }
+  }
+}
+
 add_action( 'wp_enqueue_scripts', 'bacheca_style_scripts' );
 if(!function_exists('bacheca_style_scripts')){
   function bacheca_style_scripts(){
@@ -69,4 +87,34 @@ $arg['title_reply'] = __('Lascia un commento pubblico');
 return $arg;
 }
 add_filter('comment_form_defaults','wcc_comment_reform');
+
+
+function add_nuovo_cercooffro_page() {
+    // Create post object
+    if(!get_page_by_path('nuovocercooffro')){
+      $my_post = array(
+        'post_title'    => wp_strip_all_tags( 'Nuovo cerco/offro' ),
+        'post_content'  => '',
+        'post_status'   => 'publish',
+        'post_author'   => 1,
+        'post_type'     => 'page',
+        'post_name'     => 'nuovocercooffro'
+      );
+
+      // Insert the post into the database
+    wp_insert_post( $my_post );
+
+
+    }
+}
+add_filter('init', 'add_nuovo_cercooffro_page');
+
+function icc_custom_new_cerco_offro( $template ) {
+  if ( is_page('nuovocercooffro') ) {
+    return dirname( __FILE__ ) . '/new-cercooffro.php';
+  }
+  return $template;
+}
+add_filter('template_include', 'icc_custom_new_cerco_offro');
+
  ?>
