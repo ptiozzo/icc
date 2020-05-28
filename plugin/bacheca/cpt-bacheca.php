@@ -60,7 +60,7 @@
 		"rewrite" => [ "slug" => "cerco-offro", "with_front" => true ],
 		"query_var" => true,
 		"menu_icon" => "dashicons-tagcloud",
-		"supports" => [ "title", "editor", "thumbnail", "excerpt", "comments", "author" ],
+		"supports" => [ "title", "editor", "thumbnail", "comments", "author" ],
 	];
 
 	register_post_type( 'cerco-offro', $args );

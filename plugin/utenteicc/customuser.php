@@ -1,7 +1,5 @@
 <?php
 
-
-
  add_role('icc_user',
             'Utente di ItaliaCheCambia',
             array(
@@ -12,6 +10,5 @@
                 'upload_files' => true,
             )
         );
-
 
 ?>

@@ -56,4 +56,11 @@ function custom_register_url( $register_url )
     return $register_url;
 }
 
+add_action('set_current_user', 'icc_hide_admin_bar');
+function icc_hide_admin_bar() {
+  if (!current_user_can('edit_posts')) {
+    show_admin_bar(false);
+  }
+}
+
 ?>
