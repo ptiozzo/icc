@@ -77,26 +77,18 @@
                 </span>
     				</div>
             <!-- Meta Description -->
-    				<h2 class="single__metaDescription">
-              <?php
-              if(has_excerpt()){
-    					 the_excerpt();
-              }
-              ?>
-    				</h2>
             <div class="single__edit__post">
               <?php
                 edit_post_link(__('Modifica con editor avanzato'));
               ?>
             </div>
-            <?
-            if( current_user_can('edit_post',$post->ID) ){
 
+            <?php
+            if( current_user_can('edit_post',$post->ID)){
               ?>
               <form class="mb-2" action="<?php echo get_pagenum_link(); ?>" method="post">
                 <button type="submit" value="submit" class="btn btn-warning" name="submit_risolto">Segna lo scambio come risolto!</button>
               </form>
-
               <?php
             }
             ?>
