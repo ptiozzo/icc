@@ -81,7 +81,7 @@
             if( current_user_can('edit_post',$post->ID)){
               ?>
               <div class="single__edit__post d-inline-block">
-                <a href="#">Modifica con editor semplice</a>
+                <a href="/nuovocercooffro/?action=edit&postID=<?php echo get_the_ID(); ?>">Modifica con editor semplice</a>
               </div>
                -
               <div class="single__edit__post d-inline-block">
