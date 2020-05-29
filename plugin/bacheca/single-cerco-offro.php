@@ -1,5 +1,5 @@
 <?php get_header();?>
-<div class="row">
+<div class="row mx-0">
   <div class="col-lg-home-reg">
     <div class="container single">
       <?php
@@ -77,15 +77,18 @@
                 </span>
     				</div>
             <!-- Meta Description -->
-            <div class="single__edit__post">
-              <?php
-                edit_post_link(__('Modifica con editor avanzato'));
-              ?>
-            </div>
-
             <?php
             if( current_user_can('edit_post',$post->ID)){
               ?>
+              <div class="single__edit__post d-inline-block">
+                <a href="/nuovocercooffro/?action=edit&postID=<?php echo get_the_ID(); ?>">Modifica con editor semplice</a>
+              </div>
+               -
+              <div class="single__edit__post d-inline-block">
+                <?php
+                  edit_post_link(__('Modifica con editor avanzato'));
+                ?>
+              </div>
               <form class="mb-2" action="<?php echo get_pagenum_link(); ?>" method="post">
                 <button type="submit" value="submit" class="btn btn-warning" name="submit_risolto">Segna lo scambio come risolto!</button>
               </form>
@@ -109,7 +112,14 @@
     				 ?>
     			</div>
 
+
+
             <?php if(is_user_logged_in()){
+
+              if ( has_post_thumbnail() ) {
+                the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid mx-auto d-block p-1','alt' => get_the_title()));
+              }
+
               the_content();
             ?>
 
