@@ -1,5 +1,5 @@
 <?php get_header();?>
-<div class="container">
+<div class="container mx-0">
 
 
 <h1><?php the_title(); ?></h1>
@@ -40,10 +40,10 @@ $errors = array();
     $errors['content'] = "Devi inserire un contenuto di almeno 6 parole";
   }
 
-  echo $_FILES['immagine']['name'];
-  if($_FILES['immagine'] != ""){
-    $errors['immagine'] = "Immagine";
+  if(strpos($_FILES['image']["type"],'image') === false){
+    $errors['image'] = "Il file caricato non è un'immagine";
   }
+
 
 
   if(0 === count($errors)){
@@ -70,12 +70,36 @@ $errors = array();
 
     $post_id = wp_insert_post($new_post);
 
-
-
-
     wp_set_object_terms($post_id,$_POST['tematica'],'tematica');
     wp_set_object_terms($post_id,$_POST['regione'],'regione');
     wp_set_object_terms($post_id,$_POST['tipologia'],'cercooffro');
+
+
+    if ( isset($_FILES['image']) ) {
+        $upload = wp_upload_bits($_FILES["image"]["name"], null, file_get_contents($_FILES["image"]["tmp_name"]));
+
+        if ( ! $upload_file['error'] ) {
+
+            $filename = $upload['file'];
+            $wp_filetype = wp_check_filetype($filename, null);
+            $attachment = array(
+                'post_mime_type' => $wp_filetype['type'],
+                'post_title' => sanitize_file_name($filename),
+                'post_content' => '',
+                'post_status' => 'inherit'
+            );
+
+            $attachment_id = wp_insert_attachment( $attachment, $filename, $post_id );
+
+            if ( ! is_wp_error( $attachment_id ) ) {
+                require_once(ABSPATH . 'wp-admin/includes/image.php');
+
+                $attachment_data = wp_generate_attachment_metadata( $attachment_id, $filename );
+                wp_update_attachment_metadata( $attachment_id, $attachment_data );
+                set_post_thumbnail( $post_id, $attachment_id );
+            }
+        }
+    }
 
     $url = get_post_permalink($post_id);
 
@@ -115,7 +139,7 @@ $errors = array();
 if($success != 1 && is_user_logged_in() ){
 
   ?>
-  <form class="mt-3 mb-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>">
+  <form class="mt-3 mb-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" enctype="multipart/form-data">
     <select name="tipologia" class="custom-select" >
       <option value="cercooffro" <?php if ($_POST['tipologia'] == "cercooffro") {echo 'selected';} ?>>Cerco o Offro?</option>
       <?php
@@ -171,8 +195,8 @@ if($success != 1 && is_user_logged_in() ){
       <small id="contentHelp" class="form-text text-muted">Questo sarà il testo del tuo annuncio.</small>
     </div>
     <div class="form-group my-2 col-12">
-      <label for="immagine">Aggiungi un'immagine al tuo annuncio</label>
-      <input type="file" name="immagine" class="form-control-file" id="immagine">
+      <label for="image">Aggiungi un'image al tuo annuncio</label>
+      <input type="file" name="image" class="form-control-file" id="image">
     </div>
 
     <input name="submit_button" type="Submit" value="Aggiunti cerco/offro" class="btn btn-secondary">
