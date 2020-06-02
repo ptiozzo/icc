@@ -99,7 +99,7 @@
                 <a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://www.youtube.com/playlist?list=PL0WvMTrbIjqpEEOqbLjtIzI38-U8jI0H6" target="_blank"><i class="fab fa-youtube"></i> <span class="">Youtube</span></a>
               </div>
             </div>
-            
+
   					<!-- Thumbnail o video youtube -->
   					<?php
   					if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
@@ -138,7 +138,7 @@
                   <a href="https://www.spreaker.com/show/iononmirassegno" target="_blank"><i class="fas fa-podcast fa-2x"></i><br><span class="">Spreaker</span></a>
                 </div>
                 <div class="col text-center mt-2">
-                  <a href="#" target="_blank"><i class="fas fa-podcast fa-2x"></i><br><span class="">Apple podcast</span></a>
+                  <a href="https://podcasts.apple.com/it/podcast/io-non-mi-rassegno/id1515104848" target="_blank"><i class="fas fa-podcast fa-2x"></i><br><span class="">Apple podcast</span></a>
                 </div>
               </div>
               <?php
