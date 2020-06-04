@@ -10,6 +10,11 @@
  * License: GPL2
  */
 
+ $user = wp_get_current_user();
+ if ( in_array( 'icc_user', (array) $user->roles ) ) {
+   add_filter('show_admin_bar', '__return_false');
+ }
+
 
  add_action('init', 'bacheca_paolo_init');
 
