@@ -116,8 +116,6 @@
               $role->add_cap( 'edit_private_cerco-offros' );
               $role->add_cap( 'edit_published_cerco-offros' );
 
-              $role->add_cap( 'publish_cerco-offros' );
-
               $role->add_cap( 'read_cerco-offros');
               $role->add_cap( 'read_private_cerco-offros' );
 
