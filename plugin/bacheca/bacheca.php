@@ -141,9 +141,9 @@ function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
         && 'cerco-offro' === $post->post_type ) {
 
 
-          $to = get_user_by('id',$post->post_author)->user_email;;
+          $to = get_user_by('id',$post->post_author)->user_email;
           $subject = 'ItaliaCheCambia - Cerco\Offro: '.$post->post_title;
-          $body = "Il tuo annuncio è stato pubblicato con successo";
+          $body = "Ciao ".get_user_by('id',$post->post_author)->display_name."\r\n Il tuo annuncio è stato pubblicato con successo. \r\n Il link per raggiungerlo direttamente è ".get_permalink($post->ID);
           $headers = array('Content-Type: text/html; charset=UTF-8');
           $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
           $headers[] = 'Bcc: Paolo Tiozzo <ptiozzo@me.com>';
