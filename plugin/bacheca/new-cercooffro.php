@@ -66,7 +66,7 @@ $errors = array();
       $new_post = array(
   			'post_title' => ucfirst($post_title),
   			'post_content' => $_POST['content'],
-  			'post_status' => 'publish',
+  			'post_status' => 'pending',
   			'post_name' => $_POST['titolo'],
   			'post_type' => 'cerco-offro',
         'comment_status' => 'open'
@@ -104,18 +104,18 @@ $errors = array();
       }
 
 
-    $url = get_post_permalink($post_id);
+    $url = "/cerco-offro/";
 
     echo '<div class="alert alert-success mt-3" role="alert">';
-    echo "Annuncio creato correttamente, potrai visualizzarlo a breve. ";
-    echo '<a class="alert-link" href="'.$url.'">Clicca qui</a> per farlo immediatamente<br>';
-    echo '</div>';
+    echo "Annuncio creato, ti invieremo una mail entro 24h appena il tuo annuncio sarà approvato dalla redazione. ";
+    echo 'La redazione potrebbe apportare alcune modifiche al titolo ';
+    echo 'o al testo della tua inserzione per agevolare il raggiungimento del tuo obiettivo.</div>';
 
     ?>
     <script>
       setTimeout(function(){
         window.location.href = "<?php echo $url;?>";
-      }, 3000);
+      }, 5000);
     </script>
     <?php
     //wp_redirect($url);
@@ -163,7 +163,7 @@ if($success != 1 && is_user_logged_in() ){
     wp_reset_postdata();
   } else {
     $form_tipologia = $_POST['tipologia'];
-    $form_regioni = $_POST['regioini'];
+    $form_regioni = $_POST['regione'];
     $form_tematica = $_POST['tematica'];
     $form_titolo = $_POST['titolo'];
     $form_content = $_POST['content'];
