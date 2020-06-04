@@ -10,6 +10,11 @@
  * License: GPL2
  */
 
+ $user = wp_get_current_user();
+ if ( in_array( 'icc_user', (array) $user->roles ) ) {
+   add_filter('show_admin_bar', '__return_false');
+ }
+
 
  add_action('init', 'bacheca_paolo_init');
 
@@ -128,5 +133,24 @@ function icc_custom_new_cerco_offro( $template ) {
   return $template;
 }
 add_filter('template_include', 'icc_custom_new_cerco_offro');
+
+
+
+function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
+    if ( ( 'publish' === $new_status && 'publish' !== $old_status )
+        && 'cerco-offro' === $post->post_type ) {
+
+
+          $to = get_user_by('id',$post->post_author)->user_email;;
+          $subject = 'ItaliaCheCambia - Cerco\Offro: '.$post->post_title;
+          $body = "Il tuo annuncio è stato pubblicato con successo";
+          $headers = array('Content-Type: text/html; charset=UTF-8');
+          $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
+          $headers[] = 'Bcc: Paolo Tiozzo <ptiozzo@me.com>';
+
+          wp_mail( $to, $subject, $body, $headers );
+    }
+}
+add_action( 'transition_post_status', 'wpdocs_run_on_publish_only', 10, 3 );
 
  ?>
