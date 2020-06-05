@@ -86,7 +86,7 @@ $errors = array();
               $wp_filetype = wp_check_filetype($filename, null);
               $attachment = array(
                   'post_mime_type' => $wp_filetype['type'],
-                  'post_title' => sanitize_file_name($filename),
+                  'post_title' => sanitize_file_name($_FILES["image"]["name"]),
                   'post_content' => '',
                   'post_status' => 'inherit'
               );
@@ -105,6 +105,18 @@ $errors = array();
 
 
     $url = "/cerco-offro/";
+
+    $to = "ptiozzo@me.com";
+    $subject = 'ICC - Nuovo Cerco\Offro da revisionare: '.$post->post_title;
+    $body = "<html><body>";
+    $body .= "Ciao <br>";
+    $body .= "E' presente un nuovo annuncio da revisionare. <br>";
+    $body .= "</body></html>";
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
+    $headers[] = 'Bcc: ptiozzo@me.com';
+
+    wp_mail( $to, $subject, $body, $headers );
 
     echo '<div class="alert alert-success mt-3" role="alert">';
     echo "Annuncio creato, ti invieremo una mail entro 24h appena il tuo annuncio sarà approvato dalla redazione. ";
