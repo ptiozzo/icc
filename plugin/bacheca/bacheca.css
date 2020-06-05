@@ -27,6 +27,10 @@
   display: block;
 }
 
-.cerco-offro a{
+.cerco-offro p a{
   display: inline-block!important;
+}
+
+.cerco-offro .card-img-top{
+  max-height: 173px;
 }

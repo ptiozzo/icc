@@ -60,12 +60,72 @@
 		"rewrite" => [ "slug" => "cerco-offro", "with_front" => true ],
 		"query_var" => true,
 		"menu_icon" => "dashicons-tagcloud",
-		"supports" => [ "title", "editor", "thumbnail", "excerpt", "comments", "author" ],
+		"supports" => [ "title", "editor", "thumbnail", "comments", "author" ],
 	];
 
 	register_post_type( 'cerco-offro', $args );
 
   global $wp_rewrite;
     $wp_rewrite->flush_rules();
+
+
+		// Add the roles you'd like to administer the custom post types
+		$roles = array('editor','administrator');
+
+		// Loop through each role and assign capabilities
+		foreach($roles as $the_role) {
+
+		     $role = get_role($the_role);
+
+	             $role->add_cap( 'read' );
+	             $role->add_cap( 'read_cerco-offross');
+	             $role->add_cap( 'read_private_cerco-offros' );
+
+	             $role->add_cap( 'edit_cerco-offros' );
+	             $role->add_cap( 'edit_others_cerco-offros' );
+               $role->add_cap( 'edit_private_cerco-offros' );
+	             $role->add_cap( 'edit_published_cerco-offros' );
+
+	             $role->add_cap( 'publish_cerco-offros' );
+
+               $role->add_cap( 'assign_tematica' );
+               $role->add_cap( 'assign_regione' );
+               $role->add_cap( 'assign_cercooffro' );
+
+               $role->add_cap( 'delete_cerco-offros' );
+	             $role->add_cap( 'delete_others_cerco-offros' );
+	             $role->add_cap( 'delete_private_cerco-offros' );
+	             $role->add_cap( 'delete_published_cerco-offros' );
+
+		}
+
+    // Add the roles you'd like to use the custom post types
+		$roles = array('icc_user');
+
+		// Loop through each role and assign capabilities
+		foreach($roles as $the_role) {
+
+		     $role = get_role($the_role);
+
+
+              $role->add_cap( 'delete_cerco-offros' );
+              $role->add_cap( 'delete_private_cerco-offros' );
+              $role->add_cap( 'delete_published_cerco-offros' );
+
+              $role->add_cap( 'edit_cerco-offros' );
+              $role->add_cap( 'edit_private_cerco-offros' );
+              $role->add_cap( 'edit_published_cerco-offros' );
+
+              $role->add_cap( 'read_cerco-offros');
+              $role->add_cap( 'read_private_cerco-offros' );
+
+              $role->add_cap( 'assign_tematica');
+              $role->add_cap( 'assign_regione');
+              $role->add_cap( 'assign_cercooffro' );
+
+
+              $role->add_cap( 'upload_files' );
+
+		}
 
  ?>

@@ -3,11 +3,11 @@
   $BachecaTematica1 = "tutteletematiche";
   $BachecaCercoOffro1 = "cercooffro";
  ?>
-  <div class="row mx-0 pt-2">
+  <div class="row mx-0 pt-2 cerco-offro">
     <div class=" <?php if(is_archive()) { echo 'col-lg-home-reg';}?>">
       <?php
       if(is_archive()) { ?>
-        <h1>Cerco/Offro</h1>
+        <h1 class="text-center">Bacheca Cerco/Offro</h1>
         <?php
 
         $argsCercoOffroArchivio = array(
@@ -17,7 +17,7 @@
             array(
                 'taxonomy'=> 'contenuti_speciali_filtri',
                 'field'   => 'slug',
-                'terms'		=> 'cerco-offro archivio',
+                'terms'		=> 'cerco-offro-archivio',
             ),
           ),
         );
@@ -31,7 +31,11 @@
         endif;
       }
         ?>
-
+      <?php if(!is_user_logged_in()){ ?>
+        <div class="bacheca_registrati alert alert-warning mr-2 mb-0">
+          <p>Per inserire un nuovo annuncio e/o visualizzare tutti i dettagli delle altre inserzioni occorre effettuare il <a href="/wp-login.php?redirect_to=<?php echo get_pagenum_link();?>" class="alert-link">login</a> o <a href="/registrati/?redirect_to=<?php echo get_pagenum_link(); ?>" class="alert-link">registrarsi</a></p>
+        </div>
+      <?php } ?>
       <div class="contenuti_header">
         <?php
         // Verifico se ho premuto submit e setto le ricerche
@@ -99,11 +103,13 @@
                 <?php
                   $categories = get_terms( array('taxonomy' => 'cercooffro','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
                   foreach ($categories as $category) {
-                    $option = '<option value="'.$category->slug.'" ';
-                    if ($BachecaCercoOffro == $category->slug) {$option .= 'selected ';};
-                    $option .= '>'.$category->name;
-                    $option .= '</option>';
-                    echo $option;
+                    if($category->slug != 'risolto'){
+                      $option = '<option value="'.$category->slug.'" ';
+                      if ($BachecaCercoOffro == $category->slug) {$option .= 'selected ';};
+                      $option .= '>'.$category->name;
+                      $option .= '</option>';
+                      echo $option;
+                    }
                   }
                 ?>
               </select>
@@ -141,10 +147,10 @@
 
       if ($BachecaCercoOffro != $BachecaCercoOffro1){
         $filtroCercoOffro = array(
-                              'taxonomy' => 'cercooffro',
-                              'field'    => 'slug',
-                              'terms'    => $BachecaCercoOffro,
-                            );
+                                'taxonomy' => 'cercooffro',
+                                'field'    => 'slug',
+                                'terms'    => $BachecaCercoOffro,
+                              );
       } else {
         $filtroCercoOffro = '';
       }
@@ -162,6 +168,12 @@
                 $filtroRegione,
                 $filtroTematica,
                 $filtroCercoOffro,
+                array(
+                  'taxonomy' => 'cercooffro',
+                  'field'    => 'slug',
+                  'terms'    => 'risolto',
+                  'operator' => 'NOT IN',
+                ),
               ),
             );
 
@@ -212,7 +224,9 @@
 
 
         <?php
-          endwhile;endif;
+      endwhile;else:
+        echo "<div class='col-12'><p>Nessuna inserzione disponibile al momento</p></div>";
+      endif;
         ?>
       </div>
       <!-- paginazione -->

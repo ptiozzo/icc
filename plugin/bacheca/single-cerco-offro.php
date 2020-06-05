@@ -1,10 +1,10 @@
 <?php get_header();?>
-<div class="row">
+<div class="row mx-0">
   <div class="col-lg-home-reg">
     <div class="container single">
       <?php
-        if(have_posts()):while(have_posts()) : the_post();
-      ?>
+        if(have_posts()):while(have_posts()) : the_post(); ?>
+
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class='single__nav__category'>
             <?php
@@ -15,14 +15,14 @@
               $term1 = "regione";
               $terms = get_the_terms( $post->ID , $term1 );
               foreach ( $terms as $term ) {
-                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a>';
+                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
               }
 
               echo " Tematica: ";
               $term1 = "tematica";
               $terms = get_the_terms( get_the_ID() , $term1 );
               foreach ( $terms as $term ) {
-                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a>';
+                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
               }
 
             ?>
@@ -33,6 +33,11 @@
           <div class="single__head">
 
             <?php
+
+            if( $_POST['submit_risolto'] ){
+              wp_set_object_terms($post->ID,'risolto','cercooffro');
+              echo '<div class="alert alert-success" role="alert">Annuncio segnato come risolto!</div>';
+            }
 
             if( $_POST['submit_email'] ){
 
@@ -45,7 +50,7 @@
 
               wp_mail( $to, $subject, $body, $headers );
 
-              echo '<div class="alert alert-success" role="alert">  Email inviata con successo!</div>';
+              echo '<div class="alert alert-success" role="alert">Email inviata con successo!</div>';
 
             }
             ?>
@@ -72,16 +77,25 @@
                 </span>
     				</div>
             <!-- Meta Description -->
-    				<h2 class="single__metaDescription">
-              <?php
-              if(has_excerpt()){
-    					 the_excerpt();
-              }
+            <?php
+            if( current_user_can('edit_post',$post->ID)){
               ?>
-    				</h2>
-            <div class="single__edit__post">
-              <?php edit_post_link(__('Modifica annuncio')); ?>
-            </div>
+              <div class="single__edit__post d-inline-block">
+                <a href="/nuovocercooffro/?action=edit&postID=<?php echo get_the_ID(); ?>">Modifica con editor semplice</a>
+              </div>
+               -
+              <div class="single__edit__post d-inline-block">
+                <?php
+                  edit_post_link(__('Modifica con editor avanzato'));
+                ?>
+              </div>
+              <form class="mb-2" action="<?php echo get_pagenum_link(); ?>" method="post">
+                <button type="submit" value="submit" class="btn btn-warning" name="submit_risolto">Segna lo scambio come risolto!</button>
+              </form>
+              <?php
+            }
+            ?>
+
           </div>
 
           <!-- Share with -->
@@ -98,29 +112,18 @@
     				 ?>
     			</div>
 
+
+
             <?php if(is_user_logged_in()){
-              the_content();?>
+
+              if ( has_post_thumbnail() ) {
+                the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid mx-auto d-block p-1','alt' => get_the_title()));
+              }
+
+              the_content();
+            ?>
 
               <div class="accordion mb-2" id="accordion">
-                <div class="card">
-                  <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Vedi i commenti pubblici presenti e lascia il tuo
-                      </button>
-                    </h2>
-                  </div>
-
-                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                      <?php
-                      if ( comments_open() ) {
-                        comments_template();
-                      }
-                      ?>
-                    </div>
-                  </div>
-                </div>
                 <div class="card">
                   <div class="card-header" id="headingTwo">
                     <h2 class="mb-0">
@@ -160,8 +163,12 @@
                     </div>
                   </div>
                 </div>
-              </div>
-
+              </div><!-- Fine accordion -->
+              <?php
+              if ( comments_open() ) {
+                comments_template();
+              }
+              ?>
               <!-- Share with -->
         			<div class="single__share">
         				<?php
