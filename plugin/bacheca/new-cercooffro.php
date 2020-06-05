@@ -86,7 +86,7 @@ $errors = array();
               $wp_filetype = wp_check_filetype($filename, null);
               $attachment = array(
                   'post_mime_type' => $wp_filetype['type'],
-                  'post_title' => sanitize_file_name($filename),
+                  'post_title' => sanitize_file_name($_FILES["image"]["name"]),
                   'post_content' => '',
                   'post_status' => 'inherit'
               );
