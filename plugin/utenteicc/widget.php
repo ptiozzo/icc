@@ -15,7 +15,7 @@ class icc_Widget_ICCUser extends WP_Widget {
     if(is_user_logged_in()){
       $title = apply_filters( 'widget_title', $instance[ 'title' ] );
       echo $args['before_widget'];?>
-      <div class="Widget_ICCUser p-2">
+      <div class="Widget_ICCUser p-2 mb-3">
       <?php if(is_user_logged_in()){
       echo $args['before_title'] . $title . $args['after_title'];
 
@@ -28,7 +28,7 @@ class icc_Widget_ICCUser extends WP_Widget {
 
           <hr>
           <h5>Azioni:</h5>
-          <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/profile.php">Modifica il tuo profilo</a></p>      
+          <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/profile.php">Modifica il tuo profilo</a></p>
           <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/nuovocercooffro/">Aggiungi nuovo cerco/offro</a></p>
           <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/edit.php?post_type=cerco-offro">Modifica i tuoi cerco/offro</a></p>
 
