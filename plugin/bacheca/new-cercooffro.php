@@ -62,7 +62,7 @@ $errors = array();
   		);
       $post_id = wp_update_post($new_post);
     } else {
-      $post_title = $_POST['tipologia']."...".$_POST['titolo'];
+      $post_title = $_POST['tipologia']." ".$_POST['titolo'];
       $new_post = array(
   			'post_title' => ucfirst($post_title),
   			'post_content' => $_POST['content'],
@@ -243,7 +243,7 @@ if($success != 1 && is_user_logged_in() ){
       <small id="contentHelp" class="form-text text-muted">Questo sarà il testo del tuo annuncio.</small>
     </div>
     <div class="form-group my-2 col-12">
-      <label for="image">Aggiungi un'image al tuo annuncio</label>
+      <label for="image">Aggiungi un'immagine al tuo annuncio</label>
       <input type="file" name="image" class="form-control-file" id="image">
     </div>
 

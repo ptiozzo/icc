@@ -3,11 +3,12 @@
   $BachecaTematica1 = "tutteletematiche";
   $BachecaCercoOffro1 = "cercooffro";
  ?>
-  <div class="row mx-0 pt-2 cerco-offro">
+  <div class="row mx-0 py-2 cerco-offro">
     <div class=" <?php if(is_archive()) { echo 'col-lg-home-reg';}?>">
       <?php
       if(is_archive()) { ?>
-        <h1 class="text-center">Bacheca Cerco/Offro</h1>
+        <h1 class="text-center d-none">Bacheca Cerco/Offro</h1>
+        <img src="<?php echo get_template_directory_uri().'/plugin/bacheca/asset/img/Bacheca.png' ?>" class="mx-auto d-block" alt="Bacheca cerco/offro">
         <?php
 
         $argsCercoOffroArchivio = array(
@@ -23,7 +24,7 @@
         );
         $loopCercoOffroArchivio = new WP_Query( $argsCercoOffroArchivio );
         if( $loopCercoOffroArchivio->have_posts()) :
-          echo '<div class="mt-3">';
+          echo '<div class="mt-3 container">';
           while( $loopCercoOffroArchivio->have_posts() ) : $loopCercoOffroArchivio->the_post();
             the_content();
           endwhile;
@@ -188,9 +189,16 @@
 
           <div class="col-lg-3 col-md-4 col-sm-6 text-break mt-2">
             <?php
+            $tipologia = get_the_terms( get_the_ID() , 'cercooffro' )[0]->slug;
             if ( has_post_thumbnail() ) {
               $image = get_the_post_thumbnail_url(get_the_ID(),'icc_ultimenewshome');
-            }else{
+            }elseif ($tipologia == "cerco") {
+              $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Cerco.png';
+            }elseif ($tipologia == "offro") {
+              $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Offro.png';
+            }elseif ($tipologia == "Risolto") {
+              $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Risolto.png';
+            } else {
               $image = catch_that_image();
             }
             ?>
