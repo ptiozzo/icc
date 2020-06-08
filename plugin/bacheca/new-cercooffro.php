@@ -243,7 +243,7 @@ if($success != 1 && is_user_logged_in() ){
       <small id="contentHelp" class="form-text text-muted">Questo sarà il testo del tuo annuncio.</small>
     </div>
     <div class="form-group my-2 col-12">
-      <label for="image">Aggiungi un'image al tuo annuncio</label>
+      <label for="image">Aggiungi un'immagine al tuo annuncio</label>
       <input type="file" name="image" class="form-control-file" id="image">
     </div>
 
