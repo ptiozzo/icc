@@ -23,7 +23,7 @@
         );
         $loopCercoOffroArchivio = new WP_Query( $argsCercoOffroArchivio );
         if( $loopCercoOffroArchivio->have_posts()) :
-          echo '<div class="mt-3">';
+          echo '<div class="mt-3 container">';
           while( $loopCercoOffroArchivio->have_posts() ) : $loopCercoOffroArchivio->the_post();
             the_content();
           endwhile;
