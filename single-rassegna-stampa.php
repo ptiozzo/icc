@@ -79,7 +79,7 @@
 							 ?>
 						</div>
 					</div>
-
+					
 					<!-- Seguici su -->
 					<div class="row mt-3 rassegna_seguici">
 						<div class="col-12">
