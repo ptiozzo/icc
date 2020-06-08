@@ -62,7 +62,7 @@ $errors = array();
   		);
       $post_id = wp_update_post($new_post);
     } else {
-      $post_title = $_POST['tipologia']."...".$_POST['titolo'];
+      $post_title = $_POST['tipologia']." ".$_POST['titolo'];
       $new_post = array(
   			'post_title' => ucfirst($post_title),
   			'post_content' => $_POST['content'],
