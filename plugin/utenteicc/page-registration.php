@@ -4,8 +4,6 @@ get_header();
 global $wpdb, $user_ID;
 ?>
 <div class="container pt-4">
-<h1><?php echo get_the_title(); ?></h1>
-
 <?php if($_GET['nl']){
   echo "<div class='mt-5' style='height: 100vh;'>";
   if ($_GET['nl']== "RishiestaOK"){
@@ -26,7 +24,13 @@ global $wpdb, $user_ID;
 
 } ?>
 
-<?php echo the_content();
+<?php
+  if(!$_POST){
+    echo "<h1>";
+    echo get_the_title();
+    echo "</h1>";
+  }
+  echo the_content();
 
 //Check whether the user is already logged in
 if ($user_ID)
@@ -130,7 +134,7 @@ if ($user_ID)
             wp_mail( 'ptiozzo@me.com', '[ICC] nuovo utente registrato', $body, $headers );
             ?>
 
-
+            <h2>Iscriviti anche alla nostra newsletter</h2>
             <form id="ml_signup_form" class="mb-2" action="https://b3x1d.emailsp.com/frontend/subscribe.aspx" method="post">
               <input name="email" type="hidden" value="<?php echo $_POST['email'];?>">
               <input name="prefix" type="hidden" value="<?php echo $_POST['preftelefono'];?>" />
@@ -168,10 +172,35 @@ if ($user_ID)
               <input type="submit" class="btn btn-primary ml-3 mt-2 " id="submitbtn" name="submit" value="Iscriviti" />
             </form>
 
+
+
             <div class="alert alert-success" role="alert">
-              Registrazione avvenuta con successo. Effettua il <a class="alert-link" href="/wp-login.php?redirect_to=/">login</a> o torna alla <a class="alert-link" href="/">home page</a>
+              Registrazione avvenuta con successo. Torna alla <a class="alert-link" href="/">home page</a>
+              <?php
+              if($_GET['redirect_to']){
+                ?>
+                o <a class="alert-link" href="<?php echo $_GET['redirect_to']; ?>"> alla pagina che sta visualizzando.</a>
+                <?php
+              }
+               ?>
             </div>
             <?php
+
+            $creds = array(
+                'user_login'    => $_POST['username'],
+                'user_password' => $_POST['password'],
+                'remember'      => true
+            );
+
+            $user = wp_signon( $creds, false );
+
+            if ( is_wp_error( $user ) ) {
+                ?>
+                <div class="alert alert-danger" role="alert">
+                <?php echo $user->get_error_message(); ?>
+                </div>
+                <?php
+            }
         }
         else{
           ?>
