@@ -3,7 +3,7 @@
   $BachecaTematica1 = "tutteletematiche";
   $BachecaCercoOffro1 = "cercooffro";
  ?>
-  <div class="row mx-0 pt-2 cerco-offro">
+  <div class="row mx-0 py-2 cerco-offro">
     <div class=" <?php if(is_archive()) { echo 'col-lg-home-reg';}?>">
       <?php
       if(is_archive()) { ?>
