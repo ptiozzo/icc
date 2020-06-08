@@ -112,15 +112,14 @@
     				 ?>
     			</div>
 
-
-
-            <?php if(is_user_logged_in()){
-
+            <?php
               if ( has_post_thumbnail() ) {
                 the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid mx-auto d-block p-1','alt' => get_the_title()));
               }
 
               the_content();
+
+              if(is_user_logged_in()){
             ?>
 
               <div class="accordion mb-2" id="accordion">
@@ -165,6 +164,7 @@
                 </div>
               </div><!-- Fine accordion -->
               <?php
+              }
               if ( comments_open() ) {
                 comments_template();
               }
@@ -183,9 +183,12 @@
         				 ?>
         			</div>
               <?php
-            } else {
-              echo "<p>Per poter visualizzare più dettagli e contattare l'utente devi prima <a href='/wp-login.php?redirect_to=".get_the_permalink()."'>effettuare l'accesso</a> o <a href='/registrati/?redirect_to=".get_the_permalink()."'>registrarti</a></p>";
-            }
+              if(!is_user_logged_in())
+              {
+                echo "<div class='bacheca_registrati alert alert-warning mr-2 mb-0'>";
+                echo "<p>Per poter visualizzare più dettagli e contattare l'utente devi prima <a class='alert-link' href='/wp-login.php?redirect_to=".get_the_permalink()."'>effettuare l'accesso</a> o <a class='alert-link' href='/registrati/?redirect_to=".get_the_permalink()."'>registrarti</a></p>";
+                echo "</div>";
+              }
 
             ?>
 
