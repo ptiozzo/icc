@@ -81,15 +81,19 @@
 						Scritto da: <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><b><?php the_author(); ?></b></a>
 						<?php
 						/* controllo se esiste un secondo autore */
-						if( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
-							echo " e <b>". get_post_meta( get_the_ID(), 'SecondoAutore',true)."</b>";
+						if( !empty (get_post_meta( get_the_ID(), 'Secondo_Autore',true))){
+							echo " e <a href='".get_author_posts_url(get_post_meta( get_the_ID(), 'Secondo_Autore',true))."'><b>". get_userdata(get_post_meta( get_the_ID(), 'Secondo_Autore',true))->display_name."</b></a>";
+						} elseif( !empty (get_post_meta( get_the_ID(), 'SecondoAutore',true))){
+							echo " e ". get_post_meta( get_the_ID(), 'SecondoAutore',true);
 						}
 					?>
 				</div>
 				<!-- Intervista di -->
 				<div class="single__author">
 					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'IntervistaDi',true))){
+					if( !empty (get_post_meta( get_the_ID(), 'Intervista_Di',true))){
+						echo "Intervista di: <b>". get_post_meta( get_the_ID(), 'Intervista_Di',true)."</b>";
+					} elseif( !empty (get_post_meta( get_the_ID(), 'IntervistaDi',true))) {
 							echo "Intervista di: <b>". get_post_meta( get_the_ID(), 'IntervistaDi',true)."</b>";
 						}
 					?>
@@ -97,7 +101,9 @@
 				<!-- Video Realizzato da -->
 				<div class="single__author">
 					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'VideoRealizzatoDa',true))){
+						if( !empty (get_post_meta( get_the_ID(), 'Video_Realizzato_Da',true))){
+							echo "Video realizzato da: <b>". get_post_meta( get_the_ID(), 'Video_Realizzato_Da',true)."</b>";
+						} elseif( !empty (get_post_meta( get_the_ID(), 'VideoRealizzatoDa',true))){
 							echo "Video realizzato da: <b>". get_post_meta( get_the_ID(), 'VideoRealizzatoDa',true)."</b>";
 						}
 					?>
@@ -105,6 +111,9 @@
 				<!-- Riprese di -->
 				<div class="single__author">
 					<?php
+						if( !empty (get_post_meta( get_the_ID(), 'Riprese_Di',true))){
+							echo "Riprese di: <b>". get_post_meta( get_the_ID(), 'Riprese_Di',true)."</b>";
+						}
 						if( !empty (get_post_meta( get_the_ID(), 'RipreseDi',true))){
 							echo "Riprese di: <b>". get_post_meta( get_the_ID(), 'RipreseDi',true)."</b>";
 						}
@@ -113,19 +122,43 @@
 				<!-- Montaggio di -->
 				<div class="single__author">
 					<?php
-						if( !empty (get_post_meta( get_the_ID(), 'MontaggioDi',true))){
+						if( !empty (get_post_meta( get_the_ID(), 'Montaggio_Di',true))){
+							echo "Montaggio di: <b>". get_post_meta( get_the_ID(), 'Montaggio_Di',true)."</b>";
+						}	elseif( !empty (get_post_meta( get_the_ID(), 'MontaggioDi',true))){
 							echo "Montaggio di: <b>". get_post_meta( get_the_ID(), 'MontaggioDi',true)."</b>";
+						}
+					?>
+				</div>
+				<!-- Regia di -->
+				<div class="single__author">
+						<?php
+						if( !empty (get_post_meta( get_the_ID(), 'Regia_Di',true))){
+							echo "Regia di: <b>". get_post_meta( get_the_ID(), 'Regia_Di',true)."</b>";
+						}	elseif( !empty (get_post_meta( get_the_ID(), 'RegiaDi',true))){
+							echo "Regia di: <b>". get_post_meta( get_the_ID(), 'RegiaDi',true)."</b>";
 						}
 					?>
 				</div>
 				<!-- llustrazione di -->
 				<div class="single__author">
 						<?php
-						if( !empty (get_post_meta( get_the_ID(), 'IllustrazioniDi',true))){
+						if( !empty (get_post_meta( get_the_ID(), 'Illustrazioni_Di',true))){
+							echo "Illustrazioni di: <b>". get_post_meta( get_the_ID(), 'Illustrazioni_Di',true)."</b>";
+						}	elseif( !empty (get_post_meta( get_the_ID(), 'IllustrazioniDi',true))){
 							echo "Illustrazioni di: <b>". get_post_meta( get_the_ID(), 'IllustrazioniDi',true)."</b>";
 						}
 					?>
 				</div>
+				<!-- Campo libero  -->
+				<div class="single__author">
+						<?php
+						if( !empty (get_post_meta( get_the_ID(), 'Campo_Libero_Desc',true)) && !empty (get_post_meta( get_the_ID(), 'Campo_Libero_Dato',true))){
+							echo get_post_meta( get_the_ID(), 'Campo_Libero_Desc',true).": <b>". get_post_meta( get_the_ID(), 'Campo_Libero_Dato',true)."</b>";
+						}
+					?>
+				</div>
+
+
 				<!-- Meta Description -->
 				<h2 class="single__metaDescription">
 					<?php the_excerpt();?>

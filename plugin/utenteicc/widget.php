@@ -12,33 +12,31 @@ class icc_Widget_ICCUser extends WP_Widget {
 
   // Create the widget output.
   public function widget( $args, $instance ) {
-    $title = apply_filters( 'widget_title', $instance[ 'title' ] );
-    echo $args['before_widget'];?>
-    <div class="Widget_ICCUser p-2">
-    <?php echo $args['before_title'] . $title . $args['after_title']; ?>
-    <?php if(is_user_logged_in()){
-      $user_info = wp_get_current_user();
-      ?>
-        <?php echo get_avatar( $user_info->ID ); ?><br>
-        <p class="pt-2 text-left p-0">Benvenuto
-        <b><?php echo $user_info->display_name; ?></b>
-        <span class="Widget_ICCUser_logout"><a href="/wp-login.php?action=logout">(logout)</a></span></p>
+    if(is_user_logged_in()){
+      $title = apply_filters( 'widget_title', $instance[ 'title' ] );
+      echo $args['before_widget'];?>
+      <div class="Widget_ICCUser p-2 mb-3">
+      <?php if(is_user_logged_in()){
+      echo $args['before_title'] . $title . $args['after_title'];
 
-        <hr>
-        <h5>Azioni:</h5>
-        <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/post-new.php?post_type=cerco-offro">Aggiungi nuovo cerco/offro</a></p>
-        <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/edit.php?post_type=cerco-offro">Modifica i tuoi cerco/offro</a></p>
+        $user_info = wp_get_current_user();
+        ?>
+          <?php echo get_avatar( $user_info->ID ); ?><br>
+          <p class="pt-2 text-left p-0">Benvenuto
+          <b><?php echo $user_info->display_name; ?></b>
+          <span class="Widget_ICCUser_logout"><a href="/wp-login.php?action=logout">(logout)</a></span></p>
 
-      <?php
-    } else { ?>
-    <div class="">
-      <a href="/wp-login.php?redirect_to=/">Accedi</a>
-      /
-      <a href="/registrati/">Registrati</a>
-    </div>
-    <?php }
-    echo "</div>";
-    echo $args['after_widget'];
+          <hr>
+          <h5>Azioni:</h5>
+          <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/profile.php">Modifica il tuo profilo</a></p>
+          <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/nuovocercooffro/">Aggiungi nuovo cerco/offro</a></p>
+          <p class="pt-2 text-left p-0"><a class="Widget_ICCUser_action" href="/wp-admin/edit.php?post_type=cerco-offro">Modifica i tuoi cerco/offro</a></p>
+
+        <?php
+      }
+      echo "</div>";
+      echo $args['after_widget'];
+    }
   }
 
 
