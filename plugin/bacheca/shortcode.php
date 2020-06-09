@@ -247,4 +247,5 @@
         <?php dynamic_sidebar('primary'); ?>
       </aside>
     </div>
-  <?php } ?>
+  <?php } ?>  
+  </div>
