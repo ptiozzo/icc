@@ -173,7 +173,7 @@ Template Name: Piemonte che cambia
           <div class="pcc-pianfut">
             <h3>Pianeta Futuro</h3>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteSegnalaProgetto">
-               Segnala un progetto
+               Mappa una realtà
             </button>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#PiemonteSegnalaEvento">
                Segnala un evento
