@@ -228,7 +228,8 @@ if($loopPiemBacheca->have_posts()):
             the_content();
           endwhile;
           ?>
-        <a href="https://piemonte.pianetafuturo.it">Vai a PianetaFuturo</a>
+        <p>Per inserire un nuovo annuncio e/o visualizzare tutti i dettagli delle altre inserzioni occorre effettuare il <a href="/wp-login.php?redirect_to=<?php echo get_pagenum_link();?>" class="alert-link">login</a> o <a href="/registrati/?redirect_to=<?php echo get_pagenum_link(); ?>" class="alert-link">registrarsi</a></p>
+        <a href="/nuovocercooffro/">Inserisci un annuncio</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
