@@ -106,8 +106,8 @@ $errors = array();
 
     $url = "/cerco-offro/";
 
-    $to = "ptiozzo@me.com";
-    $subject = 'ICC - Nuovo Cerco\Offro da revisionare: '.$post->post_title;
+    $to = "redazione@italiachecambia.org,ptiozzo@me.com";
+    $subject = 'ICC - Nuovo Cerco\Offro da revisionare: '.$_POST['titolo'];
     $body = "<html><body>";
     $body .= "Ciao <br>";
     $body .= "E' presente un nuovo annuncio da revisionare. <br>";
