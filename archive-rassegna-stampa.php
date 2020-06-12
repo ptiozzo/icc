@@ -87,7 +87,6 @@
   							 ?>
   						</div>
   					</div>
-            
             <!-- Seguici su -->
             <div class="row mt-3 rassegna_seguici">
               <div class="col-12">
@@ -99,6 +98,8 @@
                 <a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=15&idForm=307&guid=65da3bdb-24d7-4cba-a318-a6fda6aa2266&utm_source=newsletter&utm_medium=email" target="_blank"><i class="far fa-envelope"></i> <span class="">NewsLetter</span></a>
                 <a class="border p-2 rounded mr-2 my-1 d-inline-block" href="https://www.youtube.com/playlist?list=PL0WvMTrbIjqpEEOqbLjtIzI38-U8jI0H6" target="_blank"><i class="fab fa-youtube"></i> <span class="">Youtube</span></a>
               </div>
+            </div>
+
 
   					<!-- Thumbnail o video youtube -->
   					<?php
@@ -151,9 +152,7 @@
               <!-- DA POCKET -->
   						<?php
   							if( !empty (get_post_meta( get_the_ID(), 'PocketTAG',true))){
-                  echo "<h3>Articoli:</h3>";
-  								echo do_shortcode("[pocket_links tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
-                  echo "<hr>";
+  								echo do_shortcode("[pocket_links filter_tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
   							}
   						?>
 
