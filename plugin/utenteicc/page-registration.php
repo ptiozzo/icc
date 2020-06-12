@@ -281,7 +281,7 @@ if($success != 1){
         <div class="form-check col-12 ml-3">
           <input class="form-check-input" name="terms" type="checkbox" value="Yes" id="terms" <?php if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['terms'] == "Yes" ){echo "checked";} ?>>
           <label class="form-check-label" for="terms">
-            Accetto i termini e le condizioni
+            Accetto i <a href="/termini-e-condizioni-bacheca-cerco-offro/" >termini e le condizioni</a>
           </label>
         </div>
 

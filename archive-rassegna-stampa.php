@@ -100,6 +100,7 @@
               </div>
             </div>
 
+
   					<!-- Thumbnail o video youtube -->
   					<?php
   					if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){

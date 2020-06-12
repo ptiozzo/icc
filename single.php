@@ -178,9 +178,14 @@
 				 ?>
 			</div>
 			<!-- Content -->
-			<div class="single__articolo">
-				<?php the_content();?>
+			<div class="row justify-content-center">
+			 <div class="col-10">
+				 <div class="single__articolo" style="font-size: 1.1rem;">
+	 				<?php the_content();?>
+	 			</div>
+			 </div>
 			</div>
+
 
 			<!-- Share with -->
 			<div class="single__share">
