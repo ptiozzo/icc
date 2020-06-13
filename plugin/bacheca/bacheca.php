@@ -25,6 +25,10 @@
    }
  }
 
+
+require 'widget.php';
+
+
 add_shortcode( 'bacheca-cercooffro', 'bacheca_cercooffro_shortcode' );
 
 if(!function_exists('bacheca_cercooffro_shortcode')){

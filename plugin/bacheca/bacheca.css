@@ -34,3 +34,7 @@
 .cerco-offro .card-img-top{
   max-height: 173px;
 }
+
+.Widget_bacheca{
+  background-image: url("asset/img/bacheca-texture.png");
+}
