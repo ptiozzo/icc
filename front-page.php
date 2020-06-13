@@ -149,6 +149,9 @@
                   echo '<div class="col-12 d-md-none">';
                   get_template_part("loop/loop","homeicctvmobile");
                   echo '</div>';
+                  echo '<div class="col-12 d-md-none">';
+                  dynamic_sidebar('mobile-4');
+                  echo '</div>';
                 }
                 if($i == 4)
                 {
