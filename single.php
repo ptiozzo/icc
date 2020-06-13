@@ -179,8 +179,8 @@
 			</div>
 			<!-- Content -->
 			<div class="row justify-content-center">
-			 <div class="col-10">
-				 <div class="single__articolo" style="font-size: 1.1rem;">
+			 <div class="col-12 col-lg-10">
+				 <div class="single__articolo">
 	 				<?php the_content();?>
 	 			</div>
 			 </div>
