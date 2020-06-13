@@ -158,6 +158,9 @@
                   echo '<aside class="col-12 d-md-none sidebar">';
                   dynamic_sidebar('mobile-1');
                   echo '</aside>';
+                  echo '<div class="col-12 d-none d-md-block">';
+                  dynamic_sidebar('homedx4');
+                  echo '</div>';
                 }
                 if($i == 6)
                 {
