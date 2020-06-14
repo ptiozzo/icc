@@ -161,4 +161,11 @@ function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
 }
 add_action( 'transition_post_status', 'wpdocs_run_on_publish_only', 10, 3 );
 
+add_filter( 'wpseo_opengraph_image', 'change_opengraph_image_url' );
+
+function change_opengraph_image_url( $url ) {
+  if ( is_archive('cerco-offro'))
+    return get_template_directory_uri()."/plugin/bacheca/asset/img/Bacheca.png";
+}
+
  ?>
