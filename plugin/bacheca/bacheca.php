@@ -25,6 +25,10 @@
    }
  }
 
+
+require 'widget.php';
+
+
 add_shortcode( 'bacheca-cercooffro', 'bacheca_cercooffro_shortcode' );
 
 if(!function_exists('bacheca_cercooffro_shortcode')){
@@ -156,5 +160,17 @@ function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
     }
 }
 add_action( 'transition_post_status', 'wpdocs_run_on_publish_only', 10, 3 );
+
+function insert_fb_in_head() {
+    global $post;
+
+    if ( !is_archive('cerco-offro')) //if it is not a post or a page
+        return;
+
+    $default_image=  get_template_directory_uri()."/plugin/bacheca/asset/img/Bacheca.png"; //replace this with a default image on your server or an image in your media library
+    echo '<meta property="og:image" content="' . $default_image . '"/>';
+
+}
+add_action( 'wp_head', 'insert_fb_in_head', 1 );
 
  ?>
