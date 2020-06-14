@@ -130,13 +130,6 @@ Template Name: Piemonte che cambia
 				if ( $loop->have_posts() ) : while( $loop->have_posts() ) : $loop->the_post();
         $i++;
 
-
-        if($i == 3)
-        {
-          echo '<div class="col-12">';
-          dynamic_sidebar('homepiemontedx');
-          echo '</div>';
-        }
 				?>
 							<div class="col-lg-6 mt-3 text-break">
 								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
@@ -160,6 +153,21 @@ Template Name: Piemonte che cambia
 							</div>
 
 					<?php
+          if($i == 2)
+          {
+            echo '<div class="col-12">';
+            dynamic_sidebar('homepiemontedx');
+            echo '</div>';
+            echo '<div class="col-12 d-md-none">';
+            dynamic_sidebar('homepiemontebacheca');
+            echo '</div>';
+          }
+          if($i == 4)
+          {
+            echo '<div class="col-12 d-none d-md-block">';
+            dynamic_sidebar('homepiemontebacheca');
+            echo '</div>';
+          }
 					 endwhile;
 					else:
 					 echo "<p>Non ho trovato nessun Ultimi articoli</p>";
