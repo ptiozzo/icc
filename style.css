@@ -951,6 +951,9 @@ figcaption{
 .single__pianetafuturo img{
   max-width: 500px;
 }
+.single__attivati img{
+  width: 60%;
+}
 
 @media (max-width: 992px) {
   .single__attivati img,
