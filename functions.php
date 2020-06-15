@@ -307,6 +307,10 @@ require 'plugin/utenteicc/utenteicc.php';
 /* ------------------------------------ */
 require 'plugin/bacheca/bacheca.php';
 
+/* Attivazione plugin mappa
+/* ------------------------------------ */
+require 'plugin/mappa/mappa.php';
+
 /* Attivazione plugin altriautori
 /* ------------------------------------ */
 require 'plugin/altriautori/altriautori.php';
