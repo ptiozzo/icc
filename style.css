@@ -880,7 +880,11 @@ row
 }
 .single .single__articolo{
   margin-top: 20px;
-  font-size: 1.1rem;
+}
+@media (min-width:992px) {
+  .single__articolo{
+    font-size: 1.1rem;
+  }
 }
 
 .single__articolo img.aligncenter{
@@ -946,6 +950,9 @@ figcaption{
 }
 .single__pianetafuturo img{
   max-width: 500px;
+}
+.single__attivati img{
+  width: 60%;
 }
 
 @media (max-width: 992px) {
