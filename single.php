@@ -18,7 +18,7 @@
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<div class="row">
-				<div class="col-12 col-md-8 order-md-2">
+				<div class="col-12 col-md-10 order-md-2">
 					<div class="container clearfix"><!-- SINGLE -->
 						<div class="row">
 							<div class="col-12 col-md-6 offset-md-3">
@@ -204,7 +204,7 @@
 			<?php get_template_part('contribuisci/article','contribuisci'); ?>
 		</div>
 		</div>
-		<div class="col-12 col-md-2 col_single_action">
+		<div class="col-12 col-md-1 col_single_action">
 			<?php include("template-part/single-action.php"); ?>
 		</div>
 		</article>
