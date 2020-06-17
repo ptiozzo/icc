@@ -7,10 +7,18 @@
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class='single__nav__category'>
+    				<a href="/cerco-offro/" class="single__torna__contenuti p-2 mr-3">
+              <i class="fas fa-chevron-left"></i>
+              <?php
+              if(strpos($_SERVER["HTTP_REFERER"],"cerco-offro")) {
+                echo "Torna ai cerco/offro";
+              } else {
+                echo "Visualizza tutti i cerco/offro";
+              }
+              ?>
+            </a>
             <?php
-            if(strpos($_SERVER["HTTP_REFERER"],"cerco-offro")) { ?>
-    					<a href="<?php echo home_url(); ?>/cerco-offro/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai cerco/offro</a>
-    				<?php }
+
               echo "Regione: ";
               $term1 = "regione";
               $terms = get_the_terms( $post->ID , $term1 );
@@ -170,7 +178,7 @@
               }
               ?>
               <!-- Share with -->
-        			<div class="single__share">
+        			<!--<div class="single__share">
         				<?php
         				if ( function_exists( 'sharing_display' ) ) {
         					sharing_display( '', true );
@@ -181,7 +189,7 @@
         				echo $custom_likes->post_likes( '' );
         				}
         				 ?>
-        			</div>
+        			</div>-->
               <?php
               if(!is_user_logged_in())
               {
