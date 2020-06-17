@@ -53,7 +53,7 @@
           </select>
        </div>
        <div class="col-12">
-         <small>Obbligatorio</small>
+         <small>Obbligatorio. Per selezionare più liste tieni premuto il tasto control (CTRL)</small>
        </div>
 
 
