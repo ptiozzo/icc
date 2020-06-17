@@ -160,7 +160,7 @@ function change_opengraph_image_url( $url ) {
   if ( is_archive('cerco-offro')){
     return get_template_directory_uri()."/plugin/bacheca/asset/img/Bacheca.png";
   }
-  if ( !has_post_thumbnail() ){
+  if ( !has_post_thumbnail() && $post->post_type === 'cerco-offro' ){
     $tipologia = get_the_terms( get_the_ID() , 'cercooffro' )[0]->slug;
     if ($tipologia == "cerco") {
       $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Cerco.png';

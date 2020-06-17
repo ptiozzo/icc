@@ -38,3 +38,7 @@
 .Widget_bacheca{
   background-color: #73c6be;
 }
+
+textarea#comment {
+  max-width: 98%;
+}
