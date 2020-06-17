@@ -72,7 +72,7 @@ class icc_Widget_bacheca extends WP_Widget {
                   <p class="card-text"><?php echo get_the_excerpt();?></p>
                   <a href="<?php the_permalink(); ?>" class="btn btn-primary">Leggi di più</a>
                 </div>
-                <div class="card-footer text-muted p-1">
+                <!--<div class="card-footer text-muted p-1">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item font-weight-lighter p-0 bg-transparent"><small><?php the_time('j M Y') ?></small></li>
                     <li class="list-group-item font-weight-lighter p-0 bg-transparent">
@@ -88,7 +88,7 @@ class icc_Widget_bacheca extends WP_Widget {
                       } ?>
                     </li>
                   </ul>
-                </div>
+                </div>-->
               </div>
           </div>
           <?php
