@@ -44,8 +44,20 @@
          </select>
          <small>Facoltativo</small>
        </div>
+       <div class="col-12">
+         <select name="list" id="cars" class="w-75" multiple required>
+            <option value="3">La newsletter settimanale di ItaliaCheCambia</option>
+            <option value="13">La newsletter mensile di PiemonteCheCambia</option>
+            <option value="16">La newsletter mensile di CasentinoCheCambia</option>
+            <option value="15">La newsletter giornaliera di #IoNonMiRassegno</option>
+          </select>
+       </div>
+       <div class="col-12">
+         <small>Obbligatorio</small>
+       </div>
 
-         <div class="form-check col-12">
+
+         <!--<div class="form-check col-12">
            <input name="list" type="checkbox" value="3">
            <label class="form-check-label" for="gridCheck1">
              La newsletter settimanale di ItaliaCheCambia
@@ -68,23 +80,8 @@
            <label class="form-check-label" for="gridCheck1">
              La newsletter giornaliera di #IoNonMiRassegno
            </label>
-         </div>
+         </div>-->
 
        <input type="submit" class="btn btn-primary ml-3 mt-2 " id="submitbtn" name="submit" value="Registrati" />
  </div>
 </form>
-
-<script>
-function NewsletterVerification()
-{
-    var list = document.forms["ml_signup_form"]["list"];
-
-    if (list.value == "")
-    {
-        window.alert("Devi selezionare almeno una lista.");
-        event.preventDefault();
-        return false;
-    }
-
-    return true;
-}</script>
