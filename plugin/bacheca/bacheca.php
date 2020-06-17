@@ -17,7 +17,6 @@
 
 
  add_action('init', 'bacheca_paolo_init');
-
  if(!function_exists('bacheca_paolo_init')){
    function bacheca_paolo_init(){
      require 'cpt-bacheca.php';
@@ -25,12 +24,9 @@
    }
  }
 
-
 require 'widget.php';
 
-
 add_shortcode( 'bacheca-cercooffro', 'bacheca_cercooffro_shortcode' );
-
 if(!function_exists('bacheca_cercooffro_shortcode')){
   function bacheca_cercooffro_shortcode($atts) {
     $a = shortcode_atts( array(
@@ -83,7 +79,6 @@ function bacheca_admin_style_scripts() {
  }
 
  add_filter('single_template', 'cercooffro_single_template');
-
  function cercooffro_single_template( $template ) {
    if ( get_post_type() == "cerco-offro" ) {
      $theme_files = array('single-cerco-offro.php', 'single-cerco-offro.php');
@@ -98,18 +93,19 @@ function bacheca_admin_style_scripts() {
    return $template;
  }
 
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
  function wpdocs_custom_excerpt_length( $length ) {
     return 20;
 }
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
+add_filter('comment_form_defaults','wcc_comment_reform');
 function wcc_comment_reform ($arg) {
 $arg['title_reply'] = __('Lascia un commento pubblico');
 return $arg;
 }
-add_filter('comment_form_defaults','wcc_comment_reform');
 
 
+add_filter('init', 'add_nuovo_cercooffro_page');
 function add_nuovo_cercooffro_page() {
     // Create post object
     if(!get_page_by_path('nuovocercooffro')){
@@ -128,18 +124,16 @@ function add_nuovo_cercooffro_page() {
 
     }
 }
-add_filter('init', 'add_nuovo_cercooffro_page');
 
+add_filter('template_include', 'icc_custom_new_cerco_offro');
 function icc_custom_new_cerco_offro( $template ) {
   if ( is_page('nuovocercooffro') ) {
     return dirname( __FILE__ ) . '/new-cercooffro.php';
   }
   return $template;
 }
-add_filter('template_include', 'icc_custom_new_cerco_offro');
 
-
-
+add_action( 'transition_post_status', 'wpdocs_run_on_publish_only', 10, 3 );
 function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
     if ( ( 'publish' === $new_status && 'publish' !== $old_status )
         && 'cerco-offro' === $post->post_type ) {
@@ -159,13 +153,24 @@ function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
           wp_mail( $to, $subject, $body, $headers );
     }
 }
-add_action( 'transition_post_status', 'wpdocs_run_on_publish_only', 10, 3 );
+
 
 add_filter( 'wpseo_opengraph_image', 'change_opengraph_image_url' );
-
 function change_opengraph_image_url( $url ) {
-  if ( is_archive('cerco-offro'))
+  if ( is_archive('cerco-offro')){
     return get_template_directory_uri()."/plugin/bacheca/asset/img/Bacheca.png";
+  }
+  if ( !has_post_thumbnail() ){
+    $tipologia = get_the_terms( get_the_ID() , 'cercooffro' )[0]->slug;
+    if ($tipologia == "cerco") {
+      $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Cerco.png';
+    }elseif ($tipologia == "offro") {
+      $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Offro.png';
+    }else {
+      $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Risolto.png';
+    }
+    return $image;
+  }
 }
 
  ?>
