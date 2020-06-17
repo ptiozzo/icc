@@ -1,4 +1,4 @@
-<form id="ml_signup_form" class="mb-2" action="https://b3x1d.emailsp.com/frontend/subscribe.aspx" method="post">
+<form id="ml_signup_form" name="ml_signup_form" class="mb-2" action="https://b3x1d.emailsp.com/frontend/subscribe.aspx" onsubmit="return NewsletterVerification()" method="post">
  <div class="row m-0">
        <div class="form-group col-12 col-md-6">
          <label for="campo1">Nome</label>
@@ -44,30 +44,44 @@
          </select>
          <small>Facoltativo</small>
        </div>
-       <div class="form-check col-12">
-         <input name="list" type="checkbox" value="3">
-         <label class="form-check-label" for="gridCheck1">
-           La newsletter settimanale di ItaliaCheCambia
-         </label>
+       <div class="col-12">
+         <select name="list" id="cars" class="w-75" multiple required>
+            <option value="3">La newsletter settimanale di ItaliaCheCambia</option>
+            <option value="13">La newsletter mensile di PiemonteCheCambia</option>
+            <option value="16">La newsletter mensile di CasentinoCheCambia</option>
+            <option value="15">La newsletter giornaliera di #IoNonMiRassegno</option>
+          </select>
        </div>
-       <div class="form-check col-12">
-         <input name="list" type="checkbox" value="13">
-         <label class="form-check-label" for="gridCheck1">
-           La newsletter mensile di PiemonteCheCambia
-         </label>
+       <div class="col-12">
+         <small>Obbligatorio</small>
        </div>
-       <div class="form-check col-12">
-         <input name="list" type="checkbox" value="16">
-         <label class="form-check-label" for="gridCheck1">
-           La newsletter mensile di CasentinoCheCambia
-         </label>
-       </div>
-       <div class="form-check col-12">
-         <input name="list" type="checkbox" value="15">
-         <label class="form-check-label" for="gridCheck1">
-           La newsletter giornaliera di #IoNonMiRassegno
-         </label>
-       </div>
+
+
+         <!--<div class="form-check col-12">
+           <input name="list" type="checkbox" value="3">
+           <label class="form-check-label" for="gridCheck1">
+             La newsletter settimanale di ItaliaCheCambia
+           </label>
+         </div>
+         <div class="form-check col-12">
+           <input name="list" type="checkbox" value="13">
+           <label class="form-check-label" for="gridCheck1">
+             La newsletter mensile di PiemonteCheCambia
+           </label>
+         </div>
+         <div class="form-check col-12">
+           <input name="list" type="checkbox" value="16">
+           <label class="form-check-label" for="gridCheck1">
+             La newsletter mensile di CasentinoCheCambia
+           </label>
+         </div>
+         <div class="form-check col-12">
+           <input name="list" type="checkbox" value="15">
+           <label class="form-check-label" for="gridCheck1">
+             La newsletter giornaliera di #IoNonMiRassegno
+           </label>
+         </div>-->
+
        <input type="submit" class="btn btn-primary ml-3 mt-2 " id="submitbtn" name="submit" value="Registrati" />
  </div>
 </form>
