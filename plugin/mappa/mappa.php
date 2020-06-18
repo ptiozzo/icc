@@ -51,4 +51,7 @@ function mappa_archive_template( $template ) {
   return $template;
 }
 
+require 'mappa_meta_box_markup.php';
+require 'mappa_meta_box_save.php';
+
 ?>
