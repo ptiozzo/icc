@@ -25,9 +25,6 @@ $args = [
 	"show_in_rest" => true,
 	"rest_base" => "categoria",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
-	'capabilities' => array(
-			'assign_terms' => 'assign_categoria',
-	),
 	'map_meta_cap' => true,
 	"show_in_quick_edit" => true,
 	];
@@ -58,9 +55,6 @@ $args = [
 	"show_in_rest" => true,
 	"rest_base" => "rete",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
-	'capabilities' => array(
-			'assign_terms' => 'assign_rete',
-	),
 	'map_meta_cap' => true,
 	"show_in_quick_edit" => true,
 	];
@@ -91,9 +85,6 @@ $args = [
 		"show_in_rest" => true,
 		"rest_base" => "regionemappa",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
-		'capabilities' => array(
-        'assign_terms' => 'assign_regionemappa',
-    ),
     'map_meta_cap' => true,
 		"show_in_quick_edit" => true,
 		];
@@ -188,9 +179,6 @@ $args = [
 		"show_in_rest" => true,
 		"rest_base" => "tipologia",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
-		'capabilities' => array(
-				'assign_terms' => 'assign_tipologia',
-		),
 		'map_meta_cap' => true,
 		"show_in_quick_edit" => true,
 		];
@@ -221,9 +209,6 @@ $args = [
 		"show_in_rest" => true,
 		"rest_base" => "stato",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
-		'capabilities' => array(
-				'assign_terms' => 'assign_stato',
-		),
 		'map_meta_cap' => true,
 		"show_in_quick_edit" => true,
 		];
