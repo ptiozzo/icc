@@ -9,15 +9,17 @@ global $wpdb, $user_ID;
 <?php if($_GET['nl']){
   echo "<div class='mt-5' style='height: 100vh;'>";
   if ($_GET['nl']== "RishiestaOK"){
-    echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter! Controlla la tua mail per confermare</div>';
+    echo '<div class="alert alert-success" role="alert">Grazie! Controlla la tua casella di posta per confermare l\'iscrizione</div>';
   } elseif ($_GET['nl']== "IscrizioneOK"){
     echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter con successo</div>';
   } elseif ($_GET['nl']== "ErroreGenerico"){
     echo '<div class="alert alert-danger" role="alert">Vi è stato un errore, contatta la redazione per maggiori informazioni</div>';
   } elseif ($_GET['nl']== "IndirizzoGiaRegistrato"){
-    echo '<div class="alert alert-warning" role="alert">L\'indirizzo email risulta già rricevere la NewsLetter, contatta la redazione per maggiori informazioni</div>';
+    echo '<div class="alert alert-warning" role="alert">L\'indirizzo email risulta già ricevere la NewsLetter, contatta la redazione per maggiori informazioni</div>';
   } elseif ($_GET['nl']== "DatiNonConsistenti"){
     echo '<div class="alert alert-danger" role="alert">Alcuni dati forniti risultano già esistenti o mancanti, contatta la redazione per maggiori informazioni</div>';
+  } else {
+    echo '<div class="alert alert-danger" role="alert">Errore generico, contatta la redazione per maggiori informazioni</div>';
   }
   echo "</div>";
   echo "</div>"; //chiudo il container
