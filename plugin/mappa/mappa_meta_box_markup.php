@@ -14,10 +14,10 @@ function mappa_meta_box_markup($post)
   ?>
 
   <label>Latitudine</label>
-  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Latitudine" value="<?php echo get_post_meta($post->ID, 'Intervista_Di', true);?>">
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Latitudine" value="<?php echo get_post_meta($post->ID, 'Mappa_Latitudine', true);?>">
 
   <label>Longitudine</label>
-  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Longitudine" value="<?php echo get_post_meta($post->ID, 'Video_Realizzato_Da', true);?>">
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Longitudine" value="<?php echo get_post_meta($post->ID, 'Mappa_Longitudine', true);?>">
 
 
   <?php
