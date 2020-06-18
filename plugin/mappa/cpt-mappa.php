@@ -60,7 +60,7 @@
 		"rewrite" => [ "slug" => "mappa2", "with_front" => true ],
 		"query_var" => true,
 		"menu_icon" => "dashicons-tagcloud",
-		"supports" => [ "title", "editor", "thumbnail", "comments", "author" ],
+		"supports" => [ "title", "editor", "excerpt","thumbnail", "author" ],
 	];
 
 	register_post_type( 'mappa', $args );
