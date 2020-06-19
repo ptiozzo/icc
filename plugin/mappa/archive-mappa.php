@@ -23,6 +23,7 @@ if( $loopMappaArchivio->have_posts()) :
       zoomOffset: -1,
       accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
   }).addTo(map);
+  var markers = L.markerClusterGroup();
   </script>
 <?php
 while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
@@ -31,12 +32,21 @@ while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
   $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
  ?>
   <script>
-  var marker<?php echo get_the_ID()?> = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>]).addTo(map);
-  marker<?php echo get_the_ID()?>.bindPopup("<?php echo $popupMappa; ?>");
+
+  var title = "<?php echo $popupMappa; ?>";
+  var puntino = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>],{title: title});
+  puntino.bindPopup(title);
+  markers.addLayer(puntino);
+
   </script>
 
 <?php
 endwhile;
+?>
+<script>
+map.addLayer(markers);
+</script>
+<?php
 else:
   echo "Nessuna realtà trovata";
 endif;
