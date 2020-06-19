@@ -60,18 +60,14 @@
 <div class="col-xl-5ths col-lg-3 col-md-4 col-12 text-break">
   <div class="mb-2">
     <div class="pcc-pianfut">
-      <h3>Pianeta Futuro</h3>
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaProgetto">
          Segnala un progetto
       </button>
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaEvento">
          Segnala un evento
       </button>
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaScendiPiazza">
-         Scendi in piazza
-      </button>
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaBacheca">
-         Inserisci un anuncio
+         Inserisci un annuncio
       </button>
     </div>
   </div>
