@@ -23,7 +23,9 @@ if( $loopMappaArchivio->have_posts()) :
       zoomOffset: -1,
       accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
   }).addTo(map);
-  var markers = L.markerClusterGroup();
+  var markers = L.markerClusterGroup({
+    showCoverageOnHover: false,
+  });
   </script>
 <?php
 while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
