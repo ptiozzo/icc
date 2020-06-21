@@ -26,17 +26,28 @@ if( $loopMappaArchivio->have_posts()) :
   var markers = L.markerClusterGroup({
     showCoverageOnHover: false,
   });
+
+  var redIcon = L.icon({
+    iconUrl: '<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon-red.png',
+    shadowUrl: 'marker-shadow.png',
+
+    iconSize:     [25, 41], // size of the icon
+    iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-13, -40] // point from which the popup should open relative to the iconAnchor
+});
   </script>
 <?php
 while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
   $popupMappa = get_the_excerpt();
   $popupMappa .= "<br>";
   $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
+
+  var_dump(get_the_terms( get_the_ID() , 'stato' )[0]->slug);
  ?>
   <script>
 
   var title = "<?php echo $popupMappa; ?>";
-  var puntino = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>],{title: title});
+  var puntino = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( get_the_ID() , 'stato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
   puntino.bindPopup(title);
   markers.addLayer(puntino);
 
