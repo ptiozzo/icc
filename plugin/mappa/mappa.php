@@ -57,4 +57,6 @@ function mappa_archive_template( $template ) {
 require 'mappa_meta_box_markup.php';
 require 'mappa_meta_box_save.php';
 
+require 'mappa_calcolo_realta.php';
+
 ?>

@@ -5,7 +5,6 @@
 -----------------------------*/
 
 add_action("save_post", "save_mappa_meta_box", 10, 2);
-
 function save_mappa_meta_box($post_id, $post)
 {
     if(!current_user_can("edit_post", $post_id))
@@ -29,6 +28,8 @@ function save_mappa_meta_box($post_id, $post)
     } elseif (get_post_meta($post_id,"Mappa_Longitudine")) {
         delete_post_meta($post_id,"Mappa_Longitudine");
     }
+
+    mappa_calcolo_realta();
 
 }
 

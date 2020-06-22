@@ -42,7 +42,6 @@ while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
   $popupMappa .= "<br>";
   $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
 
-  var_dump(get_the_terms( get_the_ID() , 'stato' )[0]->slug);
  ?>
   <script>
 
