@@ -1,9 +1,25 @@
 <?php get_header();?>
+<?php
+  if(have_posts()):while(have_posts()) : the_post();
+
+  $term1 = "regione";
+  $terms = get_the_terms( $post->ID , $term1 );
+  foreach ( $terms as $term ) {
+    if($term->slug == "liguria")
+     $menuLiguria = 1;
+    elseif ($term->slug == "piemonte")
+     $menuPiemonte = 1;
+  }
+  if ($menuLiguria == 1)
+    get_template_part('liguria/menu','liguria');
+  if ($menuPiemonte == 1)
+    get_template_part('piemonte/menu','piemonte');
+  wp_reset_postdata();
+  ?>
 <div class="row mx-0">
   <div class="col-lg-home-reg">
     <div class="container single">
-      <?php
-        if(have_posts()):while(have_posts()) : the_post(); ?>
+
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class='single__nav__category'>
