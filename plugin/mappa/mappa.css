@@ -1,4 +1,19 @@
 #mappa{
-  height: 500px;
-  width: 80%;
+  height: 100%;
+  width: 100%;
+  min-height: 500px;
+}
+
+div.mappa{
+  padding: 30px;
+}
+
+.filtri_mappa{
+  background-color: #35A6C3;
+  color: white;
+  padding: 50px 40px;
+}
+
+.mappa hr{
+  border-color: white;
 }
