@@ -39,7 +39,13 @@
               $term1 = "regione";
               $terms = get_the_terms( $post->ID , $term1 );
               foreach ( $terms as $term ) {
-                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
+                if ($term->slug == "piemonte"){
+                  echo '<a href="/piemonte/bacheca/">Piemonte</a> ';
+                } elseif ($term->slug == "liguria"){
+                  echo '<a href="/liguria/bacheca/">Liguria</a> ';
+                }else{
+                  echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
+                }
               }
 
               echo " Tematica: ";
