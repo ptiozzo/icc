@@ -5,7 +5,10 @@
   #mappa{
     height: 680px
   }
+}
 
+.single #mappa{
+  height: 400px;
 }
 
 div.mappa{
