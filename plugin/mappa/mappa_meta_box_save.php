@@ -70,7 +70,7 @@ function save_mappa_meta_box($post_id, $post)
     } elseif (get_post_meta($post_id,"Mappa_YT")) {
         delete_post_meta($post_id,"Mappa_YT");
     }
-    if($_POST["Mappa_LI"] != "") {
+    if($_POST["Mappa_IN"] != "") {
         update_post_meta($post_id, "Mappa_IN", $_POST["Mappa_IN"]);
     } elseif (get_post_meta($post_id,"Mappa_IN")) {
         delete_post_meta($post_id,"Mappa_IN");
