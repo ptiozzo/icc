@@ -35,7 +35,7 @@ function mappa_meta_box_markup($post)
   <label>Youtube Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_YT" value="<?php echo get_post_meta($post->ID, 'Mappa_YT', true);?>">
   <label>LinkedIn Realtà</label>
-  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_LI" value="<?php echo get_post_meta($post->ID, 'Mappa_LI', true);?>">
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_IN" value="<?php echo get_post_meta($post->ID, 'Mappa_LI', true);?>">
 
   <label>Data Chiusura Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Chiuso_Data" value="<?php echo get_post_meta($post->ID, 'Mappa_Chiuso_Data', true);?>">

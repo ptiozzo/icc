@@ -71,9 +71,9 @@ function save_mappa_meta_box($post_id, $post)
         delete_post_meta($post_id,"Mappa_YT");
     }
     if($_POST["Mappa_LI"] != "") {
-        update_post_meta($post_id, "Mappa_LI", $_POST["Mappa_LI"]);
-    } elseif (get_post_meta($post_id,"Mappa_LI")) {
-        delete_post_meta($post_id,"Mappa_LI");
+        update_post_meta($post_id, "Mappa_IN", $_POST["Mappa_IN"]);
+    } elseif (get_post_meta($post_id,"Mappa_IN")) {
+        delete_post_meta($post_id,"Mappa_IN");
     }
     if($_POST["Mappa_Chiuso_Data"] != "") {
         update_post_meta($post_id, "Mappa_Chiuso_Data", $_POST["Mappa_Chiuso_Data"]);
