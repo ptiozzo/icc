@@ -145,8 +145,7 @@
       });
       </script>
       <?php
-        $tuttiIPuntini = "[";
-        $tuttiIPuntini .= "[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],"; 
+        $tuttiIPuntini = "[[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],"; 
       ?>
       <script>
 
