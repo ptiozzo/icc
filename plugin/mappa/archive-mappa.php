@@ -72,14 +72,13 @@ echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Region
 			</div>
       <div id="mappa" class=""></div>
 
-      <div class="row conteggi_mappa">
-        <div class="border-1 col-6 text-center">
+      <div class="row conteggi_mappa m-0">
+        <div class="border col-6 text-center">
           <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
         </div>
-        <div class="border-1 col-6">
+        <div class="border col-6 text-center">
           <h3 class="d-inline-block"><?php echo get_option('icc_mappa_rete_totale') ?></h3><span class="text-uppercase"> Reti</span>
         </div>
-
       </div>
     </div><!-- Fine col-6 -->
     <div class="col-12 col-md-6">
@@ -196,6 +195,7 @@ echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Region
             the_content();
           endwhile;
         endif;
+        wp_reset_postdata();
         ?>
       </div><!-- Filtri mappa -->
     </div><!-- Fine col-6 -->
@@ -219,6 +219,39 @@ echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Region
       }
         ?>
 
+    </div>
+    <div class="col-12">
+
+     <?php
+       $argsMappaArchivio = array(
+         'post_type' => 'mappa',
+         'orderby' => 'modified',
+       );
+       $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
+       if($loopMappaArchivio->have_posts()) :
+         echo "<h2 class='mt-3'>Ultime realtà mappate</h2>";
+         echo '<div class="row">';
+         while ($loopMappaArchivio->have_posts()) : $loopMappaArchivio->the_post();
+         ?>
+
+           <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
+             <div class="card border-0 p-0">
+               <article class="p-0">
+               <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php echo get_the_post_thumbnail_url();?>">
+               <div class="card-body p-2 text-white">
+                 <div class="date text-capitalize"><?php echo get_the_terms( get_the_ID() , 'regionemappa' )[0]->name; ?></div>
+                 <h5 class="card-title"><?php echo get_the_title(); ?></h5>
+                 <a href="<?php echo the_permalink(); ?>" class="stretched-link"></a>
+               </div>
+               </article>
+             </div>
+           </div>
+         <?php
+         endwhile;
+         echo '</div>';
+       endif;
+       wp_reset_postdata();
+     ?>
     </div>
   </div>
 </div><!-- Fine mappa -->
