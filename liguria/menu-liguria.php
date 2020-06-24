@@ -59,7 +59,6 @@ if($loopLiguriaSegnalaProgetto->have_posts()):
             the_content();
           endwhile;
           ?>
-        <a href="https://liguria.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -98,7 +97,6 @@ if($loopLiguriaSegnalaEvento->have_posts()):
             the_content();
           endwhile;
           ?>
-        <a href="https://liguria.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -118,7 +116,7 @@ if($loopLiguriaSegnalaEvento->have_posts()):
       </div>
       <div class="modal-body pcc-pianfut">
         <p>Per aggiungere un annuncio vai sulla seguente pagina:</p>
-        <a href="/nuovocercooffro/">Crea un nuovo annuncio</a>
+        <a href="/liguria/bacheca/">Crea un nuovo annuncio</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
