@@ -1,7 +1,11 @@
 #mappa{
-  height: 100%;
-  width: 100%;
-  min-height: 500px;
+  height: 500px;
+}
+@media (min-width:768px) {
+  #mappa{
+    height: 680px
+  }
+
 }
 
 div.mappa{
@@ -16,4 +20,26 @@ div.mappa{
 
 .mappa hr{
   border-color: white;
+}
+
+.conteggi_mappa h3{
+  color: #68D8B1;
+  font-size: 39px;
+  font-weight: 900;
+  margin: 0 10px 0 0;
+}
+
+.conteggi_mappa span{
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mappa_reti_numero{
+  font-weight: 900;
+  font-size: 39px;
+}
+
+.mappa_reti_nome{
+  font-weight: 900;
+  font-size: 16px;
 }
