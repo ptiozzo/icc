@@ -29,7 +29,8 @@ if($_POST['submit_button']){
   unset($_SESSION['mappa_regione']);
   unset($_SESSION['mappa_tipologia']);
   unset($_SESSION['mappa_realta']);
-} else {
+}
+
   if($_SESSION['mappa_categorie']){
     $Categoria1 = $_SESSION['mappa_categorie'];
   } else {
@@ -55,7 +56,7 @@ if($_POST['submit_button']){
   } else {
     $Realta1 = $Realta;
   }
-}
+
 
 echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione1." - Tipologia = ".$Tipologia1 ." - Realtà = ".$Realta1."-->";
 ?>
@@ -63,13 +64,23 @@ echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Region
 <div class="mappa">
   <h1>Mappa Italia che Cambia</h1>
   <div class="row mt-3 mb-2">
-    <div class="col-12 col-md-6 overflow-hidden">
+    <div class="col-12 col-md-6 ">
       <div class='head'>
 				<div class='title'>
 					<h5>CLICCA UNA REGIONE</h5>
 				</div>
 			</div>
-      <div id="mappa" class="mx-auto"></div>
+      <div id="mappa" class=""></div>
+
+      <div class="row conteggi_mappa">
+        <div class="border-1 col-6 text-center">
+          <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
+        </div>
+        <div class="border-1 col-6">
+          <h3 class="d-inline-block"><?php echo get_option('icc_mappa_rete_totale') ?></h3><span class="text-uppercase"> Reti</span>
+        </div>
+
+      </div>
     </div><!-- Fine col-6 -->
     <div class="col-12 col-md-6">
       <div class='head'>
@@ -164,7 +175,7 @@ echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Region
             <input name="nome-realta" type="text" value="<?php if ($Realta1 != '') echo $Realta1; ?>" class="col-6" placeholder="Cerca una realtà">
             <input name="submit_button" type="Submit" value="Applica i filtri" class="btn btn-primary">
             <input name="reset_button" type="Submit" value="Reset filtri" class="btn btn-warning">
-          <div>
+          </div>
         </form>
         <hr>
         <?php
@@ -189,7 +200,29 @@ echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Region
       </div><!-- Filtri mappa -->
     </div><!-- Fine col-6 -->
   </div><!-- Fine row -->
+  <div class="row">
+    <div class="col-12">
+      <h2>Le reti mappate</h2>
+      <?php
+      //numero realtà per rete
+      $terms = get_terms( array(
+        'taxonomy' => 'rete',
+        'hide_empty' => false,
+      ) );
+      foreach ($terms as $key ) {
+        ?>
+        <form class="pt-2 d-inline-block" method="post" action="<?php echo get_pagenum_link(); ?>">
+          <input name="rete-dropdown" type="hidden" value="<?php echo $key->slug ?>">
+          <input name="submit_button" type="submit" value="<?php echo $key->name ?>" class="btn btn-lg btn-outline-dark">
+        </form>
+        <?php
+      }
+        ?>
+
+    </div>
+  </div>
 </div><!-- Fine mappa -->
+
 
 <?php
 
@@ -243,8 +276,7 @@ $argsMappaArchivio = array(
     ),
 );
 $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
-echo $loopMappaArchivio->found_posts;
-if( $loopMappaArchivio->have_posts()) :
+//if( $loopMappaArchivio->have_posts()) :
 ?>
 
   <script>
@@ -297,9 +329,7 @@ $tuttiIPuntini .= "]";
   map.fitBounds(<?php echo $tuttiIPuntini; ?>);
 </script>
 <?php
-else:
-  echo "Nessuna realtà trovata";
-endif;
+//endif;
 //echo $tuttiIPuntini;
 ?>
 
