@@ -54,6 +54,21 @@ function mappa_archive_template( $template ) {
   return $template;
 }
 
+add_filter('single_template', 'mappa_single_template');
+function mappa_single_template( $template ) {
+  if ( get_post_type() == "mappa" ) {
+    $theme_files = array('single-mappa.php', 'single-mappa.php');
+    $exists_in_theme = locate_template($theme_files, false);
+    echo $exists_in_theme;
+    if ( $exists_in_theme != '' ) {
+      return $exists_in_theme;
+    } else {
+      return dirname( __FILE__ ) . '/single-mappa.php';
+    }
+  }
+  return $template;
+}
+
 require 'mappa_meta_box_markup.php';
 require 'mappa_meta_box_save.php';
 

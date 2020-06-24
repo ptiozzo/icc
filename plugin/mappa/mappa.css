@@ -43,3 +43,19 @@ div.mappa{
   font-weight: 900;
   font-size: 16px;
 }
+
+/*-----------------------
+SINGLE
+-----------------------*/
+.single .mappa .single__nav__category{
+  background: #35A6C3;
+}
+
+.single .mappa .single__articolo a,
+.single .mappa .single__action{
+  color: #35A6C3;
+}
+
+.mappa .single__action div{
+  height: 30px;
+}
