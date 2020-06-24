@@ -226,6 +226,7 @@ echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Region
        $argsMappaArchivio = array(
          'post_type' => 'mappa',
          'orderby' => 'modified',
+         'posts_per_page' => 10,
        );
        $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
        if($loopMappaArchivio->have_posts()) :
