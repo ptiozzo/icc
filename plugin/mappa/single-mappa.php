@@ -145,7 +145,7 @@
       });
       </script>
       <?php
-        $tuttiIPuntini = "[[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],"; 
+        $tuttiIPuntini = "[[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."]]"; 
       ?>
       <script>
 
@@ -154,11 +154,6 @@
         puntino.bindPopup(title);
         markers.addLayer(puntino);
 
-      </script>
-      <?php
-      $tuttiIPuntini .= "]";
-      ?>
-      <script>
         map.addLayer(markers);
         map.fitBounds(<?php echo $tuttiIPuntini; ?>);
       </script>
