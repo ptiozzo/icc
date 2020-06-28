@@ -181,7 +181,7 @@ Template Name: Liguria che cambia
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaEvento">
                Segnala un evento
             </button>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaBacheca">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaAggiungiAnnuncio">
                Inserisci un annuncio
             </button>
           </div>
