@@ -69,6 +69,33 @@ function mappa_single_template( $template ) {
   return $template;
 }
 
+add_filter('init', 'add_nuovo_mappa_page');
+function add_nuovo_mappa_page() {
+    // Create post object
+    if(!get_page_by_path('nuovarealtasegnalata')){
+      $my_post = array(
+        'post_title'    => wp_strip_all_tags( 'Segnala Nuova Realtà' ),
+        'post_content'  => '',
+        'post_status'   => 'publish',
+        'post_author'   => 1,
+        'post_type'     => 'page',
+        'post_name'     => 'nuovarealtasegnalata'
+      );
+
+      // Insert the post into the database
+    wp_insert_post( $my_post );
+    }
+}
+
+add_filter('template_include', 'icc_custom_new_mappa');
+function icc_custom_new_mappa( $template ) {
+  if ( is_page('nuovarealtasegnalata') ) {
+    return dirname( __FILE__ ) . '/new-mappa.php';
+  }
+  return $template;
+}
+
+
 require 'mappa_meta_box_markup.php';
 require 'mappa_meta_box_save.php';
 
