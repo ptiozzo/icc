@@ -63,7 +63,7 @@ if (get_option('icc_realta_mappate_liguria') && $dbDaAggiornare == 'no'){
     <div class="carousel-item active">
       <article class="p-0">
           <figure>
-            <a href="<?php echo home_url(); ?>/liguria/mappa/"><img class="img-fluid minatura-liguria" src='<?php echo get_template_directory_uri();?>/assets/img/modules/liguria/liguria.svg' alt='' title=''></a>
+            <a href="<?php echo home_url(); ?>/liguria/mappa/"><img class="img-fluid minatura-liguria" src='<?php echo get_template_directory_uri();?>/assets/img/modules/liguria/liguria-2.png' alt='' title=''></a>
           </figure>
       </article>
     </div>
