@@ -95,7 +95,7 @@ Template Name: Liguria che cambia
 
 
           <div class="pb-3">
-            <?php get_template_part('loop/loop','Liguriaslidermappa'); ?>
+            <?php get_template_part('loop/loop','liguriaslidermappa'); ?>
           </div>
         </div>
 		</div><!-- Fini prima colonna -->
