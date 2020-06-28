@@ -28,8 +28,6 @@
    </div>
  </nav>
 </header>
-
-
 <?php
 $argsLiguriaSegnalaProgetto = array(
   'post_type' => 'contenuti-speciali',
@@ -60,7 +58,6 @@ if($loopLiguriaSegnalaProgetto->have_posts()):
             the_content();
           endwhile;
           ?>
-        <a href="https://liguria.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -99,7 +96,6 @@ if($loopLiguriaSegnalaEvento->have_posts()):
             the_content();
           endwhile;
           ?>
-        <a href="https://liguria.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -109,19 +105,18 @@ if($loopLiguriaSegnalaEvento->have_posts()):
 </div>
 <?php endif; ?>
 
-
-<div class="modal fade" id="LiguriaBacheca" tabindex="-1" role="dialog" aria-labelledby="LiguriaAccediTitle" aria-hidden="true">
+<div class="modal fade" id="LiguriaAggiungiAnnuncio" tabindex="-1" role="dialog" aria-labelledby="LiguriaAggiungiAnnuncio" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="LiguriaAccediTitle">Inserisci un annuncio</h5>
+        <h5 class="modal-title" id="LiguriaAccediTitle">Aggiungi un annuncio</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body pcc-pianfut">
         <p>Per aggiungere un annuncio vai sulla seguente pagina:</p>
-        <a href="/nuovocercooffro/">Crea un nuovo annuncio</a>
+        <a href="/liguria/bacheca/">Crea un nuovo annuncio</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
