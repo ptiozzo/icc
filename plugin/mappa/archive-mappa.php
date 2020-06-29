@@ -213,7 +213,7 @@ echo "<!-- Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Region
         ?>
         <form class="pt-2 d-inline-block" method="post" action="<?php echo get_pagenum_link(); ?>">
           <input name="rete-dropdown" type="hidden" value="<?php echo $key->slug ?>">
-          <input name="submit_button" type="submit" value="<?php echo $key->name ?>" class="btn btn-lg btn-outline-dark">
+          <input name="submit_button" type="submit" value="<?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?>" class="btn btn-lg btn-outline-dark">
         </form>
         <?php
       }
