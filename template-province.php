@@ -22,7 +22,7 @@ Template Name: Template province
       get_template_part('casentino/menu','casentino');
     } elseif (($catID == "2299") || cat_is_ancestor_of( 2299, $catID)) {
       get_template_part('piemonte/menu','piemonte');
-    } elseif ($catID == "2359") {
+    } elseif ($catID == "2359") || cat_is_ancestor_of( 2359, $catID)) {
       get_template_part('liguria/menu','liguria');
     }
   }
