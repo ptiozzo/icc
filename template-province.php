@@ -22,7 +22,7 @@ Template Name: Template province
       get_template_part('casentino/menu','casentino');
     } elseif (($catID == "2299") || cat_is_ancestor_of( 2299, $catID)) {
       get_template_part('piemonte/menu','piemonte');
-    } elseif ($catID == "2359") || cat_is_ancestor_of( 2359, $catID)) {
+    } elseif (($catID == "2359") || cat_is_ancestor_of( 2359, $catID)) {
       get_template_part('liguria/menu','liguria');
     }
   }
@@ -46,7 +46,7 @@ Template Name: Template province
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
-          'category__not_in' => array(2299,2300),
+          'category__not_in' => array(2299,2300,2359),
       );
     }
     /*eseguo la query */
