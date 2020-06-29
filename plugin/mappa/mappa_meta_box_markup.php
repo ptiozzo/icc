@@ -43,4 +43,20 @@ function mappa_meta_box_markup($post)
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Chiuso_Motivazione" value="<?php echo get_post_meta($post->ID, 'Mappa_Chiuso_Motivazione', true);?>">
   <?php
 }
+
+
+add_action("add_meta_boxes", "add_mappa_post_meta_box");
+
+function add_mappa_post_meta_box()
+{
+    add_meta_box("mappa_post-meta-box", "Info per mappa", "mappa_post_meta_box_markup", "post", "side");
+}
+
+function mappa_post_meta_box_markup($post)
+{
+  ?>
+  <label>Nome realtà di cui si parla</label>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Nome_Ralta" value="<?php echo get_post_meta($post->ID, 'Mappa_Nome_Ralta', true);?>">
+  <?php
+}
 ?>
