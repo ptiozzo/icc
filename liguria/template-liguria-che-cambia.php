@@ -174,7 +174,6 @@ Template Name: Liguria che cambia
       <div class="col-lg-home3">
         <aside class="sidebar">
           <div class="pcc-pianfut">
-            <h3>Pianeta Futuro</h3>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaProgetto">
                Mappa una realtà
             </button>
