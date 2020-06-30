@@ -28,7 +28,6 @@
    </div>
  </nav>
 </header>
-
 <?php
 $argsLiguriaSegnalaProgetto = array(
   'post_type' => 'contenuti-speciali',
@@ -105,6 +104,7 @@ if($loopLiguriaSegnalaEvento->have_posts()):
   </div>
 </div>
 <?php endif; ?>
+
 <div class="modal fade" id="LiguriaAggiungiAnnuncio" tabindex="-1" role="dialog" aria-labelledby="LiguriaAggiungiAnnuncio" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">

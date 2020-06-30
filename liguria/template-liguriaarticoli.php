@@ -1,21 +1,21 @@
 <?php
 /*
-Template Name: liguria storie
+Template Name: liguria articoli
 */
 ?>
 <?php get_header(); ?>
 <?php get_template_part('liguria/menu','liguria'); ?>
 <?php
 $Cat1 = 'liguria-che-cambia';
-$Cat2 = 'io-faccio-cosi';
+$Cat2 = 'le-storie';
  ?>
 <div class="container-fluid">
 
   <?php
-    $CatTerm = $Cat1."+".$Cat2;
     $args = array(
     'post_type' => 'post',
-    'category_name' => $CatTerm,
+    'category_name' => $Cat1,
+    'category__not_in' => array(get_category_by_slug( $Cat2 )->term_id),
     'paged'     => $paged,
     );
     /*eseguo la query */

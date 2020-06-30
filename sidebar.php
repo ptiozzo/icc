@@ -12,6 +12,10 @@
     {
       dynamic_sidebar('casentino');
     }
+    elseif (is_page('liguria'))
+    {
+      dynamic_sidebar('liguria');
+    }
     else
       dynamic_sidebar('primary');
 
