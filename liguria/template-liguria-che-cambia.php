@@ -14,7 +14,7 @@ Template Name: Liguria che cambia
     <?php
       if($_GET['contact-form-sent']){
         echo '<div class="alert alert-success alert-dismissible fade show col-12 col-md-8 mx-auto mt-3 " role="alert">';
-          echo 'Segnalazione inviata con successo, grazie!';
+          echo 'Messaggio inviato con successo. Grazie per averci contattato.';
           echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
           echo '<span aria-hidden="true">&times;</span>';
           echo '</button>';
