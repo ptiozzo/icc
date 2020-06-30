@@ -11,6 +11,18 @@ Template Name: Liguria che cambia
 
 <div class="container-fluid home-page <?php echo $catPage;?>">
 	<div class="row">
+    <?php
+      if($_GET['contact-form-sent']){
+        echo '<div class="alert alert-success alert-dismissible fade show col-12 col-md-8 mx-auto mt-3 " role="alert">';
+          echo 'Segnalazione inviata con successo, grazie!';
+          echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+          echo '<span aria-hidden="true">&times;</span>';
+          echo '</button>';
+        echo '</div>';
+      }
+
+     ?>
+
     <div id="sidebar" class="col-lg-home1 col-md-12">
         <div class="sidebar__inner">
     			<?php
