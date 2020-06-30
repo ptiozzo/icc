@@ -45,7 +45,7 @@
          <small>Facoltativo</small>
        </div>
        <div class="col-12">
-         <select name="list" id="cars" class="w-100" multiple required>
+         <select name="list" id="cars" class="w-100" size="5" multiple required>
             <option value="3">La newsletter settimanale con il nostro racconto quotidiano</option>
             <option value="15">"Io non mi rassegno" La newsletter quotidiana con la rassegna stampa commentata da noi</option>
             <option value="13">Piemonte che cambia. La newsletter mensile con le notizie dal territorio</option>
