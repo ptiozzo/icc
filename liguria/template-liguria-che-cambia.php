@@ -175,7 +175,7 @@ Template Name: Liguria che cambia
         <aside class="sidebar">
           <div class="pcc-pianfut">
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaProgetto">
-               Mappa una realtà
+               Segnala un progetto
             </button>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaEvento">
                Segnala un evento
