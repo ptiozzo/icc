@@ -28,7 +28,7 @@ if (get_option('icc_realta_mappate_liguria') && $dbDaAggiornare == 'no'){
 	echo "<!-- Raltà mappate esiste sul DB -->";
 }else{
 	echo "<!-- DB da Aggiornare -->";
-  $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last&a=2'));
+  $realtaMappate = wp_remote_retrieve_body(wp_remote_get('https://api.pianetafuturo.it/data/map.php?pk=icc396719&action=last&a=8'));
   update_option('icc_realta_mappate_liguria',$realtaMappate,'no');
 	update_option('icc_realta_mappate_liguria_lastupdate',strtotime(date('Y-m-d H:i:s')),'no');
   echo "<!-- Aggiornato DB Raltà mappate -->";
