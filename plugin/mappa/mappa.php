@@ -101,4 +101,30 @@ require 'mappa_meta_box_save.php';
 
 require 'mappa_calcolo_realta.php';
 
+add_filter('init', 'import_nuovo_mappa_page');
+function import_nuovo_mappa_page() {
+    // Create post object
+    if(!get_page_by_path('importmappa')){
+      $my_post = array(
+        'post_title'    => wp_strip_all_tags( 'Import Mappa' ),
+        'post_content'  => '',
+        'post_status'   => 'publish',
+        'post_author'   => 1,
+        'post_type'     => 'page',
+        'post_name'     => 'importmappa'
+      );
+
+      // Insert the post into the database
+    wp_insert_post( $my_post );
+    }
+}
+
+add_filter('template_include', 'icc_custom_import_mappa');
+function icc_custom_import_mappa( $template ) {
+  if ( is_page('importmappa') ) {
+    return dirname( __FILE__ ) . '/import-mappa.php';
+  }
+  return $template;
+}
+
 ?>
