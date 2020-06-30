@@ -47,40 +47,16 @@
        <div class="col-12">
          <select name="list" id="cars" class="w-100" multiple required>
             <option value="3">La newsletter settimanale con il nostro racconto quotidiano</option>
+            <option value="15">"Io non mi rassegno" La newsletter quotidiana con la rassegna stampa commentata da noi</option>
             <option value="13">Piemonte che cambia. La newsletter mensile con le notizie dal territorio</option>
             <option value="16">Casentino che cambia. La newsletter mensile con le notizie dal territorio</option>
-            <option value="15">"Io non mi rassegno" La newsletter quotidiana con la rassegna stampa commentata da noi</option>
+            <option value="17">Liguria che cambia. La newsletter mensile con le notizie dal territorio</option>
           </select>
        </div>
        <div class="col-12">
          <small>Obbligatorio. Per selezionare più liste tieni premuto il tasto control (CTRL)</small>
        </div>
 
-
-         <!--<div class="form-check col-12">
-           <input name="list" type="checkbox" value="3">
-           <label class="form-check-label" for="gridCheck1">
-             La newsletter settimanale di ItaliaCheCambia
-           </label>
-         </div>
-         <div class="form-check col-12">
-           <input name="list" type="checkbox" value="13">
-           <label class="form-check-label" for="gridCheck1">
-             La newsletter mensile di PiemonteCheCambia
-           </label>
-         </div>
-         <div class="form-check col-12">
-           <input name="list" type="checkbox" value="16">
-           <label class="form-check-label" for="gridCheck1">
-             La newsletter mensile di CasentinoCheCambia
-           </label>
-         </div>
-         <div class="form-check col-12">
-           <input name="list" type="checkbox" value="15">
-           <label class="form-check-label" for="gridCheck1">
-             La newsletter giornaliera di #IoNonMiRassegno
-           </label>
-         </div>-->
 
        <input type="submit" class="btn btn-primary ml-3 mt-2 " id="submitbtn" name="submit" value="Registrati" />
  </div>

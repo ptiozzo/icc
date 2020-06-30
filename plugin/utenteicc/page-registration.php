@@ -156,6 +156,12 @@ if ($user_ID)
                 </label>
               </div>
               <div class="form-check">
+                <input name="list" type="checkbox" value="17">
+                <label class="form-check-label" for="gridCheck1">
+                  La newsletter mensile di LiguriaCheCambia
+                </label>
+              </div>
+              <div class="form-check">
                 <input name="list" type="checkbox" value="16">
                 <label class="form-check-label" for="gridCheck1">
                   La newsletter mensile di CasentinoCheCambia
