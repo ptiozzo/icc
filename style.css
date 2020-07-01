@@ -1255,7 +1255,8 @@ a.carousel-more{
 #carouselMappaMobile .carousel-item{
   height: 347px;
 }
-.piemonte-che-cambia #carouselMappa .minatura-piemonte{
+.piemonte-che-cambia #carouselMappa .minatura-piemonte,
+.liguria-che-cambia #carouselMappa .minatura-liguria{
   border: 26px solid #a1dbb9;
   height: 350px;
   object-fit: cover;
