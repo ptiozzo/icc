@@ -23,7 +23,7 @@ Template Name: Liguria che cambia
 
      ?>
 
-    <div id="sidebar" class="col-lg-home1 col-md-12">
+    <div id="sidebar" class="col-lg-home1 col-md-12 mb-2">
         <div class="sidebar__inner">
     			<?php
     			/* Query per Le storie
@@ -104,12 +104,9 @@ Template Name: Liguria che cambia
     			wp_reset_query();?>
 
           <?php dynamic_sidebar('homeLiguriasx'); ?>
-
-
-          <div class="pb-3">
+          
             <?php get_template_part('loop/loop','liguriaslidermappa'); ?>
-          </div>
-        </div>
+        </div><!-- Fine sidebar__inner -->
 		</div><!-- Fini prima colonna -->
 
 		<div class="col-lg-home2 col-md-12">
