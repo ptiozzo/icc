@@ -112,7 +112,7 @@ Template Name: Template province
         <?php
       endwhile;
         ?>
-      </div> <!-- .grid -->
+      </div> <!-- .row -->
         <!-- paginazione -->
 
       <?php echo bootstrap_pagination($loop); ?>
@@ -120,7 +120,14 @@ Template Name: Template province
         <?php
       else:
         ?>
-          <script type="text/javascript">location.href = '<?php echo home_url(); ?>';</script>
+          <div class="alert alert-danger" role="alert">
+            Nessun articolo trovato, verrai reindirizzato in home page!
+          </div>
+          <script>
+            setTimeout(function(){
+              window.location.href = '<?php echo home_url(); ?>';
+            }, 5000);
+          </script>
         <?php
       endif;
     wp_reset_query();
