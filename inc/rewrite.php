@@ -34,7 +34,7 @@ function myplugin_rewrite_rule() {
 	add_rewrite_rule( '^piemonte/storie/?', 'index.php?page_id=41191','top' );
 	add_rewrite_rule( '^piemonte/([^/]*)/page/?([0-9]{1,})/?', 'index.php?pagename=template-province&par1=$matches[1]&paged=$matches[2]','top' );
 	add_rewrite_rule( '^piemonte/([^/]*)/?', 'index.php?pagename=template-province&par1=$matches[1]','top' );
-	add_rewrite_rule( '^piemonte/articoli/page/?([0-9]{1,})/?', 'index.php?page_id=73309&paged=$matches[1]','top' );
+	add_rewrite_rule( '^liguria/articoli/page/?([0-9]{1,})/?', 'index.php?page_id=73309&paged=$matches[1]','top' );
 	add_rewrite_rule( '^liguria/articoli/?', 'index.php?page_id=73309','top' );
 	add_rewrite_rule( '^liguria/bacheca/?', 'index.php?page_id=68061','top' );
 	add_rewrite_rule( '^liguria/calendario/?', 'index.php?page_id=57957','top' );
