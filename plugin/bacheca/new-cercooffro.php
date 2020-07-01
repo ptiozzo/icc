@@ -106,7 +106,7 @@ $errors = array();
 
     $url = "/cerco-offro/";
 
-    $to = "redazione@italiachecambia.org,ptiozzo@me.com";
+    $to = "redazione@italiachecambia.org,webmaster@italiachecambia.org";
     $subject = 'ICC - Nuovo Cerco\Offro da revisionare: '.$_POST['titolo'];
     $body = "<html><body>";
     $body .= "Ciao <br>";
@@ -114,7 +114,7 @@ $errors = array();
     $body .= "</body></html>";
     $headers = array('Content-Type: text/html; charset=UTF-8');
     $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
-    $headers[] = 'Bcc: ptiozzo@me.com';
+    $headers[] = 'Bcc: webmaster@italiachecambia.org';
 
     wp_mail( $to, $subject, $body, $headers );
 

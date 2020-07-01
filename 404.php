@@ -5,7 +5,7 @@
     <p>La pagina cercata non è stata trovata ed è stata segnalata alla redazione</p>
     <p>Puoi continuare la tua navigazione effettuando una ricerca tramite il form sottostante oppure puoi tornare in <a href="/">Home page</a></p>
     <?php
-    $to = 'ptiozzo@me.com';
+    $to = 'webmaster@italiachecambia.org';
     $subject = '[ICC] 404';
     $body = "E' stata trovata una pagina 404 <br>". get_pagenum_link();
     $headers = array('Content-Type: text/html; charset=UTF-8');

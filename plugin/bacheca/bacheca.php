@@ -148,7 +148,7 @@ function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
           $body .= "</body></html>";
           $headers = array('Content-Type: text/html; charset=UTF-8');
           $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
-          $headers[] = 'Bcc: ptiozzo@me.com';
+          $headers[] = 'Bcc: webmaster@italiachecambia.org';
 
           wp_mail( $to, $subject, $body, $headers );
     }
