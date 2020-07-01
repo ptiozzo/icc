@@ -179,18 +179,9 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-
 						<?php
-						if ($_SERVER['SERVER_NAME'] == 'www.italiachecambia.org'){
-							?>
-							<aside class="sidebar mx-auto">
-								<?php dynamic_sidebar('modalSingleNewsletter'); ?>
-							</aside>
-							<?php
-						} else {
-		        		include "template-part/IscrizioneNewsletter.php";
-
-						} ?>
+		        	include "template-part/IscrizioneNewsletter.php";
+						?>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
