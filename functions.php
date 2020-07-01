@@ -207,6 +207,10 @@ require 'inc/rewrite.php';
 /* ------------------------------------ */
 require 'inc/contribuisci-db.php';
 
+/*  Sharing FB per regioni
+/* ------------------------------------ */
+require 'inc/regioni-fbSharing.php'
+
 
 
 /*  Pagina istruzioni su admin
