@@ -133,7 +133,7 @@ if ($user_ID)
             $headers = array('Content-Type: text/html; charset=UTF-8');
 
             wp_mail( $to, $subject, $body, $headers );
-            wp_mail( 'ptiozzo@me.com', '[ICC] nuovo utente registrato', $body, $headers );
+            wp_mail( 'webmaster@italiachecambia.org', '[ICC] nuovo utente registrato', $body, $headers );
             ?>
 
             <h2>Iscriviti anche alla nostra newsletter</h2>
