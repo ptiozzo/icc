@@ -68,4 +68,12 @@
     </div>
   <?php } ?>
 
+  <?php if( !empty (get_post_meta( $icc_article_ID, 'Mappa_TW',true))){ ?>
+    <div class="my-1 mb-3 d-flex flex-column justify-content-center position-relative">
+      <i class="fab fa-twitter my-auto"></i>
+      <p>Twitter</p>
+      <a rel="nofollow" target="_blank"  href="<?php echo get_post_meta( $icc_article_ID, 'Mappa_TW',true)?>" class="stretched-link"></a>
+    </div>
+  <?php } ?>
+
 </div>

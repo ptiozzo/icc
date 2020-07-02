@@ -965,7 +965,7 @@ figcaption{
 
 .single__action{
   position: sticky;
-  top: 40vh;
+  top: 30vh;
 }
 
 @media (max-width: 768px) {
@@ -973,6 +973,7 @@ figcaption{
     position: sticky;
     bottom: 40px;
     background-color: white;
+    z-index: 1200;
   }
 }
 
