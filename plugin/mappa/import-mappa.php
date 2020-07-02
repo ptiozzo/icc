@@ -38,8 +38,20 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
     //echo "<td style='border: 1px solid grey;'>".$data[3] . "</td>\n";
 
     //Indirizzo da unire
-    $indirizzo = $data[4]." ".$data[5].", ".$data[6].", ".$data[7];
-    echo "<td style='border: 1px solid grey;'>".$indirizzo. "</td>\n"; //via
+    $indirizzo = "";
+    if($data[4] != ""){
+      $indirizzo .= $data[4].", ";
+    }
+    if($data[5] != ""){
+      $indirizzo .= $data[5].", ";
+    }
+    if($data[6] != ""){
+      $indirizzo .= $data[6].", ";
+    }
+    if($data[7] != ""){
+      $indirizzo .= $data[7];
+    }
+    echo "<td style='border: 1px solid grey;'>".$indirizzo. "</td>\n"; //indirizzo
     //echo "<td style='border: 1px solid grey;'>".$data[4] . "</td>\n"; //via
     //echo "<td style='border: 1px solid grey;'>".$data[5] . "</td>\n"; //civico
     //echo "<td style='border: 1px solid grey;'>".$data[6] . "</td>\n"; //CAP
@@ -64,7 +76,7 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
     //echo "<td style='border: 1px solid grey;'>".$data[14] . "</td>\n";//Visto da noi/viaggio
 
 
-    //echo "<td style='border: 1px solid grey;'>".$data[15] . "</td>\n";//BOH!!!
+    echo "<td style='border: 1px solid grey;'>".$data[15] . "</td>\n";//Identificativo video YT
     echo "<td style='border: 1px solid grey;'>".$data[16] . "</td>\n";//Approfondisci
 
     $var = explode(",",$data[17]);
