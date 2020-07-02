@@ -28,6 +28,12 @@ function save_mappa_meta_box($post_id, $post)
           delete_post_meta($post_id,"Mappa_Longitudine");
       }
 
+      if($_POST["Mappa_VideoYT"] != "") {
+          update_post_meta($post_id, "Mappa_VideoYT", $_POST["Mappa_VideoYT"]);
+      } elseif (get_post_meta($post_id,"Mappa_VideoYT")) {
+          delete_post_meta($post_id,"Mappa_VideoYT");
+      }
+
       if($_POST["Mappa_Indirizzo"] != "") {
           update_post_meta($post_id, "Mappa_Indirizzo", $_POST["Mappa_Indirizzo"]);
       } elseif (get_post_meta($post_id,"Mappa_Indirizzo")) {
@@ -69,11 +75,19 @@ function save_mappa_meta_box($post_id, $post)
       } elseif (get_post_meta($post_id,"Mappa_YT")) {
           delete_post_meta($post_id,"Mappa_YT");
       }
+
       if($_POST["Mappa_IN"] != "") {
           update_post_meta($post_id, "Mappa_IN", $_POST["Mappa_IN"]);
       } elseif (get_post_meta($post_id,"Mappa_IN")) {
           delete_post_meta($post_id,"Mappa_IN");
       }
+
+      if($_POST["Mappa_TW"] != "") {
+          update_post_meta($post_id, "Mappa_TW", $_POST["Mappa_TW"]);
+      } elseif (get_post_meta($post_id,"Mappa_TW")) {
+          delete_post_meta($post_id,"Mappa_TW");
+      }
+
       if($_POST["Mappa_Chiuso_Data"] != "") {
           update_post_meta($post_id, "Mappa_Chiuso_Data", $_POST["Mappa_Chiuso_Data"]);
       } elseif (get_post_meta($post_id,"Mappa_Chiuso_Data")) {

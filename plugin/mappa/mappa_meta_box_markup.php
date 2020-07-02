@@ -15,9 +15,11 @@ function mappa_meta_box_markup($post)
 
   <label>Latitudine</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Latitudine" value="<?php echo get_post_meta($post->ID, 'Mappa_Latitudine', true);?>">
-
   <label>Longitudine</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Longitudine" value="<?php echo get_post_meta($post->ID, 'Mappa_Longitudine', true);?>">
+
+  <label>Video di presentazione</label>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_VideoYT" value="<?php echo get_post_meta($post->ID, 'Mappa_VideoYT', true);?>">
 
   <label>Indirizzo Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Indirizzo" value="<?php echo get_post_meta($post->ID, 'Mappa_Indirizzo', true);?>">
@@ -36,6 +38,8 @@ function mappa_meta_box_markup($post)
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_YT" value="<?php echo get_post_meta($post->ID, 'Mappa_YT', true);?>">
   <label>LinkedIn Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_IN" value="<?php echo get_post_meta($post->ID, 'Mappa_IN', true);?>">
+  <label>Twitter Realtà</label>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_TW" value="<?php echo get_post_meta($post->ID, 'Mappa_TW', true);?>">
 
   <label>Data Chiusura Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Chiuso_Data" value="<?php echo get_post_meta($post->ID, 'Mappa_Chiuso_Data', true);?>">
