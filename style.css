@@ -973,7 +973,7 @@ figcaption{
     position: sticky;
     bottom: 40px;
     background-color: white;
-    z-index: 1200;
+    z-index: 1000;
   }
 }
 
