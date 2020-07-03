@@ -15,6 +15,14 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
     echo "<td style='border: 1px solid grey;'>".$row . "</td>\n";
     $row++;
     echo "<td style='border: 1px solid grey;'>".$data[0] . "</td>\n";
+    $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[8].".jpg";
+    if(!@getimagesize($image)){
+      $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[8].".png";
+      if(!@getimagesize($image)){
+        $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[8].".gif";
+      }
+    }
+    echo "<td style='border: 1px solid grey;'><img src='".$image. "'></td>\n";
     echo "<td style='border: 1px solid grey;'>".$data[1] . "</td>\n";
 
     //Tipologia da splittare
