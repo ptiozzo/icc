@@ -340,21 +340,30 @@ $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
 <?php
 $tuttiIPuntini = "[";
 while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
-  $popupMappa = get_the_excerpt();
+  $popupMappa = "";
+  if ( has_post_thumbnail() ){
+      $popupMappa .= "<img class='img-fluid' src='".get_the_post_thumbnail_url('')."' /><br>";
+  }
+  $popupMappa .= get_the_excerpt();
   $popupMappa .= "<br>";
   $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
-  $tuttiIPuntini .= "[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],";
- ?>
-  <script>
+  if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
+    $tuttiIPuntini .= "[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],";
+    ?>
+    <script>
 
-    var title = "<?php echo $popupMappa; ?>";
-    var puntino = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( get_the_ID() , 'stato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
-    puntino.bindPopup(title);
-    markers.addLayer(puntino);
+      var title = "<?php echo $popupMappa; ?>";
+      var puntino = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( get_the_ID() , 'stato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
+      puntino.bindPopup(title);
+      markers.addLayer(puntino);
 
-  </script>
+    </script>
+    <?php
+  }
 
-<?php
+
+
+
 endwhile;
 $tuttiIPuntini .= "]";
 ?>
