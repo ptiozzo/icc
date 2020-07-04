@@ -82,29 +82,28 @@
 
             <?php if( !empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true))){ ?>
               <div class="alert alert-danger mt-2" role="alert">
-                Il progetto/realtà ha chiuso in data <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true); ?> a causa di <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true); ?>
+                Data chiusura progetto: <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true); ?> <br>
+                Motivazione chiusura: <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true); ?>
               </div>
             <?php } ?>
+            <div class="single__head">
+              <?php
+              if(has_post_thumbnail())
+                the_post_thumbnail("",array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+              ?>
 
-
-      			<!-- TAG -->
-      			<div class="single__head">
-      				<div class="single__tag">
-      					<?php $post_tags = wp_get_post_tags($post->ID);
-      					if(!empty($post_tags)) {?>
-      						<p class="tag"><?php the_tags('', ' ', ''); ?></p>
-      					<?php } ?>
-      				</div>
       				<!-- Title -->
       				<h1 class="single__title">
       					<?php the_title(); ?>
       				</h1>
 
       				<!-- Meta Description -->
-      				<h2 class="single__metaDescription">
-      					<?php the_excerpt();?>
-      				</h2>
-			       </div>
+              <?php if(has_excerpt()){ ?>
+        				<h2 class="single__metaDescription">
+        					<?php the_excerpt();?>
+        				</h2>
+              <?php } ?>
+            </div>
         			<!-- Share with -->
         			<div class="single__share">
         				<?php
@@ -141,44 +140,46 @@
               </div>
 
               <!-- Mappa -->
-              <div id="mappa" class=""></div>
-              <script>
-                  var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
+              <?php if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){ ?>
+                <div id="mappa" class=""></div>
+                <script>
+                    var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
 
-                  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                    //attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/outdoors-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
-                  }).addTo(map);
-                  var markers = L.markerClusterGroup({
-                    showCoverageOnHover: false,
-                  });
+                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                      //attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                      maxZoom: 18,
+                      id: 'mapbox/outdoors-v11',
+                      tileSize: 512,
+                      zoomOffset: -1,
+                      accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
+                    }).addTo(map);
+                    var markers = L.markerClusterGroup({
+                      showCoverageOnHover: false,
+                    });
 
-                  var redIcon = L.icon({
-                    iconUrl: '<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon-red.png',
-                    shadowUrl: 'marker-shadow.png',
+                    var redIcon = L.icon({
+                      iconUrl: '<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon-red.png',
+                      shadowUrl: 'marker-shadow.png',
 
-                    iconSize:     [25, 41], // size of the icon
-                    iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
-                    popupAnchor:  [-13, -40] // point from which the popup should open relative to the iconAnchor
-                  });
-              </script>
-              <?php
-                $tuttiIPuntini = "[[".get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true).", ".get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true)."]]";
-              ?>
-              <script>
+                      iconSize:     [25, 41], // size of the icon
+                      iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
+                      popupAnchor:  [-13, -40] // point from which the popup should open relative to the iconAnchor
+                    });
+                </script>
+                <?php
+                  $tuttiIPuntini = "[[".get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true).", ".get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true)."]]";
+                ?>
+                <script>
 
-                var title = "<?php echo $popupMappa; ?>";
-                var puntino = L.marker([<?php echo get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( $icc_article_ID , 'stato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
-                puntino.bindPopup(title);
-                markers.addLayer(puntino);
+                  var title = "<?php echo $popupMappa; ?>";
+                  var puntino = L.marker([<?php echo get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( $icc_article_ID , 'stato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
+                  puntino.bindPopup(title);
+                  markers.addLayer(puntino);
 
-                map.addLayer(markers);
-                map.fitBounds(<?php echo $tuttiIPuntini; ?>);
-              </script>
+                  map.addLayer(markers);
+                  map.fitBounds(<?php echo $tuttiIPuntini; ?>);
+                </script>
+              <?php } ?>
         			<!-- Box contribuisci fondo articolo -->
         			<?php get_template_part('contribuisci/article','contribuisci'); ?>
         		</div>
