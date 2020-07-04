@@ -9,7 +9,7 @@ if (!file_exists($myFile)) {
 }
 if (($handle = fopen($myFile, "r")) !== FALSE) {
   echo "<table style='border: 1px solid grey;'>";
-  while (($data = fgetcsv($handle, 100, ",",'"')) !== FALSE) {
+  while (($data = fgetcsv($handle, 100, ",",'"')) !== FALSE && $row < 10) {
     echo "<tr style='border: 1px solid grey;'>";
     $num = count($data);
     echo "<td style='border: 1px solid grey;'>".$row . "</td>\n";
@@ -94,7 +94,7 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
     //echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//rete
     echo "<tr>";
 
-    if($row == 4){
+    if($row == 9){
       /* ---------------------
       IMPORT
       --------------------- */
@@ -186,6 +186,80 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         }
       }
 
+      /* ---------------------
+      IMMAGINE!
+      --------------------- */
+
+      // Gives us access to the download_url() and wp_handle_sideload() functions
+      require_once( ABSPATH . 'wp-admin/includes/file.php' );
+
+      // URL to the WordPress logo
+      $url = $image;
+      $timeout_seconds = 5;
+
+      // Download file to temp dir
+      $temp_file = download_url( $url, $timeout_seconds );
+      if ( !is_wp_error( $temp_file ) ) {
+
+          // Array based on $_FILE as seen in PHP file uploads
+          $file = array(
+              'name'     => basename($url), // ex: wp-header-logo.png
+              'type'     => 'image/png',
+              'tmp_name' => $temp_file,
+              'error'    => 0,
+              'size'     => filesize($temp_file),
+          );
+
+          $overrides = array(
+              // Tells WordPress to not look for the POST form
+              // fields that would normally be present as
+              // we downloaded the file from a remote server, so there
+              // will be no form fields
+              // Default is true
+              'test_form' => false,
+
+              // Setting this to false lets WordPress allow empty files, not recommended
+              // Default is true
+              //'test_size' => true,
+          );
+
+          // Move the temporary file into the uploads directory
+          $results = wp_handle_sideload( $file, $overrides );
+          if ( !empty( $results['error'] ) ) {
+              echo "Errore: ".$results['error']."--";
+              // Insert any error handling here
+          } else {
+
+              $filename  = $results['file']; // Full path to the file
+              $local_url = $results['url'];  // URL to the file in the uploads dir
+              $type      = $results['type']; // MIME type of the file
+
+
+              $wp_filetype = wp_check_filetype($filename, null);
+              $attachment = array(
+                  'post_mime_type' => $type,
+                  'post_title' => get_the_title($post_id),
+                  'post_content' => '',
+                  'post_status' => 'inherit'
+              );
+
+              $attachment_id = wp_insert_attachment( $attachment, $filename, $post_id );
+
+              if ( ! is_wp_error( $attachment_id ) ) {
+                  require_once(ABSPATH . 'wp-admin/includes/image.php');
+
+                  $attachment_data = wp_generate_attachment_metadata( $attachment_id, $filename );
+                  wp_update_attachment_metadata( $attachment_id, $attachment_data );
+                  set_post_thumbnail( $post_id, $attachment_id );
+              }
+              // Perform any actions here based in the above results
+          }
+
+      }
+
+      /* ---------------------
+      FINE IMMAGINE
+      --------------------- */
 
 
       //update_post_meta($post_id, "Mappa_Latitudine", $_POST["Mappa_Latitudine"]);
