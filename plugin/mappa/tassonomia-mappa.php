@@ -102,8 +102,8 @@ $args = [
 	if(term_exists( 'campania', 'regionemappa' ) !== 0){
 		wp_insert_term('Campania','regionemappa',array('slug' => 'campania' ) );
 	}
-	if(term_exists( 'emiliaromagna', 'regionemappa' ) !== 0){
-		wp_insert_term('Emilia Romagna','regionemappa',array('slug' => 'emiliaromagna' ) );
+	if(term_exists( 'emilia-romagna', 'regionemappa' ) !== 0){
+		wp_insert_term('Emilia-Romagna','regionemappa',array('slug' => 'emilia-romagna' ) );
 	}
 	if(term_exists( 'friuliveneziagiulia', 'regionemappa' ) !== 0){
 		wp_insert_term('Friuli Venezia Giulia','regionemappa',array('slug' => 'friuliveneziagiulia' ) );
