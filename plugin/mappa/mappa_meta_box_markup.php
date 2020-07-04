@@ -18,8 +18,7 @@ function mappa_meta_box_markup($post)
   <label>Longitudine</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Longitudine" value="<?php echo get_post_meta($post->ID, 'Mappa_Longitudine', true);?>">
 
-  <label>Video di presentazione</label>
-  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_VideoYT" value="<?php echo get_post_meta($post->ID, 'Mappa_VideoYT', true);?>">
+
 
   <label>Indirizzo Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Indirizzo" value="<?php echo get_post_meta($post->ID, 'Mappa_Indirizzo', true);?>">
@@ -30,6 +29,8 @@ function mappa_meta_box_markup($post)
   <label>Telefono Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Telefono" value="<?php echo get_post_meta($post->ID, 'Mappa_Telefono', true);?>">
 
+  <label>Video di presentazione</label>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_VideoYT" value="<?php echo get_post_meta($post->ID, 'Mappa_VideoYT', true);?>">
   <label>Facebook Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_FB" value="<?php echo get_post_meta($post->ID, 'Mappa_FB', true);?>">
   <label>Instagram Realtà</label>
