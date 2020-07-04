@@ -63,7 +63,7 @@ if( $_POST['submit_button'] ){
       wp_set_object_terms($post_id,$_POST['regionemappa'],'regionemappa');
       wp_set_object_terms($post_id,"utente",'stato');
 
-      if($_POST["categoria"] != "tettelecategorie") {
+      if($_POST["categoria"] != "tuttelecategorie") {
         wp_set_object_terms($post_id,$_POST['categoria'],'categoria');
       }
       if($_POST["tipologia"] != "tutteletipologie") {
@@ -76,7 +76,7 @@ if( $_POST['submit_button'] ){
       if($_POST["Mappa_Longitudine"] != "") {
           update_post_meta($post_id, "Mappa_Longitudine", $_POST["Mappa_Longitudine"]);
       }
-      
+
       if($_POST["indirizzo"] != "") {
           update_post_meta($post_id, "Mappa_Indirizzo", $_POST["indirizzo"]);
       }
@@ -101,6 +101,14 @@ if( $_POST['submit_button'] ){
       if($_POST["mappa_IN"] != "") {
           update_post_meta($post_id, "Mappa_IN", $_POST["mappa_IN"]);
       }
+      if($_POST["mappa_TW"] != "") {
+          update_post_meta($post_id, "mappa_TW", $_POST["mappa_TW"]);
+      }
+      if($_POST["Mappa_VideoYT"] != "") {
+          update_post_meta($post_id, "Mappa_VideoYT", $_POST["Mappa_VideoYT"]);
+      }
+
+
 
       if ( isset($_FILES['image']) && $_FILES['image']['size'] != 0 ) {
           $upload = wp_upload_bits($_FILES["image"]["name"], null, file_get_contents($_FILES["image"]["tmp_name"]));
@@ -198,7 +206,7 @@ if($success != 1 && is_user_logged_in() ){
   ?>
   <form class="mt-3 mb-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" enctype="multipart/form-data">
     <select name="categoria" class="custom-select" >
-      <option value="tettelecategorie" <?php if ($form_tipologia == "tettelecategorie") {echo 'selected';} ?>>Seleziona una categoria</option>
+      <option value="tuttelecategorie" <?php if ($form_tipologia == "tuttelecategorie") {echo 'selected';} ?>>Seleziona una categoria</option>
       <?php
         $categories = get_terms( array('taxonomy' => 'categoria','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
         foreach ($categories as $category) {
@@ -339,6 +347,10 @@ if($success != 1 && is_user_logged_in() ){
       <small id="telefonoHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
+      <input id="Mappa_VideoYT" class="form-control w-75" type="url" name="Mappa_VideoYT" placeholder="Inserisci il link ad un video YouTube di presentazione" value="<?php echo $form_mappa_FB;?>">
+      <small id="Mappa_VideoYTHelp" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group my-2 col-12 d-block px-0">
       <input id="mappa_FB" class="form-control w-75" type="url" name="mappa_FB" placeholder="Inserisci il link alla pagine Facebook della realtà" value="<?php echo $form_mappa_FB;?>">
       <small id="mappa_FBHelp" class="form-text text-muted"></small>
     </div>
@@ -353,6 +365,10 @@ if($success != 1 && is_user_logged_in() ){
     <div class="form-group my-2 col-12 d-block px-0">
       <input id="mappa_IN" class="form-control w-75" type="url" name="mappa_IN" placeholder="Inserisci il link alla pagine LinkedIn della realtà" value="<?php echo $form_mappa_IN;?>">
       <small id="mappa_INHelp" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group my-2 col-12 d-block px-0">
+      <input id="mappa_TW" class="form-control w-75" type="url" name="mappa_TW" placeholder="Inserisci il link alla pagine Twitter della realtà" value="<?php echo $form_mappa_IN;?>">
+      <small id="mappa_TWHelp" class="form-text text-muted"></small>
     </div>
 
     <input name="submit_button" type="Submit" value="<?php echo $form_invia;?>" class="btn btn-secondary">
