@@ -344,6 +344,7 @@ while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
   if ( has_post_thumbnail() ){
       $popupMappa .= "<img class='img-fluid' src='".get_the_post_thumbnail_url('')."' /><br>";
   }
+  $popupMappa .= "<h3 class='h5'>".get_the_title()."</h5>";
   $popupMappa .= get_the_excerpt();
   $popupMappa .= "<br>";
   $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
