@@ -92,7 +92,7 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
     }
     echo "</ul></td>";
     //echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//rete
-    echo "<tr>";
+    echo "</tr>";
 
     if($row == 9){
       /* ---------------------
@@ -109,7 +109,6 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         'comment_status' => 'close',
       );
       $post_id = wp_insert_post($new_post);
-
 
       //Categoria da splittare
       $var = explode(",",$data[2]);
