@@ -79,6 +79,8 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
   <?php
   if ($Regione == "tutteleregioni"){
     echo "<h1>Mappa Italia che Cambia</h1>";
+  } else {
+    echo "<h1>Mappa ".get_term_by('slug',$Regione,'regionemappa')->name." che Cambia</h1>";
   }
 
   ?>
@@ -86,18 +88,26 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
     <div class="col-12 col-md-6 ">
       <div class='head'>
 				<div class='title'>
-					<h5>CLICCA UNA REGIONE</h5>
+					<h5>REALTA'</h5>
 				</div>
 			</div>
       <div id="mappa" class=""></div>
 
       <div class="row conteggi_mappa m-0">
-        <div class="border col-6 text-center">
-          <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
+        <?php if($Regione == "tutteleregioni"){ ?>
+          <div class="border col-6 text-center">
+              <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
+          </div>
+          <div class="border col-6 text-center">
+            <h3 class="d-inline-block"><?php echo get_option('icc_mappa_rete_totale') ?></h3><span class="text-uppercase"> Reti</span>
+          </div>
+      <?php } else {
+          $RegioneMappa = "icc_mappa_realta_".$Regione1; ?>
+
+        <div class="border col-12 text-center">
+            <h3 class="d-inline-block"><?php echo get_option($RegioneMappa) ?></h3><span class="text-uppercase"> Realtà</span>
         </div>
-        <div class="border col-6 text-center">
-          <h3 class="d-inline-block"><?php echo get_option('icc_mappa_rete_totale') ?></h3><span class="text-uppercase"> Reti</span>
-        </div>
+      <?php } ?>
       </div>
     </div><!-- Fine col-6 -->
 
@@ -277,36 +287,57 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
 
   <div class="row">
-    <div class="col-12">
-      <h2>Le reti mappate</h2>
-      <?php
-      //numero realtà per rete
-      $terms = get_terms( array(
-        'taxonomy' => 'rete',
-        'hide_empty' => false,
-      ) );
-      foreach ($terms as $key ) {
-        ?>
-        <form class="pt-2 d-inline-block" method="post" action="<?php echo get_pagenum_link(); ?>">
-          <input name="rete-dropdown" type="hidden" value="<?php echo $key->slug ?>">
-          <input name="submit_button" type="submit" value="<?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?>" class="btn btn-lg btn-outline-dark">
-        </form>
+    <?php if ($Regione == "tutteleregioni"){ ?>
+      <div class="col-12">
+        <h2>Le reti mappate</h2>
         <?php
-      }
-        ?>
+        //numero realtà per rete
+        $terms = get_terms( array(
+          'taxonomy' => 'rete',
+          'hide_empty' => false,
+        ) );
+        foreach ($terms as $key ) {
+          ?>
+          <form class="pt-2 d-inline-block" method="post" action="<?php echo get_pagenum_link(); ?>">
+            <input name="rete-dropdown" type="hidden" value="<?php echo $key->slug ?>">
+            <input name="submit_button" type="submit" value="<?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?>" class="btn btn-lg btn-outline-dark">
+          </form>
+          <?php
+        }
+          ?>
 
-    </div>
+      </div>
+    <?php } ?>
     <div class="col-12">
 
      <?php
+     if ($Regione == "tutteleregioni"){
        $argsMappaArchivio = array(
          'post_type' => 'mappa',
          'orderby' => 'modified',
          'posts_per_page' => 10,
        );
+     }else{
+       $argsMappaArchivio = array(
+         'post_type' => 'mappa',
+         'orderby' => 'modified',
+         'posts_per_page' => 10,
+         'tax_query' => array(
+           array(
+               'taxonomy'=> 'regionemappa',
+               'field'   => 'slug',
+               'terms'		=> $Regione,
+           ),
+         ),
+       );
+     }
        $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
        if($loopMappaArchivio->have_posts()) :
-         echo "<h2 class='mt-3'>Ultime realtà mappate</h2>";
+         if ($Regione == "tutteleregioni"){
+           echo "<h2 class='mt-3'>Ultime realtà mappate</h2>";
+         }else{
+           echo "<h2 class='mt-3'>Ultime realtà mappate in ".get_term_by('slug',$Regione,'regionemappa')->name."</h2>";
+         }
          echo '<div class="row">';
          while ($loopMappaArchivio->have_posts()) : $loopMappaArchivio->the_post();
          ?>
