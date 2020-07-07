@@ -14,6 +14,24 @@ if(!function_exists('mappa_paolo_init')){
   }
 }
 
+add_shortcode( 'ICCmappa', 'mappa_shortcode' );
+
+if(!function_exists('mappa_shortcode')){
+  function mappa_shortcode($atts) {
+    $a = shortcode_atts( array(
+      'regione' => 'tutteleregioni'
+   ), $atts );
+   if(!is_archive()) {
+     ob_start();
+     include 'shortcode.php';
+     return ob_get_clean();
+   } else{
+     include 'shortcode.php';
+     return true;
+   }
+  }
+}
+
 add_action( 'wp_enqueue_scripts', 'mappa_style_scripts' );
 if(!function_exists('mappa_style_scripts')){
   function mappa_style_scripts(){
