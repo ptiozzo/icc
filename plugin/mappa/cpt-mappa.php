@@ -57,7 +57,7 @@
 		"capability_type" => "mappa",
 		"map_meta_cap" => true,
 		"hierarchical" => false,
-		"rewrite" => [ "slug" => "mappa2", "with_front" => true ],
+		"rewrite" => [ "slug" => "mappa", "with_front" => false ],
 		"query_var" => true,
 		"menu_icon" => "dashicons-tagcloud",
 		"supports" => [ "title", "editor", "excerpt","thumbnail", "author" ],
