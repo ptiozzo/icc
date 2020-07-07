@@ -26,7 +26,6 @@ if(!function_exists('mappa_shortcode')){
      include 'shortcode.php';
      return ob_get_clean();
    } else{
-     include 'shortcode.php';
      return true;
    }
   }
@@ -57,7 +56,7 @@ if(!function_exists('mappa_admin_style_scripts')){
   }
 }
 
-add_filter('template_include', 'mappa_archive_template');
+/*add_filter('template_include', 'mappa_archive_template');
 function mappa_archive_template( $template ) {
   if ( is_post_type_archive('mappa') ) {
     $theme_files = array('archive-mappa.php', 'archive-mappa.php');
@@ -70,7 +69,7 @@ function mappa_archive_template( $template ) {
     }
   }
   return $template;
-}
+}*/
 
 add_filter('single_template', 'mappa_single_template');
 function mappa_single_template( $template ) {
