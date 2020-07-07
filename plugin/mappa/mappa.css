@@ -1,0 +1,84 @@
+#mappa{
+  height: 500px;
+}
+@media (min-width:768px) {
+  #mappa{
+    height: 680px
+  }
+}
+
+.single #mappa{
+  height: 400px;
+}
+
+div.mappa{
+  padding: 30px;
+}
+
+.filtri_mappa{
+  background-color: #35A6C3;
+  color: white;
+  padding: 50px 40px;
+}
+
+.mappa hr{
+  border-color: white;
+}
+
+.conteggi_mappa h3{
+  color: #68D8B1;
+  font-size: 39px;
+  font-weight: 900;
+  margin: 0 10px 0 0;
+}
+
+.conteggi_mappa span{
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mappa_reti_numero{
+  font-weight: 900;
+  font-size: 39px;
+}
+
+.mappa_reti_nome{
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/*-----------------------
+SINGLE
+-----------------------*/
+.single .mappa .single__nav__category{
+  background: #35A6C3;
+}
+
+.single .mappa .single__articolo a,
+.single .mappa .card a,
+.single .mappa .single__action{
+  color: #35A6C3;
+}
+
+.mappa .single__action div{
+  height: 30px;
+}
+
+.mappa .mappa_correlati{
+  border: 1px solid;
+  background-color: #f6f6f6;
+  border-color: var(--warning);
+}
+
+.single .mappa .card{
+  background-color: transparent;
+}
+.single .mappa .card-body{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+}
+.single .mappa .card-body a:hover{
+  text-decoration: underline;
+}

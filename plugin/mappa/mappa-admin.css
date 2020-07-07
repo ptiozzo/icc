@@ -1,0 +1,9 @@
+.edit-post-post-status,
+.editor-post-link,
+#wp-admin-bar-new-content,
+#menu-media,
+#menu-posts-mappa li:nth-child(3),
+.page-title-action,
+#wpseo_meta{
+  display: none;
+}

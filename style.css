@@ -227,7 +227,7 @@ div.single a:hover{
 */
 
 
-.fa-instagram{
+header .fa-instagram{
   color: #000;
 }
 header.stripe{
@@ -973,7 +973,7 @@ figcaption{
 
 .single__action{
   position: sticky;
-  top: 40vh;
+  top: 30vh;
 }
 
 @media (max-width: 768px) {
@@ -981,6 +981,7 @@ figcaption{
     position: sticky;
     bottom: 40px;
     background-color: white;
+    z-index: 1000;
   }
 }
 
