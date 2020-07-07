@@ -1,3 +1,11 @@
+<?php get_header();
+
+$daImportare = 50;
+
+if ( ! function_exists( 'post_exists' ) ) {
+    require_once( ABSPATH . 'wp-admin/includes/post.php' );
+}
+?>
 <?php
 
 echo "<h2>IMPORT MAPPA</h2>";
@@ -9,7 +17,7 @@ if (!file_exists($myFile)) {
 }
 if (($handle = fopen($myFile, "r")) !== FALSE) {
   echo "<table style='border: 1px solid grey;'>";
-  while (($data = fgetcsv($handle, 100, ",",'"')) !== FALSE && $row < 10) {
+  while (($data = fgetcsv($handle, 100, ",",'"')) !== FALSE && $row < $daImportare) {
     echo "<tr style='border: 1px solid grey;'>";
     $num = count($data);
     echo "<td style='border: 1px solid grey;'>".$row . "</td>\n";
@@ -93,8 +101,8 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
     echo "</ul></td>";
     //echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//rete
     echo "</tr>";
-
-    if($row == 9){
+    echo "<br>".$data[8].": ".post_exists( ucfirst($data[0]),'','','mappa')."--";
+    if( post_exists( ucfirst($data[0]),'','','mappa') == 0 && $row < $daImportare){
       /* ---------------------
       IMPORT
       --------------------- */
