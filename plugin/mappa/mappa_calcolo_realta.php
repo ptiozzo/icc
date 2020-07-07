@@ -3,6 +3,12 @@ function mappa_calcolo_realta(){
   //numero realtà totali
   $argsMappa = array(
     'post_type' => 'mappa',
+    'meta_query' => array(
+        array(
+        'key' => 'Mappa_Latitudine',
+        'compare'    => 'EXISTS',
+      ),
+    ),
   );
   $loopMappa = new WP_Query( $argsMappa );
   update_option("icc_mappa_realta_totale",$loopMappa->found_posts,"no");
