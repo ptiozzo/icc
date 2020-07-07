@@ -21,14 +21,8 @@ if(!function_exists('mappa_shortcode')){
     $a = shortcode_atts( array(
       'regione' => 'tutteleregioni'
    ), $atts );
-   if(!is_archive()) {
-     ob_start();
-     include 'shortcode.php';
-     return ob_get_clean();
-   } else{
-     include 'shortcode.php';
-     return true;
-   }
+   include 'shortcode.php';
+   return true;
   }
 }
 
