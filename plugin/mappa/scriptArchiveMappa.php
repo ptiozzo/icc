@@ -49,6 +49,18 @@ $filtroLatLong = array(
   'key' => 'Mappa_Latitudine',
   'compare'    => 'EXISTS',
 );
+$realtaSegnalate = 0;
+if(!is_user_logged_in() || $Regione == "tutteleregioni"){
+  $filtroUtente = array(
+    'taxonomy'=> 'stato',
+    'field'    => 'slug',
+    'terms'    => 'utente',
+    'operator' => 'NOT IN',
+  );
+}else{
+  $filtroUtente = "";
+  $realtaSegnalate = 1;
+}
 
 
 $argsMappaArchivio = array(
@@ -61,6 +73,7 @@ $argsMappaArchivio = array(
       $filtroRete,
       $filtroRegione,
       $filtroTipologia,
+      $filtroUtente,
     ),
   'meta_query' => array(
       $filtroLatLong,
@@ -72,6 +85,14 @@ if($Regione == "tutteleregioni"){
 } else{
   $RegioneMappa = "icc_mappa_realta_".$Regione1;
 }
+
+if( $realtaSegnalate == 1){
+  ?>
+  <div class="alert alert-warning" role="alert">
+    Stai visualizzando anche le realtà segnalate dagli utenti e non ancora approvare dalla redazione
+  </div>
+<?php }
+
 if( !$loopMappaArchivio->have_posts()){
   ?>
   <div class="alert alert-danger" role="alert">
