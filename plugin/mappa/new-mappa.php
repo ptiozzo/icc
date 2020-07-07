@@ -14,7 +14,6 @@ if(!is_user_logged_in()){
   <?php
 }
 
-//echo "Tipologia: ". $_POST['tipologia']. " - Regione: ".$_POST['regione']. " - Tematica:" .$_POST['tematica'];
 
 $errors = array();
 
@@ -45,9 +44,6 @@ if( $_POST['submit_button'] ){
     $errors['indirizzo'] = "Devi inserire un indirizzo";
   }
 
-
-
-  //$errors['DEV'] = "Errore generico per sviluppo";
 
   if(0 === count($errors)){
 
@@ -139,7 +135,7 @@ if( $_POST['submit_button'] ){
 
     $url = "/mappa/";
 
-    $to = "ptiozzo@me.com";
+    $to = "webmaster@italiachecambia.org";
     $subject = 'ICC - Nuova Realtà mappata da revisionare: '.$_POST['titolo'];
     $body = "<html><body>";
     $body .= "Ciao <br>";
@@ -197,10 +193,12 @@ if($success != 1 && is_user_logged_in() ){
     $form_sito = $_POST['sito'];
     $form_email = $_POST['email'];
     $form_telefono = $_POST['telefono'];
+    $form_mappa_videoYT = $_POST['Mappa_VideoYT'];
     $form_mappa_FB = $_POST['mappa_FB'];
     $form_mappa_IG = $_POST['mappa_IG'];
     $form_mappa_YT = $_POST['mappa_YT'];
     $form_mappa_IN = $_POST['mappa_IN'];
+    $form_mappa_TW = $_POST['mappa_TW'];
     $form_invia = "Aggiungi realtà sulla mappa";
 
   ?>
@@ -223,7 +221,7 @@ if($success != 1 && is_user_logged_in() ){
     </select>
       <select name="regionemappa" class="custom-select mx-2" >
         <?php
-          $categories = get_terms( array('taxonomy' => 'regionemappa','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
+          $categories = get_terms( array('taxonomy' => 'regionemappa','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC','parent' => 0));
           ?>
           <option value="_tutteleregioni" <?php if ($form_regioni == "_tutteleregioni") {echo 'selected';} ?>>Seleziona la regione</option>
           <?php
@@ -259,12 +257,12 @@ if($success != 1 && is_user_logged_in() ){
       <textarea id="content" class="form-control w-75" type="text" name="content" placeholder="Descrivi la realtà" rows="5"><?php echo $form_content;?></textarea>
       <small id="contentHelp" class="form-text text-muted">Questo sarà la descrizione della realtà.</small>
     </div>
-    <div class="form-group my-2 col-12">
-      <label for="image">Aggiungi un'immagine della tua realtà</label>
-      <input type="file" name="image" class="form-control-file" id="image">
-    </div>
     <div class="col-12">
       <h3>MAPPA</h3>
+      <p>
+        Utilizza la ricerca integrata nella mappa per trovare la realtà e poi clicca per selezionarla.<br>
+        Dovrà compare un popup con riportante "La realà di trova qui".
+      </p>
       <div id="mappa" style="height: 400px;"></div>
       <!-- Load Esri Leaflet from CDN -->
       <script src="https://unpkg.com/esri-leaflet"></script>
@@ -346,8 +344,12 @@ if($success != 1 && is_user_logged_in() ){
       <input id="telefono" class="form-control w-75" type="tel" name="telefono" placeholder="Numero di telefono della realtà" value="<?php echo $form_telefono;?>">
       <small id="telefonoHelp" class="form-text text-muted"></small>
     </div>
+    <div class="form-group my-2 col-12">
+      <label for="image">Aggiungi un'immagine della tua realtà</label>
+      <input type="file" name="image" class="form-control-file" id="image">
+    </div>
     <div class="form-group my-2 col-12 d-block px-0">
-      <input id="Mappa_VideoYT" class="form-control w-75" type="url" name="Mappa_VideoYT" placeholder="Inserisci il link ad un video YouTube di presentazione" value="<?php echo $form_mappa_FB;?>">
+      <input id="Mappa_VideoYT" class="form-control w-75" type="url" name="Mappa_VideoYT" placeholder="Inserisci il link ad un video YouTube di presentazione" value="<?php echo $form_mappa_videoYT;?>">
       <small id="Mappa_VideoYTHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
