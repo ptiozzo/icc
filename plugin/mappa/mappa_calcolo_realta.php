@@ -5,9 +5,17 @@ function mappa_calcolo_realta(){
     'post_type' => 'mappa',
     'post_status' => 'publish',
     'meta_query' => array(
-        array(
+      array(
         'key' => 'Mappa_Latitudine',
         'compare'    => 'EXISTS',
+      ),
+    ),
+    'tax_query' => array(
+      array(
+        'taxonomy'=> 'stato',
+        'field'    => 'slug',
+        'terms'    => 'utente',
+        'operator' => 'NOT IN',
       ),
     ),
   );
