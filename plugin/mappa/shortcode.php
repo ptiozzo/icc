@@ -1,5 +1,3 @@
-<?php get_header();?>
-
 <?php
 $Categoria = 'tuttelecategorie';
 $Rete = 'tuttelereti';
@@ -363,8 +361,3 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
     </div>
   </div>
 </div><!-- Fine mappa -->
-
-
-
-
-<?php get_footer(); ?>
