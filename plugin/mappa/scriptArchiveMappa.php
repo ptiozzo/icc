@@ -45,6 +45,11 @@ if ($Tipologia1 != 'tutteletipologie') {
   $filtroTipologia = '';
 }
 
+$filtroLatLong = array(
+  'key' => 'Mappa_Latitudine',
+  'compare'    => 'EXISTS',
+);
+
 
 $argsMappaArchivio = array(
   'post_type' => array('mappa'),
@@ -57,12 +62,24 @@ $argsMappaArchivio = array(
       $filtroRegione,
       $filtroTipologia,
     ),
+  'meta_query' => array(
+      $filtroLatLong,
+    )
 );
 $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
+if($Regione == "tutteleregioni"){
+  $RegioneMappa = 'icc_mappa_realta_totale';
+} else{
+  $RegioneMappa = "icc_mappa_realta_".$Regione1;
+}
 if( !$loopMappaArchivio->have_posts()){
   ?>
   <div class="alert alert-danger" role="alert">
     Nessuna realtà trovata con questi filtri
+  </div>
+<?php } elseif($loopMappaArchivio->found_posts != get_option($RegioneMappa))  { ?>
+  <div class="alert alert-success" role="alert">
+    <?php echo $loopMappaArchivio->found_posts ?> realtà filtrate
   </div>
 <?php } ?>
 
