@@ -3,6 +3,7 @@ function mappa_calcolo_realta(){
   //numero realtà totali
   $argsMappa = array(
     'post_type' => 'mappa',
+    'post_status' => 'publish',
     'meta_query' => array(
         array(
         'key' => 'Mappa_Latitudine',
