@@ -132,8 +132,8 @@ function icc_custom_import_mappa( $template ) {
 add_action('init', 'mappa_rewrite_rule', 10, 0);
 function mappa_rewrite_rule() {
 
-	add_rewrite_rule( '^regionemappa/([^/]*)/([^/]*)/?', 'index.php?page_id=44544&par1=$matches[1]&par2=$matches[2]','top' );
-  add_rewrite_rule( '^regionemappa/([^/]*)/?', 'index.php?page_id=44544&par1=$matches[1]','top' );
+	add_rewrite_rule( '^mapparegione/([^/]*)/([^/]*)/?', 'index.php?page_id=44544&par1=$matches[1]&par2=$matches[2]','top' );
+  add_rewrite_rule( '^mapparegione/([^/]*)/?', 'index.php?page_id=44544&par1=$matches[1]','top' );
 
 }
 

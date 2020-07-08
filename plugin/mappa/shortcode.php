@@ -95,9 +95,9 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
   if ($Regione == "tutteleregioni" && !get_query_var('par1') ){
     echo "<h1>Mappa Italia che Cambia</h1>";
   } elseif (get_query_var('par2')){
-    echo "<h1>Mappa ".get_term_by('slug',$Provincia1,'regionemappa')->name." che Cambia</h1>";
+    echo "<h1>Mappa ".get_term_by('slug',$Provincia1,'mapparegione')->name." che Cambia</h1>";
   } else {
-    echo "<h1>Mappa ".get_term_by('slug',$Regione1,'regionemappa')->name." che Cambia</h1>";
+    echo "<h1>Mappa ".get_term_by('slug',$Regione1,'mapparegione')->name." che Cambia</h1>";
   }
 
   ?>
@@ -310,7 +310,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
         <?php
         //numero realtà per rete
         $terms = get_terms( array(
-          'taxonomy' => 'rete',
+          'taxonomy' => 'mapparete',
           'hide_empty' => false,
         ) );
         foreach ($terms as $key ) {
@@ -341,7 +341,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
          'posts_per_page' => 10,
          'tax_query' => array(
            array(
-               'taxonomy'=> 'regionemappa',
+               'taxonomy'=> 'mapparegione',
                'field'   => 'slug',
                'terms'		=> $Regione1,
            ),
@@ -353,7 +353,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
          if ($Regione == "tutteleregioni" && !get_query_var('par1')){
            echo "<h2 class='mt-3'>Ultime realtà mappate</h2>";
          }else{
-           echo "<h2 class='mt-3'>Ultime realtà mappate in ".get_term_by('slug',$Regione1,'regionemappa')->name."</h2>";
+           echo "<h2 class='mt-3'>Ultime realtà mappate in ".get_term_by('slug',$Regione1,'mapparegione')->name."</h2>";
          }
          echo '<div class="row">';
          while ($loopMappaArchivio->have_posts()) : $loopMappaArchivio->the_post();
@@ -364,7 +364,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
                <article class="p-0">
                <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php echo get_the_post_thumbnail_url();?>">
                <div class="card-body p-2 text-white">
-                 <div class="date text-capitalize"><?php echo get_the_terms( get_the_ID() , 'regionemappa' )[0]->name; ?></div>
+                 <div class="date text-capitalize"><?php echo get_the_terms( get_the_ID() , 'mapparegione' )[0]->name; ?></div>
                  <h5 class="card-title"><?php echo get_the_title(); ?></h5>
                  <a href="<?php echo the_permalink(); ?>" class="stretched-link"></a>
                </div>
