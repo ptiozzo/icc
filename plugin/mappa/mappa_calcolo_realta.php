@@ -28,13 +28,14 @@ function mappa_calcolo_realta(){
   $terms = get_terms( array(
     'taxonomy' => 'mapparegione',
     'hide_empty' => false,
+    'parent' => 0,
   ) );
   foreach ($terms as $key ) {
     $argsMappa = array(
       'post_type' => 'mappa',
       'tax_query' => array(
           array(
-            'taxonomy' => 'mapparegionemappa',
+            'taxonomy' => 'mapparegione',
             'field'    => 'slug',
             'terms'    => $key->slug,
           ),
