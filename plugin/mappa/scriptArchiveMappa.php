@@ -80,7 +80,7 @@ $argsMappaArchivio = array(
     )
 );
 $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
-if($Regione == "tutteleregioni"){
+if($Regione == "tutteleregioni" && !get_query_var('regione')){
   $mapparegione = 'icc_mappa_realta_totale';
 } else{
   $mapparegione = "icc_mappa_realta_".$Regione1;
@@ -100,7 +100,7 @@ if( !$loopMappaArchivio->have_posts()){
   </div>
 <?php } elseif($loopMappaArchivio->found_posts != get_option($mapparegione))  { ?>
   <div class="alert alert-success" role="alert">
-    <?php echo $loopMappaArchivio->found_posts ?> realtà filtrate
+    <?php echo $loopMappaArchivio->found_posts; ?> realtà filtrate
   </div>
 <?php } ?>
 
