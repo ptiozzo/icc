@@ -23,6 +23,15 @@ if ($loopMappaSenzaLatLong->have_posts()){
   }
 }
 
+if($_SERVER['REQUEST_URI'] == "/mappa/" && (strpos($_SERVER["HTTP_REFERER"],"mappa"))){
+  unset($_SESSION['mappa_categorie']);
+  unset($_SESSION['mappa_rete']);
+  unset($_SESSION['mappa_regione']);
+  unset($_SESSION['mappa_provincia']);
+  unset($_SESSION['mappa_tipologia']);
+  unset($_SESSION['mappa_realta']);
+}
+
 
 $Categoria = 'tuttelecategorie';
 $Rete = 'tuttelereti';
@@ -312,6 +321,11 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
             <input name="nome-realta" type="text" value="<?php if ($Realta1 != '') echo $Realta1; ?>" class="col-6" placeholder="Cerca una realtà">
             <input name="submit_button" type="Submit" value="Applica i filtri" class="btn btn-primary">
             <input name="reset_button" type="Submit" value="Reset filtri" class="btn btn-warning">
+            <?php
+              if(get_query_var('regione') || get_query_var('categoria') || get_query_var('rete') || get_query_var('tipologia')){
+                echo "<a href='/mappa/' class='btn btn-success'>Torna alla mappa</a>";
+              }
+            ?>
           </div>
         </form>
 
