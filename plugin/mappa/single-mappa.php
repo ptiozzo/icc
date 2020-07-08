@@ -172,7 +172,7 @@
                 <script>
 
                   var title = "<?php echo $popupMappa; ?>";
-                  var puntino = L.marker([<?php echo get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( $icc_article_ID , 'stato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
+                  var puntino = L.marker([<?php echo get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( $icc_article_ID , 'mappastato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
                   puntino.bindPopup(title);
                   markers.addLayer(puntino);
 
