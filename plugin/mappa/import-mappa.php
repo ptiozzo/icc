@@ -1,6 +1,6 @@
 <?php get_header();
 
-$daImportare = 50;
+$daImportare = 300;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/post.php' );
@@ -11,98 +11,107 @@ if ( ! function_exists( 'post_exists' ) ) {
 echo "<h2>IMPORT MAPPA</h2>";
 $row = 1;
 $myFile = get_template_directory()."/plugin/mappa/export-mappa.csv";
-echo $myFile;
+echo $myFile."<br>";
 if (!file_exists($myFile)) {
   print 'File not found';
 }
 if (($handle = fopen($myFile, "r")) !== FALSE) {
   echo "<table style='border: 1px solid grey;'>";
-  while (($data = fgetcsv($handle, 100, ",",'"')) !== FALSE && $row < $daImportare) {
-    echo "<tr style='border: 1px solid grey;'>";
-    $num = count($data);
-    echo "<td style='border: 1px solid grey;'>".$row . "</td>\n";
+  while (($data = fgetcsv($handle, 100, ",",'"')) !== FALSE && $row <= $daImportare) {
+    if(post_exists( ucfirst($data[0]),'','','mappa') == 0){
+      echo "<tr style='border: 1px solid grey;'>";
+      $num = count($data);
+      echo "<td style='border: 1px solid grey;'>".$row . "</td>\n";
 
-    $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[8].".jpg";
-    if(!@getimagesize($image)){
-      $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[8].".png";
+      $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[10].".jpg";
       if(!@getimagesize($image)){
-        $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[8].".gif";
+        $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[10].".png";
+        if(!@getimagesize($image)){
+          $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[10].".gif";
+        }
       }
+
+      echo "<td style='border: 1px solid grey;'><img src='".$image."'></td>";
+      echo "<td style='border: 1px solid grey;'>".$data[0] . "</td>\n";//nome realtà
+      echo "<td style='border: 1px solid grey;'>".$data[1] . "</td>\n";//descrizione realtà
+
+      //Tipologia da splittare
+      $var = explode(",",$data[2]);
+      $varNum = count($var)-1;
+      echo "<td style='border: 1px solid grey;'><ul>";
+      for ($i=0; $i < $varNum; $i++) {
+          echo "<li>".$var[$i]."</li>";
+      }
+      echo "</ul></td>";
+      //echo "<td style='border: 1px solid grey;'>".$data[2] . "</td>\n";
+
+      //regione/provincia da splittare
+      $var = explode(",",$data[3]);
+      $varNum = count($var)-1;
+      echo "<td style='border: 1px solid grey;'><ul>";
+      for ($i=0; $i < $varNum; $i++) {
+          echo "<li>".$var[$i]."</li>";
+      }
+      echo "</ul></td>";
+      //echo "<td style='border: 1px solid grey;'>".$data[3] . "</td>\n";
+
+      //Indirizzo da unire
+      $indirizzo = "";
+      if($data[4] != ""){
+        $indirizzo .= $data[4].", ";
+      }
+      if($data[5] != ""){
+        $indirizzo .= $data[5].", ";
+      }
+      if($data[6] != ""){
+        $indirizzo .= $data[6].", ";
+      }
+      if($data[7] != ""){
+        $indirizzo .= $data[7];
+      }
+      echo "<td style='border: 1px solid grey;'>".$indirizzo. "</td>\n"; //indirizzo
+
+      echo "<td style='border: 1px solid grey;'>".$data[8] . "</td>\n";//lat
+      echo "<td style='border: 1px solid grey;'>".$data[9] . "</td>\n";//long
+
+
+      echo "<td style='border: 1px solid grey;'>".$data[10] . "</td>\n";//slug
+      echo "<td style='border: 1px solid grey;'>".$data[11] . "</td>\n";//mail
+      echo "<td style='border: 1px solid grey;'>".$data[12] . "</td>\n";//telfono
+      echo "<td style='border: 1px solid grey;'>".$data[13] . "</td>\n";//sito
+      echo "<td style='border: 1px solid grey;'>".$data[14] . "</td>\n";//FB
+      echo "<td style='border: 1px solid grey;'>".$data[15] . "</td>\n";//Twitter
+
+      //da splittare Stato
+      $var = explode(",",$data[16]);
+      $varNum = count($var)-1;
+      echo "<td style='border: 1px solid grey;'><ul>";
+      for ($i=0; $i < $varNum; $i++) {
+          echo "<li>".$var[$i]."</li>";
+      }
+
+      //echo "<td style='border: 1px solid grey;'>".$data[14] . "</td>\n";//Visto da noi/viaggio
+
+
+      echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//Identificativo video YT
+      echo "<td style='border: 1px solid grey;'>".$data[18] . "</td>\n";//Approfondisci
+
+      //rete da splittare
+      $var = explode(",",$data[19]);
+      $varNum = count($var)-1;
+      echo "<td style='border: 1px solid grey;'><ul>";
+      for ($i=0; $i < $varNum; $i++) {
+          echo "<li>".$var[$i]."</li>";
+      }
+      echo "</ul></td>";
+      //echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//rete
+      echo "</tr>";
     }
-
-    echo "<td style='border: 1px solid grey;'><img src='".$image."'></td>";
-    echo "<td style='border: 1px solid grey;'>".$data[0] . "</td>\n";//nome realtà
-    echo "<td style='border: 1px solid grey;'>".$data[1] . "</td>\n";//descrizione realtà
-
-    //Tipologia da splittare
-    $var = explode(",",$data[2]);
-    $varNum = count($var)-1;
-    echo "<td style='border: 1px solid grey;'><ul>";
-    for ($i=0; $i < $varNum; $i++) {
-        echo "<li>".$var[$i]."</li>";
-    }
-    echo "</ul></td>";
-    //echo "<td style='border: 1px solid grey;'>".$data[2] . "</td>\n";
-
-    //regione/provincia da splittare
-    $var = explode(",",$data[3]);
-    $varNum = count($var)-1;
-    echo "<td style='border: 1px solid grey;'><ul>";
-    for ($i=0; $i < $varNum; $i++) {
-        echo "<li>".$var[$i]."</li>";
-    }
-    echo "</ul></td>";
-    //echo "<td style='border: 1px solid grey;'>".$data[3] . "</td>\n";
-
-    //Indirizzo da unire
-    $indirizzo = "";
-    if($data[4] != ""){
-      $indirizzo .= $data[4].", ";
-    }
-    if($data[5] != ""){
-      $indirizzo .= $data[5].", ";
-    }
-    if($data[6] != ""){
-      $indirizzo .= $data[6].", ";
-    }
-    if($data[7] != ""){
-      $indirizzo .= $data[7];
-    }
-    echo "<td style='border: 1px solid grey;'>".$indirizzo. "</td>\n"; //indirizzo
-
-    echo "<td style='border: 1px solid grey;'>".$data[8] . "</td>\n";//slug
-    echo "<td style='border: 1px solid grey;'>".$data[9] . "</td>\n";//mail
-    echo "<td style='border: 1px solid grey;'>".$data[10] . "</td>\n";//telfono
-    echo "<td style='border: 1px solid grey;'>".$data[11] . "</td>\n";//sito
-    echo "<td style='border: 1px solid grey;'>".$data[12] . "</td>\n";//FB
-    echo "<td style='border: 1px solid grey;'>".$data[13] . "</td>\n";//Twitter
-
-    //da splittare Stato
-    $var = explode(",",$data[14]);
-    $varNum = count($var)-1;
-    echo "<td style='border: 1px solid grey;'><ul>";
-    for ($i=0; $i < $varNum; $i++) {
-        echo "<li>".$var[$i]."</li>";
-    }
-
-    //echo "<td style='border: 1px solid grey;'>".$data[14] . "</td>\n";//Visto da noi/viaggio
+    echo "<!-- --".$data[10].": ".post_exists( ucfirst($data[0]),'','','mappa')."-- -->";
 
 
-    echo "<td style='border: 1px solid grey;'>".$data[15] . "</td>\n";//Identificativo video YT
-    echo "<td style='border: 1px solid grey;'>".$data[16] . "</td>\n";//Approfondisci
 
-    //rete da splittare
-    $var = explode(",",$data[17]);
-    $varNum = count($var)-1;
-    echo "<td style='border: 1px solid grey;'><ul>";
-    for ($i=0; $i < $varNum; $i++) {
-        echo "<li>".$var[$i]."</li>";
-    }
-    echo "</ul></td>";
-    //echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//rete
-    echo "</tr>";
-    echo "<br>".$data[8].": ".post_exists( ucfirst($data[0]),'','','mappa')."--";
-    if( post_exists( ucfirst($data[0]),'','','mappa') == 0 && $row < $daImportare){
+    if( post_exists( ucfirst($data[0]),'','','mappa') == 0 && $row <= $daImportare){
       /* ---------------------
       IMPORT
       --------------------- */
@@ -111,8 +120,8 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         'post_title' => ucfirst($data[0]),
         'post_content' => $content,
         //'post_content' => 'test',
-        'post_status' => 'pending',
-        'post_name' => $data[8],
+        'post_status' => 'publish',
+        'post_name' => $data[10],
         'post_type' => 'mappa',
         'comment_status' => 'close',
       );
@@ -132,20 +141,32 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
            $var[$i] == "Profit" ||
            $var[$i] == "Pubblico" ||
            $var[$i] == "Ditta individuale" ||
+           $var[$i] == "Ass. di promozione sociale (APS)" ||
            $var[$i] == "Società a responsabilità limitata (SRL)" ||
+           $var[$i] == "Associazione" ||
+           $var[$i] == "Associazione Culturale" ||
+           $var[$i] == "Associazione sportiva dilettantistica (ASD)" ||
+           $var[$i] == "Cooperativa sociale" ||
+           $var[$i] == "Informale" ||
+           $var[$i] == "Organizzazione di volontariato (ODV)" ||
+           $var[$i] == "Società cooperativa" ||
+           $var[$i] == "Società in nome collettivo (SNC)" ||
+           $var[$i] == "Società per azioni" ||
+           $var[$i] == "Società Semplice" ||
+           $var[$i] == "Trust" ||
            $var[$i] == "Privato"){
             if($tipologia == 1){
-              wp_set_object_terms($post_id,$var[$i],'tipologia');
+              wp_set_object_terms($post_id,$var[$i],'mappatipologia');
               $tipologia++;
             } else {
-              wp_set_object_terms($post_id,$var[$i],'tipologia',true);
+              wp_set_object_terms($post_id,$var[$i],'mappatipologia',true);
             }
           }else{
             if($categoria == 1){
-              wp_set_object_terms($post_id,$var[$i],'categoria');
+              wp_set_object_terms($post_id,$var[$i],'mappacategoria');
               $categoria++;
             } else {
-              wp_set_object_terms($post_id,$var[$i],'categoria',true);
+              wp_set_object_terms($post_id,$var[$i],'mappacategoria',true);
             }
           }
         }
@@ -158,37 +179,37 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         for ($i=0; $i < $varNum; $i++) {
           $var[$i] = trim($var[$i]);
           if($i == 0){
-            wp_set_object_terms($post_id,$var[$i],'regionemappa');
+            wp_set_object_terms($post_id,$var[$i],'mapparegione');
           } else {
-            wp_set_object_terms($post_id,$var[$i],'regionemappa',true);
+            wp_set_object_terms($post_id,$var[$i],'mapparegione',true);
           }
         }
       }
 
       //stato da splittare
-      $var = explode(",",$data[14]);
+      $var = explode(",",$data[16]);
       $varNum = count($var)-1;
       if ($varNum >= 1){
         for ($i=0; $i < $varNum; $i++) {
           $var[$i] = trim($var[$i]);
           if($i == 0){
-            wp_set_object_terms($post_id,$var[$i],'stato');
+            wp_set_object_terms($post_id,$var[$i],'mappastato');
           } else {
-            wp_set_object_terms($post_id,$var[$i],'stato',true);
+            wp_set_object_terms($post_id,$var[$i],'mappastato',true);
           }
         }
       }
 
       //rete
-      $var = explode(",",$data[17]);
+      $var = explode(",",$data[19]);
       $varNum = count($var)-1;
       if ($varNum >= 1){
         for ($i=0; $i < $varNum; $i++) {
           $var[$i] = trim($var[$i]);
           if($i == 0){
-            wp_set_object_terms($post_id,$var[$i],'rete');
+            wp_set_object_terms($post_id,$var[$i],'mapparete');
           } else {
-            wp_set_object_terms($post_id,$var[$i],'rete',true);
+            wp_set_object_terms($post_id,$var[$i],'mapparete',true);
           }
         }
       }
@@ -271,27 +292,32 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
 
       //update_post_meta($post_id, "Mappa_Latitudine", $_POST["Mappa_Latitudine"]);
       //update_post_meta($post_id, "Mappa_Longitudine", $_POST["Mappa_Longitudine"]);
-
+      if($data[9]) {
+          update_post_meta($post_id, "Mappa_Latitudine", $data[9]);
+      }
+      if($data[8]) {
+          update_post_meta($post_id, "Mappa_Longitudine", $data[8]);
+      }
       if($indirizzo) {
           update_post_meta($post_id, "Mappa_Indirizzo", $indirizzo);
       }
+      if($data[13]) {
+          update_post_meta($post_id, "Mappa_Sito", $data[13]);
+      }
       if($data[11]) {
-          update_post_meta($post_id, "Mappa_Sito", $data[11]);
-      }
-      if($data[9]) {
-          update_post_meta($post_id, "Mappa_Email", $data[9]);
-      }
-      if($data[10]) {
-          update_post_meta($post_id, "Mappa_Telefono", $data[10]);
+          update_post_meta($post_id, "Mappa_Email", $data[11]);
       }
       if($data[12]) {
-          update_post_meta($post_id, "Mappa_FB", $data[12]);
+          update_post_meta($post_id, "Mappa_Telefono", $data[12]);
       }
-      if($data[13]) {
-          update_post_meta($post_id, "mappa_TW", $data[13]);
+      if($data[14]) {
+          update_post_meta($post_id, "Mappa_FB", $data[14]);
       }
       if($data[15]) {
-          update_post_meta($post_id, "Mappa_VideoYT", $data[15]);
+          update_post_meta($post_id, "mappa_TW", $data[15]);
+      }
+      if($data[17]) {
+          update_post_meta($post_id, "Mappa_VideoYT", $data[17]);
       }
 
 

@@ -56,21 +56,6 @@ if(!function_exists('mappa_admin_style_scripts')){
   }
 }
 
-/*add_filter('template_include', 'mappa_archive_template');
-function mappa_archive_template( $template ) {
-  if ( is_post_type_archive('mappa') ) {
-    $theme_files = array('archive-mappa.php', 'archive-mappa.php');
-    $exists_in_theme = locate_template($theme_files, false);
-    echo $exists_in_theme;
-    if ( $exists_in_theme != '' ) {
-      return $exists_in_theme;
-    } else {
-      return dirname( __FILE__ ) . '/archive-mappa.php';
-    }
-  }
-  return $template;
-}*/
-
 add_filter('single_template', 'mappa_single_template');
 function mappa_single_template( $template ) {
   if ( get_post_type() == "mappa" ) {
@@ -143,5 +128,28 @@ function icc_custom_import_mappa( $template ) {
   }
   return $template;
 }
+
+add_filter( 'query_vars', 'mappa_register_query_vars' );
+function mappa_register_query_vars( $vars ) {
+	$vars[] = 'regione';
+  $vars[] = 'provincia';
+  $vars[] = 'categoria';
+  $vars[] = 'rete';
+  $vars[] = 'tipologia';
+	return $vars;
+}
+
+
+add_action('init', 'mappa_rewrite_rule', 10, 0);
+function mappa_rewrite_rule() {
+
+	add_rewrite_rule( '^mapparegione/([^/]*)/([^/]*)/?', 'index.php?page_id=44544&regione=$matches[1]&provincia=$matches[2]','top' );
+  add_rewrite_rule( '^mapparegione/([^/]*)/?', 'index.php?page_id=44544&regione=$matches[1]','top' );
+  add_rewrite_rule( '^mappacategoria/([^/]*)/?', 'index.php?page_id=44544&categoria=$matches[1]','top' );
+  add_rewrite_rule( '^mapparete/([^/]*)/?', 'index.php?page_id=44544&rete=$matches[1]','top' );
+  add_rewrite_rule( '^mappatipologia/([^/]*)/?', 'index.php?page_id=44544&tipologia=$matches[1]','top' );
+
+}
+
 
 ?>

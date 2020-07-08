@@ -56,14 +56,14 @@ if( $_POST['submit_button'] ){
         'comment_status' => 'open'
   		);
       $post_id = wp_insert_post($new_post);
-      wp_set_object_terms($post_id,$_POST['regionemappa'],'regionemappa');
-      wp_set_object_terms($post_id,"utente",'stato');
+      wp_set_object_terms($post_id,$_POST['regionemappa'],'mapparegione');
+      wp_set_object_terms($post_id,"utente",'mappastato');
 
       if($_POST["categoria"] != "tuttelecategorie") {
-        wp_set_object_terms($post_id,$_POST['categoria'],'categoria');
+        wp_set_object_terms($post_id,$_POST['categoria'],'mappacategoria');
       }
       if($_POST["tipologia"] != "tutteletipologie") {
-        wp_set_object_terms($post_id,$_POST['tipologia'],'tipologia');
+        wp_set_object_terms($post_id,$_POST['tipologia'],'mappatipologia');
       }
 
       if($_POST["Mappa_Latitudine"] != "") {

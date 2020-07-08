@@ -4,7 +4,7 @@ QUERY E SCRIPT PER MAPPA
 ----------- */
 if($Categoria1 != 'tuttelecategorie'){
   $filtroCategoria = array(
-    'taxonomy' => 'categoria',
+    'taxonomy' => 'mappacategoria',
     'field'    => 'slug',
     'terms'    => $Categoria1,
   );
@@ -13,7 +13,7 @@ if($Categoria1 != 'tuttelecategorie'){
 }
 if($Rete1 != 'tuttelereti'){
   $filtroRete =  array(
-    'taxonomy' => 'rete',
+    'taxonomy' => 'mapparete',
     'field'    => 'slug',
     'terms'    => $Rete1,
   );
@@ -22,13 +22,13 @@ if($Rete1 != 'tuttelereti'){
 }
 if ($Provincia1 != 'tutteleprovince'){
   $filtroRegione = array(
-    'taxonomy' => 'regionemappa',
+    'taxonomy' => 'mapparegione',
     'field'    => 'slug',
     'terms'    => $Provincia1,
   );
 } elseif ($Regione1 != 'tutteleregioni'){
   $filtroRegione = array(
-    'taxonomy' => 'regionemappa',
+    'taxonomy' => 'mapparegione',
     'field'    => 'slug',
     'terms'    => $Regione1,
   );
@@ -37,7 +37,7 @@ if ($Provincia1 != 'tutteleprovince'){
 }
 if ($Tipologia1 != 'tutteletipologie') {
   $filtroTipologia = array(
-    'taxonomy' => 'tipologia',
+    'taxonomy' => 'mappatipologia',
     'field'    => 'slug',
     'terms'    => $Tipologia1,
   );
@@ -52,7 +52,7 @@ $filtroLatLong = array(
 $realtaSegnalate = 0;
 if(!is_user_logged_in() || $Regione == "tutteleregioni"){
   $filtroUtente = array(
-    'taxonomy'=> 'stato',
+    'taxonomy'=> 'mappastato',
     'field'    => 'slug',
     'terms'    => 'utente',
     'operator' => 'NOT IN',
@@ -80,10 +80,10 @@ $argsMappaArchivio = array(
     )
 );
 $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
-if($Regione == "tutteleregioni"){
-  $RegioneMappa = 'icc_mappa_realta_totale';
+if($Regione == "tutteleregioni" && !get_query_var('regione')){
+  $mapparegione = 'icc_mappa_realta_totale';
 } else{
-  $RegioneMappa = "icc_mappa_realta_".$Regione1;
+  $mapparegione = "icc_mappa_realta_".$Regione1;
 }
 
 if( $realtaSegnalate == 1){
@@ -98,9 +98,9 @@ if( !$loopMappaArchivio->have_posts()){
   <div class="alert alert-danger" role="alert">
     Nessuna realtà trovata con questi filtri
   </div>
-<?php } elseif($loopMappaArchivio->found_posts != get_option($RegioneMappa))  { ?>
+<?php } elseif($loopMappaArchivio->found_posts != get_option($mapparegione))  { ?>
   <div class="alert alert-success" role="alert">
-    <?php echo $loopMappaArchivio->found_posts ?> realtà filtrate
+    <?php echo $loopMappaArchivio->found_posts; ?> realtà filtrate
   </div>
 <?php } ?>
 
@@ -145,7 +145,7 @@ while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
     <script>
 
       var title = "<?php echo $popupMappa; ?>";
-      var puntino = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( get_the_ID() , 'stato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
+      var puntino = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( get_the_ID() , 'mappastato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
       puntino.bindPopup(title);
       markers.addLayer(puntino);
 

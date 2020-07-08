@@ -20,7 +20,7 @@ $args = [
 	"show_in_menu" => true,
 	"show_in_nav_menus" => true,
 	"query_var" => true,
-	"rewrite" => [ 'slug' => 'categoria', 'with_front' => true,  'hierarchical' => true, ],
+	"rewrite" => [ 'slug' => 'mappacategoria', 'with_front' => true,  'hierarchical' => true, ],
 	"show_admin_column" => true,
 	"show_in_rest" => true,
 	"rest_base" => "categoria",
@@ -28,7 +28,7 @@ $args = [
 	'map_meta_cap' => true,
 	"show_in_quick_edit" => true,
 	];
-register_taxonomy( "categoria", [ "mappa" ], $args );
+register_taxonomy( "mappacategoria", [ "mappa" ], $args );
 
 /**
  * Taxonomy: Rete.
@@ -50,7 +50,7 @@ $args = [
 	"show_in_menu" => true,
 	"show_in_nav_menus" => true,
 	"query_var" => true,
-	"rewrite" => [ 'slug' => 'rete', 'with_front' => true,  'hierarchical' => true, ],
+	"rewrite" => [ 'slug' => 'mapparete', 'with_front' => true,  'hierarchical' => true, ],
 	"show_admin_column" => true,
 	"show_in_rest" => true,
 	"rest_base" => "rete",
@@ -58,7 +58,7 @@ $args = [
 	'map_meta_cap' => true,
 	"show_in_quick_edit" => true,
 	];
-	register_taxonomy( "rete", [ "mappa" ], $args );
+	register_taxonomy( "mapparete", [ "mappa" ], $args );
 
 	/**
 	 * Taxonomy: Regioni.
@@ -80,78 +80,78 @@ $args = [
 		"show_in_menu" => true,
 		"show_in_nav_menus" => true,
 		"query_var" => true,
-		"rewrite" => [ 'slug' => 'regionemappa', 'with_front' => true,  'hierarchical' => true, ],
+		"rewrite" => [ 'slug' => 'mapparegione', 'with_front' => true,  'hierarchical' => true, ],
 		"show_admin_column" => true,
 		"show_in_rest" => true,
-		"rest_base" => "regionemappa",
+		"rest_base" => "mapparegione",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
     'map_meta_cap' => true,
 		"show_in_quick_edit" => true,
 		];
-	register_taxonomy( "regionemappa", [ "mappa" ], $args );
+	register_taxonomy( "mapparegione", [ "mappa" ], $args );
 
-	if(term_exists( 'abruzzo', 'regionemappa' ) !== 0){
-		wp_insert_term('Abruzzo','regionemappa',array('slug' => 'abruzzo' ) );
+	if(term_exists( 'abruzzo', 'mapparegione' ) !== 0){
+		wp_insert_term('Abruzzo','mapparegione',array('slug' => 'abruzzo' ) );
 	}
-	if(term_exists( 'basilicata', 'regionemappa' ) !== 0){
-		wp_insert_term('Basilica','regionemappa',array('slug' => 'basilicata' ) );
+	if(term_exists( 'basilicata', 'mapparegione' ) !== 0){
+		wp_insert_term('Basilicata','mapparegione',array('slug' => 'basilicata' ) );
 	}
-	if(term_exists( 'calabria', 'regionemappa' ) !== 0){
-		wp_insert_term('Calabria','regionemappa',array('slug' => 'calabria' ) );
+	if(term_exists( 'calabria', 'mapparegione' ) !== 0){
+		wp_insert_term('Calabria','mapparegione',array('slug' => 'calabria' ) );
 	}
-	if(term_exists( 'campania', 'regionemappa' ) !== 0){
-		wp_insert_term('Campania','regionemappa',array('slug' => 'campania' ) );
+	if(term_exists( 'campania', 'mapparegione' ) !== 0){
+		wp_insert_term('Campania','mapparegione',array('slug' => 'campania' ) );
 	}
-	if(term_exists( 'emilia-romagna', 'regionemappa' ) !== 0){
-		wp_insert_term('Emilia-Romagna','regionemappa',array('slug' => 'emilia-romagna' ) );
+	if(term_exists( 'emilia-romagna', 'mapparegione' ) !== 0){
+		wp_insert_term('Emilia-Romagna','mapparegione',array('slug' => 'emilia-romagna' ) );
 	}
-	if(term_exists( 'friuliveneziagiulia', 'regionemappa' ) !== 0){
-		wp_insert_term('Friuli Venezia Giulia','regionemappa',array('slug' => 'friuliveneziagiulia' ) );
+	if(term_exists( 'friuliveneziagiulia', 'mapparegione' ) !== 0){
+		wp_insert_term('Friuli Venezia Giulia','mapparegione',array('slug' => 'friuliveneziagiulia' ) );
 	}
-	if(term_exists( 'lazio', 'regionemappa' ) !== 0){
-		wp_insert_term('Lazio','regionemappa',array('slug' => 'lazio' ) );
+	if(term_exists( 'lazio', 'mapparegione' ) !== 0){
+		wp_insert_term('Lazio','mapparegione',array('slug' => 'lazio' ) );
 	}
-	if(term_exists( 'liguria', 'regionemappa' ) !== 0){
-		wp_insert_term('Liguria','regionemappa',array('slug' => 'liguria' ) );
+	if(term_exists( 'liguria', 'mapparegione' ) !== 0){
+		wp_insert_term('Liguria','mapparegione',array('slug' => 'liguria' ) );
 	}
-	if(term_exists( 'lombardia', 'regionemappa' ) !== 0){
-		wp_insert_term('Lombardia','regionemappa',array('slug' => 'lombardia' ) );
+	if(term_exists( 'lombardia', 'mapparegione' ) !== 0){
+		wp_insert_term('Lombardia','mapparegione',array('slug' => 'lombardia' ) );
 	}
-	if(term_exists( 'marche', 'regionemappa' ) !== 0){
-		wp_insert_term('Marche','regionemappa',array('slug' => 'marche' ) );
+	if(term_exists( 'marche', 'mapparegione' ) !== 0){
+		wp_insert_term('Marche','mapparegione',array('slug' => 'marche' ) );
 	}
-	if(term_exists( 'molise', 'regionemappa' ) !== 0){
-		wp_insert_term('Molise','regionemappa',array('slug' => 'molise' ) );
+	if(term_exists( 'molise', 'mapparegione' ) !== 0){
+		wp_insert_term('Molise','mapparegione',array('slug' => 'molise' ) );
 	}
-	if(term_exists( 'piemonte', 'regionemappa' ) !== 0){
-		wp_insert_term('Piemonte','regionemappa',array('slug' => 'piemonte' ) );
+	if(term_exists( 'piemonte', 'mapparegione' ) !== 0){
+		wp_insert_term('Piemonte','mapparegione',array('slug' => 'piemonte' ) );
 	}
-	if(term_exists( 'puglia', 'regionemappa' ) !== 0){
-		wp_insert_term('Puglia','regionemappa',array('slug' => 'puglia' ) );
+	if(term_exists( 'puglia', 'mapparegione' ) !== 0){
+		wp_insert_term('Puglia','mapparegione',array('slug' => 'puglia' ) );
 	}
-	if(term_exists( 'sardegna', 'regionemappa' ) !== 0){
-		wp_insert_term('Sardegna','regionemappa',array('slug' => 'sardegna' ) );
+	if(term_exists( 'sardegna', 'mapparegione' ) !== 0){
+		wp_insert_term('Sardegna','mapparegione',array('slug' => 'sardegna' ) );
 	}
-	if(term_exists( 'sicilia', 'regionemappa' ) !== 0){
-		wp_insert_term('Sicilia','regionemappa',array('slug' => 'sicilia' ) );
+	if(term_exists( 'sicilia', 'mapparegione' ) !== 0){
+		wp_insert_term('Sicilia','mapparegione',array('slug' => 'sicilia' ) );
 	}
-	if(term_exists( 'toscana', 'regionemappa' ) !== 0){
-		wp_insert_term('Toscana','regionemappa',array('slug' => 'toscana' ) );
+	if(term_exists( 'toscana', 'mapparegione' ) !== 0){
+		wp_insert_term('Toscana','mapparegione',array('slug' => 'toscana' ) );
 	}
-	if(term_exists( 'toscana', 'regionemappa' ) !== 0){
-		wp_insert_term('Toscana','regionemappa',array('slug' => 'toscana' ) );
+	if(term_exists( 'toscana', 'mapparegione' ) !== 0){
+		wp_insert_term('Toscana','mapparegione',array('slug' => 'toscana' ) );
 	}
-	if(term_exists( 'trentinoaltoadige', 'regionemappa' ) !== 0){
-		wp_insert_term('Trentino-Alto Adige','regionemappa',array('slug' => 'trentinoaltoadige' ) );
+	if(term_exists( 'trentinoaltoadige', 'mapparegione' ) !== 0){
+		wp_insert_term('Trentino-Alto Adige','mapparegione',array('slug' => 'trentinoaltoadige' ) );
 	}
-	if(term_exists( 'umbria', 'regionemappa' ) !== 0){
-		wp_insert_term('Umbria','regionemappa',array('slug' => 'umbria' ) );
+	if(term_exists( 'umbria', 'mapparegione' ) !== 0){
+		wp_insert_term('Umbria','mapparegione',array('slug' => 'umbria' ) );
 	}
-	if(term_exists( 'valledaosta', 'regionemappa' ) !== 0){
-		wp_insert_term('Valle d\'Aosta','regionemappa',array('slug' => 'valledaosta' ) );
+	if(term_exists( 'valledaosta', 'mapparegione' ) !== 0){
+		wp_insert_term('Valle d\'Aosta','mapparegione',array('slug' => 'valledaosta' ) );
 	}
-	if(term_exists( 'veneto', 'regionemappa' ) !== 0){
-		wp_insert_term('Veneto','regionemappa',array('slug' => 'veneto' ) );
+	if(term_exists( 'veneto', 'mapparegione' ) !== 0){
+		wp_insert_term('Veneto','mapparegione',array('slug' => 'veneto' ) );
 	}
 
 	/**
@@ -174,7 +174,7 @@ $args = [
 		"show_in_menu" => true,
 		"show_in_nav_menus" => true,
 		"query_var" => true,
-		"rewrite" => [ 'slug' => 'tipologia', 'with_front' => true,  'hierarchical' => true, ],
+		"rewrite" => [ 'slug' => 'mappatipologia', 'with_front' => true,  'hierarchical' => true, ],
 		"show_admin_column" => true,
 		"show_in_rest" => true,
 		"rest_base" => "tipologia",
@@ -182,7 +182,7 @@ $args = [
 		'map_meta_cap' => true,
 		"show_in_quick_edit" => true,
 		];
-		register_taxonomy( "tipologia", [ "mappa" ], $args );
+		register_taxonomy( "mappatipologia", [ "mappa" ], $args );
 
 	/**
 	 * Taxonomy: Stato.
@@ -204,7 +204,7 @@ $args = [
 		"show_in_menu" => true,
 		"show_in_nav_menus" => true,
 		"query_var" => true,
-		"rewrite" => [ 'slug' => 'stato', 'with_front' => true,  'hierarchical' => true, ],
+		"rewrite" => [ 'slug' => 'mappastato', 'with_front' => true,  'hierarchical' => true, ],
 		"show_admin_column" => true,
 		"show_in_rest" => true,
 		"rest_base" => "stato",
@@ -212,16 +212,16 @@ $args = [
 		'map_meta_cap' => true,
 		"show_in_quick_edit" => true,
 		];
-	register_taxonomy( "stato", [ "mappa" ], $args );
+	register_taxonomy( "mappastato", [ "mappa" ], $args );
 
-	if(term_exists( 'utente', 'stato' ) !== 0){
-		wp_insert_term('Utente','stato',array('slug' => 'utente' ) );
+	if(term_exists( 'utente', 'mappastato' ) !== 0){
+		wp_insert_term('Utente','mappastato',array('slug' => 'utente' ) );
 	}
-	if(term_exists( 'redazione', 'stato' ) !== 0){
-		wp_insert_term('Redazione','stato',array('slug' => 'redazione' ) );
+	if(term_exists( 'redazione', 'mappastato' ) !== 0){
+		wp_insert_term('Redazione','mappastato',array('slug' => 'redazione' ) );
 	}
-	if(term_exists( 'chiuso', 'stato' ) !== 0){
-		wp_insert_term('Chiuso','stato',array('slug' => 'chiuso' ) );
+	if(term_exists( 'chiuso', 'mappastato' ) !== 0){
+		wp_insert_term('Chiuso','mappastato',array('slug' => 'chiuso' ) );
 	}
 
 

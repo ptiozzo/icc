@@ -1,4 +1,29 @@
 <?php
+
+$filtroLatLong = array(
+  'key' => 'Mappa_Latitudine',
+  'compare'    => 'NOT EXISTS',
+);
+
+$argsMappaSenzaLatLong = array(
+  'post_type' => array('mappa'),
+  'posts_per_page' => -1,
+  'meta_query' => array(
+      $filtroLatLong,
+    )
+);
+$loopMappaSenzaLatLong = new WP_Query( $argsMappaSenzaLatLong );
+
+if ($loopMappaSenzaLatLong->have_posts()){
+  echo $loopMappaSenzaLatLong->found_posts."<br>";
+  while ($loopMappaSenzaLatLong->have_posts()) {
+    $loopMappaSenzaLatLong->the_post();
+    echo get_the_title()."-";
+    echo get_the_ID()."<br>";
+  }
+}
+
+
 $Categoria = 'tuttelecategorie';
 $Rete = 'tuttelereti';
 $Regione = $a['regione'];
@@ -37,6 +62,33 @@ if($_POST['submit_button']){
   unset($_SESSION['mappa_realta']);
 }
 
+
+if(get_query_var('provincia')){
+  $Regione1 = get_query_var('regione');
+  $_SESSION['mappa_regione'] = $Regione1;
+  $Provincia1 = get_query_var('provincia');
+  $_SESSION['mappa_provincia'] = $Provincia1;
+}elseif(get_query_var('regione')){
+  $Regione1 = get_query_var('regione');
+  $_SESSION['mappa_regione'] = $Regione1;
+}
+
+if(get_query_var('categoria')){
+  $Categoria1 = get_query_var('categoria');
+  $_SESSION['mappa_categorie'] = $Categoria1;
+}
+
+if(get_query_var('rete')){
+  $Rete1 = get_query_var('rete');
+  $_SESSION['mappa_rete'] = $Rete1;
+}
+
+if(get_query_var('tipologia')){
+  $Tipologia1 = get_query_var('tipologia');
+  $_SESSION['mappa_tipologia'] = $Tipologia1;
+}
+
+
   if($_SESSION['mappa_categorie']){
     $Categoria1 = $_SESSION['mappa_categorie'];
   } else {
@@ -68,18 +120,23 @@ if($_POST['submit_button']){
     $Realta1 = $Realta;
   }
 
-
 echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione1." - Provincia = ".$Provincia1." - Tipologia = ".$Tipologia1 ." - Realtà = ".$Realta1."-->";
 
 ?>
 
 <div class="mappa">
   <?php
-  if ($Regione == "tutteleregioni"){
-    echo "<h1>Mappa Italia che Cambia</h1>";
+  echo "<h1>";
+  if ($Regione == "tutteleregioni" && !get_query_var('regione') ){
+    echo "Mappa Italia che Cambia";
   } else {
-    echo "<h1>Mappa ".get_term_by('slug',$Regione,'regionemappa')->name." che Cambia</h1>";
+    echo "Mappa ".get_term_by('slug',$Regione1,'mapparegione')->name." che Cambia";
   }
+
+  if(get_query_var('provincia') || get_query_var('categoria') || get_query_var('rete') || get_query_var('tipologia')){
+    echo " <span class='text-danger font-italic h6'>filtrata<span>";
+  }
+  echo "</h1>";
 
   ?>
   <div class="row mt-3 mb-2">
@@ -92,7 +149,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
       <div id="mappa" class=""></div>
 
       <div class="row conteggi_mappa m-0">
-        <?php if($Regione == "tutteleregioni"){ ?>
+        <?php if($Regione == "tutteleregioni" && !get_query_var('regione')){ ?>
           <div class="border col-6 text-center">
               <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
           </div>
@@ -119,11 +176,11 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
         <form class="form-row" action="<?php echo get_pagenum_link(); ?>" method="post">
           <!-- Filtro categoria -->
           <div class="form-group col-6 my-1">
-            <select name="categoria-dropdown" class="custom-select">
-              <option value="tuttelecategorie" <?php if ($Categoria1 == 'tuttelecategorie') {echo 'selected';}?> ><?php echo 'Tutti i contenuti'; ?></option>
+            <select name="categoria-dropdown" class="custom-select" <?php if(get_query_var('categoria')){ echo 'disabled'; } ?>>
+              <option value="tuttelecategorie" <?php if ($Categoria1 == 'tuttelecategorie') {echo 'selected';}?> ><?php echo 'Tutti le categorie'; ?></option>
               <?php
                 $terms = get_terms( array(
-                  'taxonomy' => 'categoria',
+                  'taxonomy' => 'mappacategoria',
                   'hide_empty' => false,
                 ) );
 
@@ -140,11 +197,11 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
           <!-- Filtro rete -->
           <div class="form-group col-6 my-1">
-            <select name="rete-dropdown" class="custom-select">
+            <select name="rete-dropdown" class="custom-select" <?php if(get_query_var('rete')){ echo 'disabled'; } ?>>
               <option value="tuttelereti" <?php if ($Rete1 == 'tuttelereti') {echo 'selected';}?> ><?php echo 'Tutte le reti'; ?></option>
               <?php
                 $terms = get_terms( array(
-                  'taxonomy' => 'rete',
+                  'taxonomy' => 'mapparete',
                   'hide_empty' => false,
                 ) );
 
@@ -162,11 +219,16 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
           <?php
           if($Regione == "tutteleregioni"){ ?>
             <div class="form-group col-6 my-1">
-              <select name="regione-dropdown" class="custom-select">
+              <?php
+              if(get_query_var('regione')){
+                echo "<input type='hidden' name='regione-dropdown' value='".get_query_var('regione')."'>";
+              }
+               ?>
+              <select name="regione-dropdown" class="custom-select" <?php if(get_query_var('regione')){ echo 'disabled'; } ?>>
                 <option value="tutteleregioni" <?php if ($Regione1 == 'tutteleregioni') {echo 'selected';}?> ><?php echo 'Tutte le regioni'; ?></option>
                 <?php
                   $terms = get_terms( array(
-                    'taxonomy' => 'regionemappa',
+                    'taxonomy' => 'mapparegione',
                     'hide_empty' => false,
                     'parent'        => 0,
                   ) );
@@ -183,16 +245,16 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
           <?php } ?>
           <!-- Filtro provincia -->
           <?php
-            if(get_term_by('slug',$Regione1,'regionemappa')->term_id != ""){
+            if(get_term_by('slug',$Regione1,'mapparegione')->term_id != "" || get_query_var('regione')){
               ?>
                 <div class="form-group col-6 my-1">
-                  <select name="provincia-dropdown" class="custom-select">
+                  <select name="provincia-dropdown" class="custom-select" <?php if(get_query_var('provincia')) echo 'disabled'; ?>>
                     <option value="tutteleprovince" <?php if ($Provincia1 == 'tutteleprovince') {echo 'selected';}?> ><?php echo 'Tutte le province'; ?></option>
                     <?php
                       $terms = get_terms( array(
-                        'taxonomy' => 'regionemappa',
+                        'taxonomy' => 'mapparegione',
                         'hide_empty' => false,
-                        'parent'        => get_term_by('slug',$Regione1,'regionemappa')->term_id,
+                        'parent'        => get_term_by('slug',$Regione1,'mapparegione')->term_id,
                       ) );
                       foreach ($terms as $category) {
                         $option = '<option value="'.$category->slug.'" ';
@@ -209,17 +271,17 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
             if($Regione1 == "tutteleregioni"){
               $terms = get_terms( array(
-                'taxonomy' => 'regionemappa',
+                'taxonomy' => 'mapparegione',
                 'hide_empty' => false,
                 'parent'        => 0,
               ) );
             } else {
               if( $parent != "")
-                $parent = get_term_by('slug',$Regione1,'regionemappa')->term_id;
+                $parent = get_term_by('slug',$Regione1,'mapparegione')->term_id;
               $terms = get_terms( array(
-                'taxonomy' => 'regionemappa',
+                'taxonomy' => 'mapparegione',
                 'hide_empty' => false,
-                'parent'        => get_term_by('slug',$Regione1,'regionemappa')->term_id,
+                'parent'        => get_term_by('slug',$Regione1,'mapparegione')->term_id,
               ) );
             }
 
@@ -228,11 +290,11 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
           <!-- Filtro tipologia -->
           <div class="form-group col-6 my-1">
-            <select name="tipologia-dropdown" class="custom-select">
+            <select name="tipologia-dropdown" class="custom-select" <?php if(get_query_var('tipologia')){ echo 'disabled'; } ?>>
               <option value="tutteletipologie" <?php if ($Tipologia1 == 'tutteletipologie') {echo 'selected';}?> ><?php echo 'Tutte le tipologie'; ?></option>
               <?php
                 $terms = get_terms( array(
-                  'taxonomy' => 'tipologia',
+                  'taxonomy' => 'mappatipologia',
                   'hide_empty' => false,
                 ) );
 
@@ -285,13 +347,13 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
 
   <div class="row">
-    <?php if ($Regione == "tutteleregioni"){ ?>
+    <?php if ($Regione == "tutteleregioni" && !get_query_var('regione')){ ?>
       <div class="col-12">
         <h2>Le reti mappate</h2>
         <?php
         //numero realtà per rete
         $terms = get_terms( array(
-          'taxonomy' => 'rete',
+          'taxonomy' => 'mapparete',
           'hide_empty' => false,
         ) );
         foreach ($terms as $key ) {
@@ -309,7 +371,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
     <div class="col-12">
 
      <?php
-     if ($Regione == "tutteleregioni"){
+     if ($Regione == "tutteleregioni" && !get_query_var('regione')){
        $argsMappaArchivio = array(
          'post_type' => 'mappa',
          'orderby' => 'modified',
@@ -322,19 +384,19 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
          'posts_per_page' => 10,
          'tax_query' => array(
            array(
-               'taxonomy'=> 'regionemappa',
+               'taxonomy'=> 'mapparegione',
                'field'   => 'slug',
-               'terms'		=> $Regione,
+               'terms'		=> $Regione1,
            ),
          ),
        );
      }
        $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
        if($loopMappaArchivio->have_posts()) :
-         if ($Regione == "tutteleregioni"){
+         if ($Regione == "tutteleregioni" && !get_query_var('regione')){
            echo "<h2 class='mt-3'>Ultime realtà mappate</h2>";
          }else{
-           echo "<h2 class='mt-3'>Ultime realtà mappate in ".get_term_by('slug',$Regione,'regionemappa')->name."</h2>";
+           echo "<h2 class='mt-3'>Ultime realtà mappate in ".get_term_by('slug',$Regione1,'mapparegione')->name."</h2>";
          }
          echo '<div class="row">';
          while ($loopMappaArchivio->have_posts()) : $loopMappaArchivio->the_post();
@@ -345,7 +407,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
                <article class="p-0">
                <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php echo get_the_post_thumbnail_url();?>">
                <div class="card-body p-2 text-white">
-                 <div class="date text-capitalize"><?php echo get_the_terms( get_the_ID() , 'regionemappa' )[0]->name; ?></div>
+                 <div class="date text-capitalize"><?php echo get_the_terms( get_the_ID() , 'mapparegione' )[0]->name; ?></div>
                  <h5 class="card-title"><?php echo get_the_title(); ?></h5>
                  <a href="<?php echo the_permalink(); ?>" class="stretched-link"></a>
                </div>
