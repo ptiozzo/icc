@@ -1,13 +1,4 @@
 <?php
-if(get_query_var('regione')){
-  echo "Regione: ".get_query_var('regione');
-}
-if(get_query_var('provincia')){
-  echo " - Provincia: ".get_query_var('provincia');
-}
-if(get_query_var('categoria')){
-  echo " - Categoria: ".get_query_var('Categoria');
-}
 
 $Categoria = 'tuttelecategorie';
 $Rete = 'tuttelereti';
@@ -16,8 +7,6 @@ $Provincia = 'tutteleprovince';
 $Tipologia = 'tutteletipologie';
 $Realta = '';
 $resetProvincia = 0;
-
-echo "-Sessione: ".$_SESSION['mappa_regione']." - POST".$_POST['regione-dropdown'];
 
 if($_POST['submit_button']){
   $Categoria1 = $_POST['categoria-dropdown'];
@@ -59,6 +48,22 @@ if(get_query_var('provincia')){
   $Regione1 = get_query_var('regione');
   $_SESSION['mappa_regione'] = $Regione1;
 }
+
+if(get_query_var('categoria')){
+  $Categoria1 = get_query_var('categoria');
+  $_SESSION['mappa_categorie'] = $Categoria1;
+}
+
+if(get_query_var('rete')){
+  $Rete1 = get_query_var('rete');
+  $_SESSION['mappa_rete'] = $Rete1;
+}
+
+if(get_query_var('tipologia')){
+  $Tipologia1 = get_query_var('tipologia');
+  $_SESSION['mappa_tipologia'] = $Tipologia1;
+}
+
 
   if($_SESSION['mappa_categorie']){
     $Categoria1 = $_SESSION['mappa_categorie'];
@@ -104,7 +109,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
     echo "Mappa ".get_term_by('slug',$Regione1,'mapparegione')->name." che Cambia";
   }
 
-  if(get_query_var('provincia')){
+  if(get_query_var('provincia') || get_query_var('categoria') || get_query_var('rete') || get_query_var('tipologia')){
     echo " <span class='text-danger font-italic h6'>filtrata<span>";
   }
   echo "</h1>";
@@ -147,7 +152,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
         <form class="form-row" action="<?php echo get_pagenum_link(); ?>" method="post">
           <!-- Filtro categoria -->
           <div class="form-group col-6 my-1">
-            <select name="categoria-dropdown" class="custom-select">
+            <select name="categoria-dropdown" class="custom-select" <?php if(get_query_var('categoria')){ echo 'disabled'; } ?>>
               <option value="tuttelecategorie" <?php if ($Categoria1 == 'tuttelecategorie') {echo 'selected';}?> ><?php echo 'Tutti le categorie'; ?></option>
               <?php
                 $terms = get_terms( array(
@@ -168,7 +173,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
           <!-- Filtro rete -->
           <div class="form-group col-6 my-1">
-            <select name="rete-dropdown" class="custom-select">
+            <select name="rete-dropdown" class="custom-select" <?php if(get_query_var('rete')){ echo 'disabled'; } ?>>
               <option value="tuttelereti" <?php if ($Rete1 == 'tuttelereti') {echo 'selected';}?> ><?php echo 'Tutte le reti'; ?></option>
               <?php
                 $terms = get_terms( array(
@@ -216,7 +221,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
           <?php } ?>
           <!-- Filtro provincia -->
           <?php
-            if(get_term_by('slug',$Regione1,'mappa')->term_id != "" || get_query_var('regione')){
+            if(get_term_by('slug',$Regione1,'mapparegione')->term_id != "" || get_query_var('regione')){
               ?>
                 <div class="form-group col-6 my-1">
                   <select name="provincia-dropdown" class="custom-select" <?php if(get_query_var('provincia')) echo 'disabled'; ?>>
@@ -261,7 +266,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
           <!-- Filtro tipologia -->
           <div class="form-group col-6 my-1">
-            <select name="tipologia-dropdown" class="custom-select">
+            <select name="tipologia-dropdown" class="custom-select" <?php if(get_query_var('tipologia')){ echo 'disabled'; } ?>>
               <option value="tutteletipologie" <?php if ($Tipologia1 == 'tutteletipologie') {echo 'selected';}?> ><?php echo 'Tutte le tipologie'; ?></option>
               <?php
                 $terms = get_terms( array(
