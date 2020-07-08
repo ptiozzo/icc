@@ -44,7 +44,7 @@
 		wp_insert_term('Abruzzo','regione',array('slug' => 'abruzzo' ) );
 	}
 	if(term_exists( 'basilicata', 'regione' ) !== 0){
-		wp_insert_term('Basilica','regione',array('slug' => 'basilicata' ) );
+		wp_insert_term('Basilicata','regione',array('slug' => 'basilicata' ) );
 	}
 	if(term_exists( 'calabria', 'regione' ) !== 0){
 		wp_insert_term('Calabria','regione',array('slug' => 'calabria' ) );
