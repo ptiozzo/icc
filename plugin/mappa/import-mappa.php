@@ -1,6 +1,6 @@
 <?php get_header();
 
-$daImportare = 200;
+$daImportare = 300;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/post.php' );
