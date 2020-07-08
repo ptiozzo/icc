@@ -1,4 +1,11 @@
 <?php
+if(get_query_var('par1')){
+  echo "Par1: ".get_query_var('par1');
+}
+if(get_query_var('par2')){
+  echo " - Par2: ".get_query_var('par2');
+}
+
 $Categoria = 'tuttelecategorie';
 $Rete = 'tuttelereti';
 $Regione = $a['regione'];
@@ -6,6 +13,16 @@ $Provincia = 'tutteleprovince';
 $Tipologia = 'tutteletipologie';
 $Realta = '';
 $resetProvincia = 0;
+
+if(get_query_var('par2')){
+  $Regione1 = get_query_var('par1');
+  $_SESSION['mappa_regione'] = $Regione1;
+  $Provincia1 = get_query_var('par2');
+  $_SESSION['mappa_provincia'] = $Provincia1;
+}elseif(get_query_var('par1')){
+  $Regione1 = get_query_var('par1');
+  $_SESSION['mappa_regione'] = $Regione1;
+}
 
 if($_POST['submit_button']){
   $Categoria1 = $_POST['categoria-dropdown'];
@@ -75,10 +92,12 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
 <div class="mappa">
   <?php
-  if ($Regione == "tutteleregioni"){
+  if ($Regione == "tutteleregioni" && !get_query_var('par1') ){
     echo "<h1>Mappa Italia che Cambia</h1>";
+  } elseif (get_query_var('par2')){
+    echo "<h1>Mappa ".get_term_by('slug',$Provincia1,'regionemappa')->name." che Cambia</h1>";
   } else {
-    echo "<h1>Mappa ".get_term_by('slug',$Regione,'regionemappa')->name." che Cambia</h1>";
+    echo "<h1>Mappa ".get_term_by('slug',$Regione1,'regionemappa')->name." che Cambia</h1>";
   }
 
   ?>
@@ -285,7 +304,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
 
 
   <div class="row">
-    <?php if ($Regione == "tutteleregioni"){ ?>
+    <?php if ($Regione == "tutteleregioni" && !get_query_var('par1')){ ?>
       <div class="col-12">
         <h2>Le reti mappate</h2>
         <?php
@@ -309,7 +328,7 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
     <div class="col-12">
 
      <?php
-     if ($Regione == "tutteleregioni"){
+     if ($Regione == "tutteleregioni" && !get_query_var('par1')){
        $argsMappaArchivio = array(
          'post_type' => 'mappa',
          'orderby' => 'modified',
@@ -324,17 +343,17 @@ echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione
            array(
                'taxonomy'=> 'regionemappa',
                'field'   => 'slug',
-               'terms'		=> $Regione,
+               'terms'		=> $Regione1,
            ),
          ),
        );
      }
        $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
        if($loopMappaArchivio->have_posts()) :
-         if ($Regione == "tutteleregioni"){
+         if ($Regione == "tutteleregioni" && !get_query_var('par1')){
            echo "<h2 class='mt-3'>Ultime realtà mappate</h2>";
          }else{
-           echo "<h2 class='mt-3'>Ultime realtà mappate in ".get_term_by('slug',$Regione,'regionemappa')->name."</h2>";
+           echo "<h2 class='mt-3'>Ultime realtà mappate in ".get_term_by('slug',$Regione1,'regionemappa')->name."</h2>";
          }
          echo '<div class="row">';
          while ($loopMappaArchivio->have_posts()) : $loopMappaArchivio->the_post();

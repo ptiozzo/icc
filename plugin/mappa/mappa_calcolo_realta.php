@@ -12,7 +12,7 @@ function mappa_calcolo_realta(){
     ),
     'tax_query' => array(
       array(
-        'taxonomy'=> 'stato',
+        'taxonomy'=> 'mappastato',
         'field'    => 'slug',
         'terms'    => 'utente',
         'operator' => 'NOT IN',
@@ -26,7 +26,7 @@ function mappa_calcolo_realta(){
 
   //numero realtà per regione
   $terms = get_terms( array(
-    'taxonomy' => 'regionemappa',
+    'taxonomy' => 'mapparegione',
     'hide_empty' => false,
   ) );
   foreach ($terms as $key ) {
@@ -34,7 +34,7 @@ function mappa_calcolo_realta(){
       'post_type' => 'mappa',
       'tax_query' => array(
           array(
-            'taxonomy' => 'regionemappa',
+            'taxonomy' => 'mapparegionemappa',
             'field'    => 'slug',
             'terms'    => $key->slug,
           ),
@@ -49,7 +49,7 @@ function mappa_calcolo_realta(){
 
   //numero realtà per rete
   $terms = get_terms( array(
-    'taxonomy' => 'rete',
+    'taxonomy' => 'mapparete',
     'hide_empty' => false,
   ) );
   $reti = 0;
@@ -59,7 +59,7 @@ function mappa_calcolo_realta(){
       'post_type' => 'mappa',
       'tax_query' => array(
           array(
-            'taxonomy' => 'rete',
+            'taxonomy' => 'mapparete',
             'field'    => 'slug',
             'terms'    => $key->slug,
           ),

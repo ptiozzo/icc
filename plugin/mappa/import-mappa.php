@@ -135,17 +135,17 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
            $var[$i] == "Società a responsabilità limitata (SRL)" ||
            $var[$i] == "Privato"){
             if($tipologia == 1){
-              wp_set_object_terms($post_id,$var[$i],'tipologia');
+              wp_set_object_terms($post_id,$var[$i],'mappatipologia');
               $tipologia++;
             } else {
-              wp_set_object_terms($post_id,$var[$i],'tipologia',true);
+              wp_set_object_terms($post_id,$var[$i],'mappatipologia',true);
             }
           }else{
             if($categoria == 1){
-              wp_set_object_terms($post_id,$var[$i],'categoria');
+              wp_set_object_terms($post_id,$var[$i],'mappacategoria');
               $categoria++;
             } else {
-              wp_set_object_terms($post_id,$var[$i],'categoria',true);
+              wp_set_object_terms($post_id,$var[$i],'mappacategoria',true);
             }
           }
         }
@@ -158,9 +158,9 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         for ($i=0; $i < $varNum; $i++) {
           $var[$i] = trim($var[$i]);
           if($i == 0){
-            wp_set_object_terms($post_id,$var[$i],'regionemappa');
+            wp_set_object_terms($post_id,$var[$i],'mapparegione');
           } else {
-            wp_set_object_terms($post_id,$var[$i],'regionemappa',true);
+            wp_set_object_terms($post_id,$var[$i],'mapparegione',true);
           }
         }
       }
@@ -172,9 +172,9 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         for ($i=0; $i < $varNum; $i++) {
           $var[$i] = trim($var[$i]);
           if($i == 0){
-            wp_set_object_terms($post_id,$var[$i],'stato');
+            wp_set_object_terms($post_id,$var[$i],'mappastato');
           } else {
-            wp_set_object_terms($post_id,$var[$i],'stato',true);
+            wp_set_object_terms($post_id,$var[$i],'mappastato',true);
           }
         }
       }
@@ -186,9 +186,9 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         for ($i=0; $i < $varNum; $i++) {
           $var[$i] = trim($var[$i]);
           if($i == 0){
-            wp_set_object_terms($post_id,$var[$i],'rete');
+            wp_set_object_terms($post_id,$var[$i],'mapparete');
           } else {
-            wp_set_object_terms($post_id,$var[$i],'rete',true);
+            wp_set_object_terms($post_id,$var[$i],'mapparete',true);
           }
         }
       }

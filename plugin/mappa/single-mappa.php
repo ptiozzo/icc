@@ -3,7 +3,7 @@
   if(have_posts()) : while(have_posts()) : the_post();
   $icc_article_ID = get_the_ID();
 
-  $term1 = "regionemappa";
+  $term1 = "mapparegione";
   $terms = get_the_terms( $post->ID , $term1 );
   foreach ( $terms as $term ) {
     if($term->slug == "liguria")
@@ -41,7 +41,7 @@
       				<a href="/mappa/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i><?php echo $TornaMamma; ?></a>
       			  <?php
 
-              $term1 = "regionemappa";
+              $term1 = "mapparegione";
               $terms = get_the_terms( $post->ID , $term1 );
               if ($terms != ""){
                 echo "Regione: ";
@@ -50,7 +50,7 @@
                 }
               }
 
-              $term1 = "categoria";
+              $term1 = "mappacategoria";
               $terms = get_the_terms( $post->ID , $term1 );
               if ($terms != ""){
                 echo "Categoria: ";
@@ -59,7 +59,7 @@
                 }
               }
 
-              $term1 = "rete";
+              $term1 = "mapparete";
               $terms = get_the_terms( $post->ID , $term1 );
               if ($terms != ""){
                 echo "Rete: ";
@@ -68,7 +68,7 @@
                 }
               }
 
-              $term1 = "tipologia";
+              $term1 = "mappatipologia";
               $terms = get_the_terms( $post->ID , $term1 );
               if ($terms != ""){
                 echo "Tipologia: ";
