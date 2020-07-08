@@ -129,11 +129,20 @@ function icc_custom_import_mappa( $template ) {
   return $template;
 }
 
+add_filter( 'query_vars', 'mappa_register_query_vars' );
+function mappa_register_query_vars( $vars ) {
+	$vars[] = 'regione';
+  $vars[] = 'provincia';
+  $vars[] = 'rete';
+	return $vars;
+}
+
+
 add_action('init', 'mappa_rewrite_rule', 10, 0);
 function mappa_rewrite_rule() {
 
-	add_rewrite_rule( '^mapparegione/([^/]*)/([^/]*)/?', 'index.php?page_id=44544&par1=$matches[1]&par2=$matches[2]','top' );
-  add_rewrite_rule( '^mapparegione/([^/]*)/?', 'index.php?page_id=44544&par1=$matches[1]','top' );
+	add_rewrite_rule( '^mapparegione/([^/]*)/([^/]*)/?', 'index.php?page_id=44544&regione=$matches[1]&provincia=$matches[2]','top' );
+  add_rewrite_rule( '^mapparegione/([^/]*)/?', 'index.php?page_id=44544&regione=$matches[1]','top' );
 
 }
 
