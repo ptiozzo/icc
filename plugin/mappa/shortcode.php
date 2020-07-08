@@ -1,5 +1,29 @@
 <?php
 
+$filtroLatLong = array(
+  'key' => 'Mappa_Latitudine',
+  'compare'    => 'NOT EXISTS',
+);
+
+$argsMappaSenzaLatLong = array(
+  'post_type' => array('mappa'),
+  'posts_per_page' => -1,
+  'meta_query' => array(
+      $filtroLatLong,
+    )
+);
+$loopMappaSenzaLatLong = new WP_Query( $argsMappaSenzaLatLong );
+
+if ($loopMappaSenzaLatLong->have_posts()){
+  echo $loopMappaSenzaLatLong->found_posts."<br>";
+  while ($loopMappaSenzaLatLong->have_posts()) {
+    $loopMappaSenzaLatLong->the_post();
+    echo get_the_title()."-";
+    echo get_the_ID()."<br>";
+  }
+}
+
+
 $Categoria = 'tuttelecategorie';
 $Rete = 'tuttelereti';
 $Regione = $a['regione'];
