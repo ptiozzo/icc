@@ -1,7 +1,7 @@
 <?php
 
 
-/* Salvo Latitudine e Longitudine Mappa
+/* Salvo metadata Mappa
 -----------------------------*/
 
 add_action("save_post", "save_mappa_meta_box", 10, 2);
