@@ -2,7 +2,9 @@
 /* -----------
 QUERY E SCRIPT PER MAPPA
 ----------- */
+$filtro = 0;
 if($Categoria1 != 'tuttelecategorie'){
+  $filtro = 1;
   $filtroCategoria = array(
     'taxonomy' => 'mappacategoria',
     'field'    => 'slug',
@@ -12,6 +14,7 @@ if($Categoria1 != 'tuttelecategorie'){
   $filtroCategoria = '';
 }
 if($Rete1 != 'tuttelereti'){
+  $filtro = 1;
   $filtroRete =  array(
     'taxonomy' => 'mapparete',
     'field'    => 'slug',
@@ -21,12 +24,14 @@ if($Rete1 != 'tuttelereti'){
   $filtroRete = '';
 }
 if ($Provincia1 != 'tutteleprovince'){
+  $filtro = 1;
   $filtroRegione = array(
     'taxonomy' => 'mapparegione',
     'field'    => 'slug',
     'terms'    => $Provincia1,
   );
 } elseif ($Regione1 != 'tutteleregioni'){
+  $filtro = 1;
   $filtroRegione = array(
     'taxonomy' => 'mapparegione',
     'field'    => 'slug',
@@ -36,6 +41,7 @@ if ($Provincia1 != 'tutteleprovince'){
   $filtroRegione = '';
 }
 if ($Tipologia1 != 'tutteletipologie') {
+  $filtro = 1;
   $filtroTipologia = array(
     'taxonomy' => 'mappatipologia',
     'field'    => 'slug',
@@ -129,35 +135,68 @@ if( !$loopMappaArchivio->have_posts()){
   });
   </script>
 <?php
-$tuttiIPuntini = "[";
-while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
+
+/* --------------
+AGGIUNGO PUNTINI
+-------------- */
+if(get_transient('icc_mappa_tuttipuntini') && $filtro == 0){
+  $tuttiIPuntini = get_transient('icc_mappa_tuttipuntini');
+  echo "<!--Puntini da transient-->";
+}else{
+  $tuttiIPuntini = "[";
+  while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
+
+    if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
+      $tuttiIPuntini .= "[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],";
+    }
+
+  endwhile;
+  $tuttiIPuntini .= "]";
+  if ($filtro == 0){
+    set_transient('icc_mappa_tuttipuntini',$tuttiIPuntini);
+    set_transient('icc_mappa_tuttipuntini_lastupdate',strtotime(date('Y-m-d H:i:s')));
+  }
+}
+
+/* --------------
+AGGIUNGO POPUP
+-------------- */
+if(get_transient('icc_mappa_tuttipopup') && $filtro == 0){
+  echo "<!--Popup da transient-->";
+  echo get_transient('icc_mappa_tuttipopup');
+}else{
+  $popupMappaScript = "";
+  while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
   $popupMappa = "";
   if ( has_post_thumbnail() ){
-      $popupMappa .= "<img class='img-fluid' src='".get_the_post_thumbnail_url('')."' /><br>";
+      $popupMappa .= "<img class='img-fluid' src='".get_the_post_thumbnail_url('')."' ><br>";
   }
-  $popupMappa .= "<h3 class='h5'>".get_the_title()."</h5>";
+  $popupMappa .= "<h3 class='h5'>".get_the_title()."</h3>";
   $popupMappa .= get_the_excerpt();
   $popupMappa .= "<br>";
   $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
   if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
-    $tuttiIPuntini .= "[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],";
-    ?>
-    <script>
-
-      var title = "<?php echo $popupMappa; ?>";
-      var puntino = L.marker([<?php echo get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( get_the_ID(), 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( get_the_ID() , 'mappastato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
-      puntino.bindPopup(title);
-      markers.addLayer(puntino);
-
-    </script>
-    <?php
+    $popupMappaScript .= "<script>\r\n";
+      $popupMappaScript .= "var title = \"". $popupMappa."\";\r\n";
+      $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{title: title,";
+        if(get_the_terms( get_the_ID() , 'mappastato' )[0]->slug == "utente" ){
+          $popupMappaScript .= "icon: redIcon";
+        }
+      $popupMappaScript .= "});\r\n";
+      $popupMappaScript .= "puntino.bindPopup(title);\r\n";
+      $popupMappaScript .= "markers.addLayer(puntino);\r\n";
+    $popupMappaScript .= "</script>";
   }
+  endwhile;
+  if ($filtro == 0){
+    set_transient('icc_mappa_tuttipopup',$popupMappaScript);
+    set_transient('icc_mappa_tuttipopup_lastupdate',strtotime(date('Y-m-d H:i:s')));
+  }
+  echo $popupMappaScript;
+}
 
 
 
-
-endwhile;
-$tuttiIPuntini .= "]";
 ?>
 <script>
   map.addLayer(markers);
