@@ -75,6 +75,65 @@ function mappa_calcolo_realta(){
   //numero di reti
   update_option("icc_mappa_rete_totale",$reti,'no');
 
+  $filtroLatLong = array(
+    'key' => 'Mappa_Latitudine',
+    'compare'    => 'EXISTS',
+  );
+
+  $argsMappaArchivio = array(
+    'post_type' => array('mappa'),
+    'posts_per_page' => -1,
+    's' => $Realta1,
+    'meta_query' => array(
+        $filtroLatLong,
+      )
+  );
+
+  $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
+  if($loopMappaArchivio->have_posts()){
+
+    //Imposto transient per tutti i puntini
+    $tuttiIPuntini = "[";
+    while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
+
+      if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
+        $tuttiIPuntini .= "[".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).", ".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],";
+      }
+
+    endwhile;
+    $tuttiIPuntini .= "]";
+    set_transient('icc_mappa_tuttipuntini',$tuttiIPuntini);
+    set_transient('icc_mappa_tuttipuntini_lastupdate',strtotime(date('Y-m-d H:i:s')));
+
+    //Imposto transient per tutti i popup
+    while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
+    $popupMappa = "";
+    if ( has_post_thumbnail() ){
+        $popupMappa .= "<img class='img-fluid' src='".get_the_post_thumbnail_url('')."' ><br>";
+    }
+    $popupMappa .= "<h3 class='h5'>".get_the_title()."</h3>";
+    $popupMappa .= get_the_excerpt();
+    $popupMappa .= "<br>";
+    $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
+    if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
+      $popupMappaScript .= "<script>\r\n";
+        $popupMappaScript .= "var title = \"". $popupMappa."\";\r\n";
+        $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{title: title,";
+          if(get_the_terms( get_the_ID() , 'mappastato' )[0]->slug == "utente" ){
+            $popupMappaScript .= "icon: redIcon";
+          }
+        $popupMappaScript .= "});\r\n";
+        $popupMappaScript .= "puntino.bindPopup(title);\r\n";
+        $popupMappaScript .= "markers.addLayer(puntino);\r\n";
+      $popupMappaScript .= "</script>";
+    }
+    endwhile;
+    set_transient('icc_mappa_tuttipopup',$popupMappaScript);
+    set_transient('icc_mappa_tuttipopup_lastupdate',strtotime(date('Y-m-d H:i:s')));
+  }
+
+
+
 }
 
  ?>
