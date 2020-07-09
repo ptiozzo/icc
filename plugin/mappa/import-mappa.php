@@ -1,6 +1,6 @@
 <?php get_header();
 
-$daImportare = 300;
+$daImportare = 800;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/post.php' );
@@ -154,6 +154,14 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
            $var[$i] == "Società per azioni" ||
            $var[$i] == "Società Semplice" ||
            $var[$i] == "Trust" ||
+           $var[$i] == "Fondazione" ||
+           $var[$i] == "Cooperativa agricola" ||
+           $var[$i] == "Cooperativa sociale mista" ||
+           $var[$i] == "Organizzazione non goverativa (ONG)" ||
+           $var[$i] == "Pubblica Amministrazione" ||
+           $var[$i] == "Società a responsabilità limitata semplificata" ||
+           $var[$i] == "Società di persone" ||
+           $var[$i] == "Società in accomandita semplice (SAS)" ||
            $var[$i] == "Privato"){
             if($tipologia == 1){
               wp_set_object_terms($post_id,$var[$i],'mappatipologia');
@@ -327,6 +335,7 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
   }
   echo "</table>";
   fclose($handle);
+  mappa_calcolo_realta();
 } else {
   echo "<p>Non riesco ad aprire il file!</p>";
 }
