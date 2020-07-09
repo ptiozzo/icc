@@ -23,16 +23,6 @@ if ($loopMappaSenzaLatLong->have_posts()){
   }
 }
 
-if($_SERVER['REQUEST_URI'] == "/mappa/" && (strpos($_SERVER["HTTP_REFERER"],"mappa"))){
-  unset($_SESSION['mappa_categorie']);
-  unset($_SESSION['mappa_rete']);
-  unset($_SESSION['mappa_regione']);
-  unset($_SESSION['mappa_provincia']);
-  unset($_SESSION['mappa_tipologia']);
-  unset($_SESSION['mappa_realta']);
-}
-
-
 $Categoria = 'tuttelecategorie';
 $Rete = 'tuttelereti';
 $Regione = $a['regione'];
@@ -41,10 +31,21 @@ $Tipologia = 'tutteletipologie';
 $Realta = '';
 $resetProvincia = 0;
 
+//reset sessione
+if($_SERVER['REQUEST_URI'] == "/mappa/" && (strpos($_SERVER["HTTP_REFERER"],"mappa"))){
+  unset($_SESSION['mappa_categorie']);
+  unset($_SESSION['mappa_rete']);
+  $regionePrecedente = $_SESSION['mappa_regione'];
+  unset($_SESSION['mappa_regione']);
+  unset($_SESSION['mappa_provincia']);
+  unset($_SESSION['mappa_tipologia']);
+  unset($_SESSION['mappa_realta']);
+}
+
 if($_POST['submit_button']){
   $Categoria1 = $_POST['categoria-dropdown'];
   $Rete1 = $_POST['rete-dropdown'];
-  if($_POST['regione-dropdown'] != $_SESSION['mappa_regione']){
+  if($_POST['regione-dropdown'] != $regionePrecedente){
     $resetProvincia = 1;
   }
   $Regione1 = $_POST['regione-dropdown'];
@@ -70,7 +71,6 @@ if($_POST['submit_button']){
   unset($_SESSION['mappa_tipologia']);
   unset($_SESSION['mappa_realta']);
 }
-
 
 if(get_query_var('provincia')){
   $Regione1 = get_query_var('regione');
