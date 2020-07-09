@@ -26,7 +26,7 @@ function mappa_meta_box_markup($post)
   <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
   <script>
   function daIndirizzoACoordinate() {
-    L.esri.Geocoding.geocode().text('<?php echo get_post_meta($post->ID, 'Mappa_Indirizzo', true); ?>').run(function (err, results, response) {
+    L.esri.Geocoding.geocode().text(document.getElementById("Mappa_Indirizzo").value).run(function (err, results, response) {
       if (err) {
         console.log(err);
         return;
@@ -41,7 +41,7 @@ function mappa_meta_box_markup($post)
   </script>
 
   <label>Indirizzo Realtà</label>
-  <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Indirizzo" value="<?php echo get_post_meta($post->ID, 'Mappa_Indirizzo', true);?>">
+  <input id="Mappa_Indirizzo" style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Indirizzo" value="<?php echo get_post_meta($post->ID, 'Mappa_Indirizzo', true);?>">
   <label>Sito Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Sito" value="<?php echo get_post_meta($post->ID, 'Mappa_Sito', true);?>">
   <label>Email Realtà</label>
