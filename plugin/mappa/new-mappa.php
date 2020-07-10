@@ -218,7 +218,6 @@ if($success != 1 && is_user_logged_in() ){
         }
       ?>
     </select>
-    </select>
       <select name="regionemappa" class="custom-select mx-2" >
         <?php
           $categories = get_terms( array('taxonomy' => 'regionemappa','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC','parent' => 0));
