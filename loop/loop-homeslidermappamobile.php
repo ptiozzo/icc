@@ -94,7 +94,7 @@ if ($loopMappaArchivio->have_posts()) {
           }
           ?>
             <article class="border-0 relta__mappata p-0 <?php if ($i%2 == 0) {echo "mb-7px";}?>">
-              <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-fluid p-0" alt="<?php echo get_the_title(); ?>">
+              <img src="<?php if(has_post_thumbnail()){echo get_the_post_thumbnail_url();} else {echo "https://via.placeholder.com/535x170?text=Mappa+Italia+Che+Cambia";} ?>" class="img-fluid p-0" alt="<?php echo get_the_title(); ?>">
               <div class="relta__mappata__detail text-white">
                 <h5 class="relta__mappata_regione">
                   <?php
