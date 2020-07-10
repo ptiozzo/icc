@@ -117,7 +117,7 @@ if ($loopMappaArchivio->have_posts()) {
             if ($i >= 8){
               break;
             }
-          };?>
+          }?>
 
       <?php if ($i%2 == 1){ ?>
         </div>
