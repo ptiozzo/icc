@@ -36,5 +36,9 @@
 }
 
 .Widget_bacheca{
-  background-image: url("asset/img/bacheca-texture.png");
+  background-color: #73c6be;
+}
+
+textarea#comment {
+  max-width: 98%;
 }

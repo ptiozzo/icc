@@ -881,6 +881,11 @@ row
 .single .single__articolo{
   margin-top: 20px;
 }
+@media (min-width:992px) {
+  .single__articolo{
+    font-size: 1.1rem;
+  }
+}
 
 .single__articolo img.aligncenter{
   display: block;
@@ -945,6 +950,9 @@ figcaption{
 }
 .single__pianetafuturo img{
   max-width: 500px;
+}
+.single__attivati img{
+  width: 60%;
 }
 
 @media (max-width: 992px) {
@@ -1095,10 +1103,13 @@ RASSEGNA STAMPA
   background: #F7F7F7;
 }
 
+.pwp_tag_list span{
+  font-size: 1.2rem;
+}
+
 .rassegna_seguici h3{
   font-size: 9pt;
   font-weight: bold;
-
 }
 
 
@@ -1245,7 +1256,8 @@ a.carousel-more{
 #carouselMappaMobile .carousel-item{
   height: 347px;
 }
-.piemonte-che-cambia #carouselMappa .minatura-piemonte{
+.piemonte-che-cambia #carouselMappa .minatura-piemonte,
+.liguria-che-cambia #carouselMappa .minatura-liguria{
   border: 26px solid #a1dbb9;
   height: 350px;
   object-fit: cover;

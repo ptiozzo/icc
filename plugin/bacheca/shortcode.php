@@ -34,8 +34,13 @@
         ?>
       <?php if(!is_user_logged_in()){ ?>
         <div class="bacheca_registrati alert alert-warning mr-2 mb-0">
-          <p>Per inserire un nuovo annuncio e/o visualizzare tutti i dettagli delle altre inserzioni occorre effettuare il <a href="/wp-login.php?redirect_to=<?php echo get_pagenum_link();?>" class="alert-link">login</a> o <a href="/registrati/?redirect_to=<?php echo get_pagenum_link(); ?>" class="alert-link">registrarsi</a></p>
+          <p>Per inserire un nuovo annuncio e/o visualizzare tutti i dettagli delle altre inserzioni occorre effettuare il <a href="/wp-login.php?redirect_to=<?php echo get_pagenum_link();?>" class="alert-link"><u>login</u></a> o <a href="/registrati/?redirect_to=<?php echo get_pagenum_link(); ?>" class="alert-link"><u>registrarsi</u></a></p>
         </div>
+      <?php } else { ?>
+        <div class="col-8 mx-auto">
+          <a href="/nuovocercooffro/" class="btn btn-success btn-lg btn-block">Inserisci un annuncio</a>
+        </div>
+
       <?php } ?>
       <div class="contenuti_header">
         <?php
@@ -247,5 +252,5 @@
         <?php dynamic_sidebar('primary'); ?>
       </aside>
     </div>
-  <?php } ?>  
+  <?php } ?>
   </div>

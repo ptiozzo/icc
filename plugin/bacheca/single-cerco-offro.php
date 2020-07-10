@@ -1,21 +1,51 @@
 <?php get_header();?>
+<?php
+  if(have_posts()):while(have_posts()) : the_post();
+
+  $term1 = "regione";
+  $terms = get_the_terms( $post->ID , $term1 );
+  foreach ( $terms as $term ) {
+    if($term->slug == "liguria")
+     $menuLiguria = 1;
+    elseif ($term->slug == "piemonte")
+     $menuPiemonte = 1;
+  }
+  if ($menuLiguria == 1)
+    get_template_part('liguria/menu','liguria');
+  if ($menuPiemonte == 1)
+    get_template_part('piemonte/menu','piemonte');
+  wp_reset_postdata();
+  ?>
 <div class="row mx-0">
   <div class="col-lg-home-reg">
     <div class="container single">
-      <?php
-        if(have_posts()):while(have_posts()) : the_post(); ?>
+
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class='single__nav__category'>
+    				<a href="/cerco-offro/" class="single__torna__contenuti p-2 mr-3">
+              <i class="fas fa-chevron-left"></i>
+              <?php
+              if(strpos($_SERVER["HTTP_REFERER"],"cerco-offro")) {
+                echo "Torna ai cerco/offro";
+              } else {
+                echo "Visualizza tutti i cerco/offro";
+              }
+              ?>
+            </a>
             <?php
-            if(strpos($_SERVER["HTTP_REFERER"],"cerco-offro")) { ?>
-    					<a href="<?php echo home_url(); ?>/cerco-offro/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna ai cerco/offro</a>
-    				<?php }
+
               echo "Regione: ";
               $term1 = "regione";
               $terms = get_the_terms( $post->ID , $term1 );
               foreach ( $terms as $term ) {
-                echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
+                if ($term->slug == "piemonte"){
+                  echo '<a href="/piemonte/bacheca/">Piemonte</a> ';
+                } elseif ($term->slug == "liguria"){
+                  echo '<a href="/liguria/bacheca/">Liguria</a> ';
+                }else{
+                  echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
+                }
               }
 
               echo " Tematica: ";
@@ -170,7 +200,7 @@
               }
               ?>
               <!-- Share with -->
-        			<div class="single__share">
+        			<!--<div class="single__share">
         				<?php
         				if ( function_exists( 'sharing_display' ) ) {
         					sharing_display( '', true );
@@ -181,7 +211,7 @@
         				echo $custom_likes->post_likes( '' );
         				}
         				 ?>
-        			</div>
+        			</div>-->
               <?php
               if(!is_user_logged_in())
               {

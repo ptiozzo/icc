@@ -37,7 +37,6 @@
 			<?php } elseif (strpos($_SERVER["HTTP_REFERER"],"cerca")) { ?>
 				<a href="/cerca/<?php {echo "page/".get_transient('icc_cercaPaged_'.(string) $_COOKIE['PHPSESSID'])."/";} ?>" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i> Torna alla ricerca</a>
 				<?php }
-				
 					the_category(' ');
 					?>
 				</a>
@@ -178,9 +177,14 @@
 				 ?>
 			</div>
 			<!-- Content -->
-			<div class="single__articolo">
-				<?php the_content();?>
+			<div class="row justify-content-center">
+			 <div class="col-12 col-lg-10">
+				 <div class="single__articolo">
+	 				<?php the_content();?>
+	 			</div>
+			 </div>
 			</div>
+
 
 			<!-- Share with -->
 			<div class="single__share">
