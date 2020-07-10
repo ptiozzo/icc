@@ -50,6 +50,9 @@ if ($Tipologia1 != 'tutteletipologie') {
 }else{
   $filtroTipologia = '';
 }
+if($Realta1 != $Realta ){
+  $filtro = 1;
+}
 
 $filtroLatLong = array(
   'key' => 'Mappa_Latitudine',
