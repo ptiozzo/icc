@@ -165,7 +165,7 @@ if($Categoria1 != $Categoria
 
     <!-- COLONNA DX -->
     <div id="sidebar" class="col-12 col-md-6 ">
-      <div class="sidebar__inner mb-4">
+      <div class="sidebar__inner clearfix">
         <div class='head'>
   				<div class='title'>
   					<h5>REALTA'</h5>
