@@ -158,6 +158,7 @@ if(get_transient('icc_mappa_tuttipuntini') && $filtro == 0){
   }
 }
 
+
 /* --------------
 AGGIUNGO POPUP
 -------------- */
@@ -203,10 +204,11 @@ if(get_transient('icc_mappa_tuttipopup') && $filtro == 0){
   map.fitBounds(<?php echo $tuttiIPuntini; ?>);
 </script>
 <?php
-//endif;
-//echo $tuttiIPuntini;
+wp_reset_postdata();
 
 /* -----------
 FINE QUERY E SCRIPT PER MAPPA
 ----------- */
+
+
 ?>
