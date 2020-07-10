@@ -24,7 +24,7 @@ if( $_POST['submit_button'] ){
   }
 
   if(0 === preg_match("/.{1,}/", $_POST['titolo'])){
-    $errors['titolo'] = "Non hai inserito un titolo";
+    $errors['titolo'] = "Non hai inserito il nome della realtà";
   }
 
   if(str_word_count($_POST['content']) < 6){
@@ -206,7 +206,7 @@ if($success != 1 && is_user_logged_in() ){
     <select name="categoria" class="custom-select" >
       <option value="tuttelecategorie" <?php if ($form_tipologia == "tuttelecategorie") {echo 'selected';} ?>>Seleziona una categoria</option>
       <?php
-        $categories = get_terms( array('taxonomy' => 'categoria','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
+        $categories = get_terms( array('taxonomy' => 'mappacategoria','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
         foreach ($categories as $category) {
           if($category->slug != 'risolto'){
             $option = '<option value="'.$category->slug.'" ';
@@ -220,7 +220,7 @@ if($success != 1 && is_user_logged_in() ){
     </select>
       <select name="regionemappa" class="custom-select mx-2" >
         <?php
-          $categories = get_terms( array('taxonomy' => 'regionemappa','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC','parent' => 0));
+          $categories = get_terms( array('taxonomy' => 'mapparegione','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC','parent' => 0));
           ?>
           <option value="_tutteleregioni" <?php if ($form_regioni == "_tutteleregioni") {echo 'selected';} ?>>Seleziona la regione</option>
           <?php
@@ -238,7 +238,7 @@ if($success != 1 && is_user_logged_in() ){
     <select name="tipologia" class="custom-select mx-2">
       <option value="tutteletipologie" <?php if ($form_tipologia == "tutteletipologie") {echo 'selected';} ?>>Seleziona la tipologia</option>
       <?php
-        $categories = get_terms( array('taxonomy' => 'tipologia','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
+        $categories = get_terms( array('taxonomy' => 'mappatipologia','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
         foreach ($categories as $category) {
           $option = '<option value="'.$category->slug.'" ';
           if ($form_tipologia == $category->slug) {$option .= 'selected ';};
