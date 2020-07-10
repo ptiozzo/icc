@@ -164,30 +164,32 @@ if($Categoria1 != $Categoria
   <div class="row mt-3 mb-2">
 
     <!-- COLONNA DX -->
-    <div class="col-12 col-md-6 ">
-      <div class='head'>
-				<div class='title'>
-					<h5>REALTA'</h5>
-				</div>
-			</div>
-      <div id="mappa" class=""></div>
+    <div id="sidebar" class="col-12 col-md-6 ">
+      <div class="sidebar__inner">
+        <div class='head'>
+  				<div class='title'>
+  					<h5>REALTA'</h5>
+  				</div>
+  			</div>
+        <div id="mappa" class=""></div>
 
-      <div class="row conteggi_mappa m-0">
-        <?php if($Regione == "tutteleregioni" && !get_query_var('regione')){ ?>
-          <div class="border col-6 text-center">
-              <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
-          </div>
-          <div class="border col-6 text-center">
-            <h3 class="d-inline-block"><?php echo get_option('icc_mappa_rete_totale') ?></h3><span class="text-uppercase"> Reti</span>
-          </div>
-      <?php } else {
-          $RegioneMappa = "icc_mappa_realta_".$Regione1; ?>
+        <div class="row conteggi_mappa m-0">
+          <?php if($Regione == "tutteleregioni" && !get_query_var('regione')){ ?>
+            <div class="border col-6 text-center">
+                <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
+            </div>
+            <div class="border col-6 text-center">
+              <h3 class="d-inline-block"><?php echo get_option('icc_mappa_rete_totale') ?></h3><span class="text-uppercase"> Reti</span>
+            </div>
+        <?php } else {
+            $RegioneMappa = "icc_mappa_realta_".$Regione1; ?>
 
-        <div class="border col-12 text-center">
-            <h3 class="d-inline-block"><?php echo get_option($RegioneMappa) ?></h3><span class="text-uppercase"> Realtà</span>
+          <div class="border col-12 text-center">
+              <h3 class="d-inline-block"><?php echo get_option($RegioneMappa) ?></h3><span class="text-uppercase"> Realtà</span>
+          </div>
+        <?php } ?>
         </div>
-      <?php } ?>
-      </div>
+      </div><!-- Fine sidebar__inner -->
     </div><!-- Fine col-6 -->
 
     <div class="col-12 col-md-6">
