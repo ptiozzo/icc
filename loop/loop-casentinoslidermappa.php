@@ -21,10 +21,10 @@ $argsMappaPiemonteSlider = array(
     )
 );
 
-$loopMappaPiemonteSlider = new WP_Query( $argsMappaPiemonteSlider );
+$loopMappaPCasentinoSlider = new WP_Query( $argsMappaPiemonteSlider );
 
-if ($loopMappaPiemonteSlider->have_posts()) {
-  $loopMappaPiemonteSlider->the_post();
+if ($loopMappaPCasentinoSlider->have_posts()) {
+  $loopMappaPCasentinoSlider->the_post();
 
 
   ?>
@@ -45,8 +45,8 @@ if ($loopMappaPiemonteSlider->have_posts()) {
         <li data-target="#carouselMappa" data-slide-to="0" class="text-white active">1</li>
         <?php
         $i = 1;
-        while ($loopMappaPiemonteSlider->have_posts()) {
-          $loopMappaPiemonteSlider->the_post();
+        while ($loopMappaPCasentinoSlider->have_posts()) {
+          $loopMappaPCasentinoSlider->the_post();
           ?>
             <li data-target="#carouselMappa" data-slide-to="<?php echo $i; ?>" class="text-white"><?php echo $i+1; ?></li>
           <?php
@@ -71,8 +71,8 @@ if ($loopMappaPiemonteSlider->have_posts()) {
 
       <?php
       $i=0;
-      while ($loopMappaPiemonteSlider->have_posts()) {
-        $loopMappaPiemonteSlider->the_post();
+      while ($loopMappaPCasentinoSlider->have_posts()) {
+        $loopMappaPCasentinoSlider->the_post();
 
         if ($i%2 == 0){ ?>
           <div class="carousel-item">
