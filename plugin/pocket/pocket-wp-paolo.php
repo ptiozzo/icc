@@ -427,7 +427,7 @@ class PocketWP {
           if($item[4] != ""){
               $html[] = '<p class="pwp_tag_list mb-0">';
             foreach($item[4] as $tag) {
-              if($tag['tag'] != $filter_tag){
+              if($tag['tag'] != $filter_tag &&  !$precedente[4][$tag['tag']]){
                $html[] = '<span class="pwp_tags font-weight-bold">#' . $tag['tag'] . '</span>';
               }
             }
@@ -451,33 +451,10 @@ class PocketWP {
 
 
 				$html[] = '<h5><a href="' . $item[0] . '" class="pwp_item_sc_link" target="_blank">' . $item[1] . '</a></h5>';
-        $html[] = '<div class="row">';
-
-        //Display image if present
-        /*if($item[3] != ''){
-          $html[] = '<div class="col-3">';
-          $html[] = '<img src="'.$item[3].'">';
-          $html[] = '</div>';
-        }
-
-
-				//Display excerpt if excerpt is not set to no.
-			   	if (strtolower($excerpt) != 'no'){
-            if($item[3] != ''){
-              $html[] = '<div class="col-12">';
-            } else{
-              $html[] = '<div class="col-12">';
-            }
-			   		$html[] = '<p class="pwp_item_excerpt mb-0">' . $item[2] . '</p>';
-            $html[] = '</div>';
-			  	}
-          */
-
-          $html[] = '</div>';
-
-
-
-		  		$html[] = '</div>';
+        //$html[] = '<div class="row">';
+        //$html[] = '</div>';
+		  	$html[] = '</div>';
+        $precedente = $item;
 		  	}
 
 		    if (strtolower($credit) == "yes") {
@@ -485,7 +462,7 @@ class PocketWP {
 		    	$html[] = '<p id="pwp_plugin_credit_sc"><a href="http://ciaranmahoney.me/code/pocket-wp/?utm_campaign=pocket-wp&utm_source=pwp-shortcode&utm_medium=wp-plugins" target="_blank">Pocket WP</a> by <a href="https://twitter.com/ciaransm" target="_blank">@ciaransm</a></p>';
 		    } else {
 		    	// Do not show credit links unless user opts in.
-			}
+			  }
 
 			return implode("\n", $html);
 
