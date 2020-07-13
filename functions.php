@@ -224,16 +224,8 @@ function icc_menu_admin()
         'Tema Italia che Cambia',     // menu title
         'administrator',   // capability
         'icc-theme',     // menu slug
-        'icc_menu_admin_page' // callback function
+        'icc_menu_admin_page_istruction' // callback function
     );
-		add_submenu_page(
-			'icc-theme',
-			'ICC Istruction',
-			'Istruzioni tema',
-			'administrator',
-			'icc-theme-istruction',
-			'icc_menu_admin_page_istruction'
-		);
 		add_submenu_page(
 			'icc-theme',
 			'ICC Suggerimenti scrittura',
@@ -243,10 +235,6 @@ function icc_menu_admin()
 			'icc_menu_admin_page_suggestion'
 		);
 
-}
-function icc_menu_admin_page()
-{
-    require 'adm/theme.php';
 }
 function icc_menu_admin_page_istruction()
 {
