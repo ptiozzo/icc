@@ -909,7 +909,7 @@ figcaption{
 .wp-block-gallery .blocks-gallery-item{
   margin: 0;
 }
-.single__articolo img{
+.single__articolo .wp-block-image img{
   width: 100%;
   height: auto;
 }
