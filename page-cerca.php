@@ -40,16 +40,22 @@
     //altrimenti vado ai valori di default
     if(get_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'])) {
         $searchterm = get_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID']);
+    } elseif($_GET['termineCercato']){
+        $searchterm = $_GET['termineCercato'];
     } else {
       $searchterm='';
     }
     if(get_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID'])) {
         $SearchCat1 = get_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID']);
+    } elseif($_GET['contenuti']){
+        $SearchCat1 = $_GET['contenuti'];
     } else {
       $SearchCat1=$ParentCat1;
     }
     if(get_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID'])) {
         $SearchCat2 = get_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID']);
+    } elseif($_GET['tematica']){
+        $SearchCat2 = $_GET['tematica'];
     } else {
       $SearchCat2=$ParentCat2;
     }
@@ -60,14 +66,35 @@
     }
     if(get_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID'])) {
       $SearchAutore = get_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID']);
+    } elseif($_GET['autore']){
+        $SearchAutore = $_GET['autore'];
     } else {
       $SearchAutore = '';
     }
     if(get_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID'])) {
       $SearchReg = get_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID']);
+    } elseif($_GET['regione']){
+        $SearchReg = $_GET['regione'];
     } else {
       $SearchReg = '';
     }
+  }
+
+  $Condividi = home_url( $wp->request )."/?";
+  if($searchterm != ""){
+    $Condividi .= "&termineCercato=".$searchterm;
+  }
+  if($SearchCat1 != $ParentCat1 && $SearchCat1 != ''){
+    $Condividi .= "&contenuti=".$SearchCat1;
+  }
+  if($SearchCat2 != $ParentCat2 && $SearchCat2 != ''){
+    $Condividi .= "&tematica=".$SearchCat2;
+  }
+  if($SearchAutore != 'autore' && $SearchAutore != ''){
+    $Condividi .= "&autore=".$SearchAutore;
+  }
+  if($SearchReg != 'regioni' && $SearchReg != ''){
+    $Condividi .= "&ampregione=".$SearchReg;
   }
 
  ?>
@@ -149,6 +176,9 @@
   -->
   </div>
   </form>
+  <p>
+    <a href="<?php echo $Condividi; ?>" class="text-muted">Copia il link per condividere la tua ricerca</a>
+  </p>
 </div><!-- contenuti_header -->
 <?php
   if ($searchterm != ''){
