@@ -123,7 +123,7 @@ function mappa_calcolo_realta(){
             $popupMappaScript .= "icon: redIcon";
           }
         $popupMappaScript .= "});\r\n";
-        $popupMappaScript .= "puntino.bindPopup(title);\r\n";
+        $popupMappaScript .= "puntino.bindPopup(title,{maxWidth : 250});\r\n";
         $popupMappaScript .= "markers.addLayer(puntino);\r\n";
       $popupMappaScript .= "</script>";
     }
