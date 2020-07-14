@@ -176,9 +176,24 @@
   -->
   </div>
   </form>
-  <p>
-    <a href="<?php echo $Condividi; ?>" class="text-muted">Copia il link per condividere la tua ricerca</a>
-  </p>
+    <input type="text" class="" style="position: absolute; left: -9999px;" value="<?php echo $Condividi; ?>" id="ShareLink" readonly>
+    <button onclick="CopiaLink()" class="btn btn-warning">Copia link di condivisione</button>
+    <script>
+    function CopiaLink() {
+      /* Get the text field */
+      var copyText = document.getElementById("ShareLink");
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+
+      /* Alert the copied text */
+      alert("Link copiato");
+    }
+    </script>
 </div><!-- contenuti_header -->
 <?php
   if ($searchterm != ''){
