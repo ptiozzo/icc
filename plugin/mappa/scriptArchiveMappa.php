@@ -187,7 +187,7 @@ if(get_transient('icc_mappa_tuttipopup') && $filtro == 0){
           $popupMappaScript .= "icon: redIcon";
         }
       $popupMappaScript .= "});\r\n";
-      $popupMappaScript .= "puntino.bindPopup(title);\r\n";
+      $popupMappaScript .= "puntino.bindPopup(title,{maxWidth : 250});\r\n";
       $popupMappaScript .= "markers.addLayer(puntino);\r\n";
     $popupMappaScript .= "</script>";
   }

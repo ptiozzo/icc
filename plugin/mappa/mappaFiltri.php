@@ -1,6 +1,6 @@
 <form class="form-row" action="<?php echo get_pagenum_link(); ?>" method="post">
   <!-- Filtro categoria -->
-  <div class="form-group col-6 my-1">
+  <div class="form-group col-12 col-md-6 my-1">
     <select name="categoria-dropdown" class="custom-select" <?php if(get_query_var('categoria')){ echo 'disabled'; } ?>>
       <option value="tuttelecategorie" <?php if ($Categoria1 == 'tuttelecategorie') {echo 'selected';}?> ><?php echo 'Tutti le categorie'; ?></option>
       <?php
@@ -21,7 +21,7 @@
   </div>
 
   <!-- Filtro rete -->
-  <div class="form-group col-6 my-1">
+  <div class="form-group col-12 col-md-6 my-1">
     <select name="rete-dropdown" class="custom-select" <?php if(get_query_var('rete')){ echo 'disabled'; } ?>>
       <option value="tuttelereti" <?php if ($Rete1 == 'tuttelereti') {echo 'selected';}?> ><?php echo 'Tutte le reti'; ?></option>
       <?php
@@ -43,7 +43,7 @@
   <!-- Filtro regione -->
   <?php
   if($Regione == "tutteleregioni"){ ?>
-    <div class="form-group col-6 my-1">
+    <div class="form-group col-12 col-md-6 my-1">
       <?php
       if(get_query_var('regione')){
         echo "<input type='hidden' name='regione-dropdown' value='".get_query_var('regione')."'>";
@@ -72,7 +72,7 @@
   <?php
     if(get_term_by('slug',$Regione1,'mapparegione')->term_id != "" || get_query_var('regione')){
       ?>
-        <div class="form-group col-6 my-1">
+        <div class="form-group col-12 col-md-6 my-1">
           <?php
           if(get_query_var('regione')){
             echo "<input type='hidden' name='provincia-dropdown' value='".get_query_var('provincia')."'>";
@@ -98,27 +98,10 @@
       <?php
     }
 
-    if($Regione1 == "tutteleregioni"){
-      $terms = get_terms( array(
-        'taxonomy' => 'mapparegione',
-        'hide_empty' => false,
-        'parent'        => 0,
-      ) );
-    } else {
-      if( $parent != "")
-        $parent = get_term_by('slug',$Regione1,'mapparegione')->term_id;
-      $terms = get_terms( array(
-        'taxonomy' => 'mapparegione',
-        'hide_empty' => false,
-        'parent'        => get_term_by('slug',$Regione1,'mapparegione')->term_id,
-      ) );
-    }
-
-
     ?>
 
   <!-- Filtro tipologia -->
-  <div class="form-group col-6 my-1">
+  <div class="form-group col-12 col-md-6 my-1">
     <select name="tipologia-dropdown" class="custom-select" <?php if(get_query_var('tipologia')){ echo 'disabled'; } ?>>
       <option value="tutteletipologie" <?php if ($Tipologia1 == 'tutteletipologie') {echo 'selected';}?> ><?php echo 'Tutte le tipologie'; ?></option>
       <?php
@@ -138,7 +121,7 @@
     </select>
   </div>
   <div class="form-group col-12 my-1">
-    <input name="nome-realta" type="text" value="<?php if ($Realta1 != '') echo $Realta1; ?>" class="col-6" placeholder="Cerca una realtà">
+    <input name="nome-realta" type="text" value="<?php if ($Realta1 != '') echo $Realta1; ?>" class="col-12 col-md-6 mb-2" placeholder="Cerca una realtà">
     <input name="submit_button" type="Submit" value="Applica i filtri" class="btn btn-primary">
     <input name="reset_button" type="Submit" value="Reset filtri" class="btn btn-warning">
     <?php
