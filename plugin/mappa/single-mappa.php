@@ -18,7 +18,8 @@
   wp_reset_postdata();
 ?>
 
-<div class="single">
+<div class="single mappa">
+  <h1>La mappa dell'Italia che Cambia</h1>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<div class="row">
@@ -44,7 +45,7 @@
               $term1 = "mapparegione";
               $terms = get_the_terms( $post->ID , $term1 );
               if ($terms != ""){
-                echo "Regione: ";
+                //echo "Regione: ";
                 foreach ( $terms as $term ) {
                   echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
                 }
@@ -53,7 +54,7 @@
               $term1 = "mappacategoria";
               $terms = get_the_terms( $post->ID , $term1 );
               if ($terms != ""){
-                echo "Categoria: ";
+                //echo "Categoria: ";
                 foreach ( $terms as $term ) {
                   echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
                 }
@@ -62,20 +63,20 @@
               $term1 = "mapparete";
               $terms = get_the_terms( $post->ID , $term1 );
               if ($terms != ""){
-                echo "Rete: ";
+                //echo "Rete: ";
                 foreach ( $terms as $term ) {
-                  echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
+                  echo '<a href="' . get_term_link( $term, $term1 ) . '">Rete ' . $term->name . ' </a> ';
                 }
               }
 
-              $term1 = "mappatipologia";
+              /*$term1 = "mappatipologia";
               $terms = get_the_terms( $post->ID , $term1 );
               if ($terms != ""){
                 echo "Tipologia: ";
                 foreach ( $terms as $term ) {
                   echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
                 }
-              }
+              }*/
               ?>
       				<br />
       			</div>
