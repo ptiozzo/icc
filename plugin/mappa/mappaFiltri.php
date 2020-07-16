@@ -70,7 +70,12 @@
   <?php } ?>
   <!-- Filtro provincia -->
   <?php
-    if(get_term_by('slug',$Regione1,'mapparegione')->term_id != "" || get_query_var('regione')){
+    $terms = get_terms( array(
+      'taxonomy' => 'mapparegione',
+      'hide_empty' => false,
+      'parent'        => get_term_by('slug',$Regione1,'mapparegione')->term_id,
+    ) );
+    if((get_term_by('slug',$Regione1,'mapparegione')->term_id != "" || get_query_var('regione')) && count($terms) > 0 ){
       ?>
         <div class="form-group col-12 col-md-6 my-1">
           <?php

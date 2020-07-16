@@ -47,7 +47,10 @@
               if ($terms != ""){
                 //echo "Regione: ";
                 foreach ( $terms as $term ) {
-                  echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
+                  echo '<form class="d-inline" action="/mappa/" method="post">';
+                  echo '<input type="hidden" name="regione-dropdown" value="'.$term->slug.'">';
+                  echo '<input type="submit" name="submit_button" class="btn btn-link" value="'.$term->name.'">';
+                  echo '</form>';
                 }
               }
 
@@ -56,7 +59,10 @@
               if ($terms != ""){
                 //echo "Categoria: ";
                 foreach ( $terms as $term ) {
-                  echo '<a href="' . get_term_link( $term, $term1 ) . '">' . $term->name . ' </a> ';
+                  echo '<form class="d-inline" action="/mappa/" method="post">';
+                  echo '<input type="hidden" name="categoria-dropdown" value="'.$term->slug.'">';
+                  echo '<input type="submit" name="submit_button" class="btn btn-link" value="'.$term->name.'">';
+                  echo '</form>';
                 }
               }
 
@@ -65,7 +71,10 @@
               if ($terms != ""){
                 //echo "Rete: ";
                 foreach ( $terms as $term ) {
-                  echo '<a href="' . get_term_link( $term, $term1 ) . '">Rete ' . $term->name . ' </a> ';
+                  echo '<form class="d-inline" action="/mappa/" method="post">';
+                  echo '<input type="hidden" name="rete-dropdown" value="'.$term->slug.'">';
+                  echo '<input type="submit" name="submit_button" class="btn btn-link" value="Rete '.$term->name.'">';
+                  echo '</form>';
                 }
               }
 
@@ -142,7 +151,7 @@
 
               <!-- Mappa -->
               <?php if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){ ?>
-                <div id="mappa" class=""></div>
+                <div id="mappa" class="my-3"></div>
                 <script>
                     var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
 

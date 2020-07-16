@@ -203,6 +203,7 @@ if(get_transient('icc_mappa_tuttipopup') && $filtro == 0){
 
 ?>
 <script>
+
   map.addLayer(markers);
   map.fitBounds(<?php echo $tuttiIPuntini; ?>);
 </script>
