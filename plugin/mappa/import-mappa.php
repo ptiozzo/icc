@@ -1,6 +1,6 @@
 <?php get_header();
 
-$daImportare = 800;
+$daImportare = 900;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/post.php' );
@@ -105,6 +105,8 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
       }
       echo "</ul></td>";
       //echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//rete
+
+      echo "<td style='border: 1px solid grey;'>".$data[20] . "</td>\n";//Instagram
       echo "</tr>";
     }
     echo "<!-- --".$data[10].": ".post_exists( ucfirst($data[0]),'','','mappa')."-- -->";
@@ -119,7 +121,6 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
       $new_post = array(
         'post_title' => ucfirst($data[0]),
         'post_content' => $content,
-        //'post_content' => 'test',
         'post_status' => 'publish',
         'post_name' => $data[10],
         'post_type' => 'mappa',
@@ -326,6 +327,9 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
       }
       if($data[17]) {
           update_post_meta($post_id, "Mappa_VideoYT", $data[17]);
+      }
+      if($data[20]) {
+          update_post_meta($post_id, "Mappa_IG", $data[20]);
       }
 
 
