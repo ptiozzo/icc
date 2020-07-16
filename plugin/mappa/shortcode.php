@@ -150,13 +150,13 @@ if($Categoria1 != $Categoria
   <?php
   echo "<h1>";
   if ($Regione == "tutteleregioni" && !get_query_var('regione') ){
-    echo "Mappa Italia che Cambia";
+    echo "La mappa dell'Italia che Cambia";
   } else {
-    echo "Mappa ".get_term_by('slug',$Regione1,'mapparegione')->name." che Cambia";
+    echo "La mappa di ".get_term_by('slug',$Regione1,'mapparegione')->name." che Cambia";
   }
 
   if($filtrata == 1){
-    echo " <span class='text-danger font-italic h6'>filtrata<span>";
+    //echo " <span class='text-danger font-italic h6'>filtrata<span>";
   }
   echo "</h1>";
 
@@ -226,7 +226,7 @@ if($Categoria1 != $Categoria
           ?>
           <form class="pt-2 d-inline-block" method="post" action="<?php echo get_pagenum_link(); ?>">
             <input name="rete-dropdown" type="hidden" value="<?php echo $key->slug ?>">
-            <input name="submit_button" type="submit" value="<?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?>" class="btn btn-lg btn-outline-dark">
+            <input name="submit_button" type="submit" value="<?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?>" class="btn btn-lg btn-outline-dark btn-outloine-mappa">
           </form>
           <?php
         }

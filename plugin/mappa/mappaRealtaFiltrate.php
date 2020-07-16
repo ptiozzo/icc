@@ -23,7 +23,7 @@ if($filtro == 0){
   //filtri presi da scriptArchiveMappa.php
   $argsMappaArchivio = array(
     'post_type' => array('mappa'),
-    'posts_per_page' => 10,
+    'posts_per_page' => 4,
     's' => $Realta1,
     'tax_query' => array(
         'relation' => 'AND',

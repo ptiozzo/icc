@@ -11,6 +11,20 @@ div.mappa{
   padding: 30px;
 }
 
+.mappa h1{
+  color: #2880CA;
+}
+
+.mappa .btn-outloine-mappa{
+  border-color: #2880CA;
+  color: #2880CA;
+}
+
+.mappa .btn-outloine-mappa:hover{
+  background-color: #35A6C3;
+  color: white;
+}
+
 .filtri_mappa{
   background-color: #35A6C3;
   color: white;
