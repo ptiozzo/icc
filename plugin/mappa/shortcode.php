@@ -23,6 +23,7 @@ if ($loopMappaSenzaLatLong->have_posts()){
   }
 }
 //Fine DEBUG per realtà senza LatLong
+
 $filtrata = 0;
 if(get_query_var('provincia') || get_query_var('categoria') || get_query_var('rete') || get_query_var('tipologia')){
   $filtrata = 1;
@@ -38,7 +39,7 @@ $Realta = '';
 $resetProvincia = 0;
 
 //reset sessione
-if($_SERVER['REQUEST_URI'] == "/mappa/" && (strpos($_SERVER["HTTP_REFERER"],"mappa"))){
+if($_POST['submit_button'] || $_POST['reset_button']){
   unset($_SESSION['mappa_categorie']);
   unset($_SESSION['mappa_rete']);
   $regionePrecedente = $_SESSION['mappa_regione'];

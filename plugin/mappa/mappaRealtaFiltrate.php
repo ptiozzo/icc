@@ -43,7 +43,7 @@ if($filtro == 0){
     ?>
     <div class='head'>
       <div class='title'>
-        <h5>GLI ULTIMI PROGETTI FILTRATI</h5>
+        <h5>PROGETTI IN EVIDENZA</h5>
       </div>
     </div>
     <div class="row">
