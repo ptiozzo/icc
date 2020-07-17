@@ -55,7 +55,7 @@ if($filtro == 0){
           while ($loopMappaArchivio->have_posts()) {
             $loopMappaArchivio->the_post();
             ?>
-            <div class="col-6 col-md-6 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="card h-100">
                 <img src="<?php if(has_post_thumbnail()){echo get_the_post_thumbnail_url();} else {echo "https://via.placeholder.com/535x170?text=Mappa+Italia+Che+Cambia";} ?>" class="card-img-top p-0" alt="<?php echo get_the_title(); ?>">
                 <div class="card-body pt-0">
