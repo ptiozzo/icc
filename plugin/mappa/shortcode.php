@@ -23,12 +23,10 @@ if ($loopMappaSenzaLatLong->have_posts()){
   }
 }
 //Fine DEBUG per realtà senza LatLong
-
 $filtrata = 0;
-if(get_query_var('provincia') || get_query_var('categoria') || get_query_var('rete') || get_query_var('tipologia')){
+if( get_query_var('regione') || get_query_var('provincia') ){
   $filtrata = 1;
 }
-
 
 $Categoria = 'tuttelecategorie';
 $Rete = 'tuttelereti';
@@ -48,6 +46,9 @@ if($_POST['submit_button'] || $_POST['reset_button']){
   unset($_SESSION['mappa_tipologia']);
   unset($_SESSION['mappa_realta']);
 }
+
+
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 if($_POST['submit_button'] || $_POST['submit_tutte_le_realta']){
   $Categoria1 = $_POST['categoria-dropdown'];
@@ -79,6 +80,7 @@ if($_POST['submit_button'] || $_POST['submit_tutte_le_realta']){
   unset($_SESSION['mappa_realta']);
 }
 
+
 if(get_query_var('provincia')){
   $Regione1 = get_query_var('regione');
   $_SESSION['mappa_regione'] = $Regione1;
@@ -87,21 +89,6 @@ if(get_query_var('provincia')){
 }elseif(get_query_var('regione')){
   $Regione1 = get_query_var('regione');
   $_SESSION['mappa_regione'] = $Regione1;
-}
-
-if(get_query_var('categoria')){
-  $Categoria1 = get_query_var('categoria');
-  $_SESSION['mappa_categorie'] = $Categoria1;
-}
-
-if(get_query_var('rete')){
-  $Rete1 = get_query_var('rete');
-  $_SESSION['mappa_rete'] = $Rete1;
-}
-
-if(get_query_var('tipologia')){
-  $Tipologia1 = get_query_var('tipologia');
-  $_SESSION['mappa_tipologia'] = $Tipologia1;
 }
 
 
@@ -135,6 +122,7 @@ if(get_query_var('tipologia')){
   } else {
     $Realta1 = $Realta;
   }
+
 
 echo "<!--Categoria = ".$Categoria1." - Rete = ".$Rete1." - Regione = ".$Regione1." - Provincia = ".$Provincia1." - Tipologia = ".$Tipologia1 ." - Realtà = ".$Realta1."-->";
 if($Categoria1 != $Categoria

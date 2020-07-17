@@ -33,13 +33,7 @@
 
       			<!-- Categorie -->
       			<div class='single__nav__category'>
-      				<?php
-      				if( strpos($_SERVER["HTTP_REFERER"],"mappa")) {
-                $TornaMamma = "Torna alla mappa";
-              } else {
-                $TornaMamma = "Visualizza tutta la mappa";
-              } ?>
-      				<a href="/mappa/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i><?php echo $TornaMamma; ?></a>
+      				<a href="/mappa/" class="single__torna__contenuti p-2 mr-3"><i class="fas fa-chevron-left"></i>Vai alla mappa nazionale</a>
       			  <?php
 
               $term1 = "mapparegione";
@@ -49,7 +43,7 @@
                 foreach ( $terms as $term ) {
                   echo '<form class="d-inline" action="/mappa/" method="post">';
                   echo '<input type="hidden" name="regione-dropdown" value="'.$term->slug.'">';
-                  echo '<input type="submit" name="submit_button" class="btn btn-link" value="'.$term->name.'">';
+                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="'.$term->name.'">';
                   echo '</form>';
                 }
               }
@@ -61,7 +55,7 @@
                 foreach ( $terms as $term ) {
                   echo '<form class="d-inline" action="/mappa/" method="post">';
                   echo '<input type="hidden" name="categoria-dropdown" value="'.$term->slug.'">';
-                  echo '<input type="submit" name="submit_button" class="btn btn-link" value="'.$term->name.'">';
+                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="'.$term->name.'">';
                   echo '</form>';
                 }
               }
@@ -73,7 +67,7 @@
                 foreach ( $terms as $term ) {
                   echo '<form class="d-inline" action="/mappa/" method="post">';
                   echo '<input type="hidden" name="rete-dropdown" value="'.$term->slug.'">';
-                  echo '<input type="submit" name="submit_button" class="btn btn-link" value="Rete '.$term->name.'">';
+                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="Rete '.$term->name.'">';
                   echo '</form>';
                 }
               }
