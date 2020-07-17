@@ -145,10 +145,6 @@ function mappa_rewrite_rule() {
 
 	add_rewrite_rule( '^mapparegione/([^/]*)/([^/]*)/?', 'index.php?page_id=44544&regione=$matches[1]&provincia=$matches[2]','top' );
   add_rewrite_rule( '^mapparegione/([^/]*)/?', 'index.php?page_id=44544&regione=$matches[1]','top' );
-  add_rewrite_rule( '^mappacategoria/([^/]*)/?', 'index.php?page_id=44544&categoria=$matches[1]','top' );
-  add_rewrite_rule( '^mapparete/([^/]*)/?', 'index.php?page_id=44544&rete=$matches[1]','top' );
-  add_rewrite_rule( '^mappatipologia/([^/]*)/?', 'index.php?page_id=44544&tipologia=$matches[1]','top' );
-
 }
 
 add_action( 'transition_post_status', 'mappa_run_on_publish_only', 10, 3 );
