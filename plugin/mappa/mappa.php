@@ -151,5 +151,26 @@ function mappa_rewrite_rule() {
 
 }
 
+add_action( 'transition_post_status', 'mappa_run_on_publish_only', 10, 3 );
+function mappa_run_on_publish_only( $new_status, $old_status, $post ) {
+    if ( ( 'publish' === $new_status && 'publish' !== $old_status )
+        && 'mappa' === $post->post_type ) {
+
+
+          $to = get_user_by('id',$post->post_author)->user_email;
+          $subject = 'ItaliaCheCambia - Mappa: '.$post->post_title;
+          $body = "<html><body>";
+          $body .= "Ciao ".get_user_by('id',$post->post_author)->display_name."<br>";
+          $body .= "La realtà segnalata è stata pubblicata con successo. <br>";
+          $body .= "Il link per raggiungerlo direttamente è ".get_permalink($post->ID);
+          $body .= "</body></html>";
+          $headers = array('Content-Type: text/html; charset=UTF-8');
+          $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
+          $headers[] = 'Bcc: ptiozzo@me.com';
+
+          wp_mail( $to, $subject, $body, $headers );
+    }
+}
+
 
 ?>
