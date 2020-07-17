@@ -39,6 +39,10 @@ if($filtro == 0){
   );
   $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
 
+  if($Rete1 != $Rete){
+    echo term_description(get_term_by('slug',$Rete1,'mapparete')->term_id);
+  }
+
   if($loopMappaArchivio->have_posts()){
     ?>
     <div class='head'>
