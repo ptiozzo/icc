@@ -39,6 +39,10 @@ if($filtro == 0){
   );
   $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
 
+  if($Rete1 != $Rete){
+    echo term_description(get_term_by('slug',$Rete1,'mapparete')->term_id);
+  }
+
   if($loopMappaArchivio->have_posts()){
     ?>
     <div class='head'>
@@ -65,6 +69,15 @@ if($filtro == 0){
           }
         ?>
     </div>
+    <form class="text-center mt-3" action="<?php echo get_pagenum_link(); ?>" method="post">
+      <input type="hidden" name="categoria-dropdown" value="<?php echo $Categoria1; ?>">
+      <input type="hidden" name="rete-dropdown" value="<?php echo $Rete1; ?>">
+      <input type="hidden" name="regione-dropdown" value="<?php echo $Regione1; ?>">
+      <input type="hidden" name="provincia-dropdown" value="<?php echo $Provincia1; ?>">
+      <input type="hidden" name="tipologia-dropdown" value="<?php echo $Tipologia1; ?>">
+      <input type="hidden" name="nome-realta" value="<?php echo $Realta1; ?>">
+      <input name="submit_tutte_le_realta" type="Submit" value="Vedi tutte le realtà" class="btn btn-primary">
+    </form>
     <?php
   }
   wp_reset_postdata();

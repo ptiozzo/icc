@@ -49,7 +49,7 @@ if($_POST['submit_button'] || $_POST['reset_button']){
   unset($_SESSION['mappa_realta']);
 }
 
-if($_POST['submit_button']){
+if($_POST['submit_button'] || $_POST['submit_tutte_le_realta']){
   $Categoria1 = $_POST['categoria-dropdown'];
   $Rete1 = $_POST['rete-dropdown'];
   if($_POST['regione-dropdown'] != $regionePrecedente){
@@ -161,6 +161,10 @@ if($Categoria1 != $Categoria
   }
   echo "</h1>";
 
+  if($_POST['submit_tutte_le_realta']){
+    include('mappa-archivio.php');
+  } else {
+
   ?>
   <div class="row mt-3 mb-2">
 
@@ -201,7 +205,7 @@ if($Categoria1 != $Categoria
 			</div>
       <div class="filtri_mappa">
         <?php include('mappaFiltri.php') ?>
-        <div class="mappa_realta_filtrate overflow-auto">
+        <div class="mappa_realta_filtrate">
           <?php include('scriptArchiveMappa.php') ?>
           <?php include('mappaRealtaFiltrate.php') ?>
         </div>
@@ -272,4 +276,5 @@ if($Categoria1 != $Categoria
      ?>
     </div>
   </div>
+<?php } ?>
 </div><!-- Fine mappa -->
