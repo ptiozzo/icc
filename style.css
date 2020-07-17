@@ -750,6 +750,13 @@ row
   padding: 30px;
   background: #749A4F;
 }
+
+@media (max-width: 768px){
+  .single .single__nav__category{
+    padding: 15px;
+  }
+}
+
 .single .category-articoli .single__nav__category{background: #68D8B1;}
 .single .category-meme .single__nav__category{background: #F79865}
 .single .category-documentari .single__nav__category{background: #3D78D0}
