@@ -21,7 +21,7 @@
             $loopMappaCorrelati->the_post();
             ?>
 
-                <div class="card col-4 border-0">
+                <div class="card col-12 col-md-4 border-0 mt-2 mt-md-0">
                   <?php
                     if ( has_post_thumbnail() ) {
                       the_post_thumbnail('icc_ultimenewshome', array('class' => 'card-img-top p-0','alt' => get_the_title()));
