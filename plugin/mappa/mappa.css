@@ -28,7 +28,12 @@ div.mappa{
 .filtri_mappa{
   background-color: #35A6C3;
   color: white;
-  padding: 50px 40px;
+  padding: 10px 10px;
+}
+@media (min-width:768px) {
+  .filtri_mappa{
+    padding: 50px 40px;
+  }
 }
 
 .mappa hr{
@@ -67,6 +72,15 @@ div.mappa{
 /*-----------------------
 SINGLE
 -----------------------*/
+
+.single .mappa .single__torna__contenuti{
+  font-size: 13px;
+}
+@media (min-width:380px) {
+  .single .mappa .single__torna__contenuti{
+    font-size: 18px;
+  }
+}
 
 .single .mappa .single__nav__category{
   background: #35A6C3;
