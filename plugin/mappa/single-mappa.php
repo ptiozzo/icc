@@ -53,15 +53,22 @@
                 }
               }
 
+              echo "<br>";
+
               $term1 = "mappacategoria";
               $terms = get_the_terms( $post->ID , $term1 );
+              $i = 0;
               if ($terms != ""){
                 //echo "Categoria: ";
                 foreach ( $terms as $term ) {
+                  if($i > 0){
+                     echo "<span class='text-white'> - </span>";
+                  }
                   echo '<form class="d-inline" action="/mappa/" method="post">';
                   echo '<input type="hidden" name="categoria-dropdown" value="'.$term->slug.'">';
-                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="'.$term->name.'">';
+                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap font-weight-normal" value="'.$term->name.'">';
                   echo '</form>';
+                  $i++;
                 }
               }
 
@@ -70,10 +77,12 @@
               if ($terms != ""){
                 //echo "Rete: ";
                 foreach ( $terms as $term ) {
+
                   echo '<form class="d-inline" action="/mappa/" method="post">';
                   echo '<input type="hidden" name="rete-dropdown" value="'.$term->slug.'">';
-                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="Rete '.$term->name.'">';
+                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap font-weight-normal" value="Rete '.$term->name.'">';
                   echo '</form>';
+                  $i++;
                 }
               }
 
