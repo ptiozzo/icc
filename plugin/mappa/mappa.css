@@ -102,6 +102,12 @@ SINGLE
   background-color: #f6f6f6;
   border-color: var(--warning);
 }
+.mappa .card{
+  background: #f7f7f7;
+}
+.mappa .card--mappa img{
+  object-fit: contain;
+}
 
 .single .mappa .card{
   background-color: transparent;
