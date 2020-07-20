@@ -181,7 +181,6 @@ if( $_POST['submit_button'] ){
 
 if($success != 1 && is_user_logged_in() ){
 
-
     $form_categoria = $_POST['categoria'];
     $form_regioni = $_POST['regionemappa'];
     $form_tipologia = $_POST['tipologia'];
@@ -218,7 +217,13 @@ if($success != 1 && is_user_logged_in() ){
         }
       ?>
     </select>
-      <select name="regionemappa" class="custom-select mx-2" >
+    <?php
+    if($_POST['segnala_realta']) {
+      echo '<input name="regionemappa" type="hidden" value="'.$_POST['regionemappa'].'">';
+      echo '<input name="segnala_realta" type="hidden" value="'.$_POST['regionemappa'].'">';
+    }
+    ?>
+      <select name="regionemappa" class="custom-select mx-2" <?php if($_POST['segnala_realta']){echo "disabled";} ?> >
         <?php
           $categories = get_terms( array('taxonomy' => 'mapparegione','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC','parent' => 0));
           ?>
