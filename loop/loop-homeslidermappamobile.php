@@ -1,8 +1,18 @@
 <?php
 
+$filtroUtente = array(
+  'taxonomy'=> 'mappastato',
+  'field'    => 'slug',
+  'terms'    => 'utente',
+  'operator' => 'NOT IN',
+);
 $argsMappaArchivio = array(
   'post_type' => array('mappa'),
   'posts_per_page' => 8,
+  'tax_query' => array(
+      'relation' => 'AND',
+      $filtroUtente,
+    ),
 );
 
 $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
