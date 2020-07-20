@@ -47,9 +47,6 @@ if($_POST['submit_button'] || $_POST['reset_button']){
   unset($_SESSION['mappa_realta']);
 }
 
-
-$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
 if($_POST['submit_button'] || $_POST['submit_tutte_le_realta']){
   $Categoria1 = $_POST['categoria-dropdown'];
   $Rete1 = $_POST['rete-dropdown'];
