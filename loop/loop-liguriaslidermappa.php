@@ -1,5 +1,11 @@
 
 <?php
+$filtroUtente = array(
+  'taxonomy'=> 'mappastato',
+  'field'    => 'slug',
+  'terms'    => 'utente',
+  'operator' => 'NOT IN',
+);
 $filtroLatLong = array(
   'key' => 'Mappa_Latitudine',
   'compare'    => 'EXISTS',
@@ -16,6 +22,7 @@ $argsMappaPiemonteSlider = array(
   'tax_query' => array(
       'relation' => 'AND',
       $filtroRegione,
+      $filtroUtente,
     ),
   'meta_query' => array(
       $filtroLatLong,

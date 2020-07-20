@@ -35,6 +35,9 @@ div.mappa{
     padding: 50px 40px;
   }
 }
+.bg-mappa{
+  background: #f7f7f7;
+}
 
 .mappa hr{
   border-color: white;

@@ -130,9 +130,18 @@
     <input name="submit_button" type="Submit" value="Applica i filtri" class="btn btn-primary">
     <input name="reset_button" type="Submit" value="Reset filtri" class="btn btn-warning">
     <?php
-      if(get_query_var('regione') || get_query_var('categoria') || get_query_var('rete') || get_query_var('tipologia')){
+      if(get_query_var('regione')){
         echo "<a href='/mappa/' class='btn btn-success'>Torna alla mappa</a>";
       }
     ?>
   </div>
 </form>
+<?php
+
+if(is_user_logged_in() && in_array($Regione,['liguria'])) { ?>
+  <form class="my-2" action="/nuovarealtasegnalata/" method="post">
+    <input name="regionemappa" type="hidden" value="liguria">
+    <input name="segnala_realta" type="Submit" value="Segnala una realtà" class="btn btn-success">
+  </form>
+
+<?php } ?>
