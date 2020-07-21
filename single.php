@@ -159,9 +159,9 @@
 
 
 				<!-- Meta Description -->
-				<h2 class="single__metaDescription">
-					<?php the_excerpt();?>
-				</h2>
+				<p class="h2 single__metaDescription">
+					<?php echo get_the_excerpt();?>
+				</p>
 			</div>
 			<!-- Share with -->
 			<div class="single__share">
