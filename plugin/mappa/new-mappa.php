@@ -264,8 +264,9 @@ if($success != 1 && is_user_logged_in() ){
     <div class="col-12">
       <h3>MAPPA</h3>
       <p>
-        Utilizza la ricerca integrata nella mappa per trovare la realtà e poi clicca per selezionarla.<br>
-        Dovrà compare un popup con riportante "La realà di trova qui".
+        Utilizza il cerca ☌ integrato nella mappa per trovare la realtà.
+        Puoi inserire l'indirizzo. Una volta selezionato l'indirizzo della realtà dal menù del cerca, clicca sul pin nella mappa per confermare.
+        Apparirà un pop up con il messaggio "La realtà si trova qui".
       </p>
       <div id="mappa" style="height: 400px;"></div>
       <!-- Load Esri Leaflet from CDN -->
@@ -291,7 +292,7 @@ if($success != 1 && is_user_logged_in() ){
 
 
       // create the geocoding control and add it to the map
-      var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+      var searchControl = L.esri.Geocoding.geosearch({useMapBounds:false,}).addTo(map);
 
       // create an empty layer group to store the results and add it to the map
       var results = L.layerGroup().addTo(map);
