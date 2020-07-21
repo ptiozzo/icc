@@ -6,11 +6,29 @@
   </script>
 
   <?php if( !empty (get_post_meta( $icc_article_ID, 'Mappa_Indirizzo',true))){ ?>
-    <div class="my-1 mb-3 d-flex flex-column justify-content-center position-relative" data-toggle="tooltip" data-placement="right" title="<?php echo get_post_meta( $icc_article_ID, 'Mappa_Indirizzo',true);?>">
-      <i class="fas fa-location-arrow my-auto"></i>
-      <p class="d-none d-sm-block">Indirizzo</p>
+    <input type="text" class="" style="position: absolute; left: -9999px;" value="<?php echo get_post_meta( $icc_article_ID, 'Mappa_Indirizzo',true);?>" id="ShareLink" readonly>
+    <div id="indirizzo" onclick="CopiaLink()" class="my-1 mb-3 d-flex flex-column justify-content-center position-relative" data-toggle="tooltip" data-placement="right" title="<?php echo get_post_meta( $icc_article_ID, 'Mappa_Indirizzo',true);?>">
+        <i class="fas fa-location-arrow my-auto"></i>
+        <p class="d-none d-sm-block">Indirizzo</p>
     </div>
   <?php } ?>
+
+  <script>
+  function CopiaLink() {
+    /* Get the text field */
+    var copyText = document.getElementById("ShareLink");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    /* Alert the copied text */
+    alert("Indirizzo copiato");
+  }
+  </script>
 
   <?php if( !empty (get_post_meta( $icc_article_ID, 'Mappa_Sito',true))){ ?>
     <div class="my-1 mb-3 d-flex flex-column justify-content-center position-relative" data-toggle="tooltip" data-placement="right" title="<?php echo get_post_meta( $icc_article_ID, 'Mappa_Sito',true);?>">
