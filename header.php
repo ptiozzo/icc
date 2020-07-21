@@ -26,7 +26,7 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		<div class="row">
+		<div class="row m-0">
 			<div class="col-12 col-md-6 text-center my-1">
 				<?php dynamic_sidebar('testatasx'); ?>
 			</div>
