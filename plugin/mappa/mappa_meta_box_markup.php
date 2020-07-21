@@ -40,6 +40,8 @@ function mappa_meta_box_markup($post)
   }
   </script>
 
+  <a href="/nuovarealtasegnalata/" style="margin-bottom: 10px;" target="_blank">Trova coordinate alternative</a><br>
+
   <label>Indirizzo Realtà</label>
   <input id="Mappa_Indirizzo" style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Indirizzo" value="<?php echo get_post_meta($post->ID, 'Mappa_Indirizzo', true);?>">
   <label>Sito Realtà</label>
