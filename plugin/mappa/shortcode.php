@@ -161,7 +161,7 @@ if($Categoria1 != $Categoria
   					<h5>REALTA'</h5>
   				</div>
   			</div>
-        <div id="mappa" class=""></div>
+        <div id="mappa" class="full-width"></div>
 
         <div class="row conteggi_mappa m-0">
           <?php if($Regione == "tutteleregioni" && !get_query_var('regione')){ ?>
