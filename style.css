@@ -73,6 +73,7 @@ header{
   max-width: 1400px;
   margin: auto;
   padding-top: 0;
+  background-color: var(--color-white);
 }
 
 .admin-bar header{
