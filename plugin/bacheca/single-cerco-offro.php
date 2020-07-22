@@ -35,7 +35,7 @@
             </a>
             <?php
 
-              echo "Regione: ";
+              echo "<span>Regione: </span>";
               $term1 = "regione";
               $terms = get_the_terms( $post->ID , $term1 );
               foreach ( $terms as $term ) {
@@ -48,7 +48,7 @@
                 }
               }
 
-              echo " Tematica: ";
+              echo "<span> Tematica: </span>";
               $term1 = "tematica";
               $terms = get_the_terms( get_the_ID() , $term1 );
               foreach ( $terms as $term ) {

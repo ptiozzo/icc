@@ -1,9 +1,17 @@
+:root{
+  --color-bacheca_widget: #68D8B1;
+}
+@media (prefers-color-scheme: dark) {
+  :root{
+    --color-bacheca_widget: rgba(103, 215, 176, 0.75);
+  }
+}
 
 .icc_Widget_ICCUser{
   padding: 0!important;
 }
 .Widget_ICCUser{
-  background-color: #73C6BE;
+  background-color: var(--color-bacheca_widget);
 }
 
 .Widget_ICCUser p{

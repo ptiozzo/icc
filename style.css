@@ -24,14 +24,19 @@ Use it to make something cool, have fun, and share what you've learned with othe
   --color-rassegna: #a3a3a3;
   --color-regioni: #749A4F;
   --color-regioni_hover: #5D7B41;
+  --color-footer: #515760;
+  --color-footer_link: #fff;
+  --color-chisiamo:#fff;
 
   --color-contribuisci: #ffc107;
   --color-pf: #999;
 
   --color-black: #000;
+  --color-black_opacity: rgba(0,0,0,.8);
   --color-light_black: #212529;
   --color-brown: #34302C;
   --color-white: #fff;
+  --color-white_collapse: rgba(0,0,0,.125);
   --color-green: #9BCE8F;
   --color-gray: #D0D0D0;
   --color-very_light_gray:#dee2e6;
@@ -42,6 +47,48 @@ Use it to make something cool, have fun, and share what you've learned with othe
   --color-blue: #0056b3;
   --color-azzurro: #72bff9;
   --color-dark_azzurro: #35A6C3;
+
+  --btn-warning: #ffc107;
+  --btn-warning_hover: #e0a800;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    --color-articoli:rgba(103, 215, 176, 0.75);
+    --color-meme: rgba(247, 152, 101, 0.75);
+    --color-documentari: #3D78D0;
+    --color-rubriche: #F270C0;
+    --color-matrix: #9370DB;
+    --color-ioFaccioCosi: #AF0000;
+    --color-libri: rgba(144, 100, 250, 0.75);
+    --color-salute: #7FD1F5;
+    --color-rassegna:rgba(163, 163, 163, 0.75);
+    --color-regioni: rgba(116, 154, 79, 0.75);
+    --color-regioni_hover: #5D7B41;
+    --color-footer: rgba(53, 58, 65, 0.75);
+    --color-footer_link: rgba(221, 225, 230, 0.75);
+    --color-chisiamo:#dee2e6;
+
+    --color-black: #dee2e6;
+    --color-white: #212529;
+    --color-white_collapse: rgba(255,255,255,.125);
+    --color-light_black: #dee2e6;
+    --color-gray: rgba(221, 225, 230, 0.25);
+    --color-light_gray: #6c757d;
+    --color-black_opacity: rgba(0,0,0,.2);
+    --color-dark_azzurro: rgba(53, 166, 195, 0.75);
+    --color-pink: rgba(247, 101, 118, 0.75);
+    --color-blue: #0056b3;
+
+    --btn-warning: #e0a800;
+    --btn-warning_hover: #ffc107;
+  }
+  img{
+    filter: brightness(.8) contrast(1.2);
+  }
+  header .logo img{
+    filter: brightness(1.2) contrast(1.2);;
+  }
 }
 /*
 GENERAL
@@ -74,6 +121,7 @@ header{
   margin: auto;
   padding-top: 0;
   background-color: var(--color-white);
+  color: var(--color-light_black);
 }
 
 .admin-bar header{
@@ -93,6 +141,10 @@ h1{
   font-size: 33px;
   line-height: 33px;
   font-weight: 900;
+}
+
+.text-dark{
+  color: var(--color-light_black)!important;
 }
 
 .sidebar{
@@ -259,17 +311,29 @@ div.single a:hover{
 
 
 .fa-instagram{
-  color: var(--color-black);
+  color: var(--color-light_black);
 }
 header.stripe{
   z-index: 1040;
   width: 100%;
   position: sticky;
   position: -webkit-sticky;
+  background-color: var(--color-light_gray);
 }
 header.stripe .btn{
   margin: 15px 0;
 }
+
+.btn-warning{
+  background-color: var(--btn-warning);
+  border-color: var(--btn-warning);
+}
+
+.btn-warning:hover{
+  background-color: var(--btn-warning_hover);
+  border-color: var(--btn-warning_hover);
+}
+
 header.stripe .right-col nav>ul>li:not(:last-child){
   margin-right: 20px;
 }
@@ -280,11 +344,22 @@ header.stripe .right-col .search{
 header.overlay-menu{
   z-index: 1050;
 }
+header.overlay-menu>nav{
+  background: var(--color-white);
+}
+header.overlay-menu>nav>.collapse-container>ul.menu-1>li>a{
+  color: var(--color-light_black);
+  border-bottom: 1px solid var(--color-gray);
+}
+header.overlay-menu>nav>.collapse-container>ul{
+  border-top: 1px solid var(--color-gray);
+}
+overlay-menu
 header .overlay-menu>figure.hand{
   bottom: 0;
 }
 header.stripe .left-col .logo{
-  margin-left: 0px;
+  margin-left: 10px;
 }
 
 header .socials.d-xl-block{
@@ -299,6 +374,8 @@ header .socials.d-xl-block{
     margin-right: 10px;
   }
 }
+
+
 
 .manoicc{
   background-image: url('/wp-content/themes/icc/assets/img/logo/mano_bianca.png');
@@ -342,7 +419,7 @@ header .socials.d-xl-block{
 }
 
 #menu-menu-footer .nav-link{
-  color: var(--color-white);
+  color: var(--color-footer_link);
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -379,6 +456,7 @@ TITOLI HOME
   font-weight: 900;
   background: var(--color-white);
   z-index: 1;
+  color: var(--color-light_black);
 }
 
 /*Contribuisci banner*/
@@ -438,6 +516,9 @@ TITOLI HOME
 .btn-link-pf:hover{
   color: var(--color-pf);
   text-decoration: underline;
+}
+.btn-link{
+  color: var(--color-blue);
 }
 
  /*	Sidebar
@@ -506,7 +587,7 @@ aside{
  }
  aside.sidebar div a,
  .pcc-pianfut a{
-   color: var(--color-black);
+   color: var(--color-light_black);
    text-align: center;
  }
  aside.sidebar div a:hover{
@@ -533,7 +614,7 @@ aside.sidebar div figure{
    font-weight: 900;
    text-align: center;
    text-transform: uppercase;
-   color: var(--color-black);
+   color: var(--color-light_black);
  }
  aside.sidebar div.widget_nav_menu ul{
    margin: 12.5px 0 0 0;
@@ -547,7 +628,7 @@ aside.sidebar div figure{
 
 aside.sidebar div.widget_nav_menu ul li a{
   display: block;
-  color: var(--color-black);
+  color: var(--color-light_black);
   font-size: 11px;
   line-height: 11px;
   padding: 19px 0;
@@ -593,7 +674,7 @@ aside.sidebar .pcc-provincie p{
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
-  color: var(--color-black);
+  color: var(--color-light_black);
 }
 .widget p{
   font-size: 15px;
@@ -620,14 +701,14 @@ div.contenuti_header{
 div.contenuti_header select{
   margin-right: 15px;
   align-items: center;
-  border: var(--color-black) solid 1px;
+  border: var(--color-light_black) solid 1px;
 }
 .category-contenuti h1{
   margin: 0;
   padding: 0;
   font-size: 33px;
   line-height: 33px;
-  color: var(--color-black);
+  color: var(--color-light_black);
   font-weight: 900;
 }
 
@@ -689,7 +770,7 @@ row
 }
 .row article a{
   display: block;
-  color: var(--color-black);
+  color: var(--color-light_black);
   text-decoration: none;
 }
 .row article a:hover{
@@ -892,7 +973,7 @@ row
   font-size: 32px;
   line-height: 32px;
   font-weight: 900;
-  color: var(--color-black);
+  color: var(--color-light_black);
 }
 .single .single__head .single__author,
 .single__author a{
@@ -907,7 +988,7 @@ row
   padding: 0;
   font-size: 18px;
   line-height: 18px;
-  color: var(--color-black);
+  color: var(--color-light_black);
 }
 .single .single__articolo{
   margin-top: 20px;
@@ -1061,7 +1142,7 @@ figcaption{
 
 .single__contribuisci{
   border-top: 1px solid;
-  border-color: var(--warning);
+  border-color: var(--btn-warning);
   background-color: var(--color-light_gray);
 }
 .single__contribuisci img{
@@ -1092,7 +1173,7 @@ RASSEGNA STAMPA
 }
 .rassegna-stampa article{
   position: absolute;
-  background-color: rgba(0,0,0,.8);
+  background-color: var(--color-black_opacity);
   max-width: calc(100% - 30px);
   bottom: 15px;
   left: 15px;
@@ -1127,6 +1208,8 @@ RASSEGNA STAMPA
   background: var(--color-light_gray);
 }
 
+
+
 .pwp_tag_list span{
   font-size: 1.2rem;
 }
@@ -1157,11 +1240,35 @@ main.chi-siamo>section.content>.description>.title{
   margin-top: 80px;
 }
 
+main.chi-siamo>section.head>.info{
+  background: var(--color-meme);
+  color: var(--color-chisiamo);
+}
+main.chi-siamo>section.content>.description.orange{
+  background: var(--color-meme);
+  color: var(--color-light_black);
+}
+main.chi-siamo>section.content>.description>.actions>ul>li{
+  background: var(--color-meme);
+}
+main.chi-siamo>section.content>.description>.actions>ul>li .left-col .description{
+  color: var(--color-light_black);
+}
+
+.custom-select{
+  background: var(--color-white)
+  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+  color: var(--color-light_black);
+}
+.form-control{
+  background: var(--color-white);
+  color: var(--color-light_black);
+}
 /*
 CAROUSEL
 */
 a.carousel-more{
-  color: var(--color-black);
+  color: var(--color-light_black);
   text-decoration: underline;
   text-transform: uppercase;
   font-weight: 500;
@@ -1319,7 +1426,10 @@ a.carousel-more{
   height: 370px
 }
 
-
+.card{
+  background: var(--color-white);
+  border: 1px solid var(--color-white_collapse);
+}
 .card-title{
   margin: 10px 0 0 0;
   padding: 0;
@@ -1451,10 +1561,10 @@ CAMPAGNE TEMATICHE
 SFONDI
 */
 .bg-regione-ita{
-  background: var(--color-articoli);
+  background: var(--color-articoli)!important;
 }
 .bg-regione-ger{
-  background: var(--color-dark_azzurro);
+  background: var(--color-dark_azzurro)!important;
 }
 
 /*
@@ -1466,7 +1576,7 @@ CERCA
 }
 
 .cerca .autore{
-  color: var(--color-black) !important;
+  color: var(--color-light_black) !important;
 }
 
 
@@ -1477,7 +1587,7 @@ PAGINATION
 */
 
 .pagination .page-link{
-  color: var(--color-black);
+  color: var(--color-light_black);
 }
 .pagination .active .page-link,
 .pagination span{
@@ -1501,15 +1611,19 @@ main.piemonte-che-cambia>.page-content>section.right>aside{
 /*
 FOOTER
 */
+footer{
+  background: var(--color-footer);
+  padding-bottom: 30px;
+}
 footer article{
   color: var(--color-rassegna);
   font-size: 12px;
 }
 footer article b{
-  color: var(--color-white);
+  color: var(--color-footer_link);
 }
 footer .widget h3{
-  color: var(--color-white);
+  color: var(--color-footer_link);
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -1520,28 +1634,22 @@ footer .widget p{
   color: var(--color-rassegna);
   font-size: 12px;
 }
-/*
-FONTAWESOME
-*/
-footer{
-  padding-bottom: 30px;
-}
 
 footer .fab{
-  color: var(--color-gray);
+  color: var(--color-footer_link);
 }
 header.menu_regioni .fab{
   color: inherit;
 }
 
 header .fab{
-  color: var(--color-black);
-}
-header.overlay-menu .fab{
-  color: var(--color-blue);
+  color: var(--color-light_black);
 }
 header.overlay-menu>nav>.socials{
   margin-bottom: 20px;
+}
+header.overlay-menu>article>h1{
+  color: var(--color-light_gray);
 }
 
 /*
