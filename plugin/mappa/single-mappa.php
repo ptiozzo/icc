@@ -82,7 +82,8 @@
                   }
                   echo '<form class="d-inline" action="/mappa/" method="post">';
                   echo '<input type="hidden" name="rete-dropdown" value="'.$term->slug.'">';
-                  if (strpos($term->name, 'rete') === false){
+
+                  if (substr_count(strtolower($term->name), 'rete') != 0){
                     $nomeRete = $term->name;
                   } else{
                     $nomeRete = "Rete ".$term->name;
