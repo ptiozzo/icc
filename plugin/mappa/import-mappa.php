@@ -1,6 +1,6 @@
 <?php get_header();
 
-$daImportare = 900;
+$daImportare = 3000;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/post.php' );
@@ -16,12 +16,12 @@ if (!file_exists($myFile)) {
   print 'File not found';
 }
 if (($handle = fopen($myFile, "r")) !== FALSE) {
-  echo "<table style='border: 1px solid grey;'>";
+  echo "<table style='border: 1px solid grey; min-width: 10px;'>";
   while (($data = fgetcsv($handle, 100, ",",'"')) !== FALSE && $row <= $daImportare) {
     if(post_exists( ucfirst($data[0]),'','','mappa') == 0){
-      echo "<tr style='border: 1px solid grey;'>";
+      echo "<tr style='border: 1px solid grey; min-width: 10px;'>";
       $num = count($data);
-      echo "<td style='border: 1px solid grey;'>".$row . "</td>\n";
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$row . "</td>\n";
 
       $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[10].".jpg";
       if(!@getimagesize($image)){
@@ -31,29 +31,29 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         }
       }
 
-      echo "<td style='border: 1px solid grey;'><img src='".$image."'></td>";
-      echo "<td style='border: 1px solid grey;'>".$data[0] . "</td>\n";//nome realtà
-      echo "<td style='border: 1px solid grey;'>".$data[1] . "</td>\n";//descrizione realtà
+      echo "<td style='border: 1px solid grey; min-width: 10px;'><img src='".$image."'></td>";
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[0] . "</td>\n";//nome realtà
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[1] . "</td>\n";//descrizione realtà
 
       //Tipologia da splittare
       $var = explode(",",$data[2]);
       $varNum = count($var)-1;
-      echo "<td style='border: 1px solid grey;'><ul>";
+      echo "<td style='border: 1px solid grey; min-width: 10px;'><ul>";
       for ($i=0; $i < $varNum; $i++) {
           echo "<li>".$var[$i]."</li>";
       }
       echo "</ul></td>";
-      //echo "<td style='border: 1px solid grey;'>".$data[2] . "</td>\n";
+      //echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[2] . "</td>\n";
 
       //regione/provincia da splittare
       $var = explode(",",$data[3]);
       $varNum = count($var)-1;
-      echo "<td style='border: 1px solid grey;'><ul>";
+      echo "<td style='border: 1px solid grey; min-width: 10px;'><ul>";
       for ($i=0; $i < $varNum; $i++) {
           echo "<li>".$var[$i]."</li>";
       }
       echo "</ul></td>";
-      //echo "<td style='border: 1px solid grey;'>".$data[3] . "</td>\n";
+      //echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[3] . "</td>\n";
 
       //Indirizzo da unire
       $indirizzo = "";
@@ -69,44 +69,45 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
       if($data[7] != ""){
         $indirizzo .= $data[7];
       }
-      echo "<td style='border: 1px solid grey;'>".$indirizzo. "</td>\n"; //indirizzo
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$indirizzo. "</td>\n"; //indirizzo
 
-      echo "<td style='border: 1px solid grey;'>".$data[8] . "</td>\n";//lat
-      echo "<td style='border: 1px solid grey;'>".$data[9] . "</td>\n";//long
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[8] . "</td>\n";//lat
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[9] . "</td>\n";//long
 
 
-      echo "<td style='border: 1px solid grey;'>".$data[10] . "</td>\n";//slug
-      echo "<td style='border: 1px solid grey;'>".$data[11] . "</td>\n";//mail
-      echo "<td style='border: 1px solid grey;'>".$data[12] . "</td>\n";//telfono
-      echo "<td style='border: 1px solid grey;'>".$data[13] . "</td>\n";//sito
-      echo "<td style='border: 1px solid grey;'>".$data[14] . "</td>\n";//FB
-      echo "<td style='border: 1px solid grey;'>".$data[15] . "</td>\n";//Twitter
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[10] . "</td>\n";//slug
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[11] . "</td>\n";//mail
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[12] . "</td>\n";//telfono
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[13] . "</td>\n";//sito
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[14] . "</td>\n";//FB
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[15] . "</td>\n";//Twitter
 
       //da splittare Stato
       $var = explode(",",$data[16]);
       $varNum = count($var)-1;
-      echo "<td style='border: 1px solid grey;'><ul>";
+      echo "<td style='border: 1px solid grey; min-width: 10px;'><ul>";
       for ($i=0; $i < $varNum; $i++) {
           echo "<li>".$var[$i]."</li>";
       }
 
-      //echo "<td style='border: 1px solid grey;'>".$data[14] . "</td>\n";//Visto da noi/viaggio
+      //echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[14] . "</td>\n";//Visto da noi/viaggio
 
 
-      echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//Identificativo video YT
-      echo "<td style='border: 1px solid grey;'>".$data[18] . "</td>\n";//Approfondisci
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[17] . "</td>\n";//Identificativo video YT
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[18] . "</td>\n";//Approfondisci
 
       //rete da splittare
       $var = explode(",",$data[19]);
       $varNum = count($var)-1;
-      echo "<td style='border: 1px solid grey;'><ul>";
+      echo "<td style='border: 1px solid grey; min-width: 10px;'><ul>";
       for ($i=0; $i < $varNum; $i++) {
           echo "<li>".$var[$i]."</li>";
       }
       echo "</ul></td>";
-      //echo "<td style='border: 1px solid grey;'>".$data[17] . "</td>\n";//rete
+      //echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[17] . "</td>\n";//rete
 
-      echo "<td style='border: 1px solid grey;'>".$data[20] . "</td>\n";//Instagram
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[20] . "</td>\n";//Instagram
+      echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[21] . "</td>\n";//Chiusa
       echo "</tr>";
     }
     echo "<!-- --".$data[10].": ".post_exists( ucfirst($data[0]),'','','mappa')."-- -->";
@@ -199,12 +200,12 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
       $var = explode(",",$data[16]);
       $varNum = count($var)-1;
       if ($varNum >= 1){
-        for ($i=0; $i < $varNum; $i++) {
-          $var[$i] = trim($var[$i]);
-          if($i == 0){
-            wp_set_object_terms($post_id,$var[$i],'mappastato');
+        for ($iStato=0; $i < $varNum; $i++) {
+          $var[$iStato] = trim($var[$i]);
+          if($iStato == 0){
+            wp_set_object_terms($post_id,$var[$iStato],'mappastato');
           } else {
-            wp_set_object_terms($post_id,$var[$i],'mappastato',true);
+            wp_set_object_terms($post_id,$var[$iStato],'mappastato',true);
           }
         }
       }
@@ -330,6 +331,14 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
       }
       if($data[20]) {
           update_post_meta($post_id, "Mappa_IG", $data[20]);
+      }
+      if($data[21]) {
+          update_post_meta($post_id, "Mappa_Chiuso_Motivazione", $data[21]);
+          if($iStato == 0){
+            wp_set_object_terms($post_id,'Chiuso','mappastato');
+          } else {
+            wp_set_object_terms($post_id,'Chiuso','mappastato',true);
+          }
       }
 
 
