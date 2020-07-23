@@ -1,3 +1,14 @@
+:root{
+ --color-mappa_blue: #2880CA;
+ --color-mappa_filtri: #35A6C3;
+}
+@media (prefers-color-scheme: dark) {
+  :root{
+    --color-mappa_blue: rgba(40, 128, 201, 0.75);
+    --color-mappa_filtri: rgba(53, 166, 195, 0.75);
+  }
+}
+
 #mappa{
   height: 500px;
 }
@@ -30,21 +41,21 @@ div.mappa{
 }
 
 .mappa h1{
-  color: #2880CA;
+  color: var(--color-mappa_blue);
 }
 
 .mappa .btn-outloine-mappa{
-  border-color: #2880CA;
-  color: #2880CA;
+  border-color: var(--color-mappa_blue);
+  color: var(--color-mappa_blue);
 }
 
 .mappa .btn-outloine-mappa:hover{
-  background-color: #35A6C3;
+  background-color: var(--color-mappa_filtri);
   color: white;
 }
 
 .filtri_mappa{
-  background-color: #35A6C3;
+  background-color: var(--color-mappa_filtri);
   color: white;
   padding: 10px 10px;
 }
@@ -84,7 +95,7 @@ div.mappa{
 }
 
 .mappa_realta_filtrate .head .title h5{
-  background: #35A6C3;
+  background: var(--color-mappa_filtri);
 }
 .mappa_realta_filtrate img{
   max-width: 100%;
@@ -104,14 +115,14 @@ SINGLE
 }
 
 .single .mappa .single__nav__category{
-  background: #35A6C3;
+  background: var(--color-mappa_filtri);
 }
 
 .single .mappa .single__articolo a,
 .single .mappa .card a,
 .single .mappa .single__action,
 .mappa .mappa_realta_filtrate a{
-  color: #35A6C3;
+  color: var(--color-mappa_filtri);
 }
 
 .mappa .single__action div{

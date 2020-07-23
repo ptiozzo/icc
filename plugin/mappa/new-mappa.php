@@ -19,8 +19,16 @@ $errors = array();
 
 if( $_POST['submit_button'] ){
 
+  if($_POST['categoria'] == "tuttelecategorie"){
+    $errors['categoria'] = "Devi selezionare una categoria";
+  }
+
   if($_POST['regionemappa'] == "_tutteleregioni"){
     $errors['regionemappa'] = "Devi selezionare una regione";
+  }
+
+  if($_POST['tipologia'] == "tutteletipologie"){
+    $errors['tipologia'] = "Devi selezionare una tipologia";
   }
 
   if(0 === preg_match("/.{1,}/", $_POST['titolo'])){
@@ -28,7 +36,7 @@ if( $_POST['submit_button'] ){
   }
 
   if(str_word_count($_POST['content']) < 6){
-    $errors['content'] = "Devi inserire un contenuto di almeno 6 parole";
+    $errors['content'] = "Devi inserire una descrizione di almeno 6 parole";
   }
 
   if($_FILES['image']['size'] != 0){
@@ -258,15 +266,17 @@ if($success != 1 && is_user_logged_in() ){
       <small id="titoloHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
-      <textarea id="content" class="form-control w-75" type="text" name="content" placeholder="Descrivi la realtà" rows="5"><?php echo $form_content;?></textarea>
-      <small id="contentHelp" class="form-text text-muted">Questo sarà la descrizione della realtà.</small>
+      <textarea id="content" class="form-control w-75" type="text" name="content" placeholder="Descrivi in modo dettagliato la realtà" rows="5"><?php echo $form_content;?></textarea>
+      <small id="contentHelp" class="form-text text-muted">Inserire una descrizione dettagliata della realtà, questo sarà il testo che comparirà sulla mappa.</small>
     </div>
     <div class="col-12">
       <h3>MAPPA</h3>
       <p>
-        Utilizza il cerca ☌ integrato nella mappa per trovare la realtà.
-        Puoi inserire l'indirizzo. Una volta selezionato l'indirizzo della realtà dal menù del cerca, clicca sul pin nella mappa per confermare.
-        Apparirà un pop up con il messaggio "La realtà si trova qui".
+        Posiziona la tua realtà sulla mappa cliccando sulla lente del cerca.
+        Inserisci l’indirizzo e seleziona dall’elenco quello corretto.
+        Nella mappa comparirà il pin sull’indirizzo selezionato, clicca sul pin per confermare.
+        Apparirà il pop up di conferma “la realtà si trova qui”. 
+        Ricordati di inserire l’indirizzo anche nel campo dedicato sotto la mappa.
       </p>
       <div id="mappa" style="height: 400px;"></div>
       <!-- Load Esri Leaflet from CDN -->
