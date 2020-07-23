@@ -1,4 +1,4 @@
-<div class="rassegna__footer container">
+<div class="rassegna__footer container shadow">
   <?php
   $args = array(
     'post_type' => 'rassegna-stampa',
