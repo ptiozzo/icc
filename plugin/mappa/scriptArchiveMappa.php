@@ -144,7 +144,7 @@ AGGIUNGO PUNTINI
 -------------- */
 if(get_transient('icc_mappa_tuttipuntini') && $filtro == 0){
   $tuttiIPuntini = get_transient('icc_mappa_tuttipuntini');
-  echo "<!--Puntini da transient-->";
+
 }else{
   $tuttiIPuntini = "[";
   while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
