@@ -105,10 +105,14 @@
       				<br />
       			</div>
 
-            <?php if( !empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true))){ ?>
+            <?php if( !empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true))|| !empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true))){ ?>
               <div class="alert alert-danger mt-2" role="alert">
-                Data chiusura progetto: <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true); ?> <br>
-                Motivazione chiusura: <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true); ?>
+                <?php if(!empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true))) { ?>
+                  Data chiusura progetto: <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true); ?> <br>
+                <?php } ?>
+                <?php if(!empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true))){ ?>
+                  Motivazione chiusura: <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true); ?>
+                <?php } ?>
               </div>
             <?php } ?>
             <div class="single__head">
