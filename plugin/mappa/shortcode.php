@@ -20,6 +20,7 @@ if ($loopMappaSenzaLatLong->have_posts()){
     $loopMappaSenzaLatLong->the_post();
     echo get_the_title()."-";
     echo get_the_ID()."<br>";
+    //wp_delete_post(get_the_ID());
   }
 }
 //Fine DEBUG per realtà senza LatLong
