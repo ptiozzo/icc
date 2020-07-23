@@ -44,6 +44,11 @@ if( $_POST['submit_button'] ){
       $errors['image'] = "Il file caricato non è un'immagine";
     }
   }
+
+  if( empty($_POST['email']) && empty($_POST['telefono']) ){
+    $errors['contatto'] = "Non hai inserito un contatto telefonico o mail della realtà";
+  }
+
   if($_POST['Mappa_Latitudine'] == "" || $_POST['Mappa_Longitudine'] == ""){
     $errors['puntino'] = "Non hai selezionato dove si trova sulla mappa";
   }
@@ -275,7 +280,7 @@ if($success != 1 && is_user_logged_in() ){
         Posiziona la tua realtà sulla mappa cliccando sulla lente del cerca.
         Inserisci l’indirizzo e seleziona dall’elenco quello corretto.
         Nella mappa comparirà il pin sull’indirizzo selezionato, clicca sul pin per confermare.
-        Apparirà il pop up di conferma “la realtà si trova qui”. 
+        Apparirà il pop up di conferma “la realtà si trova qui”.
         Ricordati di inserire l’indirizzo anche nel campo dedicato sotto la mappa.
       </p>
       <div id="mappa" style="height: 400px;"></div>
