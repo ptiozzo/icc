@@ -98,7 +98,7 @@ if($Regione == "tutteleregioni" && !get_query_var('regione')){
 if( $realtaSegnalate == 1){
   ?>
   <div class="alert alert-warning" role="alert">
-    Stai visualizzando anche le realtà segnalate dagli utenti e non ancora approvare dalla redazione
+    Stai visualizzando sia le realtà verificate da noi (pin blu) che quelle segnalate dagli utenti (pin rosso)
   </div>
 <?php }
 
