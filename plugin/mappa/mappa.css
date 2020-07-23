@@ -1,0 +1,177 @@
+:root{
+ --color-mappa_blue: #2880CA;
+ --color-mappa_filtri: #35A6C3;
+}
+@media (prefers-color-scheme: dark) {
+  :root{
+    --color-mappa_blue: rgba(40, 128, 201, 0.75);
+    --color-mappa_filtri: rgba(53, 166, 195, 0.75);
+  }
+}
+
+#mappa{
+  height: 500px;
+}
+@media (min-width:768px) {
+  #mappa{
+    height: 680px
+  }
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+@media (min-width:768px) {
+  .full-width{
+    width: 100%;
+    left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+div.mappa{
+  padding: 30px;
+}
+
+.mappa h1{
+  color: var(--color-mappa_blue);
+}
+
+.mappa .btn-outloine-mappa{
+  border-color: var(--color-mappa_blue);
+  color: var(--color-mappa_blue);
+}
+
+.mappa .btn-outloine-mappa:hover{
+  background-color: var(--color-mappa_filtri);
+  color: white;
+}
+
+.filtri_mappa{
+  background-color: var(--color-mappa_filtri);
+  color: white;
+  padding: 10px 10px;
+}
+@media (min-width:768px) {
+  .filtri_mappa{
+    padding: 50px 40px;
+  }
+}
+.bg-mappa{
+  background: #f7f7f7;
+}
+
+.mappa hr{
+  border-color: white;
+}
+
+.conteggi_mappa h3{
+  color: #68D8B1;
+  font-size: 39px;
+  font-weight: 900;
+  margin: 0 10px 0 0;
+}
+
+.conteggi_mappa span{
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mappa_reti_numero{
+  font-weight: 900;
+  font-size: 39px;
+}
+
+.mappa_reti_nome{
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.mappa_realta_filtrate .head .title h5{
+  background: var(--color-mappa_filtri);
+}
+.mappa_realta_filtrate img{
+  max-width: 100%;
+}
+
+/*-----------------------
+SINGLE
+-----------------------*/
+
+.single .mappa .single__torna__contenuti{
+  font-size: 13px;
+}
+@media (min-width:380px) {
+  .single .mappa .single__torna__contenuti{
+    font-size: 18px;
+  }
+}
+
+.single .mappa .single__nav__category{
+  background: var(--color-mappa_filtri);
+}
+
+.single .mappa .single__articolo a,
+.single .mappa .card a,
+.single .mappa .single__action,
+.mappa .mappa_realta_filtrate a{
+  color: var(--color-mappa_filtri);
+}
+
+.mappa .single__action div{
+  height: 30px;
+}
+
+.mappa .mappa_correlati{
+  border: 1px solid;
+  background-color: #f6f6f6;
+  border-color: var(--warning);
+}
+.mappa .card{
+  background: #f7f7f7;
+}
+.mappa .card--mappa img{
+  object-fit: contain;
+}
+
+.single .mappa .card{
+  background-color: transparent;
+}
+.mappa .filtri_mappa .card{
+  color: black;
+}
+.single .mappa .card-body,
+.mappa .filtri_mappa .card-body{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+}
+
+.single .mappa .card-body a:hover{
+  text-decoration: underline;
+}
+
+.single #mappa{
+  height: 400px;
+}
+
+.single .mappa .card{
+  background-color: transparent;
+}
+.single .mappa .card-body{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+}
+.single .mappa .card-body a:hover{
+  text-decoration: underline;
+}

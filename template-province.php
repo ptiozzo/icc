@@ -67,19 +67,7 @@ Template Name: Template province
                   <span class="ml-4"><?php the_time('j M Y') ?></span>
                   <span>
                     <?php
-                      if (in_category('documentari')) {
-                        echo 'I documentari';
-                      } elseif (in_category('io-faccio-cosi')) {
-                        echo 'Io faccio così';
-                      }elseif (in_category('meme')) {
-                        echo 'I meme';
-                      }elseif (in_category('rubriche')) {
-                        echo 'Le rubriche';
-                      }elseif (in_category('salute-che-cambia')) {
-                        echo 'Salute';
-                      }elseif (in_category('articoli')) {
-                        echo 'Gli Articoli';
-                      }
+                      get_template_part('inc/post','etichetta');
                     ?>
                   </span>
                 </div>
@@ -124,7 +112,7 @@ Template Name: Template province
         <?php
       endwhile;
         ?>
-      </div> <!-- .grid -->
+      </div> <!-- .row -->
         <!-- paginazione -->
 
       <?php echo bootstrap_pagination($loop); ?>
@@ -132,7 +120,14 @@ Template Name: Template province
         <?php
       else:
         ?>
-          <script type="text/javascript">location.href = '<?php echo home_url(); ?>';</script>
+          <div class="alert alert-danger" role="alert">
+            Nessun articolo trovato, verrai reindirizzato in home page!
+          </div>
+          <script>
+            setTimeout(function(){
+              window.location.href = '<?php echo home_url(); ?>';
+            }, 5000);
+          </script>
         <?php
       endif;
     wp_reset_query();

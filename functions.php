@@ -2,11 +2,19 @@
 
 // remove wp version param from any enqueued scripts
 function vc_remove_wp_ver_css_js( $src ) {
-    if ( strpos( $src, 'ver=' ) )
-        $src = remove_query_arg( 'ver', $src );
-    return $src;
+
+  $clean_src = remove_query_arg( 'ver', $src );
+  $path      = wp_parse_url( $src, PHP_URL_PATH );
+
+  if ( $modified_time = @filemtime( untrailingslashit( ABSPATH ) . $path ) ) {
+      $src = add_query_arg( 'ver', $modified_time, $clean_src );
+  } else {
+      $src = add_query_arg( 'ver', time(), $clean_src );
+  }
+  return $src;
 }
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
+add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 99999999);
 
 remove_action('wp_head', 'wp_generator');
 
@@ -34,7 +42,7 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_script( 'icc-sticky-sidebar', get_template_directory_uri() . '/assets/js/sticky-sidebar.min.js');
 		wp_enqueue_script( 'icc-popper-js', get_template_directory_uri().'/assets/js/popper.min.js','','',true);
 		wp_enqueue_script( 'icc-bootstrap-js', get_template_directory_uri().'/assets/js/bootstrap.min.js','','',true);
-		wp_enqueue_script( 'icc-script', get_template_directory_uri().'/assets/js/script.js','','',true);
+		wp_enqueue_script( 'icc-script', get_template_directory_uri().'/assets/js/script.js','',filemtime(get_template_directory() . '/assets/js/script.js'),true);
 		wp_enqueue_script( 'icc-swup-js', get_template_directory_uri().'/assets/swup/swup.min.js','','',true);
 		wp_enqueue_script( 'icc-swupScrollPlugin-js', get_template_directory_uri().'/assets/swup/SwupScrollPlugin.min.js','','',true);
 		wp_enqueue_script( 'icc-swupFormsPlugin-js', get_template_directory_uri().'/assets/swup/SwupFormsPlugin.min.js','','',true);
@@ -219,16 +227,8 @@ function icc_menu_admin()
         'Tema Italia che Cambia',     // menu title
         'administrator',   // capability
         'icc-theme',     // menu slug
-        'icc_menu_admin_page' // callback function
+        'icc_menu_admin_page_istruction' // callback function
     );
-		add_submenu_page(
-			'icc-theme',
-			'ICC Istruction',
-			'Istruzioni tema',
-			'administrator',
-			'icc-theme-istruction',
-			'icc_menu_admin_page_istruction'
-		);
 		add_submenu_page(
 			'icc-theme',
 			'ICC Suggerimenti scrittura',
@@ -238,10 +238,6 @@ function icc_menu_admin()
 			'icc_menu_admin_page_suggestion'
 		);
 
-}
-function icc_menu_admin_page()
-{
-    require 'adm/theme.php';
 }
 function icc_menu_admin_page_istruction()
 {
@@ -309,6 +305,10 @@ require 'plugin/utenteicc/utenteicc.php';
 /* Attivazione plugin bacheca
 /* ------------------------------------ */
 require 'plugin/bacheca/bacheca.php';
+
+/* Attivazione plugin mappa
+/* ------------------------------------ */
+require 'plugin/mappa/mappa.php';
 
 /* Attivazione plugin altriautori
 /* ------------------------------------ */

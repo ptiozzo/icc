@@ -310,6 +310,7 @@ div.single a:hover{
 */
 
 
+
 .fa-instagram{
   color: var(--color-light_black);
 }
@@ -862,9 +863,18 @@ row
   padding: 30px;
   background: var(--color-regioni);
 }
+
 .single .category-articoli .single__nav__category{background: var(--color-articoli);}
 .single .category-meme .single__nav__category{background: var(--color-meme)}
 .single .category-documentari .single__nav__category{background: var(--color-documentari)}
+
+
+@media (max-width: 768px){
+  .single .single__nav__category{
+    padding: 15px;
+  }
+}
+
 .single .category-rubriche .single__nav__category,
 .single .category-appunti-viaggio .single__nav__category,
 .single .category-ashoka-fellow .single__nav__category,
@@ -1085,7 +1095,7 @@ figcaption{
 
 .single__action{
   position: sticky;
-  top: 40vh;
+  top: 30vh;
 }
 
 @media (max-width: 768px) {
@@ -1093,6 +1103,7 @@ figcaption{
     position: sticky;
     bottom: 40px;
     background-color: white;
+    z-index: 1000;
   }
 }
 
