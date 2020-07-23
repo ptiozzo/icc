@@ -149,14 +149,14 @@ SINGLE
   background-color: transparent;
 }
 .mappa .filtri_mappa .card{
-  color: black;
+  color: var(--color-black);
 }
 .single .mappa .card-body,
 .mappa .filtri_mappa .card-body{
   position: relative;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: var(--color-white);
 }
 
 .single .mappa .card-body a:hover{
