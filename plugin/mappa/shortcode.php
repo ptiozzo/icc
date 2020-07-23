@@ -241,7 +241,7 @@ if($Categoria1 != $Categoria
          ?>
 
            <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
-             <div class="card card--mappa mt-2 border-0 p-0">
+             <div class="card card--mappa mt-2 p-0">
                <article class="p-0">
                <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php if(has_post_thumbnail()){echo get_the_post_thumbnail_url();} else {echo get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png';} ?>">
                <div class="card-body p-2 text-white">
