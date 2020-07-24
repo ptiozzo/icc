@@ -8,6 +8,7 @@ $labels = [
 	"name" => __( "Categoria", "icc" ),
 	"singular_name" => __( "Categoria", "icc" ),
 	"menu_name" => __( "Categoria", "icc" ),
+	"search_items" => __( "Cerca categoria", "icc") ,
 ];
 
 $args = [
@@ -38,6 +39,7 @@ $labels = [
 	"name" => __( "Rete", "icc" ),
 	"singular_name" => __( "Rete", "icc" ),
 	"menu_name" => __( "Rete", "icc" ),
+	"search_items" => __( "Cerca rete", "icc") ,
 ];
 
 $args = [
@@ -68,6 +70,7 @@ $args = [
 		"name" => __( "Regione", "icc" ),
 		"singular_name" => __( "Regione", "icc" ),
 		"menu_name" => __( "Regione", "icc" ),
+		"search_items" => __( "Cerca regione", "icc") ,
 	];
 
 	$args = [
@@ -162,6 +165,7 @@ $args = [
 		"name" => __( "Tipologia", "icc" ),
 		"singular_name" => __( "Tipologia", "icc" ),
 		"menu_name" => __( "Tipologia", "icc" ),
+		"search_items" => __( "Cerca tipologia", "icc") ,
 	];
 
 	$args = [

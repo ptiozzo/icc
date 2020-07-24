@@ -44,6 +44,11 @@ if( $_POST['submit_button'] ){
       $errors['image'] = "Il file caricato non è un'immagine";
     }
   }
+
+  if( empty($_POST['email']) && empty($_POST['telefono']) ){
+    $errors['contatto'] = "Non hai inserito il contatto telefonico o la mail della realtà";
+  }
+
   if($_POST['Mappa_Latitudine'] == "" || $_POST['Mappa_Longitudine'] == ""){
     $errors['puntino'] = "Non hai selezionato dove si trova sulla mappa";
   }
@@ -272,10 +277,11 @@ if($success != 1 && is_user_logged_in() ){
     <div class="col-12">
       <h3>MAPPA</h3>
       <p>
-        Posiziona la tua realtà sulla mappa cliccando sulla lente del cerca.
-        Inserisci l’indirizzo e seleziona dall’elenco quello corretto.
+        Posiziona la tua realtà sulla mappa cliccando sulla lente della ricerca.
+        Inserisci l’indirizzo e seleziona quello corretto.
         Nella mappa comparirà il pin sull’indirizzo selezionato, clicca sul pin per confermare.
-        Apparirà il pop up di conferma “la realtà si trova qui”. 
+        Se il pin non è posizionato correttamente clicca sulla mappa nel punto in cui vuoi posizionare la realtà.
+        Apparirà il pop up di conferma “la realtà si trova qui”.
         Ricordati di inserire l’indirizzo anche nel campo dedicato sotto la mappa.
       </p>
       <div id="mappa" style="height: 400px;"></div>
@@ -368,11 +374,11 @@ if($success != 1 && is_user_logged_in() ){
       <small id="Mappa_VideoYTHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
-      <input id="mappa_FB" class="form-control w-75" type="url" name="mappa_FB" placeholder="Inserisci il link alla pagine Facebook della realtà" value="<?php echo $form_mappa_FB;?>">
+      <input id="mappa_FB" class="form-control w-75" type="url" name="mappa_FB" placeholder="Inserisci il link alla pagina Facebook della realtà" value="<?php echo $form_mappa_FB;?>">
       <small id="mappa_FBHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
-      <input id="mappa_IG" class="form-control w-75" type="url" name="mappa_IG" placeholder="Inserisci il link alla pagine Instagram della realtà" value="<?php echo $form_mappa_IG;?>">
+      <input id="mappa_IG" class="form-control w-75" type="url" name="mappa_IG" placeholder="Inserisci il link alla pagina Instagram della realtà" value="<?php echo $form_mappa_IG;?>">
       <small id="mappa_IGHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
@@ -380,11 +386,11 @@ if($success != 1 && is_user_logged_in() ){
       <small id="mappa_YTHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
-      <input id="mappa_IN" class="form-control w-75" type="url" name="mappa_IN" placeholder="Inserisci il link alla pagine LinkedIn della realtà" value="<?php echo $form_mappa_IN;?>">
+      <input id="mappa_IN" class="form-control w-75" type="url" name="mappa_IN" placeholder="Inserisci il link alla pagina LinkedIn della realtà" value="<?php echo $form_mappa_IN;?>">
       <small id="mappa_INHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
-      <input id="mappa_TW" class="form-control w-75" type="url" name="mappa_TW" placeholder="Inserisci il link alla pagine Twitter della realtà" value="<?php echo $form_mappa_IN;?>">
+      <input id="mappa_TW" class="form-control w-75" type="url" name="mappa_TW" placeholder="Inserisci il link alla pagina Twitter della realtà" value="<?php echo $form_mappa_IN;?>">
       <small id="mappa_TWHelp" class="form-text text-muted"></small>
     </div>
 

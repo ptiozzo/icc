@@ -9,6 +9,10 @@ html{
 }
 .darkmode #mappa{
   filter: brightness(.8) contrast(1.2);
+  }
+  #mappa{
+    filter: brightness(.8) contrast(1.2);
+  
 }
 
 #mappa{
@@ -137,7 +141,8 @@ SINGLE
   border-color: var(--warning);
 }
 .mappa .card{
-  background: #f7f7f7;
+  background: var(--color-white);
+  border: 1px solid var(--color-white_collapse);
 }
 .mappa .card--mappa img{
   object-fit: contain;
@@ -147,14 +152,14 @@ SINGLE
   background-color: transparent;
 }
 .mappa .filtri_mappa .card{
-  color: black;
+  color: var(--color-black);
 }
 .single .mappa .card-body,
 .mappa .filtri_mappa .card-body{
   position: relative;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: var(--color-white);
 }
 
 .single .mappa .card-body a:hover{

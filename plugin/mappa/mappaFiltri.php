@@ -2,7 +2,7 @@
   <!-- Filtro categoria -->
   <div class="form-group col-12 col-md-6 my-1">
     <select name="categoria-dropdown" class="custom-select" <?php if(get_query_var('categoria')){ echo 'disabled'; } ?>>
-      <option value="tuttelecategorie" <?php if ($Categoria1 == 'tuttelecategorie') {echo 'selected';}?> ><?php echo 'Tutti le categorie'; ?></option>
+      <option value="tuttelecategorie" <?php if ($Categoria1 == 'tuttelecategorie') {echo 'selected';}?> ><?php echo 'Tutte le categorie'; ?></option>
       <?php
         $terms = get_terms( array(
           'taxonomy' => 'mappacategoria',
