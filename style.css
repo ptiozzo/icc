@@ -12,7 +12,7 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-:root{
+html{
   --color-articoli: #68D8B1;
   --color-meme: #F79865;
   --color-documentari: #3D78D0;
@@ -52,8 +52,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
   --btn-warning_hover: #e0a800;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root{
+.darkmode{
     --color-articoli:rgba(103, 215, 176, 0.75);
     --color-meme: rgba(247, 152, 101, 0.75);
     --color-documentari: #3D78D0;
@@ -82,13 +81,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
     --btn-warning: #e0a800;
     --btn-warning_hover: #ffc107;
-  }
-  img{
-    filter: brightness(.8) contrast(1.2);
-  }
-  header .logo img{
-    filter: brightness(1.2) contrast(1.2);;
-  }
+}
+
+.darkmode header .logo img{
+  filter: brightness(1.2) contrast(1.2);;
+}
+
+.darkmode img{
+  filter: brightness(.8) contrast(1.2);
 }
 /*
 GENERAL
