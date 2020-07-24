@@ -147,6 +147,22 @@ h1{
   color: var(--color-light_black)!important;
 }
 
+.fa-sun{
+  color: var(--btn-warning);
+}
+.btn.sun{
+  background: #fff;
+}
+.fa-moon{
+  color: #F5F3CE;
+}
+.btn.moon{
+  background: #212529;
+}
+.fa-laptop{
+  color: var(--color-light_black);
+}
+
 .sidebar{
     will-change: min-height;
 }

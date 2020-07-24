@@ -12,6 +12,23 @@ class icc_Widget_ICCUser extends WP_Widget {
 
   // Create the widget output.
   public function widget( $args, $instance ) {
+    ?>
+    <div class="text-center theme_switchers">
+      <form name="theme_switcher_form" class="m-0 p-0">
+        <div class="btn-group btn-group-toggle"  data-toggle="buttons">
+          <label class="btn sun">
+            <input type="radio" name="theme_switcher" value="light" id="option1"><i class="fas fa-sun"></i>
+          </label>
+          <label class="btn moon">
+            <input type="radio" name="theme_switcher" value="dark" id="option2"><i class="fas fa-moon"></i>
+          </label>
+          <label class="btn">
+            <input type="radio" name="theme_switcher" value="system" id="option3"><i class="fas fa-laptop"></i>
+          </label>
+        </div>
+      </form>
+    </div>
+    <?php
     if(is_user_logged_in()){
       $title = apply_filters( 'widget_title', $instance[ 'title' ] );
       echo $args['before_widget'];?>
