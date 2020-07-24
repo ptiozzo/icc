@@ -1,10 +1,9 @@
-:root{
+html{
   --color-bacheca_widget: #68D8B1;
 }
-@media (prefers-color-scheme: dark) {
-  :root{
+
+.darkmode{
     --color-bacheca_widget: rgba(103, 215, 176, 0.75);
-  }
 }
 
 /* COMMENTI */

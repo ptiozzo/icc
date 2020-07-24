@@ -1,15 +1,18 @@
-:root{
+html{
  --color-mappa_blue: #2880CA;
  --color-mappa_filtri: #35A6C3;
 }
-@media (prefers-color-scheme: dark) {
-  :root{
+
+.darkmode{
     --color-mappa_blue: rgba(40, 128, 201, 0.75);
     --color-mappa_filtri: rgba(53, 166, 195, 0.75);
+}
+.darkmode #mappa{
+  filter: brightness(.8) contrast(1.2);
   }
   #mappa{
     filter: brightness(.8) contrast(1.2);
-  }
+  
 }
 
 #mappa{
