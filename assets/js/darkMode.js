@@ -15,8 +15,16 @@ if (currentTheme == "dark") {
   }
 }
 
+function trans(){
+  document.body.classList.add("transition");
+  window.setTimeout(() => {
+    document.body.classList.remove("transition");
+  },1000)
+}
+
 function enableDarkMode() {
   document.body.classList.remove("lightmode");
+  trans();
   document.body.classList.add("darkmode");
   if (currentTheme != 'system'){
     localStorage.setItem("theme", "dark");
@@ -25,6 +33,7 @@ function enableDarkMode() {
 
 function enableLightMode() {
   document.body.classList.remove("darkmode");
+  trans();
   document.body.classList.add("lightmode");
   if (currentTheme != 'system'){
     localStorage.setItem("theme", "light");
@@ -34,6 +43,7 @@ function enableLightMode() {
 function enaleSystemMode() {
   document.body.classList.remove("lightmode");
   document.body.classList.remove("darkmode");
+  trans();
   localStorage.setItem("theme", "system");
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
   if (prefersDarkScheme.matches) {

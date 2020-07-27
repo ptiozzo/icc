@@ -83,6 +83,14 @@ html{
     --btn-warning_hover: #ffc107;
 }
 
+.transition,
+.transition *,
+.transition *:after,
+.transition *:before{
+  transition: all 1s ease-in-out;
+  transition-delay: 0 !important;
+}
+
 .darkmode header .logo img{
   filter: brightness(1.2) contrast(1.2);;
 }
