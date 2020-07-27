@@ -87,7 +87,7 @@ html{
 .transition *,
 .transition *:after,
 .transition *:before{
-  transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out !important;
   transition-delay: 0 !important;
 }
 
@@ -345,6 +345,9 @@ header.stripe{
   position: -webkit-sticky;
   background-color: var(--color-light_gray);
 }
+header.stripe .right-col nav>ul>li>a{
+  color: var(--color-light_black);
+}
 header.stripe .btn{
   margin: 15px 0;
 }
@@ -370,7 +373,7 @@ header.overlay-menu{
   z-index: 1050;
 }
 header.overlay-menu>nav{
-  background: var(--color-white);
+  background-color: var(--color-light_gray);
 }
 header.overlay-menu>nav>.collapse-container>ul.menu-1>li>a{
   color: var(--color-light_black);
