@@ -178,9 +178,8 @@ if($success != 1 && is_user_logged_in() ){
     $form_tipologia = $_POST['tipologia'];
     $form_regioni = $_POST['regione'];
     $form_tematica = $_POST['tematica'];
-    $form_titolo = $_POST['titolo'];
-    $form_content = $_POST['content'];
-    echo stripcslashes($_POST['content']);
+    $form_titolo = stripcslashes($_POST['titolo']);
+    $form_content = stripcslashes($_POST['content']);
     $form_invia = "Aggiungi cerco/offro";
   }
 
