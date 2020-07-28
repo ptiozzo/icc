@@ -228,10 +228,20 @@ if($Categoria1 != $Categoria
     <div class="col-12">
 
      <?php
+       $filtroChiuse = array(
+         'taxonomy'=> 'mappastato',
+         'field'    => 'slug',
+         'terms'    => 'chiuso',
+         'operator' => 'NOT IN',
+       );
        $argsMappaArchivio = array(
          'post_type' => 'mappa',
          'orderby' => 'modified',
          'posts_per_page' => 10,
+         'tax_query' => array(
+             'relation' => 'AND',
+             $filtroChiuse,
+           ),
        );
 
        $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
