@@ -1072,12 +1072,13 @@ figcaption{
 .wp-block-gallery .blocks-gallery-item{
   margin: 0;
 }
-table img{
-  width: auto;
-}
+
 .single__articolo img{
   width: 100%;
   height: auto;
+}
+.single__articolo table img{
+  width: auto;
 }
 
 .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 1rem;}
