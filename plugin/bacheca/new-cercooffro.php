@@ -53,22 +53,21 @@ $errors = array();
     if($_GET['action'] == 'edit' && isset($_GET['postID'])){
       $new_post = array(
         'ID' => $_GET['postID'],
-  			'post_title' => sanitize_text_field($_POST['titolo']),
-  			'post_content' => sanitize_text_field($_POST['content']),
+  			'post_title' => stripcslashes($_POST['titolo']),
+  			'post_content' => stripcslashes($_POST['content']),
   			'post_status' => 'publish',
-  			'post_name' => sanitize_text_field($_POST['titolo']),
+  			'post_name' => stripcslashes($_POST['titolo']),
   			'post_type' => 'cerco-offro',
         'comment_status' => 'open'
   		);
       $post_id = wp_update_post($new_post);
     } else {
       $post_title = $_POST['tipologia']." ".$_POST['titolo'];
-      sanitize_text_field($post_title);
       $new_post = array(
-  			'post_title' => ucfirst($post_title),
-  			'post_content' => sanitize_text_field($_POST['content']),
+  			'post_title' => ucfirst(stripcslashes($post_title)),
+  			'post_content' => stripcslashes($_POST['content']),
   			'post_status' => 'pending',
-  			'post_name' => sanitize_text_field($_POST['titolo']),
+  			'post_name' => stripcslashes($_POST['titolo']),
   			'post_type' => 'cerco-offro',
         'comment_status' => 'open'
   		);
@@ -178,8 +177,8 @@ if($success != 1 && is_user_logged_in() ){
     $form_tipologia = $_POST['tipologia'];
     $form_regioni = $_POST['regione'];
     $form_tematica = $_POST['tematica'];
-    $form_titolo = $_POST['titolo'];
-    $form_content = $_POST['content'];
+    $form_titolo = stripcslashes($_POST['titolo']);
+    $form_content = stripcslashes($_POST['content']);
     $form_invia = "Aggiungi cerco/offro";
   }
 
@@ -188,7 +187,7 @@ if($success != 1 && is_user_logged_in() ){
 
 
   ?>
-  <form class="mt-3 mb-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" enctype="multipart/form-data">
+  <form class="mt-3 mb-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
     <select name="tipologia" class="custom-select" >
       <option value="cercooffro" <?php if ($form_tipologia == "cercooffro") {echo 'selected';} ?>>Cerco o Offro?</option>
       <?php
