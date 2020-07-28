@@ -408,6 +408,16 @@ header .socials.d-xl-block{
   background-position: 3px center;
   padding-left: 35px;
   background-size: 30px;
+  animation: BTN_Contribuisci 2s 5 ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+@keyframes BTN_Contribuisci {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(+5deg); }
+  100% { transform: rotate(0deg); }
 }
 
 
