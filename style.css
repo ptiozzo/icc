@@ -414,7 +414,7 @@ header.stripe .right-col nav{
 
 @media (min-width: 992px){
   .manoicc {
-    animation: BTN_Contribuisci 2s 5 ease-in-out;
+    animation: BTN_Contribuisci 2s 10 ease-in-out;
     transition: all .3s ease-in-out;
   }
 }
