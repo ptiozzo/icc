@@ -86,6 +86,9 @@ if (!is_page(array(69021))){ //escludo la pagina contribuisci
          <label class="btn">
            <input type="radio" name="theme_switcher" value="system"><i class="fas fa-laptop"></i>
          </label>
+         <label class="btn">
+           <input type="radio" name="theme_switcher" value="dyslexia">Dyslexia
+         </label>
        </div>
      </form>
    </div>

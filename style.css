@@ -132,6 +132,11 @@ header{
   color: var(--color-light_black);
 }
 
+body.dyslexia{
+  font-family: 'OpenDyslexic';
+  font-size: 1rem!important;
+}
+
 .admin-bar header{
   top:32px;
 }
