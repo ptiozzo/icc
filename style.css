@@ -12,7 +12,92 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+html{
+  --color-articoli: #68D8B1;
+  --color-meme: #F79865;
+  --color-documentari: #3D78D0;
+  --color-rubriche: #F270C0;
+  --color-matrix: #9370DB;
+  --color-ioFaccioCosi: #AF0000;
+  --color-libri: #9064fa;
+  --color-salute: #7FD1F5;
+  --color-rassegna: #a3a3a3;
+  --color-regioni: #749A4F;
+  --color-regioni_hover: #5D7B41;
+  --color-footer: #515760;
+  --color-footer_link: #fff;
+  --color-chisiamo:#fff;
 
+  --color-contribuisci: #ffc107;
+  --color-pf: #999;
+
+  --color-black: #000;
+  --color-black_opacity: rgba(0,0,0,.8);
+  --color-light_black: #212529;
+  --color-brown: #34302C;
+  --color-white: #fff;
+  --color-white_collapse: rgba(0,0,0,.125);
+  --color-green: #9BCE8F;
+  --color-gray: #D0D0D0;
+  --color-very_light_gray:#dee2e6;
+  --color-light_gray: #f6f6f6;
+  --color-dark_gray: #6c757d;
+  --color-pink: #F76576;
+  --color-light_green: #A5DBB9;
+  --color-blue: #0056b3;
+  --color-azzurro: #72bff9;
+  --color-dark_azzurro: #35A6C3;
+
+  --btn-warning: #ffc107;
+  --btn-warning_hover: #e0a800;
+}
+
+.darkmode{
+    --color-articoli:rgba(103, 215, 176, 0.75);
+    --color-meme: rgba(247, 152, 101, 0.75);
+    --color-documentari: #3D78D0;
+    --color-rubriche: #F270C0;
+    --color-matrix: #9370DB;
+    --color-ioFaccioCosi: #AF0000;
+    --color-libri: rgba(144, 100, 250, 0.75);
+    --color-salute: #7FD1F5;
+    --color-rassegna:rgba(163, 163, 163, 0.75);
+    --color-regioni: rgba(116, 154, 79, 0.75);
+    --color-regioni_hover: #5D7B41;
+    --color-footer: rgba(53, 58, 65, 0.75);
+    --color-footer_link: rgba(221, 225, 230, 0.75);
+    --color-chisiamo:#dee2e6;
+
+    --color-black: #dee2e6;
+    --color-white: #212529;
+    --color-white_collapse: rgba(255,255,255,.125);
+    --color-light_black: #dee2e6;
+    --color-gray: rgba(221, 225, 230, 0.25);
+    --color-light_gray: rgba(89, 95, 103, 1);
+    --color-black_opacity: rgba(0,0,0,.2);
+    --color-dark_azzurro: rgba(53, 166, 195, 0.75);
+    --color-pink: rgba(247, 101, 118, 0.75);
+    --color-blue: #0056b3;
+
+    --btn-warning: #e0a800;
+    --btn-warning_hover: #ffc107;
+}
+
+.transition,
+.transition *,
+.transition *:after,
+.transition *:before{
+  transition: all 1s ease-in-out;
+  transition-delay: 0 !important;
+}
+
+.darkmode header .logo img{
+  filter: brightness(1.2) contrast(1.2);;
+}
+
+.darkmode img{
+  filter: brightness(.8) contrast(1.2);
+}
 /*
 GENERAL
 */
@@ -43,6 +128,8 @@ header{
   max-width: 1400px;
   margin: auto;
   padding-top: 0;
+  background-color: var(--color-white);
+  color: var(--color-light_black);
 }
 
 .admin-bar header{
@@ -62,6 +149,26 @@ h1{
   font-size: 33px;
   line-height: 33px;
   font-weight: 900;
+}
+
+.text-dark{
+  color: var(--color-light_black)!important;
+}
+
+.fa-sun{
+  color: var(--btn-warning);
+}
+.btn.sun{
+  background: #fff;
+}
+.fa-moon{
+  color: #F5F3CE;
+}
+.btn.moon{
+  background: #212529;
+}
+.fa-laptop{
+  color: var(--color-light_black);
 }
 
 .sidebar{
@@ -185,9 +292,9 @@ Layout
 LINK
 */
 
-.category-articoli a{color: #68D8B1;}
-.category-meme a{color: #F79865}
-.category-documentari a{color: #3D78D0}
+.category-articoli a{color: var(--color-articoli);}
+.category-meme a{color: var(--color-meme)}
+.category-documentari a{color: var(--color-documentari)}
 .category-rubriche a,
 .category-appunti-viaggio a,
 .category-ashoka-fellow a,
@@ -205,14 +312,14 @@ LINK
 .category-pillole-transizione a,
 .category-terranave a,
 .category-una-favola-puo-fare a,
-.category-voci-italia-che-cambia a{color: #F270C0}
-.category-matrix-dentro-di-noi a{color: #9370DB}
-.category-io-faccio-cosi a{color: #AF0000}
-.category-nostri-libri a{color: #9064fa}
-.category-salute-che-cambia a{color: #7FD1F5}
-.rassegna-stampa a{color: #a3a3a3}
+.category-voci-italia-che-cambia a{color: var(--color-rubriche)}
+.category-matrix-dentro-di-noi a{color: var(--color-matrix)}
+.category-io-faccio-cosi a{color: var(--color-ioFaccioCosi)}
+.category-nostri-libri a{color: var(--color-libri)}
+.category-salute-che-cambia a{color: var(--color-salute)}
+.rassegna-stampa a{color: var(--color-rassegna)}
 .category-piemonte-che-cambia a,
-.category-casentino-che-cambia a {color: #749A4F}
+.category-casentino-che-cambia a {color: var(--color-regioni)}
 
 
 div.single a {
@@ -226,19 +333,31 @@ div.single a:hover{
 /*	Menu
 */
 
-
 .fa-instagram{
-  color: #000;
+  color: var(--color-light_black);
 }
 header.stripe{
   z-index: 1040;
   width: 100%;
+  padding: 0 25px;
   position: sticky;
   position: -webkit-sticky;
+  background-color: var(--color-light_gray);
 }
 header.stripe .btn{
   margin: 15px 0;
 }
+
+.btn-warning{
+  background-color: var(--btn-warning);
+  border-color: var(--btn-warning);
+}
+
+.btn-warning:hover{
+  background-color: var(--btn-warning_hover);
+  border-color: var(--btn-warning_hover);
+}
+
 header.stripe .right-col nav>ul>li:not(:last-child){
   margin-right: 20px;
 }
@@ -249,17 +368,31 @@ header.stripe .right-col .search{
 header.overlay-menu{
   z-index: 1050;
 }
+header.overlay-menu>nav{
+  background: var(--color-white);
+}
+header.overlay-menu>nav>.collapse-container>ul.menu-1>li>a{
+  color: var(--color-light_black);
+  border-bottom: 1px solid var(--color-gray);
+}
+header.overlay-menu>nav>.collapse-container>ul{
+  border-top: 1px solid var(--color-gray);
+}
+overlay-menu
 header .overlay-menu>figure.hand{
   bottom: 0;
 }
+
 header.stripe .left-col .logo{
-  margin-left: 0px;
+  margin-left: 10px;
 }
 
 header .socials.d-xl-block{
   display: flex!important;
 }
-
+header.stripe .right-col nav{
+  margin-right: 20px;
+}
 @media (min-width: 992px) and (max-width: 1210px) {
   header.stripe .right-col nav{
     margin-right: 0;
@@ -269,12 +402,29 @@ header .socials.d-xl-block{
   }
 }
 
+
+
 .manoicc{
   background-image: url('/wp-content/themes/icc/assets/img/logo/mano_bianca.png');
   background-repeat: no-repeat;
   background-position: 3px center;
   padding-left: 35px;
   background-size: 30px;
+}
+
+@media (min-width: 992px){
+  .manoicc {
+    animation: BTN_Contribuisci 2s 5 ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+}
+
+@keyframes BTN_Contribuisci {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(+5deg); }
+  100% { transform: rotate(0deg); }
 }
 
 
@@ -287,10 +437,10 @@ header .socials.d-xl-block{
  }
 .navbar{
   padding: 0;
-  background-color: #34302C;
+  background-color: var(--color-brown);
 }
 .navbar a{
-  color: #fff;
+  color: var(--color-white);
   font-size: 13px;
   padding: 1rem
 }
@@ -304,14 +454,14 @@ header .socials.d-xl-block{
 
 .navbar .navbar-brand{
     font-size: 20px;
-    background-color: #749A4F;
+    background-color: var(--color-regioni);
 }
 .navbar .navbar-brand img{
   padding-right: 1rem;
 }
 
 #menu-menu-footer .nav-link{
-  color: #fff;
+  color: var(--color-footer_link);
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -334,7 +484,7 @@ TITOLI HOME
   position: absolute;
   width: 100%;
   height: 1px;
-  background: #D0D0D0;
+  background: var(--color-gray);
   bottom: 11px;
   left: 0;
 }
@@ -346,13 +496,14 @@ TITOLI HOME
   font-size: 11px;
   line-height: 11px;
   font-weight: 900;
-  background: #fff;
+  background: var(--color-white);
   z-index: 1;
+  color: var(--color-light_black);
 }
 
 /*Contribuisci banner*/
 .contribuisci-banner{
-  background-color: #ffc107;
+  background-color: var(--color-contribuisci);
   color: black;
   position: sticky!important;
   bottom: 40px;
@@ -370,7 +521,7 @@ TITOLI HOME
 
 /*Contribuisci page*/
 .contribuisci{
-  background-color: #ffc107
+  background-color: var(--color-contribuisci)
 }
 
 @media (max-width: 576px) {
@@ -384,12 +535,12 @@ TITOLI HOME
 
 /*Botton per iscrizione su menu regionali*/
 .btn-region{
-  background-color: #749A4F;
-  border-color: #749A4F;
+  background-color: var(--color-regioni);
+  border-color: var(--color-regioni);
 }
 .btn-region:hover{
-  background-color: #5D7B41;
-  border-color: #5D7B41;
+  background-color: var(--color-regioni_hover);
+  border-color: var(--color-regioni_hover);
 }
 .btn-outline-pf{
   color: rgba(255,255,255,.5);
@@ -400,13 +551,16 @@ TITOLI HOME
   text-decoration: underline;
 }
 .btn-link-pf{
-  color: #999;
+  color: var(--color-pf);
   text-decoration: none;
   font-size: 0.9em;
 }
 .btn-link-pf:hover{
-  color: #999;
+  color: var(--color-pf);
   text-decoration: underline;
+}
+.btn-link{
+  color: var(--color-blue);
 }
 
  /*	Sidebar
@@ -417,7 +571,7 @@ TITOLI HOME
 }
 .widget_wpmailup_widget,
 .btn-newsletter{
-  background: #F79865;
+  background: var(--color-meme);
 }
 aside{
   width: 270px;
@@ -435,12 +589,12 @@ aside{
   height: 70px;
 }
  aside.sidebar div.widget_text:nth-child(1){
-   color: #fff;
+   color: var(--color-white);
    text-transform: uppercase;
  }
  aside.sidebar div.widget_text:nth-child(2){
    margin-top: 10px;
-   color: #fff;
+   color: var(--color-white);
    text-transform: uppercase;
    padding: 0;
  }
@@ -448,10 +602,10 @@ aside{
   display: block;
   font-size: 12px;
   line-height: 14px;
-  background: #F76576;
+  background: var(--color-pink);
   padding: 25px;
   font-weight: 700;
-  color: #FFF;
+  color: var(--color-white);
   text-align: center;
  }
 
@@ -475,7 +629,7 @@ aside{
  }
  aside.sidebar div a,
  .pcc-pianfut a{
-   color: #000;
+   color: var(--color-light_black);
    text-align: center;
  }
  aside.sidebar div a:hover{
@@ -502,13 +656,13 @@ aside.sidebar div figure{
    font-weight: 900;
    text-align: center;
    text-transform: uppercase;
-   color: #000;
+   color: var(--color-light_black);
  }
  aside.sidebar div.widget_nav_menu ul{
    margin: 12.5px 0 0 0;
    padding: 0 0 15px 0;
    list-style: none;
-   border-bottom: solid #D0D0D0 1px;
+   border-bottom: solid var(--color-gray) 1px;
  }
  aside.sidebar div.widget_nav_menu ul li:not(:last-child){
     margin-bottom: 4px;
@@ -516,12 +670,12 @@ aside.sidebar div figure{
 
 aside.sidebar div.widget_nav_menu ul li a{
   display: block;
-  color: #000000;
+  color: var(--color-light_black);
   font-size: 11px;
   line-height: 11px;
   padding: 19px 0;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--color-white);
   text-transform: uppercase;
 }
 aside.sidebar div.widget_nav_menu ul li{
@@ -535,20 +689,20 @@ aside .pcc-provincie a,
   line-height: 11px;
   padding: 19px 0;
   text-transform: uppercase;
-  background: #A5DBB9;
-  color: #fff !important;
+  background: var(--color-light_green);
+  color: var(--color-white) !important;
 }
 .pcc-pianfut .btn-group,
 .pcc-pianfut button
 {
   width: 100%;
-  border: 1px solid #6c757d;
+  border: 1px solid var(--color-dark_gray);
 }
 .pcc-pianfut button{
-  background: #F79865;
+  background: var(--color-meme);
 }
 .pcc-pianfut button:hover{
-  background: #F79865;
+  background: var(--color-meme);
 }
 .pcc-pianfut .dropdown-menu{
   text-transform: none;
@@ -562,7 +716,7 @@ aside.sidebar .pcc-provincie p{
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
-  color: #000;
+  color: var(--color-light_black);
 }
 .widget p{
   font-size: 15px;
@@ -589,34 +743,34 @@ div.contenuti_header{
 div.contenuti_header select{
   margin-right: 15px;
   align-items: center;
-  border: #000000 solid 1px;
+  border: var(--color-light_black) solid 1px;
 }
 .category-contenuti h1{
   margin: 0;
   padding: 0;
   font-size: 33px;
   line-height: 33px;
-  color: #000000;
+  color: var(--color-light_black);
   font-weight: 900;
 }
 
 .cat2{
   padding: 30px 30px 90px 30px;
   margin-bottom: -90px;
-  background: #749A4F;
+  background: var(--color-regioni);
 }
 
 .cat2 a{
-  color: #0056b3;
+  color: var(--color-blue);
 }
 
 .cat2 h1{
-  color: #FFF;
+  color: var(--color-white);
 }
 
-.cat2.category-articoli{background: #68D8B1;}
-.cat2.category-meme{background: #F79865}
-.cat2.category-documentari{background: #3D78D0}
+.cat2.category-articoli{background: var(--color-articoli);}
+.cat2.category-meme{background: var(--color-meme)}
+.cat2.category-documentari{background: var(--color-documentari)}
 .cat2.category-rubriche,
 .cat2.category-appunti-viaggio,
 .cat2.category-ashoka-fellow,
@@ -634,12 +788,12 @@ div.contenuti_header select{
 .cat2.category-pillole-transizione,
 .cat2.category-terranave,
 .cat2.category-una-favola-puo-fare,
-.cat2.category-voci-italia-che-cambia{background: #F270C0}
-.cat2.category-matrix-dentro-di-noi{background: #9370DB}
-.cat2.category-io-faccio-cosi{background: #AF0000}
-.cat2.category-nostri-libri{background: #9064fa}
-.cat2.category-salute-che-cambia{background: #7FD1F5}
-.cat2.category-rassegna-stampa{background: #a3a3a3}
+.cat2.category-voci-italia-che-cambia{background: var(--color-rubriche)}
+.cat2.category-matrix-dentro-di-noi{background: var(--color-matrix)}
+.cat2.category-io-faccio-cosi{background: var(--color-ioFaccioCosi)}
+.cat2.category-nostri-libri{background: var(--color-libri)}
+.cat2.category-salute-che-cambia{background: var(--color-salute)}
+.cat2.category-rassegna-stampa{background: var(--color-rassegna)}
 
 
 /*
@@ -658,7 +812,7 @@ row
 }
 .row article a{
   display: block;
-  color: #000000;
+  color: var(--color-light_black);
   text-decoration: none;
 }
 .row article a:hover{
@@ -675,14 +829,14 @@ row
   padding: 0 10px 0;
 }
 
-.contenuti .row article.category-articoli a:hover .category{background: #68D8B1;}
-.contenuti .row article.category-meme a:hover .category{background: #F79865}
-.contenuti .row article.category-documentari a:hover .category{background: #3D78D0}
-.contenuti .row article.category-rubriche a:hover .category{background: #F270C0}
-.contenuti .row article.category-io-faccio-cosi a:hover .category{background: #AF0000}
-.contenuti .row article.category-salute-che-cambia a:hover .category{background: #7FD1F5}
-.contenuti .row article.rassegna-stampa a:hover .category{background: #a3a3a3}
-.contenuti .row article.category-matrix-dentro-di-noi a:hover .category{background: #9370DB}
+.contenuti .row article.category-articoli a:hover .category{background: var(--color-articoli);}
+.contenuti .row article.category-meme a:hover .category{background: var(--color-meme)}
+.contenuti .row article.category-documentari a:hover .category{background: var(--color-documentari)}
+.contenuti .row article.category-rubriche a:hover .category{background: var(--color-rubriche)}
+.contenuti .row article.category-io-faccio-cosi a:hover .category{background: var(--color-ioFaccioCosi)}
+.contenuti .row article.category-salute-che-cambia a:hover .category{background: var(--color-salute)}
+.contenuti .row article.rassegna-stampa a:hover .category{background: var(--color-rassegna)}
+.contenuti .row article.category-matrix-dentro-di-noi a:hover .category{background: var(--color-matrix)}
 
 .row article a figure{
   position: relative;
@@ -716,7 +870,7 @@ row
 .row article a .autore{
   font-size: 11px;
   line-height: 13px;
-  color: #A3A3A3;
+  color: var(--color-rassegna);
   margin-top: 10px;
 }
 .row article a .autore b{
@@ -748,11 +902,20 @@ row
 
 .single .single__nav__category{
   padding: 30px;
-  background: #749A4F;
+  background: var(--color-regioni);
 }
-.single .category-articoli .single__nav__category{background: #68D8B1;}
-.single .category-meme .single__nav__category{background: #F79865}
-.single .category-documentari .single__nav__category{background: #3D78D0}
+
+.single .category-articoli .single__nav__category{background: var(--color-articoli);}
+.single .category-meme .single__nav__category{background: var(--color-meme)}
+.single .category-documentari .single__nav__category{background: var(--color-documentari)}
+
+
+@media (max-width: 768px){
+  .single .single__nav__category{
+    padding: 15px;
+  }
+}
+
 .single .category-rubriche .single__nav__category,
 .single .category-appunti-viaggio .single__nav__category,
 .single .category-ashoka-fellow .single__nav__category,
@@ -770,11 +933,11 @@ row
 .single .category-pillole-transizione .single__nav__category,
 .single .category-terranave .single__nav__category,
 .single .category-una-favola-puo-fare .single__nav__category,
-.single .category-voci-italia-che-cambia .single__nav__category{background: #F270C0}
-.single .category-matrix-dentro-di-noi .single__nav__category{background: #9370DB}
-.single .category-io-faccio-cosi .single__nav__category{background: #AF0000}
-.single .category-salute-che-cambia .single__nav__category{background: #7FD1F5}
-.single .rassegna-stampa .single__nav__category{background: #a3a3a3}
+.single .category-voci-italia-che-cambia .single__nav__category{background: var(--color-rubriche)}
+.single .category-matrix-dentro-di-noi .single__nav__category{background: var(--color-matrix)}
+.single .category-io-faccio-cosi .single__nav__category{background: var(--color-ioFaccioCosi)}
+.single .category-salute-che-cambia .single__nav__category{background: var(--color-salute)}
+.single .rassegna-stampa .single__nav__category{background: var(--color-rassegna)}
 
 .single .single__nav__category a,
 .single .single__nav__category .btn-link{
@@ -783,12 +946,12 @@ row
   font-size: 18px;
   line-height: 35px;
   font-weight: 900;
-  color: #FFFFFF;
+  color: var(--color-white);
   display: inline;
 }
 
 .single .single__torna__contenuti{
-  border: 1px solid #fff;
+  border: 1px solid var(--color-white);
 }
 .single a.single__torna__contenuti{
   font-weight: 400;
@@ -806,8 +969,8 @@ row
 }
 .single .single__head{
   padding-top: 20px;
-  border-top: solid 1px #D0D0D0;
-  border-bottom: solid 1px #D0D0D0;
+  border-top: solid 1px var(--color-gray);
+  border-bottom: solid 1px var(--color-gray);
   margin-top: 20px;
 }
 .single .nostri-libri .single__head{
@@ -819,13 +982,13 @@ row
   display: inline-block;
   font-weight: 500;
   padding: 15px 20px;
-  color: #FFFFFF;
+  color: var(--color-white);
   margin-top: 30px;
-  background: #749A4F;
+  background: var(--color-regioni);
 }
-.single .category-articoli .single__tag a{background: #68D8B1;}
-.single .category-meme .single__tag a{background: #F79865}
-.single .category-documentari .single__tag a{background: #3D78D0}
+.single .category-articoli .single__tag a{background: var(--color-articoli);}
+.single .category-meme .single__tag a{background: var(--color-meme)}
+.single .category-documentari .single__tag a{background: var(--color-documentari)}
 .single .category-rubriche .single__tag a,
 .single .category-appunti-viaggio .single__tag a,
 .single .category-ashoka-fellow .single__tag a,
@@ -843,13 +1006,13 @@ row
 .single .category-pillole-transizione .single__tag a,
 .single .category-terranave .single__tag a,
 .single .category-una-favola-puo-fare .single__tag a,
-.single .category-voci-italia-che-cambia .single__tag a{background: #F270C0}
-.single .category-matrix-dentro-di-noi .single__tag a{background: #9370DB}
-.single .category-io-faccio-cosi .single__tag a{background: #AF0000}
-.single .category-salute-che-cambia .single__tag a{background: #7FD1F5}
+.single .category-voci-italia-che-cambia .single__tag a{background: var(--color-rubriche)}
+.single .category-matrix-dentro-di-noi .single__tag a{background: var(--color-matrix)}
+.single .category-io-faccio-cosi .single__tag a{background: var(--color-ioFaccioCosi)}
+.single .category-salute-che-cambia .single__tag a{background: var(--color-salute)}
 
 .single .single__head .single__date{
-  color: #A3A3A3;
+  color: var(--color-rassegna);
   font-size: 11px;
   line-height: 11px;
   padding-top: 10px;
@@ -861,12 +1024,12 @@ row
   font-size: 32px;
   line-height: 32px;
   font-weight: 900;
-  color: #000000;
+  color: var(--color-light_black);
 }
 .single .single__head .single__author,
 .single__author a{
   font-size: 15px;
-  color: #A3A3A3;
+  color: var(--color-rassegna);
 }
 .single__author b{
   text-transform: uppercase;
@@ -876,7 +1039,7 @@ row
   padding: 0;
   font-size: 18px;
   line-height: 18px;
-  color: #000000;
+  color: var(--color-light_black);
 }
 .single .single__articolo{
   margin-top: 20px;
@@ -888,7 +1051,6 @@ row
 }
 
 .single__articolo img.aligncenter{
-  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -900,7 +1062,7 @@ row
 .single__articolo .wp-caption-text,
 figcaption{
   font-size: 13px;
-  color: #A3A3A3;
+  color: var(--color-rassegna);
   font-style: italic;
 }
 .wp-block-gallery{
@@ -910,7 +1072,7 @@ figcaption{
 .wp-block-gallery .blocks-gallery-item{
   margin: 0;
 }
-.single__articolo .wp-block-image img{
+.single__articolo img{
   width: 100%;
   height: auto;
 }
@@ -920,12 +1082,12 @@ figcaption{
 
 
 .single__attivati{
-  background-color: #68D8B1;
+  background-color: var(--color-articoli);
   font-weight: 500;
-  color: #fff;
+  color: var(--color-white);
 }
 .single__pianetafuturo{
-  background-color: #72bff9;
+  background-color: var(--color-azzurro);
 }
 .single__attivati,
 .single__pianetafuturo{
@@ -974,7 +1136,7 @@ figcaption{
 
 .single__action{
   position: sticky;
-  top: 40vh;
+  top: 30vh;
 }
 
 @media (max-width: 768px) {
@@ -982,6 +1144,7 @@ figcaption{
     position: sticky;
     bottom: 40px;
     background-color: white;
+    z-index: 1000;
   }
 }
 
@@ -1000,11 +1163,11 @@ figcaption{
   color: inherit;
 }
 
-.single__action{color: #749A4F}
+.single__action{color: var(--color-regioni)}
 
-.single .category-articoli .single__action{color: #68D8B1;}
-.single .category-meme .single__action{color: #F79865}
-.single .category-documentari .single__action{color: #3D78D0}
+.single .category-articoli .single__action{color: var(--color-articoli);}
+.single .category-meme .single__action{color: var(--color-meme)}
+.single .category-documentari .single__action{color: var(--color-documentari)}
 .single .category-rubriche .single__action,
 .single .category-appunti-viaggio .single__action,
 .single .category-ashoka-fellow .single__action,
@@ -1022,29 +1185,23 @@ figcaption{
 .single .category-pillole-transizione .single__action,
 .single .category-terranave .single__action,
 .single .category-una-favola-puo-fare .single__action,
-.single .category-voci-italia-che-cambia .single__action{color: #F270C0}
-.single .category-matrix-dentro-di-noi .single__action {color: #9370DB}
-.single .category-io-faccio-cosi .single__action{color: #AF0000}
-.single .category-salute-che-cambia .single__action{color: #7FD1F5}
-.single .rassegna-stampa .single__action{color: #a3a3a3}
+.single .category-voci-italia-che-cambia .single__action{color: var(--color-rubriche)}
+.single .category-matrix-dentro-di-noi .single__action {color: var(--color-matrix)}
+.single .category-io-faccio-cosi .single__action{color: var(--color-ioFaccioCosi)}
+.single .category-salute-che-cambia .single__action{color: var(--color-salute)}
+.single .rassegna-stampa .single__action{color: var(--color-rassegna)}
 
 
 .single__contribuisci{
   border-top: 1px solid;
-  border-color: var(--warning);
-  background-color: #f6f6f6;
+  border-color: var(--btn-warning);
+  background-color: var(--color-light_gray);
 }
 .single__contribuisci img{
   height: 25px;
   min-width: auto!important;
 }
-.sd-social-official .sd-content>ul>li>a.sd-button{
-  background-color: #435A64!important;
-}
-.sd-social-official .sd-content>ul>li>a.sd-button span{
-  color: #fff;
-  font-weight: 700;
-}
+
 
 /*
 RASSEGNA STAMPA
@@ -1059,8 +1216,8 @@ RASSEGNA STAMPA
   width: 100%;
 }
 .single .rassegna-stampa .single__metaDescription{
-  background: #a3a3a3;
-  color: #fff;
+  background: var(--color-rassegna);
+  color: var(--color-white);
 }
 .rassegna-stampa img{
   min-width: 100%;
@@ -1068,12 +1225,12 @@ RASSEGNA STAMPA
 }
 .rassegna-stampa article{
   position: absolute;
-  background-color: rgba(0,0,0,.8);
+  background-color: var(--color-black_opacity);
   max-width: calc(100% - 30px);
   bottom: 15px;
   left: 15px;
   padding: 5px 20px;
-  color: #fff;
+  color: var(--color-white);
 }
 .rassegna-stampa article .date{
   font-size: 11px;
@@ -1093,15 +1250,17 @@ RASSEGNA STAMPA
 }
 
 .rassegna-stampa .single__tag a{
-  background-color: #a3a3a3;
+  background-color: var(--color-rassegna);
 }
 .rassegna__footer h3{
   font-size: 33px;
 }
 .rassegna__footer,
 .rassegna__footer .card{
-  background: #F7F7F7;
+  background: var(--color-light_gray);
 }
+
+
 
 .pwp_tag_list span{
   font-size: 1.2rem;
@@ -1118,7 +1277,7 @@ PAGE
 */
 h3.chi-siamo-title{
   padding-top: 40px;
-  border-top: solid 1px #D0D0D0;
+  border-top: solid 1px var(--color-gray);
   font-size: 32px;
   line-height: 32px;
   font-weight: 900;
@@ -1126,21 +1285,45 @@ h3.chi-siamo-title{
 
 h3.orange,
 p.orange{
-  background-color: #F79865;
+  background-color: var(--color-meme);
 }
 
 main.chi-siamo>section.content>.description>.title{
   margin-top: 80px;
 }
 
+main.chi-siamo>section.head>.info{
+  background: var(--color-meme);
+  color: var(--color-chisiamo);
+}
+main.chi-siamo>section.content>.description.orange{
+  background: var(--color-meme);
+  color: var(--color-light_black);
+}
+main.chi-siamo>section.content>.description>.actions>ul>li{
+  background: var(--color-meme);
+}
+main.chi-siamo>section.content>.description>.actions>ul>li .left-col .description{
+  color: var(--color-light_black);
+}
+
+.custom-select{
+  background: var(--color-white)
+  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+  color: var(--color-light_black);
+}
+.form-control,
+input[type=text],
+input[type=file]
+{
+  background: var(--color-white);
+  color: var(--color-light_black);
+}
 /*
 CAROUSEL
 */
-.slider-footer{
-  background-color: #EBEBEB;
-}
 a.carousel-more{
-  color: #000;
+  color: var(--color-light_black);
   text-decoration: underline;
   text-transform: uppercase;
   font-weight: 500;
@@ -1171,7 +1354,7 @@ a.carousel-more{
 }
 #carouselLeNostreStorie .card,
 #carouselLeNostreStorieMobile .card{
-  background: #F7F7F7;
+  background: var(--color-light_gray);
   min-height: 374px;
 }
 #carouselRassegnaEvidenza.controll-visible,
@@ -1188,7 +1371,7 @@ a.carousel-more{
 #carouselMappaMobile .left{
   width: 50%;
   flex-shrink: 0;
-  background: #35A6C3;
+  background: var(--color-dark_azzurro);
 }
 #carouselMappa .right,
 #carouselMappaMobile .right{
@@ -1224,14 +1407,14 @@ a.carousel-more{
 #carouselMappa .left .list .cta,
 #carouselMappaMobile .left .list .cta{
   display: block;
-  background: #9BCE8F;
+  background: var(--color-green);
   text-transform: uppercase;
   font-size: 15px;
   font-weight: 500;
   padding: 20px;
   width: 100%;
   text-align: center;
-  color: #FFFFFF;
+  color: var(--color-white);
 }
 #carouselMappa .left .list .info,
 #carouselMappaMobile .left .list .info{
@@ -1243,14 +1426,14 @@ a.carousel-more{
   font-size: 42px;
   line-height: 42px;
   font-weight: 900;
-  color: #C4E7B5;
+  color: var(--color-green);
 }
 #carouselMappa .left .list .text,
 #carouselMappaMobile .left .list .text{
   font-size: 17px;
   line-height: 20px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--color-white);
 }
 #carouselMappa .carousel-item,
 #carouselMappaMobile .carousel-item{
@@ -1258,12 +1441,12 @@ a.carousel-more{
 }
 .piemonte-che-cambia #carouselMappa .minatura-piemonte,
 .liguria-che-cambia #carouselMappa .minatura-liguria{
-  border: 26px solid #a1dbb9;
+  border: 26px solid var(--color-dark_azzurro);
   height: 350px;
   object-fit: cover;
 }
 #carouselMappa .regione-slider{
-  background: #749A4F;
+  background: var(--color-regioni);
   height: 67px;
   padding: 5px;
   margin-bottom: 10px;
@@ -1298,7 +1481,10 @@ a.carousel-more{
   height: 370px
 }
 
-
+.card{
+  background: var(--color-white);
+  border: 1px solid var(--color-white_collapse);
+}
 .card-title{
   margin: 10px 0 0 0;
   padding: 0;
@@ -1314,7 +1500,7 @@ a.carousel-more{
 .card .date{
   font-size: 11px;
   line-height: 13px;
-  color: #A3A3A3;
+  color: var(--color-rassegna);
 }
 
 .carousel-control-top .carousel-control-prev{
@@ -1353,7 +1539,7 @@ CARD HOME
   padding: 5px 0px;
   font-size: 11px;
   line-height: 13px;
-  color: #fff;
+  color: var(--color-white);
   font-weight: 700;
 }
 
@@ -1382,9 +1568,9 @@ CARD HOME
 /*
 COLORI HOME
 */
-.card article.category-articoli .category-bg{border-top: 150px solid #68D8B1;}
-.card article.category-meme .category-bg{border-top: 150px solid #F79865}
-.card article.category-documentari .category-bg{border-top: 150px solid #3D78D0}
+.card article.category-articoli .category-bg{border-top: 150px solid var(--color-articoli);}
+.card article.category-meme .category-bg{border-top: 150px solid var(--color-meme)}
+.card article.category-documentari .category-bg{border-top: 150px solid var(--color-documentari)}
 .card article.category-rubriche .category-bg,
 .card article.category-appunti-viaggio .category-bg,
 .card article.category-ashoka-fellow .category-bg,
@@ -1403,16 +1589,16 @@ COLORI HOME
 .card article.category-terranave .category-bg,
 .card article.category-una-favola-puo-fare .category-bg,
 .card article.category-voci-italia-che-cambia .category-bg
-.card article.category-rubriche .category-bg{border-top: 150px solid #F270C0}
-.card article.category-matrix-dentro-di-noi .category-bg {background: #9370DB}
-.card article.category-io-faccio-cosi .category-bg{border-top: 150px solid #AF0000}
-.card article.category-salute-che-cambia .category-bg{border-top: 150px solid #7FD1F5}
-.card article.rassegna-stampa .category-bg{border-top: 150px solid #a3a3a3;}
+.card article.category-rubriche .category-bg{border-top: 150px solid var(--color-rubriche)}
+.card article.category-matrix-dentro-di-noi .category-bg {background: var(--color-matrix)}
+.card article.category-io-faccio-cosi .category-bg{border-top: 150px solid var(--color-ioFaccioCosi)}
+.card article.category-salute-che-cambia .category-bg{border-top: 150px solid var(--color-salute)}
+.card article.rassegna-stampa .category-bg{border-top: 150px solid var(--color-rassegna);}
 .card article.category-piemonte-che-cambia .category-bg,
 .card article.category-liguria-che-cambia .category-bg,
-.card article.category-casentino-che-cambia .category-bg{border-top: 150px solid #749A4F;}
+.card article.category-casentino-che-cambia .category-bg{border-top: 150px solid var(--color-regioni);}
 .card article.nostri-libri .category-bg{
-  border-top: 150px solid #9064fa;
+  border-top: 150px solid var(--color-libri);
   width: 150px;
   border-right: 150px solid transparent;
 }
@@ -1430,10 +1616,10 @@ CAMPAGNE TEMATICHE
 SFONDI
 */
 .bg-regione-ita{
-  background: #A5DBB8;
+  background: var(--color-articoli)!important;
 }
 .bg-regione-ger{
-  background: #73C6BE;
+  background: var(--color-dark_azzurro)!important;
 }
 
 /*
@@ -1441,11 +1627,11 @@ CERCA
 */
 .cerca,
 .quattrozeroquattro{
-  background: #F88466;
+  background: var(--color-meme);
 }
 
 .cerca .autore{
-  color: #000 !important;
+  color: var(--color-light_black) !important;
 }
 
 
@@ -1456,22 +1642,22 @@ PAGINATION
 */
 
 .pagination .page-link{
-  color: #000;
+  color: var(--color-light_black);
 }
 .pagination .active .page-link,
 .pagination span{
-  background-color: #000;
-  border-color: #000;
+  background-color: var(--color-black);
+  border-color: var(--color-black);
   position: relative;
   display: block;
   padding: .5rem .75rem;
   margin-left: -1px;
   line-height: 1.25;
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--color-very_light_gray);
   font-size: 1rem;
 }
 .pagination span{
-  background: #fff;
+  background: var(--color-white);
 }
 
 main.piemonte-che-cambia>.page-content>section.right>aside{
@@ -1480,15 +1666,19 @@ main.piemonte-che-cambia>.page-content>section.right>aside{
 /*
 FOOTER
 */
+footer{
+  background: var(--color-footer);
+  padding-bottom: 30px;
+}
 footer article{
-  color: #A3A3A3;
+  color: var(--color-rassegna);
   font-size: 12px;
 }
 footer article b{
-  color: #fff;
+  color: var(--color-footer_link);
 }
 footer .widget h3{
-  color: #fff;
+  color: var(--color-footer_link);
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -1496,35 +1686,32 @@ footer .widget h3{
   padding: 0.3rem 0.6rem;
 }
 footer .widget p{
-  color: #A3A3A3;
+  color: var(--color-rassegna);
   font-size: 12px;
-}
-/*
-FONTAWESOME
-*/
-footer{
-  padding-bottom: 30px;
 }
 
 footer .fab{
-  color: #ddd;
+  color: var(--color-footer_link);
 }
 header.menu_regioni .fab{
   color: inherit;
 }
 
 header .fab{
-  color: #000;
+  color: var(--color-light_black);
 }
-header.overlay-menu .fab{
-  color: #1E4674;
+header.overlay-menu>nav>.socials{
+  margin-bottom: 20px;
+}
+header.overlay-menu>article>h1{
+  color: var(--color-light_gray);
 }
 
 /*
 404
 */
 .quattrozeroquattro a{
-  color: #212529;
+  color: var(--color-light_black);
   text-decoration: underline;
 }
 /*
@@ -1565,25 +1752,25 @@ PROVINCE
 NEWSBAR
 */
 .newsbar{
-  background: #ebebeb;
+  background: var(--color-light_gray);
   position: sticky;
   position: -webkit-sticky;
   bottom: 0;
   z-index: 1000;
-  color: #9BCE8F;
+  color: var(--color-green);
   font-weight: 900;
 }
 .newsbar .contribuisci img{
   width: 100%;
 }
 .newsbar .time{
-  background: #9BCE8F;
-  color: #fff;
+  background: var(--color-green);
+  color: var(--color-white);
   font-weight: 600;
 }
 .newsbar a{
   text-decoration: none;
-  color: #1c1c1c;
+  color: var(--color-light_black);
 }
 .newsbar a:hover{
   text-decoration: none;
