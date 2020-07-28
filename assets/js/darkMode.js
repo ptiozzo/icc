@@ -19,7 +19,7 @@ function trans(){
   document.body.classList.add("transition");
   window.setTimeout(() => {
     document.body.classList.remove("transition");
-  },1000)
+  },2000)
 }
 
 function enableDarkMode() {
