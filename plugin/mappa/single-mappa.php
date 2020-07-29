@@ -41,7 +41,7 @@
               if ($terms != ""){
                 //echo "Regione: ";
                 foreach ( $terms as $term ) {
-                  echo '<form class="d-inline" action="/mappa/" method="post">';
+                  echo '<form class="d-inline mx-1" action="/mappa/" method="post">';
                   if($term->parent == 0){
                     echo '<input type="hidden" name="regione-dropdown" value="'.$term->slug.'">';
                   } else{
