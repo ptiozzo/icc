@@ -946,6 +946,7 @@ row
 .single .rassegna-stampa .single__nav__category{background: var(--color-rassegna)}
 
 .single .single__nav__category a,
+.single .single__nav__category span,
 .single .single__nav__category .btn-link{
   margin: 0;
   padding: 0;
@@ -954,6 +955,11 @@ row
   font-weight: 900;
   color: var(--color-white);
   display: inline;
+}
+.single .single__nav__category a,
+.single .single__nav__category span,
+.single .single__nav__category .btn-link{
+  font-weight: 900;
 }
 
 .single .single__torna__contenuti{
