@@ -19,7 +19,7 @@
 ?>
 
 <div class="single mappa">
-  <h1>La mappa dell'Italia che Cambia</h1>
+  <h1 class="mb-4">La mappa dell'Italia che Cambia</h1>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<div class="row">
