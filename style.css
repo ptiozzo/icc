@@ -172,7 +172,8 @@ h1{
 .btn.moon{
   background: #212529;
 }
-.fa-laptop{
+.fa-laptop,
+.theme_switcher_value{
   color: var(--color-light_black);
 }
 
