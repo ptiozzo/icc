@@ -256,7 +256,14 @@ if($Categoria1 != $Categoria
                <article class="p-0">
                <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php if(has_post_thumbnail()){echo get_the_post_thumbnail_url();} else {echo get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png';} ?>">
                <div class="card-body p-2 text-white">
-                 <div class="date text-capitalize"><?php echo get_the_terms( get_the_ID() , 'mapparegione' )[0]->name; ?></div>
+                 <div class="date text-capitalize">
+                   <?php
+                    $term = get_the_terms( get_the_ID() , 'mapparegione' );
+                    foreach ($term as $term1 ) {
+                      echo $term1->name." ";
+                    }
+                   ?>
+                 </div>
                  <h5 class="card-title"><?php echo get_the_title(); ?></h5>
                  <a href="<?php echo the_permalink(); ?>" class="stretched-link"></a>
                </div>
