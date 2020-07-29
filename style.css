@@ -338,9 +338,11 @@ div.single a:hover{
 /*	Menu
 */
 
+
 header.stripe{
   z-index: 1040;
   width: 100%;
+  padding: 0 25px;
   position: sticky;
   position: -webkit-sticky;
   background-color: var(--color-light_gray);
@@ -386,6 +388,7 @@ overlay-menu
 header .overlay-menu>figure.hand{
   bottom: 0;
 }
+
 header.stripe .left-col .logo{
   margin-left: 10px;
 }
@@ -393,7 +396,9 @@ header.stripe .left-col .logo{
 header .socials.d-xl-block{
   display: flex!important;
 }
-
+header.stripe .right-col nav{
+  margin-right: 20px;
+}
 @media (min-width: 992px) and (max-width: 1210px) {
   header.stripe .right-col nav{
     margin-right: 0;
@@ -411,6 +416,21 @@ header .socials.d-xl-block{
   background-position: 3px center;
   padding-left: 35px;
   background-size: 30px;
+}
+
+@media (min-width: 992px){
+  .manoicc {
+    animation: BTN_Contribuisci 2s 5 ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+}
+
+@keyframes BTN_Contribuisci {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(+5deg); }
+  100% { transform: rotate(0deg); }
 }
 
 

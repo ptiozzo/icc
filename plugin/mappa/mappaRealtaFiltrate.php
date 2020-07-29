@@ -21,6 +21,12 @@ if($filtro == 0){
   wp_reset_postdata();
 } else {
   //filtri presi da scriptArchiveMappa.php
+  $filtroChiuse = array(
+    'taxonomy'=> 'mappastato',
+    'field'    => 'slug',
+    'terms'    => 'chiuso',
+    'operator' => 'NOT IN',
+  );
   $argsMappaArchivio = array(
     'post_type' => array('mappa'),
     'posts_per_page' => 4,
@@ -32,6 +38,7 @@ if($filtro == 0){
         $filtroRegione,
         $filtroTipologia,
         $filtroUtente,
+        $filtroChiuse
       ),
     'meta_query' => array(
         $filtroLatLong,
