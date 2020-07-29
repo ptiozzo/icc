@@ -338,9 +338,7 @@ div.single a:hover{
 /*	Menu
 */
 
-.fa-instagram{
-  color: var(--color-light_black);
-}
+
 header.stripe{
   z-index: 1040;
   width: 100%;
