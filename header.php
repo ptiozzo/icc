@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> >
 	<head>
 		<meta charset="utf-8">
 		<title>
@@ -22,6 +22,7 @@
 		<meta name="title" content="<?php bloginfo( 'name' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/png" href="">
+		<meta name="color-scheme" content="dark light">
 
 		<?php wp_head(); ?>
 	</head>
@@ -47,7 +48,7 @@
 
 				<a href='<?php echo home_url(); ?>'>
 					<figure class='logo'>
-						<img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia.png' alt='<?php bloginfo( 'name' ); ?>' title='<?php bloginfo( 'name' ); ?>'>
+						<img src='<?php echo get_template_directory_uri();?>/assets/img/logo/icc_orizz_trasparente.png' alt='<?php bloginfo( 'name' ); ?>' title='<?php bloginfo( 'name' ); ?>'>
 					</figure>
 				</a>
 			</div>
@@ -140,7 +141,7 @@
 
 				<div class='collapse-container'>
 					<div class='collapse-head hidden-mobile'>
-						<h5>Le Regioni</h5>
+						<h5 class="text-dark">Le Regioni</h5>
 					</div>
 						<?php
 						wp_nav_menu( array(
@@ -182,7 +183,6 @@
 				<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/hand.svg' alt='italia che cambia'>
 			</figure>
 		</header>
-
 		<div class="modal fade" id="IscrizioneNewsletter" tabindex="-1" role="dialog" aria-labelledby="CasentinoAccediTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		    <div class="modal-content">
@@ -201,9 +201,9 @@
 								<?php dynamic_sidebar('modalSingleNewsletter'); ?>
 							</aside>
 							<?php
-						} else { ?>
-		        	<iframe src="https://b3x1d.emailsp.com/frontend/forms/Subscription.aspx?idList=3&idForm=305&guid=07a29581-54e5-43a8-bd98-db29eab5335c" class="border-0" width="100%" height="1100px"></iframe>
-							<?php
+						} else {
+		        		include "template-part/IscrizioneNewsletter.php";
+
 						} ?>
 		      </div>
 		      <div class="modal-footer">

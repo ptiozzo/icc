@@ -1,3 +1,4 @@
+
 <?php
 $filtroUtente = array(
   'taxonomy'=> 'mappastato',
@@ -110,6 +111,7 @@ if ($loopMappaLiguriaSlider->have_posts()) {
         if ($i >= 8){
           break;
         }
+
       }?>
 
       <?php if ($i%2 == 1){ ?>
@@ -121,3 +123,4 @@ if ($loopMappaLiguriaSlider->have_posts()) {
 <?php
 }
 ?>
+

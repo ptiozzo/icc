@@ -22,7 +22,7 @@ Template Name: Template province
       get_template_part('casentino/menu','casentino');
     } elseif (($catID == "2299") || cat_is_ancestor_of( 2299, $catID)) {
       get_template_part('piemonte/menu','piemonte');
-    } elseif ($catID == "2359") {
+    } elseif (($catID == "2359") || cat_is_ancestor_of( 2359, $catID)) {
       get_template_part('liguria/menu','liguria');
     }
   }
@@ -46,7 +46,7 @@ Template Name: Template province
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
-          'category__not_in' => array(2299,2300),
+          'category__not_in' => array(2299,2300,2359),
       );
     }
     /*eseguo la query */
@@ -67,19 +67,7 @@ Template Name: Template province
                   <span class="ml-4"><?php the_time('j M Y') ?></span>
                   <span>
                     <?php
-                      if (in_category('documentari')) {
-                        echo 'I documentari';
-                      } elseif (in_category('io-faccio-cosi')) {
-                        echo 'Io faccio così';
-                      }elseif (in_category('meme')) {
-                        echo 'I meme';
-                      }elseif (in_category('rubriche')) {
-                        echo 'Le rubriche';
-                      }elseif (in_category('salute-che-cambia')) {
-                        echo 'Salute';
-                      }elseif (in_category('articoli')) {
-                        echo 'Gli Articoli';
-                      }
+                      get_template_part('inc/post','etichetta');
                     ?>
                   </span>
                 </div>
@@ -124,7 +112,7 @@ Template Name: Template province
         <?php
       endwhile;
         ?>
-      </div> <!-- .grid -->
+      </div> <!-- .row -->
         <!-- paginazione -->
 
       <?php echo bootstrap_pagination($loop); ?>
@@ -132,7 +120,14 @@ Template Name: Template province
         <?php
       else:
         ?>
-          <script type="text/javascript">location.href = '<?php echo home_url(); ?>';</script>
+          <div class="alert alert-danger" role="alert">
+            Nessun articolo trovato, verrai reindirizzato in home page!
+          </div>
+          <script>
+            setTimeout(function(){
+              window.location.href = '<?php echo home_url(); ?>';
+            }, 5000);
+          </script>
         <?php
       endif;
     wp_reset_query();

@@ -7,15 +7,17 @@ global $wpdb, $user_ID;
 <?php if($_GET['nl']){
   echo "<div class='mt-5' style='height: 100vh;'>";
   if ($_GET['nl']== "RishiestaOK"){
-    echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter! Controlla la tua mail per confermare</div>';
+    echo '<div class="alert alert-success" role="alert">Grazie! Controlla la tua casella di posta per confermare l\'iscrizione</div>';
   } elseif ($_GET['nl']== "IscrizioneOK"){
     echo '<div class="alert alert-success" role="alert">Iscritto alla NewsLetter con successo</div>';
   } elseif ($_GET['nl']== "ErroreGenerico"){
     echo '<div class="alert alert-danger" role="alert">Vi è stato un errore, contatta la redazione per maggiori informazioni</div>';
   } elseif ($_GET['nl']== "IndirizzoGiaRegistrato"){
-    echo '<div class="alert alert-warning" role="alert">L\'indirizzo email risulta già rricevere la NewsLetter, contatta la redazione per maggiori informazioni</div>';
+    echo '<div class="alert alert-warning" role="alert">L\'indirizzo email risulta già ricevere la NewsLetter, contatta la redazione per maggiori informazioni</div>';
   } elseif ($_GET['nl']== "DatiNonConsistenti"){
     echo '<div class="alert alert-danger" role="alert">Alcuni dati forniti risultano già esistenti o mancanti, contatta la redazione per maggiori informazioni</div>';
+  } else {
+    echo '<div class="alert alert-danger" role="alert">Errore generico, contatta la redazione per maggiori informazioni</div>';
   }
   echo "</div>";
   echo "</div>"; //chiudo il container
@@ -131,7 +133,7 @@ if ($user_ID)
             $headers = array('Content-Type: text/html; charset=UTF-8');
 
             wp_mail( $to, $subject, $body, $headers );
-            wp_mail( 'ptiozzo@me.com', '[ICC] nuovo utente registrato', $body, $headers );
+            wp_mail( 'webmaster@italiachecambia.org', '[ICC] nuovo utente registrato', $body, $headers );
             ?>
 
             <h2>Iscriviti anche alla nostra newsletter</h2>
@@ -155,6 +157,12 @@ if ($user_ID)
                 <input name="list" type="checkbox" value="13">
                 <label class="form-check-label" for="gridCheck1">
                   La newsletter mensile di PiemonteCheCambia
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="list" type="checkbox" value="17">
+                <label class="form-check-label" for="gridCheck1">
+                  La newsletter mensile di LiguriaCheCambia
                 </label>
               </div>
               <div class="form-check">

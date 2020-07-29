@@ -10,10 +10,6 @@ html{
 .darkmode #mappa{
   filter: brightness(.8) contrast(1.2);
   }
-  #mappa{
-    filter: brightness(.8) contrast(1.2);
-
-}
 
 #mappa{
   height: 500px;

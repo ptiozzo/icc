@@ -79,7 +79,7 @@
 							 ?>
 						</div>
 					</div>
-					
+
 					<!-- Seguici su -->
 					<div class="row mt-3 rassegna_seguici">
 						<div class="col-12">
@@ -142,9 +142,7 @@
 						<!-- DA POCKET -->
 						<?php
 							if( !empty (get_post_meta( get_the_ID(), 'PocketTAG',true))){
-								echo "<h3>Articoli:</h3>";
-								echo do_shortcode("[pocket_links tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
-								echo "<hr>";
+								echo do_shortcode("[pocket_links filter_tag='".get_post_meta( get_the_ID(), 'PocketTAG',true)."']" );
 							}
 						?>
 

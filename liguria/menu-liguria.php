@@ -26,57 +26,8 @@
      ?>
 
    </div>
-   <div class="mx-auto mr-md-0 p-2">
-     <img class="ml-2" src="<?php echo get_template_directory_uri();?>/assets/img/modules/pianetafuturo/pfuturo_logo_grigio_32.png" width="32px" height="32px" alt="Accedi">
-     <button type="button" class="btn btn-outline-pf border-0 mr-2" data-toggle="modal" data-target="#LiguriaAccedi">
-        Accedi
-     </button>
-
-     <button type="button" class="btn btn-region mr-2 text-white" data-toggle="modal" data-target="#LiguriaIscriviti">
-      Iscriviti
-     </button>
-   </div>
  </nav>
 </header>
-<div class="modal fade" id="LiguriaAccedi" tabindex="-1" role="dialog" aria-labelledby="LiguriaAccediTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="LiguriaAccediTitle">Accedi</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <iframe src="https://api.pianetafuturo.it/widget/account/ext_login.php?a=8" class="border-0" height="245px" width="100%"></iframe>
-        <button type="button" class="btn btn-link-pf" data-dismiss="modal" data-toggle="modal" data-target="#LiguriaIscriviti">Non sei ancora registrato? ISCRIVITI!</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="LiguriaIscriviti" tabindex="-1" role="dialog" aria-labelledby="LiguriaIscrivitiTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="LiguriaIscrivitiTitle">Iscriviti</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <iframe src="https://api.pianetafuturo.it/widget/account/ext_register.php?a=8" class="border-0" height="400px" width="100%"></iframe>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <?php
 $argsLiguriaSegnalaProgetto = array(
   'post_type' => 'contenuti-speciali',
@@ -107,7 +58,6 @@ if($loopLiguriaSegnalaProgetto->have_posts()):
             the_content();
           endwhile;
           ?>
-        <a href="https://liguria.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -146,7 +96,6 @@ if($loopLiguriaSegnalaEvento->have_posts()):
             the_content();
           endwhile;
           ?>
-        <a href="https://liguria.pianetafuturo.it">Vai a PianetaFuturo</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -155,37 +104,19 @@ if($loopLiguriaSegnalaEvento->have_posts()):
   </div>
 </div>
 <?php endif; ?>
-<?php
-$argsLiguriaScendiPiazza = array(
-  'post_type' => 'contenuti-speciali',
-  'posts_per_page' => 1,
-  'tax_query' => array(
-    array(
-        'taxonomy'=> 'contenuti_speciali_filtri',
-        'field'   => 'slug',
-        'terms'		=> 'liguria-scendi-piazza',
-    ),
-  ),
-);
-$loopLiguriaScendiPiazza = new WP_Query( $argsLiguriaScendiPiazza );
-if($loopLiguriaScendiPiazza->have_posts()):
- ?>
-<div class="modal fade" id="LiguriaScendiPiazza" tabindex="-1" role="dialog" aria-labelledby="LiguriaAccediTitle" aria-hidden="true">
+
+<div class="modal fade" id="LiguriaAggiungiAnnuncio" tabindex="-1" role="dialog" aria-labelledby="LiguriaAggiungiAnnuncio" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="LiguriaAccediTitle">Scendi in piazza</h5>
+        <h5 class="modal-title" id="LiguriaAccediTitle">Aggiungi un annuncio</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body pcc-pianfut">
-        <?php
-          while($loopLiguriaScendiPiazza->have_posts()) :  $loopLiguriaScendiPiazza->the_post();
-            the_content();
-          endwhile;
-          ?>
-        <a href="https://liguria.pianetafuturo.it">Vai a PianetaFuturo</a>
+        <p>Per aggiungere un annuncio vai sulla seguente pagina:</p>
+        <a href="/liguria/bacheca/">Crea un nuovo annuncio</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -193,4 +124,3 @@ if($loopLiguriaScendiPiazza->have_posts()):
     </div>
   </div>
 </div>
-<?php endif; ?>

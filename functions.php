@@ -36,6 +36,7 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_script('jquery');
 
 		wp_enqueue_script( 'icc-scripts2', get_template_directory_uri() . '/assets/js/app.js','','',true);
+    wp_enqueue_script( 'icc-darkMode', get_template_directory_uri() . '/assets/js/darkMode.js','','',true);
 		wp_enqueue_script( 'icc-scripts5', get_template_directory_uri() . '/assets/js/mappa/index.js','','',true);
 		wp_enqueue_script( 'icc-scripts3', get_template_directory_uri() . '/assets/js/plugins/jquery.min.js');
 		wp_enqueue_script( 'icc-scripts4', get_template_directory_uri() . '/assets/js/plugins/jquery.easing.min.js');
@@ -123,7 +124,10 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 		register_sidebar(array( 'name' => esc_html__( 'Home casentino sinistra', 'icc' ),'id' => 'homecasentinosx','description' => esc_html__( 'Area casentino nella colonna di sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Home casentino centrale 2', 'icc' ),'id' => 'homecasentinodx','description' => esc_html__( 'Area casentino nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
     register_sidebar(array( 'name' => esc_html__( 'Home casentino bacheca', 'icc' ),'id' => 'homecasentinobacheca','description' => esc_html__( 'Area casentino nella colonna centrale dopo 4 articoli (da mobile dopo 2), larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
-		register_sidebar(array( 'name' => esc_html__( 'Home liguria', 'icc' ),'id' => 'homeliguria','description' => esc_html__( 'Area liguria nella tra realtà mappate e ultime storie, larghezza max 930px', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Home Liguria sinistra', 'icc' ),'id' => 'homeliguriasx','description' => esc_html__( 'Area liguria nella colonna di sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Home Liguria centrale 2', 'icc' ),'id' => 'homeliguriadx','description' => esc_html__( 'Area liguria nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Home Liguria bacheca', 'icc' ),'id' => 'homeliguriabacheca','description' => esc_html__( 'Area liguria nella colonna centrale dopo 4 articoli (da mobile dopo 2), larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+
 	}
 }
 add_action( 'widgets_init', 'icc_sidebars' );

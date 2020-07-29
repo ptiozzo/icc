@@ -1,3 +1,11 @@
+html{
+  --color-bacheca_widget: #68D8B1;
+}
+
+.darkmode{
+    --color-bacheca_widget: rgba(103, 215, 176, 0.75);
+}
+
 /* COMMENTI */
 .cerco-offro .comment a,
 .comment-form .logged-in-as a,
@@ -15,13 +23,16 @@
 
 .cerco-offro .commentlist li{
   margin-top: 20px;
-  background-color: #e9967a;
+  background-color: var(--color-meme);
   padding: 1em;
   border-radius: 10px;
 }
 
 .cerco-offro .single__nav__category{
-  background-color: #e9967a;
+  background-color: var(--color-meme);
+}
+.cerco-offro .single__nav__category span{
+  color: var(--color-white);
 }
 .comment-form-comment label{
   display: block;
@@ -36,5 +47,9 @@
 }
 
 .Widget_bacheca{
-  background-image: url("asset/img/bacheca-texture.png");
+  background-color: var(--color-bacheca_widget);
+}
+
+textarea#comment {
+  max-width: 98%;
 }
