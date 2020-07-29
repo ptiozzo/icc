@@ -173,7 +173,7 @@ h1{
   background: #212529;
 }
 .fa-laptop,
-.theme_switcher_value{
+footer .btn{
   color: var(--color-light_black);
 }
 
