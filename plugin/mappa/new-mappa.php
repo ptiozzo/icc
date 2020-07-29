@@ -369,10 +369,10 @@ if($success != 1 && is_user_logged_in() ){
       <label for="image">Aggiungi un'immagine della tua realtà</label>
       <input type="file" name="image" class="form-control-file" id="image">
     </div>
-    <div class="form-group my-2 col-12 d-block px-0">
+    <!--<div class="form-group my-2 col-12 d-block px-0">
       <input id="Mappa_VideoYT" class="form-control w-75" type="url" name="Mappa_VideoYT" placeholder="Inserisci il link ad un video YouTube di presentazione" value="<?php echo $form_mappa_videoYT;?>">
       <small id="Mappa_VideoYTHelp" class="form-text text-muted"></small>
-    </div>
+    </div>-->
     <div class="form-group my-2 col-12 d-block px-0">
       <input id="mappa_FB" class="form-control w-75" type="url" name="mappa_FB" placeholder="Inserisci il link alla pagina Facebook della realtà" value="<?php echo $form_mappa_FB;?>">
       <small id="mappa_FBHelp" class="form-text text-muted"></small>
@@ -382,7 +382,7 @@ if($success != 1 && is_user_logged_in() ){
       <small id="mappa_IGHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
-      <input id="mappa_YT" class="form-control w-75" type="url" name="mappa_YT" placeholder="Inserisci il link al canale YouTube della realtà" value="<?php echo $form_mappa_YT;?>">
+      <input id="mappa_YT" class="form-control w-75" type="url" name="mappa_YT" placeholder="Inserisci il link YouTube della realtà" value="<?php echo $form_mappa_YT;?>">
       <small id="mappa_YTHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group my-2 col-12 d-block px-0">
