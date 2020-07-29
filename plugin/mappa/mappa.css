@@ -10,10 +10,6 @@ html{
 .darkmode #mappa{
   filter: brightness(.8) contrast(1.2);
   }
-  #mappa{
-    filter: brightness(.8) contrast(1.2);
-  
-}
 
 #mappa{
   height: 500px;
@@ -137,7 +133,7 @@ SINGLE
 
 .mappa .mappa_correlati{
   border: 1px solid;
-  background-color: #f6f6f6;
+  background-color: var(--color-light_gray);
   border-color: var(--warning);
 }
 .mappa .card{
@@ -177,7 +173,7 @@ SINGLE
   position: relative;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: var(--color-white);
 }
 .single .mappa .card-body a:hover{
   text-decoration: underline;
