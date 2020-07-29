@@ -1,15 +1,18 @@
-:root{
+html{
  --color-mappa_blue: #2880CA;
  --color-mappa_filtri: #35A6C3;
 }
-@media (prefers-color-scheme: dark) {
-  :root{
+
+.darkmode{
     --color-mappa_blue: rgba(40, 128, 201, 0.75);
     --color-mappa_filtri: rgba(53, 166, 195, 0.75);
+}
+.darkmode #mappa{
+  filter: brightness(.8) contrast(1.2);
   }
   #mappa{
     filter: brightness(.8) contrast(1.2);
-  }
+
 }
 
 #mappa{
@@ -134,7 +137,7 @@ SINGLE
 
 .mappa .mappa_correlati{
   border: 1px solid;
-  background-color: #f6f6f6;
+  background-color: var(--color-light_gray);
   border-color: var(--warning);
 }
 .mappa .card{
@@ -174,7 +177,7 @@ SINGLE
   position: relative;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: var(--color-white);
 }
 .single .mappa .card-body a:hover{
   text-decoration: underline;
