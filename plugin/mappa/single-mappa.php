@@ -62,7 +62,7 @@
                 //echo "Categoria: ";
                 foreach ( $terms as $term ) {
                   if($i > 0){
-                     echo "<span class='text-white'> - </span>";
+                     echo "<span class=''> - </span>";
                   }
                   echo '<form class="d-inline" action="/mappa/" method="post">';
                   echo '<input type="hidden" name="categoria-dropdown" value="'.$term->slug.'">';
@@ -78,7 +78,7 @@
                 //echo "Rete: ";
                 foreach ( $terms as $term ) {
                   if($i > 0){
-                    echo "<span class='text-white'> - </span>";
+                    echo "<span class=''> - </span>";
                   }
                   echo '<form class="d-inline" action="/mappa/" method="post">';
                   echo '<input type="hidden" name="rete-dropdown" value="'.$term->slug.'">';
