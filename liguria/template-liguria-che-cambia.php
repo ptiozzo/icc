@@ -104,7 +104,7 @@ Template Name: Liguria che cambia
     			wp_reset_query();?>
 
           <?php dynamic_sidebar('homeLiguriasx'); ?>
-          
+
             <?php get_template_part('loop/loop','liguriaslidermappa'); ?>
         </div><!-- Fine sidebar__inner -->
 		</div><!-- Fini prima colonna -->
@@ -183,9 +183,10 @@ Template Name: Liguria che cambia
       <div class="col-lg-home3">
         <aside class="sidebar">
           <div class="pcc-pianfut">
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaProgetto">
-               Segnala un progetto
-            </button>
+            <form class="" action="/nuovarealtasegnalata/" method="post">
+              <input name="regionemappa" type="hidden" value="liguria">
+              <input name="segnala_realta" type="submit" value="Segnala una realtà" class="btn btn-secondary">
+            </form>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaEvento">
                Segnala un evento
             </button>

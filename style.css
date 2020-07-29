@@ -699,12 +699,14 @@ aside .pcc-provincie a,
   color: var(--color-white) !important;
 }
 .pcc-pianfut .btn-group,
-.pcc-pianfut button
+.pcc-pianfut button,
+.pcc-pianfut input
 {
   width: 100%;
   border: 1px solid var(--color-dark_gray);
 }
-.pcc-pianfut button{
+.pcc-pianfut button,
+.pcc-pianfut input{
   background: var(--color-meme);
 }
 .pcc-pianfut button:hover{
