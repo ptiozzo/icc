@@ -114,7 +114,7 @@
                 <?php if(!empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true))){ ?>
                   Motivazione chiusura: <?php echo get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true); ?>
                 <?php } ?>
-                <p><em>Abbiamo deciso di mostrarti anche le realtà concluse in modo che il loro sapere ed esperienza non vada perduto e possa continuare ad essere di ispirazione<em></p>
+                <p><em>Abbiamo deciso di mostrarti anche le realtà concluse in modo che il loro sapere ed esperienza non vada perduto e possa continuare ad essere di ispirazione</em></p>
               </div>
             <?php } ?>
             <div class="single__head">
