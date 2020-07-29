@@ -95,7 +95,7 @@ if($Regione == "tutteleregioni" && !get_query_var('regione')){
   $mapparegione = "icc_mappa_realta_".$Regione1;
 }
 
-if( $realtaSegnalate == 1){
+if( $realtaSegnalate == 1 && $Regione1 == 'liguria'){
   ?>
   <div class="alert alert-warning" role="alert">
     Stai visualizzando sia le realtà verificate da noi (pin blu) che quelle segnalate dagli utenti (pin rosso)
