@@ -3,19 +3,31 @@
   if(have_posts()) : while(have_posts()) : the_post();
   $icc_article_ID = get_the_ID();
 
-  $term1 = "mapparegione";
-  $terms = get_the_terms( $post->ID , $term1 );
+
+  $realtaRete = 0;
+  $terms = get_terms( array('taxonomy' => 'mapparete','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
   foreach ( $terms as $term ) {
-    if($term->slug == "liguria")
-     $menuLiguria = 1;
-    elseif ($term->slug == "piemonte")
-     $menuPiemonte = 1;
+    if($term->slug == $post->post_name){
+     $realtaRete = 1;
+     $Rete1 = $term->slug;
+    }
   }
-  if ($menuLiguria == 1)
-    get_template_part('liguria/menu','liguria');
-  if ($menuPiemonte == 1)
-    get_template_part('piemonte/menu','piemonte');
-  wp_reset_postdata();
+
+  if($realtaRete == 0){
+    $term1 = "mapparegione";
+    $terms = get_the_terms( $post->ID , $term1 );
+    foreach ( $terms as $term ) {
+      if($term->slug == "liguria")
+       $menuLiguria = 1;
+      elseif ($term->slug == "piemonte")
+       $menuPiemonte = 1;
+    }
+    if ($menuLiguria == 1)
+      get_template_part('liguria/menu','liguria');
+    if ($menuPiemonte == 1)
+      get_template_part('piemonte/menu','piemonte');
+    wp_reset_postdata();
+  }
 ?>
 
 <div class="single mappa">
@@ -51,9 +63,9 @@
                   echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="'.$term->name.'">';
                   echo '</form>';
                 }
+                echo "<br>";
               }
 
-              echo "<br>";
 
               $term1 = "mappacategoria";
               $terms = get_the_terms( $post->ID , $term1 );
@@ -80,16 +92,12 @@
                   if($i > 0){
                     echo "<span class=''> - </span>";
                   }
-                  echo '<form class="d-inline" action="/mappa/" method="post">';
-                  echo '<input type="hidden" name="rete-dropdown" value="'.$term->slug.'">';
-
                   if (substr_count(strtolower($term->name), 'rete') != 0){
                     $nomeRete = $term->name;
                   } else{
                     $nomeRete = "Rete ".$term->name;
                   }
-                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap font-weight-normal" value="'.$nomeRete.'">';
-                  echo '</form>';
+                  echo "<a href=/mappa/".$term->slug." class='font-weight-normal'>".$nomeRete."</a>";
                   $i++;
                 }
               }
@@ -153,7 +161,7 @@
         				<?php the_content();?>
         			</div>
 
-              <!-- Thumbnail o video youtube -->
+              <!-- Video youtube -->
                 <?php
                 if( !empty (get_post_meta( get_the_ID(), 'Mappa_VideoYT',true))){
                   ?>
@@ -164,55 +172,59 @@
                   </div>
                   <?php
                 }
-                ?>
+              if($realtaRete != 1){
+                  ?>
 
-              <div class="">
-                <?php  include ('single-correlati.php');?>
-              </div>
+                <div class="">
+                  <?php  include ('single-correlati.php');?>
+                </div>
 
 
 
-              <!-- Mappa -->
-              <?php if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){ ?>
-                <div id="mappa" class="my-3"></div>
-                <script>
-                    var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
+                <!-- Mappa -->
+                <?php if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){ ?>
+                  <div id="mappa" class="my-3"></div>
+                  <script>
+                      var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
 
-                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                      //attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                      maxZoom: 18,
-                      id: 'mapbox/outdoors-v11',
-                      tileSize: 512,
-                      zoomOffset: -1,
-                      accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
-                    }).addTo(map);
-                    var markers = L.markerClusterGroup({
-                      showCoverageOnHover: false,
-                    });
+                      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                        //attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                        maxZoom: 18,
+                        id: 'mapbox/outdoors-v11',
+                        tileSize: 512,
+                        zoomOffset: -1,
+                        accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
+                      }).addTo(map);
+                      var markers = L.markerClusterGroup({
+                        showCoverageOnHover: false,
+                      });
 
-                    var redIcon = L.icon({
-                      iconUrl: '<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon-red.png',
-                      shadowUrl: 'marker-shadow.png',
+                      var redIcon = L.icon({
+                        iconUrl: '<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon-red.png',
+                        shadowUrl: 'marker-shadow.png',
 
-                      iconSize:     [25, 41], // size of the icon
-                      iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
-                      popupAnchor:  [-13, -40] // point from which the popup should open relative to the iconAnchor
-                    });
-                </script>
-                <?php
-                  $tuttiIPuntini = "[[".get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true).", ".get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true)."]]";
-                ?>
-                <script>
+                        iconSize:     [25, 41], // size of the icon
+                        iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
+                        popupAnchor:  [-13, -40] // point from which the popup should open relative to the iconAnchor
+                      });
+                  </script>
+                  <?php
+                    $tuttiIPuntini = "[[".get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true).", ".get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true)."]]";
+                  ?>
+                  <script>
 
-                  var title = "<?php echo $popupMappa; ?>";
-                  var puntino = L.marker([<?php echo get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( $icc_article_ID , 'mappastato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
-                  puntino.bindPopup(title);
-                  markers.addLayer(puntino);
+                    var title = "<?php echo $popupMappa; ?>";
+                    var puntino = L.marker([<?php echo get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true) ?>, <?php echo get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true) ?>],{title: title,<?php if(get_the_terms( $icc_article_ID , 'mappastato' )[0]->slug == "utente" ){echo "icon: redIcon";}?>});
+                    puntino.bindPopup(title);
+                    markers.addLayer(puntino);
 
-                  map.addLayer(markers);
-                  map.fitBounds(<?php echo $tuttiIPuntini; ?>);
-                </script>
-              <?php } ?>
+                    map.addLayer(markers);
+                    map.fitBounds(<?php echo $tuttiIPuntini; ?>);
+                  </script>
+                <?php } ?>
+              <?php } elseif ($realtaRete == 1) {
+                include('single-correlatiRete.php');
+              } ?>
         			<!-- Box contribuisci fondo articolo -->
         			<?php get_template_part('contribuisci/article','contribuisci'); ?>
         		</div>
