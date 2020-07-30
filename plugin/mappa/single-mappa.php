@@ -179,10 +179,17 @@
                   <?php  include ('single-correlati.php');?>
                 </div>
 
+              <?php } elseif ($realtaRete == 1) {
+                include ('single-correlatiRete.php');
+              } ?>
+
 
 
                 <!-- Mappa -->
-                <?php if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){ ?>
+                <?php
+                echo "MAPPA!";
+                
+                if(get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true) && get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true)){ ?>
                   <div id="mappa" class="my-3"></div>
                   <script>
                       var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
@@ -222,9 +229,6 @@
                     map.fitBounds(<?php echo $tuttiIPuntini; ?>);
                   </script>
                 <?php } ?>
-              <?php } elseif ($realtaRete == 1) {
-                include('single-correlatiRete.php');
-              } ?>
         			<!-- Box contribuisci fondo articolo -->
         			<?php get_template_part('contribuisci/article','contribuisci'); ?>
         		</div>
