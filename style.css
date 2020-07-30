@@ -1077,7 +1077,7 @@ figcaption{
   width: 100%;
   height: auto;
 }
-.single__articolo table img{
+.single__articolo table td:nth-child(2) img{
   width: auto;
 }
 
