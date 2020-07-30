@@ -3,6 +3,7 @@ if($filtro == 0){
   $argsMappaArchive = array(
     'post_type' => 'contenuti-speciali',
     'posts_per_page' => 1,
+    'orderby' => 'modified',
     'tax_query' => array(
       array(
           'taxonomy'=> 'contenuti_speciali_filtri',
