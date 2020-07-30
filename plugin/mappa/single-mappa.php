@@ -187,8 +187,7 @@
 
                 <!-- Mappa -->
                 <?php
-                echo "MAPPA!";
-                
+
                 if(get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true) && get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true)){ ?>
                   <div id="mappa" class="my-3"></div>
                   <script>
