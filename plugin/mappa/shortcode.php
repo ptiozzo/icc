@@ -159,7 +159,7 @@ if($Categoria1 != $Categoria
       <div class="sidebar__inner clearfix">
         <div class='head'>
   				<div class='title'>
-  					<h5>REALTA'</h5>
+  					<h5>REALTÀ</h5>
   				</div>
   			</div>
         <div id="mappa" class="full-width"></div>
