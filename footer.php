@@ -3,7 +3,8 @@
 </div> <!--wrapper -->
 <!-- </div> swup -->
 <?php
-if (!is_page(array(69021))){ //escludo la pagina contribuisci
+wp_reset_postdata();
+if (!is_page(array(69021)) && strpos(get_permalink(),"mappa") === false  ){ //escludo la pagina contribuisc
   get_template_part('loop/loop','newsbar');
 }
 ?>
