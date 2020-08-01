@@ -97,7 +97,7 @@
                   } else{
                     $nomeRete = "Rete ".$term->name;
                   }
-                  echo "<a href=/mappa/".$term->slug." class='font-weight-normal'>".$nomeRete."</a>";
+                  echo "<a href=/mappa/".$term->slug." class='font-weight-normal btn btn-link'>".$nomeRete."</a>";
                   $i++;
                 }
               }
