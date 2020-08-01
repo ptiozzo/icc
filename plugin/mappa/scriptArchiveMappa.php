@@ -95,10 +95,10 @@ if($Regione == "tutteleregioni" && !get_query_var('regione')){
   $mapparegione = "icc_mappa_realta_".$Regione1;
 }
 
-if( $realtaSegnalate == 1 && $Regione1 == 'liguria'){
+if( $realtaSegnalate == 1 && $Regione == 'liguria'){
   ?>
   <div class="alert alert-warning" role="alert">
-    Stai visualizzando sia le realtà verificate da noi (pin blu) che quelle segnalate dagli utenti (pin rosso)
+    Stai visualizzando sia le realtà verificate da noi <img src="<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon.png" alt="Marker mappa blu"> che quelle segnalate dagli utenti <img src="<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon-red.png" alt="Marker mappa blu">
   </div>
 <?php }
 
