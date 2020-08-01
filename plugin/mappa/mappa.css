@@ -123,12 +123,18 @@ SINGLE
 .single .mappa .single__articolo a,
 .single .mappa .card a,
 .single .mappa .single__action,
+.single .mappa .single__action p,
 .mappa .mappa_realta_filtrate a{
   color: var(--color-mappa_filtri);
 }
 
 .mappa .single__action div{
   height: 30px;
+}
+@media (max-width: 768px) {
+  .mappa .col_single_action{
+    bottom: 0px;
+  }
 }
 
 .mappa .mappa_correlati{

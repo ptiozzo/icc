@@ -1,3 +1,4 @@
+<p class="single__action text-center m-0 mt-2 d-md-none">Contatta la realtà</p>
 <div class="single__action d-flex d-md-block justify-content-around text-center">
   <script type="text/javascript">
   $(function () {
@@ -93,5 +94,4 @@
       <a rel="nofollow" target="_blank"  href="<?php echo get_post_meta( $icc_article_ID, 'Mappa_TW',true)?>" class="stretched-link"></a>
     </div>
   <?php } ?>
-
 </div>

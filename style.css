@@ -1157,7 +1157,7 @@ figcaption{
   .col_single_action{
     position: sticky;
     bottom: 40px;
-    background-color: white;
+    background-color: var(--color-white);
     z-index: 1000;
   }
 }
