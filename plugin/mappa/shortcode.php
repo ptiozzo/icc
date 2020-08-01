@@ -39,7 +39,7 @@ $resetProvincia = 0;
 
 //reset sessione
 if($_POST['submit_button'] || $_POST['reset_button']){
-  unset($_SESSION['mappa_categorie']);
+  unset($_SESSION[$Regione.'mappa_categorie']);
   unset($_SESSION['mappa_rete']);
   $regionePrecedente = $_SESSION['mappa_regione'];
   unset($_SESSION['mappa_regione']);
@@ -58,65 +58,65 @@ if($_POST['submit_button'] || $_POST['submit_tutte_le_realta']){
   $Provincia1 = $_POST['provincia-dropdown'];
   $Tipologia1 = $_POST['tipologia-dropdown'];
   $Realta1 = $_POST['nome-realta'];
-  $_SESSION['mappa_categorie'] = $Categoria1;
-  $_SESSION['mappa_rete'] = $Rete1;
-  $_SESSION['mappa_regione'] = $Regione1;
-  $_SESSION['mappa_provincia'] = $Provincia1;
-  $_SESSION['mappa_tipologia'] = $Tipologia1;
-  $_SESSION['mappa_realta'] = $Realta1;
+  $_SESSION[$Regione.'mappa_categorie'] = $Categoria1;
+  $_SESSION[$Regione.'mappa_rete'] = $Rete1;
+  $_SESSION[$Regione.'mappa_regione'] = $Regione1;
+  $_SESSION[$Regione.'mappa_provincia'] = $Provincia1;
+  $_SESSION[$Regione.'mappa_tipologia'] = $Tipologia1;
+  $_SESSION[$Regione.'mappa_realta'] = $Realta1;
 } elseif ($_POST['reset_button']) {
   $Categoria1 = $Categoria;
   $Rete1 = $Rete;
   $Regione1 = $Regione;
   $Tipologia1 = $Tipologia;
   $Realta1 = $Realta;
-  unset($_SESSION['mappa_categorie']);
-  unset($_SESSION['mappa_rete']);
-  unset($_SESSION['mappa_regione']);
-  unset($_SESSION['mappa_provincia']);
-  unset($_SESSION['mappa_tipologia']);
-  unset($_SESSION['mappa_realta']);
+  unset($_SESSION[$Regione.'mappa_categorie']);
+  unset($_SESSION[$Regione.'mappa_rete']);
+  unset($_SESSION[$Regione.'mappa_regione']);
+  unset($_SESSION[$Regione.'mappa_provincia']);
+  unset($_SESSION[$Regione.'mappa_tipologia']);
+  unset($_SESSION[$Regione.'mappa_realta']);
 }
 
 
 if(get_query_var('provincia')){
   $Regione1 = get_query_var('regione');
-  $_SESSION['mappa_regione'] = $Regione1;
+  $_SESSION[$Regione.'mappa_regione'] = $Regione1;
   $Provincia1 = get_query_var('provincia');
-  $_SESSION['mappa_provincia'] = $Provincia1;
+  $_SESSION[$Regione.'mappa_provincia'] = $Provincia1;
 }elseif(get_query_var('regione')){
   $Regione1 = get_query_var('regione');
-  $_SESSION['mappa_regione'] = $Regione1;
+  $_SESSION[$Regione.'mappa_regione'] = $Regione1;
 }
 
 
-  if($_SESSION['mappa_categorie']){
-    $Categoria1 = $_SESSION['mappa_categorie'];
+  if($_SESSION[$Regione.'mappa_categorie']){
+    $Categoria1 = $_SESSION[$Regione.'mappa_categorie'];
   } else {
     $Categoria1 = $Categoria;
   }
-  if($_SESSION['mappa_rete']){
-    $Rete1 = $_SESSION['mappa_rete'];
+  if($_SESSION[$Regione.'mappa_rete']){
+    $Rete1 = $_SESSION[$Regione.'mappa_rete'];
   } else {
     $Rete1 = $Rete;
   }
-  if($_SESSION['mappa_regione']){
-    $Regione1 = $_SESSION['mappa_regione'];
+  if($_SESSION[$Regione.'mappa_regione']){
+    $Regione1 = $_SESSION[$Regione.'mappa_regione'];
   } else {
     $Regione1 = $Regione;
   }
-  if($_SESSION['mappa_provincia'] && $resetProvincia == 0){
-    $Provincia1 = $_SESSION['mappa_provincia'];
+  if($_SESSION[$Regione.'mappa_provincia'] && $resetProvincia == 0){
+    $Provincia1 = $_SESSION[$Regione.'mappa_provincia'];
   } else {
     $Provincia1 = $Provincia;
   }
-  if($_SESSION['mappa_tipologia']){
-    $Tipologia1 = $_SESSION['mappa_tipologia'];
+  if($_SESSION[$Regione.'mappa_tipologia']){
+    $Tipologia1 = $_SESSION[$Regione.'mappa_tipologia'];
   } else {
     $Tipologia1 = $Tipologia;
   }
-  if($_SESSION['mappa_realta']){
-    $Realta1 = $_SESSION['mappa_realta'];
+  if($_SESSION[$Regione.'mappa_realta']){
+    $Realta1 = $_SESSION[$Regione.'mappa_realta'];
   } else {
     $Realta1 = $Realta;
   }
