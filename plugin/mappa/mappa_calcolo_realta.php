@@ -118,7 +118,8 @@ function mappa_calcolo_realta(){
     if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
       $popupMappaScript .= "<script>\r\n";
         $popupMappaScript .= "var title = \"". $popupMappa."\";\r\n";
-        $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{title: title,";
+        $popupMappaScript .= "var altPuntino = \"". get_the_title() ."\";\r\n";
+        $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{title: altPuntino,";
           if(get_the_terms( get_the_ID() , 'mappastato' )[0]->slug == "utente" ){
             $popupMappaScript .= "icon: redIcon";
           }
