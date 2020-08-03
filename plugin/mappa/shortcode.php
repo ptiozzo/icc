@@ -234,6 +234,12 @@ if($Categoria1 != $Categoria
          'terms'    => 'chiuso',
          'operator' => 'NOT IN',
        );
+       $filtroUtente = array(
+         'taxonomy'=> 'mappastato',
+         'field'    => 'slug',
+         'terms'    => 'utente',
+         'operator' => 'NOT IN',
+       );
        $argsMappaArchivio = array(
          'post_type' => 'mappa',
          'orderby' => 'modified',
@@ -241,6 +247,7 @@ if($Categoria1 != $Categoria
          'tax_query' => array(
              'relation' => 'AND',
              $filtroChiuse,
+             $filtroUtente,
            ),
        );
 
