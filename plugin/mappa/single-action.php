@@ -1,4 +1,4 @@
-<p class="single__action text-center m-0 mt-2 d-md-none">Contatta la realtà</p>
+<p class="single__action text-center m-0 mt-2 d-md-none"><strong>Contatta la realtà</strong></p>
 <div class="single__action d-flex d-md-block justify-content-around text-center">
   <script type="text/javascript">
   $(function () {
