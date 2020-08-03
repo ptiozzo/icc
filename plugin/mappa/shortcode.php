@@ -215,10 +215,7 @@ if($Categoria1 != $Categoria
         ) );
         foreach ($terms as $key ) {
           ?>
-          <form class="pt-2 d-inline-block" method="post" action="<?php echo get_pagenum_link(); ?>">
-            <input name="rete-dropdown" type="hidden" value="<?php echo $key->slug ?>">
-            <input name="submit_button" type="submit" value="<?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?>" class="btn btn-lg btn-outline-dark btn-outloine-mappa text-wrap">
-          </form>
+          <a class="mt-2 btn btn-lg btn-outline-dark btn-outline-mappa text-wrap" href="/mappa/<?php echo $key->slug; ?>"><?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?></a>
           <?php
         }
           ?>
@@ -249,6 +246,7 @@ if($Categoria1 != $Categoria
          echo "<h2 class='mt-3'>Ultime realtà mappate</h2>";
          echo '<div class="row">';
          while ($loopMappaArchivio->have_posts()) : $loopMappaArchivio->the_post();
+         global $post;
          ?>
 
            <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
@@ -258,9 +256,28 @@ if($Categoria1 != $Categoria
                <div class="card-body p-2 text-white">
                  <div class="date text-capitalize">
                    <?php
-                    $term = get_the_terms( get_the_ID() , 'mapparegione' );
-                    foreach ($term as $term1 ) {
-                      echo $term1->name." ";
+                    $realtaRete = 0;
+                    $terms = get_terms( array('taxonomy' => 'mapparete','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
+                    foreach ( $terms as $term ) {
+                     if($term->slug == $post->post_name){
+                      $realtaRete = 1;
+                      $Rete1 = $term->name;
+                     }
+                    }
+                    if($realtaRete == 1){
+                     if (substr_count(strtolower($term->name), 'rete') != 0){
+                       $nomeRete = $Rete1;
+                     } else{
+                       $nomeRete = "Rete ".$Rete1;
+                     }
+                     echo $nomeRete." ";
+                    } else {
+                      $term = get_the_terms( get_the_ID() , 'mapparegione' );
+                      if( $term != false ){
+                        foreach ($term as $term1 ) {
+                          echo $term1->name." ";
+                        }
+                      }
                     }
                    ?>
                  </div>

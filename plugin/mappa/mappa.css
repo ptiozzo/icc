@@ -46,12 +46,12 @@ div.mappa{
   color: var(--color-mappa_blue);
 }
 
-.mappa .btn-outloine-mappa{
+.mappa .btn-outline-mappa{
   border-color: var(--color-mappa_blue);
   color: var(--color-mappa_blue);
 }
 
-.mappa .btn-outloine-mappa:hover{
+.mappa .btn-outline-mappa:hover{
   background-color: var(--color-mappa_filtri);
   color: white;
 }

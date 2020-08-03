@@ -16,11 +16,13 @@
   if($realtaRete == 0){
     $term1 = "mapparegione";
     $terms = get_the_terms( $post->ID , $term1 );
-    foreach ( $terms as $term ) {
-      if($term->slug == "liguria")
-       $menuLiguria = 1;
-      elseif ($term->slug == "piemonte")
-       $menuPiemonte = 1;
+    if ($terms != false){
+      foreach ( $terms as $term ) {
+        if($term->slug == "liguria")
+         $menuLiguria = 1;
+        elseif ($term->slug == "piemonte")
+         $menuPiemonte = 1;
+      }
     }
     if ($menuLiguria == 1)
       get_template_part('liguria/menu','liguria');
