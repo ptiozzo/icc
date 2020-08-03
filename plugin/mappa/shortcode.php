@@ -16,11 +16,11 @@ $argsMappaSenzaLatLong = array(
 $loopMappaSenzaLatLong = new WP_Query( $argsMappaSenzaLatLong );
 
 if ($loopMappaSenzaLatLong->have_posts()){
-  echo $loopMappaSenzaLatLong->found_posts."<br>";
+  echo "<!--". $loopMappaSenzaLatLong->found_posts."<br> -->";
   while ($loopMappaSenzaLatLong->have_posts()) {
     $loopMappaSenzaLatLong->the_post();
-    echo get_the_title()."-";
-    echo get_the_ID()."<br>";
+    echo "<!-- ".get_the_title()."-";
+    echo get_the_ID()."<br> -->";
     //wp_delete_post(get_the_ID());
   }
 }
