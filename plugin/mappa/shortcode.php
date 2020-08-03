@@ -1,4 +1,5 @@
 <?php
+
 //DEBUG per realtà senza LatLong
 $filtroLatLong = array(
   'key' => 'Mappa_Latitudine',
@@ -24,6 +25,7 @@ if ($loopMappaSenzaLatLong->have_posts()){
   }
 }
 //Fine DEBUG per realtà senza LatLong
+
 $filtrata = 0;
 if( get_query_var('regione') || get_query_var('provincia') ){
   $filtrata = 1;
@@ -37,15 +39,16 @@ $Tipologia = 'tutteletipologie';
 $Realta = '';
 $resetProvincia = 0;
 
+
 //reset sessione
-if($_POST['submit_button'] || $_POST['reset_button']){
+if($_POST['submit_button'] || $_POST['reset_button'] || strpos($_SERVER['HTTP_REFERER'],'mappa') == false){
   unset($_SESSION[$Regione.'mappa_categorie']);
-  unset($_SESSION['mappa_rete']);
-  $regionePrecedente = $_SESSION['mappa_regione'];
-  unset($_SESSION['mappa_regione']);
-  unset($_SESSION['mappa_provincia']);
-  unset($_SESSION['mappa_tipologia']);
-  unset($_SESSION['mappa_realta']);
+  unset($_SESSION[$Regione.'mappa_rete']);
+  $regionePrecedente = $_SESSION[$Regione.'mappa_regione'];
+  unset($_SESSION[$Regione.'mappa_regione']);
+  unset($_SESSION[$Regione.'mappa_provincia']);
+  unset($_SESSION[$Regione.'mappa_tipologia']);
+  unset($_SESSION[$Regione.'mappa_realta']);
 }
 
 if($_POST['submit_button'] || $_POST['submit_tutte_le_realta']){
