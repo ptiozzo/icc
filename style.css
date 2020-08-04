@@ -87,7 +87,7 @@ html{
 .transition *,
 .transition *:after,
 .transition *:before{
-  transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out !important;
   transition-delay: 0 !important;
 }
 
@@ -130,6 +130,11 @@ header{
   padding-top: 0;
   background-color: var(--color-white);
   color: var(--color-light_black);
+}
+
+body.dyslexia{
+  font-family: 'OpenDyslexic';
+  font-size: 1rem!important;
 }
 
 .admin-bar header{
@@ -333,9 +338,6 @@ div.single a:hover{
 /*	Menu
 */
 
-.fa-instagram{
-  color: var(--color-light_black);
-}
 header.stripe{
   z-index: 1040;
   width: 100%;
@@ -343,6 +345,9 @@ header.stripe{
   position: sticky;
   position: -webkit-sticky;
   background-color: var(--color-light_gray);
+}
+header.stripe .right-col nav>ul>li>a{
+  color: var(--color-light_black);
 }
 header.stripe .btn{
   margin: 15px 0;
@@ -369,7 +374,7 @@ header.overlay-menu{
   z-index: 1050;
 }
 header.overlay-menu>nav{
-  background: var(--color-white);
+  background-color: var(--color-light_gray);
 }
 header.overlay-menu>nav>.collapse-container>ul.menu-1>li>a{
   color: var(--color-light_black);
@@ -693,12 +698,14 @@ aside .pcc-provincie a,
   color: var(--color-white) !important;
 }
 .pcc-pianfut .btn-group,
-.pcc-pianfut button
+.pcc-pianfut button,
+.pcc-pianfut input
 {
   width: 100%;
   border: 1px solid var(--color-dark_gray);
 }
-.pcc-pianfut button{
+.pcc-pianfut button,
+.pcc-pianfut input{
   background: var(--color-meme);
 }
 .pcc-pianfut button:hover{
@@ -940,6 +947,7 @@ row
 .single .rassegna-stampa .single__nav__category{background: var(--color-rassegna)}
 
 .single .single__nav__category a,
+.single .single__nav__category span,
 .single .single__nav__category .btn-link{
   margin: 0;
   padding: 0;
@@ -948,6 +956,11 @@ row
   font-weight: 900;
   color: var(--color-white);
   display: inline;
+}
+.single .single__nav__category a,
+.single .single__nav__category span,
+.single .single__nav__category .btn-link{
+  font-weight: 900;
 }
 
 .single .single__torna__contenuti{
@@ -1147,7 +1160,7 @@ figcaption{
   .col_single_action{
     position: sticky;
     bottom: 40px;
-    background-color: white;
+    background-color: var(--color-white);
     z-index: 1000;
   }
 }
