@@ -275,12 +275,7 @@ if($Categoria1 != $Categoria
                      }
                     }
                     if($realtaRete == 1){
-                     if (substr_count(strtolower($term->name), 'rete') != 0){
-                       $nomeRete = $Rete1;
-                     } else{
-                       $nomeRete = "Rete ".$Rete1;
-                     }
-                     echo $nomeRete." ";
+                     echo "Rete ";
                     } else {
                       $term = get_the_terms( get_the_ID() , 'mapparegione' );
                       if( $term != false ){
