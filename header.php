@@ -27,7 +27,7 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		<div class="row">
+		<div class="row m-0">
 			<div class="col-12 col-md-6 text-center my-1">
 				<?php dynamic_sidebar('testatasx'); ?>
 			</div>
@@ -193,18 +193,9 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-
 						<?php
-						if ($_SERVER['SERVER_NAME'] == 'www.italiachecambia.org'){
-							?>
-							<aside class="sidebar mx-auto">
-								<?php dynamic_sidebar('modalSingleNewsletter'); ?>
-							</aside>
-							<?php
-						} else {
-		        		include "template-part/IscrizioneNewsletter.php";
-
-						} ?>
+		        	include "template-part/IscrizioneNewsletter.php";
+						?>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

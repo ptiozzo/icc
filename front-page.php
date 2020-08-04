@@ -2,6 +2,7 @@
 
 <div class="container-fluid home-page">
   <div class="row">
+    <?php include("template-part/alert-ferie.php");?>
     <div id="sidebar" class="col-lg-home1 col-md-12 order-2 order-xl-1 d-none d-md-block">
       <div class="sidebar__inner">
 

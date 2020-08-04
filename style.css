@@ -338,7 +338,6 @@ div.single a:hover{
 /*	Menu
 */
 
-
 header.stripe{
   z-index: 1040;
   width: 100%;
@@ -420,7 +419,7 @@ header.stripe .right-col nav{
 
 @media (min-width: 992px){
   .manoicc {
-    animation: BTN_Contribuisci 2s 5 ease-in-out;
+    animation: BTN_Contribuisci 2s 10 ease-in-out;
     transition: all .3s ease-in-out;
   }
 }
@@ -1086,9 +1085,13 @@ figcaption{
 .wp-block-gallery .blocks-gallery-item{
   margin: 0;
 }
+
 .single__articolo img{
   width: 100%;
   height: auto;
+}
+.single__articolo table td:nth-child(2) img{
+  width: auto;
 }
 
 .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 1rem;}
