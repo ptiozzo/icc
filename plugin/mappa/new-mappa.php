@@ -297,8 +297,6 @@ if($success != 1 && is_user_logged_in() ){
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           //attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
           maxZoom: 18,
-          tileSize: 512,
-          zoomOffset: -1,
       }).addTo(map);
       var markers = L.markerClusterGroup({
         showCoverageOnHover: false,
