@@ -35,7 +35,7 @@
 <div class="single mappa">
   <h1 class="mb-4">La mappa dell'Italia che Cambia</h1>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+      
 			<div class="row">
 				<div class="col-12 col-md-10 order-md-2">
 					<div class="container clearfix"><!-- SINGLE -->

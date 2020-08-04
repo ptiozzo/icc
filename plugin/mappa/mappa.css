@@ -37,14 +37,21 @@ html{
     margin-right: 0;
   }
 }
-
-div.mappa{
-  padding: 30px;
-}
-
 .mappa h1{
   color: var(--color-mappa_blue);
 }
+div.mappa{
+  padding: 0 15px;
+}
+
+@media (min-width:992px){
+  .mappa h1{
+    padding: 0 15px;
+  }
+
+}
+
+
 
 .mappa .btn-outline-mappa{
   border-color: var(--color-mappa_blue);
@@ -106,6 +113,13 @@ div.mappa{
 /*-----------------------
 SINGLE
 -----------------------*/
+.single.mappa{
+  padding: 0;
+}
+.single.mappa h1{
+  padding: 0 15px;
+}
+
 
 .single .mappa .single__torna__contenuti{
   font-size: 13px;
