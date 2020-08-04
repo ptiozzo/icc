@@ -79,14 +79,22 @@ function mappa_calcolo_realta(){
     'key' => 'Mappa_Latitudine',
     'compare'    => 'EXISTS',
   );
-
+  $filtroUtente = array(
+    'taxonomy'=> 'mappastato',
+    'field'    => 'slug',
+    'terms'    => 'utente',
+    'operator' => 'NOT IN',
+  );
   $argsMappaArchivio = array(
     'post_type' => array('mappa'),
     'posts_per_page' => -1,
     's' => $Realta1,
     'meta_query' => array(
         $filtroLatLong,
-      )
+      ),
+    'tax_query' => array(
+      $filtroUtente,
+    )
   );
 
   $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
