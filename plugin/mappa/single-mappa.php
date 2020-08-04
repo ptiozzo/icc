@@ -35,7 +35,7 @@
 <div class="single mappa">
   <h1 class="mb-4">La mappa dell'Italia che Cambia</h1>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-      
+
 			<div class="row">
 				<div class="col-12 col-md-10 order-md-2">
 					<div class="container clearfix"><!-- SINGLE -->
@@ -206,13 +206,11 @@
                   <script>
                       var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
 
-                      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         //attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                         maxZoom: 18,
-                        id: 'mapbox/outdoors-v11',
                         tileSize: 512,
                         zoomOffset: -1,
-                        accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
                       }).addTo(map);
                       var markers = L.markerClusterGroup({
                         showCoverageOnHover: false,
