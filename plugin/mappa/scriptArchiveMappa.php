@@ -74,6 +74,7 @@ if(!is_user_logged_in() || $Regione == "tutteleregioni"){
 
 $argsMappaArchivio = array(
   'post_type' => array('mappa'),
+  'post_status' => 'publish',
   'posts_per_page' => -1,
   's' => $Realta1,
   'tax_query' => array(
@@ -95,10 +96,10 @@ if($Regione == "tutteleregioni" && !get_query_var('regione')){
   $mapparegione = "icc_mappa_realta_".$Regione1;
 }
 
-if( $realtaSegnalate == 1){
+if( $realtaSegnalate == 1 && $Regione == 'liguria'){
   ?>
   <div class="alert alert-warning" role="alert">
-    Stai visualizzando sia le realtà verificate da noi (pin blu) che quelle segnalate dagli utenti (pin rosso)
+    Stai visualizzando sia le realtà verificate da noi <img src="<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon.png" alt="Marker mappa blu"> che quelle segnalate dagli utenti <img src="<?php echo get_template_directory_uri();?>/plugin/mappa/asset/leaflet/images/marker-icon-red.png" alt="Marker mappa blu">
   </div>
 <?php }
 
@@ -116,16 +117,13 @@ if( !$loopMappaArchivio->have_posts()){
   <script>
     var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
 
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       //attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
-      id: 'mapbox/outdoors-v11',
-      tileSize: 512,
-      zoomOffset: -1,
-      accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
   }).addTo(map);
   var markers = L.markerClusterGroup({
     showCoverageOnHover: false,
+    maxClusterRadius: 50,
   });
 
   var redIcon = L.icon({
@@ -182,7 +180,8 @@ if(get_transient('icc_mappa_tuttipopup') && $filtro == 0){
   if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
     $popupMappaScript .= "<script>\r\n";
       $popupMappaScript .= "var title = \"". $popupMappa."\";\r\n";
-      $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{title: title,";
+      $popupMappaScript .= "var altPuntino = \"". get_the_title() ."\";\r\n";
+      $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{title: altPuntino,";
         if(get_the_terms( get_the_ID() , 'mappastato' )[0]->slug == "utente" ){
           $popupMappaScript .= "icon: redIcon";
         }

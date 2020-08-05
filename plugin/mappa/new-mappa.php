@@ -148,7 +148,7 @@ if( $_POST['submit_button'] ){
 
     $url = "/mappa/";
 
-    $to = "webmaster@italiachecambia.org";
+    $to = "webmaster@italiachecambia.org,redazione@italiachecambia.org";
     $subject = 'ICC - Nuova Realtà mappata da revisionare: '.$_POST['titolo'];
     $body = "<html><body>";
     $body .= "Ciao <br>";
@@ -294,13 +294,9 @@ if($success != 1 && is_user_logged_in() ){
 
         var map = L.map('mappa',{gestureHandling: true}).setView([42.088, 12.564], 6);
 
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           //attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
           maxZoom: 18,
-          id: 'mapbox/outdoors-v11',
-          tileSize: 512,
-          zoomOffset: -1,
-          accessToken: 'pk.eyJ1IjoiaWNjLW1hcHBhIiwiYSI6ImNrYmpzNWZkcTByeXAzMXBqaGRzM2dmaWoifQ.TYuCegt1hW_2z5qyjDBZkg'
       }).addTo(map);
       var markers = L.markerClusterGroup({
         showCoverageOnHover: false,

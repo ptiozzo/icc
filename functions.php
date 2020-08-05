@@ -31,7 +31,6 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/sostienici/index.css'),'all');
 		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/mappa/index.css'),'all');
 		wp_enqueue_style( 'icc-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css',array(),filemtime(get_template_directory() . '/assets/css/bootstrap.min.css'),'all');
-		wp_enqueue_style( 'icc-swup-css', get_template_directory_uri().'/assets/swup/swup.css',array(),filemtime(get_template_directory() . '/assets/swup/swup.css'),'all');
 	  wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css',array(),filemtime(get_template_directory() . '/style.css'),'all');
 		wp_enqueue_script('jquery');
 
@@ -44,13 +43,6 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		wp_enqueue_script( 'icc-popper-js', get_template_directory_uri().'/assets/js/popper.min.js','','',true);
 		wp_enqueue_script( 'icc-bootstrap-js', get_template_directory_uri().'/assets/js/bootstrap.min.js','','',true);
 		wp_enqueue_script( 'icc-script', get_template_directory_uri().'/assets/js/script.js','',filemtime(get_template_directory() . '/assets/js/script.js'),true);
-		wp_enqueue_script( 'icc-swup-js', get_template_directory_uri().'/assets/swup/swup.min.js','','',true);
-		wp_enqueue_script( 'icc-swupScrollPlugin-js', get_template_directory_uri().'/assets/swup/SwupScrollPlugin.min.js','','',true);
-		wp_enqueue_script( 'icc-swupFormsPlugin-js', get_template_directory_uri().'/assets/swup/SwupFormsPlugin.min.js','','',true);
-		wp_enqueue_script( 'icc-swupGaPlugin-js', get_template_directory_uri().'/assets/swup/SwupGaPlugin.min.js','','',true);
-		wp_enqueue_script( 'icc-swupScriptsPlugin-js', get_template_directory_uri().'/assets/swup/SwupScriptsPlugin.min.js','','',true);
-		wp_enqueue_script( 'icc-swupHeadPlugin-js', get_template_directory_uri().'/assets/swup/SwupHeadPlugin.min.js','','',true);
-		wp_enqueue_script( 'icc-swup-custom-js', get_template_directory_uri().'/assets/swup/script.js','','',true);
 		wp_enqueue_script( 'icc-fontawsome-js', '//kit.fontawesome.com/befb91387f.js','','',true);
 
 	}

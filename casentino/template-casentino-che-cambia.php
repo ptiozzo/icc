@@ -14,6 +14,7 @@ Template Name: Casentino che cambia
 
 <div class="container-fluid home-page">
 	<div class="row">
+    <?php get_template_part('template-part/alert','ferie');?>
     <div id="sidebar" class="col-lg-home1 col-md-12">
         <div class="sidebar__inner">
 

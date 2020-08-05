@@ -1,4 +1,5 @@
 <?php
+
 //DEBUG per realtà senza LatLong
 $filtroLatLong = array(
   'key' => 'Mappa_Latitudine',
@@ -15,15 +16,16 @@ $argsMappaSenzaLatLong = array(
 $loopMappaSenzaLatLong = new WP_Query( $argsMappaSenzaLatLong );
 
 if ($loopMappaSenzaLatLong->have_posts()){
-  echo $loopMappaSenzaLatLong->found_posts."<br>";
+  echo "<!--". $loopMappaSenzaLatLong->found_posts."<br> -->";
   while ($loopMappaSenzaLatLong->have_posts()) {
     $loopMappaSenzaLatLong->the_post();
-    echo get_the_title()."-";
-    echo get_the_ID()."<br>";
+    echo "<!-- ".get_the_title()."-";
+    echo get_the_ID()."<br> -->";
     //wp_delete_post(get_the_ID());
   }
 }
 //Fine DEBUG per realtà senza LatLong
+
 $filtrata = 0;
 if( get_query_var('regione') || get_query_var('provincia') ){
   $filtrata = 1;
@@ -37,15 +39,16 @@ $Tipologia = 'tutteletipologie';
 $Realta = '';
 $resetProvincia = 0;
 
+
 //reset sessione
-if($_POST['submit_button'] || $_POST['reset_button']){
-  unset($_SESSION['mappa_categorie']);
-  unset($_SESSION['mappa_rete']);
-  $regionePrecedente = $_SESSION['mappa_regione'];
-  unset($_SESSION['mappa_regione']);
-  unset($_SESSION['mappa_provincia']);
-  unset($_SESSION['mappa_tipologia']);
-  unset($_SESSION['mappa_realta']);
+if($_POST['submit_button'] || $_POST['reset_button'] || strpos($_SERVER['HTTP_REFERER'],'mappa') == false){
+  unset($_SESSION[$Regione.'mappa_categorie']);
+  unset($_SESSION[$Regione.'mappa_rete']);
+  $regionePrecedente = $_SESSION[$Regione.'mappa_regione'];
+  unset($_SESSION[$Regione.'mappa_regione']);
+  unset($_SESSION[$Regione.'mappa_provincia']);
+  unset($_SESSION[$Regione.'mappa_tipologia']);
+  unset($_SESSION[$Regione.'mappa_realta']);
 }
 
 if($_POST['submit_button'] || $_POST['submit_tutte_le_realta']){
@@ -58,65 +61,65 @@ if($_POST['submit_button'] || $_POST['submit_tutte_le_realta']){
   $Provincia1 = $_POST['provincia-dropdown'];
   $Tipologia1 = $_POST['tipologia-dropdown'];
   $Realta1 = $_POST['nome-realta'];
-  $_SESSION['mappa_categorie'] = $Categoria1;
-  $_SESSION['mappa_rete'] = $Rete1;
-  $_SESSION['mappa_regione'] = $Regione1;
-  $_SESSION['mappa_provincia'] = $Provincia1;
-  $_SESSION['mappa_tipologia'] = $Tipologia1;
-  $_SESSION['mappa_realta'] = $Realta1;
+  $_SESSION[$Regione.'mappa_categorie'] = $Categoria1;
+  $_SESSION[$Regione.'mappa_rete'] = $Rete1;
+  $_SESSION[$Regione.'mappa_regione'] = $Regione1;
+  $_SESSION[$Regione.'mappa_provincia'] = $Provincia1;
+  $_SESSION[$Regione.'mappa_tipologia'] = $Tipologia1;
+  $_SESSION[$Regione.'mappa_realta'] = $Realta1;
 } elseif ($_POST['reset_button']) {
   $Categoria1 = $Categoria;
   $Rete1 = $Rete;
   $Regione1 = $Regione;
   $Tipologia1 = $Tipologia;
   $Realta1 = $Realta;
-  unset($_SESSION['mappa_categorie']);
-  unset($_SESSION['mappa_rete']);
-  unset($_SESSION['mappa_regione']);
-  unset($_SESSION['mappa_provincia']);
-  unset($_SESSION['mappa_tipologia']);
-  unset($_SESSION['mappa_realta']);
+  unset($_SESSION[$Regione.'mappa_categorie']);
+  unset($_SESSION[$Regione.'mappa_rete']);
+  unset($_SESSION[$Regione.'mappa_regione']);
+  unset($_SESSION[$Regione.'mappa_provincia']);
+  unset($_SESSION[$Regione.'mappa_tipologia']);
+  unset($_SESSION[$Regione.'mappa_realta']);
 }
 
 
 if(get_query_var('provincia')){
   $Regione1 = get_query_var('regione');
-  $_SESSION['mappa_regione'] = $Regione1;
+  $_SESSION[$Regione.'mappa_regione'] = $Regione1;
   $Provincia1 = get_query_var('provincia');
-  $_SESSION['mappa_provincia'] = $Provincia1;
+  $_SESSION[$Regione.'mappa_provincia'] = $Provincia1;
 }elseif(get_query_var('regione')){
   $Regione1 = get_query_var('regione');
-  $_SESSION['mappa_regione'] = $Regione1;
+  $_SESSION[$Regione.'mappa_regione'] = $Regione1;
 }
 
 
-  if($_SESSION['mappa_categorie']){
-    $Categoria1 = $_SESSION['mappa_categorie'];
+  if($_SESSION[$Regione.'mappa_categorie']){
+    $Categoria1 = $_SESSION[$Regione.'mappa_categorie'];
   } else {
     $Categoria1 = $Categoria;
   }
-  if($_SESSION['mappa_rete']){
-    $Rete1 = $_SESSION['mappa_rete'];
+  if($_SESSION[$Regione.'mappa_rete']){
+    $Rete1 = $_SESSION[$Regione.'mappa_rete'];
   } else {
     $Rete1 = $Rete;
   }
-  if($_SESSION['mappa_regione']){
-    $Regione1 = $_SESSION['mappa_regione'];
+  if($_SESSION[$Regione.'mappa_regione']){
+    $Regione1 = $_SESSION[$Regione.'mappa_regione'];
   } else {
     $Regione1 = $Regione;
   }
-  if($_SESSION['mappa_provincia'] && $resetProvincia == 0){
-    $Provincia1 = $_SESSION['mappa_provincia'];
+  if($_SESSION[$Regione.'mappa_provincia'] && $resetProvincia == 0){
+    $Provincia1 = $_SESSION[$Regione.'mappa_provincia'];
   } else {
     $Provincia1 = $Provincia;
   }
-  if($_SESSION['mappa_tipologia']){
-    $Tipologia1 = $_SESSION['mappa_tipologia'];
+  if($_SESSION[$Regione.'mappa_tipologia']){
+    $Tipologia1 = $_SESSION[$Regione.'mappa_tipologia'];
   } else {
     $Tipologia1 = $Tipologia;
   }
-  if($_SESSION['mappa_realta']){
-    $Realta1 = $_SESSION['mappa_realta'];
+  if($_SESSION[$Regione.'mappa_realta']){
+    $Realta1 = $_SESSION[$Regione.'mappa_realta'];
   } else {
     $Realta1 = $Realta;
   }
@@ -159,7 +162,7 @@ if($Categoria1 != $Categoria
       <div class="sidebar__inner clearfix">
         <div class='head'>
   				<div class='title'>
-  					<h5>REALTA'</h5>
+  					<h5>REALTÀ</h5>
   				</div>
   			</div>
         <div id="mappa" class="full-width"></div>
@@ -215,23 +218,26 @@ if($Categoria1 != $Categoria
         ) );
         foreach ($terms as $key ) {
           ?>
-          <form class="pt-2 d-inline-block" method="post" action="<?php echo get_pagenum_link(); ?>">
-            <input name="rete-dropdown" type="hidden" value="<?php echo $key->slug ?>">
-            <input name="submit_button" type="submit" value="<?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?>" class="btn btn-lg btn-outline-dark btn-outloine-mappa text-wrap">
-          </form>
+          <a class="mt-2 btn btn-lg btn-outline-dark btn-outline-mappa text-wrap" href="/mappa/<?php echo $key->slug; ?>"><?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?></a>
           <?php
         }
           ?>
 
       </div>
 
-    <div class="col-12">
+    <div class="col-12 mb-2">
 
      <?php
        $filtroChiuse = array(
          'taxonomy'=> 'mappastato',
          'field'    => 'slug',
          'terms'    => 'chiuso',
+         'operator' => 'NOT IN',
+       );
+       $filtroUtente = array(
+         'taxonomy'=> 'mappastato',
+         'field'    => 'slug',
+         'terms'    => 'utente',
          'operator' => 'NOT IN',
        );
        $argsMappaArchivio = array(
@@ -241,6 +247,7 @@ if($Categoria1 != $Categoria
          'tax_query' => array(
              'relation' => 'AND',
              $filtroChiuse,
+             $filtroUtente,
            ),
        );
 
@@ -249,6 +256,7 @@ if($Categoria1 != $Categoria
          echo "<h2 class='mt-3'>Ultime realtà mappate</h2>";
          echo '<div class="row">';
          while ($loopMappaArchivio->have_posts()) : $loopMappaArchivio->the_post();
+         global $post;
          ?>
 
            <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
@@ -256,7 +264,28 @@ if($Categoria1 != $Categoria
                <article class="p-0">
                <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php if(has_post_thumbnail()){echo get_the_post_thumbnail_url();} else {echo get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png';} ?>">
                <div class="card-body p-2 text-white">
-                 <div class="date text-capitalize"><?php echo get_the_terms( get_the_ID() , 'mapparegione' )[0]->name; ?></div>
+                 <div class="date text-capitalize">
+                   <?php
+                    $realtaRete = 0;
+                    $terms = get_terms( array('taxonomy' => 'mapparete','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
+                    foreach ( $terms as $term ) {
+                     if($term->slug == $post->post_name){
+                      $realtaRete = 1;
+                      $Rete1 = $term->name;
+                     }
+                    }
+                    if($realtaRete == 1){
+                     echo "Rete ";
+                    } else {
+                      $term = get_the_terms( get_the_ID() , 'mapparegione' );
+                      if( $term != false ){
+                        foreach ($term as $term1 ) {
+                          echo $term1->name." ";
+                        }
+                      }
+                    }
+                   ?>
+                 </div>
                  <h5 class="card-title"><?php echo get_the_title(); ?></h5>
                  <a href="<?php echo the_permalink(); ?>" class="stretched-link"></a>
                </div>

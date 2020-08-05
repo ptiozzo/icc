@@ -3,6 +3,7 @@ if($filtro == 0){
   $argsMappaArchive = array(
     'post_type' => 'contenuti-speciali',
     'posts_per_page' => 1,
+    'orderby' => 'modified',
     'tax_query' => array(
       array(
           'taxonomy'=> 'contenuti_speciali_filtri',
@@ -45,10 +46,6 @@ if($filtro == 0){
       )
   );
   $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
-
-  if($Rete1 != $Rete){
-    echo term_description(get_term_by('slug',$Rete1,'mapparete')->term_id);
-  }
 
   if($loopMappaArchivio->have_posts()){
     ?>

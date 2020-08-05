@@ -33,6 +33,7 @@ function mappa_calcolo_realta(){
   foreach ($terms as $key ) {
     $argsMappa = array(
       'post_type' => 'mappa',
+      'post_status' => 'publish',
       'tax_query' => array(
           array(
             'taxonomy' => 'mapparegione',
@@ -58,6 +59,7 @@ function mappa_calcolo_realta(){
     $reti++;
     $argsMappa = array(
       'post_type' => 'mappa',
+      'post_status' => 'publish',
       'tax_query' => array(
           array(
             'taxonomy' => 'mapparete',
@@ -79,14 +81,23 @@ function mappa_calcolo_realta(){
     'key' => 'Mappa_Latitudine',
     'compare'    => 'EXISTS',
   );
-
+  $filtroUtente = array(
+    'taxonomy'=> 'mappastato',
+    'field'    => 'slug',
+    'terms'    => 'utente',
+    'operator' => 'NOT IN',
+  );
   $argsMappaArchivio = array(
     'post_type' => array('mappa'),
     'posts_per_page' => -1,
+    'post_status' => 'publish',
     's' => $Realta1,
     'meta_query' => array(
         $filtroLatLong,
-      )
+      ),
+    'tax_query' => array(
+      $filtroUtente,
+    )
   );
 
   $loopMappaArchivio = new WP_Query( $argsMappaArchivio );
@@ -118,7 +129,8 @@ function mappa_calcolo_realta(){
     if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
       $popupMappaScript .= "<script>\r\n";
         $popupMappaScript .= "var title = \"". $popupMappa."\";\r\n";
-        $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{title: title,";
+        $popupMappaScript .= "var altPuntino = \"". get_the_title() ."\";\r\n";
+        $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{title: altPuntino,";
           if(get_the_terms( get_the_ID() , 'mappastato' )[0]->slug == "utente" ){
             $popupMappaScript .= "icon: redIcon";
           }

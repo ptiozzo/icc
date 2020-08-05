@@ -37,21 +37,28 @@ html{
     margin-right: 0;
   }
 }
-
-div.mappa{
-  padding: 30px;
-}
-
 .mappa h1{
   color: var(--color-mappa_blue);
 }
+div.mappa{
+  padding: 0 15px;
+}
 
-.mappa .btn-outloine-mappa{
+@media (min-width:992px){
+  .mappa h1{
+    padding: 0 15px;
+  }
+
+}
+
+
+
+.mappa .btn-outline-mappa{
   border-color: var(--color-mappa_blue);
   color: var(--color-mappa_blue);
 }
 
-.mappa .btn-outloine-mappa:hover{
+.mappa .btn-outline-mappa:hover{
   background-color: var(--color-mappa_filtri);
   color: white;
 }
@@ -106,6 +113,13 @@ div.mappa{
 /*-----------------------
 SINGLE
 -----------------------*/
+.single.mappa{
+  padding: 0;
+}
+.single.mappa h1{
+  padding: 10px 15px;
+}
+
 
 .single .mappa .single__torna__contenuti{
   font-size: 13px;
@@ -123,12 +137,18 @@ SINGLE
 .single .mappa .single__articolo a,
 .single .mappa .card a,
 .single .mappa .single__action,
+.single .mappa .single__action p,
 .mappa .mappa_realta_filtrate a{
   color: var(--color-mappa_filtri);
 }
 
 .mappa .single__action div{
   height: 30px;
+}
+@media (max-width: 768px) {
+  .mappa .col_single_action{
+    bottom: 0px;
+  }
 }
 
 .mappa .mappa_correlati{
