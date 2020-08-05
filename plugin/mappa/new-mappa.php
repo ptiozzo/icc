@@ -148,7 +148,7 @@ if( $_POST['submit_button'] ){
 
     $url = "/mappa/";
 
-    $to = "webmaster@italiachecambia.org";
+    $to = "webmaster@italiachecambia.org,redazione@italiachecambia.org";
     $subject = 'ICC - Nuova Realtà mappata da revisionare: '.$_POST['titolo'];
     $body = "<html><body>";
     $body .= "Ciao <br>";
