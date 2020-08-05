@@ -42,25 +42,5 @@
         echo '</div>';
     }
 
-    if ($loopMappaCorrelati->posts_found < 3){
-      $argsMappaCorrelati2 = array(
-        'post_type' => array('post'),
-        'ignore_sticky_posts' => 1,
-        'posts_per_page' => 3-$loopMappaCorrelati->posts_found,
-        's' => get_the_title(),
-      );
-      $loopMappaCorrelati2 = new WP_Query($argsMappaCorrelati2);
-      if ( $loopMappaCorrelati2->have_posts() ) {
-        echo '<div class="col-12 mappa_correlati p-2">';
-        echo '<div class="row m-0">';
-        while ($loopMappaCorrelati2->have_posts() ) {
-          $loopMappaCorrelati2->have_posts();
-          echo get_the_title();
-        }
-        echo '</div>';
-        echo '</div>';
-      }
-    }
-
     wp_reset_postdata();
   ?>
