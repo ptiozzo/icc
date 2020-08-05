@@ -74,7 +74,7 @@ if(!is_user_logged_in() || $Regione == "tutteleregioni"){
 
 $argsMappaArchivio = array(
   'post_type' => array('mappa'),
-  'status' => 'publish'
+  'post_status' => 'publish',
   'posts_per_page' => -1,
   's' => $Realta1,
   'tax_query' => array(

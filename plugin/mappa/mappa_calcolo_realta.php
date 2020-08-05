@@ -33,7 +33,6 @@ function mappa_calcolo_realta(){
   foreach ($terms as $key ) {
     $argsMappa = array(
       'post_type' => 'mappa',
-      'status' => 'publish',
       'tax_query' => array(
           array(
             'taxonomy' => 'mapparegione',
