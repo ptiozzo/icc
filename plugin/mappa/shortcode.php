@@ -225,7 +225,7 @@ if($Categoria1 != $Categoria
 
       </div>
 
-    <div class="col-12">
+    <div class="col-12 mb-2">
 
      <?php
        $filtroChiuse = array(
