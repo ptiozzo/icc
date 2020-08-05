@@ -1,6 +1,12 @@
 <?php
 function mappa_calcolo_realta(){
   //numero realtà totali
+  $filtroChiuse = array(
+    'taxonomy'=> 'mappastato',
+    'field'    => 'slug',
+    'terms'    => 'chiuso',
+    'operator' => 'NOT IN',
+  );
   $argsMappa = array(
     'post_type' => 'mappa',
     'post_status' => 'publish',
@@ -17,6 +23,7 @@ function mappa_calcolo_realta(){
         'terms'    => 'utente',
         'operator' => 'NOT IN',
       ),
+      $filtroChiuse,
     ),
   );
   $loopMappa = new WP_Query( $argsMappa );
