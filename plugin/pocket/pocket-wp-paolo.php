@@ -87,8 +87,8 @@ class PocketWP {
 
 	// Register stylesheet
 	public function pwp_add_stylesheet() {
-	    wp_register_style( 'pwp-style', plugins_url('style.css', __FILE__) );
-	    wp_enqueue_style( 'pwp-style' );
+	    //wp_register_style( 'pwp-style', plugins_url('pocket.css', __FILE__) );
+	    //wp_enqueue_style( 'pwp-style' );
 	}
 
 	// Add link to the plugin settings page in plugin list

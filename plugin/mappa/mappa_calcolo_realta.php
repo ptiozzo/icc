@@ -33,6 +33,7 @@ function mappa_calcolo_realta(){
   foreach ($terms as $key ) {
     $argsMappa = array(
       'post_type' => 'mappa',
+      'post_status' => 'publish',
       'tax_query' => array(
           array(
             'taxonomy' => 'mapparegione',
@@ -58,6 +59,7 @@ function mappa_calcolo_realta(){
     $reti++;
     $argsMappa = array(
       'post_type' => 'mappa',
+      'post_status' => 'publish',
       'tax_query' => array(
           array(
             'taxonomy' => 'mapparete',
@@ -88,6 +90,7 @@ function mappa_calcolo_realta(){
   $argsMappaArchivio = array(
     'post_type' => array('mappa'),
     'posts_per_page' => -1,
+    'post_status' => 'publish',
     's' => $Realta1,
     'meta_query' => array(
         $filtroLatLong,
