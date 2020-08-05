@@ -144,8 +144,8 @@ $args = [
 	if(term_exists( 'toscana', 'mapparegione' ) !== 0){
 		wp_insert_term('Toscana','mapparegione',array('slug' => 'toscana' ) );
 	}
-	if(term_exists( 'trentinoaltoadige', 'mapparegione' ) !== 0){
-		wp_insert_term('Trentino-Alto Adige','mapparegione',array('slug' => 'trentinoaltoadige' ) );
+	if(term_exists( 'trentino-alto-adige', 'mapparegione' ) !== 0){
+		wp_insert_term('Trentino Alto Adige','mapparegione',array('slug' => 'trentino-alto-adige' ) );
 	}
 	if(term_exists( 'umbria', 'mapparegione' ) !== 0){
 		wp_insert_term('Umbria','mapparegione',array('slug' => 'umbria' ) );
