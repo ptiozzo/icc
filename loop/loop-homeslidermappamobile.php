@@ -6,12 +6,19 @@ $filtroUtente = array(
   'terms'    => 'utente',
   'operator' => 'NOT IN',
 );
+$filtroChiuse = array(
+  'taxonomy'=> 'mappastato',
+  'field'    => 'slug',
+  'terms'    => 'chiuso',
+  'operator' => 'NOT IN',
+);
 $argsMappaArchivio = array(
   'post_type' => array('mappa'),
   'posts_per_page' => 8,
   'tax_query' => array(
       'relation' => 'AND',
       $filtroUtente,
+      $filtroChiuse,
     ),
 );
 
