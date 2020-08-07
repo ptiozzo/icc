@@ -19,6 +19,7 @@ $filtroRegione = array(
 $argsMappaPiemonteSlider = array(
   'post_type' => array('mappa'),
   'posts_per_page' => 8,
+  'orderby' => 'modified',
   'tax_query' => array(
       'relation' => 'AND',
       $filtroRegione,
@@ -123,4 +124,3 @@ if ($loopMappaLiguriaSlider->have_posts()) {
 <?php
 }
 ?>
-
