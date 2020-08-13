@@ -24,7 +24,8 @@
   	})
   })();
 
-
-
+  $(".mappa_reset").click(function() {
+    document.cookie="PHPSESSID='';path='/'";
+  });
 
 })(jQuery);
