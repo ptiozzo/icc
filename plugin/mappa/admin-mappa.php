@@ -12,12 +12,22 @@ $filtroLatLong = array(
   'compare'    => 'NOT EXISTS',
 );
 
+$filtroReti = array(
+  'taxonomy'=> 'mappastato',
+  'field'    => 'slug',
+  'terms'    => 'rete',
+  'operator' => 'NOT IN',
+);
+
 $argsMappaSenzaLatLong = array(
   'post_type' => array('mappa'),
   'posts_per_page' => -1,
   'meta_query' => array(
       $filtroLatLong,
-    )
+    ),
+  'tax_query' => array(
+    $filtroReti,
+  ),
 );
 $loopMappaSenzaLatLong = new WP_Query( $argsMappaSenzaLatLong );
 
