@@ -212,22 +212,21 @@
 	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'icc'); ?> </h3>
 
 	<?php endif; ?>
-	<div class="row">
-		<div class="col-12 text-center">
-
-			<?php
-			if (has_category('piemonte-che-cambia',$icc_article_ID) || has_category('casentino-che-cambia',$icc_article_ID) || has_category('liguria-che-cambia',$icc_article_ID)) {
-				if (has_category('piemonte-che-cambia',$icc_article_ID	)){
-					dynamic_sidebar('singlepiemonteend');
-				} elseif (has_category('casentino-che-cambia',$icc_article_ID)) {
-					dynamic_sidebar('singlecasentinoend');
-				} elseif (has_category('liguria-che-cambia',$icc_article_ID)) {
-					dynamic_sidebar('singleliguriaend');
-				}
-			} ?>
-		</div>
-		<div class="col-12 col-md-6 offset-md-3">
-			<?php dynamic_sidebar('singleend'); ?>
+	<div class="row justify-content-center">
+		<div class="col-12 col-lg-10 text-center">
+			<div class="container">
+				<?php
+				if (has_category('piemonte-che-cambia',$icc_article_ID) || has_category('casentino-che-cambia',$icc_article_ID) || has_category('liguria-che-cambia',$icc_article_ID)) {
+					if (has_category('piemonte-che-cambia',$icc_article_ID	)){
+						dynamic_sidebar('singlepiemonteend');
+					} elseif (has_category('casentino-che-cambia',$icc_article_ID)) {
+						dynamic_sidebar('singlecasentinoend');
+					} elseif (has_category('liguria-che-cambia',$icc_article_ID)) {
+						dynamic_sidebar('singleliguriaend');
+					}
+				} ?>
+				<?php dynamic_sidebar('singleend'); ?>
+			</div>
 		</div>
 	</div>
 </div>
