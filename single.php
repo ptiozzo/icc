@@ -44,7 +44,6 @@
 				<br />
 			</div>
 			<!-- Thumbnail o video youtube -->
-
 				<?php
 				if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
 					?>
@@ -214,18 +213,16 @@
 
 	<?php endif; ?>
 	<div class="row">
-		<div class="col-12">
+		<div class="col-12 text-center">
+
 			<?php
-			if (has_category('piemonte-che-cambia') || has_category('casentino-che-cambia') || has_category('liguria-che-cambia')) {
-				if (has_category('piemonte-che-cambia')){
+			if (has_category('piemonte-che-cambia',$icc_article_ID) || has_category('casentino-che-cambia',$icc_article_ID) || has_category('liguria-che-cambia',$icc_article_ID)) {
+				if (has_category('piemonte-che-cambia',$icc_article_ID	)){
 					dynamic_sidebar('singlepiemonteend');
-					banner_pianetafuturo();
-				} elseif (has_category('casentino-che-cambia')) {
+				} elseif (has_category('casentino-che-cambia',$icc_article_ID)) {
 					dynamic_sidebar('singlecasentinoend');
-					banner_pianetafuturo();
-				} elseif (has_category('liguria-che-cambia')) {
+				} elseif (has_category('liguria-che-cambia',$icc_article_ID)) {
 					dynamic_sidebar('singleliguriaend');
-					banner_pianetafuturo();
 				}
 			} ?>
 		</div>
