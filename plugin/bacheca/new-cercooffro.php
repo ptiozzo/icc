@@ -243,8 +243,8 @@ if($success != 1 && is_user_logged_in() ){
       <small id="contentHelp" class="form-text text-muted">Questo sarà il testo del tuo annuncio.</small>
     </div>
     <div class="form-group my-2 col-12">
-      <label for="image">Aggiungi un'immagine al tuo annuncio</label>
-      <input type="file" name="image" class="form-control-file" id="image">
+      <label for="image"><strong>Ti invitiamo ad aggiungere un'immagine di copertina al tuo annuncio. Scegli un'immagine con orientamento orizzontale e in buona risoluzione. Un'immagine evocativa e rappresentativa permetterà al tuo annuncio di avere maggiore visibilità.</strong></label>
+      <input type="file" name="image" class="form-control-file mt-3" id="image">
     </div>
 
     <input name="submit_button" type="Submit" value="<?php echo $form_invia;?>" class="btn btn-secondary">
