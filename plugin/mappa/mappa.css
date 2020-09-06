@@ -110,6 +110,10 @@ div.mappa{
   max-width: 100%;
 }
 
+.mappa .card img{
+  height: 150px;
+}
+
 /*-----------------------
 SINGLE
 -----------------------*/
