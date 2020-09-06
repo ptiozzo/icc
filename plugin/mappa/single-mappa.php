@@ -9,7 +9,7 @@
   foreach ( $terms as $term ) {
     if($term->slug == $post->post_name){
      $realtaRete = 1;
-     $Rete1 = $term->slug;
+     $Rete1 = $term->name;
     }
   }
 
