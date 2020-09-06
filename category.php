@@ -33,7 +33,7 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
           'category_name' => $CatTerm,
           'posts_per_page' => 20,
           'paged'          => $paged,
-          'category__not_in' => array(2299,2300),
+          //'category__not_in' => array(2299,2300),
       );
     }
     /*eseguo la query */

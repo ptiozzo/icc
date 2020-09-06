@@ -40,7 +40,7 @@ if ($loopMappaLiguriaSlider->have_posts()) {
 
   <div class='head'>
     <div class='title'>
-      <h5>LA MAPPA DEL PIEMONTE CHE CAMBIA</h5>
+      <h5>LA MAPPA DELLA LIGURIA CHE CAMBIA</h5>
     </div>
   </div>
 

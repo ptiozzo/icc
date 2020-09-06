@@ -149,6 +149,24 @@ function mappa_run_on_publish_only( $new_status, $old_status, $post ) {
           wp_mail( $to, $subject, $body, $headers );
     }
 }
+add_action( 'admin_menu', 'icc_menu_mappa_admin' );
+function icc_menu_mappa_admin()
+{
+  add_submenu_page(
+    'icc-theme',
+    'ICC Mappa',
+    'Mappa',
+    'edit_posts',
+    'icc-mappa-suggestion',
+    'icc_menu_admin_mappa_isctruction'
+  );
+}
+
+
+function icc_menu_admin_mappa_isctruction()
+{
+  require 'admin-mappa.php';
+}
 
 
 ?>
