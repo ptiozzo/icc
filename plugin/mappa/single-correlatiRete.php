@@ -30,7 +30,7 @@
                     if ( has_post_thumbnail() ) {
                       the_post_thumbnail('icc_ultimenewshome', array('class' => 'card-img-top p-0','alt' => get_the_title()));
                     }else{
-                      echo '<img class="card-img-top p-0" src="'.catch_that_image().'" />';
+                      echo '<img class="card-img-top p-0" src="'.get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png" />';
                     }
                   ?>
                   <div class="card-body">
