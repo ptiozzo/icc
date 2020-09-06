@@ -48,7 +48,7 @@ class icc_Widget_bacheca extends WP_Widget {
       $title = apply_filters( 'widget_title', $instance[ 'title' ] );
       echo $args['before_widget'];?>
       <div class="Widget_bacheca p-2 row">
-        <div id="carouselBacheca" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
+        <div id="carouselBacheca" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="1000">
           <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
             <a class="carousel-control-prev" href="#carouselBacheca" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -119,6 +119,7 @@ class icc_Widget_bacheca extends WP_Widget {
       <?php
       echo $args['after_widget'];
     }
+    wp_reset_query();
   }
 
 
