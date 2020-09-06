@@ -43,14 +43,14 @@ class icc_Widget_bacheca extends WP_Widget {
           ),
         );
     $loopBacheca = new WP_Query( $argsBacheca );
-
+    $i = 0;
     if ($loopBacheca->found_posts >= 2){
       $title = apply_filters( 'widget_title', $instance[ 'title' ] );
       echo $args['before_widget'];?>
       <div class="Widget_bacheca p-2 row">
         <div id="carouselBacheca" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="false">
           <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
-            <a class="carousel-control-prev" href="#carouselBacheca" data-no-swup role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselBacheca" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
@@ -60,7 +60,7 @@ class icc_Widget_bacheca extends WP_Widget {
               <?php }	?>
               <p class=""> /<?php echo '5';?></p>
             </ol>
-            <a class="carousel-control-next" href="#carouselBacheca" data-no-swup role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselBacheca" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
