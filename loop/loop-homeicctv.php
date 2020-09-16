@@ -5,6 +5,11 @@ $argsICCTVSticky = array(
   'post_type' => 'post',
   'posts_per_page' => 10,
   'category_name' => 'icc-tv',
+  'date_query' => array(
+        array(
+            'after' => '1 month ago'
+        ),
+    ),
   'tax_query' => array(
     'relation' => 'AND',
     array(
@@ -20,6 +25,13 @@ $argsICCTVSticky = array(
   ),
 );
 $loopICCTVSticky = new WP_Query( $argsICCTVSticky );
+if( $loopICCTVSticky->have_posts()){
+  while($loopICCTVSticky->have_posts()){
+    $loopICCTVSticky->the_post();
+    $exclude_posts_ICCTV_sticky[] = $post->ID;
+  }
+}
+
 
 /* Query per ICC-TV
 *---------------------*/
@@ -29,18 +41,13 @@ if(10-$loopICCTVSticky->post_count != 0){
     'post_type' => 'post',
     'posts_per_page' => 10-$loopICCTVSticky->post_count,
     'category_name' => 'icc-tv',
+    'post__not_in' => $exclude_posts_ICCTV_sticky,
     'tax_query' => array(
       'relation' => 'AND',
       array(
           'taxonomy'=> 'icc_altri_filtri',
           'field'   => 'slug',
           'terms'		=> 'InHome',
-      ),
-      array(
-          'taxonomy'=> 'icc_altri_filtri',
-          'field'   => 'slug',
-          'terms'		=> 'icctvsticky',
-          'operator' => 'NOT IN',
       ),
     ),
   );
