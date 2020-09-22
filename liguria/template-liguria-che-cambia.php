@@ -139,6 +139,12 @@ Template Name: Liguria che cambia
 							<div class="col-lg-6 mt-3 text-break">
 								<div id="post-<?php the_ID(); ?>" class="card  border-0 p-0">
 									<article <?php echo post_class(); ?>>
+                    <div class="category-bg"> </div>
+                    <div class="category pl-1">
+                      <span>
+                        <?php get_template_part('inc/post','etichetta'); ?>
+                      </span>
+                    </div>
 									<?php
 										if ( has_post_thumbnail() ) {
 											the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
