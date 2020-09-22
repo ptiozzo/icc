@@ -25,6 +25,8 @@
                   <?php
                     if ( has_post_thumbnail() ) {
                       the_post_thumbnail('icc_ultimenewshome', array('class' => 'card-img-top p-0','alt' => get_the_title()));
+                    }elseif (has_post_thumbnail(get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID)){
+                      echo '<img class="card-img-top p-0" src="'.get_the_post_thumbnail_url(get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID).'" />';
                     }else{
                       echo '<img class="card-img-top p-0" src="'.catch_that_image().'" />';
                     }

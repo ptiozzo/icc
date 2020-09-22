@@ -58,10 +58,25 @@ if($filtro == 0){
         <?php
           while ($loopMappaArchivio->have_posts()) {
             $loopMappaArchivio->the_post();
+
+            //$pippo = get_the_terms($post->ID,'mapparete');
+            //echo $pippo[0]->name;
+            //echo get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID;
+
             ?>
             <div class="col-12 col-md-6 mb-2">
               <div class="card card--mappa h-100">
-                <img src="<?php if(has_post_thumbnail()){echo get_the_post_thumbnail_url();} else {echo get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png';} ?>" class="card-img-top p-0" alt="<?php echo get_the_title(); ?>">
+                <img src="
+                <?php
+                if(has_post_thumbnail()){
+                  echo get_the_post_thumbnail_url();
+                } elseif (has_post_thumbnail(get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID)){
+                  echo get_the_post_thumbnail_url(get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID);
+                }else {
+                  echo get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png';
+                }
+                ?>
+                " class="card-img-top p-0" alt="<?php echo get_the_title(); ?>">
                 <div class="card-body pt-0">
                   <h5 class="card-title"><?php echo get_the_title(); ?></h5>
                   <!--<p class="card-text"><?php echo get_the_excerpt(); ?></p>-->
