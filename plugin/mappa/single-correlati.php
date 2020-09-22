@@ -8,7 +8,7 @@
           array(
               'key' => 'Mappa_Nome_Ralta',
               'value'    => get_the_title(),
-              'compare'    => 'LIKE',
+              'compare'    => '=',
           ),
       ),
     );
