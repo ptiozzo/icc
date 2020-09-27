@@ -116,6 +116,24 @@
       				<br />
       			</div>
 
+
+
+            <div class="single__tag">
+              <?php
+              $term1 = "mappatag";
+              $terms = get_the_terms( $post->ID , $term1 );
+              if ($terms != ""){
+                //echo "Tag: ";
+                echo '<p class="tag">';
+                foreach ( $terms as $term ) {
+                  echo '<a>'.$term->name.'</a> ';
+                }
+                echo '</p>';
+              }
+              ?>
+    				</div>
+
+
             <?php if( !empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true))|| !empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true))){ ?>
               <div class="alert alert-danger mt-2" role="alert">
                 <?php if(!empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true))) { ?>
