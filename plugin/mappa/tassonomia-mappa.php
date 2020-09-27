@@ -228,7 +228,36 @@ $args = [
 		wp_insert_term('Chiuso','mappastato',array('slug' => 'chiuso' ) );
 	}
 
+	/**
+	 * Taxonomy: Categoria.
+	 */
 
+	$labels = [
+		"name" => __( "Tag Mappa", "icc" ),
+		"singular_name" => __( "Tag Mappa", "icc" ),
+		"menu_name" => __( "Tag Mappa", "icc" ),
+		"search_items" => __( "Cerca Tag Mappa", "icc") ,
+	];
+
+	$args = [
+		"label" => __( "tag mappa", "icc" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => false,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'mappatag', 'with_front' => true,  'hierarchical' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"rest_base" => "mappatag",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		'map_meta_cap' => true,
+		"show_in_quick_edit" => true,
+		];
+	register_taxonomy( "mappatag", [ "mappa" ], $args );
 
 
 ?>

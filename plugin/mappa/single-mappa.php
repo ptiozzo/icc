@@ -9,7 +9,7 @@
   foreach ( $terms as $term ) {
     if($term->slug == $post->post_name){
      $realtaRete = 1;
-     $Rete1 = $term->slug;
+     $Rete1 = $term->name;
     }
   }
 
@@ -115,6 +115,24 @@
               ?>
       				<br />
       			</div>
+
+
+
+            <div class="single__tag">
+              <?php
+              $term1 = "mappatag";
+              $terms = get_the_terms( $post->ID , $term1 );
+              if ($terms != ""){
+                //echo "Tag: ";
+                echo '<p class="tag">';
+                foreach ( $terms as $term ) {
+                  echo '<a>'.$term->name.'</a> ';
+                }
+                echo '</p>';
+              }
+              ?>
+    				</div>
+
 
             <?php if( !empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Motivazione',true))|| !empty (get_post_meta( $icc_article_ID, 'Mappa_Chiuso_Data',true))){ ?>
               <div class="alert alert-danger mt-2" role="alert">
@@ -225,6 +243,7 @@
                   </script>
                   <?php
                     $tuttiIPuntini = "[[".get_post_meta( $icc_article_ID, 'Mappa_Latitudine',true).", ".get_post_meta( $icc_article_ID, 'Mappa_Longitudine',true)."]]";
+                    $popupMappa = get_post_meta( $icc_article_ID, 'Mappa_Indirizzo',true);
                   ?>
                   <script>
 
