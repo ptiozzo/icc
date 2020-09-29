@@ -57,6 +57,11 @@ if( $_POST['submit_button'] ){
     $errors['indirizzo'] = "Devi inserire un indirizzo";
   }
 
+  if($_POST['terms'] != "Yes")
+  {
+      $errors['terms'] = "Devi accettare i termini e condizioni";
+  }
+
 
   if(0 === count($errors)){
 
@@ -388,6 +393,12 @@ if($success != 1 && is_user_logged_in() ){
     <div class="form-group my-2 col-12 d-block px-0">
       <input id="mappa_TW" class="form-control w-75" type="url" name="mappa_TW" placeholder="Inserisci il link alla pagina Twitter della realtà" value="<?php echo $form_mappa_IN;?>">
       <small id="mappa_TWHelp" class="form-text text-muted"></small>
+    </div>
+    <div class="form-check col-12 ml-3">
+      <input class="form-check-input" name="terms" type="checkbox" value="Yes" id="terms" <?php if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['terms'] == "Yes" ){echo "checked";} ?>>
+      <label class="form-check-label" for="terms">
+        Accetto i <a href="/termini-e-condizioni-bacheca-cerco-offro/"> termini e le condizioni</a>
+      </label>
     </div>
 
     <input name="submit_button" type="Submit" value="<?php echo $form_invia;?>" class="btn btn-secondary">
