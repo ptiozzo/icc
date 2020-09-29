@@ -164,11 +164,10 @@
 
 
 
-
         $argsBacheca = array(
             'post_type' => array('cerco-offro'),
             'posts_per_page' => 20,
-            'paged'          => $paged,
+            'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1,
             'tax_query' => array(
                 'relation' => 'AND',
                 $filtroRegione,
