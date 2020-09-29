@@ -46,6 +46,10 @@ $errors = array();
     }
   }
 
+  if($_POST['terms'] != "Yes")
+  {
+      $errors['terms'] = "Devi accettare i termini e condizioni";
+  }
 
 
   if(0 === count($errors)){
@@ -245,6 +249,13 @@ if($success != 1 && is_user_logged_in() ){
     <div class="form-group my-2 col-12">
       <label for="image"><strong>Ti invitiamo ad aggiungere un'immagine di copertina al tuo annuncio. Scegli un'immagine con orientamento orizzontale e in buona risoluzione. Un'immagine evocativa e rappresentativa permetterà al tuo annuncio di avere maggiore visibilità.</strong></label>
       <input type="file" name="image" class="form-control-file mt-3" id="image">
+    </div>
+
+    <div class="form-check col-12 ml-3">
+      <input class="form-check-input" name="terms" type="checkbox" value="Yes" id="terms" <?php if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['terms'] == "Yes" ){echo "checked";} ?>>
+      <label class="form-check-label" for="terms">
+        Accetto i<a href="/termini-e-condizioni-bacheca-cerco-offro/"> termini e le condizioni</a>
+      </label>
     </div>
 
     <input name="submit_button" type="Submit" value="<?php echo $form_invia;?>" class="btn btn-secondary">
