@@ -216,13 +216,13 @@ if($success != 1 && is_user_logged_in() ){
   ?>
   <form class="mt-3 mb-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" enctype="multipart/form-data">
     <select name="categoria" class="custom-select" >
-      <option value="tuttelecategorie" <?php if ($form_tipologia == "tuttelecategorie") {echo 'selected';} ?>>Seleziona una categoria</option>
+      <option value="tuttelecategorie" <?php if ($form_categoria == "tuttelecategorie") {echo 'selected';} ?>>Seleziona una categoria</option>
       <?php
         $categories = get_terms( array('taxonomy' => 'mappacategoria','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC'));
         foreach ($categories as $category) {
           if($category->slug != 'risolto'){
             $option = '<option value="'.$category->slug.'" ';
-            if ($form_tipologia == $category->slug) {$option .= 'selected ';};
+            if ($form_categoria == $category->slug) {$option .= 'selected ';};
             $option .= '>'.$category->name;
             $option .= '</option>';
             echo $option;
