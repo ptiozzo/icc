@@ -20,7 +20,7 @@ function icc_menu_admin_regioni_isctruction()
 
 function icc_is_region_active($regione){
   $regioni = get_option('icc_regioni_attive');
-  if(in_array($regione,$regioni)){
+  if(in_array(strtolower($regione),$regioni)){
     return true;
   } else {
     return false;

@@ -4,65 +4,65 @@
 <?php
 
 if($_POST['submit']){
-  if($_POST['Abruzzo'] == 'Abruzzo'){
-    $regioni[] = 'Abruzzo';
+  if($_POST['abruzzo'] == 'abruzzo'){
+    $regioni[] = 'abruzzo';
   }
-  if($_POST['Basilicata'] == 'Basilicata'){
-    $regioni[] = 'Basilicata';
+  if($_POST['basilicata'] == 'basilicata'){
+    $regioni[] = 'basilicata';
   }
-  if($_POST['Calabria'] == 'Calabria'){
-    $regioni[] = 'Calabria';
+  if($_POST['calabria'] == 'calabria'){
+    $regioni[] = 'calabria';
   }
-  if($_POST['Campania'] == 'Campania'){
-    $regioni[] = 'Campania';
+  if($_POST['campania'] == 'campania'){
+    $regioni[] = 'campania';
   }
-  if($_POST['Emilia-Romagna'] == 'Emilia-Romagna'){
-    $regioni[] = 'Emilia-Romagna';
+  if($_POST['emilia-romagna'] == 'emilia-romagna'){
+    $regioni[] = 'emilia-romagna';
   }
-  if($_POST['Friuli-Venezia-Giulia'] == 'Friuli-Venezia-Giulia'){
-    $regioni[] = 'Friuli-Venezia-Giulia';
+  if($_POST['friuli-venezia-giulia'] == 'friuli-venezia-giulia'){
+    $regioni[] = 'friuli-venezia-giulia';
   }
-  if($_POST['Lazio'] == 'Lazio'){
-    $regioni[] = 'Lazio';
+  if($_POST['lazio'] == 'lazio'){
+    $regioni[] = 'lazio';
   }
-  if($_POST['Liguria'] == 'Liguria'){
-    $regioni[] = 'Liguria';
+  if($_POST['liguria'] == 'liguria'){
+    $regioni[] = 'liguria';
   }
-  if($_POST['Lombardia'] == 'Lombardia'){
-    $regioni[] = 'Lombardia';
+  if($_POST['lombardia'] == 'lombardia'){
+    $regioni[] = 'lombardia';
   }
-  if($_POST['Marche'] == 'Marche'){
-    $regioni[] = 'Marche';
+  if($_POST['marche'] == 'marche'){
+    $regioni[] = 'marche';
   }
-  if($_POST['Molise'] == 'Molise'){
-    $regioni[] = 'Molise';
+  if($_POST['molise'] == 'molise'){
+    $regioni[] = 'molise';
   }
-  if($_POST['Piemonte'] == 'Piemonte'){
-    $regioni[] = 'Piemonte';
+  if($_POST['piemonte'] == 'piemonte'){
+    $regioni[] = 'piemonte';
   }
-  if($_POST['Puglia'] == 'Puglia'){
-    $regioni[] = 'Puglia';
+  if($_POST['puglia'] == 'puglia'){
+    $regioni[] = 'puglia';
   }
-  if($_POST['Sardegna'] == 'Sardegna'){
-    $regioni[] = 'Sardegna';
+  if($_POST['sardegna'] == 'sardegna'){
+    $regioni[] = 'sardegna';
   }
-  if($_POST['Sicilia'] == 'Sicilia'){
-    $regioni[] = 'Sicilia';
+  if($_POST['sicilia'] == 'sicilia'){
+    $regioni[] = 'sicilia';
   }
-  if($_POST['Toscana'] == 'Toscana'){
-    $regioni[] = 'Toscana';
+  if($_POST['toscana'] == 'toscana'){
+    $regioni[] = 'toscana';
   }
-  if($_POST['Trentino-Alto-Adige'] == 'Trentino-Alto-Adige'){
-    $regioni[] = 'Trentino-Alto-Adige';
+  if($_POST['trentino-alto-adige'] == 'trentino-alto-adige'){
+    $regioni[] = 'trentino-alto-adige';
   }
-  if($_POST['Umbria'] == 'Umbria'){
-    $regioni[] = 'Umbria';
+  if($_POST['umbria'] == 'umbria'){
+    $regioni[] = 'umbria';
   }
-  if($_POST['Valle-d-Aosta'] == 'Valle-d-Aosta'){
-    $regioni[] = 'Valle-d-Aosta';
+  if($_POST['valle-d-aosta'] == 'valle-d-aosta'){
+    $regioni[] = 'valle-d-aosta';
   }
-  if($_POST['Veneto'] == 'Veneto'){
-    $regioni[] = 'Veneto';
+  if($_POST['veneto'] == 'veneto'){
+    $regioni[] = 'veneto';
   }
 
   echo "Salvato!";
@@ -77,46 +77,46 @@ if($_POST['submit']){
 ?>
 <form class="" action="<?php echo get_pagenum_link(); ?>" method="post">
 
-  <input type="checkbox" id="Abruzzo" name="Abruzzo" value="Abruzzo" <?php if(in_array("Abruzzo", $regioni)){echo "checked";} ?>>
-  <label for="Abruzzo"> Abruzzo</label><br>
-  <input type="checkbox" id="Basilicata" name="Basilicata" value="Basilicata" <?php if(in_array("Basilicata", $regioni)){echo "checked";} ?>>
-  <label for="Basilicata"> Basilicata</label><br>
-  <input type="checkbox" id="Calabria" name="Calabria" value="Calabria" <?php if(in_array("Calabria", $regioni)){echo "checked";} ?>>
-  <label for="Calabria"> Calabria</label><br>
-  <input type="checkbox" id="Campania" name="Campania" value="Campania" <?php if(in_array("Campania", $regioni)){echo "checked";} ?>>
-  <label for="Campania"> Campania</label><br>
-  <input type="checkbox" id="Emilia-Romagna" name="Emilia-Romagna" value="Emilia-Romagna" <?php if(in_array("Emilia-Romagna", $regioni)){echo "checked";} ?>>
-  <label for="Emilia-Romagna"> Emilia-Romagna</label><br>
-  <input type="checkbox" id="Friuli-Venezia-Giulia" name="Friuli-Venezia-Giulia" value="Friuli-Venezia-Giulia" <?php if(in_array("Friuli-Venezia-Giulia", $regioni)){echo "checked";} ?>>
-  <label for="Friuli-Venezia-Giulia"> Friuli Venezia Giulia</label><br>
-  <input type="checkbox" id="Lazio" name="Lazio" value="Lazio" <?php if(in_array("Lazio", $regioni)){echo "checked";} ?>>
-  <label for="Lazio"> Lazio</label><br>
-  <input type="checkbox" id="Liguria" name="Liguria" value="Liguria" <?php if(in_array("Liguria", $regioni)){echo "checked";} ?>>
-  <label for="Liguria"> Liguria</label><br>
-  <input type="checkbox" id="Lombardia" name="Lombardia" value="Lombardia" <?php if(in_array("Lombardia", $regioni)){echo "checked";} ?>>
-  <label for="Lombardia"> Lombardia</label><br>
-  <input type="checkbox" id="Marche" name="Marche" value="Marche" <?php if(in_array("Marche", $regioni)){echo "checked";} ?>>
-  <label for="Marche"> Marche</label><br>
-  <input type="checkbox" id="Molise" name="Molise" value="Molise" <?php if(in_array("Molise", $regioni)){echo "checked";} ?>>
-  <label for="Molise"> Molise</label><br>
-  <input type="checkbox" id="Piemonte" name="Piemonte" value="Piemonte" <?php if(in_array("Piemonte", $regioni)){echo "checked";} ?>>
-  <label for="Piemonte"> Piemonte</label><br>
-  <input type="checkbox" id="Puglia" name="Puglia" value="Puglia" <?php if(in_array("Puglia", $regioni)){echo "checked";} ?>>
-  <label for="Puglia"> Puglia</label><br>
-  <input type="checkbox" id="Sardegna" name="Sardegna" value="Sardegna" <?php if(in_array("Sardegna", $regioni)){echo "checked";} ?>>
-  <label for="Sardegna"> Sardegna</label><br>
-  <input type="checkbox" id="Sicilia" name="Sicilia" value="Sicilia" <?php if(in_array("Sicilia", $regioni)){echo "checked";} ?>>
-  <label for="Sicilia"> Sicilia</label><br>
-  <input type="checkbox" id="Toscana" name="Toscana" value="Toscana" <?php if(in_array("Toscana", $regioni)){echo "checked";} ?>>
-  <label for="Toscana"> Toscana</label><br>
-  <input type="checkbox" id="Trentino-Alto-Adige" name="Trentino-Alto-Adige" value="Trentino-Alto-Adige" <?php if(in_array("Trentino-Alto-Adige", $regioni)){echo "checked";} ?>>
-  <label for="Trentino-Alto-Adige"> Trentino-Alto Adige</label><br>
-  <input type="checkbox" id="Umbria" name="Umbria" value="Umbria" <?php if(in_array("Umbria", $regioni)){echo "checked";} ?>>
-  <label for="Umbria"> Umbria</label><br>
-  <input type="checkbox" id="Valle-d-Aosta" name="Valle-d-Aosta" value="Valle-d-Aosta" <?php if(in_array("Valle-d-Aosta", $regioni)){echo "checked";} ?>>
-  <label for="Valle-d-Aosta"> Valle d'Aosta</label><br>
-  <input type="checkbox" id="Veneto" name="Veneto" value="Veneto" <?php if(in_array("Veneto", $regioni)){echo "checked";} ?>>
-  <label for="Veneto"> Veneto</label><br>
+  <input type="checkbox" id="abruzzo" name="abruzzo" value="abruzzo" <?php if(in_array("abruzzo", $regioni)){echo "checked";} ?>>
+  <label for="abruzzo"> abruzzo</label><br>
+  <input type="checkbox" id="basilicata" name="basilicata" value="basilicata" <?php if(in_array("basilicata", $regioni)){echo "checked";} ?>>
+  <label for="basilicata"> basilicata</label><br>
+  <input type="checkbox" id="calabria" name="calabria" value="calabria" <?php if(in_array("calabria", $regioni)){echo "checked";} ?>>
+  <label for="calabria"> calabria</label><br>
+  <input type="checkbox" id="campania" name="campania" value="campania" <?php if(in_array("campania", $regioni)){echo "checked";} ?>>
+  <label for="campania"> campania</label><br>
+  <input type="checkbox" id="emilia-romagna" name="emilia-romagna" value="emilia-romagna" <?php if(in_array("emilia-romagna", $regioni)){echo "checked";} ?>>
+  <label for="emilia-romagna"> emilia-romagna</label><br>
+  <input type="checkbox" id="friuli-venezia-giulia" name="friuli-venezia-giulia" value="friuli-venezia-giulia" <?php if(in_array("friuli-venezia-giulia", $regioni)){echo "checked";} ?>>
+  <label for="friuli-venezia-giulia"> Friuli Venezia Giulia</label><br>
+  <input type="checkbox" id="lazio" name="lazio" value="lazio" <?php if(in_array("lazio", $regioni)){echo "checked";} ?>>
+  <label for="lazio"> lazio</label><br>
+  <input type="checkbox" id="liguria" name="liguria" value="liguria" <?php if(in_array("liguria", $regioni)){echo "checked";} ?>>
+  <label for="liguria"> liguria</label><br>
+  <input type="checkbox" id="lombardia" name="lombardia" value="lombardia" <?php if(in_array("lombardia", $regioni)){echo "checked";} ?>>
+  <label for="lombardia"> lombardia</label><br>
+  <input type="checkbox" id="marche" name="marche" value="marche" <?php if(in_array("marche", $regioni)){echo "checked";} ?>>
+  <label for="marche"> marche</label><br>
+  <input type="checkbox" id="molise" name="molise" value="molise" <?php if(in_array("molise", $regioni)){echo "checked";} ?>>
+  <label for="molise"> molise</label><br>
+  <input type="checkbox" id="piemonte" name="piemonte" value="piemonte" <?php if(in_array("piemonte", $regioni)){echo "checked";} ?>>
+  <label for="piemonte"> piemonte</label><br>
+  <input type="checkbox" id="puglia" name="puglia" value="puglia" <?php if(in_array("puglia", $regioni)){echo "checked";} ?>>
+  <label for="puglia"> puglia</label><br>
+  <input type="checkbox" id="sardegna" name="sardegna" value="sardegna" <?php if(in_array("sardegna", $regioni)){echo "checked";} ?>>
+  <label for="sardegna"> sardegna</label><br>
+  <input type="checkbox" id="sicilia" name="sicilia" value="sicilia" <?php if(in_array("sicilia", $regioni)){echo "checked";} ?>>
+  <label for="sicilia"> sicilia</label><br>
+  <input type="checkbox" id="toscana" name="toscana" value="toscana" <?php if(in_array("toscana", $regioni)){echo "checked";} ?>>
+  <label for="toscana"> toscana</label><br>
+  <input type="checkbox" id="trentino-alto-adige" name="trentino-alto-adige" value="trentino-alto-adige" <?php if(in_array("trentino-alto-adige", $regioni)){echo "checked";} ?>>
+  <label for="trentino-alto-adige"> Trentino-Alto Adige</label><br>
+  <input type="checkbox" id="umbria" name="umbria" value="umbria" <?php if(in_array("umbria", $regioni)){echo "checked";} ?>>
+  <label for="umbria"> umbria</label><br>
+  <input type="checkbox" id="valle-d-aosta" name="valle-d-aosta" value="valle-d-aosta" <?php if(in_array("valle-d-aosta", $regioni)){echo "checked";} ?>>
+  <label for="valle-d-aosta"> Valle d'Aosta</label><br>
+  <input type="checkbox" id="veneto" name="veneto" value="veneto" <?php if(in_array("veneto", $regioni)){echo "checked";} ?>>
+  <label for="veneto"> veneto</label><br>
 
   <input name="submit" type="Submit" value="Salva" class="">
 
