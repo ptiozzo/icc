@@ -251,10 +251,10 @@ if($success != 1 && is_user_logged_in() ){
       <input type="file" name="image" class="form-control-file mt-3" id="image">
     </div>
 
-    <div class="form-check col-12 ml-3">
+    <div class="form-check justify-content-start col-12 my-3">
       <input class="form-check-input" name="terms" type="checkbox" value="Yes" id="terms" <?php if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['terms'] == "Yes" ){echo "checked";} ?>>
       <label class="form-check-label" for="terms">
-        Accetto i<a href="/termini-e-condizioni-bacheca-cerco-offro/"> termini e le condizioni</a>
+        Accetto i&nbsp;<a href="/termini-e-condizioni-bacheca-cerco-offro/">termini e le condizioni</a>
       </label>
     </div>
 
