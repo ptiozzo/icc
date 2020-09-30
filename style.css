@@ -1086,6 +1086,9 @@ figcaption{
 .wp-block-gallery .blocks-gallery-item{
   margin: 0;
 }
+.wp-block-media-text__media img{
+  height: 100%;
+}
 
 .single__articolo img{
   width: 100%;

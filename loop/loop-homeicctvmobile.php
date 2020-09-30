@@ -23,30 +23,34 @@ $loopICCTVSticky = new WP_Query( $argsICCTVSticky );
 
 /* Query per ICC-TV
 *---------------------*/
-$argsICCTV = array(
-  'post_type' => 'post',
-  'posts_per_page' => 10-$loopICCTVSticky->post_count,
-  'category_name' => 'icc-tv',
-  'tax_query' => array(
-    'relation' => 'AND',
-    array(
-        'taxonomy'=> 'icc_altri_filtri',
-        'field'   => 'slug',
-        'terms'		=> 'InHome',
+if(10-$loopICCTVSticky->post_count != 0){
+  $argsICCTV = array(
+    'post_type' => 'post',
+    'posts_per_page' => 10-$loopICCTVSticky->post_count,
+    'category_name' => 'icc-tv',
+    'tax_query' => array(
+      'relation' => 'AND',
+      array(
+          'taxonomy'=> 'icc_altri_filtri',
+          'field'   => 'slug',
+          'terms'		=> 'InHome',
+      ),
+      array(
+          'taxonomy'=> 'icc_altri_filtri',
+          'field'   => 'slug',
+          'terms'		=> 'icctvsticky',
+          'operator' => 'NOT IN',
+      ),
     ),
-    array(
-        'taxonomy'=> 'icc_altri_filtri',
-        'field'   => 'slug',
-        'terms'		=> 'icctvsticky',
-        'operator' => 'NOT IN',
-    ),
-  ),
-);
-$loopICCTV = new WP_Query( $argsICCTV );
+  );
+  $loopICCTV = new WP_Query( $argsICCTV );
+} else{
+  $loopICCTV = new WP_Query( false );
+}
 $i = 0;
 
 
-if( $loopICCTV->have_posts() ) : ?>
+if( $loopICCTV->have_posts() || $loopICCTVSticky->have_posts() ) : ?>
   <div class='head'>
     <div class='title'>
       <h5>APPROFONDIMENTI - ICC TV</h5>

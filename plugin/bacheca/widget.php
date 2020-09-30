@@ -30,7 +30,7 @@ class icc_Widget_bacheca extends WP_Widget {
     }
     $argsBacheca = array(
         'post_type' => array('cerco-offro'),
-        'posts_per_page' => 2,
+        'posts_per_page' => 10,
         'tax_query' => array(
             'relation' => 'AND',
             $filtroRegione,
@@ -43,61 +43,83 @@ class icc_Widget_bacheca extends WP_Widget {
           ),
         );
     $loopBacheca = new WP_Query( $argsBacheca );
+    $i = 0;
     if ($loopBacheca->found_posts >= 2){
       $title = apply_filters( 'widget_title', $instance[ 'title' ] );
       echo $args['before_widget'];?>
       <div class="Widget_bacheca p-2 row">
-        <?php
-          while ($loopBacheca->have_posts()):$loopBacheca->the_post(); ?>
-          <div class="col-6 text-break p-1">
+        <div id="carouselBacheca" class="carousel carousel-control-top slide" data-ride="carousel" data-interval="1000">
+          <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
+            <a class="carousel-control-prev" href="#carouselBacheca" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <ol class="carousel-indicators pr-2 text-white">
+               <?php for ($count = 0;$count <= 10; $count++){ ?>
+                       <li data-target="#carouselBacheca" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
+              <?php }	?>
+              <p class=""> /<?php echo '5';?></p>
+            </ol>
+            <a class="carousel-control-next" href="#carouselBacheca" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <div class="carousel-inner">
             <?php
-            $tipologia = get_the_terms( get_the_ID() , 'cercooffro' )[0]->slug;
-            if ( has_post_thumbnail() ) {
-              $image = get_the_post_thumbnail_url(get_the_ID(),'icc_ultimenewshome');
-            }elseif ($tipologia == "cerco") {
-              $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Cerco.png';
-            }elseif ($tipologia == "offro") {
-              $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Offro.png';
-            }elseif ($tipologia == "Risolto") {
-              $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Risolto.png';
-            } else {
-              $image = catch_that_image();
+            while( $loopBacheca->have_posts() ) : $loopBacheca->the_post();
+            $i++;
+            if ($i % 2 == 1){ ?>
+              <div class="carousel-item <?php if ($i == 1){echo 'active';} ?>">
+                <div class="card-group">
+            <?php
             }
             ?>
+            <div class="col-6 text-break p-1">
+              <?php
+              $tipologia = get_the_terms( get_the_ID() , 'cercooffro' )[0]->slug;
+              if ( has_post_thumbnail() ) {
+                $image = get_the_post_thumbnail_url(get_the_ID(),'icc_ultimenewshome');
+              }elseif ($tipologia == "cerco") {
+                $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Cerco.png';
+              }elseif ($tipologia == "offro") {
+                $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Offro.png';
+              }elseif ($tipologia == "Risolto") {
+                $image = get_template_directory_uri().'/plugin/bacheca/asset/img/Risolto.png';
+              } else {
+                $image = catch_that_image();
+              }
+              ?>
 
-              <div class="card h-100">
-                <img src="<?php echo $image;?>" class="card-img-top p-0" alt="<?php the_title(); ?>">
-                <div class="card-body p-1">
-                  <h5 class="card-title"><?php the_title(); ?></h5>
-                  <p class="card-text"><?php echo get_the_excerpt();?></p>
-                  <a href="<?php the_permalink(); ?>" class="btn btn-primary">Leggi di più</a>
+                <div class="card h-100">
+                  <img src="<?php echo $image;?>" class="card-img-top p-0" alt="<?php the_title(); ?>">
+                  <div class="card-body p-1">
+                    <h5 class="card-title"><?php the_title(); ?></h5>
+                    <p class="card-text"><?php echo get_the_excerpt();?></p>
+                    <a href="<?php the_permalink(); ?>" class="btn btn-primary">Leggi di più</a>
+                  </div>
                 </div>
-                <!--<div class="card-footer text-muted p-1">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item font-weight-lighter p-0 bg-transparent"><small><?php the_time('j M Y') ?></small></li>
-                    <li class="list-group-item font-weight-lighter p-0 bg-transparent">
-                      Regione:
-                      <?php foreach ( get_the_terms( get_the_ID() , 'regione' ) as $term ) {
-                        echo  $term->name." ";
-                      } ?>
-                    </li>
-                    <li class="list-group-item font-weight-lighter p-0 bg-transparent">
-                      Tematica:
-                      <?php foreach ( get_the_terms( get_the_ID() , 'tematica' ) as $term ) {
-                        echo  $term->name." ";
-                      } ?>
-                    </li>
-                  </ul>
-                </div>-->
               </div>
-          </div>
-          <?php
-          endwhile;
-        ?>
+                <?php
+                if ($i % 2 == 0){ ?>
+                    </div>
+                  </div>
+                <?php
+                }
+              endwhile;
+              ?>
+            </div>
+            <?php
+            if ($i % 2 == 1){ ?>
+                </div>
+              </div>
+            <?php } ?>
+        </div>
       </div>
       <?php
       echo $args['after_widget'];
     }
+    wp_reset_query();
   }
 
 

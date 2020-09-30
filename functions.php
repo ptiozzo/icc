@@ -218,7 +218,7 @@ function icc_menu_admin()
     add_menu_page(
         'Tema Italia che Cambia',     // page title
         'Tema Italia che Cambia',     // menu title
-        'administrator',   // capability
+        'edit_posts',   // capability
         'icc-theme',     // menu slug
         'icc_menu_admin_page_istruction' // callback function
     );
@@ -226,7 +226,7 @@ function icc_menu_admin()
 			'icc-theme',
 			'ICC Suggerimenti scrittura',
 			'Suggerimenti scrittura',
-			'administrator',
+			'edit_posts',
 			'icc-theme-suggestion',
 			'icc_menu_admin_page_suggestion'
 		);
@@ -302,6 +302,10 @@ require 'plugin/bacheca/bacheca.php';
 /* Attivazione plugin mappa
 /* ------------------------------------ */
 require 'plugin/mappa/mappa.php';
+
+/* Attivazione plugin regioni
+/* ------------------------------------ */
+require 'plugin/regioni/regioni.php';
 
 /* Attivazione plugin altriautori
 /* ------------------------------------ */
