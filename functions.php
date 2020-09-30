@@ -303,6 +303,10 @@ require 'plugin/bacheca/bacheca.php';
 /* ------------------------------------ */
 require 'plugin/mappa/mappa.php';
 
+/* Attivazione plugin regioni
+/* ------------------------------------ */
+require 'plugin/regioni/regioni.php';
+
 /* Attivazione plugin altriautori
 /* ------------------------------------ */
 require 'plugin/altriautori/altriautori.php';
