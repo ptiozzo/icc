@@ -75,7 +75,7 @@
       'hide_empty' => false,
       'parent'        => get_term_by('slug',$Regione1,'mapparegione')->term_id,
     ) );
-    if((get_term_by('slug',$Regione1,'mapparegione')->term_id != "" || get_query_var('regione')) && count($terms) > 0 ){
+    if((get_term_by('slug',$Regione1,'mapparegione')->term_id != "" || get_query_var('regione')) && count($terms) > 0 && icc_is_region_active(get_term_by('slug',$Regione1,'mapparegione')->slug) ){
       ?>
         <div class="form-group col-12 col-md-6 my-1">
           <?php
