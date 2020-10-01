@@ -19,8 +19,8 @@ if($_POST['submit']){
   if($_POST['emilia-romagna'] == 'emilia-romagna'){
     $regioni[] = 'emilia-romagna';
   }
-  if($_POST['friuli-venezia-giulia'] == 'friuli-venezia-giulia'){
-    $regioni[] = 'friuli-venezia-giulia';
+  if($_POST['friuliveneziagiulia'] == 'friuliveneziagiulia'){
+    $regioni[] = 'friuliveneziagiulia';
   }
   if($_POST['lazio'] == 'lazio'){
     $regioni[] = 'lazio';
@@ -87,8 +87,8 @@ if($_POST['submit']){
   <label for="campania"> campania</label><br>
   <input type="checkbox" id="emilia-romagna" name="emilia-romagna" value="emilia-romagna" <?php if(in_array("emilia-romagna", $regioni)){echo "checked";} ?>>
   <label for="emilia-romagna"> emilia-romagna</label><br>
-  <input type="checkbox" id="friuli-venezia-giulia" name="friuli-venezia-giulia" value="friuli-venezia-giulia" <?php if(in_array("friuli-venezia-giulia", $regioni)){echo "checked";} ?>>
-  <label for="friuli-venezia-giulia"> Friuli Venezia Giulia</label><br>
+  <input type="checkbox" id="friuliveneziagiulia" name="friuliveneziagiulia" value="friuliveneziagiulia" <?php if(in_array("friuliveneziagiulia", $regioni)){echo "checked";} ?>>
+  <label for="friuliveneziagiulia"> Friuli Venezia Giulia</label><br>
   <input type="checkbox" id="lazio" name="lazio" value="lazio" <?php if(in_array("lazio", $regioni)){echo "checked";} ?>>
   <label for="lazio"> lazio</label><br>
   <input type="checkbox" id="liguria" name="liguria" value="liguria" <?php if(in_array("liguria", $regioni)){echo "checked";} ?>>
