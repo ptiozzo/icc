@@ -108,8 +108,8 @@ $args = [
 	if(term_exists( 'emilia-romagna', 'mapparegione' ) !== 0){
 		wp_insert_term('Emilia-Romagna','mapparegione',array('slug' => 'emilia-romagna' ) );
 	}
-	if(term_exists( 'friuliveneziagiulia', 'mapparegione' ) !== 0){
-		wp_insert_term('Friuli Venezia Giulia','mapparegione',array('slug' => 'friuliveneziagiulia' ) );
+	if(term_exists( 'friuli-venezia-giulia', 'mapparegione' ) !== 0){
+		wp_insert_term('Friuli Venezia Giulia','mapparegione',array('slug' => 'friuli-venezia-giulia' ) );
 	}
 	if(term_exists( 'lazio', 'mapparegione' ) !== 0){
 		wp_insert_term('Lazio','mapparegione',array('slug' => 'lazio' ) );
