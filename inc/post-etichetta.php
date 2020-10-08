@@ -2,33 +2,33 @@
 
 if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Rassegna stampa';
-}elseif (in_category('alessandrino')){
+}elseif (in_category('alessandria')){
   echo 'News da Alessandria';
-}elseif (in_category('astigiano')){
+}elseif (in_category('asti')){
   echo 'News da Asti';
-}elseif (in_category('biellese')){
+}elseif (in_category('biella')){
   echo 'News da Biella';
-}elseif (in_category('cuneese')){
+}elseif (in_category('cuneo')){
   echo 'News da Cuneo';
-}elseif (in_category('novarese')){
+}elseif (in_category('novara')){
   echo 'News da Novara';
-}elseif (in_category('torinese')){
+}elseif (in_category('torino')){
   echo 'News da Torino';
-}elseif (in_category('verbano-cusio-ossola')){
+}elseif (in_category('verbania')){
   echo 'News dal verbano';
-}elseif (in_category('vercellese')){
+}elseif (in_category('vercelli')){
   echo 'News da Vercelli';
 }elseif (in_category('piemonte-che-cambia')){
   echo 'News dal Piemonte';
 }elseif (in_category('casentino-che-cambia')){
   echo 'News dal Casentino';
-}elseif (in_category('genovese')){
+}elseif (in_category('genova')){
   echo 'News da Genova';
-}elseif (in_category('imperiese')){
+}elseif (in_category('imperia')){
   echo 'News da Imperia';
-}elseif (in_category('savonese')){
+}elseif (in_category('savona')){
   echo 'News da Savona';
-}elseif (in_category('spezzino')){
+}elseif (in_category('laspezia')){
   echo 'News da La Spezia';
 }elseif (in_category('liguria-che-cambia')){
   echo 'News dalla Liguria';
