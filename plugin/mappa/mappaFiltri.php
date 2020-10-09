@@ -113,6 +113,7 @@
         $terms = get_terms( array(
           'taxonomy' => 'mappatipologia',
           'hide_empty' => false,
+          'parent' => 0,
         ) );
 
         foreach ($terms as $category) {
