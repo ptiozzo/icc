@@ -134,9 +134,11 @@ SINGLE
   }
 }
 
-.single .mappa .single__nav__category{
+.single .mappa .single__nav__category,
+.single .mappa .single__tag a{
   background: var(--color-mappa_filtri);
 }
+
 
 .single .mappa .single__articolo a,
 .single .mappa .card a,
