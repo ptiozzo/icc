@@ -32,7 +32,6 @@ $argsMappaSenzaLatLong = array(
 $loopMappaSenzaLatLong = new WP_Query( $argsMappaSenzaLatLong );
 
 if ($loopMappaSenzaLatLong->have_posts()){
-  echo "<!--". $loopMappaSenzaLatLong->found_posts."<br> -->";
   while ($loopMappaSenzaLatLong->have_posts()) {
     $loopMappaSenzaLatLong->the_post();
     echo get_the_title()."-";
@@ -40,6 +39,7 @@ if ($loopMappaSenzaLatLong->have_posts()){
     echo "<br> ";
     //wp_delete_post(get_the_ID());
   }
+  echo "<br> Totale realtà ".$loopMappaSenzaLatLong->found_posts;
 }
 //Fine DEBUG per realtà senza LatLong
 ?>
