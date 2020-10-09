@@ -66,7 +66,6 @@ if(get_query_var('provincia')){
   $_SESSION[$Regione.'mappa_regione'] = $Regione1;
 }
 
-
   if($_SESSION[$Regione.'mappa_categorie']){
     $Categoria1 = $_SESSION[$Regione.'mappa_categorie'];
   } else {
