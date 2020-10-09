@@ -55,16 +55,20 @@
               if ($terms != ""){
                 //echo "Regione: ";
                 foreach ( $terms as $term ) {
-                  echo '<form class="d-inline mx-1" action="/mappa/" method="post">';
-                  if($term->parent == 0){
+                  if($term->parent == 0){ //Se regione creo form
+                    echo '<form class="d-inline mx-1" action="/mappa/" method="post">';
                     echo '<input type="hidden" name="regione-dropdown" value="'.$term->slug.'">';
-                  } else{
+                    echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="'.$term->name.'">';
+                    echo '</form>';
+                  } elseif( icc_is_region_active(get_term($term->parent, $term1)->slug) ){ //Se provincia controllo che regione si attiva
+                    echo '<form class="d-inline mx-1" action="/mappa/" method="post">';
                     echo '<input type="hidden" name="regione-dropdown" value="'.get_term($term->parent, $term1)->slug.'">';
                     $_SESSION['tutteleregionimappa_regione'] = get_term($term->parent, $term1)->slug;
                     echo '<input type="hidden" name="provincia-dropdown" value="'.$term->slug.'">';
+                    echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="'.$term->name.'">';
+                    echo '</form>';
                   }
-                  echo '<input type="submit" name="submit_button" class="btn btn-link text-wrap" value="'.$term->name.'">';
-                  echo '</form>';
+
                 }
                 echo "<br>";
               }
