@@ -12,7 +12,7 @@ $filtroLatLong = array(
 $filtroRegione = array(
   'taxonomy' => 'mapparegione',
   'field'    => 'slug',
-  'terms'    => 'piemonte',
+  'terms'    => 'casentino',
 );
 
 $argsMappaPiemonteSlider = array(
@@ -39,7 +39,7 @@ if ($loopMappaPCasentinoSlider->have_posts()) {
 
   <div class='head'>
     <div class='title'>
-      <h5>LA MAPPA DEL PIEMONTE CHE CAMBIA</h5>
+      <h5>LA MAPPA DEL CASENTINO CHE CAMBIA</h5>
     </div>
   </div>
 
