@@ -123,7 +123,7 @@ if($Categoria1 != $Categoria
   }
   echo "</h1>";
 
-  if($_POST['submit_tutte_le_realta']){
+  if($_POST['submit_tutte_le_realta'] || get_query_var('mappatag')){
     include('mappa-archivio.php');
   } else {
 

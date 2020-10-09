@@ -68,6 +68,16 @@ if(!is_user_logged_in() || $Regione == "tutteleregioni"){
   $realtaSegnalate = 1;
 }
 
+if(get_query_var('mappatag')){
+  $filtroTag = array(
+    'taxonomy'=> 'mappatag',
+    'field'    => 'slug',
+    'terms'    => get_query_var('mappatag'),
+  );
+}else{
+  $filtroTag = "";
+}
+
 
 $argsMappaArchivio = array(
   'post_type' => array('mappa'),
@@ -82,6 +92,7 @@ $argsMappaArchivio = array(
       $filtroRegione,
       $filtroTipologia,
       $filtroUtente,
+      $filtroTag,
     ),
   'meta_query' => array(
       $filtroLatLong,

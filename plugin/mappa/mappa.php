@@ -168,5 +168,10 @@ function icc_menu_admin_mappa_isctruction()
   require 'admin-mappa.php';
 }
 
+add_action( 'init', 'icc_mappa_rewrite' );
+function icc_mappa_rewrite(){
+    add_rewrite_rule( '^mappa/tag/([a-z0-9-]+)[/]?$', 'index.php?pagename=mappa&mappatag=$matches[1]','top' );
+}
+
 
 ?>
