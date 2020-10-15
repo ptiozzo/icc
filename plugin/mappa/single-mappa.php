@@ -109,7 +109,7 @@
                 }
               }
 
-              
+
               ?>
       				<br />
       			</div>
@@ -151,7 +151,7 @@
                   if ($realtaRete == 0){
                     the_title();
                   } else {
-                    if (substr_count(strtolower($term->name), 'rete') != 0){
+                    if (substr_count(strtolower($Rete1), 'rete') != 0){
                       $nomeRete = $Rete1;
                     } else{
                       $nomeRete = "Rete ".$Rete1;
