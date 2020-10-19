@@ -1,4 +1,33 @@
 <?php
+
+/* Query per ICC-TV sticky
+*---------------------*/
+  $argsICCTVLive = array(
+    'post_type' => 'post',
+    'posts_per_page' => 10,
+    'category_name' => 'icc-tv',
+    'date_query' => array(
+          array(
+              'after' => '1 month ago'
+          ),
+      ),
+    'tax_query' => array(
+      'relation' => 'AND',
+      array(
+          'taxonomy'=> 'icc_altri_filtri',
+          'field'   => 'slug',
+          'terms'		=> 'InHome',
+      ),
+      array(
+          'taxonomy'=> 'icc_altri_filtri',
+          'field'   => 'slug',
+          'terms'		=> 'icctvlive',
+      ),
+    ),
+  );
+
+$loopICCTVlive = new WP_Query( $argsICCTVLive );
+
 $argsRassegna = array(
 'post_type' => 'rassegna-stampa',
 'posts_per_page' => 1,
@@ -37,8 +66,13 @@ $argsSticky = array(
 );
 $loopSticky = new WP_Query( $argsSticky );
 $i = 0;
-$icc_ArticNumber = $loopRassegna->found_posts+$loopSticky->found_posts;
-if( $loopRassegna->have_posts() || $loopSticky->have_posts() ) : ?>
+if (wp_is_mobile()){
+  $icc_ArticNumber = $loopICCTVlive->found_posts+$loopRassegna->found_posts+$loopSticky->found_posts;
+} else{
+  $icc_ArticNumber = $loopRassegna->found_posts+$loopSticky->found_posts;
+}
+
+if( $loopICCTVlive->have_posts() || $loopRassegna->have_posts() || $loopSticky->have_posts() ) : ?>
   <div class='head'>
     <div class='title'>
       <h5>IN EVIDENZA</h5>
@@ -64,6 +98,37 @@ if( $loopRassegna->have_posts() || $loopSticky->have_posts() ) : ?>
       </div>
     <?php } ?>
     <div class="carousel-inner">
+
+      <!-- icctvlive -->
+      <?php	while( $loopICCTVlive->have_posts() && wp_is_mobile() ) : $loopICCTVlive->the_post();
+        $i++; ?>
+        <div class="carousel-item <?php if ($i == 1){echo "active";} ?>">
+          <article id="post-<?php the_ID(); ?>" class="p-0">
+            <div class='content rassegna-stampa p-0'>
+              <a href='<?php echo the_permalink();?>'>
+                  <?php
+                  if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){ ?>
+                    <figure class="embed-responsive embed-responsive-16by9">
+                      <iframe width="800" height="480" src="https://www.youtube.com/embed/<?php echo linkifyYouTubeURLs(get_post_meta( get_the_ID(), 'YouTubeLink',true));?>?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                    </figure>
+                    <?php
+                  }
+                  elseif ( has_post_thumbnail() ) {
+                    the_post_thumbnail('icc_rassegnastampahome', array('class' => 'img-fluid card-img-top mx-auto d-block p-1','alt' => get_the_title()));
+                  }
+                  else{
+                    echo '<img class="img-fluid card-img-top mx-auto d-block p-1" src="'.catch_that_image().'" />';
+                  }
+                  ?>
+
+              </a>
+            </div>
+          </article>
+        </div>
+        <?php
+        $exclude_posts[] = $post->ID;
+        endwhile;?>
+
       <!-- Rassegna stampa -->
   <?php	while( $loopRassegna->have_posts() ) : $loopRassegna->the_post();
     $i++; ?>

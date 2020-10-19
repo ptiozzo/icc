@@ -48,6 +48,12 @@ if(10-$loopICCTVSticky->post_count != 0){
           'field'   => 'slug',
           'terms'		=> 'InHome',
       ),
+      array(
+          'taxonomy'=> 'icc_altri_filtri',
+          'field'   => 'slug',
+          'terms'		=> 'icctvlive',
+          'operator' => 'NOT IN'
+      ),
     ),
   );
   $loopICCTV = new WP_Query( $argsICCTV );
