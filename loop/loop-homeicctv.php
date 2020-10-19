@@ -153,7 +153,7 @@ if( $loopICCTV->have_posts() || $loopICCTVSticky->have_posts() || $loopICCTVlive
         }
         ?>
         <div class="card-body p-0">
-          <h5 class="card-title"><?php the_title(); ?></h5>
+          <!--<h5 class="card-title"><?php the_title(); ?></h5>-->
           <!-- <a href="<?php echo the_permalink();?>" class="stretched-link"></a> -->
         </div>
       </div>
