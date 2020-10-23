@@ -1,5 +1,15 @@
 <?php get_header();
 
+if ( ! current_user_can( 'administrator' ) ) {
+  ?>
+  <script>
+    window.location.href = "/mappa/";
+  </script>
+
+  <?php
+}
+
+
 $daImportare = 60;
 
 if ( ! function_exists( 'post_exists' ) ) {
