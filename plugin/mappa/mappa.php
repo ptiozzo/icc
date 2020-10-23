@@ -129,7 +129,7 @@ function icc_custom_import_mappa( $template ) {
   return $template;
 }
 
-add_action( 'transition_post_status', 'mappa_run_on_publish_only', 10, 3 );
+//add_action( 'transition_post_status', 'mappa_run_on_publish_only', 10, 3 );
 function mappa_run_on_publish_only( $new_status, $old_status, $post ) {
     if ( ( 'publish' === $new_status && 'publish' !== $old_status )
         && 'mappa' === $post->post_type ) {
