@@ -73,7 +73,7 @@ if($_POST['submit']){
  ?>
 
 <?php
-  $regioni = get_option('icc_regioni_attive');
+  $regioni = get_option('icc_regioni_attive') ? get_option('icc_regioni_attive') : array();
 ?>
 <form class="" action="<?php echo get_pagenum_link(); ?>" method="post">
 
