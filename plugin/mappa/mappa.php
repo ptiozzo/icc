@@ -31,6 +31,12 @@ if(!function_exists('mappa_shortcode')){
   }
 }
 
+add_filter( 'bulk_actions-edit-mappa', 'my_custom_bulk_actions' );
+function my_custom_bulk_actions( $actions ){
+  unset( $actions[ 'edit' ] );
+  return $actions;
+}
+
 add_action( 'wp_enqueue_scripts', 'mappa_style_scripts' );
 if(!function_exists('mappa_style_scripts')){
   function mappa_style_scripts(){
