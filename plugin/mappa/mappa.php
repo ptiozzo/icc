@@ -31,6 +31,12 @@ if(!function_exists('mappa_shortcode')){
   }
 }
 
+add_filter( 'bulk_actions-edit-mappa', 'my_custom_bulk_actions' );
+function my_custom_bulk_actions( $actions ){
+  unset( $actions[ 'edit' ] );
+  return $actions;
+}
+
 add_action( 'wp_enqueue_scripts', 'mappa_style_scripts' );
 if(!function_exists('mappa_style_scripts')){
   function mappa_style_scripts(){
@@ -129,7 +135,7 @@ function icc_custom_import_mappa( $template ) {
   return $template;
 }
 
-add_action( 'transition_post_status', 'mappa_run_on_publish_only', 10, 3 );
+//add_action( 'transition_post_status', 'mappa_run_on_publish_only', 10, 3 );
 function mappa_run_on_publish_only( $new_status, $old_status, $post ) {
     if ( ( 'publish' === $new_status && 'publish' !== $old_status )
         && 'mappa' === $post->post_type ) {

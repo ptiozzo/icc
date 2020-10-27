@@ -1,6 +1,6 @@
 <?php get_header();
 
-$daImportare = 3000;
+$daImportare = 1;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/post.php' );
@@ -17,13 +17,13 @@ if (!file_exists($myFile)) {
 }
 if (($handle = fopen($myFile, "r")) !== FALSE) {
   echo "<table style='border: 1px solid grey; min-width: 10px;'>";
-  while (($data = fgetcsv($handle, 100, ",",'"')) !== FALSE && $row <= $daImportare) {
+  while (($data = fgetcsv($handle, 100, ";",'"')) !== FALSE && $row <= $daImportare) {
     if(post_exists( ucfirst($data[0]),'','','mappa') == 0){
       echo "<tr style='border: 1px solid grey; min-width: 10px;'>";
       $num = count($data);
       echo "<td style='border: 1px solid grey; min-width: 10px;'>".$row . "</td>\n";
 
-      $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[10].".jpg";
+      /*$image = "http://www.pianetafuturo.it/uploads/pagine/".$data[10].".jpg";
       if(!@getimagesize($image)){
         $image = "http://www.pianetafuturo.it/uploads/pagine/".$data[10].".png";
         if(!@getimagesize($image)){
@@ -32,6 +32,7 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
       }
 
       echo "<td style='border: 1px solid grey; min-width: 10px;'><img src='".$image."'></td>";
+      */
       echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[0] . "</td>\n";//nome realtà
       echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[1] . "</td>\n";//descrizione realtà
 
