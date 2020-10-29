@@ -89,7 +89,15 @@ if ($loopMappaLiguriaSlider->have_posts()) {
         }
         ?>
         <article class="border-0 relta__mappata p-0 <?php if ($i%2 == 0) {echo "mb-7px";}?>">
-          <img src="<?php if(has_post_thumbnail()){echo get_the_post_thumbnail_url();} else {echo "https://via.placeholder.com/535x170?text=Mappa+Italia+Che+Cambia";} ?>" class="img-fluid p-0" alt="<?php echo get_the_title(); ?>">
+          <?php
+          if ( has_post_thumbnail() ) {
+            echo '<img class="card-img-top p-0" src="'.get_the_post_thumbnail_url().'" />';
+          }elseif (has_post_thumbnail(get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID)){
+            echo '<img class="card-img-top p-0" src="'.get_the_post_thumbnail_url(get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID).'" />';
+          }else{
+            echo '<img class="card-img-top p-0" src="'.get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png" />';
+          }
+           ?>
           <div class="relta__mappata__detail text-white">
             <h5 class="relta__mappata_regione">
               <?php
