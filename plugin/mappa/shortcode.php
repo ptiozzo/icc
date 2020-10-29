@@ -262,7 +262,15 @@ if($Categoria1 != $Categoria
            <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6 text-break">
              <div class="card card--mappa mt-2 p-0">
                <article class="p-0">
-               <img class="img-fluid card-img-top mx-auto d-block p-1" src="<?php if(has_post_thumbnail()){echo get_the_post_thumbnail_url();} else {echo get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png';} ?>">
+                 <?php
+                 if ( has_post_thumbnail() ) {
+                   echo '<img class="card-img-top p-0" src="'.get_the_post_thumbnail_url().'" />';
+                 }elseif (has_post_thumbnail(get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID)){
+                   echo '<img class="card-img-top p-0" src="'.get_the_post_thumbnail_url(get_page_by_title(get_the_terms($post->ID,'mapparete')[0]->name,'','mappa')->ID).'" />';
+                 }else{
+                   echo '<img class="card-img-top p-0" src="'.get_template_directory_uri().'/plugin/mappa/asset/mappa-icc.png" />';
+                 }
+                  ?>
                <div class="card-body p-2 text-white">
                  <div class="date text-capitalize">
                    <?php
