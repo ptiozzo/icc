@@ -10,7 +10,7 @@ if ( ! current_user_can( 'administrator' ) ) {
 }
 
 
-$daImportare = 60;
+$daImportare = 200;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/post.php' );
@@ -62,7 +62,7 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
       //echo "<td style='border: 1px solid grey; min-width: 10px;'>".$data[6]. "</td>\n"; //Longitudine
 
       //Lat/Long da splittare
-      $var = explode(" ",$data[5]);
+      $var = explode(",",$data[5]);
       $varNum = count($var);
       echo "<td style='border: 1px solid grey; min-width: 10px;'><ul>";
       for ($i=0; $i < $varNum; $i++) {
@@ -120,6 +120,7 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
         'post_status' => 'publish',
         'post_name' => $data[7],
         'post_type' => 'mappa',
+        'post_author' => 150,
         'comment_status' => 'close',
       );
       $post_id = wp_insert_post($new_post);
@@ -221,15 +222,15 @@ if (($handle = fopen($myFile, "r")) !== FALSE) {
 
 
       //Lat/Long
-      $var = explode(" ",$data[5]);
+      $var = explode(",",$data[5]);
       $varNum = count($var);
       if ($varNum >= 1){
         for ($i=0; $i < $varNum; $i++) {
           $var[$i] = trim($var[$i]);
           if($i == 0){
-            update_post_meta($post_id, "Mappa_Longitudine", $var[$i]);
-          } else {
             update_post_meta($post_id, "Mappa_Latitudine", $var[$i]);
+          } else {
+            update_post_meta($post_id, "Mappa_Longitudine", $var[$i]);
           }
         }
       }
