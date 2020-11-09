@@ -2,7 +2,7 @@
 <?php
   $ParentCat1='contenuti';
   $ParentCat2='tematica';
-  $ParentReg='regioni';
+  $ParentReg='territori-che-cambiano';
 
   if ($_SERVER['REQUEST_URI'] == "/contenuti/"){
     delete_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']);
