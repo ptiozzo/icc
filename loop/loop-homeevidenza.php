@@ -5,7 +5,6 @@
   $argsICCTVLive = array(
     'post_type' => 'post',
     'posts_per_page' => 10,
-    'category_name' => 'icc-tv',
     'date_query' => array(
           array(
               'after' => '1 month ago'
