@@ -13,7 +13,6 @@ function icc_menu_regioni_admin()
   );
 }
 
-
 function icc_menu_admin_regioni_isctruction()
 {
   require 'admin-regioni.php';
