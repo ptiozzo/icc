@@ -96,8 +96,9 @@
 					   <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
 					  </button>
 					  <div class="dropdown-menu cerca p-3" aria-labelledby="dropdownMenuSearch">
+						  	<a class="btn btn-warning mb-2" href="/contenuti/">Tutti i contenuti</a>
 							<form class="" action="/cerca/" method="post">
-								<input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>" placeholder="Scrivi e premi invio">
+								<input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>" placeholder="Scrivi e premi invio per cercare">
 								<input name="submit_button" type="hidden" value="Cerca">
 							</form>
 					  </div>
