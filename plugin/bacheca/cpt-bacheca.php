@@ -110,7 +110,8 @@
 
               $role->add_cap( 'delete_cerco-offros' );
               $role->add_cap( 'delete_private_cerco-offros' );
-              $role->add_cap( 'delete_published_cerco-offros' );
+							$role->remove_cap( 'delete_published_cerco-offros' );
+							$role->remove_cap( 'publish_cerco-offros' );
 
               $role->add_cap( 'edit_cerco-offros' );
               $role->add_cap( 'edit_private_cerco-offros' );
