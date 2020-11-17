@@ -350,9 +350,7 @@ header.stripe{
 header.stripe .right-col nav>ul>li>a{
   color: var(--color-light_black);
 }
-header.stripe .btn{
-  margin: 15px 0;
-}
+
 
 .btn-warning{
   background-color: var(--btn-warning);
@@ -408,6 +406,16 @@ header.stripe .right-col nav{
   }
 }
 
+.nav-link{
+  padding: inherit;
+}
+
+nav.row1{
+  height: 50%;
+}
+nav.row2{
+  height: 50%;
+}
 
 
 .manoicc{
@@ -1653,6 +1661,10 @@ CERCA
 
 .cerca .autore{
   color: var(--color-light_black) !important;
+}
+
+.cerca ::placeholder{
+  font-size: small;
 }
 
 
