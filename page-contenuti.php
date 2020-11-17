@@ -68,7 +68,7 @@
   <!-- Dropdown per selezione contenuto -->
   <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" data-swup-form>
         <select name="contenuti-dropdown" class="custom-select">
-          <option value="contenuti" <?php if ($Cat1 == 'tuttecategorie') {echo 'selected';}?> ><?php echo 'Filtra per categorie'; ?></option>
+          <option value="tuttecategorie" <?php if ($Cat1 == 'tuttecategorie') {echo 'selected';}?> ><?php echo 'Filtra per categorie'; ?></option>
           <?php
             $categories = get_categories();
             foreach ($categories as $category) {
@@ -85,7 +85,7 @@
 
       <!-- Dropdown per selezione del TAG -->
       <select name="tematica-dropdown"  class="custom-select">
-        <option value="tematica" <?php if ($Cat2 == 'tuttitag') {echo 'selected';}?> ><?php echo 'Filtra per TAG'; ?></option>
+        <option value="tuttitag" <?php if ($Cat2 == 'tuttitag') {echo 'selected';}?> ><?php echo 'Filtra per TAG'; ?></option>
         <?php
           $categories = get_tags();
           foreach ($categories as $category) {
@@ -99,7 +99,7 @@
       </select>
       <!-- Dropdown per selezione regione -->
       <select name="regione-dropdown"  class="custom-select">
-        <option value="regioni" <?php if ($reg == 'regioni') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
+        <option value="territori-che-cambiano" <?php if ($reg == 'regioni') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
         <?php
           $categories = get_categories('child_of='.get_category_by_slug($ParentReg)->term_id);
           foreach ($categories as $category) {
