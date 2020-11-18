@@ -19,7 +19,7 @@
 <div class="row mx-0">
   <div class="col-lg-home-reg">
     <div class="container single">
-
+      <img src="<?php echo get_template_directory_uri().'/plugin/bacheca/asset/img/Bacheca.png' ?>" class="mx-auto mt-2 img-fluid d-block" alt="Bacheca cerco/offro">
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class='single__nav__category'>
@@ -217,7 +217,7 @@
               <?php
               if(!is_user_logged_in())
               {
-                echo "<div class='bacheca_registrati alert alert-warning mr-2 mb-0'>";
+                echo "<div class='bacheca_registrati alert alert-warning mb-0'>";
                 echo "<p>Per poter visualizzare più dettagli e contattare l'utente devi prima <a class='alert-link' href='/wp-login.php?redirect_to=".get_the_permalink()."'>effettuare l'accesso</a> o <a class='alert-link' href='/registrati/?redirect_to=".get_the_permalink()."'>registrarti</a></p>";
                 echo "</div>";
               }
@@ -226,8 +226,13 @@
 
 
 
+            <div class="alert alert-warning mt-3" role="alert">
+              Le condizioni d’uso del servizio bacheca cerco/offro di Italia che Cambia sono regolate nei <a href="/termini-e-condizioni-bacheca-cerco-offro/" class="alert-link d-inline">termini e condizioni</a>
+            </div>
 
         </article>
+
+
         <?php
           endwhile;
         else:

@@ -241,6 +241,9 @@
       endif;
         ?>
       </div>
+      <div class="alert alert-warning mt-3 mr-2" role="alert">
+        Le condizioni d’uso del servizio bacheca cerco/offro di Italia che Cambia sono regolate nei <a href="/termini-e-condizioni-bacheca-cerco-offro/" class="alert-link d-inline">termini e condizioni</a>
+      </div>
       <!-- paginazione -->
 
     <?php echo bootstrap_pagination($loopBacheca); ?>
