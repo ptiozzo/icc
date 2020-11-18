@@ -141,16 +141,16 @@
     				}
     				 ?>
     			</div>
-
+          <div class="row justify-content-center">
+    			 <div class="col-12 col-lg-10">
             <?php
               if ( has_post_thumbnail() ) {
-                the_post_thumbnail('icc_ultimenewshome', array('class' => 'img-fluid mx-auto d-block p-1','alt' => get_the_title()));
+                the_post_thumbnail('', array('class' => 'img-fluid mx-auto d-block p-1','alt' => get_the_title()));
               }
-
               the_content();
-
               if(is_user_logged_in()){
-            ?>
+              ?>
+
 
               <div class="accordion mb-2" id="accordion">
                 <div class="card">
@@ -199,6 +199,8 @@
                 comments_template();
               }
               ?>
+            </div>
+          </div>
               <!-- Share with -->
         			<!--<div class="single__share">
         				<?php
