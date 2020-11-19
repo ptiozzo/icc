@@ -355,6 +355,9 @@ header.stripe figure.logo img{
 header.stripe .btn{
   margin: 15px 0;
 }
+header.stripe .dropdown-toggle{
+  white-space: inherit;
+}
 
 .btn-warning{
   background-color: var(--btn-warning);
