@@ -65,7 +65,7 @@
 			        'container_class' => '',
 			        'menu_id'         => false,
 			        'menu_class'      => 'header__menu__principale align-items-start mt-3',
-			        'depth'           => 0,
+			        'depth'           => 3,
 			        'fallback_cb'     => 'bs4navwalker::fallback',
 			        'walker'          => new bs4navwalker()
 			      ]);
