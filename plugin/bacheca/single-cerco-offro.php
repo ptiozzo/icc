@@ -84,6 +84,9 @@
 
             }
             ?>
+            <div class="alert alert-warning mt-3" role="alert">
+              Le condizioni d’uso del servizio bacheca cerco/offro di Italia che Cambia sono regolate nei <a href="/termini-e-condizioni-bacheca-cerco-offro/" class="alert-link d-inline">termini e condizioni</a>
+            </div>
             <!-- DATA -->
             <div class="single__date">
               <?php the_time('j M Y') ?>
@@ -223,12 +226,6 @@
               }
 
             ?>
-
-
-
-            <div class="alert alert-warning mt-3" role="alert">
-              Le condizioni d’uso del servizio bacheca cerco/offro di Italia che Cambia sono regolate nei <a href="/termini-e-condizioni-bacheca-cerco-offro/" class="alert-link d-inline">termini e condizioni</a>
-            </div>
 
         </article>
 
