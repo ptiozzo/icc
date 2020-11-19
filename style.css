@@ -410,14 +410,6 @@ header.stripe .right-col nav{
   padding: inherit;
 }
 
-nav.row1{
-  height: 50%;
-}
-nav.row2{
-  height: 50%;
-}
-
-
 .manoicc{
   background-image: url('/wp-content/themes/icc/assets/img/logo/mano_bianca.png');
   background-repeat: no-repeat;

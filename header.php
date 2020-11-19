@@ -54,8 +54,8 @@
 			</div>
 
 			<div class='right-col'>
-				<div class="flex-column">
-					<nav class="row1">
+
+					<nav class="">
 						<?php
 						wp_nav_menu([
 			        'menu'            => 'menu-principale',
@@ -71,23 +71,7 @@
 			      ]);
 						?>
 					</nav>
-					<nav class="row2">
-						<?php
-						wp_nav_menu([
-			        'menu'            => 'menu-principale2',
-			        'theme_location'  => 'menu-principale2',
-			        'container'       => '',
-			        'container_id'    => '',
-			        'container_class' => '',
-			        'menu_id'         => false,
-			        'menu_class'      => 'header__menu__principale',
-			        'depth'           => 0,
-			        'fallback_cb'     => 'bs4navwalker::fallback',
-			        'walker'          => new bs4navwalker()
-			      ]);
-						?>
-					</nav>
-				</div>
+				
 
 
 				<section class='search align-items-center'>
