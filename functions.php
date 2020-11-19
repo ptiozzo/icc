@@ -68,7 +68,6 @@ if ( ! function_exists( 'icc_setup' ) ) {
 		// Custom menu areas
 		register_nav_menus( array(
 			'menu-principale' => esc_html__( 'Menu principale', 'icc' ),
-      'menu-principale2' => esc_html__( 'Menu principale2', 'icc' ),
 			'menu-social' => esc_html__( 'Menu social', 'icc' ),
 			'menu-footer' => esc_html__( 'Menu footer', 'icc' ),
 			'menu-i-nostri-contenuti' => esc_html__( 'Menu i nostri contenuti', 'icc' ),

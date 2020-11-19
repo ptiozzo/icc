@@ -342,7 +342,6 @@ div.single a:hover{
 header.stripe{
   z-index: 1040;
   width: 100%;
-  padding: 0 25px;
   position: sticky;
   position: -webkit-sticky;
   background-color: var(--color-light_gray);
@@ -350,7 +349,12 @@ header.stripe{
 header.stripe .right-col nav>ul>li>a{
   color: var(--color-light_black);
 }
-
+header.stripe figure.logo img{
+  width: 85%;
+}
+header.stripe .btn{
+  margin: 15px 0;
+}
 
 .btn-warning{
   background-color: var(--btn-warning);
