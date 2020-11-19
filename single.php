@@ -177,6 +177,14 @@
 			</div>
 			<!-- Content -->
 			<div class="row justify-content-center">
+				<?php if(get_post_meta( get_the_ID(), 'Audio',true)){ ?>
+					<div class="col-12 col-lg-6">
+						<?php echo do_shortcode('[audio mp3=' . get_post_meta( get_the_ID(), 'Audio',true) . ']'); ?>
+					</div>
+					<div class="col p-2 p-lg-0 text-center wp-block-button col-12 col-md-6">
+						<a href="<?php echo get_post_meta( get_the_ID(), 'Audio',true) ?>" class="wp-block-button__link" download>Scarica</a>
+					</div>
+				<?php } ?>
 			 <div class="col-12 col-lg-10">
 				 <div class="single__articolo">
 	 				<?php the_content();?>

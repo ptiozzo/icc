@@ -60,6 +60,12 @@ function save_autori_meta_box($post_id, $post)
         delete_post_meta($post_id,"Regia_Di");
     }
 
+    if($_POST["Audio"] != "") {
+        update_post_meta($post_id, "Audio", $_POST["Audio"]);
+    } elseif (get_post_meta($post_id,"Audio")) {
+        delete_post_meta($post_id,"Audio");
+    }
+
     if($_POST["Campo_Libero_Desc"] != "") {
         update_post_meta($post_id, "Campo_Libero_Desc", $_POST["Campo_Libero_Desc"]);
     } elseif (get_post_meta($post_id,"Campo_Libero_Desc")) {
