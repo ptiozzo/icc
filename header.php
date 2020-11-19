@@ -36,10 +36,10 @@
 			</div>
 		</div>
 		<!-- Header -->
-		<header class='stripe'>
+		<header class='stripe px-2'>
       <div class='left-col'>
 				<div class='menu'>
-					<div class='bars'>
+					<div class='bars d-lg-none'>
 						<div class='bar'></div>
 						<div class='bar'></div>
 						<div class='bar'></div>
@@ -47,15 +47,15 @@
 				</div>
 
 				<a href='<?php echo home_url(); ?>'>
-					<figure class='logo'>
+					<figure class='logo m-0'>
 						<img src='<?php echo get_template_directory_uri();?>/assets/img/logo/icc_orizz_trasparente.png' alt='<?php bloginfo( 'name' ); ?>' title='<?php bloginfo( 'name' ); ?>'>
 					</figure>
 				</a>
 			</div>
 
 			<div class='right-col'>
-				<div class="flex-column">
-					<nav class="row1">
+
+					<nav class="">
 						<?php
 						wp_nav_menu([
 			        'menu'            => 'menu-principale',
@@ -64,33 +64,17 @@
 			        'container_id'    => '',
 			        'container_class' => '',
 			        'menu_id'         => false,
-			        'menu_class'      => 'header__menu__principale',
-			        'depth'           => 0,
+			        'menu_class'      => 'header__menu__principale align-items-start mt-3',
+			        'depth'           => 3,
 			        'fallback_cb'     => 'bs4navwalker::fallback',
 			        'walker'          => new bs4navwalker()
 			      ]);
 						?>
 					</nav>
-					<nav class="row2">
-						<?php
-						wp_nav_menu([
-			        'menu'            => 'menu-principale2',
-			        'theme_location'  => 'menu-principale2',
-			        'container'       => '',
-			        'container_id'    => '',
-			        'container_class' => '',
-			        'menu_id'         => false,
-			        'menu_class'      => 'header__menu__principale',
-			        'depth'           => 0,
-			        'fallback_cb'     => 'bs4navwalker::fallback',
-			        'walker'          => new bs4navwalker()
-			      ]);
-						?>
-					</nav>
-				</div>
 
 
-				<section class='search align-items-center'>
+
+				<section class='search align-items-center d-none'>
 					<div class="dropdown">
 					  <button class="btn dropdown-toggle" type="button" id="dropdownMenuSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					   <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
@@ -106,7 +90,7 @@
 				</section>
 
 
-				<section class='socials d-none d-xl-flex'>
+				<section class='socials d-none'> <!-- d-xl-flex -->
           <?php
           wp_nav_menu( array(
             'theme_location' => 'menu-social',
