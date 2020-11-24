@@ -166,12 +166,20 @@ function icc_menu_mappa_admin()
     'icc-mappa-suggestion',
     'icc_menu_admin_mappa_isctruction'
   );
+
+  add_submenu_page(
+    'icc-theme',
+    'ICC Mappa Export',
+    'Mappa Export',
+    'edit_posts',
+    'icc-mappa-export',
+    'icc_menu_admin_mappa_export'
+  );
 }
 
-
-function icc_menu_admin_mappa_isctruction()
+function icc_menu_admin_mappa_export()
 {
-  require 'admin-mappa.php';
+  require 'admin-mappaExport.php';
 }
 
 add_action( 'init', 'icc_mappa_rewrite' );
