@@ -396,6 +396,10 @@ header .overlay-menu>figure.hand{
 header.overlay-menu>nav>.mobile-links>ul>li{
   width: 100%;
 }
+header.overlay-menu .dropdown-menu.show{
+  width: 100%;
+  text-align: center;
+}
 
 header.stripe .left-col .logo{
   margin-left: 10px;
