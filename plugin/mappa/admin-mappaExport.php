@@ -38,35 +38,76 @@ if($loopAllMappa->have_posts()){
       $loopAllMappa->the_post();
       $row++;
       if($row == 1){
-       $line = array('Riga','ID','Titolo','Autore','Slug','Regione','Categoria','Rete','TAG',/
-       'Chiuso motivazione','Chiuso data','Contenuto','Video YT','Latitudine','Longitudine'/
-       'Indirizzo','Sito','Email','Telefono','Facebook','Instagram','YouTube','Linkedin',/
+       $line = array('Riga','ID','Titolo','Stato','Autore','Slug','Regione','Categoria','Rete','TAG',
+       'Chiuso motivazione','Chiuso data','Contenuto','Video YT','Latitudine','Longitudine',
+       'Indirizzo','Sito','Email','Telefono','Facebook','Instagram','YouTube','Linkedin',
        'Twitter');
       } else {
+        $term1 = "mapparegione";
+        $regione = "";
+        $terms = get_the_terms( $post->ID , $term1 );
+        if ($terms != ""){
+          foreach ( $terms as $term ) {
+            $regione .= $term->slug.",";
+          }
+        }
+        $term1 = "mappastato";
+        $stato = "";
+        $terms = get_the_terms( $post->ID , $term1 );
+        if ($terms != ""){
+          foreach ( $terms as $term ) {
+            $stato .= $term->slug.",";
+          }
+        }
+        $term1 = "mappacategoria";
+        $categoria = "";
+        $terms = get_the_terms( $post->ID , $term1 );
+        if ($terms != ""){
+          foreach ( $terms as $term ) {
+            $categoria .= $term->slug.",";
+          }
+        }
+        $term1 = "mapparete";
+        $rete = "";
+        $terms = get_the_terms( $post->ID , $term1 );
+        if ($terms != ""){
+          foreach ( $terms as $term ) {
+            $rete .= $term->slug.",";
+          }
+        }
+        $term1 = "mappatag";
+        $tag = "";
+        $terms = get_the_terms( $post->ID , $term1 );
+        if ($terms != ""){
+          foreach ( $terms as $term ) {
+            $tag .= $term->slug.",";
+          }
+        }
        $line = array(
-         $row,/
-         get_the_ID(),/
-         get_the_title(),/
-         get_the_author(),/
-         $post->post_name,/
-         get_the_terms( $post->ID , "mapparegione" ),/
-         get_the_terms( $post->ID , "mappacategoria" ),/
-         get_the_terms( $post->ID , "mapparete" ),/
-         get_the_terms( $post->ID , "mappatag" ),/
-         get_post_meta( $post->ID, 'Mappa_Chiuso_Motivazione',true),/
-         get_post_meta( $post->ID, 'Mappa_Chiuso_Data',true),/
-         get_post_meta( $post->ID, 'Contenuto',true),/
-         get_post_meta( $post->ID, 'Mappa_VideoYT',true),/
-         get_post_meta( $post->ID, 'Mappa_Latitudine',true),/
-         get_post_meta( $post->ID, 'Mappa_Longitudine',true),/
-         get_post_meta( $post->ID, 'Mappa_Indirizzo',true),/
-         get_post_meta( $post->ID, 'Mappa_Sito',true),/
-         get_post_meta( $post->ID, 'Mappa_Email',true),/
-         get_post_meta( $post->ID, 'Mappa_Telefono',true),/
-         get_post_meta( $post->ID, 'Mappa_FB',true),/
-         get_post_meta( $post->ID, 'Mappa_IG',true),/
-         get_post_meta( $post->ID, 'Mappa_YT',true),/
-         get_post_meta( $post->ID, 'Mappa_IN',true),/
+         $row,
+         get_the_ID(),
+         get_the_title(),
+         $stato,
+         get_the_author(),
+         $post->post_name,
+         $regione,
+         $categoria,
+         $rete,
+         $tag,
+         get_post_meta( $post->ID, 'Mappa_Chiuso_Motivazione',true),
+         get_post_meta( $post->ID, 'Mappa_Chiuso_Data',true),
+         get_the_content(),
+         get_post_meta( $post->ID, 'Mappa_VideoYT',true),
+         get_post_meta( $post->ID, 'Mappa_Latitudine',true),
+         get_post_meta( $post->ID, 'Mappa_Longitudine',true),
+         get_post_meta( $post->ID, 'Mappa_Indirizzo',true),
+         get_post_meta( $post->ID, 'Mappa_Sito',true),
+         get_post_meta( $post->ID, 'Mappa_Email',true),
+         get_post_meta( $post->ID, 'Mappa_Telefono',true),
+         get_post_meta( $post->ID, 'Mappa_FB',true),
+         get_post_meta( $post->ID, 'Mappa_IG',true),
+         get_post_meta( $post->ID, 'Mappa_YT',true),
+         get_post_meta( $post->ID, 'Mappa_IN',true),
          get_post_meta( $post->ID, 'Mappa_TW',true)
        );
      }
@@ -87,6 +128,7 @@ if($loopAllMappa->have_posts()){
   echo "<th>Riga</th>";
   echo "<th>ID</th>";
   echo "<th>Titolo</th>";
+  echo "<th>Stato</th>";
   echo "<th>Autore</th>";
   echo "<th>Slug</th>";
   echo "<th>Regione</th>";
@@ -116,6 +158,16 @@ if($loopAllMappa->have_posts()){
     echo "<td>".$row."</td>";
     echo "<td>".get_the_ID()."</td>";
     echo "<td>". get_the_title()."</td>";
+    //STATO
+    echo "<td>";
+    $term1 = "mappastato";
+    $terms = get_the_terms( $post->ID , $term1 );
+    if ($terms != ""){
+      foreach ( $terms as $term ) {
+        echo $term->slug.",";
+      }
+    }
+    echo "</td>";
     echo "<td>". get_the_author()."</td>";
     echo "<td>". $post->post_name."</td>";
     //REGIONE
