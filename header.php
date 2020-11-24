@@ -116,53 +116,21 @@
 				</div>
 
 				<div class='mobile-links'>
-          <?php
-          wp_nav_menu( array(
-            'theme_location' => 'menu-principale',
-            'container' => false)
-          );
-					?>
-				</div>
-
-				<div class='collapse-container'>
-					<div class='collapse-head'>
-						<h5><a href="/contenuti/" class="text-dark">Contenuti</a></h5>
-					</div>
 					<?php
-					wp_nav_menu( array(
-            'theme_location' => 'menu-i-nostri-contenuti',
-            'menu_class' => 'menu-1',
-            'container' => false)
-          );
+					wp_nav_menu([
+						'menu'            => 'menu-principale',
+						'theme_location'  => 'menu-principale',
+						'container'       => '',
+						'container_id'    => '',
+						'container_class' => '',
+						'menu_id'         => false,
+						'menu_class'      => 'header__menu__principale align-items-start mt-3',
+						'depth'           => 3,
+						'fallback_cb'     => 'bs4navwalker::fallback',
+						'walker'          => new bs4navwalker()
+					]);
 					?>
 				</div>
-
-				<div class='collapse-container'>
-					<div class='collapse-head'>
-						<h5><a href="/categoria/contenuti/icc-tv/" class="text-dark">ICC TV</a></h5>
-					</div>
-					<?php
-					wp_nav_menu( array(
-            'theme_location' => 'menu-icc-tv',
-            'menu_class' => 'menu-1',
-            'container' => false)
-          );
-					?>
-				</div>
-
-				<div class='collapse-container'>
-					<div class='collapse-head hidden-mobile'>
-						<h5 class="text-dark">Le Regioni</h5>
-					</div>
-						<?php
-						wp_nav_menu( array(
-	            'theme_location' => 'menu-regioni',
-	            'menu_class' => 'menu-2',
-	            'container' => false)
-	          );
-						?>
-				</div>
-
 
 				<div class='info'>
 					<p>
