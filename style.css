@@ -393,6 +393,9 @@ overlay-menu
 header .overlay-menu>figure.hand{
   bottom: 0;
 }
+header.overlay-menu>nav>.mobile-links>ul>li{
+  width: 100%;
+}
 
 header.stripe .left-col .logo{
   margin-left: 10px;
