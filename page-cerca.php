@@ -236,17 +236,19 @@
   echo "-->";
 
     /* Personalizzo query */
-    if ($searchterm != ''){
+    {
       $args = array(
           'post_type' => array('post','nostri-libri','rassegna-stampa'),
           'category_name' => $SearchCatTerm,
           'posts_per_page' => 20,
+          'ignore_sticky_posts' => 1,
           'paged'          => $paged,
           'order'         => $SearchOrd,
           's' => $searchterm,
           'author' => $SearchAutore
       );
     }
+    
     /*eseguo la query */
     $loop = new WP_Query( $args );
 
