@@ -9,11 +9,11 @@
 $argsAllMappa = array(
   'post_type' => array('mappa'),
   'posts_per_page' => -1,
+  'post_status' => 'any',
 );
 $loopAllMappa = new WP_Query( $argsAllMappa );
 
 if($loopAllMappa->have_posts()){
-  $row = 0;
   global $post;
   ?>
   <style>
@@ -26,7 +26,7 @@ if($loopAllMappa->have_posts()){
   <?php
 
   if($_POST['download_button']){
-
+    $row = 0;
     header('Content-Type: application/csv');
     header('Content-Disposition: attachment; filename="export_mappa.csv";');
 
@@ -36,12 +36,12 @@ if($loopAllMappa->have_posts()){
     ob_end_clean();
     while($loopAllMappa->have_posts()){
       $loopAllMappa->the_post();
-      $row++;
-      if($row == 1){
+
+      if($row == 0){
        $line = array('Riga','ID','Titolo','Stato','Autore','Slug','Regione','Categoria','Rete','TAG',
        'Chiuso motivazione','Chiuso data','Contenuto','Video YT','Latitudine','Longitudine',
        'Indirizzo','Sito','Email','Telefono','Facebook','Instagram','YouTube','Linkedin',
-       'Twitter');
+       'Twitter','Post status');
       } else {
         $term1 = "mapparegione";
         $regione = "";
@@ -108,11 +108,12 @@ if($loopAllMappa->have_posts()){
          get_post_meta( $post->ID, 'Mappa_IG',true),
          get_post_meta( $post->ID, 'Mappa_YT',true),
          get_post_meta( $post->ID, 'Mappa_IN',true),
-         get_post_meta( $post->ID, 'Mappa_TW',true)
+         get_post_meta( $post->ID, 'Mappa_TW',true),
+         get_post_status()
        );
      }
-
-      fputcsv($f, $line, ",");
+      $row++;
+      fputcsv($f, $line, ";");
     }
     fclose( $f );
 
@@ -122,7 +123,7 @@ if($loopAllMappa->have_posts()){
     // use exit to get rid of unexpected output afterward
     exit();
   }
-
+  $row = 0;
   echo "<table style='border:1px solid black;'>";
   echo "<tr>";
   echo "<th>Riga</th>";
@@ -150,6 +151,7 @@ if($loopAllMappa->have_posts()){
   echo "<th>YouTube</th>";
   echo "<th>Linkedin</th>";
   echo "<th>Twitter</th>";
+  echo "<th>Post status</th>";
   echo "</tr>";
   while($loopAllMappa->have_posts()){
     $loopAllMappa->the_post();
@@ -226,6 +228,7 @@ if($loopAllMappa->have_posts()){
     echo "<td>".get_post_meta( $post->ID, 'Mappa_YT',true)."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_IN',true)."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_TW',true)."</td>";
+    echo "<td>".get_post_status()."</td>";
 
 
 
