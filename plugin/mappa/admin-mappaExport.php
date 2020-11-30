@@ -38,7 +38,7 @@ if($loopAllMappa->have_posts()){
       $loopAllMappa->the_post();
 
       if($row == 0){
-       $line = array('Riga','ID','Titolo','Stato','Autore','Slug','Regione','Categoria','Rete','TAG',
+       $line = array('Riga','ID','Titolo','Stato','Autore','Slug','Regione','Categoria','Tipologia','Rete','TAG',
        'Chiuso motivazione','Chiuso data','Contenuto','Video YT','Latitudine','Longitudine',
        'Indirizzo','Sito','Email','Telefono','Facebook','Instagram','YouTube','Linkedin',
        'Twitter','Post status');
@@ -67,6 +67,14 @@ if($loopAllMappa->have_posts()){
             $categoria .= $term->slug.",";
           }
         }
+        $term1 = "mappatipologia";
+        $tipologia = "";
+        $terms = get_the_terms( $post->ID , $term1 );
+        if ($terms != ""){
+          foreach ( $terms as $term ) {
+            $tipologia .= $term->slug.",";
+          }
+        }
         $term1 = "mapparete";
         $rete = "";
         $terms = get_the_terms( $post->ID , $term1 );
@@ -92,6 +100,7 @@ if($loopAllMappa->have_posts()){
          $post->post_name,
          $regione,
          $categoria,
+         $tipologia,
          $rete,
          $tag,
          get_post_meta( $post->ID, 'Mappa_Chiuso_Motivazione',true),
@@ -134,6 +143,7 @@ if($loopAllMappa->have_posts()){
   echo "<th>Slug</th>";
   echo "<th>Regione</th>";
   echo "<th>Categoria</th>";
+  echo "<th>Tipologia</th>";
   echo "<th>Rete</th>";
   echo "<th>TAG</th>";
   echo "<th>Chiuso motivazione</th>";
@@ -185,6 +195,15 @@ if($loopAllMappa->have_posts()){
     //CATEGORIA
     echo "<td>";
     $term1 = "mappacategoria";
+    $terms = get_the_terms( $post->ID , $term1 );
+    if ($terms != ""){
+      foreach ( $terms as $term ) {
+        echo $term->slug.",";
+      }
+    }
+    //TIPOLOGIA
+    echo "<td>";
+    $term1 = "mappatipologia";
     $terms = get_the_terms( $post->ID , $term1 );
     if ($terms != ""){
       foreach ( $terms as $term ) {
