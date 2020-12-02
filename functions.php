@@ -311,6 +311,10 @@ require 'plugin/regioni/regioni.php';
 /* ------------------------------------ */
 require 'plugin/altriautori/altriautori.php';
 
+/* Attivazione plugin macrolibrarsi
+/* ------------------------------------ */
+require 'plugin/macrolibrarsi/macrolibrarsi.php';
+
 
 /* Prima immagine del post.
 /* ------------------------------------ */
