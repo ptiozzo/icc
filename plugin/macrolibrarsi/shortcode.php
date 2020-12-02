@@ -1,5 +1,5 @@
 <?php
 
-//MacroLibrarsiAPI();
+MacroLibrarsiAPI();
 
 ?>
