@@ -10,7 +10,7 @@ if ( ! current_user_can( 'administrator' ) ) {
 }
 
 
-$daImportare = 5000;
+$daImportare = 50;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/post.php' );
