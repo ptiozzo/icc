@@ -1,7 +1,7 @@
 <?php
 
 
-$daImportare = 1000;
+$daImportare = 5000;
 
 if ( ! function_exists( 'post_exists' ) ) {
     require_once( ABSPAtd . 'wp-admin/includes/post.php' );
