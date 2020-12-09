@@ -236,8 +236,18 @@ if($loopAllMappa->have_posts()){
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Chiuso_Data',true)."</td>";
     echo "<td>Contenuto</td>";// echo "<td>".get_the_content()."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_VideoYT',true)."</td>";
-    echo "<td>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
-    echo "<td>".get_post_meta( $post->ID, 'Mappa_Longitudine',true)."</td>";
+    if(get_post_meta( $post->ID, 'Mappa_Latitudine',true)){
+      echo "<td>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    }else{
+      echo "<td style='background-color: red;'>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    }
+
+    if(get_post_meta( $post->ID, 'Mappa_Latitudine',true)){
+      echo "<td>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    }else{
+      echo "<td style='background-color: red;'>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    }
+
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Indirizzo',true)."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Sito',true)."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Email',true)."</td>";
