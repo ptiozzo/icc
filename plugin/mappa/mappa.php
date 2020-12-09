@@ -175,11 +175,25 @@ function icc_menu_mappa_admin()
     'icc-mappa-export',
     'icc_menu_admin_mappa_export'
   );
+
+  add_submenu_page(
+    'icc-theme',
+    'ICC Mappa PF',
+    'Mappa PF',
+    'edit_posts',
+    'icc-mappa-pf',
+    'icc_menu_admin_mappa_pf'
+  );
 }
 
 function icc_menu_admin_mappa_export()
 {
   require 'admin-mappaExport.php';
+}
+
+function icc_menu_admin_mappa_pf()
+{
+  require 'admin-mappapf.php';
 }
 
 add_action( 'init', 'icc_mappa_rewrite' );
