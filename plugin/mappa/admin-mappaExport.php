@@ -168,7 +168,7 @@ if($loopAllMappa->have_posts()){
     $row++;
     echo "<tr>";
     echo "<td>".$row."</td>";
-    echo "<td>".get_the_ID()."</td>";
+    echo "<td><a href='".get_edit_post_link(get_the_ID())."'>".get_the_ID()."</a></td>";
     echo "<td>". get_the_title()."</td>";
     //STATO
     echo "<td>";
