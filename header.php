@@ -36,7 +36,10 @@
 			</div>
 		</div>
 		<!-- Header -->
-		<header class='stripe px-2'>
+
+
+		<!-- Menu proposto da Alessandro -->
+		<header class='stripe px-2' style="border: 1px solid red;">
       <div class='left-col'>
 				<div class='menu'>
 					<div class='bars d-lg-none'>
@@ -100,6 +103,173 @@
 				</section>
 			</div>
 		</header>
+
+
+		<!-- Menu richiesto da Daniel -->
+
+		<header class='stripe px-2 mt-3 border-bottom-0' style="border: 1px solid green;">
+      <div class='left-col'>
+				<div class='menu'>
+					<div class='bars'>
+						<div class='bar'></div>
+						<div class='bar'></div>
+						<div class='bar'></div>
+					</div>
+				</div>
+
+				<a href='<?php echo home_url(); ?>'>
+					<figure class='logo m-0'>
+						<img src='<?php echo get_template_directory_uri();?>/assets/img/logo/icc_orizz_trasparente.png' alt='<?php bloginfo( 'name' ); ?>' title='<?php bloginfo( 'name' ); ?>'>
+					</figure>
+				</a>
+			</div>
+
+			<div class='right-col'>
+
+					<nav class="d-none">
+						<?php
+						wp_nav_menu([
+			        'menu'            => 'menu-principale',
+			        'theme_location'  => 'menu-principale',
+			        'container'       => '',
+			        'container_id'    => '',
+			        'container_class' => '',
+			        'menu_id'         => false,
+			        'menu_class'      => 'header__menu__principale align-items-start mt-3',
+			        'depth'           => 3,
+			        'fallback_cb'     => 'bs4navwalker::fallback',
+			        'walker'          => new bs4navwalker()
+			      ]);
+						?>
+					</nav>
+
+
+
+				<section class='search align-items-center'>
+					<div class="dropdown">
+					  <button class="btn dropdown-toggle" type="button" id="dropdownMenuSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					   <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
+					  </button>
+					  <div class="dropdown-menu cerca p-3" aria-labelledby="dropdownMenuSearch">
+						  	<a class="btn btn-warning mb-2" href="/contenuti/">Tutti i contenuti</a>
+							<form class="" action="/cerca/" method="post">
+								<input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>" placeholder="Scrivi e premi invio per cercare">
+								<input name="submit_button" type="hidden" value="Cerca">
+							</form>
+					  </div>
+					</div>
+				</section>
+
+
+				<section class='socials d-xl-flex'> <!-- d-xl-flex -->
+          <?php
+          wp_nav_menu( array(
+            'theme_location' => 'menu-social',
+            'container' => false)
+          );
+          ?>
+				</section>
+			</div>
+		</header>
+		<header class='stripe px-2 border-top-0' style="border: 1px solid green;">
+
+
+			<div class='right-col'>
+
+					<nav class="">
+						<?php
+						wp_nav_menu([
+			        'menu'            => 'menu-principale',
+			        'theme_location'  => 'menu-principale',
+			        'container'       => '',
+			        'container_id'    => '',
+			        'container_class' => '',
+			        'menu_id'         => false,
+			        'menu_class'      => 'header__menu__principale align-items-start mt-3',
+			        'depth'           => 3,
+			        'fallback_cb'     => 'bs4navwalker::fallback',
+			        'walker'          => new bs4navwalker()
+			      ]);
+						?>
+					</nav>
+			</div>
+		</header>
+
+
+
+		<!-- Menu proposto da Paolo -->
+
+		<header class="stripe mt-3" style="border: 1px solid yellow;">
+			<div class='left-col'>
+				<div class='menu'>
+					<div class='bars d-lg-none'>
+						<div class='bar'></div>
+						<div class='bar'></div>
+						<div class='bar'></div>
+					</div>
+				</div>
+
+				<a href='<?php echo home_url(); ?>'>
+					<figure class='logo m-0'>
+						<img class="w-100" src='<?php echo get_template_directory_uri();?>/assets/img/logo/icc_orizz_trasparente.png' alt='<?php bloginfo( 'name' ); ?>' title='<?php bloginfo( 'name' ); ?>'>
+					</figure>
+				</a>
+			</div>
+
+			<div class='right-col right-col2'>
+
+					<nav class="">
+						<ul>
+							<li><a href="#">Chi siamo</a></li>
+							<li><a href="#">Contenuti</a>
+								<ul>
+									<li><a href="#">Pippo</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Rassegna Stampa</a></li>
+							<li><a href="#">Mappa</a></li>
+							<li><a href="#">Visione 2040</a></li>
+							<li class="btn btn-warning font-weight-bolder manoicc"><a href="#">Contribuisci</a></li>
+						</ul>
+					</nav>
+
+
+
+				<section class='search align-items-center'>
+					<div class="dropdown">
+					  <button class="btn dropdown-toggle" type="button" id="dropdownMenuSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					   <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
+					  </button>
+					  <div class="dropdown-menu cerca p-3" aria-labelledby="dropdownMenuSearch">
+						  	<a class="btn btn-warning mb-2" href="/contenuti/">Tutti i contenuti</a>
+							<form class="" action="/cerca/" method="post">
+								<input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>" placeholder="Scrivi e premi invio per cercare">
+								<input name="submit_button" type="hidden" value="Cerca">
+							</form>
+					  </div>
+					</div>
+				</section>
+
+
+				<section class='socials d-xl-flex'> <!-- d-xl-flex -->
+          <?php
+          wp_nav_menu( array(
+            'theme_location' => 'menu-social',
+            'container' => false)
+          );
+          ?>
+				</section>
+			</div>
+
+		</header>
+
+
+
+
+
+
+
+
 
 		<header class='overlay-menu'>
 

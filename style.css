@@ -358,6 +358,19 @@ header.stripe .btn{
 header.stripe .dropdown-toggle{
   white-space: inherit;
 }
+header .right-col2 li ul{
+  display: none;
+}
+header .right-col2 li:hover ul{
+  display: block;
+  position: absolute;
+  z-index:1;
+  width: 200px;
+  padding: 0;
+  margin: 40px 0 0 -1px;
+  border:1px solid black;
+  background: white;
+}
 
 .btn-warning{
   background-color: var(--btn-warning);
