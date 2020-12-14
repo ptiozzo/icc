@@ -139,7 +139,7 @@
 </form>
 <?php
 
-if(is_user_logged_in() && in_array(strtolower($Regione),['liguria'])) { ?>
+if(icc_is_region_active($Regione) && in_array(strtolower($Regione),['liguria'])) { ?>
   <form class="my-2" action="/nuovarealtasegnalata/" method="post">
     <input name="regionemappa" type="hidden" value="liguria">
     <input name="segnala_realta" type="Submit" value="Segnala una realtà" class="btn btn-success">
