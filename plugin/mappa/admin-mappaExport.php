@@ -1,16 +1,57 @@
 <h2>EXPORT MAPPA</h2>
 
 <form method="post" action="<?php echo get_pagenum_link(); ?>">
-  <input name="download_button" type="Submit" value="Download" class="">
+  <input name="download_button" type="Submit" value="Download" class="button-primary">
 </form>
 
-<?php
+<br>
 
-$argsAllMappa = array(
-  'post_type' => array('mappa'),
-  'posts_per_page' => -1,
-  'post_status' => 'any',
-);
+<form method="post" action="<?php echo get_pagenum_link(); ?>">
+  <!-- Filtro regione -->
+  <?php
+    $Regione1 = $_POST["regione-dropdown"] ? $_POST["regione-dropdown"] : "tutteleregioni";
+   ?>
+      <select name="regione-dropdown" class="custom-select">
+        <option value="tutteleregioni" <?php if ($Regione1 == 'tutteleregioni') {echo 'selected';}?> ><?php echo 'Tutte le regioni'; ?></option>
+        <?php
+          $terms = get_terms( array(
+            'taxonomy' => 'mapparegione',
+            'hide_empty' => false,
+            'parent'        => 0,
+          ) );
+          foreach ($terms as $category) {
+            $option = '<option value="'.$category->slug.'" ';
+            if ($Regione1 == $category->slug) {$option .= 'selected ';};
+            $option .= '>'.$category->name;
+            $option .= '</option>';
+            echo $option;
+          }
+        ?>
+      </select>
+  <input name="filtra_button" type="Submit" value="Filtra" class="button-primary">
+</form>
+<br>
+<?php
+if($Regione1 != "tutteleregioni"){
+  $filtroRegione = array(
+    'taxonomy' => 'mapparegione',
+    'field'    => 'slug',
+    'terms'    => $Regione1,
+  );
+} else {
+  $filtroRegione = '';
+}
+
+  $argsAllMappa = array(
+    'post_type' => array('mappa'),
+    'posts_per_page' => -1,
+    'post_status' => 'any',
+    'tax_query' => array(
+        'relation' => 'AND',
+        $filtroRegione,
+      ),
+  );
+
 $loopAllMappa = new WP_Query( $argsAllMappa );
 
 if($loopAllMappa->have_posts()){
