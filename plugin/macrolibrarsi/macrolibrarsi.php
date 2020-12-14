@@ -70,7 +70,7 @@ function MacroLibrarsiAPI($api) {
               <table cellpadding="3" style="margin-bottom:30px">
                 <tr>
                   <td align="center" valign="top" width="140">
-                    <a target="_blank" href="<?php echo $macro->data->url; ?>" title="<?php echo $macro->data->titolo; ?>" rel="sponsored noopener noreferrer">
+                    <a target="_blank" href="<?php echo $macro->data->url.'?pn=4113'; ?>" title="<?php echo $macro->data->titolo; ?>" rel="sponsored noopener noreferrer">
                       <img loading="lazy" style="border:0; vertical-align: top" src="<?php echo $macro->data->img_big; ?>" width="122" height="160" alt="<?php echo $macro->data->titolo; ?>" />
                     </a>
                   </td>
@@ -79,13 +79,13 @@ function MacroLibrarsiAPI($api) {
                         <?php echo $macro->data->autori; ?>
                     </div>
                     <div>
-                      <a target="_blank" href="<?php echo $macro->data->url; ?>" title="<?php echo $macro->data->titolo; ?>" style="font-weight:bold" rel="sponsored noopener noreferrer">
+                      <a target="_blank" href="<?php echo $macro->data->url.'?pn=4113'; ?>" title="<?php echo $macro->data->titolo; ?>" style="font-weight:bold" rel="sponsored noopener noreferrer">
                         <?php echo $macro->data->titolo; ?>
                       </a>
                     </div>
                     <div><?php echo $macro->data->sottotitolo; ?></div>
                     <div>
-                      <a href="<?php echo $macro->data->url_cart; ?>" title="<?php echo $macro->data->titolo; ?>" rel="sponsored">
+                      <a href="<?php echo $macro->data->url_cart.'&pn=4113'; ?>" title="<?php echo $macro->data->titolo; ?>" rel="sponsored">
                         <img style="border:0" src="https://www.macrolibrarsi.it/img/carrello.gif" />
                       </a>
                     </div>
