@@ -5,13 +5,20 @@
       'ignore_sticky_posts' => 1,
       'posts_per_page' => 3,
       'meta_query' => array(
+        'relation' => 'OR',
           array(
               'key' => 'Mappa_Nome_Ralta',
               'value'    => get_the_title(),
               'compare'    => '=',
           ),
+          array(
+              'key' => 'Mappa_Nome_Ralta',
+              'value'    => get_post_field( 'post_name', get_post() ),
+              'compare'    => '=',
+          ),
       ),
     );
+  
     $loopMappaCorrelati = new WP_Query($argsMappaCorrelati);
     if ( $loopMappaCorrelati->have_posts() ) {
         echo '<div class="col-12 mappa_correlati p-2">';
