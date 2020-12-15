@@ -9,7 +9,7 @@
 
 if($_POST["macrolibrarsi_test_button"]){
   echo "<p><b>Codice prodotto</b> ".$_POST['codice_prodotto']."</p>";
-  echo "<code>[ICCMacoLibrarsi code='".$_POST['codice_prodotto']."']</code><br>";
+  echo "<code>[ICCMacroLibrarsi code='".$_POST['codice_prodotto']."']</code><br>";
   echo "<div style='border: 1px solid red;margin-top: 10px; display: inline-block;'>";
     MacroLibrarsiAPI($_POST['codice_prodotto']);
   echo "</div>";
