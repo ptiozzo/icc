@@ -18,10 +18,10 @@ function icc_menu_admin_macro_test()
   require 'admin-macro.php';
 }
 
-add_shortcode( 'ICCMacoLibrarsi', 'ICCMacoLibrarsi_shortcode' );
+add_shortcode( 'ICCMacroLibrarsi', 'ICCMacroLibrarsi_shortcode' );
 
-if(!function_exists('ICCMacoLibrarsi_shortcode')){
-  function ICCMacoLibrarsi_shortcode($atts) {
+if(!function_exists('ICCMacroLibrarsi_shortcode')){
+  function ICCMacroLibrarsi_shortcode($atts) {
     $a = shortcode_atts( array(
       'code' => ''
    ), $atts );
