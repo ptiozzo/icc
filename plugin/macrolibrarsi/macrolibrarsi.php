@@ -5,15 +5,15 @@ function icc_menu_macro_admin()
 {
   add_submenu_page(
     'icc-theme',
-    'ICC Macro test',
-    'Macrolibrarsi test',
+    'ICC MacroLibrarsi integration',
+    'Macrolibrarsi',
     'edit_posts',
-    'icc-macro-test',
-    'icc_menu_admin_macro_test'
+    'icc-macro-integration',
+    'icc_menu_admin_macro_integration'
   );
 }
 
-function icc_menu_admin_macro_test()
+function icc_menu_admin_macro_integration()
 {
   require 'admin-macro.php';
 }
