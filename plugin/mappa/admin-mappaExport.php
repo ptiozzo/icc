@@ -1,16 +1,57 @@
 <h2>EXPORT MAPPA</h2>
 
 <form method="post" action="<?php echo get_pagenum_link(); ?>">
-  <input name="download_button" type="Submit" value="Download" class="">
+  <input name="download_button" type="Submit" value="Download" class="button-primary">
 </form>
 
-<?php
+<br>
 
-$argsAllMappa = array(
-  'post_type' => array('mappa'),
-  'posts_per_page' => -1,
-  'post_status' => 'any',
-);
+<form method="post" action="<?php echo get_pagenum_link(); ?>">
+  <!-- Filtro regione -->
+  <?php
+    $Regione1 = $_POST["regione-dropdown"] ? $_POST["regione-dropdown"] : "tutteleregioni";
+   ?>
+      <select name="regione-dropdown" class="custom-select">
+        <option value="tutteleregioni" <?php if ($Regione1 == 'tutteleregioni') {echo 'selected';}?> ><?php echo 'Tutte le regioni'; ?></option>
+        <?php
+          $terms = get_terms( array(
+            'taxonomy' => 'mapparegione',
+            'hide_empty' => false,
+            'parent'        => 0,
+          ) );
+          foreach ($terms as $category) {
+            $option = '<option value="'.$category->slug.'" ';
+            if ($Regione1 == $category->slug) {$option .= 'selected ';};
+            $option .= '>'.$category->name;
+            $option .= '</option>';
+            echo $option;
+          }
+        ?>
+      </select>
+  <input name="filtra_button" type="Submit" value="Filtra" class="button-primary">
+</form>
+<br>
+<?php
+if($Regione1 != "tutteleregioni"){
+  $filtroRegione = array(
+    'taxonomy' => 'mapparegione',
+    'field'    => 'slug',
+    'terms'    => $Regione1,
+  );
+} else {
+  $filtroRegione = '';
+}
+
+  $argsAllMappa = array(
+    'post_type' => array('mappa'),
+    'posts_per_page' => -1,
+    'post_status' => 'any',
+    'tax_query' => array(
+        'relation' => 'AND',
+        $filtroRegione,
+      ),
+  );
+
 $loopAllMappa = new WP_Query( $argsAllMappa );
 
 if($loopAllMappa->have_posts()){
@@ -168,7 +209,7 @@ if($loopAllMappa->have_posts()){
     $row++;
     echo "<tr>";
     echo "<td>".$row."</td>";
-    echo "<td>".get_the_ID()."</td>";
+    echo "<td><a href='".get_edit_post_link(get_the_ID())."'>".get_the_ID()."</a></td>";
     echo "<td>". get_the_title()."</td>";
     //STATO
     echo "<td>";
@@ -236,8 +277,18 @@ if($loopAllMappa->have_posts()){
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Chiuso_Data',true)."</td>";
     echo "<td>Contenuto</td>";// echo "<td>".get_the_content()."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_VideoYT',true)."</td>";
-    echo "<td>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
-    echo "<td>".get_post_meta( $post->ID, 'Mappa_Longitudine',true)."</td>";
+    if(get_post_meta( $post->ID, 'Mappa_Latitudine',true)){
+      echo "<td>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    }else{
+      echo "<td style='background-color: red;'>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    }
+
+    if(get_post_meta( $post->ID, 'Mappa_Latitudine',true)){
+      echo "<td>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    }else{
+      echo "<td style='background-color: red;'>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    }
+
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Indirizzo',true)."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Sito',true)."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Email',true)."</td>";
