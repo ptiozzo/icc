@@ -6,6 +6,8 @@
 
 <?php
 
+include("alert-ferieBachecaNuovo.php");
+
 if(!is_user_logged_in()){
   ?>
   <div class="alert alert-warning mt-3" role="alert">
