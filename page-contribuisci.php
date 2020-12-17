@@ -48,21 +48,36 @@ else{ //se server differente da WWW
   ?>
   <div class="row">
     <!-- AGGIUNTA PER NATALE! -->
-    <div class="col-12 mb-3">
-      <div class="contribuisci p-3 rounded row">
-        <div class="col-12 col-lg-5">
-          <p class="text-center">
-            Il nostro amico e collaboratore Filippo Bozotti ha proposto di donare a Italia Che Cambia fino a 10000 euro, promettendo di raddoppiare tutte le ulteriori donazioni e gli acquisti dei corsi che arriveranno dal nostro pubblico da oggi al 6 gennaio.
-            Non è una bufala né una favoletta di Natale, ma un invito a mettersi in gioco in prima persona per sostenere ciò che si ritiene meritevole e una dimostrazione di come il denaro possa avere, se usato consapevolmente, effetti positivi enormi!
-          </p>
-       </div>
-        <div class="col-12 col-lg-7">
-          <div class="text-center mt-3 mt-lg-0">
-            <?php echo wp_oembed_get('https://youtu.be/DBN9iVsyEKw'); ?>
+    <?php
+    $argsContribuisciPageTop = array(
+      'post_type' => 'contenuti-speciali',
+      'posts_per_page' => 1,
+      'tax_query' => array(
+        array(
+            'taxonomy'=> 'contenuti_speciali_filtri',
+            'field'   => 'slug',
+            'terms'		=> 'contribuisci-pagina-top',
+        ),
+      ),
+    );
+    $loopContribuisciPegeTop = new WP_Query( $argsContribuisciPageTop );
+    if($loopContribuisciPegeTop->have_posts()){
+      while ($loopContribuisciPegeTop->have_posts()) {
+        $loopContribuisciPegeTop->the_post();
+        ?>
+          <div class="col-12 mb-3">
+            <div class="contribuisci p-3 rounded">
+
+              <?php the_content(); ?>
+
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        <?php
+      }
+    }
+    wp_reset_postdata();
+     ?>
+
     <!-- FINE AGGIUNTA PER NATALE! -->
     <div class="col-12 col-lg-6 order-2 order-lg-1">
       <?php
