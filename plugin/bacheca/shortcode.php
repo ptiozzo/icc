@@ -10,7 +10,7 @@
         <h1 class="text-center d-none">Bacheca Cerco/Offro</h1>
         <img src="<?php echo get_template_directory_uri().'/plugin/bacheca/asset/img/Bacheca.png' ?>" class="mx-auto img-fluid d-block" alt="Bacheca cerco/offro">
         <?php
-
+        include("alert-ferieBachecaArchivio.php");
         $argsCercoOffroArchivio = array(
           'post_type' => 'contenuti-speciali',
           'posts_per_page' => 1,
