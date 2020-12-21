@@ -283,10 +283,10 @@ if($loopAllMappa->have_posts()){
       echo "<td style='background-color: red;'>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
     }
 
-    if(get_post_meta( $post->ID, 'Mappa_Latitudine',true)){
-      echo "<td>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+    if(get_post_meta( $post->ID, 'Mappa_Longitudine',true)){
+      echo "<td>".get_post_meta( $post->ID, 'Mappa_Longitudine',true)."</td>";
     }else{
-      echo "<td style='background-color: red;'>".get_post_meta( $post->ID, 'Mappa_Latitudine',true)."</td>";
+      echo "<td style='background-color: red;'>".get_post_meta( $post->ID, 'Mappa_Longitudine',true)."</td>";
     }
 
     echo "<td>".get_post_meta( $post->ID, 'Mappa_Indirizzo',true)."</td>";
