@@ -18,7 +18,16 @@ function icc_menu_admin_macro_integration()
   require 'admin-macro.php';
 }
 
-add_shortcode( 'ICCMacroLibrarsi', 'ICCMacroLibrarsi_shortcode' );
+// Add signature or ad after post content
+add_filter( "the_content", "MacroLibrarsi_after_content" );
+function MacroLibrarsi_after_content($content){
+  if (is_single() && ! is_admin() && get_post_type( get_the_ID() ) == 'post' ) {
+    require 'tag-macro.php';
+  }
+  return $content;
+}
+
+
 
 if(!function_exists('ICCMacroLibrarsi_shortcode')){
   function ICCMacroLibrarsi_shortcode($atts) {
