@@ -100,22 +100,14 @@ $TagAttivi = get_option("ICC_MacroLibrarsi_Tag_Added") ? get_option("ICC_MacroLi
 foreach ($TagAttivi as $tag) {
   echo '<input type="text" name="'.$tag['tagName'].'" value="'.$tag['tagName'].'" readonly>';
   echo '<input type="text" name="'.$tag['tagName'].'1" value="'.$tag['tagName1'].'" placeholder="valore1">';
-  echo '<input type="text" name="'.$tag['tagName'].'1Link" value="'.$tag['tagName1Link'].'" placeholder="link1">';
+  echo '<input type="text" name="'.$tag['tagName'].'1Link" value="'.$tag['tagName1Link'].'" placeholder="note1">';
   echo ' - <input type="text" name="'.$tag['tagName'].'2" value="'.$tag['tagName2'].'" placeholder="valore2">';
-  echo '<input type="text" name="'.$tag['tagName'].'2Link" value="'.$tag['tagName2Link'].'" placeholder="link2">';
+  echo '<input type="text" name="'.$tag['tagName'].'2Link" value="'.$tag['tagName2Link'].'" placeholder="note2">';
   echo ' - <input type="text" name="'.$tag['tagName'].'3" value="'.$tag['tagName3'].'" placeholder="valore3">';
-  echo '<input type="text" name="'.$tag['tagName'].'3Link" value="'.$tag['tagName3Link'].'" placeholder="link3">';
+  echo '<input type="text" name="'.$tag['tagName'].'3Link" value="'.$tag['tagName3Link'].'" placeholder="note3">';
   echo "<br>";
 }
  ?>
  <br>
  <input name="MacroLibrarsi_Tag_List_Save" type="Submit" value="Salva" class="button">
 </form>
-
-
-
-<?php
-
-//var_dump(get_option("ICC_MacroLibrarsi_Tag_Added"));
-
-?>

@@ -1213,7 +1213,8 @@ figcaption{
 .single .rassegna-stampa .single__action{color: var(--color-rassegna)}
 
 
-.single__contribuisci{
+.single__contribuisci,
+.sponsored{
   border-top: 1px solid;
   border-color: var(--btn-warning);
   background-color: var(--color-light_gray);
@@ -1222,6 +1223,7 @@ figcaption{
   height: 25px;
   min-width: auto!important;
 }
+
 
 
 /*
