@@ -28,7 +28,7 @@ function MacroLibrarsi_after_content($content){
 }
 
 
-
+add_shortcode( 'ICCMacroLibrarsi', 'ICCMacroLibrarsi_shortcode' );
 if(!function_exists('ICCMacroLibrarsi_shortcode')){
   function ICCMacroLibrarsi_shortcode($atts) {
     $a = shortcode_atts( array(
