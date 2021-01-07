@@ -209,7 +209,15 @@ if($loopAllMappa->have_posts()){
     $row++;
     echo "<tr>";
     echo "<td>".$row."</td>";
-    echo "<td><a href='".get_edit_post_link(get_the_ID())."'>".get_the_ID()."</a></td>";
+    if(get_post_status ( $ID ) == 'publish'){
+      echo "<td style='background: #b3ff66;'><a href='".get_edit_post_link(get_the_ID())."'>".get_the_ID()."</a></td>";
+    }elseif(get_post_status ( $ID ) == 'draft'){
+      echo "<td style='background: #ffff66;'><a href='".get_edit_post_link(get_the_ID())."'>".get_the_ID()."</a></td>";
+    }elseif(get_post_status ( $ID ) == 'pending'){
+      echo "<td style='background: pink;'><a href='".get_edit_post_link(get_the_ID())."'>".get_the_ID()."</a></td>";
+    }else{
+      echo "<td><a href='".get_edit_post_link(get_the_ID())."'>".get_the_ID()."</a></td>";
+    }
     echo "<td>". get_the_title()."</td>";
     //STATO
     echo "<td>";
