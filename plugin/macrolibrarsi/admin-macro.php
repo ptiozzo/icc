@@ -111,3 +111,11 @@ foreach ($TagAttivi as $tag) {
  <br>
  <input name="MacroLibrarsi_Tag_List_Save" type="Submit" value="Salva" class="button">
 </form>
+<hr>
+<h2>Istruzioni</h2>
+<h4>Aggiungi TAG/libri</h4>
+<p>Seleziona il TAG dal menu' a tendina e premi aggiungi</p>
+<p>A questo punto il TAG verrà visualizzato tra quelli disponibili. Inserisci i codici di MacroLibrarsiAPI ed un'eventuale nota.</p>
+<p>Premi salva per rendere effettiva la modifica.</p>
+<h4>Rimuovi TAG/Libri</h4>
+<p>Per rimuovere un TAG cancella i valori inseriti (puoi lasciare le note) e premi salva</p>
