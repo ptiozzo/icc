@@ -166,13 +166,13 @@ Template Name: Piemonte che cambia
             dynamic_sidebar('homepiemontedx');
             echo '</div>';
             echo '<div class="col-12 d-md-none">';
-            dynamic_sidebar('homepiemontebacheca');
+            bachecaSlider('piemonte');
             echo '</div>';
           }
           if($i == 4)
           {
             echo '<div class="col-12 d-none d-md-block">';
-            dynamic_sidebar('homepiemontebacheca');
+            bachecaSlider('piemonte');
             echo '</div>';
           }
 					 endwhile;
