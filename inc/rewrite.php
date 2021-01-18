@@ -27,6 +27,7 @@ function myplugin_rewrite_rule() {
 	add_rewrite_rule( '^piemonte/calendario/?', 'index.php?page_id=57957','top' );
 	add_rewrite_rule( '^piemonte/contattaci/?', 'index.php?page_id=41204','top' );
 	add_rewrite_rule( '^piemonte/mappa/?', 'index.php?page_id=57961','top' );
+	add_rewrite_rule( '^piemonte/visione-2040-cuneo/?', 'index.php?page_id=72762','top' );
 	add_rewrite_rule( '^piemonte/pianetafuturo/?', 'index.php?page_id=64470','top' );
 	add_rewrite_rule( '^piemonte/storie/page/?([0-9]{1,})/?', 'index.php?page_id=41191&paged=$matches[1]','top' );
 	add_rewrite_rule( '^piemonte/storie/?', 'index.php?page_id=41191','top' );
