@@ -170,13 +170,13 @@ Template Name: Liguria che cambia
             dynamic_sidebar('homeLiguriadx');
             echo '</div>';
             echo '<div class="col-12 d-md-none">';
-            dynamic_sidebar('homeLiguriabacheca');
+            bachecaSlider('liguria');
             echo '</div>';
           }
           if($i == 4)
           {
             echo '<div class="col-12 d-none d-md-block">';
-            dynamic_sidebar('homeLiguriabacheca');
+            bachecaSlider('liguria');
             echo '</div>';
           }
 					 endwhile;

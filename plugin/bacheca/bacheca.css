@@ -54,3 +54,8 @@ html{
 textarea#comment {
   max-width: 98%;
 }
+
+.sliderBacheca,
+.sliderBacheca .head .title h5{
+  background-color: var(--color-bacheca_widget);
+}
