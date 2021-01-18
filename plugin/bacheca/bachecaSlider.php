@@ -46,23 +46,24 @@ function bachecaSlider($regione = '_tutteleregioni'){
       </div>
 
       <div id="carouselLeBacheca" class="carousel carousel-control-top slide p-1" data-ride="carousel" data-interval="false">
-
-        <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
-          <a class="carousel-control-prev" href="#carouselLeBacheca" data-no-swup role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <ol class="carousel-indicators pr-2 text-white">
-             <?php for ($count = 0;$count < $loopBacheca->found_posts; $count++){ ?>
-                     <li data-target="#carouselLeBacheca" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
-            <?php }	?>
-            <p class=""> /<?php echo ceil($count/2);?></p>
-          </ol>
-          <a class="carousel-control-next" href="#carouselLeBacheca" data-no-swup role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+        <?php if($loopBacheca->found_posts > 2){ ?>
+          <div class="slider-top bg-dark d-flex flex-row align-items-center justify-content-between mb-2">
+            <a class="carousel-control-prev" href="#carouselLeBacheca" data-no-swup role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <ol class="carousel-indicators pr-2 text-white">
+               <?php for ($count = 0;$count < $loopBacheca->found_posts; $count++){ ?>
+                       <li data-target="#carouselLeBacheca" data-slide-to="<?php echo $count;?>" <?php if($count == 0){echo 'class="active"';};?>><?php echo $count+1;?></li>
+              <?php }	?>
+              <p class=""> /<?php echo ceil($count/2);?></p>
+            </ol>
+            <a class="carousel-control-next" href="#carouselLeBacheca" data-no-swup role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        <?php } ?>
         <div class="carousel-inner">
           <?php
 
