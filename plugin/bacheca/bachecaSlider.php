@@ -89,7 +89,7 @@ function bachecaSlider($regione = '_tutteleregioni'){
             }
             ?>
 
-              <div class="card col-6 h-100 text-break">
+              <div class="card h-100 text-break">
                 <img src="<?php echo $image;?>" class="card-img-top p-0" alt="<?php the_title(); ?>">
                 <div class="card-body p-1">
                   <h5 class="card-title"><?php the_title(); ?></h5>
