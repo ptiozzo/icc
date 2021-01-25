@@ -339,108 +339,67 @@ div.single a:hover{
 /*	Menu
 */
 
-header.stripe{
+header.home{
   z-index: 1040;
   width: 100%;
   position: sticky;
   position: -webkit-sticky;
+  top: 0;
   background-color: var(--color-light_gray);
 }
-header.stripe .right-col nav>ul>li>a{
+header.home a{
   color: var(--color-light_black);
+  font-size: 14px;
 }
-header.stripe figure.logo img{
-  width: 85%;
+header.home li{
+  list-style: none;
+  padding: 10px;
+  align-self: center;
 }
-header.stripe .btn{
+
+header.home .menu-item-has-children{
+  content: '<';
+}
+
+header.home li ul{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+header.home li:hover ul{
+  display: block;
+}
+
+header.home li ul li{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
+
+header.home .btn{
   margin: 15px 0;
 }
-header.stripe .dropdown-toggle{
+header.home .dropdown-toggle{
   white-space: inherit;
 }
 
-header .right-col2 li ul{
-  display: none;
-  position: absolute;
-  margin-top: 60px;
-  z-index:1;
-  width: 100%;
-  left: 0;
-  padding: 0;
-
-  border:1px solid black;
-  background: white;
-}
-header .right-col2 li:hover ul{
-  display: block;
-
-
-}
-
-.btn-warning{
+header .btn-warning{
   background-color: var(--btn-warning);
   border-color: var(--btn-warning);
 }
 
-.btn-warning:hover{
+header .btn-warning:hover{
   background-color: var(--btn-warning_hover);
   border-color: var(--btn-warning_hover);
 }
 
-header.stripe .right-col nav>ul>li:not(:last-child){
-  margin-right: 20px;
-}
-header.stripe .right-col .search{
-  padding: 0 5px;
-  margin-right: 5px;
-}
-header.overlay-menu{
-  z-index: 1050;
-}
-header.overlay-menu>nav{
-  background-color: var(--color-light_gray);
-}
-header.overlay-menu>nav>.collapse-container>ul.menu-1>li>a{
-  color: var(--color-light_black);
-  border-bottom: 1px solid var(--color-gray);
-}
-header.overlay-menu>nav>.collapse-container>ul{
-  border-top: 1px solid var(--color-gray);
-}
-overlay-menu
-header .overlay-menu>figure.hand{
-  bottom: 0;
-}
-header.overlay-menu>nav>.mobile-links>ul>li{
-  width: 100%;
-}
-header.overlay-menu .dropdown-menu.show{
-  width: 100%;
-  text-align: center;
-}
 
-header.stripe .left-col .logo{
-  margin-left: 10px;
-}
-
-header .socials.d-xl-block{
-  display: flex!important;
-}
-header.stripe .right-col nav{
-  margin-right: 20px;
-}
-@media (min-width: 992px) and (max-width: 1210px) {
-  header.stripe .right-col nav{
-    margin-right: 0;
-  }
-  header.stripe .right-col nav>ul>li:not(:last-child){
-    margin-right: 10px;
-  }
-}
-
-.nav-link{
-  padding: inherit;
-}
 
 .manoicc{
   background-image: url('/wp-content/themes/icc/assets/img/logo/mano_bianca.png');
@@ -480,7 +439,7 @@ header.stripe .right-col nav{
 .navbar a{
   color: var(--color-white);
   font-size: 13px;
-  padding: 1rem
+  /*padding: 1rem */
 }
 .navbar a:hover{
   text-decoration: underline;
@@ -493,6 +452,9 @@ header.stripe .right-col nav{
 .navbar .navbar-brand{
     font-size: 20px;
     background-color: var(--color-regioni);
+}
+header.home .navbar .navbar-brand{
+    background: none;
 }
 .navbar .navbar-brand img{
   padding-right: 1rem;
