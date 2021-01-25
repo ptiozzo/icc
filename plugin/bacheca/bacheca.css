@@ -59,3 +59,7 @@ textarea#comment {
 .sliderBacheca .head .title h5{
   background-color: var(--color-bacheca_widget);
 }
+.sliderBacheca .card-footer{
+  background-color: var(--color-white);
+  border-top: none;
+}
