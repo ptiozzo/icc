@@ -41,7 +41,7 @@
 
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-			<div class='navbar-brand logo align-self-center'>
+			<div class='navbar-brand logo align-self-center mr-0 p-0'>
 				<a href="/">
 					<img src="<?php echo get_template_directory_uri();?>/assets/img/logo/icc_orizz_trasparente.png" alt="ItaliaCheCambia Logo">
 				</a>

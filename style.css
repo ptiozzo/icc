@@ -342,6 +342,7 @@ div.single a:hover{
 header.home{
   z-index: 1040;
   width: 100%;
+  height: 80px;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
@@ -355,10 +356,6 @@ header.home li{
   list-style: none;
   padding: 10px;
   align-self: center;
-}
-
-header.home .menu-item-has-children{
-  content: '<';
 }
 
 header.home li ul{
@@ -379,8 +376,6 @@ header.home li ul li{
   justify-content: center;
   flex-direction: row;
 }
-
-
 
 header.home .btn{
   margin: 15px 0;
@@ -452,12 +447,10 @@ header .btn-warning:hover{
 .navbar .navbar-brand{
     font-size: 20px;
     background-color: var(--color-regioni);
+    padding: 1rem;
 }
 header.home .navbar .navbar-brand{
     background: none;
-}
-.navbar .navbar-brand img{
-  padding-right: 1rem;
 }
 
 #menu-menu-footer .nav-link{
