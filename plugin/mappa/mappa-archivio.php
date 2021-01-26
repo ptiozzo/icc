@@ -135,7 +135,7 @@ if($loopMappaArchivio->have_posts()){
         }
       ?>
   </div>
-  <form class="text-center mt-3" action="<?php echo get_pagenum_link(); ?>" method="post">
+  <form class="text-center mt-3" action="/mappa/" method="post">
     <input type="hidden" name="categoria-dropdown" value="<?php echo $Categoria1; ?>">
     <input type="hidden" name="rete-dropdown" value="<?php echo $Rete1; ?>">
     <input type="hidden" name="regione-dropdown" value="<?php echo $Regione1; ?>">
