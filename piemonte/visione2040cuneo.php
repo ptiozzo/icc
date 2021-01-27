@@ -13,7 +13,7 @@ Template Name: Visione 2040 cuneo
 
 	<section class="content">
 		<div class='text'>
-			Nel 2015, 100 ambasciatori e ambasciatrici provenienti da associazioni, imprese, mondo accademico, hanno lavorato per tre mesi attorno a diciassette tavoli. Ne sono usciti altrettanti documenti tematici che presentano la fotografia attuale del nostro Paese, una visione comune di come potrà essere l’Italia nel 2040 e delle proposte per arrivarci, sia a livello nazionale che a livello individuale. Inoltre una serie di azioni concrete che ciascuno di noi può fare fin da oggi per contribuire a questo grande processo di cambiamento. Qua sotto trovate i 17 documenti, frutto di questo enorme lavoro! Inoltre nel marzo 2018 è uscito il libro “E ora si cambia”, che raccoglie i documenti riassunti ed aggiornati, a cura di Andrea Degl’Innocenti e Daniel Tarozzi. Nota: spesso all’interno dei documenti, per facilitarne la lettura, abbiamo usato sostantivi al maschile, che non si intendono però vincolati a tale genere.
+
 		</div>
 
 		<div class="list">
@@ -22,17 +22,17 @@ Template Name: Visione 2040 cuneo
 					<div class="box">
 						<div class="box-head">
 							<figure>
-								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/home.svg' title='' alt=''>
+								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/water.svg' title='' alt=''>
 							</figure>
-							<span>Abitare</span>
+							<span>Agricoltura e Alimentazione</span>
 						</div>
 						<div class="box-body">
 							<article>
 								<p>
-									Negli appartamenti vivevamo appartati, oggi invece viviamo più assieme, condividendo spazi e abitudini. In molti si sono spostati dalle metropoli verso le campagne e i piccoli centri. Abbiamo case passive o a basso consumo energetico e si è praticamente smesso di costruirne di nuove, recuperando gli immobili abbandonati e riqualificando quelli esistenti.
+									Una pianura coltivata con metodi di agroforestazione che combinano piante perenni e colture annuali, riducendo lavorazioni profonde del suolo e trattamenti chimici, incrementando la biodiversità e la protezione degli insetti impollinatori. Una montagna in cui i terreni sono coltivati e non solo lasciati a pascolo o abbandonati. Una collina che permette a boschi e a nuovi orti di intersecarsi alle vigne e ai noccioleti. Cittadini che collaborano, rompendo la divisione tra produttori e consumatori, dimostrando che l’agricoltura contadina produce cibo sano utilizzando le risorse in modo ottimale!
 								</p>
 							</article>
-							<a href="<?php echo home_url(); ?>/visione-2040-abitare/" class="stretched-link"></a>
+							<a href="<?php echo home_url(); ?>/piemonte/visione-2040-cuneo/agricoltura-e-alimentazione/" class="stretched-link"></a>
 
 						</div>
 					</div>
@@ -43,15 +43,15 @@ Template Name: Visione 2040 cuneo
 							<figure>
 								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/water.svg' title='' alt=''>
 							</figure>
-							<span>Agricoltura<br>e Acqua</span>
+							<span>Ambiente e verde</span>
 						</div>
 						<div class="box-body">
 							<article>
 								<p>
-									Abbiamo accesso sicuro all’acqua, a un cibo sano, sufficiente e nutriente, prodotto localmente. Sovranità alimentare! Ecco il principio che guida la produzione e il consumo di cibo nel 2040. Sono in via di estinzione le monocolture, sostituite dalla biodiversità dei territori, coltivati con metodi alternativi e genuini.
+									Nel 2040, spostarsi in Provincia di Cuneo sarà semplice e con un ridotto impatto ambientale, il concetto di rifiuto quasi dimenticato grazie ad una forte spinta verso il riuso, la riparazione e la durabilità dei prodotti, il territorio curato come bene comune dai cittadini e dalle amministrazioni. Gli effetti dei cambiamenti climatici saranno ben visibili a tutti, ma grazie alle azioni di mitigazione intraprese negli ultimi anni, i cuneesi potranno dire fare il possibile per assumersi la responsabilità della terra che li ospita.
 								</p>
 							</article>
-							<a href="<?php echo home_url(); ?>/visione-2040-agricoltura-e-acqua/" class="stretched-link"></a>
+							<a href="<?php echo home_url(); ?>/piemonte/visione-2040-cuneo/ambiente-e-verde/" class="stretched-link"></a>
 
 						</div>
 					</div>
@@ -62,20 +62,20 @@ Template Name: Visione 2040 cuneo
 							<figure>
 								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/enviroment.svg' title='' alt=''>
 							</figure>
-							<span>Ambiente</span>
+							<span>Comunità</span>
 						</div>
 						<div class="box-body">
 							<article>
 								<p>
-									È in atto un profondo mutamento culturale: stiamo uscendo dalla cultura antropocentrica per ritrovare il nostro posto all’interno degli ecosistemi e non più al di sopra di essi. L’Italia è un paese a consumo di suolo zero e una rete di aree protette tutela il Mediterraneo dallo sfruttamento dovuto a pesca, trivellazioni, ecc.
+									I cuneesi hanno valorizzato il loro spirito imprenditoriale e l’hanno messo a disposizione delle comunità in cui vivono. Le imprese offrono ai loro dipendenti servizi di welfare, mentre le associazioni di cittadini si occupano di individuare e sostenere le famiglie e gli individui più fragili. Orti collettivi ed empori di solidarietà si moltiplicano in città così come in campagna e nelle valli sempre più riabitate… Insieme si producono davvero cambiamenti profondi!
 								</p>
 							</article>
-							<a href="<?php echo home_url(); ?>/visione-2040-ambiente/" class="stretched-link"></a>
+							<a href="<?php echo home_url(); ?>/piemonte/visione-2040-cuneo/comunita/" class="stretched-link"></a>
 
 						</div>
 					</div>
 				</li>
-				<li>
+				<!--<li>
 					<div class="box">
 						<div class="box-head">
 							<figure>
@@ -339,7 +339,7 @@ Template Name: Visione 2040 cuneo
 							<a href="<?php echo home_url(); ?>/visione-2040-viaggiare/" class="stretched-link"></a>
 						</div>
 					</div>
-				</li>
+				</li>-->
 			</ul>
 		</div>
 	</section>
