@@ -3,9 +3,9 @@
   //controllo le pagina è figlia di una regione
   if ( $post->post_parent == '58464' ) {
     get_template_part('liguria/menu','liguria');
-  } elseif ( $post->post_parent == '44546' ) {
+  } elseif ( $post->post_parent == '44546' || $post->post_parent == '93357') {
     get_template_part('piemonte/menu','piemonte');
-  } elseif ( $post->post_parent == '44548' || $post->post_parent == '93357' ) {
+  } elseif ( $post->post_parent == '44548' ) {
     get_template_part('casentino/menu','casentino');
   }
 ?>
