@@ -32,7 +32,7 @@ Template Name: Visione 2040 cuneo
 									Una pianura coltivata con metodi di agroforestazione che combinano piante perenni e colture annuali, riducendo lavorazioni profonde del suolo e trattamenti chimici, incrementando la biodiversità e la protezione degli insetti impollinatori. Una montagna in cui i terreni sono coltivati e non solo lasciati a pascolo o abbandonati. Una collina che permette a boschi e a nuovi orti di intersecarsi alle vigne e ai noccioleti. Cittadini che collaborano, rompendo la divisione tra produttori e consumatori, dimostrando che l’agricoltura contadina produce cibo sano utilizzando le risorse in modo ottimale!
 								</p>
 							</article>
-							<a href="<?php echo home_url(); ?>/piemonte/visione-2040-cuneo/agricoltura-e-alimentazione/" class="stretched-link"></a>
+							<a href="<?php echo home_url(); ?>/piemonte/visione-azioni-2040-cuneo/agricoltura-e-alimentazione/" class="stretched-link"></a>
 
 						</div>
 					</div>
@@ -51,7 +51,7 @@ Template Name: Visione 2040 cuneo
 									Nel 2040, spostarsi in Provincia di Cuneo sarà semplice e con un ridotto impatto ambientale, il concetto di rifiuto quasi dimenticato grazie ad una forte spinta verso il riuso, la riparazione e la durabilità dei prodotti, il territorio curato come bene comune dai cittadini e dalle amministrazioni. Gli effetti dei cambiamenti climatici saranno ben visibili a tutti, ma grazie alle azioni di mitigazione intraprese negli ultimi anni, i cuneesi potranno dire di fare il possibile per assumersi la responsabilità della terra che li ospita.
 								</p>
 							</article>
-							<a href="<?php echo home_url(); ?>/piemonte/visione-2040-cuneo/ambiente-e-verde/" class="stretched-link"></a>
+							<a href="<?php echo home_url(); ?>/piemonte/visione-azioni-2040-cuneo/ambiente-e-verde/" class="stretched-link"></a>
 
 						</div>
 					</div>
@@ -70,7 +70,7 @@ Template Name: Visione 2040 cuneo
 									I cuneesi hanno valorizzato il loro spirito imprenditoriale e l’hanno messo a disposizione delle comunità in cui vivono. Le imprese offrono ai loro dipendenti servizi di welfare, mentre le associazioni di cittadini si occupano di individuare e sostenere le famiglie e gli individui più fragili. Orti collettivi ed empori di solidarietà si moltiplicano in città così come in campagna e nelle valli sempre più riabitate… Insieme si producono davvero cambiamenti profondi!
 								</p>
 							</article>
-							<a href="<?php echo home_url(); ?>/piemonte/visione-2040-cuneo/comunita/" class="stretched-link"></a>
+							<a href="<?php echo home_url(); ?>/piemonte/visione-azioni-2040-cuneo/comunita/" class="stretched-link"></a>
 
 						</div>
 					</div>
