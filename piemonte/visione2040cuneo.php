@@ -48,7 +48,7 @@ Template Name: Visione 2040 cuneo
 						<div class="box-body">
 							<article>
 								<p>
-									Nel 2040, spostarsi in Provincia di Cuneo sarà semplice e con un ridotto impatto ambientale, il concetto di rifiuto quasi dimenticato grazie ad una forte spinta verso il riuso, la riparazione e la durabilità dei prodotti, il territorio curato come bene comune dai cittadini e dalle amministrazioni. Gli effetti dei cambiamenti climatici saranno ben visibili a tutti, ma grazie alle azioni di mitigazione intraprese negli ultimi anni, i cuneesi potranno dire fare il possibile per assumersi la responsabilità della terra che li ospita.
+									Nel 2040, spostarsi in Provincia di Cuneo sarà semplice e con un ridotto impatto ambientale, il concetto di rifiuto quasi dimenticato grazie ad una forte spinta verso il riuso, la riparazione e la durabilità dei prodotti, il territorio curato come bene comune dai cittadini e dalle amministrazioni. Gli effetti dei cambiamenti climatici saranno ben visibili a tutti, ma grazie alle azioni di mitigazione intraprese negli ultimi anni, i cuneesi potranno dire di fare il possibile per assumersi la responsabilità della terra che li ospita.
 								</p>
 							</article>
 							<a href="<?php echo home_url(); ?>/piemonte/visione-2040-cuneo/ambiente-e-verde/" class="stretched-link"></a>
