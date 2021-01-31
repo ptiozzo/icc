@@ -5,7 +5,7 @@
     get_template_part('liguria/menu','liguria');
   } elseif ( $post->post_parent == '44546' ) {
     get_template_part('piemonte/menu','piemonte');
-  } elseif ( $post->post_parent == '44548' ) {
+  } elseif ( $post->post_parent == '44548' || $post->post_parent == '93357' ) {
     get_template_part('casentino/menu','casentino');
   }
 ?>

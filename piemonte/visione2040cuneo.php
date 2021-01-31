@@ -5,6 +5,7 @@ Template Name: Visione 2040 cuneo
 ?>
 
 <?php get_header(); ?>
+<?php get_template_part('piemonte/menu','piemonte'); ?>
 
 <main class="visione">
 	<section class="head">
