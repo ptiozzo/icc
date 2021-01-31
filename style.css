@@ -892,6 +892,13 @@ row
   padding-bottom: 3px;
   text-decoration: underline;
 }
+/* PAGE
+*/
+.wp-block-image img{
+  height: auto;
+}
+
+
 /* SINGLE
 */
 
