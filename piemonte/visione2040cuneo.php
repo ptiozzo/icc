@@ -14,7 +14,7 @@ Template Name: Visione 2040 cuneo
 
 	<section class="content">
 		<div class='text'>
-
+			<?php the_content(); ?>
 		</div>
 
 		<div class="list">
