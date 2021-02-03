@@ -103,6 +103,9 @@ else{ //se server differente da WWW
             <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
           </form>
 
+          <div class="alert alert-warning" role="alert">
+            Per effettuare una donazione tramite bonifico bancario utilizzare il servizio MyBank tramite PayPal
+          </div>
 
           <?php if ($_POST['frequenza'] == "singola"): ?>
 
