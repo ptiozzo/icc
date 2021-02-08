@@ -70,6 +70,7 @@ class icc_Widget_UnaFavolaPuoFare extends WP_Widget {
     $custom_query_args = array(
     'category_name' => 'una-favola-puo-fare',
     'posts_per_page'=> 1,
+    'orderby'        => 'rand',
     );
 
     $custom_query = new WP_Query( $custom_query_args );
