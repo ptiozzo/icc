@@ -35,11 +35,16 @@
               <div class="card-body">
                 <h5 class="card-title"><?php the_title(); ?></h5>
                 <p class="card-text"><?php //the_excerpt(); ?></p>
+<<<<<<< HEAD
               </div>
               <div class="card-footer border-0 bg-transparent">
                 <a href="<?php the_permalink(); ?>" class="stretched-link">Leggi di più</a>
               </div>
 
+=======
+                <a href="<?php the_permalink(); ?>" class="stretched-link">Leggi di più</a>
+              </div>
+>>>>>>> 60debe74c8e12c236a825ae805a8c0bbe4306b32
             </div>
 
       <?php }
