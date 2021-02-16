@@ -205,6 +205,8 @@
 				echo $custom_likes->post_likes( '' );
 				}
 				 ?>
+				 <!-- Box contribuisci fondo articolo -->
+				 <?php include 'single-correlati.php'; ?>
 			</div>
 			<!-- Box contribuisci fondo articolo -->
 			<?php get_template_part('contribuisci/article','contribuisci'); ?>
