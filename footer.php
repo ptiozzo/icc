@@ -19,8 +19,9 @@ if (!is_page(array(69021)) && strpos(get_permalink(),"mappa") === false  ){ //es
     <article class="text-center">
       <b>ITALIA CHE CAMBIA</b> <br>
       <b>Associazione di promozione sociale</b> <br>
-      Via Aldo Banzi, 88 - 00128, Roma (RM) <br>
+      Via Gregorio Ricci Curbastro, 56 00149 Roma (RM) <br>
       CF: 97761390588 | P. IVA: 12511651007 <br>
+      PEC: italiachecambia@pecaruba.it<br>
     </article>
   </div>
   <div class="col-12 col-md-4 text-center">
