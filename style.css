@@ -1331,7 +1331,9 @@ main.chi-siamo>section.content>.description>.actions>ul>li .left-col .descriptio
 }
 .form-control,
 input[type=text],
-input[type=file]
+input[type=file],
+input[type=tel],
+input[type=email]
 {
   background: var(--color-white);
   color: var(--color-light_black);
