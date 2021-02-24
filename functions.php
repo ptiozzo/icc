@@ -201,6 +201,7 @@ require 'inc/bootstrap-pagination.php';
 /* ------------------------------------ */
 require 'inc/rewrite.php';
 
+
 /*  DB contribuisci
 /* ------------------------------------ */
 require 'inc/contribuisci-db.php';
@@ -268,6 +269,8 @@ require 'inc/pianetafuturo.php';
 /* ------------------------------------ */
 require 'inc/widget.php';
 
+
+
 /* Funzione per categoria figlia di.
 /* ------------------------------------ */
 function category_has_parent($catid){
@@ -311,6 +314,10 @@ require 'plugin/altriautori/altriautori.php';
 /* Attivazione plugin macrolibrarsi
 /* ------------------------------------ */
 require 'plugin/macrolibrarsi/macrolibrarsi.php';
+
+/* Attivazione plugin redirect PF
+/* ------------------------------------ */
+require 'plugin/redirectPF/redirectpf.php';
 
 
 /* Prima immagine del post.
