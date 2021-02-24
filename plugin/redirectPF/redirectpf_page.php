@@ -55,31 +55,31 @@
       $redirectSlugError = "URL non valido";
     }
 
-    $to = "webmaster@italiachecambia.org";
-    $subject = 'ICC - Redirect: '. $redirectSlug ;
-    $body = "<html><body>";
-    $body .= "Ciao <br>";
-    $body .= "E' stato tentato un nuovo redirect. <br>";
-    $body .=  "URL di provenienza ".$_GET['url'] . "<br>";
-    $body .=  "URL di destinazione ".home_url() ."/". $redirectSlug ."<br>";
-    $body .= "</body></html>";
-    $headers = array('Content-Type: text/html; charset=UTF-8');
-    $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
 
-    wp_mail( $to, $subject, $body, $headers );
 
     //$redirectSlugError = "PIPPO";
     if($redirectSlugError === "")
     {
+      $to = "webmaster@italiachecambia.org";
+      $subject = 'ICC - Redirect: '. $redirectSlug ;
+      $body = "<html><body>";
+      $body .= "Ciao <br>";
+      $body .= "E' stato tentato un nuovo redirect. <br>";
+      $body .=  "URL di provenienza ".$_GET['url'] . "<br>";
+      $body .=  "URL di destinazione ".home_url() ."/". $redirectSlug ."<br>";
+      $body .= "</body></html>";
+      $headers = array('Content-Type: text/html; charset=UTF-8');
+      $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
 
-    ?>
-    <script>
-      setTimeout(function(){
-        window.location.href = '<?php echo home_url(); ?>/<?php echo $redirectSlug; ?>';
-      }, 100);
-    </script>
-    <?php
-    echo $redirectSlug;
+      wp_mail( $to, $subject, $body, $headers );
+      ?>
+      <script>
+        setTimeout(function(){
+          window.location.href = '<?php echo home_url(); ?>/<?php echo $redirectSlug; ?>';
+        }, 500);
+      </script>
+      <?php
+      echo $redirectSlug;
     }else{
 
       $to = "webmaster@italiachecambia.org";
