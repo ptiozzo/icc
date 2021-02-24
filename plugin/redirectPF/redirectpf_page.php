@@ -78,8 +78,11 @@
           window.location.href = '<?php echo home_url(); ?>/<?php echo $redirectSlug; ?>';
         }, 500);
       </script>
+      <div class="alert alert-warning" role="alert">
+        Redirect in corso verso <?php echo $redirectSlug; ?>
+      </div>
       <?php
-      echo $redirectSlug;
+
     }else{
 
       $to = "webmaster@italiachecambia.org";
