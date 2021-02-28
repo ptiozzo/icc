@@ -367,14 +367,17 @@ header.home li ul{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-header.home li:hover ul{
+header.home li:hover > ul{
   display: block;
 }
 
-header.home li ul li{
+header.home li li{
   display: flex;
   justify-content: center;
   flex-direction: row;
+}
+header.home ul ul ul{
+  margin-top: 1.5rem;
 }
 
 header.home .btn{
