@@ -378,4 +378,13 @@ function jptweak_remove_share() {
 }
 add_action( 'loop_start', 'jptweak_remove_share' );
 
+/*  Remove create category/tags capability for editor
+/* ------------------------------------ */
+add_action( 'init', 'ICC_remove_cap_manage_category' );
+function ICC_remove_cap_manage_category(){
+  global $wp_roles;
+  $wp_roles->remove_cap( 'editor', 'manage_categories' );
+}
+
+
 ?>
