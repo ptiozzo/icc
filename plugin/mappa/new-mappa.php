@@ -304,7 +304,14 @@ if($success != 1 && is_user_logged_in() ){
 
 
       // create the geocoding control and add it to the map
-      var searchControl = L.esri.Geocoding.geosearch({useMapBounds:false,}).addTo(map);
+      var searchControl = L.esri.Geocoding.geosearch({
+        providers: [
+          L.esri.Geocoding.arcgisOnlineProvider({
+            // API Key to be passed to the ArcGIS Online Geocoding Service
+            apikey: 'AAPKb2b250a84b8d40b08633a3728fc0ea61OyR7huBxIN7rsao1lcuVgWZeBJjC7cVJf_pRj0mQcUFNdRRlwb8lbD1dIuu6LZ_S'
+          })
+        ]
+      }).addTo(map);
 
       // create an empty layer group to store the results and add it to the map
       var results = L.layerGroup().addTo(map);
