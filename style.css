@@ -352,18 +352,23 @@ header.home a{
   color: var(--color-light_black);
   font-size: 14px;
 }
+
+
 header.home li{
   list-style: none;
   padding: 10px;
   align-self: center;
+}
+header.home ul.sub-menu{
+  padding: 0;
 }
 
 header.home li ul{
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  width: 100%;
-  left: 0;
+
+
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -377,8 +382,29 @@ header.home li li{
   flex-direction: row;
 }
 header.home ul ul ul{
-  margin-top: 1.5rem;
+  position: absolute;
+  left:100%;
+  width: 100%;
 }
+header.home .menu-item-has-children::after{
+  display: inline-block;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-bottom: 0;
+  border-left: .3em solid transparent;
+  align-self: center;
+}
+
+header.home .menu-item-has-children .menu-item-has-children::after{
+  border-top: .3em solid transparent;
+  border-right: 0;
+  border-bottom: .3em solid transparent;
+  border-left: .3em solid;
+}
+
 
 header.home .btn{
   margin: 15px 0;
