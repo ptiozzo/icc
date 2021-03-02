@@ -184,6 +184,9 @@
         			<!-- Content -->
         			<div class="single__articolo">
         				<?php the_content();?>
+
+                <i>Ultimo aggiornamento del <?php the_modified_date("d F Y");  ?></i>
+
         			</div>
 
               <!-- Video youtube -->
