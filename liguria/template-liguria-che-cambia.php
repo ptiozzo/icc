@@ -190,7 +190,7 @@ Template Name: Liguria che cambia
       <div class="col-lg-home3">
         <aside class="sidebar">
           <div class="pcc-pianfut">
-            <form class="" action="/nuovarealtasegnalata/" method="post">
+            <form class="" action="/nuovarealtasegnalata/?regionemappa=liguria" method="post">
               <input name="regionemappa" type="hidden" value="liguria">
               <input name="segnala_realta" type="submit" value="Segnala una realtà" class="btn btn-secondary">
             </form>
