@@ -5,6 +5,7 @@
 
     $redirectSlugError = "";
     $redirectSlug = "";
+    $time = 500;
 
     if( explode('checambia.org/persona/',$_GET['url'])[1] ){
       $redirectSlug = explode('checambia.org/persona/',$_GET['url'])[1];
@@ -51,7 +52,16 @@
     }elseif(explode('checambia.org/resetpassword/',$_GET['url'])[1]){
       $redirectSlug = explode('checambia.org/resetpassword/',$_GET['url'])[1];
     }
-     else {
+
+    elseif(strpos($_GET['url'], 'favicon.ico') !== false){
+      $redirectSlug = "/";
+      $time = 0;
+    }elseif(strpos($_GET['url'], 'robots.txt') !== false){
+      $redirectSlug = "/";
+      $time = 0;
+    }
+
+    else {
       $redirectSlugError = "URL non valido";
     }
 
@@ -71,12 +81,12 @@
       $headers = array('Content-Type: text/html; charset=UTF-8');
       $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
 
-      wp_mail( $to, $subject, $body, $headers );
+      //wp_mail( $to, $subject, $body, $headers );
       ?>
       <script>
         setTimeout(function(){
           window.location.href = '<?php echo home_url(); ?>/<?php echo $redirectSlug; ?>';
-        }, 500);
+        }, <?php echo $time; ?>);
       </script>
       <div class="alert alert-warning" role="alert">
         Redirect in corso verso <?php echo $redirectSlug; ?>
@@ -112,7 +122,7 @@
           </div>
         </div>
       </div>
-<?php
+    <?php
 
 
     }
