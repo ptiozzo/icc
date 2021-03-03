@@ -72,6 +72,11 @@ if( $_POST['submit_button'] ){
       wp_set_object_terms($post_id,$_POST['regionemappa'],'mapparegione');
       wp_set_object_terms($post_id,"utente",'mappastato');
 
+      if($_POST['retemappa']){
+        wp_set_object_terms($post_id,$_POST['retemappa'],'mapparete');
+      }
+
+
       if($_POST["categoria"] != "tuttelecategorie") {
         wp_set_object_terms($post_id,$_POST['categoria'],'mappacategoria');
       }
@@ -237,6 +242,11 @@ if($success != 1 && is_user_logged_in() ){
       ?>
     </select>
     <?php
+
+    if($_GET['retemappa']) {
+      echo '<input name="retemappa" type="hidden" value="'.$_GET['retemappa'].'">';
+    }
+
     if($_POST['segnala_realta']) {
       echo '<input name="regionemappa" type="hidden" value="'.$_POST['regionemappa'].'">';
       echo '<input name="segnala_realta" type="hidden" value="'.$_POST['regionemappa'].'">';
