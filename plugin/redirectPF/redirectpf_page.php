@@ -54,12 +54,26 @@
     }
 
     elseif(strpos($_GET['url'], 'favicon.ico') !== false){
-      $redirectSlug = "/";
+      $redirectSlug = "";
       $time = 0;
     }elseif(strpos($_GET['url'], 'robots.txt') !== false){
-      $redirectSlug = "/";
+      $redirectSlug = "";
+      $time = 0;
+    }elseif(strpos($_GET['url'], 'piemonte.checambia.org') !== false){
+      $redirectSlug = "piemonte";
+      $time = 0;
+    }elseif(strpos($_GET['url'], 'liguria.checambia.org') !== false){
+      $redirectSlug = "liguria";
+      $time = 0;
+    }elseif(strpos($_GET['url'], 'casentino.checambia.org') !== false){
+      $redirectSlug = "casentino";
+      $time = 0;
+    }elseif(strpos($_GET['url'], 'www.checambia.org') !== false){
+      $redirectSlug = "";
       $time = 0;
     }
+
+
 
     else {
       $redirectSlugError = "URL non valido";
