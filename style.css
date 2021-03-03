@@ -1244,7 +1244,7 @@ figcaption{
 }
 .single__contribuisci img{
   height: 25px;
-  min-width: auto!important;
+  width: auto!important;
 }
 
 
