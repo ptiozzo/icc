@@ -9,7 +9,7 @@
 if(!is_user_logged_in()){
   ?>
   <div class="alert alert-warning mt-3" role="alert">
-    <p>Per poter inserire una nuova realtà devi prima <a class="alert-link" href="/wp-login.php?redirect_to=<?php echo get_the_permalink() ?>">effettuare l'accesso</a> o <a class="alert-link" href="/registrati/?redirect_to=<?php echo get_the_permalink() ?>">registrarti</a></p>
+    <p>Per poter inserire una nuova realtà devi prima <a class="alert-link" href="/wp-login.php?redirect_to=<?php echo get_pagenum_link() ?>">effettuare l'accesso</a> o <a class="alert-link" href="/registrati/?redirect_to=<?php echo get_pagenum_link() ?>">registrarti</a></p>
   </div>
   <?php
 }
