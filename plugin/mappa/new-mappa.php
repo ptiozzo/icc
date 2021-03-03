@@ -243,10 +243,6 @@ if($success != 1 && is_user_logged_in() ){
     </select>
     <?php
 
-    if($_GET['retemappa']) {
-      echo '<input name="retemappa" type="hidden" value="'.$_GET['retemappa'].'">';
-    }
-
     if($_POST['segnala_realta']) {
       echo '<input name="regionemappa" type="hidden" value="'.$_POST['regionemappa'].'">';
       echo '<input name="segnala_realta" type="hidden" value="'.$_POST['regionemappa'].'">';
@@ -286,6 +282,16 @@ if($success != 1 && is_user_logged_in() ){
         }
       ?>
     </select>
+    <?php
+      if($_GET['retemappa']) {
+        echo '<input name="retemappa" type="hidden" value="'.$_GET['retemappa'].'">';
+        ?>
+        <select name="retemappa" class="custom-select mt-2" disabled>
+          <option value="<?php echo $_GET['retemappa']; ?>" selected><?php echo ucfirst($_GET['retemappa']); ?></option>
+        </select>
+        <?php
+      }
+     ?>
     <div class="form-group my-2 col-12 d-block px-0">
       <input id="titolo" class="form-control w-75" type="text" name="titolo" placeholder="Inserisci il nome della realtà" <?php echo 'value="'.$form_titolo .'"';?>>
       <small id="titoloHelp" class="form-text text-muted"></small>
