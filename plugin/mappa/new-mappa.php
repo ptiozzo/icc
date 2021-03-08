@@ -157,6 +157,9 @@ if( $_POST['submit_button'] ){
     if($_POST['regionemappa'] == "piemonte"){
       $to .= ",piemonte@italiachecambia.org";
     }
+    if($_POST['regionemappa'] == "liguria"){
+      $to .= ",liguria@italiachecambia.org";
+    }
     $subject = 'ICC - Nuova Realtà mappata da revisionare: '.$_POST['titolo'];
     $body = "<html><body>";
     $body .= "Ciao <br>";
