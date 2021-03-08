@@ -154,12 +154,10 @@ if( $_POST['submit_button'] ){
     $url = "/mappa/";
 
     $to = "webmaster@italiachecambia.org,redazione@italiachecambia.org";
-    if($_POST['regionemappa'] == "piemonte"){
-      $to .= ",piemonte@italiachecambia.org";
+    if(icc_is_region_active($_POST['regionemappa'])){
+      $to .= ",".$_POST['regionemappa']."@italiachecambia.org";
     }
-    if($_POST['regionemappa'] == "liguria"){
-      $to .= ",liguria@italiachecambia.org";
-    }
+
     $subject = 'ICC - Nuova Realtà mappata da revisionare: '.$_POST['titolo'];
     $body = "<html><body>";
     $body .= "Ciao <br>";
