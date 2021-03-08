@@ -10,7 +10,7 @@
     if( explode('checambia.org/persona/',$_GET['url'])[1] ){
       $redirectSlug = explode('checambia.org/persona/',$_GET['url'])[1];
     }elseif(explode('checambia.org/categoria/',$_GET['url'])[1]){
-      $redirectSlug = explode('checambia.org/categoria/',$_GET['url'])[1];
+      $redirectSlug = "categoria/".explode('checambia.org/categoria/',$_GET['url'])[1];
     }elseif(explode('checambia.org/sp/',$_GET['url'])[1]){
       $redirectSlug = explode('checambia.org/sp/',$_GET['url'])[1];
     }elseif(explode('checambia.org/articolo/',$_GET['url'])[1]){
