@@ -5,6 +5,15 @@
 <h1><?php the_title(); ?></h1>
 
 <?php
+  if($_GET['retemappa']) {
+    ?>
+      <img class="d-block mx-auto" src="<?php echo get_the_post_thumbnail_url(get_page_by_title($_GET['retemappa'],'',"mappa")->ID)?>" />
+    <?php
+  }
+?>
+
+
+<?php
 
 if(!is_user_logged_in()){
   ?>

@@ -190,9 +190,11 @@ if($Categoria1 != $Categoria
           'hide_empty' => false,
         ) );
         foreach ($terms as $key ) {
-          ?>
-          <a class="mt-2 btn btn-lg btn-outline-dark btn-outline-mappa text-wrap" href="/mappa/<?php echo $key->slug; ?>"><?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?></a>
-          <?php
+          if (get_option('icc_mappa_rete_'.$key->slug) > 0){
+            ?>
+            <a class="mt-2 btn btn-lg btn-outline-dark btn-outline-mappa text-wrap" href="/mappa/<?php echo $key->slug; ?>"><?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?></a>
+            <?php
+          }
         }
           ?>
 
