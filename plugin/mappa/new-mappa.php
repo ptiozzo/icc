@@ -5,9 +5,9 @@
 <h1><?php the_title(); ?></h1>
 
 <?php
-  if($_GET['retemappa'] == "sostenibilmente") {
+  if($_GET['retemappa']) {
     ?>
-      <img src="https://www.italiachecambia.org/wp-content/uploads/2021/03/sos-logo1.jpg" alt="Sostenibilmente" class="mx-auto d-block">
+      <img class="d-block mx-auto" src="<?php echo get_the_post_thumbnail_url(get_page_by_title($_GET['retemappa'],'',"mappa")->ID)?>" />
     <?php
   }
 ?>
