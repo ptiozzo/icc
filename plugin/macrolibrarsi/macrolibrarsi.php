@@ -122,9 +122,9 @@ function MacroLibrarsiAPI($api) {
         case 500:
             $error_status = "errore server";
             break;
-        case 429:
+        /*case 429:
             $error_status = "server in manutenzione";
-            break;
+            break;*/
 
     }
     curl_close($curl);
