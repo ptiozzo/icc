@@ -130,17 +130,17 @@ function MacroLibrarsiAPI($api) {
         case 500:
             $error_status = "errore server";
             break;
-        case 429:
+        case 503:
             $error_status = "server in manutenzione";
             break;
 
     }
     curl_close($curl);
     $to = "webmaster@italiachecambia.org";
-    $subject = "ICC - MacroLibrarsi Plugin";
+    $subject = "ICC - MacroLibrarsi API";
     $body = "<html><body>";
     $body .= "Ciao <br>";
-    $body .= "Trovato errore nelle API di MacroLibrarsi <br>";
+    $body .= "Errore nelle API di MacroLibrarsi <br>";
     $body .= $error_status."</body></html>";
     $headers = array('Content-Type: text/html; charset=UTF-8');
     $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
