@@ -116,15 +116,16 @@ function MacroLibrarsiAPI($api) {
         case 404:
             $error_status = "risorsa non trovata, ad esempio se viene richiesto un prodotto innesistente";
             break;
-        /*case 429:
+        case 429:
             $error_status = "superato il rate-limit di richieste";
-            break;*/
+            return('pippo');
+            break;
         case 500:
             $error_status = "errore server";
             break;
-        /*case 429:
+        case 429:
             $error_status = "server in manutenzione";
-            break;*/
+            break;
 
     }
     curl_close($curl);
