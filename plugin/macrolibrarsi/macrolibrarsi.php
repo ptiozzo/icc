@@ -128,7 +128,7 @@ function MacroLibrarsiAPI($api) {
 
     }
     curl_close($curl);
-    echo $error_status;
+    //echo $error_status;
     die;
 }
 
