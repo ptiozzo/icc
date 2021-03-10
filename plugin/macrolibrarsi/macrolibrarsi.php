@@ -106,25 +106,31 @@ function MacroLibrarsiAPI($api) {
             break;
         case 400:
             $error_status = "richiesta malformata, ad esempio se viene fatta una richiesta che le API non sanno gestire";
+            return('');
             break;
         case 401:
             $error_status = "è richiesta l'autenticazione";
+            return('');
             break;
         case 403:
             $error_status = "permessi non sufficienti per il tipo di richiesta";
+            return('');
             break;
         case 404:
             $error_status = "risorsa non trovata, ad esempio se viene richiesto un prodotto innesistente";
+            return('');
             break;
         case 429:
             $error_status = "superato il rate-limit di richieste";
-            //return('pippo');
+            return('');
             break;
         case 500:
             $error_status = "errore server";
+            return('');
             break;
         case 429:
             $error_status = "server in manutenzione";
+            return('');
             break;
 
     }
