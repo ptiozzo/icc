@@ -53,7 +53,10 @@
       $redirectSlug = explode('checambia.org/resetpassword/',$_GET['url'])[1];
     }
 
-    elseif(strpos($_GET['url'], 'favicon.ico') !== false){
+    elseif(strpos($_GET['url'], 'copertina-pagina-non-trovata.jpg') !== false){
+      $redirectSlug = "";
+      $time = 0;
+    }elseif(strpos($_GET['url'], 'favicon.ico') !== false){
       $redirectSlug = "";
       $time = 0;
     }elseif(strpos($_GET['url'], 'robots.txt') !== false){
@@ -68,7 +71,13 @@
     }elseif(strpos($_GET['url'], 'casentino.checambia.org') !== false){
       $redirectSlug = "casentino";
       $time = 0;
+    }elseif(strpos($_GET['url'], 'italia.checambia.org') !== false){
+      $redirectSlug = "";
+      $time = 0;
     }elseif(strpos($_GET['url'], 'www.checambia.org') !== false){
+      $redirectSlug = "";
+      $time = 0;
+    }elseif(strpos($_GET['url'], 'checambia.org') !== false){
       $redirectSlug = "";
       $time = 0;
     }
