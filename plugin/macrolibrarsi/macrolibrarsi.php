@@ -118,7 +118,7 @@ function MacroLibrarsiAPI($api) {
             break;
         case 429:
             $error_status = "superato il rate-limit di richieste";
-            return('pippo');
+            //return('pippo');
             break;
         case 500:
             $error_status = "errore server";
