@@ -123,8 +123,7 @@ GENERAL
   font-style: italic;
 }
 
-body,
-header{
+body{
   max-width: 1400px;
   margin: auto;
   padding-top: 0;
@@ -346,36 +345,57 @@ header.home{
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  background-color: var(--color-light_gray);
+  background-color: var(--color-light_gray)!important;
+}
+.bg-light{
+  background-color: var(--color-light_gray)!important;
 }
 header.home a{
   color: var(--color-light_black);
   font-size: 14px;
+  transition: all .125s ease-in-out;
+  -webkit-transition: all .125s ease-in-out;
 }
-
 header.home li{
   list-style: none;
   padding: 10px;
   align-self: center;
+  border-radius: 3px;
 }
-
+@media (max-width: 992px) {
+  header.home li{
+    width: 100%;
+    text-align: center;
+  }
+}
+header.home li:hover{
+  background-color: var(--color-light_black);
+}
+header.home li:hover>a{
+  color: var(--color-light_gray)!important;
+}
 header.home ul.sub-menu{
   padding: 0;
   width: max-content;
 }
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   header.home ul.sub-menu{
     width: 100%;
-    left: 0;
   }
 }
+
 header.home li ul{
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: var(--color-light_gray);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   width: auto;
+}
+@media (max-width: 992px) {
+  header.home li ul{
+    position: relative;
+ }
 }
 
 header.home li:hover > ul{
@@ -387,9 +407,21 @@ header.home li li{
   justify-content: center;
   flex-direction: row;
 }
+@media (max-width: 992px) {
+  header.home li li{
+    display: block;
+  }
+}
 header.home ul ul ul{
   position: absolute;
   left:100%;
+}
+@media (max-width: 992px) {
+  header.home ul ul ul{
+    position: relative;
+    left: 0;
+    top: 10px;
+  }
 }
 
 header.home .menu-item-has-children::after{
