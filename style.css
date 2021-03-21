@@ -360,7 +360,7 @@ header.home a{
   width: 100%;
   text-align: center;
 }
-header.home a:hover{
+header.home ul a:hover{
   background-color: var(--color-light_black);
   color: var(--color-light_gray)!important;
 }
