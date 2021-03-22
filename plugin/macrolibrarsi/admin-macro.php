@@ -46,7 +46,7 @@ if($_POST["macrolibrarsi_test_button"]){
 
     foreach ($TagAttivi as $tag){
 
-      if( !($_POST[$tag['tagName'].'1'] == "" && $_POST[$tag['tagName'].'2'] == "" && $_POST[$tag['tagName'].'3'] == "") ){
+      if( !($_POST[$tag['tagName'].'1'] == "" && $_POST[$tag['tagName'].'2'] == "" && $_POST[$tag['tagName'].'3'] == "") && $tag['tagName'] != 'default' ){
 
         $TagAttiviNew[] = array(
           'tagName' => $tag['tagName'],
@@ -61,6 +61,18 @@ if($_POST["macrolibrarsi_test_button"]){
       }
 
     }
+
+    /* Aggiungo i valori di default */
+    $TagAttiviNew[] = array(
+      'tagName' => 'default',
+      'tagName1' => $_POST['default1'],
+      'tagName1Link' => $_POST['default1Link'],
+      'tagName2' => $_POST['default2'],
+      'tagName2Link' => $_POST['default2Link'],
+      'tagName3' => $_POST['default3'],
+      'tagName3Link' => $_POST['default3Link'],
+    );
+
     update_option('ICC_MacroLibrarsi_Tag_Added',$TagAttiviNew,'no');
 
   }
@@ -96,8 +108,10 @@ if($_POST["macrolibrarsi_test_button"]){
 
 $TagAttivi = get_option("ICC_MacroLibrarsi_Tag_Added") ? get_option("ICC_MacroLibrarsi_Tag_Added") : array();
 
-
 foreach ($TagAttivi as $tag) {
+  if($tag['tagName'] == 'default'){
+    echo '<br><br>';
+  }
   echo '<input type="text" name="'.$tag['tagName'].'" value="'.$tag['tagName'].'" readonly>';
   echo '<input type="text" name="'.$tag['tagName'].'1" value="'.$tag['tagName1'].'" placeholder="valore1">';
   echo '<input type="text" name="'.$tag['tagName'].'1Link" value="'.$tag['tagName1Link'].'" placeholder="note1">';
@@ -107,6 +121,7 @@ foreach ($TagAttivi as $tag) {
   echo '<input type="text" name="'.$tag['tagName'].'3Link" value="'.$tag['tagName3Link'].'" placeholder="note3">';
   echo "<br>";
 }
+
  ?>
  <br>
  <input name="MacroLibrarsi_Tag_List_Save" type="Submit" value="Salva" class="button">
