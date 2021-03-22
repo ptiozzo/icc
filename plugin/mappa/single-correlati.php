@@ -18,7 +18,7 @@
           ),
       ),
     );
-  
+
     $loopMappaCorrelati = new WP_Query($argsMappaCorrelati);
     if ( $loopMappaCorrelati->have_posts() ) {
         echo '<div class="col-12 mappa_correlati p-2">';
@@ -41,6 +41,8 @@
                   <div class="card-body">
                     <h5 class="card-title"><?php the_title(); ?></h5>
                     <p class="card-text"><?php //the_excerpt(); ?></p>
+                  </div>
+                  <div class="card-footer">
                     <a href="<?php the_permalink(); ?>" class="stretched-link">Approfondisci</a>
                   </div>
                 </div>

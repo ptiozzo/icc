@@ -138,6 +138,7 @@ function MacroLibrarsiAPI($api) {
     }
     curl_close($curl);
     $to = "webmaster@italiachecambia.org";
+
     $subject = "ICC - MacroLibrarsi API";
     $body = "<html><body>";
     $body .= "Ciao <br>";
