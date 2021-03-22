@@ -46,7 +46,8 @@ function MacroLibrarsiAPI($api) {
     echo get_transient('ICC_MacroLibrarsi_Tag_'.$api);
   }else{
     $url = "https://api.macrolibrarsi.it/v2/" . "products/" . $api;
-    $curl = curl_init($url);
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $headers = array("Authorization: 5a63dfe013d3289fb225f9857499df418f84bbd5dc67d10c3d5e92ff435ad127");
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
@@ -130,17 +131,18 @@ function MacroLibrarsiAPI($api) {
         case 500:
             $error_status = "errore server";
             break;
-        case 429:
+        case 503:
             $error_status = "server in manutenzione";
             break;
 
     }
     curl_close($curl);
     $to = "webmaster@italiachecambia.org";
-    $subject = "ICC - MacroLibrarsi Plugin";
+
+    $subject = "ICC - MacroLibrarsi API";
     $body = "<html><body>";
     $body .= "Ciao <br>";
-    $body .= "Trovato errore nelle API di MacroLibrarsi <br>";
+    $body .= "Errore nelle API di MacroLibrarsi <br>";
     $body .= $error_status."</body></html>";
     $headers = array('Content-Type: text/html; charset=UTF-8');
     $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
