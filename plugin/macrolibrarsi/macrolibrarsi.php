@@ -153,11 +153,3 @@ function MacroLibrarsiAPI($api) {
     die;
   }
 }
-
-function ICC_MacroLibrarsi_Tag_Render(){
-
-}
-
-
-
- ?>
