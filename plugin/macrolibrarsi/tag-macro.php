@@ -44,7 +44,6 @@ if ( $post_tags ) {
 
 if ($MacroLibrarsiTagFound == 0){
   $result = array_search( "default" ,array_column($TagAttivi, 'tagName') );
-  echo $result;
   if( $result !== false && !($TagAttivi[$result]['tagName1'] == "" && $TagAttivi[$result]['tagName2'] == "" && $TagAttivi[$result]['tagName3'] == "")){
     $MacroLibrarsiTagFound = 1;
     $MacroLibrarsiTag .= "<div class='sponsored my-3 row'>";
