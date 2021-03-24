@@ -25,8 +25,13 @@ function mappa_meta_box_markup($post)
   <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
   <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
   <script>
+  const apiKey = "AAPKb2b250a84b8d40b08633a3728fc0ea61OyR7huBxIN7rsao1lcuVgWZeBJjC7cVJf_pRj0mQcUFNdRRlwb8lbD1dIuu6LZ_S";
+  const geocoder = L.esri.Geocoding.geocodeService({
+            apikey: apiKey
+          });
+
   function daIndirizzoACoordinate() {
-    L.esri.Geocoding.geocode().text(document.getElementById("Mappa_Indirizzo").value).run(function (err, results, response) {
+    geocoder.geocode().text(document.getElementById("Mappa_Indirizzo").value).run(function (err, results, response) {
       if (err) {
         console.log(err);
         return;
