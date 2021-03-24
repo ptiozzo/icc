@@ -109,6 +109,20 @@ function MacroLibrarsiAPI($api) {
               $ICC_Macro_Table .= '</table>';
 
               set_transient('ICC_MacroLibrarsi_Tag_'.$api,$ICC_Macro_Table,rand(24,48) * HOUR_IN_SECONDS);
+
+              $to = "webmaster@italiachecambia.org";
+              $subject = "ICC - MacroLibrarsi API update";
+              $body = "<html><body>";
+              $body .= "Ciao <br>";
+              $body .= "Aggiornamento del prodotto ".$api." avvenuto con successo<br>";
+              $body .= "</body></html>";
+              $headers = array('Content-Type: text/html; charset=UTF-8');
+              $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
+              //$headers[] = 'Bcc: ptiozzo@me.com';
+
+              wp_mail( $to, $subject, $body, $headers );
+
+
               echo $ICC_Macro_Table;
 
             return ($data);
@@ -138,7 +152,7 @@ function MacroLibrarsiAPI($api) {
     }
     curl_close($curl);
     $to = "webmaster@italiachecambia.org";
-    $subject = "ICC - MacroLibrarsi API";
+    $subject = "ICC - MacroLibrarsi API error";
     $body = "<html><body>";
     $body .= "Ciao <br>";
     $body .= "Errore nelle API di MacroLibrarsi <br>";
