@@ -3,6 +3,8 @@
   (function(){
 
     $(".menu-item-has-children").on('click', function (e){
+      $(this).siblings().removeClass('show');
+      $(this).siblings().find('.menu-item-has-children').removeClass('show');
       e.stopPropagation();
       $(this).toggleClass('show');
     });
