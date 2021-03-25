@@ -401,7 +401,7 @@ header.home li ul{
  }
 }
 
-header.home li:hover > ul{
+header.home li.show > ul{
   display: block;
 }
 
