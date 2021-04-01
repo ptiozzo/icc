@@ -358,7 +358,6 @@ header.home a{
   padding: 10px;
   border-radius: 3px;
   width: 100%;
-  text-align: center;
 }
 
 header.home ul ul ul a{
@@ -379,6 +378,7 @@ header.home li{
   header.home li{
     width: 100%;
     padding: 10px;
+    text-align: center;
   }
 }
 
@@ -534,6 +534,11 @@ header .btn-warning:hover{
 }
 header.home .navbar .navbar-brand{
     background: none;
+}
+@media (max-width: 375px){
+  header.home .navbar .navbar-brand{
+    width: 80%;
+  }
 }
 
 #menu-menu-footer .nav-link{
