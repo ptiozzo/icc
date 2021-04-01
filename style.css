@@ -364,6 +364,11 @@ header.home ul ul ul a{
   padding: 5px;
   font-size: 12px;
 }
+@media (max-width: 992px){
+  header.home ul ul ul li{
+    padding: 2px;
+  }
+}
 
 header.home .main-menu a:hover{
   background-color: var(--color-light_black);
@@ -476,8 +481,6 @@ header .btn-warning:hover{
   background-color: var(--btn-warning_hover);
   border-color: var(--btn-warning_hover);
 }
-
-
 
 .manoicc{
   background-image: url('/wp-content/themes/icc/assets/img/logo/mano_bianca.png');
