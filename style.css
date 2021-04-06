@@ -360,7 +360,7 @@ header.home a{
   width: 100%;
 }
 
-header.home ul ul ul a{
+/*header.home ul ul ul a{
   padding: 5px;
   font-size: 12px;
 }
@@ -368,7 +368,7 @@ header.home ul ul ul a{
   header.home ul ul ul li{
     padding: 2px;
   }
-}
+}*/
 
 header.home .main-menu a:hover{
   background-color: var(--color-light_black);
@@ -380,6 +380,9 @@ header.home li{
   align-self: center;
 }
 @media (max-width: 992px) {
+  header.home ul{
+    padding-inline-start: 0;
+  }
   header.home li{
     width: 100%;
     padding: 10px;
@@ -401,7 +404,7 @@ header.home li ul{
   display: none;
   position: absolute;
   background-color: var(--color-light_gray);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 15px 10px rgba(0,0,0,0.4);
   z-index: 1;
   width: auto;
 }
@@ -454,6 +457,7 @@ header.home .menu-item-has-children .menu-item-has-children>a::after{
   border-right: 0;
   border-bottom: .3em solid transparent;
   border-left: .3em solid;
+  margin-block-end: -3px;
 }
 @media (max-width: 1200px) {
   header.home .menu-item-has-children .menu-item-has-children>a::after{
@@ -516,11 +520,12 @@ header .btn-warning:hover{
 .navbar{
   padding: 0;
   background-color: var(--color-brown);
+  max-height: 100vh;
+  overflow: auto;
 }
 .navbar a{
   color: var(--color-white);
   font-size: 13px;
-  /*padding: 1rem */
 }
 .navbar a:hover{
   text-decoration: underline;
