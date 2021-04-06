@@ -377,8 +377,9 @@ header.home .main-menu a:hover{
 
 header.home li{
   list-style: none;
-  align-self: center;
+  align-self: center
 }
+
 @media (max-width: 992px) {
   header.home ul{
     padding-inline-start: 0;
@@ -386,7 +387,7 @@ header.home li{
   header.home li{
     width: 100%;
     padding: 10px;
-    text-align: center;
+    /*text-align: center;*/
   }
 }
 
@@ -443,21 +444,21 @@ header.home ul ul ul{
 header.home .menu-item-has-children>a::after{
   display: inline-block;
   margin-left: .255em;
-  vertical-align: .255em;
   content: "";
-  border-top: .3em solid;
-  border-right: .3em solid transparent;
-  border-bottom: 0;
-  border-left: .3em solid transparent;
+  width: 0;
+	height: 0;
+	border-width: .3em 0 .3em .3em;
+	border-color: transparent transparent transparent var(--color-light_black);
+	border-style: solid;
+	transform: rotate(90deg);
   align-self: center;
+}
+header.home .menu-item-has-children>a:hover::after{
+  border-color: transparent transparent transparent var(--color-light_gray)!important;
 }
 
 header.home .menu-item-has-children .menu-item-has-children>a::after{
-  border-top: .3em solid transparent;
-  border-right: 0;
-  border-bottom: .3em solid transparent;
-  border-left: .3em solid;
-  margin-block-end: -3px;
+  transform: rotate(0deg);
 }
 @media (max-width: 1200px) {
   header.home .menu-item-has-children .menu-item-has-children>a::after{
@@ -520,8 +521,12 @@ header .btn-warning:hover{
 .navbar{
   padding: 0;
   background-color: var(--color-brown);
-  max-height: 100vh;
-  overflow: auto;
+}
+@media (max-width: 992px){
+  .navbar{
+    max-height: 100vh;
+    overflow: auto;
+  }
 }
 .navbar a{
   color: var(--color-white);
