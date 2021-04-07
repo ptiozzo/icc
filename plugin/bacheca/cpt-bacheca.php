@@ -97,6 +97,8 @@
 	             $role->add_cap( 'delete_private_cerco-offros' );
 	             $role->add_cap( 'delete_published_cerco-offros' );
 
+							 $role->add_cap( 'list_users' );
+							 
 		}
 
     // Add the roles you'd like to use the custom post types
