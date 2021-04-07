@@ -4,6 +4,11 @@
 
 <h1><?php the_title(); ?></h1>
 
+<div class="col-12">
+  <?php the_content(); ?>
+</div>
+
+
 <?php
 
 include("alert-ferieBachecaNuovo.php");
