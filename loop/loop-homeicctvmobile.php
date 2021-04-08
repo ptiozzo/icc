@@ -4,7 +4,7 @@
 $argsICCTVSticky = array(
   'post_type' => 'post',
   'posts_per_page' => 10,
-  'category_name' => 'icc-tv',
+  'tag' => 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi',
   'date_query' => array(
         array(
             'after' => '1 month ago'
@@ -39,7 +39,7 @@ if(10-$loopICCTVSticky->post_count != 0){
   $argsICCTV = array(
     'post_type' => 'post',
     'posts_per_page' => 10-$loopICCTVSticky->post_count,
-    'category_name' => 'icc-tv',
+    'tag' => 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi',
     'post__not_in' => $exclude_posts_ICCTV_sticky_mobile,
     'tax_query' => array(
       'relation' => 'AND',
