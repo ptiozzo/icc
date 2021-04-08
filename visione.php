@@ -81,7 +81,7 @@ Template Name: Visione 2040
 							<figure>
 								<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/recycle.svg' title='' alt=''>
 							</figure>
-							<span>Cicli Riproduttivi<br>e Rifiuti</span>
+							<span>Cicli Produttivi<br>e Rifiuti</span>
 						</div>
 						<div class="box-body">
 							<article>
