@@ -1308,8 +1308,10 @@ figcaption{
   border-color: var(--btn-warning);
   background-color: var(--color-light_gray);
 }
-.sponsored{
-  font-size: 0.9rem;
+@media (min-width: 992px) {
+  .sponsored{
+    font-size: 0.9rem;
+  }
 }
 .single__contribuisci img{
   height: 25px;
