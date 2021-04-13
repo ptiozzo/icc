@@ -85,7 +85,7 @@ function MacroLibrarsiAPI($api) {
               $ICC_Macro_Table = '<table cellpadding="3" style="margin-bottom:30px">';
               $ICC_Macro_Table .= '<tr>';
               $ICC_Macro_Table .= '<td align="center" valign="top" width="140">';
-              $ICC_Macro_Table .= '<a target="_blank" href="'.$macro->data->url.'"?pn=4113" title="'.$macro->data->titolo.'" rel="sponsored noopener noreferrer">';
+              $ICC_Macro_Table .= '<a target="_blank" href="'.$macro->data->url.'?pn=4113" title="'.$macro->data->titolo.'" rel="sponsored noopener noreferrer">';
               $ICC_Macro_Table .= '<img loading="lazy" style="border:0; vertical-align: top" src="'.$macro->data->img_big.'" width="122" height="160" alt="'.$macro->data->titolo.'" />';
               $ICC_Macro_Table .= '</a>';
               $ICC_Macro_Table .= '</td>';
