@@ -11,7 +11,7 @@ if ( $post_tags ) {
       if( $result !== false ){
         $MacroLibrarsiTagFound = 1;
         $MacroLibrarsiTag .= "<div class='sponsored my-3 row'>";
-          $MacroLibrarsiTag .= "<h6 class='col-12  font-weight-lighter'>Sponsored</h6>";
+          $MacroLibrarsiTag .= "<h6 class='col-12 invisible font-weight-lighter'>Sponsored</h6>";
 
           if($TagAttivi[$result]['tagName1']){
             $MacroLibrarsiTag .= "<div class='col-12 col-md'>";
@@ -47,7 +47,7 @@ if ($MacroLibrarsiTagFound == 0){
   if( $result !== false && !($TagAttivi[$result]['tagName1'] == "" && $TagAttivi[$result]['tagName2'] == "" && $TagAttivi[$result]['tagName3'] == "")){
     $MacroLibrarsiTagFound = 1;
     $MacroLibrarsiTag .= "<div class='sponsored my-3 row'>";
-      $MacroLibrarsiTag .= "<h6 class='col-12  font-weight-lighter'>Sponsored</h6>";
+      $MacroLibrarsiTag .= "<h6 class='col-12 invisible font-weight-lighter'>Sponsored</h6>";
 
       if($TagAttivi[$result]['tagName1']){
         $MacroLibrarsiTag .= "<div class='col-12 col-md'>";
