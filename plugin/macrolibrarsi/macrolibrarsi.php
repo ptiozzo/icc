@@ -108,7 +108,7 @@ function MacroLibrarsiAPI($api) {
               $ICC_Macro_Table .= '</tr>';
               $ICC_Macro_Table .= '</table>';
 
-              set_transient('ICC_MacroLibrarsi_Tag_'.$api,$ICC_Macro_Table,rand(24,48) * HOUR_IN_SECONDS);
+              set_transient('ICC_MacroLibrarsi_Tag_'.$api,$ICC_Macro_Table,rand(48,72) * HOUR_IN_SECONDS);
 
               $to = "webmaster@italiachecambia.org";
               $subject = "ICC - MacroLibrarsi API update";
