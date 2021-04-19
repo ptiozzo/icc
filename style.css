@@ -1303,7 +1303,8 @@ figcaption{
 
 
 .single__contribuisci,
-.sponsored{
+.sponsored,
+.single__correlati{
   border-top: 1px solid;
   border-color: var(--btn-warning);
   background-color: var(--color-light_gray);
