@@ -207,6 +207,8 @@
 				echo $custom_likes->post_likes( '' );
 				}
 				 ?>
+				 <!-- Articoli simili fondo articolo -->
+				 <?php include 'single-correlati.php'; ?>
 			</div>
 			<!-- Box correlati fondo articolo -->
 			<?php include('single-correlati.php'); ?>
