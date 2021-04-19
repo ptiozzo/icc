@@ -8,6 +8,8 @@
 			get_template_part('casentino/menu','casentino');
 		} elseif (has_category('liguria-che-cambia')) {
 			get_template_part('liguria/menu','liguria');
+		} elseif (has_category('sicilia-che-cambia')) {
+			get_template_part('sicilia/menu','sicilia');
 		}
 	} ?>
 
@@ -176,7 +178,7 @@
 				<?php } ?>
 			 <div class="col-12 col-lg-10">
 				 <div class="single__articolo">
-					 
+
 		 			<?php
 		 			if( !empty (get_post_meta( get_the_ID(), 'YouTubeLink',true))){
 		 				?>
@@ -184,8 +186,8 @@
 		 				<div class="single__thumbnail">
 		 					<figure class="embed-responsive embed-responsive-16by9">
 		 						<iframe width="800" height="480" src="https://www.youtube.com/embed/<?php echo linkifyYouTubeURLs(get_post_meta( get_the_ID(), 'YouTubeLink',true));?>?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-		 					</figure> 
-		 				</div> 
+		 					</figure>
+		 				</div>
 		 				<?php
 		 			}
 		 			?>
