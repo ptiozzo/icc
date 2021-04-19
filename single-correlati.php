@@ -1,4 +1,3 @@
-
 <?php
   $orig_post = $post;
   global $post;
