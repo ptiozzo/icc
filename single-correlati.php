@@ -1,4 +1,3 @@
-<h3>Related posts</h3>
 <?php
   $orig_post = $post;
   global $post;
@@ -18,6 +17,7 @@
   $my_query = new wp_query( $args );
   ?>
   <div class="single__contribuisci mb-3 p-3">
+    <h6 class='col-12 font-weight-lighter'>Articoli simili</h6>
     <div class="card-group">
       <?php
       while( $my_query->have_posts() ) {
