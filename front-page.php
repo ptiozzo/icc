@@ -150,9 +150,6 @@
                   echo '<div class="col-12 d-md-none">';
                   get_template_part("loop/loop","homeicctvmobile");
                   echo '</div>';
-                  echo '<div class="col-12 d-md-none">';
-                  dynamic_sidebar('mobile-4');
-                  echo '</div>';
                 }
                 if($i == 4)
                 {
@@ -164,6 +161,9 @@
                   echo '</aside>';
                   echo '<div class="col-12 d-none d-md-block">';
                   dynamic_sidebar('homedx4');
+                  echo '</div>';
+                  echo '<div class="col-12">';
+                  bachecaSlider();
                   echo '</div>';
                 }
                 if($i == 6)

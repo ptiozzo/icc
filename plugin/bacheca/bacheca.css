@@ -40,6 +40,7 @@ html{
 
 .cerco-offro p a{
   display: inline-block!important;
+  color: var(--color-meme);
 }
 
 .cerco-offro .card-img-top{
@@ -52,4 +53,13 @@ html{
 
 textarea#comment {
   max-width: 98%;
+}
+
+.sliderBacheca,
+.sliderBacheca .head .title h5{
+  background-color: var(--color-bacheca_widget);
+}
+.sliderBacheca .card-footer{
+  background-color: var(--color-white);
+  border-top: none;
 }

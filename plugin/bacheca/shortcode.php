@@ -10,7 +10,7 @@
         <h1 class="text-center d-none">Bacheca Cerco/Offro</h1>
         <img src="<?php echo get_template_directory_uri().'/plugin/bacheca/asset/img/Bacheca.png' ?>" class="mx-auto img-fluid d-block" alt="Bacheca cerco/offro">
         <?php
-
+        include("alert-ferieBachecaArchivio.php");
         $argsCercoOffroArchivio = array(
           'post_type' => 'contenuti-speciali',
           'posts_per_page' => 1,
@@ -40,8 +40,12 @@
         <div class="col-8 mx-auto">
           <a href="/nuovocercooffro/" class="btn btn-success btn-lg btn-block">Inserisci un annuncio</a>
         </div>
-
       <?php } ?>
+
+      <div class="alert alert-warning mt-3 mr-2" role="alert">
+        Le condizioni d’uso del servizio bacheca cerco/offro di Italia che Cambia sono regolate nei <a href="/termini-e-condizioni-bacheca-cerco-offro/" class="alert-link d-inline">termini e condizioni</a>
+      </div>
+
       <div class="contenuti_header">
         <?php
         // Verifico se ho premuto submit e setto le ricerche

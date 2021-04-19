@@ -4,7 +4,14 @@
 
 <h1><?php the_title(); ?></h1>
 
+<div class="col-12">
+  <?php the_content(); ?>
+</div>
+
+
 <?php
+
+include("alert-ferieBachecaNuovo.php");
 
 if(!is_user_logged_in()){
   ?>
@@ -43,7 +50,14 @@ $errors = array();
   if($_FILES['image']['size'] != 0){
     if(strpos($_FILES['image']["type"],'image') === false){
       $errors['image'] = "Il file caricato non è un'immagine";
+    } else{
+      $imgDimension = getimagesize($_FILES['image']['tmp_name']);
+      if($imgDimension[0] < 600 || $imgDimension[0] < 315){
+        $errors['image'] = "Le dimensioni minime dell'immagine sono di 600x315px";
+      }
     }
+  }else{
+    $errors['image'] = "Devi caricare un'immagine";
   }
 
   if($_POST['terms'] != "Yes")
@@ -247,7 +261,7 @@ if($success != 1 && is_user_logged_in() ){
       <small id="contentHelp" class="form-text text-muted">Questo sarà il testo del tuo annuncio.</small>
     </div>
     <div class="form-group my-2 col-12">
-      <label for="image"><strong>Ti invitiamo ad aggiungere un'immagine di copertina al tuo annuncio. Scegli un'immagine con orientamento orizzontale e in buona risoluzione. Un'immagine evocativa e rappresentativa permetterà al tuo annuncio di avere maggiore visibilità.</strong></label>
+      <label for="image"><strong>Ti invitiamo ad aggiungere un'immagine di copertina al tuo annuncio. Scegli un'immagine con orientamento orizzontale e di risoluzione di almeno 600x315px. Un'immagine evocativa e rappresentativa permetterà al tuo annuncio di avere maggiore visibilità.</strong></label>
       <input type="file" name="image" class="form-control-file mt-3" id="image">
     </div>
 

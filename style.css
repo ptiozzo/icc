@@ -987,6 +987,13 @@ row
   padding-bottom: 3px;
   text-decoration: underline;
 }
+/* PAGE
+*/
+.wp-block-image img{
+  height: auto;
+}
+
+
 /* SINGLE
 */
 
@@ -1295,15 +1302,22 @@ figcaption{
 .single .rassegna-stampa .single__action{color: var(--color-rassegna)}
 
 
-.single__contribuisci{
+.single__contribuisci,
+.sponsored{
   border-top: 1px solid;
   border-color: var(--btn-warning);
   background-color: var(--color-light_gray);
 }
+@media (min-width: 992px) {
+  .sponsored{
+    font-size: 0.9rem;
+  }
+}
 .single__contribuisci img{
   height: 25px;
-  min-width: auto!important;
+  width: auto!important;
 }
+
 
 
 /*
@@ -1323,7 +1337,7 @@ RASSEGNA STAMPA
   color: var(--color-white);
 }
 .rassegna-stampa img{
-  min-width: 100%;
+  width: 100%;
   max-height: 374px;
 }
 .rassegna-stampa article{
@@ -1417,7 +1431,9 @@ main.chi-siamo>section.content>.description>.actions>ul>li .left-col .descriptio
 }
 .form-control,
 input[type=text],
-input[type=file]
+input[type=file],
+input[type=tel],
+input[type=email]
 {
   background: var(--color-white);
   color: var(--color-light_black);

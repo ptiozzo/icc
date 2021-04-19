@@ -112,13 +112,10 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 		register_sidebar(array( 'name' => esc_html__( 'Single fine articolo', 'icc' ),'id' => 'singleend','description' => esc_html__( 'Area a fine singolo articolo, larghezza max 768', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s my-3">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Home piemonte sinistra', 'icc' ),'id' => 'homepiemontesx','description' => esc_html__( 'Area piemonte nella colonna di sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Home piemonte centrale 2', 'icc' ),'id' => 'homepiemontedx','description' => esc_html__( 'Area piemonte nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
-    register_sidebar(array( 'name' => esc_html__( 'Home piemonte bacheca', 'icc' ),'id' => 'homepiemontebacheca','description' => esc_html__( 'Area piemonte nella colonna centrale dopo 4 articoli (da mobile dopo 2), larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Home casentino sinistra', 'icc' ),'id' => 'homecasentinosx','description' => esc_html__( 'Area casentino nella colonna di sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Home casentino centrale 2', 'icc' ),'id' => 'homecasentinodx','description' => esc_html__( 'Area casentino nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
-    register_sidebar(array( 'name' => esc_html__( 'Home casentino bacheca', 'icc' ),'id' => 'homecasentinobacheca','description' => esc_html__( 'Area casentino nella colonna centrale dopo 4 articoli (da mobile dopo 2), larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
     register_sidebar(array( 'name' => esc_html__( 'Home Liguria sinistra', 'icc' ),'id' => 'homeliguriasx','description' => esc_html__( 'Area liguria nella colonna di sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
     register_sidebar(array( 'name' => esc_html__( 'Home Liguria centrale 2', 'icc' ),'id' => 'homeliguriadx','description' => esc_html__( 'Area liguria nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
-    register_sidebar(array( 'name' => esc_html__( 'Home Liguria bacheca', 'icc' ),'id' => 'homeliguriabacheca','description' => esc_html__( 'Area liguria nella colonna centrale dopo 4 articoli (da mobile dopo 2), larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 
 	}
 }
@@ -204,6 +201,7 @@ require 'inc/bootstrap-pagination.php';
 /* ------------------------------------ */
 require 'inc/rewrite.php';
 
+
 /*  DB contribuisci
 /* ------------------------------------ */
 require 'inc/contribuisci-db.php';
@@ -271,6 +269,8 @@ require 'inc/pianetafuturo.php';
 /* ------------------------------------ */
 require 'inc/widget.php';
 
+
+
 /* Funzione per categoria figlia di.
 /* ------------------------------------ */
 function category_has_parent($catid){
@@ -310,6 +310,14 @@ require 'plugin/regioni/regioni.php';
 /* Attivazione plugin altriautori
 /* ------------------------------------ */
 require 'plugin/altriautori/altriautori.php';
+
+/* Attivazione plugin macrolibrarsi
+/* ------------------------------------ */
+require 'plugin/macrolibrarsi/macrolibrarsi.php';
+
+/* Attivazione plugin redirect PF
+/* ------------------------------------ */
+require 'plugin/redirectPF/redirectpf.php';
 
 
 /* Prima immagine del post.

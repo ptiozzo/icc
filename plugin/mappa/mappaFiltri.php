@@ -139,15 +139,10 @@
 </form>
 <?php
 
-if(is_user_logged_in() && in_array(strtolower($Regione),['liguria'])) { ?>
+if ( icc_is_region_active($Regione) ) { ?>
   <form class="my-2" action="/nuovarealtasegnalata/" method="post">
-    <input name="regionemappa" type="hidden" value="liguria">
+    <input name="regionemappa" type="hidden" value="<?php echo $Regione; ?>">
     <input name="segnala_realta" type="Submit" value="Segnala una realtà" class="btn btn-success">
   </form>
-
-<?php }
-
-if(is_user_logged_in() && in_array(strtolower($Regione),['piemonte'])) { ?>
-  <a href="http://piemonte.pianetafuturo.it" class="btn btn-success my-1" target="_blank" rel="nofollow">Segnala una realtà</a>
 
 <?php } ?>

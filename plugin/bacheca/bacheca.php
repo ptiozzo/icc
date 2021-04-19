@@ -24,7 +24,7 @@
    }
  }
 
-require 'widget.php';
+require 'bachecaSlider.php';
 
 add_shortcode( 'bacheca-cercooffro', 'bacheca_cercooffro_shortcode' );
 if(!function_exists('bacheca_cercooffro_shortcode')){
@@ -138,12 +138,13 @@ function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
     if ( ( 'publish' === $new_status && 'publish' !== $old_status )
         && 'cerco-offro' === $post->post_type ) {
 
+          $uid = get_current_user_id();
 
           $to = get_user_by('id',$post->post_author)->user_email;
           $subject = 'ItaliaCheCambia - Cerco\Offro: '.$post->post_title;
           $body = "<html><body>";
           $body .= "Ciao ".get_user_by('id',$post->post_author)->display_name."<br>";
-          $body .= "Il tuo annuncio è stato pubblicato con successo. <br>";
+          $body .= "Il tuo annuncio è stato pubblicato con successo da ".get_user_by('id',$uid)->display_name." <br>";
           $body .= "Il link per raggiungerlo direttamente è ".get_permalink($post->ID);
           $body .= "</body></html>";
           $headers = array('Content-Type: text/html; charset=UTF-8');
@@ -151,6 +152,8 @@ function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
           $headers[] = 'Bcc: webmaster@italiachecambia.org';
 
           wp_mail( $to, $subject, $body, $headers );
+
+
     }
 
     if ( 'trash' === $new_status && 'publish' === $old_status
@@ -169,6 +172,24 @@ function wpdocs_run_on_publish_only( $new_status, $old_status, $post ) {
 
       wp_mail( $to, $subject, $body, $headers );
     }
+
+    if ( 'publish' === $new_status && 'publish' === $old_status
+        && 'cerco-offro' === $post->post_type ) {
+          $uid = get_current_user_id();
+          $to = 'redazione@italiachecambia.org';
+          $subject = '[UPDATE] Cerco\Offro: '.$post->post_title;
+          $body = "<html><body>";
+          $body .= "Ciao, "."<br>";
+          $body .= "L'annuncio in oggetto è stato modificato da ".get_user_by('id',$uid)->display_name." <br>";
+          $body .= "L'ID dell'utente è ".$uid."<br>";
+          $body .= "</body></html>";
+          $headers = array('Content-Type: text/html; charset=UTF-8');
+          $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
+          $headers[] = 'Bcc: webmaster@italiachecambia.org';
+
+          wp_mail( $to, $subject, $body, $headers );
+        }
+
 }
 
 

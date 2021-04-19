@@ -162,13 +162,13 @@ Template Name: Casentino che cambia
             dynamic_sidebar('homecasentinodx');
             echo '</div>';
             echo '<div class="col-12 d-md-none">';
-            dynamic_sidebar('homecasentinobacheca');
+            bachecaSlider('casentino');
             echo '</div>';
           }
           if($i == 4)
           {
             echo '<div class="col-12 d-none d-md-block">';
-            dynamic_sidebar('homecasentinobacheca');
+            bachecaSlider('casentino');
             echo '</div>';
           }
 					 endwhile;

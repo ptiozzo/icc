@@ -170,13 +170,13 @@ Template Name: Liguria che cambia
             dynamic_sidebar('homeLiguriadx');
             echo '</div>';
             echo '<div class="col-12 d-md-none">';
-            dynamic_sidebar('homeLiguriabacheca');
+            bachecaSlider('liguria');
             echo '</div>';
           }
           if($i == 4)
           {
             echo '<div class="col-12 d-none d-md-block">';
-            dynamic_sidebar('homeLiguriabacheca');
+            bachecaSlider('liguria');
             echo '</div>';
           }
 					 endwhile;
@@ -190,16 +190,17 @@ Template Name: Liguria che cambia
       <div class="col-lg-home3">
         <aside class="sidebar">
           <div class="pcc-pianfut">
-            <form class="" action="/nuovarealtasegnalata/" method="post">
+            <form class="" action="/nuovarealtasegnalata/?regionemappa=liguria" method="post">
               <input name="regionemappa" type="hidden" value="liguria">
               <input name="segnala_realta" type="submit" value="Segnala una realtà" class="btn btn-secondary">
             </form>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaSegnalaEvento">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaScendiPiazza">
                Segnala un evento
             </button>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#LiguriaAggiungiAnnuncio">
-               Inserisci un annuncio
-            </button>
+            <form class="" action="/nuovocercooffro/" method="post">
+              <input name="regione" type="hidden" value="liguria">
+              <input name="aggiungi_annuncio" type="submit" value="Inserisci un annuncio" class="btn btn-secondary">
+            </form>
           </div>
         </aside>
 

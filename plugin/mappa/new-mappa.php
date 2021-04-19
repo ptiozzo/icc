@@ -5,11 +5,20 @@
 <h1><?php the_title(); ?></h1>
 
 <?php
+  if($_GET['retemappa']) {
+    ?>
+      <img class="d-block mx-auto" src="<?php echo get_the_post_thumbnail_url(get_page_by_title($_GET['retemappa'],'',"mappa")->ID)?>" />
+    <?php
+  }
+?>
+
+
+<?php
 
 if(!is_user_logged_in()){
   ?>
   <div class="alert alert-warning mt-3" role="alert">
-    <p>Per poter inserire una nuova realtà devi prima <a class="alert-link" href="/wp-login.php?redirect_to=<?php echo get_the_permalink() ?>">effettuare l'accesso</a> o <a class="alert-link" href="/registrati/?redirect_to=<?php echo get_the_permalink() ?>">registrarti</a></p>
+    <p>Per poter inserire una nuova realtà devi prima <a class="alert-link" href="/wp-login.php?redirect_to=<?php echo get_pagenum_link() ?>">effettuare l'accesso</a> o <a class="alert-link" href="/registrati/?redirect_to=<?php echo get_pagenum_link() ?>">registrarti</a></p>
   </div>
   <?php
 }
@@ -71,6 +80,11 @@ if( $_POST['submit_button'] ){
       $post_id = wp_insert_post($new_post);
       wp_set_object_terms($post_id,$_POST['regionemappa'],'mapparegione');
       wp_set_object_terms($post_id,"utente",'mappastato');
+
+      if($_POST['retemappa']){
+        wp_set_object_terms($post_id,$_POST['retemappa'],'mapparete');
+      }
+
 
       if($_POST["categoria"] != "tuttelecategorie") {
         wp_set_object_terms($post_id,$_POST['categoria'],'mappacategoria');
@@ -149,6 +163,10 @@ if( $_POST['submit_button'] ){
     $url = "/mappa/";
 
     $to = "webmaster@italiachecambia.org,redazione@italiachecambia.org";
+    if(icc_is_region_active($_POST['regionemappa'])){
+      $to .= ",".$_POST['regionemappa']."@italiachecambia.org";
+    }
+
     $subject = 'ICC - Nuova Realtà mappata da revisionare: '.$_POST['titolo'];
     $body = "<html><body>";
     $body .= "Ciao <br>";
@@ -196,6 +214,9 @@ if($success != 1 && is_user_logged_in() ){
 
     $form_categoria = $_POST['categoria'];
     $form_regioni = $_POST['regionemappa'];
+    if($_GET['regionemappa']){
+      $form_regioni = $_GET['regionemappa'];
+    }
     $form_tipologia = $_POST['tipologia'];
     $form_titolo = $_POST['titolo'];
     $form_content = $_POST['content'];
@@ -231,12 +252,17 @@ if($success != 1 && is_user_logged_in() ){
       ?>
     </select>
     <?php
+
     if($_POST['segnala_realta']) {
       echo '<input name="regionemappa" type="hidden" value="'.$_POST['regionemappa'].'">';
       echo '<input name="segnala_realta" type="hidden" value="'.$_POST['regionemappa'].'">';
     }
+    if($_GET['regionemappa']) {
+      echo '<input name="regionemappa" type="hidden" value="'.$_GET['regionemappa'].'">';
+      echo '<input name="segnala_realta" type="hidden" value="'.$_GET['regionemappa'].'">';
+    }
     ?>
-      <select name="regionemappa" class="custom-select mx-2" <?php if($_POST['segnala_realta']){echo "disabled";} ?> >
+      <select name="regionemappa" class="custom-select mx-2" <?php if( $_POST['segnala_realta'] || $_GET['regionemappa']){echo "disabled";} ?> >
         <?php
           $categories = get_terms( array('taxonomy' => 'mapparegione','hide_empty' => false,'orderby'=> 'slug','order' => 'ASC','parent' => 0));
           ?>
@@ -266,6 +292,16 @@ if($success != 1 && is_user_logged_in() ){
         }
       ?>
     </select>
+    <?php
+      if($_GET['retemappa']) {
+        echo '<input name="retemappa" type="hidden" value="'.$_GET['retemappa'].'">';
+        ?>
+        <select name="retemappa" class="custom-select mt-2" disabled>
+          <option value="<?php echo $_GET['retemappa']; ?>" selected><?php echo ucfirst($_GET['retemappa']); ?></option>
+        </select>
+        <?php
+      }
+     ?>
     <div class="form-group my-2 col-12 d-block px-0">
       <input id="titolo" class="form-control w-75" type="text" name="titolo" placeholder="Inserisci il nome della realtà" <?php echo 'value="'.$form_titolo .'"';?>>
       <small id="titoloHelp" class="form-text text-muted"></small>
@@ -304,7 +340,14 @@ if($success != 1 && is_user_logged_in() ){
 
 
       // create the geocoding control and add it to the map
-      var searchControl = L.esri.Geocoding.geosearch({useMapBounds:false,}).addTo(map);
+      var searchControl = L.esri.Geocoding.geosearch({
+        providers: [
+          L.esri.Geocoding.arcgisOnlineProvider({
+            // API Key to be passed to the ArcGIS Online Geocoding Service
+            apikey: 'AAPKb2b250a84b8d40b08633a3728fc0ea61OyR7huBxIN7rsao1lcuVgWZeBJjC7cVJf_pRj0mQcUFNdRRlwb8lbD1dIuu6LZ_S'
+          })
+        ]
+      }).addTo(map);
 
       // create an empty layer group to store the results and add it to the map
       var results = L.layerGroup().addTo(map);

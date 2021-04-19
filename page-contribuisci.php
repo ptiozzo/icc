@@ -47,6 +47,38 @@ else{ //se server differente da WWW
       while(have_posts() ) : the_post();
   ?>
   <div class="row">
+    <!-- AGGIUNTA PER NATALE! -->
+    <?php
+    $argsContribuisciPageTop = array(
+      'post_type' => 'contenuti-speciali',
+      'posts_per_page' => 1,
+      'tax_query' => array(
+        array(
+            'taxonomy'=> 'contenuti_speciali_filtri',
+            'field'   => 'slug',
+            'terms'		=> 'contribuisci-pagina-top',
+        ),
+      ),
+    );
+    $loopContribuisciPegeTop = new WP_Query( $argsContribuisciPageTop );
+    if($loopContribuisciPegeTop->have_posts()){
+      while ($loopContribuisciPegeTop->have_posts()) {
+        $loopContribuisciPegeTop->the_post();
+        ?>
+          <div class="col-12 mb-3">
+            <div class="contribuisci p-3 rounded">
+
+              <?php the_content(); ?>
+
+            </div>
+          </div>
+        <?php
+      }
+    }
+    wp_reset_postdata();
+     ?>
+
+    <!-- FINE AGGIUNTA PER NATALE! -->
     <div class="col-12 col-lg-6 order-2 order-lg-1">
       <?php
         if ($_POST['submit_button']){
@@ -71,6 +103,9 @@ else{ //se server differente da WWW
             <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
           </form>
 
+          <div class="alert alert-warning" role="alert">
+            Per effettuare una donazione tramite bonifico bancario utilizzare il servizio MyBank tramite PayPal
+          </div>
 
           <?php if ($_POST['frequenza'] == "singola"): ?>
 

@@ -39,7 +39,7 @@ function autori_meta_box_markup($post)
   <label>Intervista Di</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Intervista_Di" value="<?php echo get_post_meta($post->ID, 'Intervista_Di', true);?>">
 
-  <label>Video Realizzato Da</label
+  <label>Video Realizzato Da</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Video_Realizzato_Da" value="<?php echo get_post_meta($post->ID, 'Video_Realizzato_Da', true);?>">
 
   <label>Riprese di</label>
@@ -53,6 +53,9 @@ function autori_meta_box_markup($post)
 
   <label>Regia di</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Regia_Di" value="<?php echo get_post_meta($post->ID, 'Regia_Di', true);?>">
+
+  <label>Audio</label>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="Audio" value="<?php echo get_post_meta($post->ID, 'Audio', true);?>">
 
   <label>Campo libero descrizione</label>
   <input style="width:90%; margin-bottom: 1px;" type="text" name="Campo_Libero_Desc" value="<?php echo get_post_meta($post->ID, 'Campo_Libero_Desc', true);?>">
