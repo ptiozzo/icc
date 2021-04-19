@@ -16,6 +16,7 @@
   );
 
   $my_query = new wp_query( $args );
+
   if ($my_query->found_posts > 0){
   ?>
     <div class="single__correlati mb-3 p-3">
