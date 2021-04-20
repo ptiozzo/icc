@@ -20,11 +20,7 @@ if($filtro == 0){
     endwhile;
   endif;
   wp_reset_postdata();
-  ?>
-  <hr>
-  <h4>Scopri le realtà mappate dalle ragazze e dai ragazzi di SOStenibilmente</h4>
-  <img src="https://www.italiachecambia.org/wp-content/uploads/2021/04/logo-copertina-fb.png" alt="Sostenibilmente">
-  <?php
+  dynamic_sidebar('mappa');
 } else {
   //filtri presi da scriptArchiveMappa.php
   $filtroChiuse = array(
