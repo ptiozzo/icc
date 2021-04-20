@@ -20,6 +20,7 @@ if($filtro == 0){
     endwhile;
   endif;
   wp_reset_postdata();
+  dynamic_sidebar('mappa');
 } else {
   //filtri presi da scriptArchiveMappa.php
   $filtroChiuse = array(
