@@ -76,7 +76,6 @@ if($loopAllMappa->have_posts()){
     $f = fopen('php://output', 'w');
     ob_end_clean();
     while($loopAllMappa->have_posts()){
-      $loopAllMappa->the_post();
 
       if($row == 0){
        $line = array('Riga','ID','Titolo','Stato','Autore','Slug','Regione','Categoria','Tipologia','Rete','TAG',
@@ -84,6 +83,7 @@ if($loopAllMappa->have_posts()){
        'Indirizzo','Sito','Email','Telefono','Facebook','Instagram','YouTube','Linkedin',
        'Twitter','Post status','Legale rappresentante');
       } else {
+        $loopAllMappa->the_post();
         $term1 = "mapparegione";
         $regione = "";
         $terms = get_the_terms( $post->ID , $term1 );
