@@ -28,6 +28,9 @@ $errors = array();
 
 if( $_POST['submit_button'] ){
 
+  if($_POST['legaleRappresentante'] != "si" && $_POST['legaleRappresentante'] != "no"){
+    $errors['legaleRappresentante'] = "Devi indicare se sei legale rappresentante o meno";
+  }
   if($_POST['categoria'] == "tuttelecategorie"){
     $errors['categoria'] = "Devi selezionare una categoria";
   }
@@ -130,6 +133,9 @@ if( $_POST['submit_button'] ){
       if($_POST["Mappa_VideoYT"] != "") {
           update_post_meta($post_id, "Mappa_VideoYT", $_POST["Mappa_VideoYT"]);
       }
+      if($_POST["legaleRappresentante"] != "") {
+          update_post_meta($post_id, "Mappa_legaleRappresentante", $_POST["legaleRappresentante"]);
+      }
 
 
 
@@ -211,7 +217,7 @@ if( $_POST['submit_button'] ){
 
 
 if($success != 1 && is_user_logged_in() ){
-
+    $form_legaleRappresentante = $_POST['legaleRappresentante'];
     $form_categoria = $_POST['categoria'];
     $form_regioni = $_POST['regionemappa'];
     if($_GET['regionemappa']){
@@ -236,6 +242,19 @@ if($success != 1 && is_user_logged_in() ){
 
   ?>
   <form class="mt-3 mb-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" enctype="multipart/form-data">
+    <div class="col-12">
+      <p>Sono il responsabile legale/rappresentante dell’ente/realtà/gruppo informale segnalato</p>
+      <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
+        <label class="btn btn-light">
+          <input type="radio" name="legaleRappresentante" id="legaleRappresentante1" value="si" <?php if ($form_legaleRappresentante == "si"){echo "checked";} ?>> Si
+        </label>
+        <label class="btn btn-light active">
+          <input type="radio" name="legaleRappresentante" id="legaleRappresentante2" value="no" <?php if ($form_legaleRappresentante == "no"){echo "checked";} ?>> No
+        </label>
+      </div>
+    </div>
+
+
     <select name="categoria" class="custom-select" >
       <option value="tuttelecategorie" <?php if ($form_categoria == "tuttelecategorie") {echo 'selected';} ?>>Seleziona una categoria</option>
       <?php

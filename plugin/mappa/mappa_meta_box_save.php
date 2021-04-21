@@ -87,6 +87,12 @@ function save_mappa_meta_box($post_id, $post)
       } elseif (get_post_meta($post_id,"Mappa_TW")) {
           delete_post_meta($post_id,"Mappa_TW");
       }
+      
+      if($_POST["Mappa_legaleRappresentante"] != "") {
+          update_post_meta($post_id, "Mappa_legaleRappresentante", $_POST["Mappa_legaleRappresentante"]);
+      } elseif (get_post_meta($post_id,"Mappa_legaleRappresentante")) {
+          delete_post_meta($post_id,"Mappa_legaleRappresentante");
+      }
 
       if($_POST["Mappa_Chiuso_Data"] != "") {
           update_post_meta($post_id, "Mappa_Chiuso_Data", $_POST["Mappa_Chiuso_Data"]);
