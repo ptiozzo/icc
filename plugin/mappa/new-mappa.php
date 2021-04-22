@@ -471,7 +471,7 @@ if($success != 1 && is_user_logged_in() ){
 
 
   <div class="modal fade" id="mappa_privacyModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="mappa_privacyModal">Termini e condizioni</h5>
