@@ -29,18 +29,18 @@ $errors = array();
 if( $_POST['submit_button'] ){
 
   if($_POST['legaleRappresentante'] != "si" && $_POST['legaleRappresentante'] != "no"){
-    $errors['legaleRappresentante'] = "Devi indicare se sei legale rappresentante o meno";
+    $errors['legaleRappresentante'] = "Non hai indicato se sei legale rappresentante o meno";
   }
   if($_POST['categoria'] == "tuttelecategorie"){
-    $errors['categoria'] = "Devi selezionare una categoria";
+    $errors['categoria'] = "Non hai selezionato una categoria";
   }
 
   if($_POST['regionemappa'] == "_tutteleregioni"){
-    $errors['regionemappa'] = "Devi selezionare una regione";
+    $errors['regionemappa'] = "Non hai selezionato una regione";
   }
 
   if($_POST['tipologia'] == "tutteletipologie"){
-    $errors['tipologia'] = "Devi selezionare una tipologia";
+    $errors['tipologia'] = "Non hai selezionato una tipologia";
   }
 
   if(0 === preg_match("/.{1,}/", $_POST['titolo'])){
@@ -48,7 +48,7 @@ if( $_POST['submit_button'] ){
   }
 
   if(str_word_count($_POST['content']) < 6){
-    $errors['content'] = "Devi inserire una descrizione di almeno 6 parole";
+    $errors['content'] = "Non hai inserito una descrizione di almeno 6 parole";
   }
 
   if($_FILES['image']['size'] != 0){
@@ -66,7 +66,11 @@ if( $_POST['submit_button'] ){
   }
 
   if($_POST['indirizzo'] == ""){
-    $errors['indirizzo'] = "Devi inserire un indirizzo";
+    $errors['indirizzo'] = "Non hai inserito un indirizzo";
+  }
+
+  if ($_POST['mappa_privacy'] != 'si'){
+    $errors['privacy'] = "Non hai accettato i termini e le condizioni";
   }
 
 
@@ -238,6 +242,7 @@ if($success != 1 && is_user_logged_in() ){
     $form_mappa_YT = $_POST['mappa_YT'];
     $form_mappa_IN = $_POST['mappa_IN'];
     $form_mappa_TW = $_POST['mappa_TW'];
+    $form_mappa_privacy = $_POST['mappa_privacy'];
     $form_invia = "Aggiungi realtà sulla mappa";
 
   ?>
@@ -452,10 +457,61 @@ if($success != 1 && is_user_logged_in() ){
       <small id="mappa_TWHelp" class="form-text text-muted"></small>
     </div>
 
+    <div class="form-check my-2 col-12">
+      <input class="form-check-input" name="mappa_privacy" type="checkbox" <?php if($form_mappa_privacy == "si"){echo "checked";} ?> value="si" id="mappa_privacy">
+      <label class="form-check-label" for="mappa_privacy">
+        Accetto i<button type="button" class="btn btn-link" data-toggle="modal" data-target="#mappa_privacyModal">termini e condizioni</button>
+      </label>
+    </div>
+    <br>
+
     <input name="submit_button" type="Submit" value="<?php echo $form_invia;?>" class="btn btn-secondary">
   </form>
 
+
+
+  <div class="modal fade" id="mappa_privacyModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mappa_privacyModal">Termini e condizioni</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php
+        $argsMappaArchive = array(
+          'post_type' => 'contenuti-speciali',
+          'posts_per_page' => 1,
+          'orderby' => 'modified',
+          'tax_query' => array(
+            array(
+                'taxonomy'=> 'contenuti_speciali_filtri',
+                'field'   => 'slug',
+                'terms'		=> 'mappa-privacy-popup',
+            ),
+          ),
+        );
+        $loopMappaArchive = new WP_Query( $argsMappaArchive );
+        if( $loopMappaArchive->have_posts()) :
+          while( $loopMappaArchive->have_posts() ) : $loopMappaArchive->the_post();
+            echo "<hr>";
+            the_content();
+          endwhile;
+        endif;
+        wp_reset_postdata();
+         ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php } ?>
+
 
 
 </div>
