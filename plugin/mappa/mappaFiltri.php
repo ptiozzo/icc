@@ -31,11 +31,13 @@
         ) );
 
         foreach ($terms as $category) {
-          $option = '<option value="'.$category->slug.'" ';
-          if ($Rete1 == $category->slug) {$option .= 'selected ';};
-          $option .= '>'.$category->name;
-          $option .= '</option>';
-          echo $option;
+          if( $category->slug != "sostenibilmente"){
+            $option = '<option value="'.$category->slug.'" ';
+            if ($Rete1 == $category->slug) {$option .= 'selected ';};
+            $option .= '>'.$category->name;
+            $option .= '</option>';
+            echo $option;
+          }
         }
       ?>
     </select>
