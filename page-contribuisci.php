@@ -103,9 +103,7 @@ else{ //se server differente da WWW
             <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
           </form>
 
-          <div class="alert alert-warning" role="alert">
-            Per effettuare una donazione tramite bonifico bancario utilizzare il servizio MyBank tramite PayPal
-          </div>
+          <?php dynamic_sidebar('contribuisci2'); ?>
 
           <?php if ($_POST['frequenza'] == "singola"): ?>
 
@@ -242,7 +240,9 @@ else{ //se server differente da WWW
             endif;
 
         }else{
+
       ?>
+      <?php dynamic_sidebar('contribuisci1'); ?>
       <form action="<?php echo get_pagenum_link(); ?>" method="post" class="form-inline mb-3">
 
         <h3 class="col-12 mb-3">Dati anagrafici</h3>
