@@ -23,9 +23,15 @@ function prefix_insert_post_ads( $content ) {
                     'questione-di-genere',
                     'viaggiare'
                 )) ) {
-        return prefix_insert_after_paragraph( 2, $content );
+        $content = prefix_insert_after_paragraph( 2, $content );
+        $content = prefix_insert_after_paragraph_contribuisci("last", $content);
+        return $content;
     }
-    return $content;
+    if(get_post_type( get_the_ID()) == 'rassegna-stampa'){
+      $content = prefix_insert_after_paragraph_contribuisci("rassegna", $content);
+      return $content;
+    }
+    return prefix_insert_after_paragraph_contribuisci( 4, $content);
 }
 
 // Parent Function that makes the magic happen
@@ -146,8 +152,90 @@ function prefix_insert_after_paragraph( $paragraph_id, $content ) {
             $paragraphs[$index] .= $ad_code;
         }
     }
-
     return implode( '', $paragraphs );
 }
+
+function prefix_insert_after_paragraph_contribuisci( $paragraph_id, $content ) {
+
+  $closing_p = '</p>';
+
+  $terms = "contribuisci-singolo-articolo-desktop";
+  if ($paragraph_id == "rassegna"){
+    $terms = "contribuisci-singolo-rassegna-desktop";
+  }
+
+  $argsContribuisciSingleDesktop = array(
+    'post_type' => 'contenuti-speciali',
+    'posts_per_page' => 1,
+    'orderby' => 'rand',
+    'tax_query' => array(
+      array(
+          'taxonomy'=> 'contenuti_speciali_filtri',
+          'field'   => 'slug',
+          'terms'		=> $terms,
+      ),
+    ),
+  );
+  $loopContribuisciSingleDesktop = new WP_Query( $argsContribuisciSingleDesktop );
+
+  $terms = "contribuisci-singolo-articolo-mobile";
+  if ($paragraph_id == "rassegna"){
+    $terms = "contribuisci-singolo-rassegna-mobile";
+  }
+  $argsContribuisciSingleMobile = array(
+    'post_type' => 'contenuti-speciali',
+    'posts_per_page' => 1,
+    'orderby' => 'rand',
+    'tax_query' => array(
+      array(
+          'taxonomy'=> 'contenuti_speciali_filtri',
+          'field'   => 'slug',
+          'terms'		=> $terms,
+      ),
+    ),
+  );
+  $loopContribuisciSingleMobile = new WP_Query( $argsContribuisciSingleMobile );
+
+  if( $loopContribuisciSingleDesktop->have_posts() || $loopContribuisciSingleMobile->have_posts()):
+    $ad_code = '<div class="single__article__contribuisci mb-2 pb-3">';
+    while( $loopContribuisciSingleDesktop->have_posts() ) : $loopContribuisciSingleDesktop->the_post();
+      $ad_code .= '<div class="m-2 d-none d-md-block">';
+      $ad_code .= get_the_content();
+      $ad_code .= '</div>';
+    endwhile;
+    while( $loopContribuisciSingleMobile->have_posts() ) : $loopContribuisciSingleMobile->the_post();
+      $ad_code .= '<div class="m-2 d-block d-md-none">';
+      $ad_code .= get_the_content();
+      $ad_code .= '</div>';
+    endwhile;
+    $ad_code .= '<button type="button" class="btn btn-lg btn-block btn-warning position-relative">';
+    $ad_code .= '<b>Contribuisci adesso all\'Italia che Cambia</b>';
+    $ad_code .= '<img src="'.get_template_directory_uri().'/assets/img/payment-methods.png" class="ml-2">';
+    $ad_code .= '<a href="/contribuisci" class="stretched-link"></a>';
+    $ad_code .= '</button>';
+    $ad_code .= '</div>';
+  endif;
+
+
+
+  $paragraphs = explode( $closing_p, $content );
+  foreach ($paragraphs as $index => $paragraph) {
+
+      if ( trim( $paragraph ) ) {
+          $paragraphs[$index] .= $closing_p;
+      }
+      if ( $paragraph_id == $index + 1 ) {
+        $paragraphs[$index] .= $ad_code;
+      }
+  }
+
+  if($paragraph_id == "last" || $paragraph_id== "rassegna"){
+    $content.= $ad_code;
+    return $content;
+  }
+
+  return implode( '', $paragraphs );
+}
+
 
  ?>
