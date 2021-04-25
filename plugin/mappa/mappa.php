@@ -15,7 +15,6 @@ if(!function_exists('mappa_paolo_init')){
 }
 
 add_shortcode( 'ICCmappa', 'mappa_shortcode' );
-
 if(!function_exists('mappa_shortcode')){
   function mappa_shortcode($atts) {
     $a = shortcode_atts( array(
@@ -48,6 +47,13 @@ if(!function_exists('mappa_style_scripts')){
     wp_enqueue_script( 'icc-leaflet-js', get_template_directory_uri().'/plugin/mappa/asset/leaflet/leaflet.js','','',false);
     wp_enqueue_script( 'icc-leaflet-gesture-js', get_template_directory_uri().'/plugin/mappa/asset/leaflet/leaflet-gesture-handling.min.js','','',false);
     wp_enqueue_script( 'icc-leaflet-MarkerCluster-js', get_template_directory_uri().'/plugin/mappa/asset/leaflet/leaflet.markercluster.js','','',false);
+  }
+}
+
+add_action( 'widgets_init', 'icc_mappa_sidebars' );
+if ( ! function_exists( 'icc_mappa_sidebars' ) ) {
+	function icc_mappa_sidebars() {
+    register_sidebar(array( 'name' => esc_html__( 'Mappa', 'icc' ),'id' => 'mappa','description' => esc_html__( 'Area visualizzata sotto filtri e descrizione', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
   }
 }
 
