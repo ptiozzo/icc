@@ -51,4 +51,6 @@
     <a href="/contribuisci" class="stretched-link"></a>
   </button>
 
+  <?php wp_reset_postdata(); ?>
+
 </div>
