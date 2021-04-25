@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <?php
-  $ParentCat1='contenuti';
-  $ParentCat2='tematica';
-  $ParentReg='regioni';
+  $ParentCat1='tuttecategorie';
+  $ParentCat2='tuttitag';
+  $ParentReg='territori-che-cambiano';
 
   if ($_SERVER['REQUEST_URI'] == "/contenuti/"){
     delete_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']);
@@ -64,12 +64,13 @@
     echo "<h2>".get_category_by_slug($ParentCat1)->name."</h2>";
   }
  ?>
+
   <!-- Dropdown per selezione contenuto -->
   <form class="pt-2 form-inline" method="post" action="<?php echo get_pagenum_link(); ?>" data-swup-form>
         <select name="contenuti-dropdown" class="custom-select">
-          <option value="contenuti" <?php if ($Cat1 == 'contenuti') {echo 'selected';}?> ><?php echo 'Tutti i contenuti'; ?></option>
+          <option value="tuttecategorie" <?php if ($Cat1 == 'tuttecategorie') {echo 'selected';}?> ><?php echo 'Filtra per categorie'; ?></option>
           <?php
-            $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
+            $categories = get_categories();
             foreach ($categories as $category) {
               $option = '<option value="'.$category->category_nicename.'" ';
               if ($Cat1 == $category->category_nicename) {$option .= 'selected ';};
@@ -81,15 +82,16 @@
           <option value="rassegna-stampa" <?php if ($Cat1 == 'rassegna-stampa') {echo 'selected';}?>>Rassegna stampa</option>
           <option value="nostri-libri" <?php if ($Cat1 == 'nostri-libri') {echo 'selected';}?>>I nostri libri</option>
         </select>
-      <!-- Dropdown per selezione tematica -->
+
+      <!-- Dropdown per selezione del TAG -->
       <select name="tematica-dropdown"  class="custom-select">
-        <option value="tematica" <?php if ($Cat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tematica'; ?></option>
+        <option value="tuttitag" <?php if ($Cat2 == 'tuttitag') {echo 'selected';}?> ><?php echo 'Filtra per TAG'; ?></option>
         <?php
-          $categories = get_categories('child_of='.get_category_by_slug($ParentCat2)->term_id);
+          $categories = get_tags();
           foreach ($categories as $category) {
-            $option = '<option value="'.$category->category_nicename.'" ';
-            if ($Cat2 == $category->category_nicename) {$option .= 'selected ';};
-            $option .= '>'.$category->cat_name;
+            $option = '<option value="'.$category->slug.'" ';
+            if ($Cat2 == $category->slug) {$option .= 'selected ';};
+            $option .= '>'.$category->name;
             $option .= '</option>';
             echo $option;
           }
@@ -97,7 +99,7 @@
       </select>
       <!-- Dropdown per selezione regione -->
       <select name="regione-dropdown"  class="custom-select">
-        <option value="regioni" <?php if ($reg == 'regioni') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
+        <option value="territori-che-cambiano" <?php if ($reg == 'regioni') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
         <?php
           $categories = get_categories('child_of='.get_category_by_slug($ParentReg)->term_id);
           foreach ($categories as $category) {
@@ -134,15 +136,9 @@
 
   <?php
     $CatTerm = '';
+    $TagTerm = '';
     if($Cat1 != $ParentCat1) {
       $CatTerm .= $Cat1;
-    }
-    if($Cat2 != $ParentCat2) {
-      if($CatTerm == ''){
-        $CatTerm = $Cat2;
-      }else{
-        $CatTerm .= "+".$Cat2;
-      }
     }
     if($reg != $ParentReg) {
       if($CatTerm == ''){
@@ -151,13 +147,18 @@
         $CatTerm .= "+".$reg;
       }
     }
+    if($Cat2 != $ParentCat2) {
+      $TagTerm .= $Cat2;
+    }
+
 
     ?>
     <!--
     <?php
-    echo "Contenuto ".$Cat1;
-    echo " - Tematica ".$Cat2;
+    echo "Categoria ".$Cat1;
+    echo " - TAG ".$Cat2;
     echo " - Categoria di Ricerca ".$CatTerm;
+    echo " - TAG di Ricerca ".$TagTerm;
     echo " - Ordinamento ".$ord;
     ?>
     -->
@@ -179,6 +180,7 @@
       $args = array(
           'post_type' => array('post','rassegna-stampa','nostri-libri'),
           'category_name' => $CatTerm,
+          'tag' => $TagTerm,
           'posts_per_page' => 20,
           'ignore_sticky_posts' => 1,
           'paged'          => $paged,
@@ -188,6 +190,7 @@
       $args = array(
           'post_type' => array('post','rassegna-stampa','nostri-libri'),
           'category_name' => $CatTerm,
+          'tag' => $TagTerm,
           'posts_per_page' => 20,
           'ignore_sticky_posts' => 1,
           'paged'          => $paged,
