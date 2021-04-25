@@ -3,6 +3,7 @@
   $argsContribuisciSingleDesktop = array(
     'post_type' => 'contenuti-speciali',
     'posts_per_page' => 1,
+    'orderby' => 'rand',
     'tax_query' => array(
       array(
           'taxonomy'=> 'contenuti_speciali_filtri',
@@ -16,6 +17,7 @@
   $argsContribuisciSingleMobile = array(
     'post_type' => 'contenuti-speciali',
     'posts_per_page' => 1,
+    'orderby' => 'rand',
     'tax_query' => array(
       array(
           'taxonomy'=> 'contenuti_speciali_filtri',
