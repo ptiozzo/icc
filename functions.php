@@ -25,11 +25,11 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		//wp_enqueue_script;
 		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 		wp_enqueue_style( 'icc-fontfavole','//fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
-		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css',array(),filemtime(get_template_directory() . '/assets/css/main.css'),'all');
+//		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css',array(),filemtime(get_template_directory() . '/assets/css/main.css'),'all');
 		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/chi-siamo/index.css'),'all');
 		wp_enqueue_style( 'icc8', get_template_directory_uri().'/assets/css/modules/visione/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/visione/index.css'),'all');
 		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/sostienici/index.css'),'all');
-		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/mappa/index.css'),'all');
+//		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/mappa/index.css'),'all');
 		wp_enqueue_style( 'icc-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css',array(),filemtime(get_template_directory() . '/assets/css/bootstrap.min.css'),'all');
 	  wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css',array(),filemtime(get_template_directory() . '/style.css'),'all');
 		wp_enqueue_script('jquery');
@@ -120,7 +120,8 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
     register_sidebar(array( 'name' => esc_html__( 'Home Liguria centrale 2', 'icc' ),'id' => 'homeliguriadx','description' => esc_html__( 'Area liguria nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
     register_sidebar(array( 'name' => esc_html__( 'Home Sicilia sinistra', 'icc' ),'id' => 'homesiciliasx','description' => esc_html__( 'Area sicilia nella colonna di sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Home Sicilia centrale 2', 'icc' ),'id' => 'homesiciliadx','description' => esc_html__( 'Area sicilia nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
-
+    register_sidebar(array( 'name' => esc_html__( 'Contribuisci 1', 'icc' ),'id' => 'contribuisci1','description' => esc_html__( 'Contribuisci prima pagina', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Contribuisci 2', 'icc' ),'id' => 'contribuisci2','description' => esc_html__( 'Contribuisci seconda pagina', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 
 	}
 }
@@ -382,5 +383,14 @@ function jptweak_remove_share() {
     }
 }
 add_action( 'loop_start', 'jptweak_remove_share' );
+
+/*  Remove create category/tags capability for editor
+/* ------------------------------------ */
+add_action( 'init', 'ICC_remove_cap_manage_category' );
+function ICC_remove_cap_manage_category(){
+  global $wp_roles;
+  $wp_roles->remove_cap( 'editor', 'manage_categories' );
+}
+
 
 ?>

@@ -20,7 +20,12 @@
     if ( $loopMappaCorrelati->have_posts() ) {
         echo '<div class="col-12 mappa_correlati p-2">';
         echo '<div class="row">';
-        echo '<div class="col-12"><h4>I nodi della rete</h4></div>';
+        if($Rete1 != "sostenibilmente"){
+          echo '<div class="col-12"><h4>I nodi della rete</h4></div>';
+        } else{
+          echo '<div class="col-12"><h4>Le realtà mappate</h4></div>';
+        }
+
         while ( $loopMappaCorrelati->have_posts() ) {
             $loopMappaCorrelati->the_post();
             ?>
