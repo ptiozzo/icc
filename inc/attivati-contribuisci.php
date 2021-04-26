@@ -23,6 +23,7 @@ function prefix_insert_post_ads( $content ) {
                     'questione-di-genere',
                     'viaggiare'
                 )) ) {
+
         $content = prefix_insert_after_content($content );
         $content = prefix_insert_after_paragraph_contribuisci(4, $content);
         return $content;
@@ -33,7 +34,6 @@ function prefix_insert_post_ads( $content ) {
     }
     if(is_single() && ! is_admin() && get_post_type( get_the_ID() ) == 'post'){
       $content = prefix_insert_after_paragraph_contribuisci(4, $content);
-      return $content;
     }
     return $content;
 }
@@ -210,7 +210,7 @@ function prefix_insert_after_paragraph_contribuisci( $paragraph_id, $content ) {
     $ad_code .= '</button>';
     $ad_code .= '</div>';
   endif;
-
+  wp_reset_postdata();
 
 
   $paragraphs = explode( $closing_p, $content );
