@@ -24,18 +24,18 @@ function prefix_insert_post_ads( $content ) {
                     'viaggiare'
                 )) ) {
         $content = prefix_insert_after_paragraph( 2, $content );
-        $content = prefix_insert_after_paragraph_contribuisci(4, $content);
+        $content = prefix_insert_after_paragraph_contribuisci(4, $content);        
         return $content;
     }
     if(get_post_type( get_the_ID()) == 'rassegna-stampa'){
       $content = prefix_insert_after_paragraph_contribuisci("rassegna", $content);
       return $content;
     }
-    if(get_post_type( get_the_ID() ) == 'post'){
-      return prefix_insert_after_paragraph_contribuisci(4, $content);
+    if(is_single() && ! is_admin() && get_post_type( get_the_ID() ) == 'post'){
+      $content = prefix_insert_after_paragraph_contribuisci(4, $content);
+      return $content;
     }
     return $content;
-
 }
 
 // Parent Function that makes the magic happen
