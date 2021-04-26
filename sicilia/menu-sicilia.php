@@ -68,3 +68,122 @@ if($loopSiciliaSegnalaEvento->have_posts()):
   </div>
 </div>
 <?php endif; ?>
+
+
+<?php
+$argsSiciliaCollaboraConNoi = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'sicilia-collabora-con-noi',
+    ),
+  ),
+);
+$loopSiciliaCollaboraConNoi = new WP_Query( $argsSiciliaCollaboraConNoi );
+if($loopSiciliaCollaboraConNoi->have_posts()):
+ ?>
+<div class="modal fade" id="SiciliaCollaboraConNoi" tabindex="-1" role="dialog" aria-labelledby="SiciliaCollaboraConNoi" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="SiciliaCollaboraConNoiTitle">Collabora con noi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopSiciliaCollaboraConNoi->have_posts()) :  $loopSiciliaCollaboraConNoi->the_post();
+            the_content();
+          endwhile;
+          ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+
+
+<?php
+$argsSiciliaDonazione = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'sicilia-donazione',
+    ),
+  ),
+);
+$loopSiciliaDonazione = new WP_Query( $argsSiciliaDonazione );
+if($loopSiciliaDonazione->have_posts()):
+ ?>
+<div class="modal fade" id="SiciliaDonazione" tabindex="-1" role="dialog" aria-labelledby="SiciliaDonazione" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="SiciliaDonazione">Donazione</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopSiciliaDonazione->have_posts()) :  $loopSiciliaDonazione->the_post();
+            the_content();
+          endwhile;
+          ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php
+$argsSiciliaDiventaPartner = array(
+  'post_type' => 'contenuti-speciali',
+  'posts_per_page' => 1,
+  'tax_query' => array(
+    array(
+        'taxonomy'=> 'contenuti_speciali_filtri',
+        'field'   => 'slug',
+        'terms'		=> 'sicilia-diventa-partner',
+    ),
+  ),
+);
+$loopSiciliaDiventaPartner = new WP_Query( $argsSiciliaDiventaPartner );
+if($loopSiciliaDiventaPartner->have_posts()):
+ ?>
+<div class="modal fade" id="SiciliaDiventaPartner" tabindex="-1" role="dialog" aria-labelledby="SiciliaDiventaPartner" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="SiciliaDiventaPartner">Diventa partner</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pcc-pianfut">
+        <?php
+          while($loopSiciliaDiventaPartner->have_posts()) :  $loopSiciliaDiventaPartner->the_post();
+            the_content();
+          endwhile;
+          ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>

@@ -203,7 +203,17 @@ Template Name: Sicilia che cambia
               <input name="regione" type="hidden" value="sicilia">
               <input name="aggiungi_annuncio" type="submit" value="Inserisci un annuncio" class="btn btn-secondary">
             </form>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#SiciliaCollaboraConNoi">
+               Collabora con noi
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#SiciliaDonazione">
+               Fai una donazione
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#SiciliaDiventaPartner">
+               Diventa partner
+            </button>
           </div>
+
         </aside>
 
         <?php get_sidebar(); ?>
