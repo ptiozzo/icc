@@ -23,8 +23,8 @@ function prefix_insert_post_ads( $content ) {
                     'questione-di-genere',
                     'viaggiare'
                 )) ) {
-        $content = prefix_insert_after_paragraph( 2, $content );
-        $content = prefix_insert_after_paragraph_contribuisci(4, $content);        
+        $content = prefix_insert_after_content($content );
+        $content = prefix_insert_after_paragraph_contribuisci(4, $content);
         return $content;
     }
     if(get_post_type( get_the_ID()) == 'rassegna-stampa'){
@@ -39,7 +39,7 @@ function prefix_insert_post_ads( $content ) {
 }
 
 // Parent Function that makes the magic happen
-function prefix_insert_after_paragraph( $paragraph_id, $content ) {
+function prefix_insert_after_content( $content ) {
 
     $ad_code = '<div class="single__attivati mb-2 d-flex flex-lg-row flex-column">';
     if (in_category('abitare')){
