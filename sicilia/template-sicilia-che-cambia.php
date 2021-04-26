@@ -191,7 +191,9 @@ Template Name: Sicilia che cambia
 		</div><!-- Fini seconda colonna  -->
       <div class="col-lg-home3">
         <aside class="sidebar">
+
           <div class="pcc-pianfut">
+            <a href="/tag/viaggio-in-sicilia/">Bannerino Viaggio in sicilia</a>
             <form class="" action="/nuovarealtasegnalata/?regionemappa=sicilia" method="post">
               <input name="regionemappa" type="hidden" value="sicilia">
               <input name="segnala_realta" type="submit" value="Segnala una realtà" class="btn btn-secondary">
