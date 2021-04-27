@@ -187,13 +187,16 @@ Template Name: Sicilia che cambia
 					endif;
 					wp_reset_query();?>
 
+
 			</div> <!-- Fine row  -->
 		</div><!-- Fini seconda colonna  -->
       <div class="col-lg-home3">
         <aside class="sidebar">
 
           <div class="pcc-pianfut">
-            <a href="/tag/viaggio-in-sicilia/">Bannerino Viaggio in sicilia</a>
+            <a href="/tag/viaggio-in-sicilia/" class="p-0 mb-2">
+              <img class="img-fluid" src="https://www.italiachecambia.org/wp-content/uploads/2021/04/bannerSiciliaCheCambia.png" alt="Viaggio in Sicilia">
+            </a>
             <form class="" action="/nuovarealtasegnalata/?regionemappa=sicilia" method="post">
               <input name="regionemappa" type="hidden" value="sicilia">
               <input name="segnala_realta" type="submit" value="Segnala una realtà" class="btn btn-secondary">
@@ -221,5 +224,11 @@ Template Name: Sicilia che cambia
         <?php get_sidebar(); ?>
       </div><!-- Fine sidebar  -->
 	</div><!-- Fine row -->
+  <div class="row my-3">
+    <div class="col-12 text-center">
+      <?php dynamic_sidebar('sicilia-footer'); ?>
+    </div>
+  </div>
 </div><!-- Fine container fluid -->
+
 <?php get_footer(); ?>
