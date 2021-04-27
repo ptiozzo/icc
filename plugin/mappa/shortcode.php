@@ -190,7 +190,7 @@ if($Categoria1 != $Categoria
           'hide_empty' => false,
         ) );
         foreach ($terms as $key ) {
-          if (get_option('icc_mappa_rete_'.$key->slug) > 0){
+          if (get_option('icc_mappa_rete_'.$key->slug) > 0 && get_option('icc_mappa_rete_'.$key->slug != "sostenibilmente")){
             ?>
             <a class="mt-2 btn btn-lg btn-outline-dark btn-outline-mappa text-wrap" href="/mappa/<?php echo $key->slug; ?>"><?php echo get_option('icc_mappa_rete_'.$key->slug)." ".$key->name ?></a>
             <?php
