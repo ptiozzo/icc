@@ -2,7 +2,7 @@
 <?php
   $ParentCat1='tuttecategorie';
   $ParentCat2='tuttitag';
-  $ParentReg='territori-che-cambiano';
+  $ParentReg='territori';
 
   if ($_SERVER['REQUEST_URI'] == "/contenuti/"){
     delete_transient('icc_contenutiCat1_'.(string) $_COOKIE['PHPSESSID']);
@@ -99,7 +99,7 @@
       </select>
       <!-- Dropdown per selezione regione -->
       <select name="regione-dropdown"  class="custom-select">
-        <option value="territori-che-cambiano" <?php if ($reg == 'regioni') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
+        <option value="territori" <?php if ($reg == 'territori') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
         <?php
           $categories = get_categories('child_of='.get_category_by_slug($ParentReg)->term_id);
           foreach ($categories as $category) {

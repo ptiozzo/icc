@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <?php
-  $ParentCat1='i-nostri-contenuti';
-  $ParentCat2='tematica';
-  $ParentReg='regioni';
+  $ParentCat1='tutte-le-categorie';
+  $ParentCat2='tutti-i-tag';
+  $ParentReg='territori';
 
   if ($_SERVER['REQUEST_URI'] == "/cerca/"){
     delete_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID']);
@@ -107,9 +107,9 @@
 
          <br />
         <select name="contenuti-dropdown" class="custom-select">
-          <option value="i-nostri-contenuti" <?php if ($SearchCat1 == 'i-nostri-contenuti') {echo 'selected';}?> ><?php echo 'Tutti i nostri contenuti'; ?></option>
+          <option value="tutte-le-categorie" <?php if ($SearchCat1 == 'tutte-le-categorie') {echo 'selected';}?> >Tutte le categorie</option>
           <?php
-            $categories = get_categories('child_of='.get_category_by_slug($ParentCat1)->term_id);
+            $categories = get_categories();
             foreach ($categories as $category) {
               $option = '<option value="'.$category->category_nicename.'" ';
               if ($SearchCat1 == $category->category_nicename) {$option .= 'selected ';};
@@ -122,13 +122,13 @@
         </select>
       <!-- Dropdown per selezione tematica -->
       <select name="tematica-dropdown" class="custom-select">
-        <option value="tematica" <?php if ($SearchCat2 == 'tematica') {echo 'selected';}?> ><?php echo 'Tutte le tematiche'; ?></option>
+        <option value="tutti-i-tag" <?php if ($SearchCat2 == 'tutti-i-tag') {echo 'selected';}?> >Tutti i tag</option>
         <?php
-          $categories = get_categories('child_of='.get_category_by_slug($ParentCat2)->term_id);
+          $categories = get_tags();
           foreach ($categories as $category) {
-            $option = '<option value="'.$category->category_nicename.'" ';
-            if ($SearchCat2 == $category->category_nicename) {$option .= 'selected ';};
-            $option .= '>'.$category->cat_name;
+            $option = '<option value="'.$category->slug.'" ';
+            if ($SearchCat2 == $category->slug) {$option .= 'selected ';};
+            $option .= '>'.$category->name;
             $option .= '</option>';
             echo $option;
           }
@@ -248,7 +248,7 @@
           'author' => $SearchAutore
       );
     }
-    
+
     /*eseguo la query */
     $loop = new WP_Query( $args );
 
