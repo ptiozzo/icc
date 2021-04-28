@@ -1024,17 +1024,15 @@ row
   background: var(--color-regioni);
 }
 
-.single .category-articoli .single__nav__category{background: var(--color-articoli);}
-.single .category-meme .single__nav__category{background: var(--color-meme)}
-.single .category-documentari .single__nav__category{background: var(--color-documentari)}
-
-
 @media (max-width: 768px){
   .single .single__nav__category{
     padding: 15px;
   }
 }
 
+.single .category-articoli .single__nav__category{background: var(--color-articoli);}
+.single .tag-meme .single__nav__category{background: var(--color-meme)}
+.single .tag-documentari .single__nav__category{background: var(--color-documentari)}
 .single .category-rubriche .single__nav__category,
 .single .tag-appunti-viaggio .single__nav__category,
 .single .category-ashoka-fellow .single__nav__category,
