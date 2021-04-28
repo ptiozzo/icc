@@ -204,7 +204,7 @@ function prefix_insert_after_paragraph_contribuisci( $paragraph_id, $content ) {
       $ad_code .= '</div>';
     endwhile;
     $ad_code .= '<button type="button" class="btn btn-lg btn-warning position-relative">';
-    $ad_code .= 'Contribuisci adesso all\'italia che cambia';
+    $ad_code .= '<b>Contribuisci adesso all\'italia che cambia</b>';
     //$ad_code .= '<img src="'.get_template_directory_uri().'/assets/img/payment-methods.png" class="ml-2">';
     $ad_code .= '<a href="/contribuisci" class="stretched-link"></a>';
     $ad_code .= '</button>';
