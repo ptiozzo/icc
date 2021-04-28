@@ -118,7 +118,7 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Viaggiare';
 }elseif (in_category('documentari')) {
   echo 'I documentari';
-}elseif (in_category('io-faccio-cosi')) {
+}elseif (has_tag('io-faccio-cosi')) {
   echo 'Io faccio così';
 }elseif (in_category('meme')) {
   echo 'I meme';
