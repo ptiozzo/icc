@@ -8,6 +8,8 @@
 			get_template_part('casentino/menu','casentino');
 		} elseif (has_category('liguria-che-cambia')) {
 			get_template_part('liguria/menu','liguria');
+		} elseif (has_category('sicilia-che-cambia')) {
+			get_template_part('sicilia/menu','sicilia');
 		}
 	} ?>
 
