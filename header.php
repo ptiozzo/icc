@@ -252,9 +252,7 @@
 				get_template_part('casentino/menu','casentino');
 			} elseif (is_page('liguria')) {
 				get_template_part('liguria/menu','liguria');
-			} elseif (is_page('sicilia')) {
-				get_template_part('sicilia/menu','sicilia');
-			}
+			} 
 			?>
 
 
