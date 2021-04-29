@@ -380,6 +380,12 @@ header.home li{
   }
 }
 
+@media (max-width: 1110) {
+  header.home .dropdown{
+    display: none!important;
+  }
+}
+
 @media (max-width: 992px) {
   header.home ul{
     padding-inline-start: 0;
