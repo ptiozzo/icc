@@ -46,6 +46,8 @@ function myplugin_rewrite_rule() {
 	add_rewrite_rule( '^liguria/storie/?', 'index.php?page_id=59227','top' );
 	add_rewrite_rule( '^liguria/([^/]*)/page/?([0-9]{1,})/?', 'index.php?pagename=template-province&par1=$matches[1]&paged=$matches[2]','top' );
 	add_rewrite_rule( '^liguria/([^/]*)/?', 'index.php?pagename=template-province&par1=$matches[1]','top' );
+	add_rewrite_rule( '^sicilia/storie/page/?([0-9]{1,})/?', 'index.php?page_id=100588&paged=$matches[1]','top' );
+	add_rewrite_rule( '^sicilia/storie/?', 'index.php?page_id=100588','top' );
 
 
 }
