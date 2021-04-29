@@ -374,6 +374,12 @@ header.home li{
   align-self: center
 }
 
+@media (max-width: 1280px) {
+  header.home .socials{
+    display: none!important;
+  }
+}
+
 @media (max-width: 992px) {
   header.home ul{
     padding-inline-start: 0;

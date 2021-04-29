@@ -81,7 +81,7 @@
 	          wp_nav_menu( array(
 	            'theme_location' => 'menu-social',
 	            'container' => false,
-							'menu_class' => 'd-flex m-0',
+							'menu_class' => 'd-flex m-0 p-0',
 							)
 	          );
 	          ?>
