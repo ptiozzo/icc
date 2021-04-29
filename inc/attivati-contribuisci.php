@@ -192,20 +192,20 @@ function prefix_insert_after_paragraph_contribuisci( $paragraph_id, $content ) {
   $loopContribuisciSingleMobile = new WP_Query( $argsContribuisciSingleMobile );
 
   if( $loopContribuisciSingleDesktop->have_posts() || $loopContribuisciSingleMobile->have_posts()):
-    $ad_code = '<div class="single__article__contribuisci mb-2 pb-3">';
+    $ad_code = '<div class="single__article__contribuisci text-center mb-2 pb-3">';
     while( $loopContribuisciSingleDesktop->have_posts() ) : $loopContribuisciSingleDesktop->the_post();
       $ad_code .= '<div class="m-2 d-none d-md-block">';
       $ad_code .= get_the_content();
       $ad_code .= '</div>';
     endwhile;
     while( $loopContribuisciSingleMobile->have_posts() ) : $loopContribuisciSingleMobile->the_post();
-      $ad_code .= '<div class="m-2 d-block d-md-none">';
+      $ad_code .= '<div class="m-2 d-block d-md-none text-center">';
       $ad_code .= get_the_content();
       $ad_code .= '</div>';
     endwhile;
-    $ad_code .= '<button type="button" class="btn btn-lg btn-block btn-warning position-relative">';
-    $ad_code .= '<b>Contribuisci adesso all\'Italia che Cambia</b>';
-    $ad_code .= '<img src="'.get_template_directory_uri().'/assets/img/payment-methods.png" class="ml-2">';
+    $ad_code .= '<button type="button" class="btn btn-lg btn-warning position-relative">';
+    $ad_code .= '<b>Contribuisci adesso all\'italia che cambia</b>';
+    //$ad_code .= '<img src="'.get_template_directory_uri().'/assets/img/payment-methods.png" class="ml-2">';
     $ad_code .= '<a href="/contribuisci" class="stretched-link"></a>';
     $ad_code .= '</button>';
     $ad_code .= '</div>';
