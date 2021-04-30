@@ -50,7 +50,7 @@ Template Name: Sicilia che cambia
     			if( $loop->have_posts() ) : ?>
             <div class='head'>
       				<div class='title'>
-      					<h5>ARTICOLI IN EVIDENZA</h5>
+      					<h5>IN EVIDENZA</h5>
       				</div>
       			</div>
     				<div id="carouselEvidenza" class="carousel carousel-control-top slide <?php if ($icc_numeroPost > 1){echo "controll-visible";} ?>" data-ride="carousel" data-interval="false">
