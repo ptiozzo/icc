@@ -136,7 +136,7 @@ body.dyslexia{
   font-size: 1rem!important;
 }
 
-.admin-bar header{
+.admin-bar header.home{
   top:32px;
 }
 .admin-bar .menu_regioni{
