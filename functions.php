@@ -265,9 +265,9 @@ add_action('end_session_action','end_session');
 //fine sessione
 
 
-/* Aggiunta banner ATTIVATI dopo secondo paragrafo.
+/* Aggiunta banner ATTIVATI/CONTRIBUISCI dopo secondo paragrafo.
 /* ------------------------------------ */
-require 'inc/attivati.php';
+require 'inc/attivati-contribuisci.php';
 /* Aggiunta banner PIANETA FUTURO dopo secondo paragrafo.
 /* ------------------------------------ */
 require 'inc/pianetafuturo.php';

@@ -162,9 +162,6 @@
 						 ?>
 					</div>
 
-					<!-- Box contribuisci fondo articolo -->
-					<?php get_template_part('contribuisci/article','contribuisci'); ?>
-
 				</div>
 			</div>
 			<div class="col-12 col-md-1 col_single_action">

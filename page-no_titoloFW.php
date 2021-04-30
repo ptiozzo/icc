@@ -13,6 +13,8 @@ Template Name: Page - No titolo full width
     get_template_part('piemonte/menu','piemonte');
   } elseif ( $post->post_parent == '44548' ) {
     get_template_part('casentino/menu','casentino');
+  } elseif ( $post->post_parent == '100588' ) {
+    get_template_part('sicilia/menu','sicilia');
   }
 ?>
 <div class="pt-4">
