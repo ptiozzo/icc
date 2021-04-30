@@ -25,11 +25,11 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		//wp_enqueue_script;
 		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 		wp_enqueue_style( 'icc-fontfavole','//fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
-		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css',array(),filemtime(get_template_directory() . '/assets/css/main.css'),'all');
+//		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css',array(),filemtime(get_template_directory() . '/assets/css/main.css'),'all');
 		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/chi-siamo/index.css'),'all');
 		wp_enqueue_style( 'icc8', get_template_directory_uri().'/assets/css/modules/visione/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/visione/index.css'),'all');
 		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/sostienici/index.css'),'all');
-		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/mappa/index.css'),'all');
+//		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/mappa/index.css'),'all');
 		wp_enqueue_style( 'icc-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css',array(),filemtime(get_template_directory() . '/assets/css/bootstrap.min.css'),'all');
 	  wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css',array(),filemtime(get_template_directory() . '/style.css'),'all');
 		wp_enqueue_script('jquery');
@@ -384,5 +384,14 @@ function jptweak_remove_share() {
     }
 }
 add_action( 'loop_start', 'jptweak_remove_share' );
+
+/*  Remove create category/tags capability for editor
+/* ------------------------------------ */
+add_action( 'init', 'ICC_remove_cap_manage_category' );
+function ICC_remove_cap_manage_category(){
+  global $wp_roles;
+  $wp_roles->remove_cap( 'editor', 'manage_categories' );
+}
+
 
 ?>
