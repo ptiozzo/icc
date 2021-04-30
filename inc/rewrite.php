@@ -49,7 +49,6 @@ function myplugin_rewrite_rule() {
 	add_rewrite_rule( '^sicilia/storie/page/?([0-9]{1,})/?', 'index.php?page_id=100623&paged=$matches[1]','top' );
 	add_rewrite_rule( '^sicilia/storie/?', 'index.php?page_id=100623','top' );
 
-
 }
 add_action('init', 'myplugin_rewrite_rule', 10, 0);
 

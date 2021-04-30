@@ -16,6 +16,10 @@
     {
       dynamic_sidebar('liguria');
     }
+    elseif (is_page('sicilia'))
+    {
+      dynamic_sidebar('sicilia');
+    }
     else
       dynamic_sidebar('primary');
 
