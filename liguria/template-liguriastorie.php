@@ -7,15 +7,15 @@ Template Name: liguria storie
 <?php get_template_part('liguria/menu','liguria'); ?>
 <?php
 $Cat1 = 'liguria-che-cambia';
-$Cat2 = 'io-faccio-cosi';
+$Tag1 = 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi';
  ?>
 <div class="container-fluid">
 
   <?php
-    $CatTerm = $Cat1."+".$Cat2;
     $args = array(
     'post_type' => 'post',
-    'category_name' => $CatTerm,
+    'category_name' => $Cat1,
+    'tag' => $Tag1,
     'paged'     => $paged,
     );
     /*eseguo la query */

@@ -7,15 +7,15 @@ Template Name: Casentino storie
 <?php get_template_part('casentino/menu','casentino'); ?>
 <?php
 $Cat1 = 'casentino-che-cambia';
-$Cat2 = 'io-faccio-cosi';
+$Tag1 = 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi';
  ?>
-<div class="container-fluid" style="margin-top: 78px;">
+<div class="container-fluid">
 
   <?php
-    $CatTerm = $Cat1."+".$Cat2;
     $args = array(
     'post_type' => 'post',
-    'category_name' => $CatTerm,
+    'category_name' => $Cat1,
+    'tag' => $Tag1,
     'paged'     => $paged,
     );
     /*eseguo la query */
