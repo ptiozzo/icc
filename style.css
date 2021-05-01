@@ -1703,7 +1703,7 @@ CARD HOME
   left: 0;
   width: 200px;
   height: 150px;
-  border-top: 150px solid red;
+  border-top: 150px solid var(--color-regioni);
   border-right: 200px solid transparent;
 }
 

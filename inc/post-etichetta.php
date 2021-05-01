@@ -88,7 +88,7 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Inclusione sociale';
 }elseif (has_category('disabilita')){
   echo 'Disabilità';
-}elseif (has_category('tematiche-genere')){
+}elseif (has_category('tematiche-di-genere')){
   echo 'Tematiche di genere';
 }elseif (has_category('imprenditoria-etica')){
   echo 'Imprenditoria Etica';
@@ -98,7 +98,7 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Legalità';
 }elseif (has_category('mobilita-sostenibile')){
   echo 'Mobilità sostenibile';
-}elseif (has_category('salute-alimentazione')){
+}elseif (has_category('salute-e-alimentazione')){
   echo 'Salute e alimentazione';
 }elseif (has_category('sostenibilita-ambientale')){
   echo 'Sostenibilità ambientale';
