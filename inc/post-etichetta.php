@@ -76,6 +76,10 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Arte e cultura';
 }elseif (has_category('informazione-e-comunicazione')){
   echo 'Informazione e comunicazione';
+}elseif (has_category('informazione-e-cultura')){
+    echo 'Informazione e cultura';
+}elseif (has_category('ecovillaggi-e-cohousing')){
+    echo 'Ecovillaggi e cohousing';
 }elseif (has_category('economia-circolare')){
   echo 'Economia circolare';
 }elseif (has_category('economia-lavoro')){
