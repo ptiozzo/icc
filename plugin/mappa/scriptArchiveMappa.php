@@ -163,7 +163,7 @@ if(get_transient('icc_mappa_tuttipuntini') && $filtro == 0){
 /* --------------
 AGGIUNGO POPUP
 -------------- */
-if(get_transient('icc_mappa_tuttipopup') && $filtro == 0 ){
+if(get_transient('icc_mappa_tuttipopup') && $filtro == 0 && !current_user_can('administrator') ){
   echo "<!--Popup da transient-->";
   echo get_transient('icc_mappa_tuttipopup');
 }else{
