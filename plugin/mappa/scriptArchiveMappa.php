@@ -163,20 +163,20 @@ if(get_transient('icc_mappa_tuttipuntini') && $filtro == 0){
 /* --------------
 AGGIUNGO POPUP
 -------------- */
-if(get_transient('icc_mappa_tuttipopup') && $filtro == 0 && !is_user_logged_in()){
+if(get_transient('icc_mappa_tuttipopup') && $filtro == 0 ){
   echo "<!--Popup da transient-->";
   echo get_transient('icc_mappa_tuttipopup');
 }else{
   echo "<!--Popup da loop-->";
   $popupMappaScript = "";
   while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
-  $popupMappa = "";
+  $popupMappa = '';
   if ( has_post_thumbnail() ){
       $popupMappa .= "<img class='img-fluid' src='".get_the_post_thumbnail_url('')."' ><br>";
   }
-  $popupMappa .= "<h3 class='h5'>".get_the_title()."</h3>";
+  $popupMappa .= "<h3 class='h5'>".get_the_title().'</h3>';
   $popupMappa .= get_the_excerpt();
-  $popupMappa .= "<br>";
+  $popupMappa .= '<br>';
   $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
   if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
     $popupMappaScript .= "<script>\r\n";
