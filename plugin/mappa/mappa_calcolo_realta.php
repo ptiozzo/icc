@@ -120,15 +120,15 @@ function mappa_calcolo_realta(){
     while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
     $popupMappa = '';
     if ( has_post_thumbnail() ){
-        $popupMappa .= "<img class='img-fluid' src='".get_the_post_thumbnail_url('')."' ><br>";
+        $popupMappa .= '<img class="img-fluid" src="'.get_the_post_thumbnail_url('').'"><br>';
     }
-    $popupMappa .= "<h3 class='h5'>".get_the_title().'</h3>';
+    $popupMappa .= '<h3 class="h5">'.get_the_title().'</h3>';
     $popupMappa .= get_the_excerpt();
     $popupMappa .= '<br>';
-    $popupMappa .= "<a href='".get_the_permalink()."'>Approfondisci</a>";
+    $popupMappa .= '<a href="'.get_the_permalink().'">Approfondisci</a>';
     if(get_post_meta( get_the_ID(), 'Mappa_Latitudine',true) && get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)){
       $popupMappaScript .= "<script>\r\n";
-        $popupMappaScript .= "var iccTitle = \"". $popupMappa."\";\r\n";
+        $popupMappaScript .= "var iccTitle = '". $popupMappa."';\r\n";
         $popupMappaScript .= "var altPuntino = \"". get_the_title() ."\";\r\n";
         $popupMappaScript .= "var puntino = L.marker([".get_post_meta( get_the_ID(), 'Mappa_Latitudine',true).",".get_post_meta( get_the_ID(), 'Mappa_Longitudine',true)."],{iccTitle: altPuntino,";
           if(get_the_terms( get_the_ID() , 'mappastato' )[0]->slug == "utente" ){
