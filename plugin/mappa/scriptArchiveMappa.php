@@ -163,10 +163,11 @@ if(get_transient('icc_mappa_tuttipuntini') && $filtro == 0){
 /* --------------
 AGGIUNGO POPUP
 -------------- */
-if(get_transient('icc_mappa_tuttipopup') && $filtro == 0){
+if(get_transient('icc_mappa_tuttipopup') && $filtro == 0 && !is_user_logged_in()){
   echo "<!--Popup da transient-->";
   echo get_transient('icc_mappa_tuttipopup');
 }else{
+  echo "<!--Popup da loop-->";
   $popupMappaScript = "";
   while( $loopMappaArchivio->have_posts() ) : $loopMappaArchivio->the_post();
   $popupMappa = "";
