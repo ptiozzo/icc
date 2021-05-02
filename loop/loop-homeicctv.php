@@ -1,11 +1,11 @@
 <?php
-
 /* Query per ICC-TV sticky
 *---------------------*/
+$tagIccTv = 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi,amore-che-cambia,meme';
 $argsICCTVLive = array(
   'post_type' => 'post',
   'posts_per_page' => 10,
-  'tag' => 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi,amore-che-cambia,meme',
+  'tag' => $tagIccTv,
   'date_query' => array(
         array(
             'after' => '1 month ago'
@@ -38,7 +38,7 @@ if( $loopICCTVlive->have_posts()){
 $argsICCTVSticky = array(
   'post_type' => 'post',
   'posts_per_page' => 10,
-  'tag' => 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi',
+  'tag' => $tagIccTv,
   'post__not_in' => $exclude_posts_ICCTV,
   'date_query' => array(
         array(
@@ -75,7 +75,7 @@ if(10-$loopICCTVSticky->post_count != 0){
   $argsICCTV = array(
     'post_type' => 'post',
     'posts_per_page' => 10-$loopICCTVSticky->post_count,
-    'tag' => 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi',
+    'tag' => $tagIccTv,
     'post__not_in' => $exclude_posts_ICCTV,
     'tax_query' => array(
       'relation' => 'AND',
