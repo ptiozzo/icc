@@ -1086,6 +1086,13 @@ row
   font-weight: 900;
 }
 
+.single .single__nav__category a:after{
+  content: " - ";
+}
+.single .single__nav__category a:last-of-type:after{
+  content: " ";
+}
+
 .single .single__torna__contenuti{
   border: 1px solid var(--color-white);
 }
