@@ -1,7 +1,7 @@
 <?php
 /* Query per ICC-TV sticky
 *---------------------*/
-$tagIccTv = 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi,amore-che-cambia,meme';
+$tagIccTv = 'icc-tv';
 $argsICCTVLive = array(
   'post_type' => 'post',
   'posts_per_page' => 10,
