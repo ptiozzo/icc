@@ -141,7 +141,8 @@
         $args = array(
                   'orderby' => 'display_name',
                   'order'=>'ASC',
-                  'has_published_posts'=> true
+                  'has_published_posts'=> true,
+                  'role__not_in' => 'icc_user',
         );
         $allUsers = get_users($args);
         foreach($allUsers as $user){
