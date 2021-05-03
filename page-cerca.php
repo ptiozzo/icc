@@ -222,7 +222,7 @@
  ?>
   <?php
 
-  echo " SearchTerm: ";
+  echo "<!-- SearchTerm: ";
   echo $searchterm;
   echo " -SearchCatTerm: ";
   echo $SearchCatTerm;
@@ -237,7 +237,7 @@
   echo $SearchTag;
   echo " -Regione: ";
   echo $SearchReg;
-  echo "";
+  echo "-->";
 
     /* Personalizzo query */
     {
