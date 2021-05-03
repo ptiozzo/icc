@@ -63,15 +63,13 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
         <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6  text-break">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <a href='<?php the_permalink(); ?>'>
-              <?php
-              if ($Cat1 == $ParentCat1) { ?>
+              <div class="category-bg"> </div>
                 <div class='category'>
                   <span class="ml-4"><?php the_time('j M Y') ?></span>
                   <span>
                     <?php get_template_part('inc/post','etichetta'); ?>
                   </span>
                 </div>
-              <?php } ?>
               <!-- Immagine in evidenza -->
               <figure>
                 <?php
