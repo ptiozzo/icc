@@ -1,13 +1,13 @@
 <?php get_header(); ?>
 <?php
   $ParentCat1='tutte-le-categorie';
-  $ParentCat2='tutti-i-tag';
+  $ParentTag='tutti-i-tag';
   $ParentReg='territori';
 
   if ($_SERVER['REQUEST_URI'] == "/cerca/"){
     delete_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID']);
     delete_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID']);
-    delete_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID']);
+    delete_transient('icc_SearchTag_'.(string) $_COOKIE['PHPSESSID']);
     delete_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID']);
     delete_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID']);
     delete_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID']);
@@ -24,14 +24,14 @@
   if ($_POST['submit_button']){
     $searchterm = $_POST['termine-cercato'];
     $SearchCat1 = $_POST['contenuti-dropdown'];
-    $SearchCat2 = $_POST['tematica-dropdown'];
+    $SearchTag = $_POST['tag-dropdown'];
     $SearchOrd = $_POST['order-dropdown'];
     $SearchAutore = $_POST['autore-dropdown'];
     $SearchReg = $_POST['regione-dropdown'];
     $paged = 0;
     set_transient('icc_termineCercato_'.(string) $_COOKIE['PHPSESSID'],$searchterm,12 * HOUR_IN_SECONDS);
     set_transient('icc_searchCat1_'.(string) $_COOKIE['PHPSESSID'],$SearchCat1,12 * HOUR_IN_SECONDS);
-    set_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID'],$SearchCat2,12 * HOUR_IN_SECONDS);
+    set_transient('icc_SearchTag_'.(string) $_COOKIE['PHPSESSID'],$SearchTag,12 * HOUR_IN_SECONDS);
     set_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID'],$SearchOrd,12 * HOUR_IN_SECONDS);
     set_transient('icc_searchAutore_'.(string) $_COOKIE['PHPSESSID'],$SearchAutore,12 * HOUR_IN_SECONDS);
     set_transient('icc_searchReg_'.(string) $_COOKIE['PHPSESSID'],$SearchReg,12 * HOUR_IN_SECONDS);
@@ -52,12 +52,12 @@
     } else {
       $SearchCat1=$ParentCat1;
     }
-    if(get_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID'])) {
-        $SearchCat2 = get_transient('icc_searchCat2_'.(string) $_COOKIE['PHPSESSID']);
-    } elseif($_GET['tematica']){
-        $SearchCat2 = $_GET['tematica'];
+    if(get_transient('icc_SearchTag_'.(string) $_COOKIE['PHPSESSID'])) {
+        $SearchTag = get_transient('icc_SearchTag_'.(string) $_COOKIE['PHPSESSID']);
+    } elseif($_GET['tag']){
+        $SearchTag = $_GET['tag'];
     } else {
-      $SearchCat2=$ParentCat2;
+      $SearchTag=$ParentTag;
     }
     if(get_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID'])) {
         $SearchOrd = get_transient('icc_searchOrd_'.(string) $_COOKIE['PHPSESSID']);
@@ -87,8 +87,8 @@
   if($SearchCat1 != $ParentCat1 && $SearchCat1 != ''){
     $Condividi .= "&contenuti=".$SearchCat1;
   }
-  if($SearchCat2 != $ParentCat2 && $SearchCat2 != ''){
-    $Condividi .= "&tematica=".$SearchCat2;
+  if($SearchTag != $ParentTag && $SearchTag != ''){
+    $Condividi .= "&tag=".$SearchTag;
   }
   if($SearchAutore != 'autore' && $SearchAutore != ''){
     $Condividi .= "&autore=".$SearchAutore;
@@ -120,14 +120,14 @@
           ?>
           <option value="nostri-libri" <?php if ($SearchCat1 == 'nostri-libri') {echo 'selected';}?>>I nostri libri</option>
         </select>
-      <!-- Dropdown per selezione tematica -->
-      <select name="tematica-dropdown" class="custom-select">
-        <option value="tutti-i-tag" <?php if ($SearchCat2 == 'tutti-i-tag') {echo 'selected';}?> >Tutti i tag</option>
+      <!-- Dropdown per selezione tag -->
+      <select name="tag-dropdown" class="custom-select">
+        <option value="tutti-i-tag" <?php if ($SearchTag == 'tutti-i-tag') {echo 'selected';}?> >Tutti i tag</option>
         <?php
           $categories = get_tags();
           foreach ($categories as $category) {
             $option = '<option value="'.$category->slug.'" ';
-            if ($SearchCat2 == $category->slug) {$option .= 'selected ';};
+            if ($SearchTag == $category->slug) {$option .= 'selected ';};
             $option .= '>'.$category->name;
             $option .= '</option>';
             echo $option;
@@ -141,7 +141,8 @@
         $args = array(
                   'orderby' => 'display_name',
                   'order'=>'ASC',
-                  'has_published_posts'=> true
+                  'has_published_posts'=> true,
+                  'role__not_in' => 'icc_user',
         );
         $allUsers = get_users($args);
         foreach($allUsers as $user){
@@ -155,7 +156,7 @@
       </select>
       <!-- Dropdown per selezione regione -->
       <select name="regione-dropdown"  class="custom-select">
-        <option value="regioni" <?php if ($SearchReg == 'regioni') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
+        <option value="territori" <?php if ($SearchReg == 'territori') {echo 'selected';}?> ><?php echo 'Italia'; ?></option>
         <?php
           $categories = get_categories('child_of='.get_category_by_slug($ParentReg)->term_id);
           foreach ($categories as $category) {
@@ -196,31 +197,32 @@
     </script>
 </div><!-- contenuti_header -->
 <?php
-  if ($searchterm != ''){
-    $SearchCatTerm = '';
-    if($SearchCat1 != $ParentCat1){
+  if($SearchCat1 == $ParentCat1){
+    $SearchCat1 = '';
+  }
+
+  if($SearchTag == $ParentTag){
+    $SearchTag = '';
+  }
+  if($SearchReg == $ParentReg){
+    $SearchReg = '';
+  }
+
+  if($SearchCat1 != '' ){
+    if($SearchReg != ''){
+      $SearchCatTerm = $SearchCat1."+".$SearchReg;
+    }else{
       $SearchCatTerm = $SearchCat1;
     }
-    if($SearchCat2 != $ParentCat2){
-      if($SearchCatTerm == ''){
-        $SearchCatTerm = $SearchCat2;
-      }else{
-        $SearchCatTerm .= "+".$SearchCat2;
-      }
-    }
-    if($SearchReg != $ParentReg){
-      if($SearchCatTerm == ''){
-        $SearchCatTerm = $SearchReg;
-      }else{
-        $SearchCatTerm .= "+".$SearchReg;
-      }
-    }
+  }elseif($SearchReg != ''){
+    $SearchCatTerm = $SearchReg;
   }
+
     //echo $SearchCatTerm;
  ?>
   <?php
 
-  echo "<!-- SearchTerm: ";
+  echo " SearchTerm: ";
   echo $searchterm;
   echo " -SearchCatTerm: ";
   echo $SearchCatTerm;
@@ -229,17 +231,20 @@
   echo " -SearchAutore: ";
   echo $SearchAutore;
 
-  echo " -SearchCat1: ";
+  echo " -SearchCat: ";
   echo $SearchCat1;
-  echo " -SearchCat2: ";
-  echo $SearchCat2;
-  echo "-->";
+  echo " -Tag: ";
+  echo $SearchTag;
+  echo " -Regione: ";
+  echo $SearchReg;
+  echo "";
 
     /* Personalizzo query */
     {
       $args = array(
           'post_type' => array('post','nostri-libri','rassegna-stampa'),
           'category_name' => $SearchCatTerm,
+          'tag' => $SearchTag,
           'posts_per_page' => 20,
           'ignore_sticky_posts' => 1,
           'paged'          => $paged,
