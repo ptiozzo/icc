@@ -938,7 +938,7 @@ row
 
 .contenuti .row article.category-articoli a:hover .category{background: var(--color-articoli);}
 .contenuti .row article.tag-meme a:hover .category{background: var(--color-meme)}
-.contenuti .row article.category-documentari a:hover .category{background: var(--color-documentari)}
+.contenuti .row article.tag-documentari a:hover .category{background: var(--color-documentari)}
 .contenuti .row article.tag-appunti-viaggio a:hover .category,
 .contenuti .row article.category-ashoka-fellow a:hover .category,
 .contenuti .row article.tag-diari-di-bordo-maestro-di-strada  a:hover .category,
