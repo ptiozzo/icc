@@ -49,7 +49,6 @@
             <option value="3">La newsletter settimanale con il nostro racconto quotidiano</option>
             <option value="15">"Io non mi rassegno" La newsletter quotidiana con la rassegna stampa commentata da noi</option>
             <option value="13">Piemonte che cambia. La newsletter mensile con le notizie dal territorio</option>
-            <option value="16">Casentino che cambia. La newsletter mensile con le notizie dal territorio</option>
             <option value="17">Liguria che cambia. La newsletter mensile con le notizie dal territorio</option>
           </select>
        </div>
