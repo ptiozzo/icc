@@ -934,6 +934,7 @@ row
   justify-content: space-between;
   padding: 0 10px 0;
 }
+.contenuti .row article a:hover .category{background: var(--color-articoli);}
 
 .contenuti .row article.category-articoli a:hover .category{background: var(--color-articoli);}
 .contenuti .row article.tag-meme a:hover .category{background: var(--color-meme)}
