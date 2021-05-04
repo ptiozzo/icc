@@ -36,14 +36,10 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Matrix è dentro di noi';
 }elseif (has_tag('appunti-viaggio')){
   echo 'Appunti di viaggio';
-}elseif (has_category('ashoka-fellow')){
-  echo 'Gli Ashoka Fellow';
 }elseif (has_tag('diari-di-bordo-maestro-di-strada')){
   echo 'Maestro di strada';
 }elseif (has_tag('dizionario-eretico')){
   echo 'Dizionario eretico';
-}elseif (has_category('economia-bene-comune')){
-  echo 'Economia del bene comune';
 }elseif (has_tag('blog')){
   echo 'In diretta dal camper';
 }elseif (has_tag('in-un-flash')){
@@ -64,62 +60,19 @@ if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Pillole per la Transizione';
 }elseif (has_tag('terranave')){
   echo 'Rubrica - Terranave';
-}elseif (has_category('una-favola-puo-fare')){
-  echo 'Una favola può fare';
 }elseif (has_tag('una-favola-puo-fare')){
     echo 'Una favola può fare';
 }elseif (has_tag('voci-italia-che-cambia')){
   echo 'Voci da Italia che cambia';
-}elseif (has_category('agricoltura-sostenibile')){
-  echo 'Agricoltura';
-}elseif (has_category('arte-cultura')){
-  echo 'Arte e cultura';
-}elseif (has_category('informazione-e-comunicazione')){
-  echo 'Informazione e comunicazione';
-}elseif (has_category('informazione-e-cultura')){
-    echo 'Informazione e cultura';
-}elseif (has_category('ecovillaggi-e-cohousing')){
-    echo 'Ecovillaggi e cohousing';
-}elseif (has_category('economia-circolare')){
-  echo 'Economia circolare';
-}elseif (has_category('economia-lavoro')){
-  echo 'Economia lavoro';
-}elseif (has_category('educazione-consapevole')){
-  echo 'Educazione consapevole';
-}elseif (has_category('transizione-energetica')){
-  echo 'Transizione energetica';
-}elseif (has_category('inclusione-sociale')){
-  echo 'Inclusione sociale';
-}elseif (has_category('disabilita')){
-  echo 'Disabilità';
-}elseif (has_category('tematiche-di-genere')){
-  echo 'Tematiche di genere';
-}elseif (has_category('imprenditoria-etica')){
-  echo 'Imprenditoria Etica';
-}elseif (has_category('lavoro')){
-  echo 'Lavoro';
-}elseif (has_category('legalita')){
-  echo 'Legalità';
-}elseif (has_category('mobilita-sostenibile')){
-  echo 'Mobilità sostenibile';
-}elseif (has_category('salute-e-alimentazione')){
-  echo 'Salute e alimentazione';
-}elseif (has_category('sostenibilita-ambientale')){
-  echo 'Sostenibilità ambientale';
-}elseif (has_category('inquinamento-ambientale')){
-  echo 'Inquinamento ambientale';
-}elseif (has_category('animali')){
-  echo 'Animali';
-}elseif (has_category('cambiamento-climatico')){
-  echo 'Cambiamento climatico';
-}elseif (has_category('ecoturismo')){
-  echo 'Ecoturismo';
 }elseif (has_tag('documentari')) {
   echo 'I documentari';
 }elseif (has_tag('io-faccio-cosi')) {
   echo 'Io faccio così';
 }elseif (has_tag('meme')) {
   echo 'I meme';
+}else{
+  echo get_the_category()[0]->cat_name;
+  //var_dump( get_the_category());
 }
 
 
