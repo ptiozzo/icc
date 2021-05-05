@@ -1356,6 +1356,10 @@ figcaption{
 .single .tag-io-faccio-cosi .single__action{color: var(--color-ioFaccioCosi)}
 .single .category-salute-che-cambia .single__action{color: var(--color-salute)}
 .single .rassegna-stampa .single__action{color: var(--color-rassegna)}
+.single .category-piemonte-che-cambia .single__action,
+.single .category-liguria-che-cambia .single__action,
+.single .category-casentino-che-cambia .single__action,
+.single .category-sicilia-che-cambia .single__action{color: var(--color-regioni)}
 
 
 .single__contribuisci,
