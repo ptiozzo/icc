@@ -7,7 +7,7 @@ Template Name: Casentino storie
 <?php get_template_part('casentino/menu','casentino'); ?>
 <?php
 $Cat1 = 'casentino-che-cambia';
-$Tag1 = 'a-tu-per-tu,io-faccio-cosi,matrix-dentro-di-noi';
+$Tag1 = 'icc-tv';
  ?>
 <div class="container-fluid">
 

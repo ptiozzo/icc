@@ -7,15 +7,15 @@ Template Name: Sicilia storie
 <?php get_template_part('sicilia/menu','sicilia'); ?>
 <?php
 $Cat1 = 'sicilia-che-cambia';
-$Cat2 = 'io-faccio-cosi';
+$Tag1 = 'icc-tv';
  ?>
 <div class="container-fluid">
 
   <?php
-    $CatTerm = $Cat1."+".$Cat2;
     $args = array(
     'post_type' => 'post',
-    'category_name' => $CatTerm,
+    'category_name' => $Cat1,
+    'tag' => $Tag1,
     'paged'     => $paged,
     );
     /*eseguo la query */
