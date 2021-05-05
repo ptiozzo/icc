@@ -1328,7 +1328,7 @@ figcaption{
   color: inherit;
 }
 
-.single__action{color: var(--color-regioni)}
+.single__action{color: var(--color-articoli)}
 
 .single .category-articoli .single__action{color: var(--color-articoli);}
 .single .tag-meme .single__action{color: var(--color-meme)}
