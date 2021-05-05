@@ -296,7 +296,7 @@ Layout
 /*
 LINK
 */
-
+.single__articolo a,
 .category-articoli a{color: var(--color-articoli);}
 .tag-meme a{color: var(--color-meme)}
 .tag-documentari a{color: var(--color-documentari)}
@@ -1034,7 +1034,7 @@ row
 
 .single .single__nav__category{
   padding: 30px;
-  background: var(--color-regioni);
+  background: var(--color-articoli);
 }
 
 @media (max-width: 768px){
@@ -1128,7 +1128,7 @@ row
   padding: 15px 20px;
   color: var(--color-white);
   margin-top: 30px;
-  background: var(--color-regioni);
+  background: var(--color-articoli);
 }
 .single .category-articoli .single__tag a{background: var(--color-articoli);}
 .single .tag-meme .single__tag a{background: var(--color-meme)}
