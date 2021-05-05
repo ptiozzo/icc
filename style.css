@@ -1069,6 +1069,11 @@ row
 .single .tag-io-faccio-cosi .single__nav__category{background: var(--color-ioFaccioCosi)}
 .single .category-salute-che-cambia .single__nav__category{background: var(--color-salute)}
 .single .rassegna-stampa .single__nav__category{background: var(--color-rassegna)}
+.single .category-piemonte-che-cambia .single__nav__category,
+.single .category-sicilia-che-cambia .single__nav__category,
+.single .category-liguria-che-cambia .single__nav__category,
+.single .category-casentino-che-cambia .single__nav__category{background: var(--color-salute)}
+
 
 .single .single__nav__category a,
 .single .single__nav__category span,
