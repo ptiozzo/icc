@@ -1155,6 +1155,10 @@ row
 .single .tag-matrix-dentro-di-noi .single__tag a{background: var(--color-matrix)}
 .single .tag-io-faccio-cosi .single__tag a{background: var(--color-ioFaccioCosi)}
 .single .category-salute-che-cambia .single__tag a{background: var(--color-salute)}
+.single .category-piemonte-che-cambia .single__tag a,
+.single .category-liguria-che-cambia .single__tag a,
+.single .category-sicilia-che-cambia .single__tag a,
+.single .category-casentino-che-cambia .single__tag a{background: var(--color-regioni)}
 
 .single .single__head .single__date{
   color: var(--color-rassegna);
