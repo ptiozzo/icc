@@ -962,6 +962,10 @@ row
 .contenuti .row article.tag-salute-che-cambia a:hover .category{background: var(--color-salute)}
 .contenuti .row article.rassegna-stampa a:hover .category{background: var(--color-rassegna)}
 .contenuti .row article.tag-matrix-dentro-di-noi a:hover .category{background: var(--color-matrix)}
+.contenuti .row article.tag-piemonte-che-cambia a:hover .category,
+.contenuti .row article.tag-liguria-che-cambia a:hover .category,
+.contenuti .row article.tag-casentino-che-cambia a:hover .category,
+.contenuti .row article.tag-sicilia-che-cambia a:hover .category{background: var(--color-regioni)}
 
 .row article a figure{
   position: relative;
