@@ -212,7 +212,7 @@ Template Name: Sicilia che cambia
                Collabora con noi
             </button>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#SiciliaDonazione">
-               Fai una donazione
+               Contribuisci
             </button>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#SiciliaDiventaPartner">
                Diventa partner
