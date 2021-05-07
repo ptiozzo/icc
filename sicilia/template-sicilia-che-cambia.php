@@ -89,7 +89,7 @@ Template Name: Sicilia che cambia
         							}
         							?>
         							<div class="card-body">
-        								<h5 class="card-title"><?php the_title(); ?></h5>
+        								<!--<h5 class="card-title"><?php the_title(); ?></h5> -->
         								<p class="card-text pt-2"><?php echo get_the_excerpt();?></p>
         								<a href="<?php echo the_permalink();?>" class="stretched-link"></a>
         							</div>
