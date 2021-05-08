@@ -28,4 +28,17 @@ function icc_is_tag_active($tag){
   }
 }
 
+add_action( 'init' , 'icc_tag_activation' );
+function icc_tag_activation(){
+  $TagAttivi = get_option("icc_tagCheCambia_attivi") ? get_option("icc_tagCheCambia_attivi") : array();
+
+  foreach ($TagAttivi as $tag){
+    register_sidebar(array( 'name' => esc_html__( 'TAG '.$tag['tagName'], 'icc' ),'id' => $tag['tagName'],'description' => esc_html__( 'Area '.$tag['tagName'].' nella sidebar', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'TAG '.$tag['tagName'].' 1', 'icc' ),'id' => $tag['tagName'].'sx','description' => esc_html__( 'Area '.$tag['tagName'].' nella colonna sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'TAG '.$tag['tagName'].' 2', 'icc' ),'id' => $tag['tagName'].'dx','description' => esc_html__( 'Area '.$tag['tagName'].' nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+
+    ;
+  }
+}
+
  ?>
