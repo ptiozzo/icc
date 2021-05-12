@@ -57,13 +57,30 @@ function icc_tag_activation(){
     /* articoli */
     add_rewrite_rule( '^'.$tag['tagName'].'/articoli/page/?([0-9]{1,})/?', 'index.php?pagename=tag-che-cambia_articoli&paged=$matches[1]&tag='.$tag['tagName'].'','top' );
   	add_rewrite_rule( '^'.$tag['tagName'].'/articoli/?', 'index.php?pagename=tag-che-cambia_articoli&tag='.$tag['tagName'].'','top' );
-    /* storie - DA FARE */
+    /* storie */
     add_rewrite_rule( '^'.$tag['tagName'].'/storie/page/?([0-9]{1,})/?', 'index.php?pagename=tag-che-cambia_storie&paged=$matches[1]&tag='.$tag['tagName'].'','top' );
   	add_rewrite_rule( '^'.$tag['tagName'].'/storie/?', 'index.php?pagename=tag-che-cambia_storie&tag='.$tag['tagName'].'','top' );
     /* mappa - DA FARE */
     add_rewrite_rule( '^'.$tag['tagName'].'/mappa/?', 'index.php?pagename=tag-che-cambia_mappa&tag='.$tag['tagName'].'','top' );
     /* home */
     add_rewrite_rule( $tag['tagName'], 'index.php?pagename=tag-che-cambia&tag='.$tag['tagName'].'','top' );
+  }
+}
+
+
+add_action( 'template_redirect' , 'icc_tag_redirect' );
+function icc_tag_redirect(){
+  $TagAttivi = get_option("icc_tagCheCambia_attivi") ? get_option("icc_tagCheCambia_attivi") : array();
+
+  foreach ($TagAttivi as $tag){
+    /* Redirect */
+    $url = home_url($tag['tagName']);
+
+    if( is_tag($tag['tagName']) ){
+      if ( wp_redirect( $url,301 ) ) {
+        exit;
+      }
+    }
   }
 }
 
