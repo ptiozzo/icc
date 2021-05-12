@@ -22,7 +22,7 @@
 
   <!-- Filtro rete -->
   <div class="form-group col-12 col-md-6 my-1">
-    <select name="rete-dropdown" class="custom-select" <?php if(get_query_var('rete')){ echo 'disabled'; } ?>>
+    <select name="rete-dropdown" class="custom-select" <?php if(get_query_var('rete') || $Rete != "tuttelereti"){ echo 'disabled'; } ?>>
       <option value="tuttelereti" <?php if ($Rete1 == 'tuttelereti') {echo 'selected';}?> ><?php echo 'Tutte le reti'; ?></option>
       <?php
         $terms = get_terms( array(

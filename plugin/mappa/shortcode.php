@@ -4,15 +4,13 @@ $filtrata = 0;
 if( get_query_var('regione') || get_query_var('provincia') ){
   $filtrata = 1;
 }
-
 $Categoria = 'tuttelecategorie';
-$Rete = 'tuttelereti';
+$Rete = $a['rete'];
 $Regione = $a['regione'];
 $Provincia = 'tutteleprovince';
 $Tipologia = 'tutteletipologie';
 $Realta = '';
 $resetProvincia = 0;
-
 
 //reset sessione
 if($_POST['submit_button'] || $_POST['reset_button'] || strpos($_SERVER['HTTP_REFERER'],'mappa') == false){
@@ -111,11 +109,17 @@ if($Categoria1 != $Categoria
 
 <div class="mappa">
   <?php
+
   echo "<h1>";
-  if ($Regione == "tutteleregioni" && !get_query_var('regione') ){
+  if ($Regione == "tutteleregioni" && $Rete == "tuttelereti" && !get_query_var('regione') ){
     echo "La mappa dell'Italia che Cambia";
-  } else {
+  } elseif( $Regione != "tutteleregioni" ) {
     echo "La mappa di ".get_term_by('slug',$Regione1,'mapparegione')->name." che Cambia";
+  } else {
+    echo "La mappa di ".get_term_by('slug',$Rete,'post_tag')->name;
+    if( strpos(strtolower(get_term_by('slug',$Rete,'post_tag')->name),"che cambia") == false){
+      echo " che cambia";
+    }
   }
 
   if($filtrata == 1){
@@ -141,18 +145,24 @@ if($Categoria1 != $Categoria
         <div id="mappa" class="full-width"></div>
 
         <div class="row conteggi_mappa m-0">
-          <?php if($Regione == "tutteleregioni" && !get_query_var('regione')){ ?>
+          <?php if($Regione == "tutteleregioni" && $Rete == "tuttelereti" && !get_query_var('regione')){ ?>
             <div class="border col-6 text-center">
                 <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
             </div>
             <div class="border col-6 text-center">
               <h3 class="d-inline-block"><?php echo get_option('icc_mappa_rete_totale') ?></h3><span class="text-uppercase"> Reti</span>
             </div>
-        <?php } else {
+        <?php } elseif($Regione != "tutteleregioni") {
             $RegioneMappa = "icc_mappa_realta_".$Regione1; ?>
 
           <div class="border col-12 text-center">
               <h3 class="d-inline-block"><?php echo get_option($RegioneMappa) ?></h3><span class="text-uppercase"> Realtà</span>
+          </div>
+        <?php } else {
+            $ReteMappa = "icc_mappa_rete_".$Rete1; ?>
+
+          <div class="border col-12 text-center">
+              <h3 class="d-inline-block"><?php echo get_option($ReteMappa) ?></h3><span class="text-uppercase"> Realtà</span>
           </div>
         <?php } ?>
         </div>
@@ -180,7 +190,7 @@ if($Categoria1 != $Categoria
 
 
   <div class="row">
-    <?php if ($Regione == "tutteleregioni" && $filtrata == 0){ ?>
+    <?php if ($Regione == "tutteleregioni" && $Rete == "tuttelereti" && $filtrata == 0){ ?>
       <div class="col-12">
         <h2>Le reti mappate</h2>
         <?php

@@ -18,7 +18,8 @@ add_shortcode( 'ICCmappa', 'mappa_shortcode' );
 if(!function_exists('mappa_shortcode')){
   function mappa_shortcode($atts) {
     $a = shortcode_atts( array(
-      'regione' => 'tutteleregioni'
+      'regione' => 'tutteleregioni',
+      'rete' => 'tuttelereti',
    ), $atts );
    if(!is_archive()) {
      ob_start();
