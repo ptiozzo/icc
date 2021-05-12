@@ -8,6 +8,9 @@ if ($_POST['icc_tagCheCambia_attivi_Rimuovi']){
   foreach ($TagAttivi as $tag){
     if($_POST['icc_tagCheCambia_attivi_Rimuovi'] != "Rimuovi ".$tag['tagName']){
       $TagAttiviNew[] = array('tagName' => $tag['tagName']);
+    }else{
+      wp_delete_term( get_term_by('slug', $tag['tagName'].'sticky','icc_altri_filtri')->term_id." sticky",'icc_altri_filtri' );
+      echo "<h3>Rimosso ".$tag['tagName']."</h3><br>";
     }
   }
 
@@ -56,7 +59,7 @@ if ($_POST['icc_tagCheCambia_attivi_Rimuovi']){
 $TagAttivi = get_option("icc_tagCheCambia_attivi") ? get_option("icc_tagCheCambia_attivi") : array();
 foreach ($TagAttivi as $tag) {
   echo '<input type="text" name="'.$tag['tagName'].'" value="'.$tag['tagName'].'" readonly>';
-  echo '<input type="submit" name="icc_tagCheCambia_attivi_Rimuovi" value="Rimuovi '.$tag['tagName'].'">';
+  echo '<input type="submit" name="icc_tagCheCambia_attivi_Rimuovi" value="Rimuovi '.$tag['tagName'].'" class="button">';
   echo "<br>";
 }
 
