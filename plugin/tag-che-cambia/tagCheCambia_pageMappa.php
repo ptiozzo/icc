@@ -16,7 +16,7 @@
 <?php include('tagCheCambia-menu.php') ?>
 <div class="container-fluid pt-4">
 
-  <?php echo do_shortcode('[ICCmappa ]'); ?>
+  <?php echo do_shortcode('[ICCmappa rete='.$tagPage.']'); ?>
 
 </div><!-- .content 	-->
 <!-- carico footer -->
