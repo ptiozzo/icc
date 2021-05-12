@@ -11,7 +11,6 @@
     </script>
     <?php
   }
-  echo 'TAG: '.$tagPage."--";
 
 ?>
 <?php include('tagCheCambia-menu.php') ?>
