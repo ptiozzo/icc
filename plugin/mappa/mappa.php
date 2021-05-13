@@ -144,12 +144,19 @@ function icc_menu_mappa_admin()
   add_submenu_page(
     'icc-theme',
     'ICC Mappa Reti Nascoste',
-    'Mappa',
+    'Mappa Reti Nascoste',
     'edit_posts',
     'icc-mappa-reti-nascoste',
     'icc_menu_admin_mappa_reti_nascoste'
   );
-
+  add_submenu_page(
+    'icc-theme',
+    'ICC Mappa Nascondi Realtà Rete',
+    'Mappa Nascondi Realtà Rete',
+    'edit_posts',
+    'icc-mappa-nascondi-realta-rete',
+    'icc_menu_admin_mappa_nascondi_realta_rete'
+  );
   add_submenu_page(
     'icc-theme',
     'ICC Mappa Export',
@@ -167,6 +174,9 @@ function icc_menu_mappa_admin()
     'icc-mappa-pf',
     'icc_menu_admin_mappa_pf'
   );
+}
+function icc_menu_admin_mappa_nascondi_realta_rete(){
+  require 'admin-mappaNascondiRealtaRete.php';
 }
 function icc_menu_admin_mappa_reti_nascoste(){
   require 'admin-mappaRetiNascoste.php';

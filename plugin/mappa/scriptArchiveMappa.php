@@ -21,7 +21,17 @@ if($Rete1 != 'tuttelereti'){
     'terms'    => $Rete1,
   );
 } else{
-  $filtroRete = '';
+  $ReteDisattiva = array();
+  $RetiNascoste = get_option("icc_RealtaReteNascosta_attivi") ? get_option("icc_RealtaReteNascosta_attivi") : array();
+  foreach ($RetiNascoste as $ReteDis){
+    $ReteDisattiva[] = $ReteDis['ReteSlug'];
+  }
+  $filtroRete =  array(
+    'taxonomy' => 'mapparete',
+    'field'    => 'slug',
+    'terms'    => $ReteDisattiva,
+    'operator' => 'NOT IN',
+  );
 }
 if ($Provincia1 != 'tutteleprovince'){
   $filtro = 1;
