@@ -21,27 +21,29 @@
   </div>
 
   <!-- Filtro rete -->
-  <div class="form-group col-12 col-md-6 my-1">
-    <select name="rete-dropdown" class="custom-select" <?php if(get_query_var('rete') || $Rete != "tuttelereti"){ echo 'disabled'; } ?>>
-      <option value="tuttelereti" <?php if ($Rete1 == 'tuttelereti') {echo 'selected';}?> ><?php echo 'Tutte le reti'; ?></option>
-      <?php
-        $terms = get_terms( array(
-          'taxonomy' => 'mapparete',
-          'hide_empty' => false,
-        ) );
+  <?php if($Rete == "tuttelereti"){ ?>
+    <div class="form-group col-12 col-md-6 my-1">
+      <select name="rete-dropdown" class="custom-select" <?php if(get_query_var('rete') || $Rete != "tuttelereti"){ echo 'disabled'; } ?>>
+        <option value="tuttelereti" <?php if ($Rete1 == 'tuttelereti') {echo 'selected';}?> ><?php echo 'Tutte le reti'; ?></option>
+        <?php
+          $terms = get_terms( array(
+            'taxonomy' => 'mapparete',
+            'hide_empty' => false,
+          ) );
 
-        foreach ($terms as $category) {
-          if( !icc_is_ReteNascosta($category->slug) ){
-            $option = '<option value="'.$category->slug.'" ';
-            if ($Rete1 == $category->slug) {$option .= 'selected ';};
-            $option .= '>'.$category->name;
-            $option .= '</option>';
-            echo $option;
+          foreach ($terms as $category) {
+            if( !icc_is_ReteNascosta($category->slug) ){
+              $option = '<option value="'.$category->slug.'" ';
+              if ($Rete1 == $category->slug) {$option .= 'selected ';};
+              $option .= '>'.$category->name;
+              $option .= '</option>';
+              echo $option;
+            }
           }
-        }
-      ?>
-    </select>
-  </div>
+        ?>
+      </select>
+    </div>
+  <?php } ?>
   <!-- Filtro regione -->
   <?php
   if($Regione == "tutteleregioni"){ ?>
