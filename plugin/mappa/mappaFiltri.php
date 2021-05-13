@@ -31,7 +31,7 @@
         ) );
 
         foreach ($terms as $category) {
-          if( $category->slug != "sostenibilmente"){
+          if( !icc_is_ReteNascosta($category->slug) ){
             $option = '<option value="'.$category->slug.'" ';
             if ($Rete1 == $category->slug) {$option .= 'selected ';};
             $option .= '>'.$category->name;

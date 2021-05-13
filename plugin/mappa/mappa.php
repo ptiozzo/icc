@@ -143,11 +143,11 @@ function icc_menu_mappa_admin()
 {
   add_submenu_page(
     'icc-theme',
-    'ICC Mappa',
+    'ICC Mappa Reti Nascoste',
     'Mappa',
     'edit_posts',
-    'icc-mappa-suggestion',
-    'icc_menu_admin_mappa_isctruction'
+    'icc-mappa-reti-nascoste',
+    'icc_menu_admin_mappa_reti_nascoste'
   );
 
   add_submenu_page(
@@ -168,7 +168,9 @@ function icc_menu_mappa_admin()
     'icc_menu_admin_mappa_pf'
   );
 }
-
+function icc_menu_admin_mappa_reti_nascoste(){
+  require 'admin-mappaRetiNascoste.php';
+}
 function icc_menu_admin_mappa_export()
 {
   require 'admin-mappaExport.php';
@@ -182,6 +184,17 @@ function icc_menu_admin_mappa_pf()
 add_action( 'init', 'icc_mappa_rewrite' );
 function icc_mappa_rewrite(){
     add_rewrite_rule( '^mappa/tag/([a-z0-9-]+)[/]?$', 'index.php?pagename=mappa&mappatag=$matches[1]','top' );
+}
+
+function icc_is_ReteNascosta($rete){
+  $RetiNascoste = get_option('icc_RetiNascoste_attivi') ? get_option('icc_RetiNascoste_attivi') : array();
+
+  foreach ($RetiNascoste as $reti){
+    if (strtolower($rete) === $reti['ReteSlug']){
+      return true;
+    }
+  }
+  return false;
 }
 
 
