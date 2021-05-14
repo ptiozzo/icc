@@ -326,6 +326,11 @@ require 'plugin/macrolibrarsi/macrolibrarsi.php';
 /* ------------------------------------ */
 require 'plugin/redirectPF/redirectpf.php';
 
+/* Attivazione plugin tag-che-cambia
+/* ------------------------------------ */
+require 'plugin/tag-che-cambia/tag-che-cambia.php';
+
+
 
 /* Prima immagine del post.
 /* ------------------------------------ */
