@@ -19,7 +19,6 @@ if ($_POST['icc_tagCheCambia_attivi_Rimuovi']){
 ?>
 
 <!-- Aggiungo nuova voce ai TAG -->
-<?php $TagAttivi = get_option("icc_tagCheCambia_attivi") ? get_option("icc_tagCheCambia_attivi") : array(); ?>
 <?php
   if($_POST["icc_tagCheCambia_Add"]){
 
@@ -43,7 +42,6 @@ if ($_POST['icc_tagCheCambia_attivi_Rimuovi']){
         );
       foreach (get_tags($args) as $tag):
         $result = array_search( $tag->slug ,array_column($TagAttivi, 'tagName') );
-        echo "--".$result."--";
         if( $result === false ) {
           ?>
           <option value="<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></option>
