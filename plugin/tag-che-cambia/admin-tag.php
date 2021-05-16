@@ -36,7 +36,12 @@ if ($_POST['icc_tagCheCambia_attivi_Rimuovi']){
 <form class="" action="<?php echo get_pagenum_link(); ?>" method="post">
   <select class="" name="icc_tagCheCambia_attivi">
     <?php
-      foreach (get_tags() as $tag):
+        $args = array(
+          'taxonomy' => 'post_tag',
+          'orderby' => 'name',
+          'hide_empty' => false
+        );
+      foreach (get_tags($args) as $tag):
         $result = array_search( $tag->slug ,array_column($TagAttivi, 'tagName') );
         echo "--".$result."--";
         if( $result === false ) {
