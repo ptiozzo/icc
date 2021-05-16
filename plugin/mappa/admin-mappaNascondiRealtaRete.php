@@ -36,7 +36,7 @@ if ($_POST['icc_RealtaReteNascosta_attivi_Rimuovi']){
 <form class="" action="<?php echo get_pagenum_link(); ?>" method="post">
   <select class="" name="icc_RealtaReteNascosta_attivi">
     <?php
-      foreach (get_terms( array('taxonomy' => 'mapparete')) as $Rete):
+      foreach (get_terms( array('taxonomy' => 'mapparete','hide_empty' => false)) as $Rete):
         $result = array_search( $Rete->slug ,array_column($RetiNascoste, 'ReteSlug') );
 
         if( $result === false ) {
