@@ -1,6 +1,6 @@
 <header class="menu_regioni">
 
-  <nav class="navbar navbar-dark navbar-expand-xl">
+  <nav class="navbar navbar-dark navbar-expand-xl <?php echo $tagPage; ?>">
     <button class="navbar-toggler" style="border:none;" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
