@@ -21,7 +21,17 @@ if($Rete1 != 'tuttelereti'){
     'terms'    => $Rete1,
   );
 } else{
-  $filtroRete = '';
+  $ReteDisattiva = array();
+  $RetiNascoste = get_option("icc_RealtaReteNascosta_attivi") ? get_option("icc_RealtaReteNascosta_attivi") : array();
+  foreach ($RetiNascoste as $ReteDis){
+    $ReteDisattiva[] = $ReteDis['ReteSlug'];
+  }
+  $filtroRete =  array(
+    'taxonomy' => 'mapparete',
+    'field'    => 'slug',
+    'terms'    => $ReteDisattiva,
+    'operator' => 'NOT IN',
+  );
 }
 if ($Provincia1 != 'tutteleprovince'){
   $filtro = 1;
@@ -96,6 +106,12 @@ if($Regione == "tutteleregioni" && !get_query_var('regione')){
   $mapparegione = "icc_mappa_realta_".$Regione1;
 }
 
+if($Rete == "tuttelereti" ){
+  $mapparete = 'icc_mappa_rete_totale';
+} else{
+  $mapparete = "icc_mappa_rete_".$Rete1;
+}
+
 if( $realtaSegnalate == 1 && icc_is_region_active($Regione)){
   ?>
   <div class="alert alert-warning" role="alert">
@@ -108,7 +124,9 @@ if( !$loopMappaArchivio->have_posts()){
   <div class="alert alert-danger" role="alert">
     Nessuna realtà trovata con questi filtri
   </div>
-<?php } elseif($loopMappaArchivio->found_posts != get_option($mapparegione))  { ?>
+<?php } elseif(
+  ($Rete != "tuttelereti" && $loopMappaArchivio->found_posts != get_option($mapparete)) ||
+  ($Regione != "tutteleregioni" && $loopMappaArchivio->found_posts != get_option($mapparegione)))  { ?>
   <div class="alert alert-success" role="alert">
     <?php echo $loopMappaArchivio->found_posts; ?> realtà filtrate
   </div>
