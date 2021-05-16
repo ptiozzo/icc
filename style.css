@@ -318,6 +318,7 @@ LINK
 .tag-terranave a,
 .category-una-favola-puo-fare a,
 .tag-una-favola-puo-fare a,
+.tag-amore-che-cambia a,
 .tag-voci-italia-che-cambia a{color: var(--color-rubriche)}
 .tag-matrix-dentro-di-noi a{color: var(--color-matrix)}
 .tag-io-faccio-cosi a{color: var(--color-ioFaccioCosi)}
@@ -894,6 +895,7 @@ div.contenuti_header select{
 .tag-terranave .cat2,
 .tag-una-favola-puo-fare .cat2,
 .cat2.category-una-favola-puo-fare,
+.tag-amore-che-cambia .cat2,
 .tag-voci-italia-che-cambia .cat2{background: var(--color-rubriche)}
 .tag-matrix-dentro-di-noi .cat2{background: var(--color-matrix)}
 .tag-io-faccio-cosi .cat2{background: var(--color-ioFaccioCosi)}
@@ -957,6 +959,7 @@ row
 .contenuti .row article.tag-una-favola-puo-fare a:hover .category,
 .contenuti .row article.category-una-favola-puo-fare a:hover .category,
 .contenuti .row article.tag-voci-italia-che-cambia a:hover .category,
+.contenuti .row article.tag-amore-che-cambia a:hover .category,
 .contenuti .row article.category-rubriche a:hover .category{background: var(--color-rubriche)}
 .contenuti .row article.tag-io-faccio-cosi a:hover .category{background: var(--color-ioFaccioCosi)}
 .contenuti .row article.tag-salute-che-cambia a:hover .category{background: var(--color-salute)}
@@ -1068,6 +1071,7 @@ row
 .single .tag-terranave .single__nav__category,
 .single .category-una-favola-puo-fare .single__nav__category,
 .single .tag-una-favola-puo-fare .single__nav__category,
+.single .tag-amore-che-cambia .single__nav__category,
 .single .tag-voci-italia-che-cambia .single__nav__category{background: var(--color-rubriche)}
 .single .tag-matrix-dentro-di-noi .single__nav__category{background: var(--color-matrix)}
 .single .tag-io-faccio-cosi .single__nav__category{background: var(--color-ioFaccioCosi)}
@@ -1160,6 +1164,7 @@ row
 .single .tag-terranave .single__tag a,
 .single .category-una-favola-puo-fare .single__tag a,
 .single .tag-una-favola-puo-fare .single__tag a,
+.single .tag-amore-che-cambia .single__tag a,
 .single .tag-voci-italia-che-cambia .single__tag a{background: var(--color-rubriche)}
 .single .tag-matrix-dentro-di-noi .single__tag a{background: var(--color-matrix)}
 .single .tag-io-faccio-cosi .single__tag a{background: var(--color-ioFaccioCosi)}
@@ -1351,6 +1356,7 @@ figcaption{
 .single .tag-terranave .single__action,
 .single .tag-una-favola-puo-fare .single__action,
 .single .category-una-favola-puo-fare .single__action,
+.single .tag-amore-che-cambia .single__action,
 .single .tag-voci-italia-che-cambia .single__action{color: var(--color-rubriche)}
 .single .tag-matrix-dentro-di-noi .single__action {color: var(--color-matrix)}
 .single .tag-io-faccio-cosi .single__action{color: var(--color-ioFaccioCosi)}
@@ -1779,7 +1785,8 @@ COLORI HOME
 .card article.tag-terranave .category-bg,
 .card article.category-una-favola-puo-fare .category-bg,
 .card article.tag-una-favola-puo-fare .category-bg,
-.card article.tag-voci-italia-che-cambia .category-bg
+.card article.tag-voci-italia-che-cambia .category-bg,
+.card article.tag-amore-che-cambia .category-bg,
 .card article.tag-rubriche .category-bg{border-top: 150px solid var(--color-rubriche)}
 .card article.tag-matrix-dentro-di-noi .category-bg {background: var(--color-matrix)}
 .card article.tag-io-faccio-cosi .category-bg{border-top: 150px solid var(--color-ioFaccioCosi)}
