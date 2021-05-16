@@ -554,6 +554,9 @@ header .btn-warning:hover{
     background-color: var(--color-regioni);
     padding: 1rem;
 }
+.navbar.amore-che-cambia .navbar-brand{
+  background-color: var(--color-rubriche);
+}
 header.home .navbar .navbar-brand{
     background: none;
 }
