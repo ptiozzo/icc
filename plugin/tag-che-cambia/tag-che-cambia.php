@@ -60,7 +60,7 @@ function icc_tag_activation(){
     /* storie */
     add_rewrite_rule( '^'.$tag['tagName'].'/storie/page/?([0-9]{1,})/?', 'index.php?pagename=tag-che-cambia_storie&paged=$matches[1]&tag='.$tag['tagName'].'','top' );
   	add_rewrite_rule( '^'.$tag['tagName'].'/storie/?', 'index.php?pagename=tag-che-cambia_storie&tag='.$tag['tagName'].'','top' );
-    /* mappa - DA FARE */
+    /* mappa */
     add_rewrite_rule( '^'.$tag['tagName'].'/mappa/?', 'index.php?pagename=tag-che-cambia_mappa&tag='.$tag['tagName'].'','top' );
     /* home */
     add_rewrite_rule( $tag['tagName'], 'index.php?pagename=tag-che-cambia&tag='.$tag['tagName'].'','top' );
