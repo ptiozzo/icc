@@ -123,8 +123,7 @@ GENERAL
   font-style: italic;
 }
 
-body,
-header{
+body{
   max-width: 1400px;
   margin: auto;
   padding-top: 0;
@@ -137,7 +136,7 @@ body.dyslexia{
   font-size: 1rem!important;
 }
 
-.admin-bar header{
+.admin-bar header.home{
   top:32px;
 }
 .admin-bar .menu_regioni{
@@ -297,34 +296,37 @@ Layout
 /*
 LINK
 */
-
-.category-articoli a{color: var(--color-articoli);}
-.category-meme a{color: var(--color-meme)}
-.category-documentari a{color: var(--color-documentari)}
+.single__articolo a{color: var(--color-articoli);}
+.tag-meme a{color: var(--color-meme)}
+.tag-documentari a{color: var(--color-documentari)}
 .category-rubriche a,
-.category-appunti-viaggio a,
+.tag-appunti-viaggio a,
 .category-ashoka-fellow a,
-.category-diari-di-bordo-maestro-di-strada a,
-.category-dizionario-eretico a,
+.tag-diari-di-bordo-maestro-di-strada a,
+.tag-dizionario-eretico a,
 .category-economia-bene-comune a,
-.category-blog a,
-.category-in-un-flash a,
-.category-in-viaggio a,
-.category-invece-si-puo a,
-.category-via-uscita-dentro a,
-.category-voce-astice a,
-.category-mondo-chiama-italia a,
-.category-pensare-altro a,
-.category-pillole-transizione a,
-.category-terranave a,
+.tag-diretta-camper a,
+.tag-in-un-flash a,
+.tag-in-viaggio a,
+.tag-invece-si-puo a,
+.tag-via-uscita-dentro a,
+.tag-voce-astice a,
+.tag-mondo-chiama-italia a,
+.tag-pensare-altro a,
+.tag-pillole-transizione a,
+.tag-terranave a,
 .category-una-favola-puo-fare a,
-.category-voci-italia-che-cambia a{color: var(--color-rubriche)}
-.category-matrix-dentro-di-noi a{color: var(--color-matrix)}
-.category-io-faccio-cosi a{color: var(--color-ioFaccioCosi)}
+.tag-una-favola-puo-fare a,
+.tag-amore-che-cambia a,
+.tag-voci-italia-che-cambia a{color: var(--color-rubriche)}
+.tag-matrix-dentro-di-noi a{color: var(--color-matrix)}
+.tag-io-faccio-cosi a{color: var(--color-ioFaccioCosi)}
 .category-nostri-libri a{color: var(--color-libri)}
 .category-salute-che-cambia a{color: var(--color-salute)}
 .rassegna-stampa a{color: var(--color-rassegna)}
 .category-piemonte-che-cambia a,
+.category-liguria-che-cambia a,
+.category-sicilia-che-cambia a,
 .category-casentino-che-cambia a {color: var(--color-regioni)}
 
 
@@ -339,82 +341,166 @@ div.single a:hover{
 /*	Menu
 */
 
-header.stripe{
+header.home{
   z-index: 1040;
   width: 100%;
-  padding: 0 25px;
+  height: 80px;
   position: sticky;
   position: -webkit-sticky;
-  background-color: var(--color-light_gray);
+  top: 0;
+  background-color: var(--color-light_gray)!important;
 }
-header.stripe .right-col nav>ul>li>a{
+.bg-light{
+  background-color: var(--color-light_gray)!important;
+}
+header.home a{
   color: var(--color-light_black);
-}
-header.stripe .btn{
-  margin: 15px 0;
+  font-size: 14px;
+  transition: all .125s ease-in-out;
+  -webkit-transition: all .125s ease-in-out;
+  padding: 10px;
+  border-radius: 3px;
+  width: 100%;
+  display: block;
 }
 
-.btn-warning{
+header.home .main-menu a:hover{
+  background-color: var(--color-light_black);
+  color: var(--color-light_gray)!important;
+}
+
+header.home li{
+  list-style: none;
+  align-self: center
+}
+
+@media (max-width: 1280px) {
+  header.home .socials{
+    display: none!important;
+  }
+}
+
+@media (max-width: 1110) {
+  header.home .dropdown{
+    display: none!important;
+  }
+}
+
+@media (max-width: 992px) {
+  header.home ul{
+    padding-inline-start: 0;
+  }
+  header.home li{
+    width: 100%;
+    padding: 10px;
+    /*text-align: center;*/
+  }
+}
+
+header.home ul.sub-menu{
+  padding: 0;
+  width: max-content;
+}
+@media (max-width: 992px) {
+  header.home ul.sub-menu{
+    width: 100%;
+  }
+}
+
+header.home li ul{
+  display: none;
+  position: absolute;
+  background-color: var(--color-light_gray);
+  box-shadow: 0px 5px 15px 10px rgba(0,0,0,0.4);
+  z-index: 1;
+  width: auto;
+}
+@media (max-width: 992px) {
+  header.home li ul{
+    position: relative;
+ }
+}
+
+header.home li.show > ul{
+  display: block;
+}
+
+header.home li li{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+@media (max-width: 992px) {
+  header.home li li{
+    display: block;
+  }
+}
+header.home ul ul ul{
+  position: absolute;
+  left:100%;
+}
+@media (max-width: 992px) {
+  header.home ul ul ul{
+    position: relative;
+    left: 0;
+    top: 10px;
+  }
+}
+
+header.home .menu-item-has-children>a::after{
+  display: inline-block;
+  margin-left: .255em;
+  content: "";
+  width: 0;
+	height: 0;
+	border-width: .3em 0 .3em .3em;
+	border-color: transparent transparent transparent var(--color-light_black);
+	border-style: solid;
+	transform: rotate(90deg);
+  align-self: center;
+}
+header.home .menu-item-has-children>a:hover::after{
+  border-color: transparent transparent transparent var(--color-light_gray)!important;
+  transform: rotate(90deg);
+}
+
+header.home .menu-item-has-children .menu-item-has-children>a::after{
+  transform: rotate(0deg);
+  float: right;
+  margin-top: 7px;
+}
+
+@media (max-width: 1200px) {
+  header.home .menu-item-has-children .menu-item-has-children>a::after,
+  header.home .menu-item-has-children>a::after{
+    transform: rotate(90deg);
+    float: right;
+    margin-top: 7px;
+  }
+}
+
+header.home .btn{
+  margin: 15px 0;
+}
+header.home .dropdown-toggle{
+  white-space: inherit;
+}
+
+header .btn-warning{
   background-color: var(--btn-warning);
   border-color: var(--btn-warning);
 }
 
-.btn-warning:hover{
+header .btn-warning:hover{
   background-color: var(--btn-warning_hover);
   border-color: var(--btn-warning_hover);
 }
-
-header.stripe .right-col nav>ul>li:not(:last-child){
-  margin-right: 20px;
-}
-header.stripe .right-col .search{
-  padding: 0 5px;
-  margin-right: 5px;
-}
-header.overlay-menu{
-  z-index: 1050;
-}
-header.overlay-menu>nav{
-  background-color: var(--color-light_gray);
-}
-header.overlay-menu>nav>.collapse-container>ul.menu-1>li>a{
-  color: var(--color-light_black);
-  border-bottom: 1px solid var(--color-gray);
-}
-header.overlay-menu>nav>.collapse-container>ul{
-  border-top: 1px solid var(--color-gray);
-}
-overlay-menu
-header .overlay-menu>figure.hand{
-  bottom: 0;
-}
-
-header.stripe .left-col .logo{
-  margin-left: 10px;
-}
-
-header .socials.d-xl-block{
-  display: flex!important;
-}
-header.stripe .right-col nav{
-  margin-right: 20px;
-}
-@media (min-width: 992px) and (max-width: 1210px) {
-  header.stripe .right-col nav{
-    margin-right: 0;
-  }
-  header.stripe .right-col nav>ul>li:not(:last-child){
-    margin-right: 10px;
-  }
-}
-
-
 
 .manoicc{
   background-image: url('/wp-content/themes/icc/assets/img/logo/mano_bianca.png');
   background-repeat: no-repeat;
   background-position: 3px center;
-  padding-left: 35px;
+  padding-left: 35px!important;
   background-size: 30px;
 }
 
@@ -445,10 +531,15 @@ header.stripe .right-col nav{
   padding: 0;
   background-color: var(--color-brown);
 }
+@media (max-width: 992px){
+  .navbar{
+    max-height: 100vh;
+    overflow: auto;
+  }
+}
 .navbar a{
   color: var(--color-white);
   font-size: 13px;
-  padding: 1rem
 }
 .navbar a:hover{
   text-decoration: underline;
@@ -461,9 +552,18 @@ header.stripe .right-col nav{
 .navbar .navbar-brand{
     font-size: 20px;
     background-color: var(--color-regioni);
+    padding: 1rem;
 }
-.navbar .navbar-brand img{
-  padding-right: 1rem;
+.navbar.amore-che-cambia .navbar-brand{
+  background-color: var(--color-rubriche);
+}
+header.home .navbar .navbar-brand{
+    background: none;
+}
+@media (max-width: 375px){
+  header.home .navbar .navbar-brand{
+    width: 80%;
+  }
 }
 
 #menu-menu-footer .nav-link{
@@ -769,36 +869,37 @@ div.contenuti_header select{
 }
 
 .cat2 a{
-  color: var(--color-blue);
+  /*color: var(--color-blue);*/
 }
 
 .cat2 h1{
   color: var(--color-white);
 }
 
-.cat2.category-articoli{background: var(--color-articoli);}
-.cat2.category-meme{background: var(--color-meme)}
-.cat2.category-documentari{background: var(--color-documentari)}
+.tag-meme .cat2{background: var(--color-meme)}
+.tag-documentari .cat2{background: var(--color-documentari)}
 .cat2.category-rubriche,
-.cat2.category-appunti-viaggio,
+.tag-appunti-viaggio .cat2,
 .cat2.category-ashoka-fellow,
-.cat2.category-diari-di-bordo-maestro-di-strada,
-.cat2.category-dizionario-eretico,
+.tag-diari-di-bordo-maestro-di-strada .cat2,
+.tag-dizionario-eretico .cat2,
 .cat2.category-economia-bene-comune,
-.cat2.category-blog,
-.cat2.category-in-un-flash,
-.cat2.category-in-viaggio,
-.cat2.category-invece-si-puo,
-.cat2.category-via-uscita-dentro,
-.cat2.category-voce-astice,
-.cat2.category-mondo-chiama-italia,
-.cat2.category-pensare-altro,
-.cat2.category-pillole-transizione,
-.cat2.category-terranave,
+.category-diretta-camper .cat2,
+.tag-in-un-flash .cat2,
+.tag-in-viaggio .cat2,
+.tag-invece-si-puo .cat2,
+.tag-via-uscita-dentro .cat2,
+.tag-voce-astice .cat2,
+.tag-mondo-chiama-italia .cat2,
+.tag-pensare-altro .cat2,
+.tag-pillole-transizione .cat2,
+.tag-terranave .cat2,
+.tag-una-favola-puo-fare .cat2,
 .cat2.category-una-favola-puo-fare,
-.cat2.category-voci-italia-che-cambia{background: var(--color-rubriche)}
-.cat2.category-matrix-dentro-di-noi{background: var(--color-matrix)}
-.cat2.category-io-faccio-cosi{background: var(--color-ioFaccioCosi)}
+.tag-amore-che-cambia .cat2,
+.tag-voci-italia-che-cambia .cat2{background: var(--color-rubriche)}
+.tag-matrix-dentro-di-noi .cat2{background: var(--color-matrix)}
+.tag-io-faccio-cosi .cat2{background: var(--color-ioFaccioCosi)}
 .cat2.category-nostri-libri{background: var(--color-libri)}
 .cat2.category-salute-che-cambia{background: var(--color-salute)}
 .cat2.category-rassegna-stampa{background: var(--color-rassegna)}
@@ -836,15 +937,38 @@ row
   justify-content: space-between;
   padding: 0 10px 0;
 }
+.contenuti .row article a:hover .category{background: var(--color-articoli);}
 
-.contenuti .row article.category-articoli a:hover .category{background: var(--color-articoli);}
-.contenuti .row article.category-meme a:hover .category{background: var(--color-meme)}
-.contenuti .row article.category-documentari a:hover .category{background: var(--color-documentari)}
+.contenuti .row article.tag-meme a:hover .category{background: var(--color-meme)}
+.contenuti .row article.tag-documentari a:hover .category{background: var(--color-documentari)}
+.contenuti .row article.tag-appunti-viaggio a:hover .category,
+.contenuti .row article.category-ashoka-fellow a:hover .category,
+.contenuti .row article.tag-diari-di-bordo-maestro-di-strada  a:hover .category,
+.contenuti .row article.tag-dizionario-eretico a:hover .category,
+.contenuti .row article.category-economia-bene-comune a:hover .category,
+.contenuti .row article.category-diretta-camper a:hover .category,
+.contenuti .row article.tag-in-un-flash a:hover .category,
+.contenuti .row article.tag-in-viaggio a:hover .category,
+.contenuti .row article.tag-invece-si-puo a:hover .category,
+.contenuti .row article.tag-via-uscita-dentro a:hover .category,
+.contenuti .row article.tag-voce-astice a:hover .category,
+.contenuti .row article.tag-mondo-chiama-italia a:hover .category,
+.contenuti .row article.tag-pensare-altro a:hover .category,
+.contenuti .row article.tag-pillole-transizione a:hover .category,
+.contenuti .row article.tag-terranave a:hover .category,
+.contenuti .row article.tag-una-favola-puo-fare a:hover .category,
+.contenuti .row article.category-una-favola-puo-fare a:hover .category,
+.contenuti .row article.tag-voci-italia-che-cambia a:hover .category,
+.contenuti .row article.tag-amore-che-cambia a:hover .category,
 .contenuti .row article.category-rubriche a:hover .category{background: var(--color-rubriche)}
-.contenuti .row article.category-io-faccio-cosi a:hover .category{background: var(--color-ioFaccioCosi)}
-.contenuti .row article.category-salute-che-cambia a:hover .category{background: var(--color-salute)}
+.contenuti .row article.tag-io-faccio-cosi a:hover .category{background: var(--color-ioFaccioCosi)}
+.contenuti .row article.tag-salute-che-cambia a:hover .category{background: var(--color-salute)}
 .contenuti .row article.rassegna-stampa a:hover .category{background: var(--color-rassegna)}
-.contenuti .row article.category-matrix-dentro-di-noi a:hover .category{background: var(--color-matrix)}
+.contenuti .row article.tag-matrix-dentro-di-noi a:hover .category{background: var(--color-matrix)}
+.contenuti .row article.category-piemonte-che-cambia a:hover .category,
+.contenuti .row article.category-liguria-che-cambia a:hover .category,
+.contenuti .row article.category-casentino-che-cambia a:hover .category,
+.contenuti .row article.category-sicilia-che-cambia a:hover .category{background: var(--color-regioni)}
 
 .row article a figure{
   position: relative;
@@ -917,13 +1041,8 @@ row
 
 .single .single__nav__category{
   padding: 30px;
-  background: var(--color-regioni);
+  background: var(--color-articoli);
 }
-
-.single .category-articoli .single__nav__category{background: var(--color-articoli);}
-.single .category-meme .single__nav__category{background: var(--color-meme)}
-.single .category-documentari .single__nav__category{background: var(--color-documentari)}
-
 
 @media (max-width: 768px){
   .single .single__nav__category{
@@ -931,28 +1050,37 @@ row
   }
 }
 
+.single .tag-meme .single__nav__category{background: var(--color-meme)}
+.single .tag-documentari .single__nav__category{background: var(--color-documentari)}
 .single .category-rubriche .single__nav__category,
-.single .category-appunti-viaggio .single__nav__category,
+.single .tag-appunti-viaggio .single__nav__category,
 .single .category-ashoka-fellow .single__nav__category,
-.single .category-diari-di-bordo-maestro-di-strada .single__nav__category,
-.single .category-dizionario-eretico .single__nav__category,
-.single .category-economia-bene-comune .single__nav__category,
-.single .category-blog .single__nav__category,
-.single .category-in-un-flash .single__nav__category,
-.single .category-in-viaggio .single__nav__category,
-.single .category-invece-si-puo .single__nav__category,
-.single .category-via-uscita-dentro .single__nav__category,
-.single .category-voce-astice .single__nav__category,
-.single .category-mondo-chiama-italia .single__nav__category,
-.single .category-pensare-altro .single__nav__category,
-.single .category-pillole-transizione .single__nav__category,
-.single .category-terranave .single__nav__category,
+.single .tag-diari-di-bordo-maestro-di-strada .single__nav__category,
+.single .tag-dizionario-eretico .single__nav__category,
+.single .tag-economia-bene-comune .single__nav__category,
+.single .tag-diretta-camper .single__nav__category,
+.single .tag-in-un-flash .single__nav__category,
+.single .tag-in-viaggio .single__nav__category,
+.single .tag-invece-si-puo .single__nav__category,
+.single .tag-via-uscita-dentro .single__nav__category,
+.single .tag-voce-astice .single__nav__category,
+.single .tag-mondo-chiama-italia .single__nav__category,
+.single .tag-pensare-altro .single__nav__category,
+.single .tag-pillole-transizione .single__nav__category,
+.single .tag-terranave .single__nav__category,
 .single .category-una-favola-puo-fare .single__nav__category,
-.single .category-voci-italia-che-cambia .single__nav__category{background: var(--color-rubriche)}
-.single .category-matrix-dentro-di-noi .single__nav__category{background: var(--color-matrix)}
-.single .category-io-faccio-cosi .single__nav__category{background: var(--color-ioFaccioCosi)}
+.single .tag-una-favola-puo-fare .single__nav__category,
+.single .tag-amore-che-cambia .single__nav__category,
+.single .tag-voci-italia-che-cambia .single__nav__category{background: var(--color-rubriche)}
+.single .tag-matrix-dentro-di-noi .single__nav__category{background: var(--color-matrix)}
+.single .tag-io-faccio-cosi .single__nav__category{background: var(--color-ioFaccioCosi)}
 .single .category-salute-che-cambia .single__nav__category{background: var(--color-salute)}
 .single .rassegna-stampa .single__nav__category{background: var(--color-rassegna)}
+.single .category-piemonte-che-cambia .single__nav__category,
+.single .category-sicilia-che-cambia .single__nav__category,
+.single .category-liguria-che-cambia .single__nav__category,
+.single .category-casentino-che-cambia .single__nav__category{background: var(--color-regioni)}
+
 
 .single .single__nav__category a,
 .single .single__nav__category span,
@@ -969,6 +1097,13 @@ row
 .single .single__nav__category span,
 .single .single__nav__category .btn-link{
   font-weight: 900;
+}
+
+.single .single__nav__category a:after{
+  content: " - ";
+}
+.single .single__nav__category a:last-of-type:after{
+  content: " ";
 }
 
 .single .single__torna__contenuti{
@@ -1005,32 +1140,38 @@ row
   padding: 15px 20px;
   color: var(--color-white);
   margin-top: 30px;
-  background: var(--color-regioni);
+  background: var(--color-articoli);
 }
-.single .category-articoli .single__tag a{background: var(--color-articoli);}
-.single .category-meme .single__tag a{background: var(--color-meme)}
+
+.single .tag-meme .single__tag a{background: var(--color-meme)}
 .single .category-documentari .single__tag a{background: var(--color-documentari)}
 .single .category-rubriche .single__tag a,
-.single .category-appunti-viaggio .single__tag a,
+.single .tag-appunti-viaggio .single__tag a,
 .single .category-ashoka-fellow .single__tag a,
-.single .category-diari-di-bordo-maestro-di-strada .single__tag a,
-.single .category-dizionario-eretico .single__tag a,
-.single .category-economia-bene-comune .single__tag a,
-.single .category-blog .single__tag a,
-.single .category-in-un-flash .single__tag a,
-.single .category-in-viaggio .single__tag a,
-.single .category-invece-si-puo .single__tag a,
-.single .category-via-uscita-dentro .single__tag a,
-.single .category-voce-astice .single__tag a,
-.single .category-mondo-chiama-italia .single__tag a,
-.single .category-pensare-altro .single__tag a,
-.single .category-pillole-transizione .single__tag a,
-.single .category-terranave .single__tag a,
+.single .tag-diari-di-bordo-maestro-di-strada .single__tag a,
+.single .tag-dizionario-eretico .single__tag a,
+.single .tag-economia-bene-comune .single__tag a,
+.single .tag-diretta-camper .single__tag a,
+.single .tag-in-un-flash .single__tag a,
+.single .tag-in-viaggio .single__tag a,
+.single .tag-invece-si-puo .single__tag a,
+.single .tag-via-uscita-dentro .single__tag a,
+.single .tag-voce-astice .single__tag a,
+.single .tag-mondo-chiama-italia .single__tag a,
+.single .tag-pensare-altro .single__tag a,
+.single .tag-pillole-transizione .single__tag a,
+.single .tag-terranave .single__tag a,
 .single .category-una-favola-puo-fare .single__tag a,
-.single .category-voci-italia-che-cambia .single__tag a{background: var(--color-rubriche)}
-.single .category-matrix-dentro-di-noi .single__tag a{background: var(--color-matrix)}
-.single .category-io-faccio-cosi .single__tag a{background: var(--color-ioFaccioCosi)}
+.single .tag-una-favola-puo-fare .single__tag a,
+.single .tag-amore-che-cambia .single__tag a,
+.single .tag-voci-italia-che-cambia .single__tag a{background: var(--color-rubriche)}
+.single .tag-matrix-dentro-di-noi .single__tag a{background: var(--color-matrix)}
+.single .tag-io-faccio-cosi .single__tag a{background: var(--color-ioFaccioCosi)}
 .single .category-salute-che-cambia .single__tag a{background: var(--color-salute)}
+.single .category-piemonte-che-cambia .single__tag a,
+.single .category-liguria-che-cambia .single__tag a,
+.single .category-sicilia-che-cambia .single__tag a,
+.single .category-casentino-che-cambia .single__tag a{background: var(--color-regioni)}
 
 .single .single__head .single__date{
   color: var(--color-rassegna);
@@ -1191,33 +1332,38 @@ figcaption{
   color: inherit;
 }
 
-.single__action{color: var(--color-regioni)}
+.single__action{color: var(--color-articoli)}
 
-.single .category-articoli .single__action{color: var(--color-articoli);}
-.single .category-meme .single__action{color: var(--color-meme)}
+.single .tag-meme .single__action{color: var(--color-meme)}
 .single .category-documentari .single__action{color: var(--color-documentari)}
 .single .category-rubriche .single__action,
-.single .category-appunti-viaggio .single__action,
+.single .tag-appunti-viaggio .single__action,
 .single .category-ashoka-fellow .single__action,
-.single .category-diari-di-bordo-maestro-di-strada .single__action,
-.single .category-dizionario-eretico .single__action,
-.single .category-economia-bene-comune .single__action,
-.single .category-blog .single__action,
-.single .category-in-un-flash .single__action,
-.single .category-in-viaggio .single__action,
-.single .category-invece-si-puo .single__action,
-.single .category-via-uscita-dentro .single__action,
-.single .category-voce-astice .single__action,
-.single .category-mondo-chiama-italia .single__action,
-.single .category-pensare-altro .single__action,
-.single .category-pillole-transizione .single__action,
-.single .category-terranave .single__action,
+.single .tag-diari-di-bordo-maestro-di-strada .single__action,
+.single .tag-dizionario-eretico .single__action,
+.single .tag-economia-bene-comune .single__action,
+.single .tag-diretta-camper .single__action,
+.single .tag-in-un-flash .single__action,
+.single .tag-in-viaggio .single__action,
+.single .tag-invece-si-puo .single__action,
+.single .tag-via-uscita-dentro .single__action,
+.single .tag-voce-astice .single__action,
+.single .tag-mondo-chiama-italia .single__action,
+.single .tag-pensare-altro .single__action,
+.single .tag-pillole-transizione .single__action,
+.single .tag-terranave .single__action,
+.single .tag-una-favola-puo-fare .single__action,
 .single .category-una-favola-puo-fare .single__action,
-.single .category-voci-italia-che-cambia .single__action{color: var(--color-rubriche)}
-.single .category-matrix-dentro-di-noi .single__action {color: var(--color-matrix)}
-.single .category-io-faccio-cosi .single__action{color: var(--color-ioFaccioCosi)}
+.single .tag-amore-che-cambia .single__action,
+.single .tag-voci-italia-che-cambia .single__action{color: var(--color-rubriche)}
+.single .tag-matrix-dentro-di-noi .single__action {color: var(--color-matrix)}
+.single .tag-io-faccio-cosi .single__action{color: var(--color-ioFaccioCosi)}
 .single .category-salute-che-cambia .single__action{color: var(--color-salute)}
 .single .rassegna-stampa .single__action{color: var(--color-rassegna)}
+.single .category-piemonte-che-cambia .single__action,
+.single .category-liguria-che-cambia .single__action,
+.single .category-casentino-che-cambia .single__action,
+.single .category-sicilia-che-cambia .single__action{color: var(--color-regioni)}
 
 
 .single__contribuisci,
@@ -1227,12 +1373,21 @@ figcaption{
   border-color: var(--btn-warning);
   background-color: var(--color-light_gray);
 }
+
+.single__article__contribuisci{
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  border-color: var(--btn-warning);
+  background-color: var(--color-light_gray);
+  font-size: 1rem;
+}
 @media (min-width: 992px) {
   .sponsored{
     font-size: 0.9rem;
   }
 }
-.single__contribuisci img{
+.single__contribuisci img,
+.single__article__contribuisci img{
   height: 25px;
   width: auto!important;
 }
@@ -1352,7 +1507,8 @@ main.chi-siamo>section.content>.description>.actions>ul>li .left-col .descriptio
 input[type=text],
 input[type=file],
 input[type=tel],
-input[type=email]
+input[type=email],
+input[type=url]
 {
   background: var(--color-white);
   color: var(--color-light_black);
@@ -1478,7 +1634,8 @@ a.carousel-more{
   height: 347px;
 }
 .piemonte-che-cambia #carouselMappa .minatura-piemonte,
-.liguria-che-cambia #carouselMappa .minatura-liguria{
+.liguria-che-cambia #carouselMappa .minatura-liguria,
+.sicilia-che-cambia #carouselMappa .minatura-sicilia{
   border: 26px solid var(--color-dark_azzurro);
   height: 350px;
   object-fit: cover;
@@ -1587,7 +1744,7 @@ CARD HOME
   left: 0;
   width: 200px;
   height: 150px;
-  border-top: 150px solid red;
+  border-top: 150px solid var(--color-articoli);
   border-right: 200px solid transparent;
 }
 
@@ -1606,33 +1763,35 @@ CARD HOME
 /*
 COLORI HOME
 */
-.card article.category-articoli .category-bg{border-top: 150px solid var(--color-articoli);}
-.card article.category-meme .category-bg{border-top: 150px solid var(--color-meme)}
-.card article.category-documentari .category-bg{border-top: 150px solid var(--color-documentari)}
+.card article.tag-meme .category-bg{border-top: 150px solid var(--color-meme)}
+.card article.tag-documentari .category-bg{border-top: 150px solid var(--color-documentari)}
 .card article.category-rubriche .category-bg,
-.card article.category-appunti-viaggio .category-bg,
+.card article.tag-appunti-viaggio .category-bg,
 .card article.category-ashoka-fellow .category-bg,
-.card article.category-diari-di-bordo-maestro-di-strada .category-bg,
-.card article.category-dizionario-eretico .category-bg,
-.card article.category-economia-bene-comune .category-bg,
-.card article.category-blog .category-bg,
-.card article.category-in-un-flash .category-bg,
-.card article.category-in-viaggio .category-bg,
-.card article.category-invece-si-puo .category-bg,
-.card article.category-via-uscita-dentro .category-bg,
-.card article.category-voce-astice .category-bg,
-.card article.category-mondo-chiama-italia .category-bg,
-.card article.category-pensare-altro .category-bg,
-.card article.category-pillole-transizione .category-bg,
-.card article.category-terranave .category-bg,
+.card article.tag-diari-di-bordo-maestro-di-strada .category-bg,
+.card article.tag-dizionario-eretico .category-bg,
+.card article.tag-economia-bene-comune .category-bg,
+.card article.tag-diretta-camper .category-bg,
+.card article.tag-in-un-flash .category-bg,
+.card article.tag-in-viaggio .category-bg,
+.card article.tag-invece-si-puo .category-bg,
+.card article.tag-via-uscita-dentro .category-bg,
+.card article.tag-voce-astice .category-bg,
+.card article.tag-mondo-chiama-italia .category-bg,
+.card article.tag-pensare-altro .category-bg,
+.card article.tag-pillole-transizione .category-bg,
+.card article.tag-terranave .category-bg,
 .card article.category-una-favola-puo-fare .category-bg,
-.card article.category-voci-italia-che-cambia .category-bg
-.card article.category-rubriche .category-bg{border-top: 150px solid var(--color-rubriche)}
-.card article.category-matrix-dentro-di-noi .category-bg {background: var(--color-matrix)}
-.card article.category-io-faccio-cosi .category-bg{border-top: 150px solid var(--color-ioFaccioCosi)}
+.card article.tag-una-favola-puo-fare .category-bg,
+.card article.tag-voci-italia-che-cambia .category-bg,
+.card article.tag-amore-che-cambia .category-bg,
+.card article.tag-rubriche .category-bg{border-top: 150px solid var(--color-rubriche)}
+.card article.tag-matrix-dentro-di-noi .category-bg {background: var(--color-matrix)}
+.card article.tag-io-faccio-cosi .category-bg{border-top: 150px solid var(--color-ioFaccioCosi)}
 .card article.category-salute-che-cambia .category-bg{border-top: 150px solid var(--color-salute)}
 .card article.rassegna-stampa .category-bg{border-top: 150px solid var(--color-rassegna);}
 .card article.category-piemonte-che-cambia .category-bg,
+.card article.category-sicilia-che-cambia .category-bg,
 .card article.category-liguria-che-cambia .category-bg,
 .card article.category-casentino-che-cambia .category-bg{border-top: 150px solid var(--color-regioni);}
 .card article.nostri-libri .category-bg{
@@ -1672,6 +1831,10 @@ CERCA
   color: var(--color-light_black) !important;
 }
 
+.cerca ::placeholder{
+  font-size: small;
+}
+
 
 
 
@@ -1706,7 +1869,7 @@ FOOTER
 */
 footer{
   background: var(--color-footer);
-  padding-bottom: 30px;
+  padding: 50px 40px;
 }
 footer article{
   color: var(--color-rassegna);

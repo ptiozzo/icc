@@ -28,4 +28,11 @@ function icc_is_region_active($regione){
   }
 }
 
+add_action('init', 'icc_post_regioni');
+function icc_post_regioni(){
+  require 'tassonomia-regioni.php';
+}
+
+include 'regione-prima-contenuto.php';
+
 ?>

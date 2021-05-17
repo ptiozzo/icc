@@ -1,12 +1,12 @@
 <?php
 /*
-Template Name: Piemonte storie
+Template Name: Sicilia storie
 */
 ?>
 <?php get_header(); ?>
-<?php get_template_part('piemonte/menu','piemonte'); ?>
+<?php get_template_part('sicilia/menu','sicilia'); ?>
 <?php
-$Cat1 = 'piemonte-che-cambia';
+$Cat1 = 'sicilia-che-cambia';
 $Tag1 = 'icc-tv';
  ?>
 <div class="container-fluid">

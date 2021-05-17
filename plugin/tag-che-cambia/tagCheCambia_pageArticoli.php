@@ -1,21 +1,27 @@
-<?php
-/*
-Template Name: Piemonte storie
-*/
-?>
+
 <?php get_header(); ?>
-<?php get_template_part('piemonte/menu','piemonte'); ?>
 <?php
-$Cat1 = 'piemonte-che-cambia';
-$Tag1 = 'icc-tv';
- ?>
+
+  if( get_query_var('tag') ){
+    $tagPage = get_query_var('tag');
+  } else {
+    ?>
+    <script type="text/javascript">
+        window.location.href = '<?php echo home_url(); ?>';
+    </script>
+    <?php
+  }
+
+?>
+<?php include('tagCheCambia-menu.php') ?>
 <div class="container-fluid">
 
   <?php
+
     $args = array(
     'post_type' => 'post',
-    'category_name' => $Cat1,
-    'tag' => $Tag1,
+    'tag' => $tagPage,
+    'tag__not_in' => get_term_by('slug','icc-tv','post_tag')->term_id, //escludo i post con tag ICC-TV
     'paged'     => $paged,
     );
     /*eseguo la query */

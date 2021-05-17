@@ -15,11 +15,11 @@ if(!function_exists('mappa_paolo_init')){
 }
 
 add_shortcode( 'ICCmappa', 'mappa_shortcode' );
-
 if(!function_exists('mappa_shortcode')){
   function mappa_shortcode($atts) {
     $a = shortcode_atts( array(
-      'regione' => 'tutteleregioni'
+      'regione' => 'tutteleregioni',
+      'rete' => 'tuttelereti',
    ), $atts );
    if(!is_archive()) {
      ob_start();
@@ -48,6 +48,13 @@ if(!function_exists('mappa_style_scripts')){
     wp_enqueue_script( 'icc-leaflet-js', get_template_directory_uri().'/plugin/mappa/asset/leaflet/leaflet.js','','',false);
     wp_enqueue_script( 'icc-leaflet-gesture-js', get_template_directory_uri().'/plugin/mappa/asset/leaflet/leaflet-gesture-handling.min.js','','',false);
     wp_enqueue_script( 'icc-leaflet-MarkerCluster-js', get_template_directory_uri().'/plugin/mappa/asset/leaflet/leaflet.markercluster.js','','',false);
+  }
+}
+
+add_action( 'widgets_init', 'icc_mappa_sidebars' );
+if ( ! function_exists( 'icc_mappa_sidebars' ) ) {
+	function icc_mappa_sidebars() {
+    register_sidebar(array( 'name' => esc_html__( 'Mappa', 'icc' ),'id' => 'mappa','description' => esc_html__( 'Area visualizzata sotto filtri e descrizione', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
   }
 }
 
@@ -136,13 +143,20 @@ function icc_menu_mappa_admin()
 {
   add_submenu_page(
     'icc-theme',
-    'ICC Mappa',
-    'Mappa',
+    'ICC Mappa Reti Nascoste',
+    'Mappa Reti Nascoste',
     'edit_posts',
-    'icc-mappa-suggestion',
-    'icc_menu_admin_mappa_isctruction'
+    'icc-mappa-reti-nascoste',
+    'icc_menu_admin_mappa_reti_nascoste'
   );
-
+  add_submenu_page(
+    'icc-theme',
+    'ICC Mappa Nascondi Realtà Rete',
+    'Mappa Nascondi Realtà Rete',
+    'edit_posts',
+    'icc-mappa-nascondi-realta-rete',
+    'icc_menu_admin_mappa_nascondi_realta_rete'
+  );
   add_submenu_page(
     'icc-theme',
     'ICC Mappa Export',
@@ -161,7 +175,12 @@ function icc_menu_mappa_admin()
     'icc_menu_admin_mappa_pf'
   );
 }
-
+function icc_menu_admin_mappa_nascondi_realta_rete(){
+  require 'admin-mappaNascondiRealtaRete.php';
+}
+function icc_menu_admin_mappa_reti_nascoste(){
+  require 'admin-mappaRetiNascoste.php';
+}
 function icc_menu_admin_mappa_export()
 {
   require 'admin-mappaExport.php';
@@ -175,6 +194,17 @@ function icc_menu_admin_mappa_pf()
 add_action( 'init', 'icc_mappa_rewrite' );
 function icc_mappa_rewrite(){
     add_rewrite_rule( '^mappa/tag/([a-z0-9-]+)[/]?$', 'index.php?pagename=mappa&mappatag=$matches[1]','top' );
+}
+
+function icc_is_ReteNascosta($rete){
+  $RetiNascoste = get_option('icc_RetiNascoste_attivi') ? get_option('icc_RetiNascoste_attivi') : array();
+
+  foreach ($RetiNascoste as $reti){
+    if (strtolower($rete) === $reti['ReteSlug']){
+      return true;
+    }
+  }
+  return false;
 }
 
 

@@ -162,7 +162,7 @@ if( $_POST['submit_button'] ){
 
     $url = "/mappa/";
 
-    $to = "webmaster@italiachecambia.org,redazione@italiachecambia.org";
+    $to = "webmaster@italiachecambia.org,mappa@italiachecambia.org";
     if(icc_is_region_active($_POST['regionemappa'])){
       $to .= ",".$_POST['regionemappa']."@italiachecambia.org";
     }

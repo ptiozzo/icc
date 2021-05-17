@@ -2,130 +2,77 @@
 
 if ( get_post_type( get_the_ID() ) == 'rassegna-stampa') {
   echo 'Rassegna stampa';
-}elseif (in_category('alessandria')){
+}elseif (has_category('alessandria')){
   echo 'News da Alessandria';
-}elseif (in_category('asti')){
+}elseif (has_category('asti')){
   echo 'News da Asti';
-}elseif (in_category('biella')){
+}elseif (has_category('biella')){
   echo 'News da Biella';
-}elseif (in_category('cuneo')){
+}elseif (has_category('cuneo')){
   echo 'News da Cuneo';
-}elseif (in_category('novara')){
+}elseif (has_category('novara')){
   echo 'News da Novara';
-}elseif (in_category('torino')){
+}elseif (has_category('torino')){
   echo 'News da Torino';
-}elseif (in_category('verbania')){
+}elseif (has_category('verbania')){
   echo 'News dal verbano';
-}elseif (in_category('vercelli')){
+}elseif (has_category('vercelli')){
   echo 'News da Vercelli';
-}elseif (in_category('piemonte-che-cambia')){
+}elseif (has_category('piemonte-che-cambia')){
   echo 'News dal Piemonte';
-}elseif (in_category('casentino-che-cambia')){
+}elseif (has_category('casentino-che-cambia')){
   echo 'News dal Casentino';
-}elseif (in_category('genova')){
+}elseif (has_category('genova')){
   echo 'News da Genova';
-}elseif (in_category('imperia')){
+}elseif (has_category('imperia')){
   echo 'News da Imperia';
-}elseif (in_category('savona')){
+}elseif (has_category('savona')){
   echo 'News da Savona';
-}elseif (in_category('laspezia')){
+}elseif (has_category('laspezia')){
   echo 'News da La Spezia';
-}elseif (in_category('liguria-che-cambia')){
+}elseif (has_category('liguria-che-cambia')){
   echo 'News dalla Liguria';
-}elseif (in_category('matrix-dentro-di-noi')){
+}elseif (has_tag('matrix-dentro-di-noi')){
   echo 'Matrix è dentro di noi';
-}elseif (in_category('appunti-viaggio')){
+}elseif (has_tag('appunti-viaggio')){
   echo 'Appunti di viaggio';
-}elseif (in_category('ashoka-fellow')){
-  echo 'Gli Ashoka Fellow';
-}elseif (in_category('diari-di-bordo-maestro-di-strada')){
+}elseif (has_tag('diari-di-bordo-maestro-di-strada')){
   echo 'Maestro di strada';
-}elseif (in_category('dizionario-eretico')){
+}elseif (has_tag('dizionario-eretico')){
   echo 'Dizionario eretico';
-}elseif (in_category('economia-bene-comune')){
-  echo 'Economia del bene comune';
-}elseif (in_category('blog')){
+}elseif (has_tag('blog')){
   echo 'In diretta dal camper';
-}elseif (in_category('in-un-flash')){
+}elseif (has_tag('in-un-flash')){
   echo 'Rubrica - In un flash';
-}elseif (in_category('in-viaggio')){
+}elseif (has_tag('in-viaggio')){
   echo 'Rubrica - In viaggio';
-}elseif (in_category('invece-si-puo')){
+}elseif (has_tag('invece-si-puo')){
   echo 'Rubrica - Invece si può!';
-}elseif (in_category('via-uscita-dentro')){
+}elseif (has_tag('via-uscita-dentro')){
   echo 'La via d\'uscita è dentro';
-}elseif (in_category('voce-astice')){
+}elseif (has_tag('voce-astice')){
   echo 'La Voce dell\'Astice';
-}elseif (in_category('mondo-chiama-italia')){
+}elseif (has_tag('mondo-chiama-italia')){
   echo 'Mondo chiama Italia';
-}elseif (in_category('pensare-altro')){
+}elseif (has_tag('pensare-altro')){
   echo 'Rubrica - Pensare altro';
-}elseif (in_category('pillole-transizione')){
+}elseif (has_tag('pillole-transizione')){
   echo 'Pillole per la Transizione';
-}elseif (in_category('salute-che-cambia')) {
-  echo 'Salute';
-}elseif (in_category('terranave')){
+}elseif (has_tag('terranave')){
   echo 'Rubrica - Terranave';
-}elseif (in_category('una-favola-puo-fare')){
-  echo 'Una favola può fare';
-}elseif (in_category('voci-italia-che-cambia')){
+}elseif (has_tag('una-favola-puo-fare')){
+    echo 'Una favola può fare';
+}elseif (has_tag('voci-italia-che-cambia')){
   echo 'Voci da Italia che cambia';
-}elseif (in_category('abitare')){
-  echo 'Abitare';
-}elseif (in_category('agricoltura')){
-  echo 'Agricoltura';
-}elseif (in_category('arte-cultura')){
-  echo 'Arte e cultura';
-}elseif (in_category('informazione-e-comunicazione')){
-  echo 'Informazione e comunicazione';
-}elseif (in_category('cicli-produttivi-rifiuti')){
-  echo 'Cicli produttivi e rifiuti';
-}elseif (in_category('economia')){
-  echo 'Economia';
-}elseif (in_category('educazione')){
-  echo 'Educazione';
-}elseif (in_category('energia')){
-  echo 'Energia';
-}elseif (in_category('integrazione-sociale')){
-  echo 'Integrazione sociale';
-}elseif (in_category('disabilita')){
-  echo 'Disabilità';
-}elseif (in_category('questione-di-genere')){
-  echo 'Questione di genere';
-}elseif (in_category('lavoro-imprenditoria')){
-  echo 'Lavoro e imprenditoria';
-}elseif (in_category('imprenditoria')){
-  echo 'Imprenditoria';
-}elseif (in_category('lavoro')){
-  echo 'Lavoro';
-}elseif (in_category('legalita')){
-  echo 'Legalità';
-}elseif (in_category('mobilita')){
-  echo 'Mobilità';
-}elseif (in_category('salute-alimentazione')){
-  echo 'Salute e alimentazione';
-}elseif (in_category('sostenibilita-ambientale')){
-  echo 'Sostenibilità ambientale';
-}elseif (in_category('ambiente')){
-  echo 'Ambiente';
-}elseif (in_category('animali')){
-  echo 'Animali';
-}elseif (in_category('clima')){
-  echo 'Clima';
-}elseif (in_category('stili-di-vita')){
-  echo 'Stili di vita';
-}elseif (in_category('viaggiare')){
-  echo 'Viaggiare';
-}elseif (in_category('documentari')) {
+}elseif (has_tag('documentari')) {
   echo 'I documentari';
-}elseif (in_category('io-faccio-cosi')) {
+}elseif (has_tag('io-faccio-cosi')) {
   echo 'Io faccio così';
-}elseif (in_category('meme')) {
+}elseif (has_tag('meme')) {
   echo 'I meme';
-}elseif (in_category('rubriche')) {
-  echo 'Le rubriche';
-}elseif (in_category('articoli')) {
-  echo 'Gli Articoli';
+}else{
+  echo get_the_category()[0]->cat_name;
+  //var_dump( get_the_category());
 }
 
 

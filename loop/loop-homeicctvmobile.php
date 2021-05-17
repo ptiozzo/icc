@@ -1,10 +1,11 @@
 <?php
 /* Query per ICC-TV sticky
 *---------------------*/
+$tagIccTv = 'icc-tv';
 $argsICCTVSticky = array(
   'post_type' => 'post',
   'posts_per_page' => 10,
-  'category_name' => 'icc-tv',
+  'tag' => $tagIccTv,
   'date_query' => array(
         array(
             'after' => '1 month ago'
@@ -39,7 +40,7 @@ if(10-$loopICCTVSticky->post_count != 0){
   $argsICCTV = array(
     'post_type' => 'post',
     'posts_per_page' => 10-$loopICCTVSticky->post_count,
-    'category_name' => 'icc-tv',
+    'tag' => $tagIccTv,
     'post__not_in' => $exclude_posts_ICCTV_sticky_mobile,
     'tax_query' => array(
       'relation' => 'AND',

@@ -36,153 +36,85 @@
 			</div>
 		</div>
 		<!-- Header -->
-		<header class='stripe'>
-      <div class='left-col'>
-				<div class='menu'>
-					<div class='bars'>
-						<div class='bar'></div>
-						<div class='bar'></div>
-						<div class='bar'></div>
-					</div>
-				</div>
 
-				<a href='<?php echo home_url(); ?>'>
-					<figure class='logo'>
-						<img src='<?php echo get_template_directory_uri();?>/assets/img/logo/icc_orizz_trasparente.png' alt='<?php bloginfo( 'name' ); ?>' title='<?php bloginfo( 'name' ); ?>'>
-					</figure>
+		<header class="home">
+
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+			<div class='navbar-brand logo align-self-center mr-0 p-0'>
+				<a href="/" class="p-0">
+					<img class="img-fluid" src="<?php echo get_template_directory_uri();?>/assets/img/logo/icc_orizz_trasparente.png" alt="ItaliaCheCambia Logo">
 				</a>
 			</div>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHome" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
 
-			<div class='right-col'>
-				<nav>
+		  <div class="collapse navbar-collapse justify-content-between" id="navbarHome">
+
+				<div class="main-menu align-self-center">
 					<?php
-					wp_nav_menu( array(
+          wp_nav_menu( array(
             'theme_location' => 'menu-principale',
-            'menu_class' => 'header__menu__principale',
-            'container' => false)
+            'container' => false,
+						'menu_class' => 'd-flex flex-column flex-lg-row m-0',
+					 )
           );
-					?>
-				</nav>
+          ?>
+				</div>
 
-				<section class='search align-items-center'>
+				<div class='search align-self-center d-flex justify-content-center justify-content-lg-end my-lg-0'>
 					<div class="dropdown">
 					  <button class="btn dropdown-toggle" type="button" id="dropdownMenuSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					   <img src='<?php echo get_template_directory_uri();?>/assets/img/icons/search.svg' alt='Cerca <?php bloginfo( 'name' ); ?>'>
 					  </button>
-					  <div class="dropdown-menu cerca p-3" aria-labelledby="dropdownMenuSearch">
+					  <div class="dropdown-menu dropdown-menu-right cerca p-3" aria-labelledby="dropdownMenuSearch">
+						  	<a class="btn btn-warning mb-2" href="/contenuti/">Tutti i contenuti</a>
 							<form class="" action="/cerca/" method="post">
-								<input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>" placeholder="Scrivi e premi invio">
+								<input class="mb-2" type="text" name="termine-cercato" value="<?php echo $searchterm; ?>" placeholder="Scrivi e premi invio per cercare">
 								<input name="submit_button" type="hidden" value="Cerca">
 							</form>
 					  </div>
 					</div>
-				</section>
-
-
-				<section class='socials d-none d-xl-flex'>
-          <?php
-          wp_nav_menu( array(
-            'theme_location' => 'menu-social',
-            'container' => false)
-          );
-          ?>
-				</section>
-			</div>
-		</header>
-
-		<header class='overlay-menu'>
-
-			<nav>
-				<div class='head'>
-					<a href='<?php echo home_url(); ?>'>
-						<figure class='logo'>
-							<img src='<?php echo get_template_directory_uri();?>/assets/img/logo/italia-che-cambia-header.svg' alt='Italia che cambia' title='Italia che cambia'>
-						</figure>
-					</a>
-					<figure class='close'>
-						<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/close.svg' alt='Italia che cambia' title='Italia che cambia'>
-					</figure>
-				</div>
-
-				<div class='mobile-links'>
-          <?php
-          wp_nav_menu( array(
-            'theme_location' => 'menu-principale',
-            'container' => false)
-          );
-					?>
-				</div>
-
-				<div class='collapse-container'>
-					<div class='collapse-head'>
-						<h5><a href="/contenuti/" class="text-dark">Contenuti</a></h5>
-					</div>
-					<?php
-					wp_nav_menu( array(
-            'theme_location' => 'menu-i-nostri-contenuti',
-            'menu_class' => 'menu-1',
-            'container' => false)
-          );
-					?>
-				</div>
-
-				<div class='collapse-container'>
-					<div class='collapse-head'>
-						<h5><a href="/categoria/contenuti/icc-tv/" class="text-dark">ICC TV</a></h5>
-					</div>
-					<?php
-					wp_nav_menu( array(
-            'theme_location' => 'menu-icc-tv',
-            'menu_class' => 'menu-1',
-            'container' => false)
-          );
-					?>
-				</div>
-
-				<div class='collapse-container'>
-					<div class='collapse-head hidden-mobile'>
-						<h5 class="text-dark">Le Regioni</h5>
-					</div>
-						<?php
-						wp_nav_menu( array(
-	            'theme_location' => 'menu-regioni',
-	            'menu_class' => 'menu-2',
-	            'container' => false)
+					<div class='socials align-self-center d-flex d-lg-none d-xl-flex'> <!-- d-xl-flex -->
+	          <?php
+	          wp_nav_menu( array(
+	            'theme_location' => 'menu-social',
+	            'container' => false,
+							'menu_class' => 'd-flex m-0 p-0',
+							)
 	          );
-						?>
+	          ?>
+					</div>
 				</div>
+		  </div>
+		</nav>
 
 
-				<div class='info'>
-					<p>
-						<b>CF:</b> 97761390588
-						<br>
-						<b>P. IVA:</b> 12511651007
-					</p>
-				</div>
 
-				<div class='socials'>
-					<?php
-					wp_nav_menu( array(
-            'theme_location' => 'menu-social',
-            'menu_class' => 'socials',
-            'container' => false)
-          );
-          ?>
-				</div>
-			</nav>
 
-			<article>
-				<h1>
-					Informarsi<br>
-					conoscere<br>
-					agire
-				</h1>
-			</article>
-			<figure class='hand'>
-				<img src='<?php echo get_template_directory_uri();?>/assets/img/icons/hand.svg' alt='italia che cambia'>
-			</figure>
+
+
+
+
 		</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<div class="modal fade" id="IscrizioneNewsletter" tabindex="-1" role="dialog" aria-labelledby="CasentinoAccediTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		    <div class="modal-content">
@@ -252,7 +184,7 @@
 				get_template_part('casentino/menu','casentino');
 			} elseif (is_page('liguria')) {
 				get_template_part('liguria/menu','liguria');
-			}
+			} 
 			?>
 
 

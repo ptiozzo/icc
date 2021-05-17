@@ -25,11 +25,11 @@ if ( ! function_exists( 'icc_styles_scripts' ) ) {
 		//wp_enqueue_script;
 		wp_enqueue_style( 'icc-sourcesanspro','//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 		wp_enqueue_style( 'icc-fontfavole','//fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
-		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css',array(),filemtime(get_template_directory() . '/assets/css/main.css'),'all');
+//		wp_enqueue_style( 'icc2', get_template_directory_uri().'/assets/css/main.css',array(),filemtime(get_template_directory() . '/assets/css/main.css'),'all');
 		wp_enqueue_style( 'icc6', get_template_directory_uri().'/assets/css/modules/chi-siamo/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/chi-siamo/index.css'),'all');
 		wp_enqueue_style( 'icc8', get_template_directory_uri().'/assets/css/modules/visione/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/visione/index.css'),'all');
 		wp_enqueue_style( 'icc12', get_template_directory_uri().'/assets/css/modules/sostienici/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/sostienici/index.css'),'all');
-		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/mappa/index.css'),'all');
+//		wp_enqueue_style( 'mappa', get_template_directory_uri().'/assets/css/modules/mappa/index.css',array(),filemtime(get_template_directory() . '/assets/css/modules/mappa/index.css'),'all');
 		wp_enqueue_style( 'icc-bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css',array(),filemtime(get_template_directory() . '/assets/css/bootstrap.min.css'),'all');
 	  wp_enqueue_style( 'icc', get_template_directory_uri().'/style.css',array(),filemtime(get_template_directory() . '/style.css'),'all');
 		wp_enqueue_script('jquery');
@@ -76,6 +76,7 @@ if ( ! function_exists( 'icc_setup' ) ) {
 			'menu-piemonte' => esc_html__( 'Menu piemonte', 'icc' ),
 			'menu-casentino' => esc_html__( 'Menu casentino', 'icc' ),
 			'menu-liguria' => esc_html__( 'Menu liguria', 'icc' ),
+      'menu-sicilia' => esc_html__( 'Menu sicilia', 'icc' ),
 		) );
 	}
 }
@@ -104,6 +105,8 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 		register_sidebar(array( 'name' => esc_html__( 'Piemonte', 'icc' ),'id' => 'piemonte','description' => esc_html__( 'Sidebar Piemonte', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Casentino', 'icc' ),'id' => 'casentino','description' => esc_html__( 'Sidebar Casentino', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Liguria', 'icc' ),'id' => 'liguria','description' => esc_html__( 'Sidebar Liguria', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Sicilia', 'icc' ),'id' => 'sicilia','description' => esc_html__( 'Sidebar Sicilia', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Sicilia footer', 'icc' ),'id' => 'sicilia-footer','description' => esc_html__( 'Sidebar Sicilia footer', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Rassegna Stampa', 'icc' ),'id' => 'rassegna-stampa','description' => esc_html__( 'Sidebar rassegna stampa(non attiva)', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Single inizio articolo', 'icc' ),'id' => 'singlestart','description' => esc_html__( 'Area ad inizio singolo articolo, larghezza max 768', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s my-3">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 		register_sidebar(array( 'name' => esc_html__( 'Single piemonte fine articolo', 'icc' ),'id' => 'singlepiemonteend','description' => esc_html__( 'Area a fine singolo articolo piemonte, larghezza max 1400', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s my-3">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
@@ -116,6 +119,10 @@ if ( ! function_exists( 'icc_sidebars' ) ) {
 		register_sidebar(array( 'name' => esc_html__( 'Home casentino centrale 2', 'icc' ),'id' => 'homecasentinodx','description' => esc_html__( 'Area casentino nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
     register_sidebar(array( 'name' => esc_html__( 'Home Liguria sinistra', 'icc' ),'id' => 'homeliguriasx','description' => esc_html__( 'Area liguria nella colonna di sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
     register_sidebar(array( 'name' => esc_html__( 'Home Liguria centrale 2', 'icc' ),'id' => 'homeliguriadx','description' => esc_html__( 'Area liguria nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Home Sicilia sinistra', 'icc' ),'id' => 'homesiciliasx','description' => esc_html__( 'Area sicilia nella colonna di sinistra tra evidenza e mappa, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+		register_sidebar(array( 'name' => esc_html__( 'Home Sicilia centrale 2', 'icc' ),'id' => 'homesiciliadx','description' => esc_html__( 'Area sicilia nella colonna centrale dopo 2 articoli, larghezza max 991', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Contribuisci 1', 'icc' ),'id' => 'contribuisci1','description' => esc_html__( 'Contribuisci prima pagina', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
+    register_sidebar(array( 'name' => esc_html__( 'Contribuisci 2', 'icc' ),'id' => 'contribuisci2','description' => esc_html__( 'Contribuisci seconda pagina', 'icc' ), 'before_widget' => '<div id="%1$s" class="widget %2$s mt-4">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
 
 	}
 }
@@ -258,9 +265,9 @@ add_action('end_session_action','end_session');
 //fine sessione
 
 
-/* Aggiunta banner ATTIVATI dopo secondo paragrafo.
+/* Aggiunta banner ATTIVATI/CONTRIBUISCI dopo secondo paragrafo.
 /* ------------------------------------ */
-require 'inc/attivati.php';
+require 'inc/attivati-contribuisci.php';
 /* Aggiunta banner PIANETA FUTURO dopo secondo paragrafo.
 /* ------------------------------------ */
 require 'inc/pianetafuturo.php';
@@ -318,6 +325,11 @@ require 'plugin/macrolibrarsi/macrolibrarsi.php';
 /* Attivazione plugin redirect PF
 /* ------------------------------------ */
 require 'plugin/redirectPF/redirectpf.php';
+
+/* Attivazione plugin tag-che-cambia
+/* ------------------------------------ */
+require 'plugin/tag-che-cambia/tag-che-cambia.php';
+
 
 
 /* Prima immagine del post.
@@ -377,5 +389,14 @@ function jptweak_remove_share() {
     }
 }
 add_action( 'loop_start', 'jptweak_remove_share' );
+
+/*  Remove create category/tags capability for editor
+/* ------------------------------------ */
+add_action( 'init', 'ICC_remove_cap_manage_category' );
+function ICC_remove_cap_manage_category(){
+  global $wp_roles;
+  $wp_roles->remove_cap( 'editor', 'manage_categories' );
+}
+
 
 ?>

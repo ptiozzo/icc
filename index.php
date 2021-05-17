@@ -5,7 +5,10 @@
 
     if( have_posts() ) :
       if (is_tag()){
-        the_archive_title('<h1 class="archive-title">', '</h1>');
+        echo "<div class='cat2 tag'>";
+        echo "<h1 class='archive-title'>".single_cat_title( '', false )."</h1>";
+        echo "<h6 class='text-white'>".tag_description(get_queried_object()->term_id)."</h6>";
+        echo "</div>";
       }
       if (is_author()){
         echo '<h1 class="archive-title">' . get_the_author() . '</h1>' ;

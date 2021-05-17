@@ -8,6 +8,8 @@
 			get_template_part('casentino/menu','casentino');
 		} elseif (has_category('liguria-che-cambia')) {
 			get_template_part('liguria/menu','liguria');
+		} elseif (has_category('sicilia-che-cambia')) {
+			get_template_part('sicilia/menu','sicilia');
 		}
 	} ?>
 
@@ -210,8 +212,6 @@
 			</div>
 			<!-- Box correlati fondo articolo -->
 			<?php include("single-correlati.php") ?>
-			<!-- Box contribuisci fondo articolo -->
-			<?php get_template_part('contribuisci/article','contribuisci'); ?>
 		</div>
 		</div>
 		<div class="col-12 col-md-1 col_single_action">

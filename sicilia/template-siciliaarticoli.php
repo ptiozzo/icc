@@ -1,13 +1,13 @@
 <?php
 /*
-Template Name: Piemonte storie
+Template Name: Sicilia articoli
 */
 ?>
 <?php get_header(); ?>
-<?php get_template_part('piemonte/menu','piemonte'); ?>
+<?php get_template_part('sicilia/menu','sicilia'); ?>
 <?php
-$Cat1 = 'piemonte-che-cambia';
-$Tag1 = 'icc-tv';
+$Cat1 = 'sicilia-che-cambia';
+$Cat2 = 'le-storie';
  ?>
 <div class="container-fluid">
 
@@ -15,7 +15,7 @@ $Tag1 = 'icc-tv';
     $args = array(
     'post_type' => 'post',
     'category_name' => $Cat1,
-    'tag' => $Tag1,
+    'category__not_in' => array(get_category_by_slug( $Cat2 )->term_id),
     'paged'     => $paged,
     );
     /*eseguo la query */

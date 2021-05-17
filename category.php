@@ -18,6 +18,21 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
     <div class="cat2 category-<?php echo get_term_by('name', single_cat_title('',false), 'category')->slug; ?>">
       <h1><?php echo get_term_by('name', single_cat_title('',false), 'category')->name ?></h1>
       <?php the_archive_description( '<h6 class="text-white">', '</h6>' ); ?>
+      <?php
+        $CatId = get_term_by('name', single_cat_title('',false), 'category')->term_id;
+        $args = array(
+          'taxonomy' => 'category',
+          'child_of' => $CatId,
+        );
+        $categories = get_categories($args);
+        //var_dump($categories);
+        foreach ($categories as $cat) {
+          ?>
+            <a class="btn btn-outline-light m-1" href="<?php echo get_category_link( $cat->cat_ID ); ?>" role="button"><?php echo $cat->name; ?></a>
+          <?php
+        }
+      ?>
+
     </div>
 
     <?php
@@ -48,15 +63,13 @@ if (cat_is_ancestor_of( 2298, get_query_var( 'cat' ) ))
         <div class="col-xl-5ths col-lg-3 col-md-4 col-sm-6  text-break">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <a href='<?php the_permalink(); ?>'>
-              <?php
-              if ($Cat1 == $ParentCat1) { ?>
+              <div class="category-bg"> </div>
                 <div class='category'>
                   <span class="ml-4"><?php the_time('j M Y') ?></span>
                   <span>
                     <?php get_template_part('inc/post','etichetta'); ?>
                   </span>
                 </div>
-              <?php } ?>
               <!-- Immagine in evidenza -->
               <figure>
                 <?php
