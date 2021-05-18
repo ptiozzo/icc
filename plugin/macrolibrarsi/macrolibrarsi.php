@@ -120,7 +120,7 @@ function MacroLibrarsiAPI($api) {
               $headers[] = 'From: Italia Che Cambia <checambiaitalia@gmail.com>';
               //$headers[] = 'Bcc: ptiozzo@me.com';
 
-              wp_mail( $to, $subject, $body, $headers );
+              //wp_mail( $to, $subject, $body, $headers );
 
 
               echo $ICC_Macro_Table;
