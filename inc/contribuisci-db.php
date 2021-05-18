@@ -67,7 +67,7 @@ function icc_contribuisci_admin(){
   add_menu_page(
       'Contribuisci',     // page title
       'Contribuisci',     // menu title
-      'administrator',   // capability
+      'edit_posts',   // capability
       'contribuisci',     // menu slug
       'icc_contribuisci_admin_view' // callback function
   );
