@@ -98,6 +98,20 @@ function save_mappa_meta_box($post_id, $post)
       } elseif (get_post_meta($post_id,"Mappa_Chiuso_Motivazione")) {
           delete_post_meta($post_id,"Mappa_Chiuso_Motivazione");
       }
+
+      if($_POST["Mappa_legaleRappresentante"] != "") {
+          update_post_meta($post_id, "Mappa_legaleRappresentante", $_POST["Mappa_legaleRappresentante"]);
+      } elseif (get_post_meta($post_id,"Mappa_legaleRappresentante")) {
+          delete_post_meta($post_id,"Mappa_legaleRappresentante");
+      }
+
+      if($_POST["Mappa_privacy"] != "") {
+          update_post_meta($post_id, "Mappa_privacy", $_POST["Mappa_privacy"]);
+      } elseif (get_post_meta($post_id,"Mappa_privacy")) {
+          delete_post_meta($post_id,"Mappa_privacy");
+      }
+
+
       mappa_calcolo_realta();
     }
 

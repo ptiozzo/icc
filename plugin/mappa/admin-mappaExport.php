@@ -76,14 +76,14 @@ if($loopAllMappa->have_posts()){
     $f = fopen('php://output', 'w');
     ob_end_clean();
     while($loopAllMappa->have_posts()){
-      $loopAllMappa->the_post();
 
       if($row == 0){
        $line = array('Riga','ID','Titolo','Stato','Autore','Slug','Regione','Categoria','Tipologia','Rete','TAG',
        'Chiuso motivazione','Chiuso data','Contenuto','Video YT','Latitudine','Longitudine',
        'Indirizzo','Sito','Email','Telefono','Facebook','Instagram','YouTube','Linkedin',
-       'Twitter','Post status');
+       'Twitter','Post status','Legale rappresentante','Termini e condizioni');
       } else {
+        $loopAllMappa->the_post();
         $term1 = "mapparegione";
         $regione = "";
         $terms = get_the_terms( $post->ID , $term1 );
@@ -159,7 +159,9 @@ if($loopAllMappa->have_posts()){
          get_post_meta( $post->ID, 'Mappa_YT',true),
          get_post_meta( $post->ID, 'Mappa_IN',true),
          get_post_meta( $post->ID, 'Mappa_TW',true),
-         get_post_status()
+         get_post_status(),
+         get_post_meta( $post->ID, 'Mappa_legaleRappresentante',true),
+         get_post_meta( $post->ID, 'Mappa_privacy',true)
        );
      }
       $row++;
@@ -203,6 +205,8 @@ if($loopAllMappa->have_posts()){
   echo "<th>Linkedin</th>";
   echo "<th>Twitter</th>";
   echo "<th>Post status</th>";
+  echo "<th>Legale rappresentante</th>";
+  echo "<th>Termini e condizioni</th>";
   echo "</tr>";
   while($loopAllMappa->have_posts()){
     $loopAllMappa->the_post();
@@ -307,6 +311,8 @@ if($loopAllMappa->have_posts()){
     echo "<td>".get_post_meta( $post->ID, 'Mappa_IN',true)."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_TW',true)."</td>";
     echo "<td>".get_post_status()."</td>";
+    echo "<td>".get_post_meta( $post->ID, 'Mappa_legaleRappresentante',true)."</td>";
+    echo "<td>".get_post_meta( $post->ID, 'Mappa_privacy',true)."</td>";
 
 
 

@@ -68,11 +68,21 @@ function mappa_meta_box_markup($post)
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_IN" value="<?php echo get_post_meta($post->ID, 'Mappa_IN', true);?>">
   <label>Twitter Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_TW" value="<?php echo get_post_meta($post->ID, 'Mappa_TW', true);?>">
-
   <label>Data Chiusura Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Chiuso_Data" value="<?php echo get_post_meta($post->ID, 'Mappa_Chiuso_Data', true);?>">
   <label>Motivazione Chiusura Realtà</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Chiuso_Motivazione" value="<?php echo get_post_meta($post->ID, 'Mappa_Chiuso_Motivazione', true);?>">
+  <label>PRIVACY - Segnalata da legale rappresentante</label>
+  <select style="width:90%; margin-bottom: 10px;" name="Mappa_legaleRappresentante">
+    <option value="">Non impostato</option>
+    <option value="si" <?php if(get_post_meta($post->ID, 'Mappa_legaleRappresentante', true) == "si"){echo "selected";} ?>>Si</option>
+    <option value="no" <?php if(get_post_meta($post->ID, 'Mappa_legaleRappresentante', true) == "no"){echo "selected";} ?>>No</option>
+  </select>
+  <label>PRIVACY - accettato termini e condizioni</label>
+  <select style="width:90%; margin-bottom: 10px;" name="Mappa_privacy">
+    <option value="">Non impostato</option>
+    <option value="si" <?php if(get_post_meta($post->ID, 'Mappa_privacy', true) == "si"){echo "selected";} ?>>Si</option>
+  </select>
   <?php
 }
 
