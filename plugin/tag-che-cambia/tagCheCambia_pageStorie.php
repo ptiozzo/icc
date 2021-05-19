@@ -13,6 +13,7 @@
   }
 
 ?>
+<script>document.title = "<?php echo get_term_by('slug', $tagPage,'post_tag')->name; ?> - Le storie | <?php bloginfo('name')?>";</script>
 <?php include('tagCheCambia-menu.php') ?>
 <div class="container-fluid">
 

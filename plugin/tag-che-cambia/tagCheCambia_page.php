@@ -13,6 +13,7 @@
   }
 
 ?>
+<script>document.title = "<?php echo get_term_by('slug', $tagPage,'post_tag')->name; ?> | <?php bloginfo('name')?>";</script>
 <?php include('tagCheCambia-menu.php') ?>
 
 
