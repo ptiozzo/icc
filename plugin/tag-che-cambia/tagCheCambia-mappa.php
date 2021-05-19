@@ -73,7 +73,7 @@ if ($loopMappaTagCheCambiaSlider->have_posts()) {
       <div class="carousel-item active">
         <article>
             <figure>
-              <a href="<?php echo home_url(); ?>/<?php echo $tagPage; ?>/mappa/"><img class="img-fluid" src='<?php echo get_template_directory_uri();?>/assets/img/modules/<?php echo $tagPage; ?>/<?php echo $tagPage; ?>-mappa.png' alt='' title=''></a>
+              <a href="<?php echo home_url(); ?>/<?php echo $tagPage; ?>/mappa/"><img class="img-fluid miniatura-mappa" src='<?php echo get_template_directory_uri();?>/assets/img/modules/<?php echo $tagPage; ?>/<?php echo $tagPage; ?>-mappa.png' alt='' title=''></a>
             </figure>
         </article>
       </div>

@@ -1634,7 +1634,8 @@ a.carousel-more{
 }
 .piemonte-che-cambia #carouselMappa .minatura-piemonte,
 .liguria-che-cambia #carouselMappa .minatura-liguria,
-.sicilia-che-cambia #carouselMappa .minatura-sicilia{
+.sicilia-che-cambia #carouselMappa .minatura-sicilia,
+#carouselMappa .miniatura-mappa{
   border: 26px solid var(--color-dark_azzurro);
   height: 350px;
   object-fit: cover;
