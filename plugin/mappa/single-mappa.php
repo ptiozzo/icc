@@ -100,12 +100,17 @@
                     if($i > 0){
                       echo "<span class=''> - </span>";
                     }
-                    if (icc_is_tag_active($term->slug) || substr_count(strtolower($term->name), 'rete') != 0){
+                    if (icc_is_tag_active($term->slug)){
                       $nomeRete = $term->name;
-                    } else{
+                      $url = home_url($term->slug);
+                    } elseif ( substr_count(strtolower($term->name), 'rete') != 0 ){
+                      $nomeRete = $term->name;
+                      $url = "/mappa/".$term->slug;
+                    } else {
                       $nomeRete = "Rete ".$term->name;
+                      $url = "/mappa/".$term->slug;
                     }
-                    echo "<a href=/mappa/".$term->slug." class='font-weight-normal btn btn-link'>".$nomeRete."</a>";
+                    echo "<a href=".$url." class='font-weight-normal btn btn-link'>".$nomeRete."</a>";
                     $i++;
                   }
                 }
