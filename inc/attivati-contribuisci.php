@@ -3,28 +3,27 @@
 add_filter( 'the_content', 'prefix_insert_post_ads' );
 
 function prefix_insert_post_ads( $content ) {
+  $abitare = array('architettura-sostenibile','ecovillaggi','ripopolare-borghi-montagna');
+  $agricoltura = array('agricoltura-intensiva','permacultura','agricoltura-sostenibile');
+  $ambiente = array('ambiente');
+  $cicliProduttivi = array('economia-circolare');
+  $clima = array('cambiamento-climatico');
+  $disabilita = array('disabilita');
+  $economia = array('economia-sostenibile','economia-bene-comune','finanza-etica','monete-complementari','b-corp');
+  $educazione = array('educazione-consapevole','homeschooling','outdoor-education');
+  $energia = array('transizione-energetica');
+  $imprenditoria = array('imprenditoria-etica','ashoka-fellow');
+  $informazione = array('informazione-e-media');
+  $lavoro = array('lavoro');
+  $legalita = array('legalita');
+  $mobilita = array('mobilita-sostenibile');
+  $salute = array('spreco-alimentare','salute-e-alimentazione');
+  $genere = array('questione-di-genere');
+  $viaggiare = array('ecoturismo');
+  $visioni2040 = array_merge($abitare,$agricoltura,$ambiente,$cicliProduttivi,$clima,$disabilita,$economia,$educazione,$energia,$imprenditoria,$informazione,$lavoro,$legalita,$mobilita,$salute,$genere,$viaggiare);
     if (is_single() && ! is_admin() && get_post_type( get_the_ID() ) == 'post' &&
-    in_category( array(
-                    'Abitare',
-                    'agricoltura',
-                    'ambiente',
-                    'cicli-produttivi-rifiuti',
-                    'clima',
-                    'disabilita',
-                    'Economia',
-                    'educazione',
-                    'energia',
-                    'imprenditoria',
-                    'informazione-e-comunicazione',
-                    'lavoro',
-                    'legalita',
-                    'mobilita',
-                    'salute-alimentazione',
-                    'questione-di-genere',
-                    'viaggiare'
-                )) ) {
-
-        $content = prefix_insert_after_content($content );
+    in_category( $visioni2040 ) ) {
+        $content = prefix_insert_after_content($content,$abitare,$agricoltura,$ambiente,$cicliProduttivi,$clima,$disabilita,$economia,$educazione,$energia,$imprenditoria,$informazione,$lavoro,$legalita,$mobilita,$salute,$genere,$viaggiare);
         $content = prefix_insert_after_paragraph_contribuisci(4, $content);
         return $content;
     }
@@ -39,106 +38,106 @@ function prefix_insert_post_ads( $content ) {
 }
 
 // Parent Function that makes the magic happen
-function prefix_insert_after_content( $content ) {
+function prefix_insert_after_content( $content,$abitare,$agricoltura,$ambiente,$cicliProduttivi,$clima,$disabilita,$economia,$educazione,$energia,$imprenditoria,$informazione,$lavoro,$legalita,$mobilita,$salute,$genere,$viaggiare) {
 
     $ad_code = '<div class="single__attivati mb-2 d-flex flex-lg-row flex-column">';
-    if (in_category('abitare')){
+    if (in_category( $abitare )){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> dell'abitare in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid'  src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-abitare/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('agricoltura')){
+      elseif (in_category($agricoltura)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> dell'agricoltura in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-agricoltura-e-acqua/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('ambiente')){
+      elseif (in_category($ambiente)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> dell'ambiente in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-ambiente/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('cicli-produttivi-rifiuti')){
+      elseif (in_category($cicliProduttivi)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione di <br>cicli produttivi e rifiuti in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-cicli-produttivi-e-rifiuti/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('clima')){
+      elseif (in_category($clima)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> del clima in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-clima/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('disabilita')){
+      elseif (in_category($disabilita)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> della disabilità in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-disabilita/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('economia')){
+      elseif (in_category($economia)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> dell'economia in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-economia/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('educazione')){
+      elseif (in_category($educazione)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> dell'educazione in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-educazione/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('energia')){
+      elseif (in_category($energia)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> dell'energia in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-energia/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('imprenditoria')){
+      elseif (in_category($imprenditoria)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> dell'imprenditoria in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-imprenditoria/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('informazione-e-comunicazione')){
+      elseif (in_category($informazione)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione di informazione e comunicazione in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-informazione-e-comunicazione/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('lavoro')){
+      elseif (in_category($lavoro)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> del lavoro in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-lavoro" class="stretched-link"></a></div>';
       }
-      elseif (in_category('legalita')){
+      elseif (in_category($legalita)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> della legalità in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-legalita/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('mobilita')){
+      elseif (in_category($mobilita)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> della mobilità in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-mobilita/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('salute-alimentazione')){
+      elseif (in_category($salute)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione di salute e alimentazione in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-salute/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('questione-di-genere')){
+      elseif (in_category($genere)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> della tematica di genere in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
         $ad_code .= '<a href="/visione-2040-tematiche-di-genere/" class="stretched-link"></a></div>';
       }
-      elseif (in_category('viaggiare')){
+      elseif (in_category($viaggiare)){
         $ad_code .= "<p class='px-4 py-2 my-0'>Vuoi cambiare la situazione</br> del viaggiare in italia?</p>";
         $ad_code .= "<div class='d-flex flex-row justify-content-center align-items-center'><img class='img-fluid' src='". get_template_directory_uri() ."/assets/img/icons/multi-right-arrow.svg' title='' alt=''>";
         $ad_code .= "<p class='single__attivati2 px-lg-4 pl-2 my-0'>ATTIVATI</p>";
