@@ -96,16 +96,18 @@
               if ($terms != ""){
                 //echo "Rete: ";
                 foreach ( $terms as $term ) {
-                  if($i > 0){
-                    echo "<span class=''> - </span>";
+                  if($term->slug != "nascosta-su-nazionale"){
+                    if($i > 0){
+                      echo "<span class=''> - </span>";
+                    }
+                    if (icc_is_tag_active($term->slug) || substr_count(strtolower($term->name), 'rete') != 0){
+                      $nomeRete = $term->name;
+                    } else{
+                      $nomeRete = "Rete ".$term->name;
+                    }
+                    echo "<a href=/mappa/".$term->slug." class='font-weight-normal btn btn-link'>".$nomeRete."</a>";
+                    $i++;
                   }
-                  if (substr_count(strtolower($term->name), 'rete') != 0){
-                    $nomeRete = $term->name;
-                  } else{
-                    $nomeRete = "Rete ".$term->name;
-                  }
-                  echo "<a href=/mappa/".$term->slug." class='font-weight-normal btn btn-link'>".$nomeRete."</a>";
-                  $i++;
                 }
               }
 
