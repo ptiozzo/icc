@@ -20,13 +20,13 @@ function icc_menu_admin_tag_isctruction()
 }
 
 function icc_is_tag_active($tag){
-  $tag = get_option('icc_tag_attive') ? get_option('icc_tag_attive') : array();
-
-  if(in_array(strtolower($tag),$tag)){
-    return true;
-  } else {
-    return false;
+  $tagAttivi = get_option('icc_tagCheCambia_attivi') ? get_option('icc_tagCheCambia_attivi') : array();
+  foreach ($tagAttivi as $tagSingolo) {
+    if ( strtolower($tag) == $tagSingolo['tagName']){
+      return true;
+    }
   }
+  return false;
 }
 
 /* Inizializzazione widget/menu/urlRewrite */
