@@ -69,7 +69,7 @@ $filtroLatLong = array(
   'compare'    => 'EXISTS',
 );
 $realtaSegnalate = 0;
-if(!is_user_logged_in() || $Regione == "tutteleregioni"){
+if((!is_user_logged_in() || $Regione == "tutteleregioni") && $Rete1 == "tuttelereti"){
   $filtroUtente = array(
     'taxonomy'=> 'mappastato',
     'field'    => 'slug',
