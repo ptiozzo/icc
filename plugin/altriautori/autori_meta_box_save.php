@@ -11,7 +11,7 @@ function save_autori_meta_box($post_id, $post)
     if(!current_user_can("edit_post", $post_id))
         return $post_id;
 
-    if(defined("DOING_AUTOSAVE") && DOING_AUTOSAVE)
+    if( (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) || (defined("DOING_AJAX") && DOING_AJAX) )
         return $post_id;
 
     $slug = "post";

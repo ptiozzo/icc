@@ -18,6 +18,13 @@ add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 99999999);
 
 remove_action('wp_head', 'wp_generator');
 
+
+add_filter( 'bulk_actions-edit-post', 'my_custom_bulk_actions_post' );
+function my_custom_bulk_actions_post( $actions ){
+  unset( $actions[ 'edit' ] );
+  return $actions;
+}
+
 /*  Include Styles & Script
 /* ------------------------------------ */
 if ( ! function_exists( 'icc_styles_scripts' ) ) {
