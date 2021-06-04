@@ -140,6 +140,9 @@ if( $_POST['submit_button'] ){
       if($_POST["legaleRappresentante"] != "") {
           update_post_meta($post_id, "Mappa_legaleRappresentante", $_POST["legaleRappresentante"]);
       }
+      if($_POST["mappa_privacy"] != "") {
+          update_post_meta($post_id, "Mappa_privacy", $_POST["mappa_privacy"]);
+      }
 
 
 
