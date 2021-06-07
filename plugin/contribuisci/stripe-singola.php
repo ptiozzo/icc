@@ -8,7 +8,7 @@
   <div id="card-errors" role="alert"></div>
 
   <button id="submit" class="btn btn-primary rounded-bottom w-100">Contribuisci con carta di credito</button>
-  <div class="text-center font-weight-lighter w-100">powered by stipe</div>
+  <div class="text-center font-weight-lighter w-100">powered by stripe</div>
 </form>
 
 <?php
