@@ -13,6 +13,18 @@
 		}
 	} ?>
 
+	<?php
+
+	$post_tags =wp_get_post_tags($post->ID);
+	foreach ($post_tags as $tag) {
+		if(icc_is_tag_active($tag->slug)){
+			$tagPage = $tag->slug;
+			include('plugin/tag-che-cambia/tagCheCambia-menu.php');
+		}
+	}
+
+	?>
+
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post();
 	include("inc/single-visione.php");
 	$icc_article_ID = get_the_ID(); ?>
@@ -210,6 +222,8 @@
 				}
 				 ?>
 			</div>
+			<!-- Box correlati fondo articolo -->
+			<?php include("single-correlati.php") ?>
 		</div>
 		</div>
 		<div class="col-12 col-md-1 col_single_action">
