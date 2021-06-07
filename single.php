@@ -222,6 +222,8 @@
 				}
 				 ?>
 			</div>
+			<!-- Box correlati fondo articolo -->
+			<?php include("single-correlati.php") ?>
 		</div>
 		</div>
 		<div class="col-12 col-md-1 col_single_action">
