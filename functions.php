@@ -215,13 +215,6 @@ require 'inc/bootstrap-pagination.php';
 /* ------------------------------------ */
 require 'inc/rewrite.php';
 
-
-/*  DB contribuisci
-/* ------------------------------------ */
-require 'inc/contribuisci-db.php';
-
-
-
 /*  Pagina istruzioni su admin
 /* ------------------------------------ */
 add_action( 'admin_menu', 'icc_menu_admin' );
@@ -337,7 +330,9 @@ require 'plugin/redirectPF/redirectpf.php';
 /* ------------------------------------ */
 require 'plugin/tag-che-cambia/tag-che-cambia.php';
 
-
+/* Attivazione plugin contribuisci
+/* ------------------------------------ */
+require 'plugin/contribuisci/contribuisci.php';
 
 /* Prima immagine del post.
 /* ------------------------------------ */
