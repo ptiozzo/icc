@@ -204,12 +204,6 @@ require 'inc/bootstrap-pagination.php';
 require 'inc/rewrite.php';
 
 
-/*  DB contribuisci
-/* ------------------------------------ */
-require 'inc/contribuisci-db.php';
-
-
-
 /*  Pagina istruzioni su admin
 /* ------------------------------------ */
 add_action( 'admin_menu', 'icc_menu_admin' );
@@ -321,6 +315,9 @@ require 'plugin/macrolibrarsi/macrolibrarsi.php';
 /* ------------------------------------ */
 require 'plugin/redirectPF/redirectpf.php';
 
+/* Attivazione plugin Contribuisci
+/* ------------------------------------ */
+require 'plugin/contribuisci/contribuisci.php';
 
 /* Prima immagine del post.
 /* ------------------------------------ */

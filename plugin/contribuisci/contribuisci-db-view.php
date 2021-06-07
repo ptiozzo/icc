@@ -5,7 +5,7 @@ echo "Versione DB: " .get_option( "icc_contribuisci_db_version" );
 
     global $wpdb;
 
-    $table = new Custom_Table_Example_List_Table();
+    $table = new Custom_Table_Example_List_Table();    
     $table->prepare_items();
 
     $message = '';
