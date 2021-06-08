@@ -65,7 +65,17 @@
 				<div class="single__tag">
 					<?php $post_tags = wp_get_post_tags($post->ID);
 					if(!empty($post_tags)) {?>
-						<p class="tag"><?php the_tags('', ' ', ''); ?></p>
+						<div class="tag mb-3">
+							<?php
+							foreach ($post_tags as $tag) {
+								if(!icc_is_tag_active($tag->slug)){
+									echo "<a href='".get_tag_link($tag)."'>";
+									echo ($tag->name);
+									echo "</a> ";
+								}
+							}
+							?>
+						</div>
 					<?php } ?>
 				</div>
 				<!-- DATA -->
