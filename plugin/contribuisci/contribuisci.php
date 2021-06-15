@@ -19,4 +19,9 @@ function icc_custom_page_contribuisci( $template ) {
   return $template;
 }
 
+add_filter('wp_body_open', 'icc_contribuisci_popup');
+function icc_contribuisci_popup(){
+  include 'contribuisci-popup.php';
+}
+
 ?>
