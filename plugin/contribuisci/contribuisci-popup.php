@@ -17,16 +17,16 @@ if($loopContribuisciPopup->have_posts()){
     <div class="modal fade" id="contribuisciPopUp" tabindex="-1" role="dialog" aria-labelledby="contribuisciPopUp" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header d-none">
             <h5 class="modal-title" id="contribuisciPopUpTitle">Contribuisci</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body text-center">
             <?php the_content(); ?>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer d-none">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -48,7 +48,8 @@ if($loopContribuisciPopup->have_posts()){
 
         $('#contribuisciPopUp').on('hide.bs.modal', function () {
           var date = new Date();
-          date.setTime(date.getTime()+(3*24*60*60*1000));
+          //date.setTime(date.getTime()+(3*24*60*60*1000));
+          date.setTime(date.getTime()+(3*60*1000));
           document.cookie = "contribuisciPopUp=close; expires=" + date.toGMTString() + ";path=/";
         });
 
