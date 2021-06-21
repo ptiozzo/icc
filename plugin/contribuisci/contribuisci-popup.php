@@ -40,7 +40,8 @@ if($loopContribuisciPopup->have_posts()){
         if(cookie != 'close'){
           setTimeout(function(){
             $('#contribuisciPopUp').modal('show')
-          }, 1 * 1000);
+          }, 1 * 1000); // 1 secondo
+          //}, 30 * 1000); //30 secondi
         } else{
           console.log('Cookie presente');
         }
@@ -48,8 +49,8 @@ if($loopContribuisciPopup->have_posts()){
 
         $('#contribuisciPopUp').on('hide.bs.modal', function () {
           var date = new Date();
-          //date.setTime(date.getTime()+(3*24*60*60*1000));
-          date.setTime(date.getTime()+(3*60*1000));
+          //date.setTime(date.getTime()+(3*24*60*60*1000)); //3 giorni
+          date.setTime(date.getTime()+(3*60*1000)); //3 minuti
           document.cookie = "contribuisciPopUp=close; expires=" + date.toGMTString() + ";path=/";
         });
 
