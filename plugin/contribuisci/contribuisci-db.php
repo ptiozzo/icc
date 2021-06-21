@@ -1,6 +1,6 @@
 <?php
 global $icc_contribuisci_db_version;
-$icc_contribuisci_db_version = '1.3';
+$icc_contribuisci_db_version = '1.4';
 
 
 function icc_contribuisci_db_init(){
@@ -23,8 +23,8 @@ function icc_contribuisci_db_init(){
             telephone text NOT NULL,
             indirizzo text NOT NULL,
             citta text NOT NULL,
-            provincia text NOT NULL,
-            cap text NOT NULL,
+            provincia varchar(3) NOT NULL,
+            cap int(5) NOT NULL,
             amount text NOT NULL,
             frequenza text NOT NULL,
             metodoPagamento text NOT NULL,
