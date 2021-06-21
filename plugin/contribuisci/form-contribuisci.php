@@ -1,3 +1,4 @@
+
 <form action="<?php echo get_pagenum_link(); ?>" method="post" class="form-inline mb-3">
 
   <h3 class="col-12 mb-3">Dati anagrafici</h3>
@@ -34,6 +35,17 @@
       <label for="cap">Cap</label>
       <input id="cap" name="cap" type="text" class="form-control" placeholder="CAP" required>
     </div>
+    <input id="destinazione" name="destinazione" type="text" class="form-control" value="<?php echo $destinazione; ?>" hidden>
+    <?php
+    if ($destinazione != 'Generico') {
+      ?>
+      <div class="form-group col-12 col-md-6  p-2">
+        <label for="destinazione">Destinazione</label>
+        <input id="destinazione2" name="destinazione2" type="text" class="form-control" value="<?php echo $destinazione; ?>" disabled>
+      </div>
+      <?php
+    }?>
+
   </div>
 
     <h3 class="col-12 my-3">Frequenza contributo</h3>

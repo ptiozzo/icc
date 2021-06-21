@@ -83,6 +83,44 @@ else{ //se server differente da WWW
      ?>
 
     <!-- FINE AGGIUNTA PER NATALE! -->
+
+    <!-- DESTINAZIONE CONTRIBUTO! -->
+    <?php
+    if ($_GET['destinazione']){
+      $destinazione = $_GET['destinazione'];
+    }else{
+      $destinazione = 'Generico';
+    }
+
+    $argsContribuisciDestinazione = array(
+      'post_type' => 'contenuti-speciali',
+      'posts_per_page' => 1,
+      'tax_query' => array(
+        array(
+            'taxonomy'=> 'contenuti_speciali_filtri',
+            'field'   => 'slug',
+            'terms'		=> 'contribuisci-'.$destinazione,
+        ),
+      ),
+    );
+    $loopContribuisciDestinazione = new WP_Query( $argsContribuisciDestinazione );
+    if($loopContribuisciDestinazione->have_posts()){
+      ?>
+      <div class="col-12">
+        <div class="m-2 text-center">
+          <?php while( $loopContribuisciDestinazione->have_posts() ) : $loopContribuisciDestinazione->the_post();
+            the_content();
+          endwhile; ?>
+        </div>
+        <hr>
+      </div>
+
+
+    <?php }
+    wp_reset_postdata();
+     ?>
+     <!-- FINE DESTINAZIONE CONTRIBUTO! -->
+
     <div class="col-12 col-lg-6 order-2 order-lg-1">
       <?php
         if ($_POST['submit_button']){
@@ -105,6 +143,7 @@ else{ //se server differente da WWW
             <input type="text" name="cap" value="<?php echo $_POST['cap'];?>" />
             <input type="text" name="amount" value="<?php echo $amount;?>" />
             <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
+            <input type="text" name="destinazione" value="<?php echo $_POST['destinazione'];?>" />
           </form>
 
           <?php dynamic_sidebar('contribuisci2'); ?>
@@ -123,6 +162,14 @@ else{ //se server differente da WWW
             <p><strong>Provincia:</strong> <?php echo $_POST['provincia']; ?></p>
             <p><strong>CAP:</strong> <?php echo $_POST['cap']; ?></p>
             <p><strong>Contributo:</strong> <?php echo $amount; ?>€</p>
+            <?php
+            if ($_POST['destinazione'] != 'Generico'){
+              ?>
+              <p><strong>Destinazione:</strong> <?php echo $_POST['destinazione']; ?></p>
+              <?php
+            }
+            ?>
+
 
             <?php
             if($_POST['metodoPagamento'] == 'stripe'){
