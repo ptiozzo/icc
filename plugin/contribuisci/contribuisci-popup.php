@@ -24,6 +24,9 @@ if($loopContribuisciPopup->have_posts()){
             </button>
           </div>
           <div class="modal-body text-center">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
             <?php the_content(); ?>
           </div>
           <div class="modal-footer d-none">
