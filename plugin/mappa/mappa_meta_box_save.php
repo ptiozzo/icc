@@ -121,6 +121,11 @@ function save_mappa_meta_box($post_id, $post)
       } elseif (get_post_meta($post_id,"Mappa_Nome_Ralta")) {
         delete_post_meta($post_id,"Mappa_Nome_Ralta");
       }
+      if($_POST["MappaProgetto"] != "") {
+        update_post_meta($post_id, "MappaProgetto", $_POST["MappaProgetto"]);
+      } elseif (get_post_meta($post_id,"MappaProgetto")) {
+        delete_post_meta($post_id,"MappaProgetto");
+      }
     }
 
     else{

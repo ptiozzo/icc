@@ -99,6 +99,8 @@ function mappa_post_meta_box_markup($post)
   ?>
   <label>Nome realtà di cui si parla</label>
   <input style="width:90%; margin-bottom: 10px;" type="text" name="Mappa_Nome_Ralta" value="<?php echo get_post_meta($post->ID, 'Mappa_Nome_Ralta', true);?>">
+  <label>Link alla realtà</label>
+  <input style="width:90%; margin-bottom: 10px;" type="text" name="MappaProgetto" value="<?php echo get_post_meta($post->ID, 'MappaProgetto', true);?>">
   <?php
 }
 ?>
