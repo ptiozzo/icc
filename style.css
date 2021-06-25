@@ -1212,6 +1212,10 @@ row
   }
 }
 
+.single__articolo .intro{
+  display: inline;
+}
+
 .single__articolo img.aligncenter{
   display: block;
   margin-left: auto;
