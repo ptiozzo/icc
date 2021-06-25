@@ -9,7 +9,18 @@ function icc_post_regioni_nome_content( $content ){
     $postRegione = "";
     foreach ($terms as $term) {
       $postRegione .= "<span class='text-uppercase font-weight-bold'>";
-      $postRegione .= "<a href='/tag/".$term->slug."'>";
+      if(icc_is_region_active($term->slug)){
+        if($term->parent == 0){
+          $postRegione .= "<a href='/".$term->slug."'>";
+        }else{
+          $regione_padre = get_term_by('id',$term->parent,'postregione');
+          $postRegione .= "<a href='/".$regione_padre->slug."/".$term->slug."'>";
+        }
+
+      }else{
+        $postRegione .= "<a href='/tag/".$term->slug."'>";
+      }
+
       $postRegione .= get_term_by('id', $term->term_id,'postregione')->name;
       $postRegione .= "</a>";
       $postRegione .= "</span> - ";
