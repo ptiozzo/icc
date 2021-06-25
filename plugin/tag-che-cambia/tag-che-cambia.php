@@ -20,9 +20,9 @@ function icc_menu_admin_tag_isctruction()
 }
 
 function icc_is_tag_active($tag){
-  $tag = get_option('icc_tag_attive') ? get_option('icc_tag_attive') : array();
+  $tags = get_option('icc_tag_attive') ? get_option('icc_tag_attive') : array();
 
-  if(in_array(strtolower($tag),$tag)){
+  if(in_array(strtolower($tag),$tags)){
     return true;
   } else {
     return false;

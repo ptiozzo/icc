@@ -35,4 +35,15 @@ function icc_post_regioni(){
 
 include 'regione-prima-contenuto.php';
 
+function icc_is_postregione_present($regione_da_cercare, $post_id){
+  $regioni = get_the_terms( $post->ID , 'postregione' );
+
+  foreach ($regioni as $regione) {
+    if($regione->slug == $regione_da_cercare){
+      return true;
+    }
+  }
+  return false;
+}
+
 ?>
