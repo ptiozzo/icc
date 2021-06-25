@@ -18,6 +18,18 @@ add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 99999999);
 
 remove_action('wp_head', 'wp_generator');
 
+if ( ! function_exists( 'wp_body_open' ) ) {
+  function wp_body_open() {
+    do_action( 'wp_body_open' );
+  }
+}
+
+add_filter( 'bulk_actions-edit-post', 'my_custom_bulk_actions_post' );
+function my_custom_bulk_actions_post( $actions ){
+  unset( $actions[ 'edit' ] );
+  return $actions;
+}
+
 /*  Include Styles & Script
 /* ------------------------------------ */
 if ( ! function_exists( 'icc_styles_scripts' ) ) {
@@ -208,13 +220,6 @@ require 'inc/bootstrap-pagination.php';
 /* ------------------------------------ */
 require 'inc/rewrite.php';
 
-
-/*  DB contribuisci
-/* ------------------------------------ */
-require 'inc/contribuisci-db.php';
-
-
-
 /*  Pagina istruzioni su admin
 /* ------------------------------------ */
 add_action( 'admin_menu', 'icc_menu_admin' );
@@ -330,7 +335,9 @@ require 'plugin/redirectPF/redirectpf.php';
 /* ------------------------------------ */
 require 'plugin/tag-che-cambia/tag-che-cambia.php';
 
-
+/* Attivazione plugin contribuisci
+/* ------------------------------------ */
+require 'plugin/contribuisci/contribuisci.php';
 
 /* Prima immagine del post.
 /* ------------------------------------ */

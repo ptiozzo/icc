@@ -133,6 +133,9 @@ SINGLE
     font-size: 18px;
   }
 }
+.single .mappa .single__torna__contenuti:after{
+  content: none;
+}
 
 .single .mappa .single__nav__category,
 .single .mappa .single__tag a{

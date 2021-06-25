@@ -10,7 +10,7 @@ function save_mappa_meta_box($post_id, $post)
     if(!current_user_can("edit_post", $post_id))
         return $post_id;
 
-    if((defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) || defined("DOING_AJAX") && DOING_AJAX)
+    if((defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) || (defined("DOING_AJAX") && DOING_AJAX))
         return $post_id;
 
     $slug = "mappa";
@@ -98,6 +98,20 @@ function save_mappa_meta_box($post_id, $post)
       } elseif (get_post_meta($post_id,"Mappa_Chiuso_Motivazione")) {
           delete_post_meta($post_id,"Mappa_Chiuso_Motivazione");
       }
+
+      if($_POST["Mappa_legaleRappresentante"] != "") {
+          update_post_meta($post_id, "Mappa_legaleRappresentante", $_POST["Mappa_legaleRappresentante"]);
+      } elseif (get_post_meta($post_id,"Mappa_legaleRappresentante")) {
+          delete_post_meta($post_id,"Mappa_legaleRappresentante");
+      }
+
+      if($_POST["Mappa_privacy"] != "") {
+          update_post_meta($post_id, "Mappa_privacy", $_POST["Mappa_privacy"]);
+      } elseif (get_post_meta($post_id,"Mappa_privacy")) {
+          delete_post_meta($post_id,"Mappa_privacy");
+      }
+
+
       mappa_calcolo_realta();
     }
 
@@ -106,6 +120,11 @@ function save_mappa_meta_box($post_id, $post)
         update_post_meta($post_id, "Mappa_Nome_Ralta", $_POST["Mappa_Nome_Ralta"]);
       } elseif (get_post_meta($post_id,"Mappa_Nome_Ralta")) {
         delete_post_meta($post_id,"Mappa_Nome_Ralta");
+      }
+      if($_POST["MappaProgetto"] != "") {
+        update_post_meta($post_id, "MappaProgetto", $_POST["MappaProgetto"]);
+      } elseif (get_post_meta($post_id,"MappaProgetto")) {
+        delete_post_meta($post_id,"MappaProgetto");
       }
     }
 
