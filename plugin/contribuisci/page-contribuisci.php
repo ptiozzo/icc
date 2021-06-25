@@ -92,34 +92,7 @@ else{ //se server differente da WWW
       $destinazione = 'Generico';
     }
 
-    $argsContribuisciDestinazione = array(
-      'post_type' => 'contenuti-speciali',
-      'posts_per_page' => 1,
-      'tax_query' => array(
-        array(
-            'taxonomy'=> 'contenuti_speciali_filtri',
-            'field'   => 'slug',
-            'terms'		=> 'contribuisci-'.$destinazione,
-        ),
-      ),
-    );
-    $loopContribuisciDestinazione = new WP_Query( $argsContribuisciDestinazione );
-    if($loopContribuisciDestinazione->have_posts()){
-      ?>
-      <div class="col-12">
-        <div class="m-2 text-center">
-          <?php while( $loopContribuisciDestinazione->have_posts() ) : $loopContribuisciDestinazione->the_post();
-            the_content();
-          endwhile; ?>
-        </div>
-        <hr>
-      </div>
-
-
-    <?php }
-    wp_reset_postdata();
-     ?>
-     <!-- FINE DESTINAZIONE CONTRIBUTO! -->
+    ?>
 
     <div class="col-12 col-lg-6 order-2 order-lg-1">
       <?php
@@ -200,7 +173,29 @@ else{ //se server differente da WWW
     <div class="col-12 col-lg-6 order-1 order-lg-2">
       <div class="contribuisci p-3 rounded">
         <h1><?php echo get_the_title(); ?></h1>
-        <?php echo the_content(); ?>
+        <?php
+        $argsContribuisciDestinazione = array(
+          'post_type' => 'contenuti-speciali',
+          'posts_per_page' => 1,
+          'tax_query' => array(
+            array(
+                'taxonomy'=> 'contenuti_speciali_filtri',
+                'field'   => 'slug',
+                'terms'		=> 'contribuisci-'.$destinazione,
+            ),
+          ),
+        );
+        $loopContribuisciDestinazione = new WP_Query( $argsContribuisciDestinazione );
+        if($loopContribuisciDestinazione->have_posts() && $destinazione != 'Generico' ){
+          while( $loopContribuisciDestinazione->have_posts() ) : $loopContribuisciDestinazione->the_post();
+            the_content();
+          endwhile;
+          wp_reset_postdata();
+        }
+        else{
+          echo the_content();
+        }
+        ?>
       </div>
 
     </div>
