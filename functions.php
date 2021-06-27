@@ -334,6 +334,10 @@ require 'plugin/tag-che-cambia/tag-che-cambia.php';
 /* ------------------------------------ */
 require 'plugin/contribuisci/contribuisci.php';
 
+/* Attivazione plugin contattaci
+/* ------------------------------------ */
+require 'plugin/contattaci/contattaci.php';
+
 /* Prima immagine del post.
 /* ------------------------------------ */
 function catch_that_image() {
