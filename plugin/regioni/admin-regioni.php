@@ -5,7 +5,7 @@
 
 if($_POST['submit']){
 
-  $regioni = get_terms('postregione',array(
+  $regioni = get_terms('territori',array(
     'hide_empty' => false,));
   foreach ($regioni as $regione) {
     if($_POST[$regione->slug] == $regione->slug){
@@ -25,7 +25,7 @@ if($_POST['submit']){
 ?>
 <form class="" action="<?php echo get_pagenum_link(); ?>" method="post">
   <?php
-  $regioni = get_terms('postregione',array(
+  $regioni = get_terms('territori',array(
     'hide_empty' => false,
     'parent' => 0,));
   foreach ($regioni as $regione) {
@@ -35,7 +35,7 @@ if($_POST['submit']){
     <label for="<?php echo $regione->slug; ?>"> <?php echo $regione->name; ?></label><br>
 
     <?php
-    $province = get_terms('postregione',array(
+    $province = get_terms('territori',array(
       'hide_empty' => false,
       'parent' => $regione->term_id,));
     foreach ($province as $provincia)  {

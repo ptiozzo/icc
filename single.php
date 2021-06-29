@@ -68,7 +68,7 @@
 						<div class="tag mb-3">
 							<?php
 							foreach ($post_tags as $tag) {
-								if(!icc_is_tag_active($tag->slug) && !icc_is_postregione_present($tag->slug,$post->ID )){
+								if(!icc_is_tag_active($tag->slug) && !icc_is_territori_present($tag->slug,$post->ID )){
 									echo "<a href='".get_tag_link($tag)."'>";
 									echo ($tag->name);
 									echo "</a> ";
