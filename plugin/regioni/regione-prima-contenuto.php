@@ -3,26 +3,26 @@
 add_action('the_content', 'icc_post_regioni_nome_content');
 function icc_post_regioni_nome_content( $content ){
 
-  $term1 = "postregione";
+  $term1 = "territori";
   $terms = get_the_terms( $post->ID , $term1 );
   if($terms != false){
     $postRegione = "";
     foreach ($terms as $term) {
-      $postRegione .= "<span class='text-uppercase font-weight-bold'>";
+      $postRegione .= "<span class='text-capitalize font-weight-bold'><u>";
       if(icc_is_region_active($term->slug)){
         if($term->parent == 0){
-          $postRegione .= "<a href='/".$term->slug."'>";
+          $postRegione .= "<a class='text-dark' href='/".$term->slug."'>";
         }else{
           $regione_padre = get_term_by('id',$term->parent,'postregione');
-          $postRegione .= "<a href='/".$regione_padre->slug."/".$term->slug."'>";
+          $postRegione .= "<a class='text-dark' href='/".$regione_padre->slug."/".$term->slug."'>";
         }
 
       }else{
-        $postRegione .= "<a href='/tag/".$term->slug."'>";
+        $postRegione .= "<a class='text-dark' href='".get_term_link($term->slug,'territori')."'>";
       }
 
-      $postRegione .= get_term_by('id', $term->term_id,'postregione')->name;
-      $postRegione .= "</a>";
+      $postRegione .= get_term_by('id', $term->term_id,'territori')->name;
+      $postRegione .= "</u></a>";
       $postRegione .= "</span> - ";
     }
     $content = $postRegione . $content;
