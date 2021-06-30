@@ -13,7 +13,13 @@
 
   <?php
       endwhile;
-      include 'form-contattaci.php';
+      ?>
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <?php include 'form-contattaci.php'; ?>
+        </div>
+      </div>
+      <?php
   else:
   ?>
 
