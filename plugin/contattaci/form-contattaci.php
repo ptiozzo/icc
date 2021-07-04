@@ -17,6 +17,8 @@
     <option value="">--Seleziona sono un--</option>
   </select>
 
+  <input id="submit" name="submit" value="Invia" class="mt-3 btn btn-primary" disabled>
+
 </form>
 <script type="text/javascript">
 
@@ -41,7 +43,6 @@ function sonounjs() {
       var array = ["--Seleziona--","Lettore 1","Lettore 2","Lettore 3","Lettore 4", "Lettore 5"];
     break;
 
-
   }
 
   for (var i = 0; i < array.length; i++) {
@@ -51,19 +52,20 @@ function sonounjs() {
     desidero.appendChild(option);
   }
 
+  document.getElementById("submit").setAttribute("disabled", "");
+
 }
 
 function desiderojs(){
 
-  var form = document.getElementById("form_contattaci");
+  var submit = document.getElementById("submit");
+  var desidero = document.getElementById("desidero");
+  if( desidero.value != '--Seleziona--'){
+    submit.removeAttribute("disabled");
+  } else{
+    submit.setAttribute("disabled", "");
+  }
 
-  var submit = document.createElement("input");
-  submit.id = "submit";
-  submit.type = "submit";
-  submit.value = "Invia";
-
-  form.appendChild(submit);
-  document.getElementById("submit").className += "mt-3 btn btn-primary";
 
 
 }
