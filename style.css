@@ -627,7 +627,10 @@ TITOLI HOME
 
 /*Contribuisci page*/
 .contribuisci{
-  background-color: var(--color-contribuisci)
+  background-color: var(--color-contribuisci);
+}
+.contribuisci--destinazione{
+  background-color: var(--color-meme)
 }
 
 @media (max-width: 576px) {
