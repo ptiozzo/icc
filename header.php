@@ -27,6 +27,7 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
+	<?php	wp_body_open();	?>
 		<div class="row m-0">
 			<div class="col-12 col-md-6 text-center my-1">
 				<?php dynamic_sidebar('testatasx'); ?>
@@ -184,7 +185,7 @@
 				get_template_part('casentino/menu','casentino');
 			} elseif (is_page('liguria')) {
 				get_template_part('liguria/menu','liguria');
-			} 
+			}
 			?>
 
 

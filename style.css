@@ -613,7 +613,7 @@ TITOLI HOME
   color: black;
   position: sticky!important;
   bottom: 40px;
-  z-index: 1060;
+  z-index: 1030; 
 }
 .contribuisci-banner a{
   color: white;
@@ -1213,6 +1213,10 @@ row
   .single__articolo{
     font-size: 1.1rem;
   }
+}
+
+.single__articolo .intro{
+  display: inline;
 }
 
 .single__articolo img.aligncenter{

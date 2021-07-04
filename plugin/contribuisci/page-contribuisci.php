@@ -3,6 +3,7 @@
     var date = new Date();
     date.setTime(date.getTime()+(7*24*60*60*1000));
     document.cookie = "contribuisci=close; expires=" + date.toGMTString() + ";path=/";
+    document.cookie = "contribuisciPopUp=close; expires=" + date.toGMTString() + ";path=/";
     jQuery(function($){
       $('#contribuisci').collapse('hide');
     });
