@@ -171,7 +171,7 @@ else{ //se server differente da WWW
 
 
     <div class="col-12 col-lg-6 order-1 order-lg-2">
-      <div class="contribuisci p-3 rounded">
+      <div class="contribuisci p-3 rounded <?php if($destinazione != "Generico"){echo 'contribuisci--destinazione'; } ?>">
         <h1><?php echo get_the_title(); ?></h1>
         <?php
         $argsContribuisciDestinazione = array(
@@ -188,9 +188,7 @@ else{ //se server differente da WWW
         $loopContribuisciDestinazione = new WP_Query( $argsContribuisciDestinazione );
         if($loopContribuisciDestinazione->have_posts() && $destinazione != 'Generico' ){
           while( $loopContribuisciDestinazione->have_posts() ) : $loopContribuisciDestinazione->the_post();
-            echo "<div class='contribuisci--destinazione rounded p-1'>";
             the_content();
-            echo "</div>";
           endwhile;
           wp_reset_postdata();
         }
