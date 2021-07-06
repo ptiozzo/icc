@@ -84,6 +84,17 @@ else{ //se server differente da WWW
      ?>
 
     <!-- FINE AGGIUNTA PER NATALE! -->
+
+    <!-- DESTINAZIONE CONTRIBUTO! -->
+    <?php
+    if ($_GET['destinazione']){
+      $destinazione = $_GET['destinazione'];
+    }else{
+      $destinazione = 'Generico';
+    }
+
+    ?>
+
     <div class="col-12 col-lg-6 order-2 order-lg-1">
       <?php
         if ($_POST['submit_button']){
@@ -106,6 +117,7 @@ else{ //se server differente da WWW
             <input type="text" name="cap" value="<?php echo $_POST['cap'];?>" />
             <input type="text" name="amount" value="<?php echo $amount;?>" />
             <input type="text" name="frequenza" value="<?php echo $_POST['frequenza'];?>" />
+            <input type="text" name="destinazione" value="<?php echo $_POST['destinazione'];?>" />
           </form>
 
           <?php dynamic_sidebar('contribuisci2'); ?>
@@ -124,6 +136,14 @@ else{ //se server differente da WWW
             <p><strong>Provincia:</strong> <?php echo $_POST['provincia']; ?></p>
             <p><strong>CAP:</strong> <?php echo $_POST['cap']; ?></p>
             <p><strong>Contributo:</strong> <?php echo $amount; ?>€</p>
+            <?php
+            if ($_POST['destinazione'] != 'Generico'){
+              ?>
+              <p><strong>Destinazione:</strong> <?php echo $_POST['destinazione']; ?></p>
+              <?php
+            }
+            ?>
+
 
             <?php
             if($_POST['metodoPagamento'] == 'stripe'){
@@ -152,9 +172,31 @@ else{ //se server differente da WWW
 
 
     <div class="col-12 col-lg-6 order-1 order-lg-2">
-      <div class="contribuisci p-3 rounded">
+      <div class="contribuisci p-3 rounded <?php if($destinazione != "Generico"){echo 'contribuisci--destinazione'; } ?>">
         <h1><?php echo get_the_title(); ?></h1>
-        <?php echo the_content(); ?>
+        <?php
+        $argsContribuisciDestinazione = array(
+          'post_type' => 'contenuti-speciali',
+          'posts_per_page' => 1,
+          'tax_query' => array(
+            array(
+                'taxonomy'=> 'contenuti_speciali_filtri',
+                'field'   => 'slug',
+                'terms'		=> 'contribuisci-'.$destinazione,
+            ),
+          ),
+        );
+        $loopContribuisciDestinazione = new WP_Query( $argsContribuisciDestinazione );
+        if($loopContribuisciDestinazione->have_posts() && $destinazione != 'Generico' ){
+          while( $loopContribuisciDestinazione->have_posts() ) : $loopContribuisciDestinazione->the_post();
+            the_content();
+          endwhile;
+          wp_reset_postdata();
+        }
+        else{
+          echo the_content();
+        }
+        ?>
       </div>
 
     </div>

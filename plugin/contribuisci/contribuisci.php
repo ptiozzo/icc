@@ -19,6 +19,16 @@ function icc_custom_page_contribuisci( $template ) {
   return $template;
 }
 
+
+if ($_GET['destinazione']) {
+  add_filter( 'jetpack_open_graph_image_default', 'custom_jetpack_default_image' );
+}
+function custom_jetpack_default_image() {
+  return get_template_directory_uri().'/plugin/contribuisci/img/'.$_GET['destinazione'].'.png';
+}
+
+
+
 add_filter('wp_body_open', 'icc_contribuisci_popup');
 function icc_contribuisci_popup(){
   include 'contribuisci-popup.php';

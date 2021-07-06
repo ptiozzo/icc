@@ -1,6 +1,6 @@
 <?php
 global $icc_contribuisci_db_version;
-$icc_contribuisci_db_version = '1.2';
+$icc_contribuisci_db_version = '1.4';
 
 
 function icc_contribuisci_db_init(){
@@ -23,11 +23,12 @@ function icc_contribuisci_db_init(){
             telephone text NOT NULL,
             indirizzo text NOT NULL,
             citta text NOT NULL,
-            provincia text NOT NULL,
-            cap text NOT NULL,
+            provincia varchar(3) NOT NULL,
+            cap int(5) NOT NULL,
             amount text NOT NULL,
             frequenza text NOT NULL,
             metodoPagamento text NOT NULL,
+            destinazione text NOT NULL,
             UNIQUE KEY id (id)
        ) $charset_collate;";
        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -41,7 +42,7 @@ function icc_contribuisci_db_init(){
 }
 add_action( 'init', 'icc_contribuisci_db_init' );
 
-function icc_contribuisci_db_add_data($fullname,$fullsurname,$email,$telephone,$indirizzo,$citta,$provincia,$cap,$amount,$frequenza,$metodoPagamento){
+function icc_contribuisci_db_add_data($fullname,$fullsurname,$email,$telephone,$indirizzo,$citta,$provincia,$cap,$amount,$frequenza,$metodoPagamento,$destinazione){
   global $wpdb;
   $table_name = $wpdb->prefix.'icc_contribuisci';
   $wpdb->insert(
@@ -59,6 +60,7 @@ function icc_contribuisci_db_add_data($fullname,$fullsurname,$email,$telephone,$
       'amount' => $amount,
       'frequenza' => $frequenza,
       'metodoPagamento' => $metodoPagamento,
+      'destinazione' => $destinazione,
 		)
 	);
 }
@@ -185,6 +187,7 @@ class Custom_Table_Example_List_Table extends WP_List_Table
             'frequenza' => __('Frequenza', 'icc'),
             'time' => __('Data', 'icc'),
             'metodoPagamento' => __('Circuito', 'icc'),
+            'destinazione' => __('Destinazione', 'icc')
         );
         return $columns;
     }
@@ -204,6 +207,7 @@ class Custom_Table_Example_List_Table extends WP_List_Table
             'email' => array('email', false),
             'time' => array('time', false),
             'metodoPagamento' => array('metodoPagamento', false),
+            'destinazione' => array('destinazione', false),
         );
         return $sortable_columns;
     }
