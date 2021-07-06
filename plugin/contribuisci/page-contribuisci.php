@@ -170,23 +170,30 @@ else{ //se server differente da WWW
     <?php } ?>
     </div>
 
-
-    <div class="col-12 col-lg-6 order-1 order-lg-2">
-      <div class="contribuisci p-3 rounded <?php if($destinazione != "Generico"){echo 'contribuisci--destinazione'; } ?>">
+<?php
+if($destinazione != 'Generico'){
+  $argsContribuisciDestinazione = array(
+    'post_type' => 'contenuti-speciali',
+    'posts_per_page' => 1,
+    'tax_query' => array(
+      array(
+          'taxonomy'=> 'contenuti_speciali_filtri',
+          'field'   => 'slug',
+          'terms'		=> 'contribuisci-'.$destinazione,
+      ),
+    ),
+  );
+}
+else{
+  $argsContribuisciDestinazione  = null;
+}
+$loopContribuisciDestinazione = new WP_Query( $argsContribuisciDestinazione );
+?>
+   <div class="col-12 col-lg-6 order-1 order-lg-2">
+      <div class="contribuisci p-3 rounded <?php if( $loopContribuisciDestinazione->have_posts() && $destinazione != 'Generico' ){echo 'contribuisci--destinazione'; } ?>">
         <h1><?php echo get_the_title(); ?></h1>
         <?php
-        $argsContribuisciDestinazione = array(
-          'post_type' => 'contenuti-speciali',
-          'posts_per_page' => 1,
-          'tax_query' => array(
-            array(
-                'taxonomy'=> 'contenuti_speciali_filtri',
-                'field'   => 'slug',
-                'terms'		=> 'contribuisci-'.$destinazione,
-            ),
-          ),
-        );
-        $loopContribuisciDestinazione = new WP_Query( $argsContribuisciDestinazione );
+
         if($loopContribuisciDestinazione->have_posts() && $destinazione != 'Generico' ){
           while( $loopContribuisciDestinazione->have_posts() ) : $loopContribuisciDestinazione->the_post();
             the_content();
