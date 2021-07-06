@@ -1,6 +1,6 @@
 <?php
 $Regione1 = $_GET["regione"] ? $_GET["regione"] : "tutteleregioni";
-$post_per_page = 10;
+$post_per_page = -1;
 
 if($Regione1 != "tutteleregioni"){
   $filtroRegione = array(

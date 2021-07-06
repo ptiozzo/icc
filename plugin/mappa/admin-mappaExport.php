@@ -1,6 +1,6 @@
 <?php
 $Regione1 = $_POST["regione-dropdown"] ? $_POST["regione-dropdown"] : "tutteleregioni";
-$post_per_page = 10;
+$post_per_page = -1;
 ?>
 
 <h2>EXPORT MAPPA</h2>
