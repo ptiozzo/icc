@@ -42,15 +42,15 @@ if($Regione1 != "tutteleregioni"){
   $filtroRegione = '';
 }
 
-  $argsAllMappa = array(
-    'post_type' => array('mappa'),
-    'posts_per_page' => -1,
-    'post_status' => 'any',
-    'tax_query' => array(
-        'relation' => 'AND',
-        $filtroRegione,
-      ),
-  );
+$argsAllMappa = array(
+  'post_type' => array('mappa'),
+  'posts_per_page' => -1,
+  'post_status' => 'any',
+  'tax_query' => array(
+      'relation' => 'AND',
+      $filtroRegione,
+    ),
+);
 
 $loopAllMappa = new WP_Query( $argsAllMappa );
 
@@ -81,7 +81,7 @@ if($loopAllMappa->have_posts()){
        $line = array('Riga','ID','Titolo','Stato','Autore','Slug','Regione','Categoria','Tipologia','Rete','TAG',
        'Chiuso motivazione','Chiuso data','Contenuto','Video YT','Latitudine','Longitudine',
        'Indirizzo','Sito','Email','Telefono','Facebook','Instagram','YouTube','Linkedin',
-       'Twitter','Post status','Legale rappresentante','Termini e condizioni');
+       'Twitter','Post status','Legale rappresentante','Termini e condizioni','Ultima modifica');
       } else {
         $loopAllMappa->the_post();
         $term1 = "mapparegione";
@@ -89,7 +89,14 @@ if($loopAllMappa->have_posts()){
         $terms = get_the_terms( $post->ID , $term1 );
         if ($terms != ""){
           foreach ( $terms as $term ) {
-            $regione .= $term->slug.",";
+            if($term->parent == 0){
+              $regione .= $term->slug.",";
+            }
+          }
+          foreach ( $terms as $term ) {
+            if($term->parent != 0){
+              $regione .= $term->slug.",";
+            }
           }
         }
         $term1 = "mappastato";
@@ -97,7 +104,14 @@ if($loopAllMappa->have_posts()){
         $terms = get_the_terms( $post->ID , $term1 );
         if ($terms != ""){
           foreach ( $terms as $term ) {
-            $stato .= $term->slug.",";
+            if($term->parent == 0){
+              $stato .= $term->slug.",";
+            }
+          }
+          foreach ( $terms as $term ) {
+            if($term->parent != 0){
+              $stato .= $term->slug.",";
+            }
           }
         }
         $term1 = "mappacategoria";
@@ -105,7 +119,14 @@ if($loopAllMappa->have_posts()){
         $terms = get_the_terms( $post->ID , $term1 );
         if ($terms != ""){
           foreach ( $terms as $term ) {
-            $categoria .= $term->slug.",";
+            if($term->parent == 0){
+              $categoria .= $term->slug.",";
+            }
+          }
+          foreach ( $terms as $term ) {
+            if($term->parent != 0){
+              $categoria .= $term->slug.",";
+            }
           }
         }
         $term1 = "mappatipologia";
@@ -113,7 +134,14 @@ if($loopAllMappa->have_posts()){
         $terms = get_the_terms( $post->ID , $term1 );
         if ($terms != ""){
           foreach ( $terms as $term ) {
-            $tipologia .= $term->slug.",";
+            if($term->parent == 0){
+              $tipologia .= $term->slug.",";
+            }
+          }
+          foreach ( $terms as $term ) {
+            if($term->parent != 0){
+              $tipologia .= $term->slug.",";
+            }
           }
         }
         $term1 = "mapparete";
@@ -121,7 +149,14 @@ if($loopAllMappa->have_posts()){
         $terms = get_the_terms( $post->ID , $term1 );
         if ($terms != ""){
           foreach ( $terms as $term ) {
-            $rete .= $term->slug.",";
+            if($term->parent == 0){
+              $rete .= $term->slug.",";
+            }
+          }
+          foreach ( $terms as $term ) {
+            if($term->parent != 0){
+              $rete .= $term->slug.",";
+            }
           }
         }
         $term1 = "mappatag";
@@ -129,7 +164,14 @@ if($loopAllMappa->have_posts()){
         $terms = get_the_terms( $post->ID , $term1 );
         if ($terms != ""){
           foreach ( $terms as $term ) {
-            $tag .= $term->slug.",";
+            if($term->parent == 0){
+              $tag .= $term->slug.",";
+            }
+          }
+          foreach ( $terms as $term ) {
+            if($term->parent != 0){
+              $tag .= $term->slug.",";
+            }
           }
         }
        $line = array(
@@ -161,7 +203,8 @@ if($loopAllMappa->have_posts()){
          get_post_meta( $post->ID, 'Mappa_TW',true),
          get_post_status(),
          get_post_meta( $post->ID, 'Mappa_legaleRappresentante',true),
-         get_post_meta( $post->ID, 'Mappa_privacy',true)
+         get_post_meta( $post->ID, 'Mappa_privacy',true),
+         get_the_modified_date("d F Y")
        );
      }
       $row++;
@@ -207,6 +250,7 @@ if($loopAllMappa->have_posts()){
   echo "<th>Post status</th>";
   echo "<th>Legale rappresentante</th>";
   echo "<th>Termini e condizioni</th>";
+  echo "<th>Ultima Modifica</th>";
   echo "</tr>";
   while($loopAllMappa->have_posts()){
     $loopAllMappa->the_post();
@@ -229,7 +273,14 @@ if($loopAllMappa->have_posts()){
     $terms = get_the_terms( $post->ID , $term1 );
     if ($terms != ""){
       foreach ( $terms as $term ) {
-        echo $term->slug.",";
+        if($term->parent == 0){
+          echo $term->slug.",";
+        }
+      }
+      foreach ( $terms as $term ) {
+        if($term->parent != 0){
+          echo $term->slug.",";
+        }
       }
     }
     echo "</td>";
@@ -241,7 +292,14 @@ if($loopAllMappa->have_posts()){
     $terms = get_the_terms( $post->ID , $term1 );
     if ($terms != ""){
       foreach ( $terms as $term ) {
-        echo $term->slug.",";
+        if($term->parent == 0){
+          echo $term->slug.",";
+        }
+      }
+      foreach ( $terms as $term ) {
+        if($term->parent != 0){
+          echo $term->slug.",";
+        }
       }
     }
     echo "</td>";
@@ -251,7 +309,14 @@ if($loopAllMappa->have_posts()){
     $terms = get_the_terms( $post->ID , $term1 );
     if ($terms != ""){
       foreach ( $terms as $term ) {
-        echo $term->slug.",";
+        if($term->parent == 0){
+          echo $term->slug.",";
+        }
+      }
+      foreach ( $terms as $term ) {
+        if($term->parent != 0){
+          echo $term->slug.",";
+        }
       }
     }
     //TIPOLOGIA
@@ -260,7 +325,14 @@ if($loopAllMappa->have_posts()){
     $terms = get_the_terms( $post->ID , $term1 );
     if ($terms != ""){
       foreach ( $terms as $term ) {
-        echo $term->slug.",";
+        if($term->parent == 0){
+          echo $term->slug.",";
+        }
+      }
+      foreach ( $terms as $term ) {
+        if($term->parent != 0){
+          echo $term->slug.",";
+        }
       }
     }
     echo "</td>";
@@ -270,7 +342,14 @@ if($loopAllMappa->have_posts()){
     $terms = get_the_terms( $post->ID , $term1 );
     if ($terms != ""){
       foreach ( $terms as $term ) {
-        echo $term->slug.",";
+        if($term->parent == 0){
+          echo $term->slug.",";
+        }
+      }
+      foreach ( $terms as $term ) {
+        if($term->parent != 0){
+          echo $term->slug.",";
+        }
       }
     }
     echo "</td>";
@@ -280,7 +359,14 @@ if($loopAllMappa->have_posts()){
     $terms = get_the_terms( $post->ID , $term1 );
     if ($terms != ""){
       foreach ( $terms as $term ) {
-        echo $term->slug.",";
+        if($term->parent == 0){
+          echo $term->slug.",";
+        }
+      }
+      foreach ( $terms as $term ) {
+        if($term->parent != 0){
+          echo $term->slug.",";
+        }
       }
     }
     echo "</td>";
@@ -313,6 +399,7 @@ if($loopAllMappa->have_posts()){
     echo "<td>".get_post_status()."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_legaleRappresentante',true)."</td>";
     echo "<td>".get_post_meta( $post->ID, 'Mappa_privacy',true)."</td>";
+    echo "<td>".get_the_modified_date("d F Y")."</td>";
 
 
 
