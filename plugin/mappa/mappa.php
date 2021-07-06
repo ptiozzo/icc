@@ -208,4 +208,26 @@ function icc_is_ReteNascosta($rete){
 }
 
 
+if ( isset($_GET['action'] ) && $_GET['action'] == 'download_csv' )  {
+	add_action( 'admin_init', 'icc_mappaExport_downloadCSV' );
+}
+function icc_mappaExport_downloadCSV(){
+
+    // Check for current user privileges
+    if( !current_user_can( 'edit_posts' ) ){ return false; }
+
+    // Check if we are in WP-Admin
+    if( !is_admin() ){ return false; }
+
+    // Nonce Check
+    $nonce = isset( $_GET['_wpnonce'] ) ? $_GET['_wpnonce'] : '';
+    if ( ! wp_verify_nonce( $nonce, 'download_csv' ) ) {
+        die( 'Security check error' );
+    }
+
+  require 'admin-mappaExport-downloadCSV.php';
+}
+
+
+
 ?>

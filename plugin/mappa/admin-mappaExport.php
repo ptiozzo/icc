@@ -1,6 +1,10 @@
-<h2>EXPORT MAPPA</h2>
+<?php
+$Regione1 = $_POST["regione-dropdown"] ? $_POST["regione-dropdown"] : "tutteleregioni";
+$post_per_page = 10;
+?>
 
-<form method="post" action="<?php echo get_pagenum_link(); ?>">
+<h2>EXPORT MAPPA</h2>
+<form method="post" action="<?php echo admin_url( 'admin.php?page=icc-mappa-export' ) ?>&action=download_csv&regione=<?php echo $Regione1 ?>&_wpnonce=<?php echo wp_create_nonce( 'download_csv' )?>">
   <input name="download_button" type="Submit" value="Download" class="button-primary">
 </form>
 
@@ -8,9 +12,7 @@
 
 <form method="post" action="<?php echo get_pagenum_link(); ?>">
   <!-- Filtro regione -->
-  <?php
-    $Regione1 = $_POST["regione-dropdown"] ? $_POST["regione-dropdown"] : "tutteleregioni";
-   ?>
+
       <select name="regione-dropdown" class="custom-select">
         <option value="tutteleregioni" <?php if ($Regione1 == 'tutteleregioni') {echo 'selected';}?> ><?php echo 'Tutte le regioni'; ?></option>
         <?php
@@ -31,6 +33,7 @@
   <input name="filtra_button" type="Submit" value="Filtra" class="button-primary">
 </form>
 <br>
+
 <?php
 if($Regione1 != "tutteleregioni"){
   $filtroRegione = array(
@@ -44,7 +47,7 @@ if($Regione1 != "tutteleregioni"){
 
 $argsAllMappa = array(
   'post_type' => array('mappa'),
-  'posts_per_page' => -1,
+  'posts_per_page' => $post_per_page,
   'post_status' => 'any',
   'tax_query' => array(
       'relation' => 'AND',
@@ -64,160 +67,8 @@ if($loopAllMappa->have_posts()){
     padding: 5px;
   }
   </style>
+
   <?php
-
-  if($_POST['download_button']){
-    $row = 0;
-    header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="export_mappa.csv";');
-
-    // open the "output" stream
-    // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
-    $f = fopen('php://output', 'w');
-    ob_end_clean();
-    while($loopAllMappa->have_posts()){
-
-      if($row == 0){
-       $line = array('Riga','ID','Titolo','Stato','Autore','Slug','Regione','Categoria','Tipologia','Rete','TAG',
-       'Chiuso motivazione','Chiuso data','Contenuto','Video YT','Latitudine','Longitudine',
-       'Indirizzo','Sito','Email','Telefono','Facebook','Instagram','YouTube','Linkedin',
-       'Twitter','Post status','Legale rappresentante','Termini e condizioni','Ultima modifica');
-      } else {
-        $loopAllMappa->the_post();
-        $term1 = "mapparegione";
-        $regione = "";
-        $terms = get_the_terms( $post->ID , $term1 );
-        if ($terms != ""){
-          foreach ( $terms as $term ) {
-            if($term->parent == 0){
-              $regione .= $term->slug.",";
-            }
-          }
-          foreach ( $terms as $term ) {
-            if($term->parent != 0){
-              $regione .= $term->slug.",";
-            }
-          }
-        }
-        $term1 = "mappastato";
-        $stato = "";
-        $terms = get_the_terms( $post->ID , $term1 );
-        if ($terms != ""){
-          foreach ( $terms as $term ) {
-            if($term->parent == 0){
-              $stato .= $term->slug.",";
-            }
-          }
-          foreach ( $terms as $term ) {
-            if($term->parent != 0){
-              $stato .= $term->slug.",";
-            }
-          }
-        }
-        $term1 = "mappacategoria";
-        $categoria = "";
-        $terms = get_the_terms( $post->ID , $term1 );
-        if ($terms != ""){
-          foreach ( $terms as $term ) {
-            if($term->parent == 0){
-              $categoria .= $term->slug.",";
-            }
-          }
-          foreach ( $terms as $term ) {
-            if($term->parent != 0){
-              $categoria .= $term->slug.",";
-            }
-          }
-        }
-        $term1 = "mappatipologia";
-        $tipologia = "";
-        $terms = get_the_terms( $post->ID , $term1 );
-        if ($terms != ""){
-          foreach ( $terms as $term ) {
-            if($term->parent == 0){
-              $tipologia .= $term->slug.",";
-            }
-          }
-          foreach ( $terms as $term ) {
-            if($term->parent != 0){
-              $tipologia .= $term->slug.",";
-            }
-          }
-        }
-        $term1 = "mapparete";
-        $rete = "";
-        $terms = get_the_terms( $post->ID , $term1 );
-        if ($terms != ""){
-          foreach ( $terms as $term ) {
-            if($term->parent == 0){
-              $rete .= $term->slug.",";
-            }
-          }
-          foreach ( $terms as $term ) {
-            if($term->parent != 0){
-              $rete .= $term->slug.",";
-            }
-          }
-        }
-        $term1 = "mappatag";
-        $tag = "";
-        $terms = get_the_terms( $post->ID , $term1 );
-        if ($terms != ""){
-          foreach ( $terms as $term ) {
-            if($term->parent == 0){
-              $tag .= $term->slug.",";
-            }
-          }
-          foreach ( $terms as $term ) {
-            if($term->parent != 0){
-              $tag .= $term->slug.",";
-            }
-          }
-        }
-       $line = array(
-         $row,
-         get_the_ID(),
-         get_the_title(),
-         $stato,
-         get_the_author(),
-         $post->post_name,
-         $regione,
-         $categoria,
-         $tipologia,
-         $rete,
-         $tag,
-         get_post_meta( $post->ID, 'Mappa_Chiuso_Motivazione',true),
-         get_post_meta( $post->ID, 'Mappa_Chiuso_Data',true),
-         get_the_content(),
-         get_post_meta( $post->ID, 'Mappa_VideoYT',true),
-         get_post_meta( $post->ID, 'Mappa_Latitudine',true),
-         get_post_meta( $post->ID, 'Mappa_Longitudine',true),
-         get_post_meta( $post->ID, 'Mappa_Indirizzo',true),
-         get_post_meta( $post->ID, 'Mappa_Sito',true),
-         get_post_meta( $post->ID, 'Mappa_Email',true),
-         get_post_meta( $post->ID, 'Mappa_Telefono',true),
-         get_post_meta( $post->ID, 'Mappa_FB',true),
-         get_post_meta( $post->ID, 'Mappa_IG',true),
-         get_post_meta( $post->ID, 'Mappa_YT',true),
-         get_post_meta( $post->ID, 'Mappa_IN',true),
-         get_post_meta( $post->ID, 'Mappa_TW',true),
-         get_post_status(),
-         get_post_meta( $post->ID, 'Mappa_legaleRappresentante',true),
-         get_post_meta( $post->ID, 'Mappa_privacy',true),
-         get_the_modified_date("d F Y")
-       );
-     }
-      $row++;
-      fputcsv($f, $line, ";");
-    }
-    fclose( $f );
-
-    // flush buffer
-    ob_flush();
-
-    // use exit to get rid of unexpected output afterward
-    exit();
-  }
   $row = 0;
   echo "<table style='border:1px solid black;'>";
   echo "<tr>";
