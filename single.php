@@ -26,7 +26,6 @@
 	?>
 
 	<?php if (have_posts()) :?><?php while(have_posts()) : the_post();
-	include("inc/single-visione.php");
 	$icc_article_ID = get_the_ID(); ?>
 <div class="single">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -239,6 +238,17 @@
 		<div class="col-12 col-md-1 col_single_action">
 			<?php include("template-part/single-action.php"); ?>
 		</div>
+		<!-- Italiachecambia_728x90 [async] -->
+		<script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'https://ads.brandadvance.co.uk/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+		<script type="text/javascript">
+		var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+		AdButler.ads.push(function() { AdButler.enableConsentManagement(); });
+		var abkw = window.abkw || '';
+		var plc482580 = window.plc482580 || 0;
+		document.write('<'+'div id="placement_482580_'+plc482580+'"></'+'div>');
+		AdButler.ads.push({handler: function(opt){ AdButler.register(175092, 482580, [728,90], 'placement_482580_'+opt.place, opt); }, opt: { place: plc482580++, keywords: abkw, domain: 'ads.brandadvance.co.uk', click:'CLICK_MACRO_PLACEHOLDER' }});
+		</script>
+
 		</article>
 	</div>
 	<?php endwhile; else : ?>
