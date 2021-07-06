@@ -27,7 +27,7 @@
 
   if( $loopContribuisciDesktop->have_posts() || $loopContribuisciMobile->have_posts()){
     ?>
-    <div class="row contribuisci-banner collapse <?php if($_COOKIE['contribuisci'] != 'close'){echo "show";}else{echo "show";} ?> mx-0" id="contribuisci">
+    <div class="row contribuisci-banner collapse <?php if($_COOKIE['contribuisci'] != 'close'){echo "show";} ?> mx-0" id="contribuisci">
     <?php
 
     if( $loopContribuisciDesktop->have_posts() ) : ?>
