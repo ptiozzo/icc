@@ -2,6 +2,11 @@
   $argsRassegna = array(
   'post_type' => 'rassegna-stampa',
   'posts_per_page' => 1,
+  'date_query' => array(
+     array(
+       'after' => '6 days ago',
+     )
+   )
   );
 
   $args = array(
