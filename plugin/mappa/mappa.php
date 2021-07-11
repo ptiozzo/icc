@@ -20,6 +20,7 @@ if(!function_exists('mappa_shortcode')){
     $a = shortcode_atts( array(
       'regione' => 'tutteleregioni',
       'rete' => 'tuttelereti',
+      'opzioni' => '',
    ), $atts );
    if(!is_archive()) {
      ob_start();

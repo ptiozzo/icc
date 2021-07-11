@@ -53,7 +53,7 @@
       			'posts_per_page' => 1,
             'date_query' => array(
                array(
-                 'after' => '7 days ago',
+                 'after' => '6 days ago',
                )
              )
     			);
