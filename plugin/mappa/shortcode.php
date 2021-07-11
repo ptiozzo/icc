@@ -7,6 +7,7 @@ if( get_query_var('regione') || get_query_var('provincia') ){
 $Categoria = 'tuttelecategorie';
 $Rete = $a['rete'];
 $Regione = $a['regione'];
+$Opzioni = $a['opzioni'];
 $Provincia = 'tutteleprovince';
 $Tipologia = 'tutteletipologie';
 $Realta = '';
@@ -135,7 +136,7 @@ if($Categoria1 != $Categoria
   <div class="row mt-3 mb-2">
 
     <!-- COLONNA DX -->
-    <div id="sidebar" class="col-12 col-md-6 ">
+    <div id="sidebar" class="col-12 <?php if($Opzioni != 'solomappa'){echo "col-md-6";} ?>">
       <div class="sidebar__inner clearfix">
         <div class='head'>
   				<div class='title'>
@@ -144,7 +145,7 @@ if($Categoria1 != $Categoria
   			</div>
         <div id="mappa" class="full-width"></div>
 
-        <div class="row conteggi_mappa m-0">
+        <div class="row conteggi_mappa m-0 <?php if($Opzioni == 'solomappa'){echo "d-none";} ?>">
           <?php if($Regione == "tutteleregioni" && $Rete == "tuttelereti" && !get_query_var('regione')){ ?>
             <div class="border col-6 text-center">
                 <h3 class="d-inline-block"><?php echo get_option('icc_mappa_realta_totale') ?></h3><span class="text-uppercase"> Realtà</span>
@@ -169,7 +170,7 @@ if($Categoria1 != $Categoria
       </div><!-- Fine sidebar__inner -->
     </div><!-- Fine col-6 -->
 
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 <?php if($Opzioni == 'solomappa'){echo "d-none";} ?>">
       <div class='head'>
 				<div class='title'>
 					<h5>FILTRA LA MAPPA</h5>
@@ -189,7 +190,7 @@ if($Categoria1 != $Categoria
 
 
 
-  <div class="row">
+  <div class="row <?php if($Opzioni == 'solomappa'){echo "d-none";} ?>">
     <?php if ($Regione == "tutteleregioni" && $Rete == "tuttelereti" && $filtrata == 0){ ?>
       <div class="col-12">
         <h2>Le reti mappate</h2>
