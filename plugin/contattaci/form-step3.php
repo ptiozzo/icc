@@ -17,6 +17,16 @@
     </div>
     <input type="hidden" name="submit_step2" value="submit_step2">
   </div>
+
+  <?php if($_POST['desidero'] == 'fareunadonazioneaicc'){ ?>
+  <h3 class="col-12 mb-3">Tipo di problema</h3>
+  <select id="problema-donazione" class="custom-select col-12 mb-3" name="problema-donazione">
+    <option value="--Seleziona--">--Seleziona--</option>
+    <option value="redazione@italiachecambia.org">Hai problemi con la donazione? / Hai sbagliato a fare una donazione?</option>
+    <option value="eleonorador89@gmail.com">Vuoi richiedere la ricevuta?</option>
+  </select>
+  <?php } ?>
+
   <h3 class="col-12 mb-3">Messaggio</h3>
   <div class="form-group col-12 p-2">
     <label for="MessaggioTextarea">Messaggio per la redazione</label>
