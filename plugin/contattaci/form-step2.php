@@ -43,8 +43,13 @@ if ($_POST['desidero'] == 'segnalareunprogettoperlamappadiicc' && icc_is_region_
 <?php
 if(!$loop->have_posts() && !icc_is_region_active($_POST['mapparegione'])){
   ?>
+  <div class="alert alert-success" role="alert">
+    Grazie del tuo contributi, stiamo per reindirizzarti automaticamente al prossimo passaggio!
+  </div>
   <script type="text/javascript">
-    //document.getElementById("form_contattaci_step2").submit();
+    setTimeout(function(){
+      document.getElementById("form_contattaci_step2").submit();
+    }, 3000);
   </script>
   <?php
 }
