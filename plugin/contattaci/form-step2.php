@@ -44,7 +44,7 @@ if ($_POST['desidero'] == 'segnalareunprogettoperlamappadiicc' && icc_is_region_
 if(!$loop->have_posts() && !icc_is_region_active($_POST['mapparegione'])){
   ?>
   <div class="alert alert-success" role="alert">
-    Grazie del tuo contributi, stiamo per reindirizzarti automaticamente al prossimo passaggio!
+    Grazie del tuo contributo, stiamo per reindirizzarti automaticamente al prossimo passaggio!
   </div>
   <script type="text/javascript">
     setTimeout(function(){
