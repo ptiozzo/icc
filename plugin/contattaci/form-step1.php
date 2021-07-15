@@ -41,7 +41,8 @@
 
 function sonounjs() {
 
-
+  var regione = document.getElementById("mapparegionediv");
+  regione.classList.add("d-none");
 
   var desidero = document.getElementById("desidero");
 
@@ -97,6 +98,8 @@ function desiderojs(){
 
   var submit = document.getElementById("submit");
   var desidero = document.getElementById("desidero");
+  var regione = document.getElementById("mapparegionediv");
+  regione.classList.add("d-none");
   if( desidero.value != '--Seleziona--' && desidero.value != 'segnalareunprogettoperlamappadiicc'){
     submit.removeAttribute("disabled");
   } else if (desidero.value == 'segnalareunprogettoperlamappadiicc') {
