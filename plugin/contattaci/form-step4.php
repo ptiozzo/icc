@@ -102,19 +102,51 @@ elseif($_POST['desidero'] == 'scrivereperitaliachecambia'){
 //Sono un altro
 
 else{
-  $destinatarioICC = 'webmaster@italiachecambia.org';
+  $destinatarioICC = 'redazione@italiachecambia.org';
   $desidero = 'Altro';
 }
 
 ?>
-<p><strong>Nome:</strong> <?php echo $_POST['fullname']; ?></p>
+<!--<p><strong>Nome:</strong> <?php echo $_POST['fullname']; ?></p>
 <p><strong>Cognome:</strong> <?php echo $_POST['fullsurname']; ?></p>
 <p><strong>eMail:</strong> <?php echo $_POST['email']; ?></p>
 <p><strong>Sono un:</strong> <?php echo $sonoUn; ?></p>
 <p><strong>Desidero:</strong> <?php echo $desidero; ?></p>
 <p><strong>Messaggio:</strong> <?php echo $_POST['messaggio']; ?></p>
 
-
-
-
 <p><strong>Invio a :</strong> <?php echo $_POST['email']." - ".$destinatarioICC ?></p>
+<p><strong>Bcc a :</strong> <?php echo 'webmaster@italiachecambia.org'; ?></p>
+-->
+<?php
+$to = $destinatarioICC;
+$subject = 'Un '.$sonoUn.' desidera '.$desidero;
+$body = "<html><body>";
+$body .= "<b>Nome:</b> ". $_POST['fullname'] ." ". $_POST['fullsurname']." <br>";
+$body .= "<b>eMail:</b> ". $_POST['email'] ." <br>";
+$body .= "<b>Messaggio:</b> ".$_POST['messaggio']."<br>";
+$body .= "</body></html>";
+$headers = array('Content-Type: text/html; charset=UTF-8');
+$headers[] = 'From: '.$_POST['fullname']." ".$_POST['fullsurname']." <".$_POST['email'].">";
+$headers[] = 'Bcc: webmaster@italiachecambia.org';
+
+// Visualizzo riepilogo della richiesta
+//echo "<b>Destinatario: </b>".$to."<br>";
+echo "<br>";
+echo "<b>Oggetto:</b> ".$subject ."<br>";
+echo $body;
+
+echo "<br>".'Grazie di aver contattato ItaliaCheCambia'."<br><br>";
+//var_dump($headers);
+
+//Mail a ICC
+wp_mail( $to, $subject, $body, $headers );
+
+//Mail a utente
+$to = $_POST['email'];
+$subject = 'Grazie di aver contattato ItaliaCheCambia';
+wp_mail( $to, $subject, $body, $headers );
+
+ ?>
+ <div class="alert alert-success" role="alert">
+   Il tuo messaggio è stato inviato con successo!<br> Torna alla <a href="/" class="alert-link">home page</a> o <a href="/contattaci/" class="alert-link">contattaci nuovamente</a>
+ </div>
