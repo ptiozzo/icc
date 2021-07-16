@@ -111,7 +111,11 @@ if($Categoria1 != $Categoria
 <div class="mappa">
   <?php
 
-  echo "<h1>";
+  if($Opzioni == 'solomappa'){
+    echo "<h1 class='d-none'>";
+  }else {
+    echo "<h1>";
+  }
   if ($Regione == "tutteleregioni" && $Rete == "tuttelereti" && !get_query_var('regione') ){
     echo "La mappa dell'Italia che Cambia";
   } elseif( $Regione != "tutteleregioni" ) {
